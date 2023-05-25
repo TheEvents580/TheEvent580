@@ -1,0 +1,120 @@
+command /dropper:
+	permission:*
+	description: set le jeu "Dropper"
+	trigger:
+		make server execute command "execute in minecraft:dropper run tp @a 30.0 129 6.0 90 0"
+		wait 2 seconds
+		make server execute command "gamemode adventure @a"
+		set {jeu_condi} to 1
+		set {finished_players} to 0
+		set {scoreboard.pos} to 0
+		set {dropper_lvl_1} to false
+		set {dropper_lvl_2} to false
+		set {dropper_lvl_3} to false
+		set {dropper_lvl_4} to false
+		set {dropper_fin} to false
+		set {pts_lvl_1} to 5*{checking_finished_players}
+		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
+		set {remove_pts_lvl_1} to 5*{multiplier}
+		set {pts_lvl_2} to 10*{checking_finished_players}
+		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
+		set {remove_pts_lvl_2} to 10*{multiplier}
+		set {pts_lvl_3} to 15*{checking_finished_players}
+		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
+		set {remove_pts_lvl_3} to 15*{multiplier}
+		set {pts_lvl_4} to 20*{checking_finished_players}
+		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}
+		set {remove_pts_lvl_4} to 20*{multiplier}
+		set {pts_fin} to 40*{checking_finished_players}
+		set {pts_fin} to {pts_fin}*{multiplier}
+		set {remove_pts_fin} to 40*{multiplier}
+		loop all players:
+			make console execute command "hide %loop-player%"
+			set {finished.%loop-player%} to false
+			if loop-player has permission "group.spectators":
+				set slot 0 of loop-player to compass named "&rTeleport to player"
+				set slot 1 of loop-player to feather named "&rChange player's fly speed"
+				set {finished.%loop-player%} to true
+			set {gamemode.%loop-player%} to 2
+			set loop-player's gamemode to adventure
+			set {dropper_level.%loop-player%} to 1
+
+
+every tick:
+	if {jeu_condi} is 1: #Dropper
+		loop all players:
+			if game mode of loop-player is adventure:
+				if block under loop-player is end_gateway:
+					if block 2 meter under loop-player is not air:
+						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
+				if loop-player is in water:
+					if {dropper_level.%loop-player%} is 4:
+						add loop-player to {finished::*}
+						set {dropper_level.%loop-player%} to "End"
+						force loop-player to fly
+						allow fly for loop-player
+						teleport loop-player to location(30.0, 129, -118.0, "dropper", 90, 1)
+						add {pts_lvl_4} to {points_game.%loop-player%}
+						add {pts_lvl_4} to {total_points.%loop-player%}
+						add {pts_lvl_4} to {total_points_event.%loop-player%}
+						if {dropper_fin} is false:
+							set {dropper_fin} to true
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete the &c&lDropper&r."
+						else if {dropper_fin} is true:
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed the &c&lDropper&r."
+						send "[&c&lTheEvent580&r] You completed the &c&lDropper&r ! [&c+%{pts_lvl_4}% &r╣]" to loop-player
+						remove {remove_pts_lvl_4} from {pts_lvl_4}
+						make console execute command "/see %loop-player%"
+						make console execute command "/hide %loop-player%"
+						make console execute command "/hide %loop-player%"
+						add 1 to {finished_players}
+						set slot 0 of loop-player to compass named "&rTeleport to player"
+						set slot 1 of loop-player to feather named "&rChange player's fly speed"
+					if {dropper_level.%loop-player%} is 3:
+						set {dropper_level.%loop-player%} to 4
+						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)
+						add {pts_lvl_3} to {points_game.%loop-player%}
+						add {pts_lvl_3} to {total_points.%loop-player%}
+						add {pts_lvl_3} to {total_points_event.%loop-player%}
+						if {dropper_lvl_3} is false:
+							set {dropper_lvl_3} to true
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 3."
+						else if {dropper_lvl_3} is true:
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 3."
+						send "[&c&lTheEvent580&r] You completed level 3 [&c+%{pts_lvl_3}% &r╣]" to loop-player
+						remove {remove_pts_lvl_3} from {pts_lvl_3}
+					if {dropper_level.%loop-player%} is 2:
+						set {dropper_level.%loop-player%} to 3
+						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
+						add {pts_lvl_2} to {points_game.%loop-player%}
+						add {pts_lvl_2} to {total_points.%loop-player%}
+						add {pts_lvl_2} to {total_points_event.%loop-player%}
+						if {dropper_lvl_2} is false:
+							set {dropper_lvl_2} to true
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 2."
+						else if {dropper_lvl_2} is true:
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 2."
+						send "[&c&lTheEvent580&r] You completed level 2 [&c+%{pts_lvl_2}% &r╣]" to loop-player
+						remove {remove_pts_lvl_2} from {pts_lvl_2}
+					if {dropper_level.%loop-player%} is 1:
+						set {dropper_level.%loop-player%} to 2
+						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
+						add {pts_lvl_1} to {points_game.%loop-player%}
+						add {pts_lvl_1} to {total_points.%loop-player%}
+						add {pts_lvl_1} to {total_points_event.%loop-player%}
+						if {dropper_lvl_1} is false:
+							set {dropper_lvl_1} to true
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 1."
+						else if {dropper_lvl_1} is true:
+							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 1."
+						send "[&c&lTheEvent580&r] You completed level 1 [&c+%{pts_lvl_1}% &r╣]" to loop-player
+						remove {remove_pts_lvl_1} from {pts_lvl_1}
+				if block 1 meter under loop-player is not red_concrete or air or white_concrete or white_wool or water or end_gateway or light or cobweb:
+					if {dropper_level.%loop-player%} is 1:
+						teleport loop-player to location(30.0, 129, 6.0, "dropper", 90, 0.1)
+					if {dropper_level.%loop-player%} is 2:
+						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
+					if {dropper_level.%loop-player%} is 3:
+						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
+					if {dropper_level.%loop-player%} is 4:
+						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)

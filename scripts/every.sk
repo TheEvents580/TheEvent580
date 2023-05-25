@@ -1,0 +1,2975 @@
+every tick:
+	reloadScoreboard()
+	reloadTab()
+	if {courses_trident_timer_status} is true:
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if {courses_trident_timer_status.%loop-player%} is true:
+					add 0.05 to {courses_trident_timer.%loop-player%}
+					add 0.05 to {courses_trident_timer_section.%loop-player%}
+			reloadTimer()
+	if {courses_pied_timer_status} is true:
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if {courses_pied_timer_status.%loop-player%} is true:
+					add 0.05 to {courses_pied_timer.%loop-player%}
+					add 0.05 to {courses_pied_timer_section.%loop-player%}
+			reloadTimer()
+	if {courses_boat_timer_status} is true:
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if {courses_boat_timer_status.%loop-player%} is true:
+					add 0.05 to {courses_boat_timer.%loop-player%}
+			reloadTimer()
+
+	if {jeu_condi} is 0:
+		if {timer} or {timer_save} is not 7:
+			loop all players:
+				if block 0 meter below loop-player is water:
+					make loop-player execute command "spawn"
+				if block 0 meter below loop-player is dirt path:
+					remove speed from loop-player
+					apply speed 2 without particles to loop-player for 15 ticks
+				if block 1 meter below loop-player is target:
+					make loop-player execute command "spawn"
+					add 1 to {compl_parcour.%loop-player%}
+				if block 1 meter below loop-player is ochre froglight:
+					make loop-player execute command "spawn"
+				if block 1 meter below loop-player is verdant froglight:
+					teleport loop-player to location(193.5,69,-381.5,world "overworld", 0.01,0.01)
+				if block 1 meter below loop-player is jigsaw block:
+					if helmet of loop-player is not air:
+						set {flag.%loop-player%} to false
+						send "[&c&lTheEvent580&r] Your flag has been removed" to loop-player
+						clear helmet of loop-player
+					if {HubParkour.%loop-player%} is false:
+						make server execute command "achivement %loop-player% give HubParkour"
+				if block 2 meter under loop-player is powder_snow:
+					if {Secret_Base_1.%loop-player%} is false:
+						make server execute command "achivement %loop-player% give Secret_Base_1"
+
+	else if {jeu_condi} is 2: #Parkour
+		loop all players:
+			if y-coordinate of loop-player is less than 0:
+				if {parkour_checkpoint.%loop-player%} is "Start":
+					teleport loop-player to location(131.5, 129.00, 201.5,"parkour", -90, 0)
+				else if {gamemode.%loop-player%} is 3:
+					teleport loop-player to location(131.5, 129.00, 201.5,"parkour", -90, 0)
+				else if {parkour_checkpoint.%loop-player%} isn't "Start":
+					teleport loop-player to {parkour_checkpoint_location.%loop-player%}
+			if the game mode of loop-player is adventure:
+				if loop-player doesn't have permission "group.spectators":
+					if block 2 meters below loop-player is iron_block:
+						if {parkour_checkpoint.%loop-player%} is 0:
+							add {pts_lvl_1} to {points_game.%loop-player%}
+							add {pts_lvl_1} to {total_points.%loop-player%}
+							add {pts_lvl_1} to {total_points_event.%loop-player%}
+							if {parkour_checkpoint_1} is false:
+								set {parkour_checkpoint_1} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 1"
+							else if {parkour_checkpoint_1} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 1"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 1 [&6+%{pts_lvl_1}% &r╣]" to loop-player
+							remove {remove_pts_lvl_1} from {pts_lvl_1}
+							set {parkour_checkpoint.%loop-player%} to 1
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+						if {parkour_checkpoint.%loop-player%} is 2:
+							add {pts_lvl_3} to {points_game.%loop-player%}
+							add {pts_lvl_3} to {total_points.%loop-player%}
+							add {pts_lvl_3} to {total_points_event.%loop-player%}
+							if {parkour_checkpoint_3} is false:
+								set {parkour_checkpoint_3} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 3"
+							else if {parkour_checkpoint_3} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 3"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 3 [&6+%{pts_lvl_3}% &r╣]" to loop-player
+							remove {remove_pts_lvl_3} from {pts_lvl_1}
+							set {parkour_checkpoint.%loop-player%} to 3
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+						if {parkour_checkpoint.%loop-player%} is 4:
+							add {pts_lvl_5} to {points_game.%loop-player%}
+							add {pts_lvl_5} to {total_points.%loop-player%}
+							add {pts_lvl_5} to {total_points_event.%loop-player%}
+							if {parkour_checkpoint_5} is false:
+								set {parkour_checkpoint_5} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 5"
+							else if {parkour_checkpoint_5} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 5"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 5 [&6+%{pts_lvl_5}% &r╣]" to loop-player
+							remove {remove_pts_lvl_5} from {pts_lvl_5}
+							set {parkour_checkpoint.%loop-player%} to 5
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+					if block 2 meters below loop-player is gold_block:
+						if {parkour_checkpoint.%loop-player%} is "Start":
+							add {pts_lvl_0} to {points_game.%loop-player%}
+							add {pts_lvl_0} to {total_points.%loop-player%}
+							add {pts_lvl_0} to {total_points_event.%loop-player%}
+							if {parkour_checkpoint_0} is false:
+								set {parkour_checkpoint_0} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 0 ( The easiest one )"
+							else if {parkour_checkpoint_0} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 0 ( The easiest one )"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 0 ( The easiest one ) [&6+%{pts_lvl_0}% &r╣]" to loop-player
+							remove {remove_pts_lvl_0} from {pts_lvl_0}
+							set {parkour_checkpoint.%loop-player%} to 0
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+						if {parkour_checkpoint.%loop-player%} is 1:
+							add {pts_lvl_2} to {points_game.%loop-player%}
+							add {pts_lvl_2} to {total_points.%loop-player%}
+							add {pts_lvl_2} to {total_points_event.%loop-player%}
+							if {parkour_checkpoint_2} is false:
+								set {parkour_checkpoint_2} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 2"
+							else if {parkour_checkpoint_2} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 2"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 2 [&6+%{pts_lvl_2}% &r╣]" to loop-player
+							remove {remove_pts_lvl_2} from {pts_lvl_2}
+							set {parkour_checkpoint.%loop-player%} to 2
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+						if {parkour_checkpoint.%loop-player%} is 3:
+							add {pts_lvl_4} to {points_game.%loop-player%}
+							if {parkour_checkpoint_4} is false:
+								set {parkour_checkpoint_4} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 4"
+							else if {parkour_checkpoint_4} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r got to checkpoint 4"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You got to the checkpoint 4 [&6+%{pts_lvl_4}% &r╣]" to loop-player
+							remove {remove_pts_lvl_4} from {pts_lvl_4}
+							set {parkour_checkpoint.%loop-player%} to 4
+							set {parkour_checkpoint_location.%loop-player%} to loop-player's location
+					if block 2 meters below loop-player is diamond_block:
+						if {parkour_checkpoint.%loop-player%} is 5:
+							make console execute command "/see %loop-player%"
+							set {finished.%loop-player%} to true
+							make server execute command "/hide %loop-player%"
+							make server execute command "/hide %loop-player%"
+							force loop-player to fly
+							allow fly for loop-player
+							add {pts_fin} to {points_game.%loop-player%}
+							add {pts_fin} to {total_points.%loop-player%}
+							add {pts_fin} to {total_points_event.%loop-player%}
+							if {parkour_fin} is false:
+								set {parkour_fin} to true
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to finish &6&lParkour&r !"
+							else if {parkour_fin} is true:
+								broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r finished &6&lParkour&r !"
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							send "[&c&lTheEvent580&r] You just finished &6&lParkour&r [&6+%{pts_fin}% &r╣]" to loop-player
+							remove {remove_pts_fin} from {pts_fin}
+							set {parkour_checkpoint.%loop-player%} to "End"
+							set {gamemode.%loop-player%} to 3
+							add 1 to {finished_players}
+							set slot 0 of loop-player to compass named "&rTeleport to player"
+							set slot 1 of loop-player to feather named "&rChange player's fly speed"
+
+	else if {jeu_condi} is 3: #Bingo
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if {bingo_kill.%loop-player%} is true:
+					set {bingo_kill.%loop-player%} to 2
+					remove 1 of iron sword from loop-player's inventory
+					remove 1 of iron pickaxe from loop-player's inventory
+					give 1 of diamond sword of unbreaking 250 and sharpness 1 named "&eDiamond sword" to loop-player
+					give 1 of diamond pickaxe of unbreaking 250 and efficiency 2 and silk touch 1 named "&eDiamond pickaxe" to loop-player
+				loop all items in loop-player's inventory:
+					if loop-item is yellow dye:
+						wait 1 tick
+						if {bingo_case_1.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_1_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_1_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eYellow dye&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eYellow dye&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_1}% &r╣]" to loop-player
+							if {bingo_case_1_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eYellow dye&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eYellow dye&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_1}% &r╣]" to loop-player
+								set {bingo_case_1_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_1.%loop-player%} to true
+							add {pts_lvl_1} to {points_game.%loop-player%}
+							add {pts_lvl_1} to {total_points.%loop-player%}
+							add {pts_lvl_1} to {total_points_event.%loop-player%}
+							remove 5*{multiplier} from {pts_lvl_1}
+							remove 1 yellow dye from loop-player's inventory
+					if loop-item is dark oak wood:
+						wait 1 tick
+						if {bingo_case_2.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_2_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_2_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eDark Oak Wood&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eDark Oak Wood&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_2}% &r╣]" to loop-player
+							if {bingo_case_2_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eDark Oak Wood&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eDark Oak Wood&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_2}% &r╣]" to loop-player
+								set {bingo_case_2_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_2.%loop-player%} to true
+							add {pts_lvl_2} to {points_game.%loop-player%}
+							add {pts_lvl_2} to {total_points.%loop-player%}
+							add {pts_lvl_2} to {total_points_event.%loop-player%}
+							remove 15*{multiplier} from {pts_lvl_2}
+							remove 1 dark oak wood from loop-player's inventory
+					if loop-item is snow block:
+						wait 1 tick
+						if {bingo_case_3.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_3_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_3_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eSnow block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSnow block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
+							if {bingo_case_3_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eSnow block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSnow block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
+								set {bingo_case_3_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_3.%loop-player%} to true
+							add {pts_lvl_3} to {points_game.%loop-player%}
+							add {pts_lvl_3} to {total_points.%loop-player%}
+							add {pts_lvl_3} to {total_points_event.%loop-player%}
+							remove 25*{multiplier} from {pts_lvl_3}
+							remove 1 snow block from loop-player's inventory
+					if loop-item is water bucket:
+						wait 1 tick
+						if {bingo_case_4.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_4_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_4_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eWater bucket&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eWater bucket&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_4}% &r╣]" to loop-player
+							if {bingo_case_4_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eWater bucket&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eWater bucket&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_4}% &r╣]" to loop-player
+								set {bingo_case_4_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_4.%loop-player%} to true
+							add {pts_lvl_4} to {points_game.%loop-player%}
+							add {pts_lvl_4} to {total_points.%loop-player%}
+							add {pts_lvl_4} to {total_points_event.%loop-player%}
+							remove 50*{multiplier} from {pts_lvl_4}
+							remove 1 water bucket from loop-player's inventory
+					if loop-item is diamond block:
+						wait 1 tick
+						if {bingo_case_5.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_5_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_5_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eDiamond block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eDiamond block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
+							if {bingo_case_5_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eDiamond block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eDiamond block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
+								set {bingo_case_5_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_5.%loop-player%} to true
+							add {pts_lvl_5} to {points_game.%loop-player%}
+							add {pts_lvl_5} to {total_points.%loop-player%}
+							add {pts_lvl_5} to {total_points_event.%loop-player%}
+							remove 100*{multiplier} from {pts_lvl_5}
+							remove 1 diamond block from loop-player's inventory
+					if loop-item is amethyst cluster:
+						wait 1 tick
+						if {bingo_case_6.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_6_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_6_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eAmethyst cluster&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eAmethyst cluster&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
+							if {bingo_case_6_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eAmethyst cluster&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eAmethyst cluster&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
+								set {bingo_case_6_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_6.%loop-player%} to true
+							add {pts_lvl_6} to {points_game.%loop-player%}
+							add {pts_lvl_6} to {total_points.%loop-player%}
+							add {pts_lvl_6} to {total_points_event.%loop-player%}
+							remove 150*{multiplier} from {pts_lvl_6}
+							remove 1 amethyst cluster from loop-player's inventory
+					if loop-item is sculk catalyst:
+						wait 1 tick
+						if {bingo_case_7.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_7_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_7_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eSculk catalyst&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSculk catalyst&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_7}% &r╣]" to loop-player
+							if {bingo_case_7_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eSculk catalyst&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSculk catalyst&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_7}% &r╣]" to loop-player
+								set {bingo_case_7_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_7.%loop-player%} to true
+							add {pts_lvl_7} to {points_game.%loop-player%}
+							remove 200*{multiplier} from {pts_lvl_7}
+							remove 1 sculk catalyst from loop-player's inventory
+					if loop-item is slime block:
+						wait 1 tick
+						if {bingo_case_8.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_8_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_8_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eSlime block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSlime block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_8}% &r╣]" to loop-player
+							if {bingo_case_8_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eSlime block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eSlime block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_8}% &r╣]" to loop-player
+								set {bingo_case_8_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_8.%loop-player%} to true
+							add {pts_lvl_8} to {points_game.%loop-player%}
+							add {pts_lvl_8} to {total_points.%loop-player%}
+							add {pts_lvl_8} to {total_points_event.%loop-player%}
+							remove 250*{multiplier} from {pts_lvl_8}
+							remove 1 slime block from loop-player's inventory
+					if loop-item is honeycomb block:
+						wait 1 tick
+						if {bingo_case_9.%loop-player%} is false:
+							add 1 to {bingo_all_cases}
+							add 1 to {bingo_case_9_completed}
+							add 1 to {bingo_cases.%loop-player%}
+							if {bingo_case_9_1} is true:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eHoneycomb block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eHoneycomb block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_9}% &r╣]" to loop-player
+							if {bingo_case_9_1} is false:
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eHoneycomb block&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eHoneycomb block&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_9}% &r╣]" to loop-player
+								set {bingo_case_9_1} to true
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							set {bingo_case_9.%loop-player%} to true
+							add {pts_lvl_9} to {points_game.%loop-player%}
+							add {pts_lvl_9} to {total_points.%loop-player%}
+							add {pts_lvl_9} to {total_points_event.%loop-player%}
+							remove 300*{multiplier} from {pts_lvl_9}
+							remove 1 honeycomb block from loop-player's inventory
+				if {bingo_cases.%loop-player%} is 9:
+					set {bingo_cases.%loop-player%} to "All"
+					if {bingo_fin} is false:
+						set {bingo_fin} to true
+						broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &e&lBingo&r."
+					else if {bingo_fin} is true:
+						broadcast "[&c&lTheEvent580&r] &e%loop-player%&r just completed the &e&lBingo&r."
+					send "[&c&lTheEvent580&r] You just completed the bingo &e&lBingo&r" to loop-player
+					set {bingo_fin.%loop-player%} to true
+					make console execute command "/see %loop-player%"
+					set {finished.%loop-player%} to true
+					set loop-player's gamemode to adventure
+					set slot 0 of loop-player to compass named "&rTeleport to player"
+					set slot 1 of loop-player to feather named "&rChange player's fly speed"
+					make server execute command "/hide %loop-player%"
+					force loop-player to fly
+					allow fly for loop-player
+					set {gamemode.%loop-player%} to 3
+					add 1 to {finished_players}
+
+	else if {jeu_condi} is 4: #Find The Button
+		loop all players:
+			if the game mode of loop-player is adventure:
+				if loop-player doesn't have permission "group.spectators":
+					if {ftb_fin.%loop-player%} is 11:
+						broadcast "[&c&lTheEvent580&r] &a&l%loop-player%&r found all the buttons and finished the &a&lFind The Button&r !"
+						set {ftb_fin.%loop-player%} to "All"
+						set {gamemode.%loop-player%} to 3
+						add 1 to {finished_players}
+						make console execute command "/see %loop-player%"
+						set {finished.%loop-player%} to true
+						set slot 0 of loop-player to compass named "&rTeleport to player"
+						set slot 1 of loop-player to feather named "&rChange player's fly speed"
+						make console execute command "/hide %loop-player%"
+						make console execute command "/hide %loop-player%"
+						force loop-player to fly
+						allow fly for loop-player
+
+	else if {jeu_condi} is 5: #Races
+		loop all players:
+			if {courses} is "boat":
+				if y-coordinate of loop-player is less than 0:
+					clear loop-player's inventory
+					if {courses_boat.%loop-player%} is "Start":
+						teleport loop-player to location(-0.5, 128.00, -0.5, "courses_boat", 0, 0)
+					else if {gamemode.%loop-player%} is 3:
+						teleport loop-player to location(11.878, 132.36820, -0.485, "courses_boat", 54.9, 19)
+					else if {courses_boat.%loop-player%} isn't "Start":
+						teleport loop-player to {courses_boat_location.%loop-player%}
+						set slot 0 of loop-player's inventory to oak boat
+				if the game mode of loop-player is adventure:
+					if loop-player doesn't have permission "group.spectators":
+						if {courses_boat.%loop-player%} is 1:
+							if block 2 meters below loop-player is white_concrete or black_concrete:
+								set {courses_boat.%loop-player%} to "End"
+								set {gamemode.%loop-player%} to 3
+								set {finished.%loop-player%} to true
+								clear loop-player's inventory
+								make console execute command "/hide %loop-player%"
+								force loop-player to fly
+								allow fly for loop-player
+								set {courses_boat_timer_status.%loop-player%} to false
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the boat race in &b%{courses_boat_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the boat race in &b%{courses_boat_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_1} to {points_game.%loop-player%}
+								add {pts_lvl_1} to {total_points.%loop-player%}
+								add {pts_lvl_1} to {total_points_event.%loop-player%}
+								add 1 to {finished_players}
+								remove {remove_pts_lvl_1} from {pts_lvl_1}
+								set slot 0 of loop-player to compass named "&rTeleport to player"
+								set slot 1 of loop-player to feather named "&rChange player's fly speed"
+						else if {courses_boat.%loop-player%} is "Start":
+							if block 2 meters below loop-player is iron_block:
+								set {courses_boat_location.%loop-player%} to loop-player's location
+								set {courses_boat.%loop-player%} to 1
+								make server execute command "give %loop-player% oak_boat"
+								if {hide.%loop-player%} is true:
+									make console execute command "/hide %loop-player%"
+			else if {courses} is "pied":
+				if y-coordinate of loop-player is less than 60:
+					if {courses_pied.%loop-player%} is "Start":
+						teleport loop-player to location(-0.5, 128.00, -0.5, "courses_pied", 0, 0)
+					else if {gamemode.%loop-player%} is 3:
+						teleport loop-player to location(11.878, 132.36820, -0.485, "courses_pied", 54.9, 19)
+					else if {courses_pied.%loop-player%} isn't "Start":
+						teleport loop-player to {courses_pied_location.%loop-player%}
+				if the game mode of loop-player is adventure:
+					if loop-player doesn't have permission "group.spectators":
+						if {courses_pied.%loop-player%} is 3:
+							if block 2 meters below loop-player is oxidized_copper:
+								make server execute command "execute in courses_pied run tp %loop-player% 59.5 133 20.5 90 0"
+							if block 2 meters below loop-player is white_concrete or black_concrete:
+								set {courses_pied.%loop-player%} to "End"
+								set {gamemode.%loop-player%} to 3
+								set {finished.%loop-player%} to true
+								make console execute command "/see %loop-player%"
+								make server execute command "/hide %loop-player%"
+								force loop-player to fly
+								allow fly for loop-player
+								set {courses_pied_timer_status.%loop-player%} to false
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the foot race in &b%{courses_pied_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]"
+								send "[&c&lTheEvent580&r] you just completed the foot race in &b%{courses_pied_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_1} to {points_game.%loop-player%}
+								add {pts_lvl_1} to {total_points.%loop-player%}
+								add {pts_lvl_1} to {total_points_event.%loop-player%}
+								add 1 to {finished_players}
+								remove {remove_pts_lvl_1} from {pts_lvl_1}
+								set slot 0 of loop-player to compass named "&rTeleport to player"
+								set slot 1 of loop-player to feather named "&rChange player's fly speed"
+						else if {courses_pied.%loop-player%} is 2:
+							if block 2 meters below loop-player is copper_block:
+								make server execute command "effect give %loop-player% levitation 5 2 true"
+							if block 2 meters below loop-player is iron_block:
+								set {courses_pied_location.%loop-player%} to loop-player's location
+								set {courses_pied.%loop-player%} to 3
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 2nd part of the easy path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_5}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the 2nd part of the easy path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_5}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								set {courses_pied_timer_section.%loop-player%} to 0
+								add {pts_lvl_5} to {points_game.%loop-player%}
+								add {pts_lvl_5} to {total_points.%loop-player%}
+								add {pts_lvl_5} to {total_points_event.%loop-player%}
+								remove {remove_pts_lvl_5} from {pts_lvl_5}
+								if {hide.%loop-player%} is false:
+									make server execute command "/hide %loop-player%"
+							if block 2 meters below loop-player is netherite_block:
+								set {courses_pied_location.%loop-player%} to loop-player's location
+								set {courses_pied.%loop-player%} to 3
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 2nd part of the hard path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_3}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the 2nd part of the hard path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_3}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								set {courses_pied_timer_section.%loop-player%} to 0
+								add {pts_lvl_3} to {points_game.%loop-player%}
+								add {pts_lvl_3} to {total_points.%loop-player%}
+								add {pts_lvl_3} to {total_points_event.%loop-player%}
+								remove {remove_pts_lvl_3} from {pts_lvl_3}
+								if {hide.%loop-player%} is false:
+									make server execute command "/hide %loop-player%"
+						else if {courses_pied.%loop-player%} is 1:
+							if block 2 meters below loop-player is gold_block:
+								set {courses_pied_location.%loop-player%} to loop-player's location
+								set {courses_pied.%loop-player%} to 2
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 1st part of the easy path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_4}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the 1st part of the path race in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_4}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								set {courses_pied_timer_section.%loop-player%} to 0
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								add {pts_lvl_4} to {total_points.%loop-player%}
+								add {pts_lvl_4} to {total_points_event.%loop-player%}
+								remove {remove_pts_lvl_4} from {pts_lvl_4}
+								if {hide.%loop-player%} is false:
+									make server execute command "/hide %loop-player%"
+							if block 2 meters below loop-player is diamond_block:
+								set {courses_pied_location.%loop-player%} to loop-player's location
+								set {courses_pied.%loop-player%} to 2
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 1st part of the hard path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_2}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the 1st part of the hard path in &b%{courses_pied_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_2}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								set {courses_pied_timer_section.%loop-player%} to 0
+								add {pts_lvl_2} to {points_game.%loop-player%}
+								add {pts_lvl_2} to {total_points.%loop-player%}
+								add {pts_lvl_2} to {total_points_event.%loop-player%}
+								remove {remove_pts_lvl_2} from {pts_lvl_2}
+								if {hide.%loop-player%} is false:
+									make server execute command "/hide %loop-player%"
+						else if {courses_pied.%loop-player%} is "Start":
+							if block 2 meters below loop-player is iron_block:
+								set {courses_pied_location.%loop-player%} to loop-player's location
+								set {courses_pied.%loop-player%} to 1
+								set {courses_pied_timer_section.%loop-player%} to 0
+			else if {courses} is "trident":
+				if y-coordinate of loop-player is less than 60:
+					if {courses_trident.%loop-player%} is "Start":
+						teleport loop-player to location(-0.5, 128.00, -0.5, "courses_trident", 0, 0)
+						if {hide.%loop-player%} is false:
+							make server execute command "/hide %loop-player%"
+					else if {gamemode.%loop-player%} is 3:
+						teleport loop-player to location(11.878, 132.36820, -0.485, "courses_trident", 54.9, 19)
+						if {hide.%loop-player%} is false:
+							make server execute command "/hide %loop-player%"
+					else if {courses_trident.%loop-player%} isn't "Start":
+						teleport loop-player to {courses_trident_location.%loop-player%}
+				if the game mode of loop-player is adventure:
+					if loop-player doesn't have permission "group.spectators":
+						if {courses_trident.%loop-player%} is 2:
+							if block 2 meters below loop-player is white_concrete or black_concrete:
+								set {courses_trident.%loop-player%} to "End"
+								if {hide.%loop-player%} is false:
+									make server execute command "/hide %loop-player%"
+								force loop-player to fly
+								allow fly for loop-player
+								set {courses_trident_timer_status.%loop-player%} to false
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the trident race in &b%{courses_trident_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the trident race in &b%{courses_trident_timer.%loop-player%}% &rseconds [&b+%{pts_lvl_1}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_1} to {points_game.%loop-player%}
+								add {pts_lvl_1} to {total_points.%loop-player%}
+								add {pts_lvl_1} to {total_points_event.%loop-player%}
+								add 1 to {finished_players}
+								remove {remove_pts_lvl_1} from {pts_lvl_1}
+								set slot 0 of loop-player to compass named "&rTeleport to player"
+								set slot 1 of loop-player to feather named "&rChange player's fly speed"
+						else if {courses_trident.%loop-player%} is 1:
+							if block 2 meters below loop-player is gold_block:
+								set {courses_trident_location.%loop-player%} to loop-player's location
+								set {courses_trident.%loop-player%} to 2
+								broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 1st part of the trident race in &b%{courses_trident_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_2}% &r╣]"
+								send "[&c&lTheEvent580&r] You just completed the 1st part of the trident race in &b%{courses_trident_timer_section.%loop-player%}% &rseconds [&b+%{pts_lvl_2}% &r╣]" to loop-player
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								set {courses_pied_timer_section.%loop-player%} to 0
+								add {pts_lvl_2} to {points_game.%loop-player%}
+								add {pts_lvl_2} to {total_points.%loop-player%}
+								add {pts_lvl_2} to {total_points_event.%loop-player%}
+								remove {remove_pts_lvl_2} from {pts_lvl_2}		
+						else if {courses_pied.%loop-player%} is "Start":
+							if block 2 meters below loop-player is iron_block:
+								set {courses_trident_location.%loop-player%} to loop-player's location
+								set {courses_trident.%loop-player%} to 1
+								set {courses_trident_timer_section.%loop-player%} to 0
+								if {has_trident.%loop-player%} is false:
+									make server execute command "give %loop-player% trident{Unbreakable:1b,Enchantments:[{id:riptide,lvl:3}]} 1"
+									set {has_trident.%loop-player%} to true
+
+	#else if {jeu_condi} is 6: #Survival Games
+	#	loop all players:
+	#		if {timer} is 6:
+	#			if {timer-m} is "09":
+	#				if {timer-s} is 59:
+	#					if {game} is "SG1":
+	#						make server execute command "execute in minecraft:sg1 run setblock -1573 64 -641 minecraft:redstone_block"
+	#					else if {game} is "SG2":
+	#						make server execute command "execute in minecraft:sg2 run setblock 29 33 0 minecraft:redstone_block"
+	#						wait 10 ticks
+	#						make server execute command "execute in minecraft:sg2 run setblock 29 33 0 minecraft:air"
+	#					else if {game} is "SG3":
+	#						make server execute command "execute in minecraft:sg3 run setblock -46 26 -13 minecraft:redstone_block"
+	#					else if {game} is "SG4":
+	#						make server execute command "execute in minecraft:sg4 run setblock 27 37 -3 minecraft:redstone_block"
+	#					else if {game} is "SG5":
+	#						make server execute command "execute in minecraft:sg5 run setblock 10 67 51 minecraft:redstone_block"
+	#					else if {game} is "SG6":
+	#						make server execute command "execute in minecraft:sg6 run fill -193 62 -7 -137 62 -63 minecraft:redstone_block"
+
+	else if {jeu_condi} is 7: #Laby
+		loop all players:
+			if the game mode of loop-player is adventure:
+				if loop-player doesn't have permission "group.spectators":
+					if {laby_level.%loop-player%} is 2:
+						if block 2 meters below loop-player is white_concrete or black_concrete:
+							set {laby_level.%loop-player%} to "End"
+							set {gamemode.%loop-player%} to 3
+							set {finished.%loop-player%} to true
+							set loop-player's gamemode to spectator
+							force loop-player to fly
+							allow fly for loop-player
+							broadcast "[&c&lTheEvent580&r] %loop-player% just completed the &5Labyrinth &r[&5+%{pts_lvl_3}% &r╣]"
+							send "[&c&lTheEvent580&r] You just completed the &5Labyrinth &r[&5+%{pts_lvl_3}% &r╣]" to loop-player
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							add {pts_lvl_3} to {points_game.%loop-player%}
+							add {pts_lvl_3} to {total_points.%loop-player%}
+							add {pts_lvl_3} to {total_points_event.%loop-player%}
+							add 1 to {finished_players}
+							remove {remove_pts_lvl_3} from {pts_lvl_3}
+					else if {laby_level.%loop-player%} is 1:
+						if block 1 meter below loop-player is gold_block:
+							set {laby_level.%loop-player%} to 2
+							broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 2nd part of the &5Labyrinth &r[&5+%{pts_lvl_2}% &r╣]"
+							send "[&c&lTheEvent580&r] You just completed the 2nd part of the &5Labyrinth &r[&5+%{pts_lvl_2}% &r╣]" to loop-player
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							add {pts_lvl_2} to {points_game.%loop-player%}
+							add {pts_lvl_2} to {total_points.%loop-player%}
+							add {pts_lvl_2} to {total_points_event.%loop-player%}
+							remove {remove_pts_lvl_2} from {pts_lvl_2}
+					else if {laby_level.%loop-player%} is "Start":
+						if block 1 meter below loop-player is iron_block:
+							set {laby_level.%loop-player%} to 1
+							broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 1st part of the &5Labyrinth &r[&5+%{pts_lvl_1}% &r╣]"
+							send "[&c&lTheEvent580&r] You just completed the 1st part of the &5Labyrinth &r[&5+%{pts_lvl_1}% &r╣]" to loop-player
+							play sound "custom:coins" in voice category with volume 2 to the loop-player
+							add {pts_lvl_1} to {points_game.%loop-player%}
+							add {pts_lvl_1} to {total_points.%loop-player%}
+							add {pts_lvl_1} to {total_points_event.%loop-player%}
+							remove {remove_pts_lvl_1} from {pts_lvl_1}
+				if {gamemode.%loop-player%} is 3:
+					if the y-coordinate of loop-player is 120:
+						teleport loop-player to location(0.5, 128, 0.5, "labyrinthe", -90, 0)
+
+	else if {jeu_condi} is 8: #Bow PVP
+		loop all players:
+			if the y-coordinate of loop-player is smaller than 90:
+				if {gamemode.%loop-player%} is 3:
+					respawnBowPVP(loop-player)
+
+	else if {jeu_condi} is 9: #Build Masters
+		loop all players:
+			#seeBlock()
+			if {build.%loop-player%} is 1:
+				if {build.location.%loop-player%} is 0:
+					checkBuild1(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild1(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild1(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild1(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild1(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild1(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild1(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild1(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild1(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild1(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild1(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild1(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild1(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild1(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild1(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild1(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild1(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild1(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild1(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild1(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild1(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild1(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild1(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild1(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild1(24)
+			if {build.%loop-player%} is 2:
+				if {build.location.%loop-player%} is 0:
+					checkBuild2(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild2(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild2(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild2(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild2(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild2(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild2(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild2(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild2(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild2(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild2(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild2(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild2(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild2(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild2(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild2(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild2(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild2(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild2(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild2(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild2(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild2(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild2(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild2(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild2(24)
+			if {build.%loop-player%} is 3:
+				if {build.location.%loop-player%} is 0:
+					checkBuild3(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild3(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild3(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild3(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild3(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild3(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild3(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild3(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild3(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild3(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild3(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild3(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild3(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild3(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild3(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild3(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild3(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild3(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild3(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild3(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild3(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild3(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild3(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild3(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild3(24)
+			if {build.%loop-player%} is 4:
+				if {build.location.%loop-player%} is 0:
+					checkBuild4(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild4(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild4(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild4(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild4(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild4(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild4(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild4(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild4(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild4(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild4(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild4(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild4(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild4(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild4(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild4(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild4(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild4(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild4(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild4(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild4(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild4(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild4(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild4(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild4(24)
+			if {build.%loop-player%} is 5:
+				if {build.location.%loop-player%} is 0:
+					checkBuild5(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild5(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild5(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild5(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild5(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild5(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild5(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild5(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild5(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild5(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild5(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild5(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild5(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild5(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild5(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild5(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild5(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild5(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild5(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild5(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild5(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild5(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild5(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild5(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild5(24)
+			if {build.%loop-player%} is 6:
+				if {build.location.%loop-player%} is 0:
+					checkBuild6(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild6(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild6(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild6(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild6(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild6(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild6(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild6(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild6(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild6(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild6(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild6(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild6(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild6(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild6(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild6(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild6(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild6(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild6(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild6(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild6(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild6(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild6(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild6(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild6(24)
+			if {build.%loop-player%} is 7:
+				if {build.location.%loop-player%} is 0:
+					checkBuild7(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild7(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild7(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild7(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild7(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild7(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild7(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild7(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild7(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild7(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild7(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild7(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild7(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild7(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild7(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild7(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild7(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild7(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild7(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild7(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild7(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild7(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild7(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild7(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild7(24)
+			if {build.%loop-player%} is 8:
+				if {build.location.%loop-player%} is 0:
+					checkBuild8(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild8(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild8(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild8(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild8(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild8(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild8(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild8(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild8(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild8(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild8(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild8(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild8(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild8(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild8(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild8(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild8(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild8(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild8(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild8(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild8(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild8(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild8(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild8(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild8(24)
+			if {build.%loop-player%} is 9:
+				if {build.location.%loop-player%} is 0:
+					checkBuild9(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild9(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild9(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild9(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild9(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild9(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild9(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild9(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild9(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild9(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild9(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild9(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild9(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild9(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild9(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild9(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild9(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild9(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild9(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild9(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild9(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild9(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild9(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild9(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild9(24)
+			if {build.%loop-player%} is 10:
+				if {build.location.%loop-player%} is 0:
+					checkBuild10(0)
+				else if {build.location.%loop-player%} is 1:
+					checkBuild10(1)
+				else if {build.location.%loop-player%} is 2:
+					checkBuild10(2)
+				else if {build.location.%loop-player%} is 3:
+					checkBuild10(3)
+				else if {build.location.%loop-player%} is 4:
+					checkBuild10(4)
+				else if {build.location.%loop-player%} is 5:
+					checkBuild10(5)
+				else if {build.location.%loop-player%} is 6:
+					checkBuild10(6)
+				else if {build.location.%loop-player%} is 7:
+					checkBuild10(7)
+				else if {build.location.%loop-player%} is 8:
+					checkBuild10(8)
+				else if {build.location.%loop-player%} is 9:
+					checkBuild10(9)
+				else if {build.location.%loop-player%} is 10:
+					checkBuild10(10)
+				else if {build.location.%loop-player%} is 11:
+					checkBuild10(11)
+				else if {build.location.%loop-player%} is 12:
+					checkBuild10(12)
+				else if {build.location.%loop-player%} is 13:
+					checkBuild10(13)
+				else if {build.location.%loop-player%} is 14:
+					checkBuild10(14)
+				else if {build.location.%loop-player%} is 15:
+					checkBuild10(15)
+				else if {build.location.%loop-player%} is 16:
+					checkBuild10(16)
+				else if {build.location.%loop-player%} is 17:
+					checkBuild10(17)
+				else if {build.location.%loop-player%} is 18:
+					checkBuild10(18)
+				else if {build.location.%loop-player%} is 19:
+					checkBuild10(19)
+				else if {build.location.%loop-player%} is 20:
+					checkBuild10(20)
+				else if {build.location.%loop-player%} is 21:
+					checkBuild10(21)
+				else if {build.location.%loop-player%} is 22:
+					checkBuild10(22)
+				else if {build.location.%loop-player%} is 23:
+					checkBuild10(23)
+				else if {build.location.%loop-player%} is 24:
+					checkBuild10(24)
+			if {build.%loop-player%} is "End":
+				allow fly for loop-player
+				force loop-player to fly
+				set loop-player's gamemode to adventure
+				set {finished.%loop-player%} to true
+				set {build.%loop-player%} to "end"
+
+every second:
+	if {timer} is 1:
+		if {timer-m} is 0:
+			if {timer-s} is 11:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 0.5 to the loop-player
+					send title "Event starting in" with subtitle "&4>     10     <" to loop-player for 3 seconds
+			if {timer-s} is 10:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 0.6 to the loop-player
+					send title "Event starting in" with subtitle "&4>     9     <" to loop-player for 3 seconds
+			if {timer-s} is 9:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 0.7 to the loop-player
+					send title "Event starting in" with subtitle "&c>    8    <" to loop-player for 3 seconds
+			if {timer-s} is 8:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 0.8 to the loop-player
+					send title "Event starting in" with subtitle "&c>    7    <" to loop-player for 3 seconds
+			if {timer-s} is 7:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 0.9 to the loop-player
+					send title "Event starting in" with subtitle "&6>   6   <" to loop-player for 3 seconds
+			if {timer-s} is 6:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 to the loop-player
+					send title "Event starting in" with subtitle "&6>   5   <" to loop-player for 3 seconds
+			if {timer-s} is 5:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.1 to the loop-player
+					send title "Event starting in" with subtitle "&e>  4  <" to loop-player for 3 seconds
+			if {timer-s} is 4:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.2 to the loop-player
+					send title "Event starting in" with subtitle "&e>  3  <" to loop-player for 3 seconds
+			if {timer-s} is 3:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.3 to the loop-player
+					send title "Event starting in" with subtitle "&a> 2 <" to loop-player for 3 seconds
+			if {timer-s} is 2:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.4 to the loop-player
+					send title "Event starting in" with subtitle "&a> 1 <" to loop-player for 3 seconds
+					make server execute command "fill 8 247 -8 -8 247 8 redstone_block"
+			if {timer-s} is 1:
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.5 to the loop-player
+					send title "Event starting" with subtitle "&2NOW" to loop-player for 1 second
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStart Countdown&r --> &aShowing games" to loop-player
+						set {event_state} to "Showing games"
+				wait 5 tick
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.5 to the loop-player
+				wait 5 tick
+				loop all players:
+					play sound "block.note_block.chime" in voice category with volume 2 and pitch 1.5 to the loop-player
+			if {timer-s} is 0:
+				set {timer} to 2
+				set {timer-m} to 0
+				set {timer-s} to 30
+				make server execute command "starttp"
+				loop all players:
+					if loop-player doesn't have permission "group.spectators":
+						set loop-player's game mode to adventure
+					make server execute command "/hide %loop-player%"
+				broadcast "[&c&lTheEvent580&r] The Minigames are :"
+		if {timer-m} is 1:
+			if {timer-s} is 0:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-m} to 0
+				set {timer-s} to 59
+		remove 1 from {timer-s}
+	if {timer} is 2:
+		if {timer-s} is 28:
+			broadcast "[&c&lTheEvent580&r] &c&lDropper"
+		if {timer-s} is 25:
+			broadcast "[&c&lTheEvent580&r] &6&lParkour"
+		if {timer-s} is 22:
+			broadcast "[&c&lTheEvent580&r] &e&lBingo"
+		if {timer-s} is 19:
+			broadcast "[&c&lTheEvent580&r] &a&lFind The Button"
+		if {timer-s} is 16:
+			broadcast "[&c&lTheEvent580&r] &b&lRaces"
+		if {timer-s} is 13:
+			broadcast "[&c&lTheEvent580&r] &1&lBuild Masters"
+		if {timer-s} is 10:
+			broadcast "[&c&lTheEvent580&r] &5&lLabyrinth"
+		if {timer-s} is 7:
+			broadcast "[&c&lTheEvent580&r] And &d&lBow PVP"
+		if {timer-s} is 4:
+			make server execute command "starttp"
+		if {timer-s} is 0:
+			add 1 to {jeu}
+			set {timer} to 3
+			set {timer-m} to 0
+			set {timer-s} to 40
+			make server execute command "fill 8 247 -8 -8 247 8 air"
+			wait 5 ticks
+			make server execute command "fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab"
+			make server execute command "fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab"
+			make server execute command "fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab"
+			make server execute command "fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab"
+			make server execute command "fill 8 251 3 -8 251 3 minecraft:air"
+			make server execute command "fill 8 251 -3 -8 251 -3 minecraft:air"
+			make server execute command "fill -3 251 -8 -3 251 8 minecraft:air"
+			make server execute command "fill 3 251 -8 3 251 8 minecraft:air"
+			loop all players:
+				if loop-player has permission "group.spectators":
+					force loop-player to fly
+					allow fly for loop-player
+				if loop-player has permission "theevent580.staff":
+					send "[&c&lTheEvent580 - Admin&r] Event state : &eShowing games&r --> &aVoting" to loop-player
+					set {event_state} to "Voting"
+		remove 1 from {timer-s}
+	if {timer} is 3:
+		if {timer-s} is 13:
+			loop all players:
+				make server execute command "/hide %loop-player%"
+				if loop-player has permission "theevent580.staff":
+					send "[&c&lTheEvent580 - Admin&r] Event state : &eVoting&r --> &aVotes closed" to loop-player
+					set {event_state} to "Votes closed"
+		if {timer-s} is 0:
+			set {timer} to 4
+			set {timer-m} to 0
+			set {timer-s} to 5
+			loop all players:
+				if loop-player has permission "theevent580.staff":
+					send "[&c&lTheEvent580 - Admin&r] Event state : &eVotes closed&r --> &aTeleporting to game" to loop-player
+					set {event_state} to "Teleporting to game"
+			wait 3 seconds
+			make server execute command "fill 8 247 -8 -8 247 8 air"
+			wait 5 ticks
+			make server execute command "fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab"
+			make server execute command "fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab"
+			make server execute command "fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab"
+			make server execute command "fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab"
+			make server execute command "fill 8 251 3 -8 251 3 minecraft:air"
+			make server execute command "fill 8 251 -3 -8 251 -3 minecraft:air"
+			make server execute command "fill -3 251 -8 -3 251 8 minecraft:air"
+			make server execute command "fill 3 251 -8 3 251 8 minecraft:air"
+		if {timer-s} is 13:
+			make server execute command "fill 8 247 -8 -8 247 8 redstone_block"
+			if {red} isn't -10000:
+				set {red} to 0
+			if {orange} isn't -10000:
+				set {orange} to 0
+			if {yellow} isn't -10000:
+				set {yellow} to 0
+			if {lime} isn't -10000:
+				set {lime} to 0
+			if {light_blue} isn't -10000:
+				set {light_blue} to 0
+			if {blue} isn't -10000:
+				set {blue} to 0
+			if {purple} isn't -10000:
+				set {purple} to 0
+			if {pink} isn't -10000:
+				set {pink} to 0
+			set {white} to 0
+			set {light_gray} to 0
+		if {timer-s} is 10:
+			loop all players:
+				if loop-player is not in {staff::*}:
+					if loop-player doesn't have permission "group.spectators":
+						if block 2 meters below loop-player is red_concrete:
+							add 1 to {red}
+						else if block 2 meters below loop-player is orange_concrete:
+							add 1 to {orange}
+						else if block 2 meters below loop-player is yellow_concrete:
+							add 1 to {yellow}
+						else if block 2 meters below loop-player is lime_concrete:
+							add 1 to {lime}
+						else if block 2 meters below loop-player is light_blue_concrete:
+							add 1 to {light_blue}
+						else if block 2 meters below loop-player is blue_concrete:
+							add 1 to {blue}
+						else if block 2 meters below loop-player is purple_concrete:
+							add 1 to {purple}
+						else if block 2 meters below loop-player is pink_concrete:
+							add 1 to {pink}
+						else if block 2 meters below loop-player is light_gray_concrete:
+							add 1 to {light_gray}
+						else:
+							add 1 to {white}
+			checkBiggest()
+			after()
+		remove 1 from {timer-s}
+	if {timer} is 4:
+		if {timer-s} is 0:
+			set {timer} to 5
+			set {timer-s} to 40
+			if {jeu_nom} is "&c&lDropper":
+				make server execute command "dropper"
+			else if {jeu_nom} is "&6&lParkour":
+				make server execute command "parkour"
+			else if {jeu_nom} is "&e&lBingo":
+				make server execute command "bingo"
+			else if {jeu_nom} is "&a&lFind The Button":
+				make server execute command "ftb"
+			else if {jeu_nom} is "&b&lRaces":
+				make server execute command "courses boat"
+			else if {jeu_nom} is "&1&lBuild Masters":
+				make server execute command "bm"
+			else if {jeu_nom} is "&5&lLabyrinth":
+				make server execute command "laby"
+			else if {jeu_nom} is "&d&lBow PVP":
+				make server execute command "bowpvp"
+			loop all players:
+				clear loop-player's inventory
+				if loop-player has permission "theevent580.staff":
+					send "[&c&lTheEvent580 - Admin&r] Event state : &eTeleporting to game&r --> &aStarting game" to loop-player
+					set {event_state} to "Starting game"
+		remove 1 from {timer-s}
+	if {timer} is 5:
+		if {jeu_condi} is 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8:
+			if {timer-s} is 30:
+				loop all players:
+					if loop-player has permission "group.spectators":
+						force loop-player to fly
+						allow fly for loop-player
+		set {scoreboard.pos} to 0
+		if {jeu_nom} is "&c&lDropper":
+			set {barrier} to "red"
+			if {timer-s} is 35:
+				broadcast "[&c&lTheEvent580&r] Welcome to &c&lDropper&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to finish the 5 levels in less than 5 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Finishing a level before other people will give you more points, so try to be the fastest."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] To get to the next levels, just jump in the water."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] To complete the &c&lDropper&r, do the same on the last level."
+			#if {timer-s} is 5:
+			#	broadcast "[&c&lTheEvent580&r] The white wool WILL give you a leviation effect."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &c&lDropper&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &c&lDropper&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &c&lDropper&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				make server execute command "execute in minecraft:dropper run gamerule randomTickSpeed 0"
+				make server execute command "execute in minecraft:dropper run fill 14 127 10 5 127 1 air replace barrier"
+				broadcast "[&c&lTheEvent580&r] &c&lDropper&r started !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cDropper" to loop-player
+						set {event_state} to "Game &r&cDropper"
+				set {timer} to 6
+				set {timer-m} to 4
+				set {timer-s} to 60
+				set {red} to -10000
+		if {jeu_nom} is "&6&lParkour":
+			if {timer-s} is 35:
+				loop all players:
+					if loop-player has permission "group.spectators":
+						make console execute command "/see %loop-player%"
+						make server execute command "/hide %loop-player%"
+				broadcast "[&c&lTheEvent580&r] Welcome to &6&lParkour&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to get the 5 checkpoints & complete the &6&lParkour&r in less than 10 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Finishing a section before other people will give you more points, so try to be the fastest."
+				broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] You'll get speed 2 & invisibility for the &6&lParkour&r."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &6&lParkour&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &6&lParkour&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &6&lParkour&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				make server execute command "execute in parkour run fill 134 132 195 128 129 207 air replace minecraft:barrier"
+				broadcast "[&c&lTheEvent580&r] &6&lParkour&r started !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&6Parkour" to loop-player
+						set {event_state} to "Game &r&6Parkour"
+					else:
+						apply speed of tier 2 without particles to loop-player for 20 minutes
+				set {timer} to 6
+				set {timer-m} to 9
+				set {timer-s} to 60
+				set {orange} to -10000
+		if {jeu_nom} is "&e&lBingo":
+			set {barrier} to "yellow"
+			if {timer-s} is 35:
+				loop all players:
+					if loop-player has permission "group.spectators":
+						make server execute command "/hide %loop-player%"
+				broadcast "[&c&lTheEvent580&r] Welcome to &e&lBingo&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to get every item on your &e&lBingo&r card in less than 20 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Getting an item before other people will give you more points, so try to be the fastest."
+				broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] You'll spawn wait a chainmail armor, an iron sword, an iron axe, an iron shovel & an iron pickaxe, all unbreakable."
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] You can only get 1 bonus, by killing someone (ONLY ONCE), it'll replace your iron sword & pickaxe by a diamond one, also unbreakable."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] &lTo get a validated item, you'll have to drop it and pick it up back &r(YOU ARE WARNED)."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] You'll also get a 1 minute grace periode to leave and run."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &e&lBingo&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &e&lBingo&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &e&lBingo&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				make server execute command "//world bingo"
+				make server execute command "//pos1 999871,153,999917"
+				make server execute command "//pos2 999904,160,999949"
+				make server execute command "//walls air"
+				make server execute command "//world world"
+				make server execute command "execute in minecraft:bingo run gamerule randomTickSpeed 20"
+				make server execute command "execute in minecraft:bingo run gamerule doDaylightCycle true"
+				broadcast "[&c&lTheEvent580&r] &e&lBingo&r started !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&eBingo" to loop-player
+						set {event_state} to "Game &r&eBingo"
+				loop all players:
+					if loop-player has permission "group.spectators":
+						allow fly for loop-player
+						force loop-player to fly
+					else:
+						set loop-player's gamemode to survival
+				set {timer} to 6
+				set {timer-m} to 19
+				set {timer-s} to 60
+				set {yellow} to -10000
+				set {damage} to 2
+				broadcast "[&c&lTheEvent580&r] Grace periode ends in 1 minute."
+		if {jeu_nom} is "&a&lFind The Button":
+			if {timer-s} is 35:
+				broadcast "[&c&lTheEvent580&r] Welcome to &a&lFind The Button&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to press on all 11 buttons in less than 5 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] WARNING, THERE CAN BE PLOTS WITHOUT ANY BUTTONS !"
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] Pressing a button before other people will give you more points, so try to be the fastest."
+				broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &a&lFind The Button&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &a&lFind The Button&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &a&lFind The Button&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				make server execute command "//world find_the_button"
+				make server execute command "//pos1 -4,152,4"
+				make server execute command "//pos2 4,147,-4"
+				make server execute command "//set air"
+				make server execute command "//world world"
+				make server execute command "execute in minecraft:find_the_button run gamerule doDaylightCycle true"
+				make server execute command "execute in minecraft:find_the_button run time set 0"
+				broadcast "[&c&lTheEvent580&r] &a&lFind The Button&r started !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
+						set {event_state} to "Game &r&aFind The Button"
+				set {timer} to 6
+				set {timer-m} to 12
+				set {timer-s} to 31
+				set {lime} to -10000
+		if {jeu_nom} is "&b&lRaces":
+			if {courses} is "boat":
+				if {timer-s} is 25:
+					broadcast "[&c&lTheEvent580&r] Welcome to &b&lRaces&r."
+				if {timer-s} is 20:
+					broadcast "[&c&lTheEvent580&r] Complete all 3 of the races as fast as you can !"
+				if {timer-s} is 15:
+					broadcast "[&c&lTheEvent580&r] Completing a section / race before other people will give you more points, so try to be the fastest."
+					broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+				if {timer-s} is 10:
+					broadcast "[&c&lTheEvent580&r] &lWARNING, the 1st checkpoint doesn't give any points &r(You are warned)."
+				if {timer-s} is 5:
+					broadcast "[&c&lTheEvent580&r] There are 3 different races, boat race, foot race & trident race."
+				if {timer-s} is 4:
+					broadcast "[&c&lTheEvent580&r] The 1st race is boat race."
+					set {barrier} to "boat"
+			if {courses} is "pied":
+				if {timer-s} is 20:
+					broadcast "[&c&lTheEvent580&r] For this race, there are 2 paths"
+				if {timer-s} is 15:
+					broadcast "[&c&lTheEvent580&r] The hard one will give more points than the easy one !"
+				if {timer-s} is 10:
+					broadcast "[&c&lTheEvent580&r] The 2nd race is foot race."
+			if {courses} is "trident":
+				if {timer-s} is 20:
+					broadcast "[&c&lTheEvent580&r] For this race, all the checkpoints will count as an hard path."
+				if {timer-s} is 10:
+					broadcast "[&c&lTheEvent580&r] The last race is trident race."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] This &b&lRace&r will start in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] This &b&lRace&r will start in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] This &b&lRace&r will start in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				if {courses} is "boat":
+					make server execute command "execute in minecraft:courses_boat run fill 5 131 -4 -7 128 5 air destroy"
+					set {courses_boat_timer_status} to true
+					loop all players:
+						set {courses_boat_timer_status.%loop-player%} to true
+						set {courses_boat_timer.%loop-player%} to 0
+						set {courses_boat.%loop-player%} to "Start"
+						set {courses_boat_timer.%loop-player%} to 0
+					set {timer-m} to 2
+					set {timer-s} to 32
+				else if {courses} is "pied":
+					make server execute command "execute in minecraft:courses_pied run fill 5 131 -4 -7 128 5 air destroy"
+					set {courses_pied_timer_status} to true
+					loop all players:
+						set {courses_pied.%loop-player%} to "Start"
+						set {courses_pied_timer.%loop-player%} to 0
+						set {courses_pied_timer_section.%loop-player%} to 0
+						set {courses_pied_timer_status.%loop-player%} to true
+					set {timer-m} to 3
+					set {timer-s} to 32
+				else if {courses} is "trident":
+					make server execute command "execute in minecraft:courses_trident run fill 5 131 -4 -7 127 5 air destroy"
+					set {courses_trident_timer_status} to true
+					loop all players:
+						set {courses_trident.%loop-player%} to "Start"
+						set {courses_trident_timer.%loop-player%} to 0
+						set {courses_trident_timer_section.%loop-player%} to 0
+						set {courses_trident_timer_status.%loop-player%} to true
+						set {has_trident.%loop-player%} to false
+						set {timer-m} to 3
+						set {timer-s} to 32
+				broadcast "[&c&lTheEvent580&r] This &b&lRace&r is starting !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						if {courses} is "boat":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&bBoat Race" to loop-player
+							set {event_state} to "Game &r&bBoat Race"
+						if {courses} is "pied":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eSwitching race&r --> &aGame &r&bFoot Race" to loop-player
+							set {event_state} to "Game &r&bFoot Race"
+						if {courses} is "trident":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eSwitching race&r --> &aGame &r&bTrident Race" to loop-player
+							set {event_state} to "Game &r&bTrident Race"
+				set {timer} to 6
+				set {light_blue} to -10000
+				set {damage} to 1
+		if {jeu_condi} is 6:
+			if {timer-s} is 35:
+				broadcast "[&c&lTheEvent580&r] Welcome to &1&lSurvival Games&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to be the last one standing or to be alive after 10 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] The 1st blood gives your more points than ay other kills."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] Being alive when someone get killed will give you some points."
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] Being alive for 30 seconds will also give you points if you survive at least 1 minute and 30 seconds."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] There will be a 1 minute long grace period to run."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &1&lSurvival Games&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &1&lSurvival Games&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &1&lSurvival Games&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+				if {game} is "SG1":
+					make server execute command "//world sg1"
+					make server execute command "//pos1 -1573,64,-641"
+					make server execute command "//pos2 -1573,64,-641"
+					make server execute command "//set redstone_block"
+				else if {game} is "SG2":
+					make server execute command "//world sg2"
+					make server execute command "//pos1 29,33,0"
+					make server execute command "//pos2 29,33,0"
+					make server execute command "//set redstone_block"
+			if {timer-s} is 0:
+				if {game} is "SG1":
+					make server execute command "execute in minecraft:sg1 run time set 0"
+				else if {game} is "SG2":
+					make server execute command "execute in minecraft:sg2 run time set 0"
+				broadcast "[&c&lTheEvent580&r] &1&lSurvival Games&r is starting !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&1Survival Games" to loop-player
+						set {event_state} to "Game &r&1Survival Games"
+				set {timer} to 6
+				set {timer-m} to 9
+				set {timer-s} to 60
+				set {blue} to -10000
+				set {damage} to 2
+				broadcast "[&c&lTheEvent580&r] Grace period endinng in 1 minute."
+		if {jeu_condi} is 9:
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Welcome to &1&lBuild Masters&r."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Your goal is to be the fastest to build the 10 builds in 15 minnutes !"
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] Once the builds are completed, it will switch automatically."
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] You will get the exact amount of blocks you need when the new build appears."
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				loop all players:
+					if {build.location.%loop-player%} is 0:
+						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 998.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 993 14 128 1002 air"
+					else if {build.location.%loop-player%} is 1:
+						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1019.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1014 14 128 1023 air"
+					else if {build.location.%loop-player%} is 2:
+						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1040.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1035 14 128 1044 air"
+					else if {build.location.%loop-player%} is 3:
+						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1061.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1056 14 128 1065 air"
+					else if {build.location.%loop-player%} is 4:
+						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1082.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1077 14 128 1086 air"
+					else if {build.location.%loop-player%} is 5:
+						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 998.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 993 35 128 1002 air"
+					else if {build.location.%loop-player%} is 6:
+						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1019.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1014 35 128 1023 air"
+					else if {build.location.%loop-player%} is 7:
+						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1040.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1035 35 128 1044 air"
+					else if {build.location.%loop-player%} is 8:
+						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1061.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1056 35 128 1065 air"
+					else if {build.location.%loop-player%} is 9:
+						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1082.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1077 35 128 1086 air"
+					else if {build.location.%loop-player%} is 10:
+						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 998.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 993 56 128 1002 air"
+					else if {build.location.%loop-player%} is 11:
+						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1019.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1014 56 128 1023 air"
+					else if {build.location.%loop-player%} is 12:
+						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1040.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1035 56 128 1044 air"
+					else if {build.location.%loop-player%} is 13:
+						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1061.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1056 56 128 1065 air"
+					else if {build.location.%loop-player%} is 14:
+						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1082.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1077 56 128 1086 air"
+					else if {build.location.%loop-player%} is 15:
+						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 998.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 993 77 128 1002 air"
+					else if {build.location.%loop-player%} is 16:
+						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1019.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1014 77 128 1023 air"
+					else if {build.location.%loop-player%} is 17:
+						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1040.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1035 77 128 1044 air"
+					else if {build.location.%loop-player%} is 18:
+						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1061.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1056 77 128 1065 air"
+					else if {build.location.%loop-player%} is 19:
+						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1082.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1077 77 128 1086 air"
+					else if {build.location.%loop-player%} is 20:
+						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 998.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 993 98 128 1002 air"
+					else if {build.location.%loop-player%} is 21:
+						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1019.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1014 98 128 1023 air"
+					else if {build.location.%loop-player%} is 22:
+						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1040.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1035 98 128 1044 air"
+					else if {build.location.%loop-player%} is 23:
+						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1061.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1056 98 128 1065 air"
+					else if {build.location.%loop-player%} is 24:
+						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1082.00000001"
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air"
+					give 1 of netherite pickaxe of unbreaking 250 and efficiency 2 named "&1Unbreakable Pickaxe" to loop-player
+					give 96 of white concrete to loop-player
+					give 4 of black concrete to loop-player
+					if loop-player has permission "group.spectators":
+						clear loop-player's inventory
+						make server execute command "execute in minecraft:build_masters run tp %loop-player% -7.53 153.24 1040.13 -90.66 36.09"
+						make server execute command "clear %loop-player%"
+						set loop-value's game mode to adventure
+						set slot 0 of loop-player to compass named "&rTeleport to player"
+						set slot 1 of loop-player to feather named "&rChange player's fly speed"
+					else:
+						set loop-player's game mode to survival
+				broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r is starting !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&1Build Masters" to loop-player
+						set {event_state} to "Game &r&1Build Masters"
+				set {timer} to 6
+				set {timer-m} to 14
+				set {timer-s} to 60
+				set {blue} to -10000
+		if {jeu_nom} is "&5&lLabyrinth":
+			set {barrier} to "purple"
+			if {timer-s} is 35:
+				broadcast "[&c&lTheEvent580&r] Welcome to &5&lLabyrinth&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to get to the other side of the &5&lLabyrinth&r in less than 5 minutes."
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Completing a section / the &5&lLabyrinth&r before other people will give you more points, so try to be the fastest."
+				broadcast "[&c&lTheEvent580&r] You can get every infos on the website."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] To get to the next level, just fint the right path !"
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] To complete &5&lLabyrinth&r, just walk on the black / white concrete blocks."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] &lWarning, it is possible that you need to go down a level to get to a higher one ! &r(You are warned)"
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &5&lLabyrinth&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &5&lLabyrinth&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &5&lLabyrinth&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				make server execute command "execute in minecraft:labyrinthe run fill 4 130 1 3 128 0 air destroy"
+				broadcast "[&c&lTheEvent580&r] &5&lLabyrinth&r is starting !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Labyrinth" to loop-player
+						set {event_state} to "Game &r&5Labyrith"
+				set {timer} to 6
+				set {timer-m} to 4
+				set {timer-s} to 60
+				set {purple} to -10000
+		if {jeu_nom} is "&d&lBow PVP":
+			if {timer-s} is 35:
+				broadcast "[&c&lTheEvent580&r] Welcome to &d&lBow PVP&r."
+			if {timer-s} is 30:
+				broadcast "[&c&lTheEvent580&r] Your goal is to be the last one alive and kill everyone in less than 10 minutes !"
+			if {timer-s} is 25:
+				broadcast "[&c&lTheEvent580&r] Everyone will start with 5 hearts and dying will remove you one heart."
+			if {timer-s} is 20:
+				broadcast "[&c&lTheEvent580&r] But stabbing a player will give you its heart."
+			if {timer-s} is 15:
+				broadcast "[&c&lTheEvent580&r] You'll start with a infinity bow and a stone sword (Both are unbreakable)."
+			if {timer-s} is 10:
+				broadcast "[&c&lTheEvent580&r] &lWARNING, YOU CAN DIE FROM THE VOID ! &r(You are warned)"
+			if {timer-s} is 3:
+				broadcast "[&c&lTheEvent580&r] &d&lBow PVP&r starting in 3."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 2:
+				broadcast "[&c&lTheEvent580&r] &d&lBow PVP&r starting in 2."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 1:
+				broadcast "[&c&lTheEvent580&r] &d&lBow PVP&r starting in 1."
+				loop all players:
+					play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			if {timer-s} is 0:
+				loop all players:
+					if loop-player has permission "group.spectators":
+						teleport loop-player to location(0, 166, 0, world "Bow_PVP")
+					else:
+						respawnBowPVP(loop-player)
+						give 1 of bow of unbreaking 250 and infinity 1 named "&dUnbreakable Bow" to loop-player
+						give 1 of stone sword of unbreaking 250 named "&dUnbreakable Sword" to loop-player
+						set slot 8 of loop-player's inventory to arrow
+				broadcast "[&c&lTheEvent580&r] &d&lBow PVP&r is starting !"
+				loop all players:
+					play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&dBow PVP" to loop-player
+						set {event_state} to "Game &r&dBow PVP"
+				set {timer} to 6
+				set {damage} to 4
+				set {timer-m} to 9
+				set {timer-s} to 60
+				set {pink} to -10000
+		if {timer-s} is 1:
+			loop all players:
+				if loop-player has permission "group.spectators":
+					set slot 0 of loop-player to compass named "&rTeleport to player"
+					set slot 1 of loop-player to feather named "&rChange player's fly speed"
+			if {jeu_condi} is 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9:
+				make server execute command "effect give @a minecraft:night_vision 9999 255 true"
+			if {courses} is "boat":
+				loop all players:
+					make console execute command "/see %loop-player%"
+				loop all players:
+					if loop-player has permission "group.spectators":
+						make server execute command "/hide %loop-player%"
+			if {jeu_nom} is "&1&lSurvival Games &e(&r %{map_sg}% / 2&e)&r":
+				loop all players:
+					make console execute command "/see %loop-player%"
+				loop all players:
+					if loop-player has permission "group.spectators":
+						make server execute command "/hide %loop-value%"
+		remove 1 from {timer-s}
+	if {timer} is 6:
+		if {jeu_condi} is not 6 or 8:
+			if {finished_players} is smaller than {checking_finished_players}:
+				if {timer-s} is 0:
+					if {timer-m} is 0:
+						force all players to fly
+						allow fly for all players
+						loop all players:
+							play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
+							allow fly for loop-player
+							set {gamemode.%loop-player%} to 3
+						if {jeu_condi} is 1:
+							make server execute command "execute in dropper run fill 14 127 10 5 127 1 barrier"
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&cDropper&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 2:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 3:
+							make server execute command "//world bingo"
+							make server execute command "//pos1 289,64,164"
+							make server execute command "//pos2 322,71,132"
+							make server execute command "//walls barrier"
+							make server execute command "execute in minecraft:bingo run gamerule doDaylightCycle false"
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 4:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&aFind The Button&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 5:
+							if {courses} is "trident":
+								if {jeu} is not 6 or 3 :
+									set {timer-m} to 1
+									set {timer-s} to 60
+									set {timer} to 7
+								if {jeu} is 3:
+									set {timer-m} to 5
+									set {timer-s} to 60
+									set {timer} to 7
+								if {jeu} is 6:
+									set {timer-m} to 1
+									set {timer-s} to 30
+									set {timer} to 10
+								set {jeu_condi} to 0
+								set {course} to "None"
+								loop all players:
+									if loop-player has permission "theevent580.staff":
+										send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bTrident Race&r --> &aShowing scores" to loop-player
+										set {event_state} to "Showing scores"
+								loop all players:
+									clear loop-player's inventory
+								set {jeu_condi} to 0
+								set {damage} to 1
+							else if {courses} is "pied":
+								set {courses} to "trident"
+								loop all players:
+									clear loop-player's inventory
+									if loop-player has permission "theevent580.staff":
+										send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bFoot Race&r --> &aSwitching race" to loop-player
+										set {event_state} to "Switching race"
+								set {timer} to 5
+								set {timer-s} to 40
+								set {timer-m} to 0
+								make server execute command "courses trident"
+							else if {courses} is "boat":
+								set {courses} to "pied"
+								loop all players:
+									clear loop-player's inventory
+									if loop-player has permission "theevent580.staff":
+										send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bBoat Race&r --> &aSwitching race" to loop-player
+								set {timer} to 5
+								set {timer-s} to 40
+								set {timer-m} to 0
+								make server execute command "courses pied"
+						if {jeu_condi} is 7:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&5Labyrinth&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 9:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&1Build Masters&r --> &aShowing scores" to loop-player
+						else if {jeu_condi} is not 5:
+							set {event_state} to "Showing scores"
+							if {jeu} is not 6:
+								set {timer-m} to 0
+								set {timer-s} to 30
+								set {timer} to 7
+							if {jeu} is 6:
+								set {timer-m} to 1
+								set {timer-s} to 30
+								set {timer} to 10
+							set {jeu_condi} to 0
+							set {damage} to 1
+							set {finished_players} to 0
+						make server execute command "clear @a"
+					if {timer-m} is 1:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						set {timer-m} to 0
+						set {timer-s} to 60
+					if {timer-m} is 2:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						set {timer-m} to 1
+						set {timer-s} to 60
+					if {timer-m} is 3:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 4:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+					if {timer-m} is 5:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 6:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 7:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 8:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 9:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 10:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 11:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 12:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 13:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 14:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 15:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 16:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 17:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 18:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 19:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {jeu_condi} is 3:
+							set {damage} to 0
+						else if {jeu_condi} is 6:
+							set {damage} to 3
+				remove 1 from {timer-s}
+			else if {finished_players} is {checking_finished_players}:
+				force all players to fly
+				loop all players:
+					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
+					allow fly for loop-player
+					set {gamemode.%loop-player%} to 3
+				if {barrier} is "red":
+					make server execute command "execute in dropper run fill 14 127 10 5 127 1 barrier"
+					loop all players:
+						if loop-player has permission "theevent580.staff":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&cDropper&r --> &aShowing scores" to loop-player
+				if {jeu_condi} is 2:
+					loop all players:
+						if loop-player has permission "theevent580.staff":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
+				if {barrier} is "yellow":
+					make server execute command "//world bingo"
+					make server execute command "//pos1 289,64,164"
+					make server execute command "//pos2 322,71,132"
+					make server execute command "//walls barrier"
+					make server execute command "execute in minecraft:bingo run gamerule doDaylightCycle false"
+					loop all players:
+						if loop-player has permission "theevent580.staff":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
+				if {jeu_condi} is 4:
+					loop all players:
+						if loop-player has permission "theevent580.staff":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&aFind The Button&r --> &aShowing scores" to loop-player
+				if {jeu_condi} is 5:
+					if {courses} is "trident":
+						if {jeu} is not 6:
+							set {timer-m} to 0
+							set {timer-s} to 30
+							set {timer} to 7
+						if {jeu} is 6:
+							set {timer-m} to 1
+							set {timer-s} to 30
+							set {timer} to 10
+						set {course} to "None"
+						set {jeu_condi} to 0
+						set {courses_trident_timer_status} to false
+						set {courses_boat_timer_status} to false
+						set {courses_pied_timer_status} to false
+						loop all players:
+							set {courses_boat_timer_status.%loop-player%} to false
+							set {courses_boat_timer.%loop-player%} to 0
+							set {courses_boat.%loop-player%} to "Start"
+							set {courses_boat_timer.%loop-player%} to 0
+							set {courses_pied.%loop-player%} to "Start"
+							set {courses_pied_timer.%loop-player%} to 0
+							set {courses_pied_timer_section.%loop-player%} to 0
+							set {courses_pied_timer_status.%loop-player%} to false
+							set {courses_trident.%loop-player%} to "Start"
+							set {courses_trident_timer.%loop-player%} to 0
+							set {courses_trident_timer_section.%loop-player%} to 0
+							set {courses_trident_timer_status.%loop-player%} to false
+							set {has_trident.%loop-player%} to false
+							set {gamemode.%loop-player%} to 2
+							set {points_game.%loop-player%} to 0
+							set the game mode of loop-player to adventure
+							make loop-player execute command "spawn"
+							clear loop-player's inventory
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bTrident Race&r --> &aShowing scores" to loop-player
+								set {event_state} to "Showing scores"
+						set {jeu_condi} to 0
+						set {damage} to 1
+					else if {courses} is "pied":
+						set {courses} to "trident"
+						loop all players:
+							clear loop-player's inventory
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bFoot Race&r --> &aSwitching race" to loop-player
+								set {event_state} to "Switching race"
+						set {timer} to 5
+						set {timer-s} to 40
+						set {timer-m} to 0
+						make server execute command "courses trident"
+					else if {courses} is "boat":
+						set {courses} to "pied"
+						loop all players:
+							clear loop-player's inventory
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&bBoat Race&r --> &aSwitching race" to loop-player
+								set {event_state} to "Switching race"
+						set {timer} to 5
+						set {timer-s} to 40
+						set {timer-m} to 0
+						make server execute command "courses pied"
+						if {jeu_condi} is 7:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&5Labyrinth&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 9:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&1Build Masters&r --> &aShowing scores" to loop-player
+				else if {jeu_condi} is not 5:
+					set {event_state} to "Showing scores"
+					if {jeu} is not 6 or 3:
+						set {timer-m} to 0
+						set {timer-s} to 30
+						set {timer} to 7
+					if {jeu} is 6:
+						set {timer-m} to 1
+						set {timer-s} to 30
+						set {timer} to 10
+					set {jeu_condi} to 0
+					set {damage} to 1
+					set {finished_players} to 0
+				make server execute command "clear @a"
+		if {jeu_condi} is 6:
+			if {finished_players} is bigger than 1:
+				if {timer-s} is 30:
+					loop all players:
+						if {timer-m} is 0:
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+							if {game} is "SG3":
+								make server execute command "execute in minecraft:sg3 run worldborder set 3 10"
+						if {timer-m} is 1:
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+							if {game} is "SG3":
+								make server execute command "execute in minecraft:sg3 run worldborder set 19 15"
+						if {timer-m} is "02":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "03":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "04":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "05":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "06":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "07":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+						if {timer-m} is "08":
+							if {alive.%loop-player%} is true:
+								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								add {pts_lvl_4} to {points_game.%loop-player%}
+								send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+				else if {timer-s} is 0:
+					if {timer-m} is 0:
+						force all players to fly
+						loop all players:
+							allow fly for loop-player
+							set {gamemode.%loop-player%} to 3
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&1Survival Games&r --> &aShowing scores" to loop-player
+								set {event_state} to "Showing scores"
+						if {jeu} is not 6:
+							set {timer-m} to 0
+							set {timer-s} to 30
+							set {timer} to 7
+						if {jeu} is 6:
+							set {timer-m} to 1
+							set {timer-s} to 30
+							set {timer} to 10
+						set {jeu_condi} to 0
+						set {damage} to 1
+						make server execute command "clear @a"
+					if {timer-m} is 1:
+						set {timer-m} to 0
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 3 10"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 3 10"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 9 10"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 3 10"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 3 10"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 3 10"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 2:
+						set {timer-m} to 1
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 9 10"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 9 10"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 41 30"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 9 10"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 9 10"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 9 15"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 3:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 19 15"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 19 15"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 93 60"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 19 15"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 19 15"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 19 30"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 4:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 49 30"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 49 30"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 195 60"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 49 30"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 49 30"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 59 45"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 5:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 99 60"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 99 60"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 297 60"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 99 60"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 99 60"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 109 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 6:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 199 60"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 199 60"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 399 60"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 199 60"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 199 60"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 219 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 7:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 299 60"
+								if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 299 60"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 501 60"
+								else if {game} is "SG4":
+									make server execute command "execute in minecraft:sg4 run worldborder set 299 60"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 299 60"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 329 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 8:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						if {finished_players} is bigger than {checking_finished_players}:
+							loop all players:
+								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+								if {alive.%loop-player%} is true:
+									play sound "custom:coins" in voice category with volume 2 to the loop-player
+									add {pts_lvl_4} to {points_game.%loop-player%}
+									send "[&c&lTheEvent580&r] You stayed alive for 30 secs [&1+%{pts_lvl_4}%]" to loop-player
+								if {game} is "SG1":
+									make server execute command "execute in minecraft:sg1 run worldborder set 399 60"
+								else if {game} is "SG2":
+									make server execute command "execute in minecraft:sg2 run worldborder set 399 60"
+								else if {game} is "SG3":
+									make server execute command "execute in minecraft:sg3 run worldborder set 603 60"
+								else if {game} is "SG5":
+									make server execute command "execute in minecraft:sg5 run worldborder set 399 60"
+								else if {game} is "SG6":
+									make server execute command "execute in minecraft:sg6 run worldborder set 439 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking."
+					if {timer-m} is 9:
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+						broadcast "[&c&lTheEvent580&r] End of the grace period."
+						if {jeu_condi} is 3:
+							set {damage} to 0
+						else if {jeu_condi} is 6:
+							set {damage} to 3
+				remove 1 from {timer-s}
+			else if {finished_players} is 1:
+				force all players to fly
+				loop all players:
+					allow fly for loop-player
+					set {gamemode.%loop-player%} to 3
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&1Survival Games&r --> &aShowing scores" to loop-player
+						set {event_state} to "Showing scores"
+				if {jeu} is not 6:
+					set {timer-m} to 0
+					set {timer-s} to 30
+					set {timer} to 7
+				if {jeu} is 6:
+					set {timer-m} to 1
+					set {timer-s} to 30
+					set {timer} to 10
+				set {jeu_condi} to 0
+				set {damage} to 1
+				make server execute command "clear @a"
+		if {jeu_condi} is 8:
+			if {finished_players} is bigger than 1:
+				if {timer-s} is 0:
+					if {timer-m} is 0:
+						force all players to fly
+						loop all players:
+							allow fly for loop-player
+							set {gamemode.%loop-player%} to 3
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
+								set {event_state} to "Showing scores"
+						if {jeu} is not 6:
+							set {timer-m} to 0
+							set {timer-s} to 30
+							set {timer} to 7
+						if {jeu} is 6:
+							set {timer-m} to 1
+							set {timer-s} to 30
+							set {timer} to 10
+						set {jeu_condi} to 0
+						set {damage} to 1
+						set {finished_players} to 0
+						make server execute command "clear @a"
+					if {timer-m} is 1:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						set {timer-m} to 0
+						set {timer-s} to 60
+					if {timer-m} is 2:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						set {timer-m} to 1
+						set {timer-s} to 60
+					if {timer-m} is 3:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 4:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 5:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 6:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 7:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 8:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+					if {timer-m} is 9:
+						loop all players:
+							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+						remove 1 from {timer-m}
+						set {timer-s} to 60
+				remove 1 from {timer-s}
+			else if {finished_players} is 1:
+				force all players to fly
+				loop all players:
+					allow fly for loop-player
+					set {gamemode.%loop-player%} to 3
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
+						set {event_state} to "Showing scores"
+				if {jeu} is not 6:
+					set {timer-m} to 0
+					set {timer-s} to 30
+					set {timer} to 7
+				if {jeu} is 6:
+					set {timer-m} to 1
+					set {timer-s} to 30
+					set {timer} to 10
+				set {jeu_condi} to 0
+				set {damage} to 1
+				set {finished_players} to 0
+				make server execute command "clear @a"
+	if {timer} is 7:
+		if {timer-s} is 30:
+			loop all players:
+				send title "&cGame Over" with subtitle "Check the chat to see you coins" to loop-player for 5 seconds
+		if {timer-s} is 28:
+			loop all players:
+				remove invisibility from loop-player
+				remove speed from loop-player
+				clear {pos.%loop-player%}
+			clear {pos1}
+			clear {pos2}
+			clear {pos3}
+			clear {show}
+			clear {finished::*}
+			clear {list_points::*}
+			loop all players:
+				if loop-player doesn't have permission "group.spectators":
+					add {points_game.%loop-player%} to {points.%loop-player%}
+					add {points.%loop-player%} to {list_points::*}
+					set {points_string.%loop-player%} to "%{points.%loop-player%}%"
+			set {list_points::*} to sorted {list_points::*}
+			set {list_points::*} to reversed {list_points::*}
+			loop all players:
+				if loop-player doesn't have permission "group.spectators":
+					if {list_points::1} is {points.%loop-player%}:
+						set {pos1} to "[&c&lTheEvent580&r] 1st : %loop-player% - %{points.%loop-player%}% ╣"
+						set {pos.%loop-player%} to "&a&l(1st)"
+					if {list_points::2} is {points.%loop-player%}:
+						set {pos2} to "[&c&lTheEvent580&r] 2nd : %loop-player% - %{points.%loop-player%}% ╣"
+						set {pos.%loop-player%} to "&a&l(2nd)"
+					if {list_points::3} is {points.%loop-player%}:
+						set {pos3} to "[&c&lTheEvent580&r] 3rd : %loop-player% - %{points.%loop-player%}% ╣"
+						set {pos.%loop-player%} to "&a&l(3rd)"
+					if {list_points::4} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(4th)"
+					if {list_points::5} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(5th)"
+					if {list_points::6} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(6th)"
+					if {list_points::7} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(7th)"
+					if {list_points::8} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(8th)"
+					if {list_points::9} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(9th)"
+					if {list_points::10} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(10th)"
+					if {list_points::11} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(11th)"
+					if {list_points::12} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(12th)"
+					if {list_points::13} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(13th)"
+					if {list_points::14} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(14th)"
+					if {list_points::15} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(15th)"
+					if {list_points::16} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(16th)"
+					if {list_points::17} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(17th)"
+					if {list_points::18} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(18th)"
+					if {list_points::19} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(19th)"
+					if {list_points::20} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(20th)"
+					if {list_points::21} is {points.%loop-player%}:
+						set {pos.%loop-player%} to "&a&l(21st)"
+				else:
+					set {pos.%loop-player%} to "&a&lSpec"
+			loop all players:
+				if loop-player doesn't have permission "group.spectators":
+					set {show} to {points_game.%loop-value-1%}
+				loop {staff::*}:
+					if loop-value-1 is not loop-value-2:
+						send "[&c&lTheEvent580&r] %loop-value-1% had %{show}% ╣ this game !" to loop-value-2
+						send "[&c&lTheEvent580&r] %loop-value-1% had %{show}% coins this game !" to console
+
+		if {timer-s} is 25:
+			broadcast "[&c&lTheEvent580&r] Event Top 3 :"
+			make server execute command "updateclassement"
+		if {timer-s} is 22:
+			loop all players:
+				if {list_points::1} is {points.%loop-player%}:
+					play sound "custom:coins" in voice category with volume 2 to the loop-player
+				if {list_points::2} is {points.%loop-player%}:
+					play sound "custom:coins" in voice category with volume 2 to the loop-player
+				if {list_points::3} is {points.%loop-player%}:
+					play sound "custom:coins" in voice category with volume 2 to the loop-player
+			broadcast {pos1}
+			broadcast {pos2}
+			broadcast {pos3}
+			set {scoreboard.pos} to 1
+		if {timer-s} is 20:
+			loop all players:
+				if loop-player doesn't have permission "group.spectators":
+					send "[&c&lTheEvent580&r] You had %{points_game.%loop-player%}% ╣ this game and have %{points.%loop-player%}% ╣ in total !" to loop-player
+					play sound "custom:coins" in voice category with volume 2 to the loop-player
+		if {timer-s} is 15:
+			broadcast "[&c&lTheEvent580&r] You placement is visible next to your points count in the middle of the games"
+		if {timer-s} is 1:
+			if {jeu} is 3:
+				remove 1 from {timer-m}
+				set {timer-s} to 60
+			else:			
+				set {timer-m} to 1
+				set {timer-s} to 60
+			set {timer} to 8
+			set {jeu_condi} to 0
+			set {l6} to {jeu_nom}
+			set {jeu_nom} to "&rHub"
+			set {courses_trident_timer_status} to false
+			set {courses_boat_timer_status} to false
+			set {courses_pied_timer_status} to false
+			loop all players:
+				set {courses_boat_timer_status.%loop-player%} to false
+				set {courses_boat_timer.%loop-player%} to 0
+				set {courses_boat.%loop-player%} to "Start"
+				set {courses_boat_timer.%loop-player%} to 0
+				set {courses_pied.%loop-player%} to "Start"
+				set {courses_pied_timer.%loop-player%} to 0
+				set {courses_pied_timer_section.%loop-player%} to 0
+				set {courses_pied_timer_status.%loop-player%} to false
+				set {courses_trident.%loop-player%} to "Start"
+				set {courses_trident_timer.%loop-player%} to 0
+				set {courses_trident_timer_section.%loop-player%} to 0
+				set {courses_trident_timer_status.%loop-player%} to false
+				set {has_trident.%loop-player%} to false
+				set {gamemode.%loop-player%} to 2
+				set {points_game.%loop-player%} to 0
+				set the game mode of loop-player to adventure
+				make loop-player execute command "spawn"
+				make console execute command "fly %loop-player%"
+				clear loop-player's inventory
+				if {flag.%loop-player%} is not false:
+					set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
+				if loop-player has permission "theevent580.staff":
+					send "[&c&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aIntermission" to loop-player
+					set {event_state} to "Intermission"
+		remove 1 from {timer-s}
+	if {timer} is 8:
+		if {timer-s} is 0:
+			if {timer-m} is 0:
+				add 1 to {jeu}
+				if {jeu} is 3 or 4:
+					set {multiplier} to 1.5
+				else if {jeu} is 5 or 6:
+					set {multiplier} to 2
+				set {timer-s} to 10
+				set {timer-m} to 0
+				make server execute command "gametp"
+				loop all players:
+					set loop-player's game mode to adventure
+					make server execute command "/hide %loop-player%"
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eIntermission&r --> &aOpening votes" to loop-player
+						set {event_state} to "Opening votes"
+				loop all players:
+					if loop-player has permission "group.spectators":
+						force loop-player to fly
+						allow fly for loop-player
+				set {timer} to 9
+			if {timer-m} is 1:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-s} to 60
+				set {timer-m} to 0
+				make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
+				make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
+				make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
+				make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
+				make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
+				make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
+				make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
+				make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
+			if {timer-m} is 2:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-s} to 60
+				set {timer-m} to 1
+			if {timer-m} is 3:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-s} to 60
+				remove 1 from {timer-m}
+			if {timer-m} is 4:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-s} to 60
+				remove 1 from {timer-m}
+			if {timer-m} is 5:
+				loop all players:
+					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 0.5 to the loop-player
+				set {timer-s} to 60
+				remove 1 from {timer-m}
+		remove 1 from {timer-s}
+	if {timer} is 9:
+		if {timer-s} is 5:
+			if {jeu} is 3:
+				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1║ to 1.5║" to all players for 3 seconds
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 0.5 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1.5 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 2 to all players
+			if {jeu} is 5:
+				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1.5║ to 2║" to all players for 3 seconds
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 0.5 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1.5 to all players
+				wait 1 ticks
+				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 2 to all players
+		if {timer-s} is 0:
+			if {timer-m} is 0:
+				make server execute command "fill 8 247 -8 -8 247 8 air"
+				wait 5 ticks
+				make server execute command "fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab"
+				make server execute command "fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab"
+				make server execute command "fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab"
+				make server execute command "fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab"
+				make server execute command "fill 8 251 3 -8 251 3 minecraft:air"
+				make server execute command "fill 8 251 -3 -8 251 -3 minecraft:air"
+				make server execute command "fill -3 251 -8 -3 251 8 minecraft:air"
+				make server execute command "fill 3 251 -8 3 251 8 minecraft:air"
+				set {timer-s} to 40
+				set {timer-m} to 0
+				set {timer} to 3
+				loop all players:
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eOpening votes&r --> &aVoting" to loop-player
+						set {event_state} to "Voting"
+		remove 1 from {timer-s}
+	if {timer} is 10:
+		if {timer-m} is 1:
+			if {timer-s} is 15:
+				endNPCs()
+				loop all players:
+					if loop-player doesn't have permission "group.spectators":
+						set {show} to {points_game.%loop-value-1%}
+					loop {staff::*}:
+						if loop-value-1 is not loop-value-2:
+							send "[&c&lTheEvent580&r] %loop-value-1% had %{show}% coins this game !" to loop-value-2
+							send "[&c&lTheEvent580&r] %loop-value-1% had %{show}% coins this game !" to console
+			loop all players:
+				remove invisibility from loop-player
+				remove speed from loop-player
+		if {timer-m} is 0:
+			if {timer-s} is 5:
+				if {timer-m} is 0:
+					endNPCs()
+					make server execute command "tp @a 327.23 68.94 307.70 -66.61 -24.43"
+					clear {list_points::*}
+					loop all players:
+						if loop-player doesn't have permission "group.spectators":
+							add {points_game.%loop-player%} to {points.%loop-player%}
+							add {points.%loop-player%} to {list_points::*}
+							set {points_string.%loop-player%} to "%{points.%loop-player%}%"
+					set {list_points::*} to sorted {list_points::*}
+					set {list_points::*} to reversed {list_points::*}
+		if {timer-s} is 0:
+			if {timer-m} is 0:
+				set {timer} to "Reslults announced - End"
+				loop all players:
+					if {list_points::1} is {points.%loop-player%}:
+						make server execute command "npc select 20"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "hd setLine S1E2W 2 %{color.%loop-player%}% %loop-player%"
+				set {timer} to "Fin"
+				wait 1 minute
+				loop all players:
+					if {list_points::1} is {points.%loop-player%}:
+						make server execute command "npc select 8"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 1 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::2} is {points.%loop-player%}:
+						make server execute command "npc select 9"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 2 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::3} is {points.%loop-player%}:
+						make server execute command "npc select 10"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 3 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::4} is {points.%loop-player%}:
+						make server execute command "npc select 11"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 4 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::5} is {points.%loop-player%}:
+						make server execute command "npc select 12"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 5 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::6} is {points.%loop-player%}:
+						make server execute command "npc select 13"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 6 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::7} is {points.%loop-player%}:
+						make server execute command "npc select 14"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 7 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::8} is {points.%loop-player%}:
+						make server execute command "npc select 15"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 8 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::9} is {points.%loop-player%}:
+						make server execute command "npc select 16"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 9 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+					if {list_points::10} is {points.%loop-player%}:
+						make server execute command "npc select 17"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename Top 10 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+			if {timer-m} is 1:
+				set {timer-s} to 60
+				set {timer-m} to 0
+				make all players execute command "spawn"
+				loop all players:
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aEnd" to loop-player
+						set {event_state} to "End"
+		remove 1 from {timer-s}
+
+every 5 seconds:
+	if {timer} is 0 or 1 or 8 or 9 or 10 or "pause" or "Fin":
+		randomColor()

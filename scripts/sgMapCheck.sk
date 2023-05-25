@@ -1,0 +1,302 @@
+Function sgMapCheck():
+	loop all players:
+		if loop-player has permission "group.spectators":
+			force loop-player to fly
+			allow fly for loop-player
+			reveal hidden players of loop-player
+			hide loop-player from all players
+	loop {staff::*}:
+		hide loop-value from all players
+		force loop-value to fly
+		allow fly for loop-value
+	if {game} is "SG1":
+		loop all players:
+			if loop-player have permission "group.spectators":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1565.177 68 -635.511 28.3 24.3"
+				wait 1.5 seconds
+				set loop-player's gamemode to spectator
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1565.177 68 -635.511 28.3 24.3"
+			else if loop-player have permission "group.rouge":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1577.5 59 -635.5 0 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1577.5 59 -635.5 0 0"
+			else if loop-player have permission "group.orange":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1558.5 59 -628.5 45 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1558.5 59 -628.5 45 0"
+			else if loop-player have permission "group.jaune":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1551.5 59 -611.5 90 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1551.5 59 -611.5 90 0"
+			else if loop-player have permission "group.vert":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1558.5 59 -592.5 135 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1558.5 59 -592.5 135 0"
+			else if loop-player have permission "group.bleu_clair":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1577.5 59 -585.5 180 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1577.5 59 -585.5 180 0"
+			else if loop-player have permission "group.bleu":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1594.5 59 -592.5 -135 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1594.5 59 -592.5 -135 0"
+			else if loop-player have permission "group.violet":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1601.5 59 -611.5 -90 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1601.5 59 -611.5 -90 0"
+			else if loop-player have permission "group.rose":
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1594.5 59 -628.5 -45 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg1 run tp %loop-player% -1594.5 59 -628.5 -45 0"
+		make server execute command "execute in minecraft:sg1 run time set day"
+	else if {game} is "SG2":
+		loop all players:
+			if loop-player have permission "group.spectators":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0 45 0 0 90"
+				wait 1.5 seconds
+				set loop-player's gamemode to spectator
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0 45 0 0 90"
+			else if loop-player have permission "group.rouge":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 20.5 21 0.5 90 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 20.5 21 0.5 90 0"
+			else if loop-player have permission "group.orange":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 14.5 21 14.5 135 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 14.5 21 14.5 135 0"
+			else if loop-player have permission "group.jaune":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0.5 21 20.5 180 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0.5 21 20.5 180 0"
+			else if loop-player have permission "group.vert":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -13.5 21 14.5 -135 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -13.5 21 14.5 -135 0"
+			else if loop-player have permission "group.bleu_clair":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -19.5 21 0.5 -90 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -19.5 21 0.5 -90 0"
+			else if loop-player have permission "group.bleu":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -13.5 21 -13.5 -45 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% -13.5 21 -13.5 -45 0"
+			else if loop-player have permission "group.violet":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0.5 21 -19.5 0 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 0.5 21 -19.5 0 0"
+			else if loop-player have permission "group.rose":
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 14.5 21 -13.5 45 0"
+				wait 1.5 seconds
+				set loop-player's gamemode to adventure
+				make server execute command "execute in minecraft:sg2 run tp %loop-player% 14.5 21 -13.5 45 0"
+		make server execute command "execute in minecraft:sg2 run time set day"
+	#else if {game} is "SG3":
+		#loop all players:
+			#if loop-player have permission "group.spectators":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 37 28 -18 65.1 30.7"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to spectator
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 37 28 -18 65.1 30.7"
+			#else if loop-player have permission "group.rouge":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 0 16 40 180 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 0 16 40 180 0"
+			#else if loop-player have permission "group.orange":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -27 16 28 -135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -27 16 28 -135 0"
+			#else if loop-player have permission "group.jaune":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -40 16 0 -90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -40 16 0 -90 0"
+			#else if loop-player have permission "group.vert":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -27 16 27 -45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% -27 16 27 -45 0"
+			#else if loop-player have permission "group.bleu_clair":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 0 16 -40 0 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 0 16 -40 0 0"
+			#else if loop-player have permission "group.bleu":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 28 16 -27 45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 28 16 -27 45 0"
+			#else if loop-player have permission "group.violet":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 40 16 0 90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 40 16 0 90 0"
+			#else if loop-player have permission "group.rose":
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 28 16 28 135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg3 run tp %loop-player% 28 16 28 135 0"
+		#make server execute command "execute in minecraft:sg3 run time set day"
+	#else if {game} is "SG4":
+		#loop all players:
+			#if loop-player have permission "group.spectators":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 60 -2.5 0 90"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to spectator
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 60 -2.5 0 90"
+			#else if loop-player have permission "group.rouge":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 17 30 -2 90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 17 30 -2 90 0"
+			#else if loop-player have permission "group.orange":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 12 30 9 135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 12 30 9 135 0"
+			#else if loop-player have permission "group.jaune":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 30 14 180 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 30 14 180 0"
+			#else if loop-player have permission "group.vert":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -11 30 9 -135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -11 30 9 -135 0"
+			#else if loop-player have permission "group.bleu_clair":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -16 30 -2 -90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -16 30 -2 -90 0"
+			#else if loop-player have permission "group.bleu":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -11 30 -14 -45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% -11 30 -14 -45 0"
+			#else if loop-player have permission "group.violet":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 30 -19 0 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 30 -19 0 0"
+			#else if loop-player have permission "group.rose":
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 12 30 -14 45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg4 run tp %loop-player% 12 30 -14 45 0"
+		#make server execute command "execute in minecraft:sg4 run time set day"
+	#else if {game} is "SG5":
+		#loop all players:
+			#set loop-player's gamemode to adventure
+			#if loop-player have permission "group.spectators":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 86 24 0 90"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to spectator
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 86 24 0 90"
+			#else if loop-player have permission "group.rouge":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 65 49 180 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 65 49 180 0"
+			#else if loop-player have permission "group.orange":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -2 65 42 -135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -2 65 42 -135 0"
+			#else if loop-player have permission "group.jaune":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -9 65 24 -90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -9 65 24 -90 0"
+			#else if loop-player have permission "group.vert":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -2 65 6 -45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% -2 65 6 -45 0"
+			#else if loop-player have permission "group.bleu_clair":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 65 -1 0 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 15 65 -1 0 0"
+			#else if loop-player have permission "group.bleu":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 33 65 6 45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 33 65 6 45 0"
+			#else if loop-player have permission "group.violet":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 40 65 24 90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 40 65 24 90 0"
+			#else if loop-player have permission "group.rose":
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 33 65 42 135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg5 run tp %loop-player% 33 65 42 135 0"
+		#make server execute command "execute in minecraft:sg5 run time set day"
+	#else if {game} is "SG6":
+		#loop all players:
+			#set loop-player's gamemode to adventure
+			#if loop-player have permission "group.spectators":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164.5 91 -34.5 -180 90"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to spectator
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164.5 91 -34.5 -180 90"
+			#else if loop-player have permission "group.rouge":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -136 66 -34 90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -136 66 -34 90 0"
+			#else if loop-player have permission "group.orange":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -144 66 -14 135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -144 66 -14 135 0"
+			#else if loop-player have permission "group.jaune":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164 66 -6 180 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164 66 -6 180 0"
+			#else if loop-player have permission "group.vert":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -184 66 -14 -135 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -184 66 -14 -135 0"
+			#else if loop-player have permission "group.bleu_clair":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -192 66 -34 -90 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -192 66 -34 -90 0"
+			#else if loop-player have permission "group.bleu":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -184 66 -54 -45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -184 66 -54 -45 0"
+			#else if loop-player have permission "group.violet":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164 66 -62 0 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -164 66 -62 0 0"
+			#else if loop-player have permission "group.rose":
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -144 66 -54 45 0"
+				#wait 1.5 seconds
+				#set loop-player's gamemode to adventure
+				#make server execute command "execute in minecraft:sg6 run tp %loop-player% -144 66 -54 45 0"
+		#make server execute command "execute in minecraft:sg6 run time set day"
+	#add {game} to {maps::*}

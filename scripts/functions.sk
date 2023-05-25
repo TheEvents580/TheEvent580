@@ -1,0 +1,469 @@
+Function randomColor():
+	set {color} to a random integer between 1 and 8
+	if {color} is 1:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 red_stained_glass"
+	if {color} is 2:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 orange_stained_glass"
+	if {color} is 3:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 yellow_stained_glass"
+	if {color} is 4:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 lime_stained_glass"
+	if {color} is 5:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 light_blue_stained_glass"
+	if {color} is 6:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 blue_stained_glass"
+	if {color} is 7:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 purple_stained_glass"
+	if {color} is 8:
+		make server execute command "execute in minecraft:overworld run setblock 310 64 323 pink_stained_glass"
+
+Function reloadTimer():
+	if {courses} is "boat":
+		loop all players:
+			send action bar "&bTime : %{courses_boat_timer.%loop-player%}%s " to loop-player
+			
+	else if {courses} is "trident":
+		loop all players:
+			send action bar "&bLevel time : %{courses_trident_timer_section.%loop-player%}%s | Total time : %{courses_trident_timer.%loop-player%}%s" to loop-player
+
+	else if {courses} is "pied":
+		loop all players:
+			send action bar "&bLevel time : %{courses_pied_timer_section.%loop-player%}%s | Total time : %{courses_pied_timer.%loop-player%}%s" to loop-player
+
+Function checkBiggest():
+	clear {games::*}
+	set {biggest} to {red}
+	add "&c&lDropper" to {games::*}
+	if {orange} is greater than {biggest}:
+		set {biggest} to {orange}
+		clear {games::*}
+		add "&6&lParkour" to {games::*}
+	else if {orange} is equal to {biggest}:
+		set {biggest} to {orange}
+		add "&6&lParkour" to {games::*}
+	if {yellow} is greater than {biggest}:
+		set {biggest} to {yellow}
+		clear {games::*}
+		add "&e&lBingo" to {games::*}
+	else if {yellow} is equal to {biggest}:
+		set {biggest} to {yellow}
+		add "&e&lBingo" to {games::*}
+	if {lime} is greater than {biggest}:
+		set {biggest} to {lime}
+		clear {games::*}
+		add "&a&lFind The Button" to {games::*}
+	else if {lime} is equal to {biggest}:
+		set {biggest} to {lime}
+		add "&a&lFind The Button" to {games::*}
+	if {light_blue} is greater than {biggest}:
+		set {biggest} to {light_blue}
+		clear {games::*}
+		add "&b&lRaces" to {games::*}
+	else if {light_blue} is equal to {biggest}:
+		set {biggest} to {light_blue}
+		add "&b&lRaces" to {games::*}
+	if {blue} is greater than {biggest}:
+		set {biggest} to {blue}
+		clear {games::*}
+		add "&1&lBuild Masters" to {games::*}
+	else if {blue} is equal to {biggest}:
+		set {biggest} to {blue}
+		add "&1&lBuild Masters" to {games::*}
+	if {purple} is greater than {biggest}:
+		set {biggest} to {purple}
+		clear {games::*}
+		add "&5&lLabyrinth" to {games::*}
+	else if {purple} is equal to {biggest}:
+		set {biggest} to {purple}
+		add "&5&lLabyrinth" to {games::*}
+	if {pink} is greater than {biggest}:
+		set {biggest} to {pink}
+		clear {games::*}
+		add "&d&lBow PVP" to {games::*}
+	else if {pink} is equal to {biggest}:
+		set {biggest} to {pink}
+		add "&d&lBow PVP" to {games::*}
+	if the size of {games::*} is 1:
+		if {biggest} is {red}:
+			wait 10 seconds
+			loop all players:
+				send title "&c&lDropper" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &c&lDropper&r with&r &c&l%{red}%&r votes"
+			set {jeu_nom} to "&c&lDropper"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+		else if {biggest} is {orange}:
+			wait 10 seconds
+			loop all players:
+				send title "&6&lParkour" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
+			set {jeu_nom} to "&6&lParkour"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+		else if {biggest} is {yellow}:
+			wait 10 seconds
+			loop all players:
+				send title "&e&lBingo" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
+			set {jeu_nom} to "&e&lBingo"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+		else if {biggest} is {lime}:
+			wait 10 seconds
+			loop all players:
+				send title "&a&lFind The Button" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &a&lFind The Button&r with&r &a&l%{lime}%&r votes"
+			set {jeu_nom} to "&a&lFind The Button"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+		else if {biggest} is {light_blue}:
+			wait 10 seconds
+			loop all players:
+				send title "&b&lRaces" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &b&lRaces&r with&r &b&l%{light_blue}%&r votes"
+			set {jeu_nom} to "&b&lRaces"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+		else if {biggest} is {blue}:
+			wait 10 seconds
+			loop all players:
+				send title "&1&lBuild Masters" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &1&lBuild Masters&r with&r &1&l%{blue}%&r votes"
+			set {jeu_nom} to "&1&lBuild Masters"
+			#	send title "&1&lSurvival Games" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			#broadcast "[&c&lTheEvent580&r] The chosen minigame is &1&lSurvival Games&r with&r &1&l%{blue}%&r votes"
+			#set {jeu_nom} to "&1&lSurvival Games &e(&r%{map_sg}% / 2&e)&r"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+		else if {biggest} is {purple}:
+			wait 10 seconds
+			loop all players:
+				send title "&5&lLabyrinth" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &5&lLabyrinth&r with&r &5&l%{purple}%&r votes"
+			set {jeu_nom} to "&5&lLabyrinth"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+		else if {biggest} is {pink}:
+			wait 10 seconds
+			loop all players:
+				send title "&d&lBow PVP" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			set {jeu_nom} to "&d&lBow PVP"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+	if the size of {games::*} is greater than 1:
+		loop all players:
+			if loop-player has permission "group.spectators":
+				send "[&c&lTheEvent580 - Vote Tie&r] The tied games are :" to loop-player
+				loop {games::*}:
+					send "[&c&lTheEvent580 - Vote Tie&r] %loop-value-2%" to loop-player
+		set {_random} to a random integer between 1 and the size of {games::*}
+		wait 5 seconds
+		loop all players:
+			send title "&c&lVote is tied" with subtitle "Vote tied between %size of {games::*}% games" to loop-player for 3 seconds
+		broadcast "[&c&lTheEvent580&r] Vote tied between %size of {games::*}% games"
+		if {games::%{_random}%} is "&c&lDropper":
+			wait 5 seconds
+			loop all players:
+				send title "&c&lDropper" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &c&lDropper&r with&r &c&l%{red}%&r votes"
+			set {jeu_nom} to "&c&lDropper"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+		if {games::%{_random}%} is "&6&lParkour":
+			wait 5 seconds
+			loop all players:
+				send title "&6&lParkour" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
+			set {jeu_nom} to "&6&lParkour"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+		if {games::%{_random}%} is "&e&lBingo":
+			wait 5 seconds
+			loop all players:
+				send title "&e&lBingo" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
+			set {jeu_nom} to "&e&lBingo"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+		if {games::%{_random}%} is "&a&lFind The Button":
+			wait 5 seconds
+			loop all players:
+				send title "&a&lFind The Button" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &a&lFind The Button&r with&r &a&l%{lime}%&r votes"
+			set {jeu_nom} to "&a&lFind The Button"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+		if {games::%{_random}%} is "&b&lRaces":
+			wait 5 seconds
+			loop all players:
+				send title "&b&lRaces" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &b&lRaces&r with&r &b&l%{light_blue}%&r votes"
+			set {jeu_nom} to "&b&lRaces"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+		if {games::%{_random}%} is "&1&lBuild Masters":
+			wait 5 seconds
+			loop all players:
+				send title "&1&lBuild Masters" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &1&lBuild Masters&r with&r &1&l%{blue}%&r votes"
+			set {jeu_nom} to "&1&lBuild Masters"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+		if {games::%{_random}%} is "&5&lLabyrinth":
+			wait 5 seconds
+			loop all players:
+				send title "&5&lLabyrinth" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &5&lLabyrinth&r with&r &5&l%{purple}%&r votes"
+			set {jeu_nom} to "&5&lLabyrinth"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+		if {games::%{_random}%} is "&d&lBow PVP":
+			wait 5 seconds
+			loop all players:
+				send title "&d&lBow PVP" with subtitle "Teleportaton in 5 secs" to loop-player for 3 seconds
+			broadcast "[&c&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			set {jeu_nom} to "&d&lBow PVP"
+			wait 3 seconds
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
+			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+
+Function after():
+	wait 10 seconds
+	if {white} is greater than 1:
+		if {light_gray} is greater than 1:
+			broadcast "[&c&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+		else if {light_gray} is 1:
+			broadcast "[&6&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
+		else if {light_gray} is 0:
+			broadcast "[&c&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted !"
+	else if {white} is 1:
+		if {light_gray} is greater than 1:
+			broadcast "[&c&lTheEvent580&r] Also, &r&l1&r player haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+		else if {light_gray} is 1:
+			broadcast "[&c&lTheEvent580&r] Also, &r&l1&r player haven't voted and&r &7&l1&r player voted an already played game !"
+		else if {light_gray} is 0:
+			broadcast "[&c&lTheEvent580&r] Also, &r&l1&r player haven't voted !"
+	else if {white} is 0:
+		if {light_gray} is greater than 1:
+			broadcast "[&c&lTheEvent580&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
+		else if {light_gray} is 1:
+			broadcast "[&c&lTheEvent580&r] Also, &7&l1&r player voted an already played game !"
+
+Function respawnBowPVP(p:player):
+	if {jeu_condi} is 8: #Bow PVP
+		set {random_respawn} to a random integer between 1 and 12
+		if {random_respawn} is 1:
+			teleport {_p} to location(35.5, 141, 4.5, "Bow_PVP", 90, 0.1)
+		else if {random_respawn} is 2:
+			teleport {_p} to location(-2.5, 141, 34.5, "Bow_PVP", 180, 0.1)
+		else if {random_respawn} is 3:
+			teleport {_p} to location(-32.5, 141, -3.5, "Bow_PVP", -90, 0.1)
+		else if {random_respawn} is 4:
+			teleport {_p} to location(5.5, 141, -33.5, "Bow_PVP", 0.1, 0.1)
+		else if {random_respawn} is 5:
+			teleport {_p} to location(-32.5, 111, -3.5, "Bow_PVP", 0.1, 0.1)
+		else if {random_respawn} is 6:
+			teleport {_p} to location(-2.5, 111, 34.5, "Bow_PVP", 90, 0.1)
+		else if {random_respawn} is 7:
+			teleport {_p} to location(-32.5, 111, -3.5, "Bow_PVP", -180, 0.1)
+		else if {random_respawn} is 8:
+			teleport {_p} to location(5.5, 111, -33.5, "Bow_PVP", -90, 0.1)
+		else if {random_respawn} is 9:
+			teleport {_p} to location(9.5, 128, 0.5, "Bow_PVP", 90, 0.1)
+		else if {random_respawn} is 10:
+			teleport {_p} to location(1.5, 128, 8.5, "Bow_PVP", 180, 0.1)
+		else if {random_respawn} is 11:
+			teleport {_p} to location(-6.5, 128, 0.5, "Bow_PVP", -90, 0.1)
+		else if {random_respawn} is 12:
+			teleport {_p} to location(1.5, 128, 7.5, "Bow_PVP", 0.1, 0.1)
+
+#Function seeBlock():
+#	loop all players:
+#		if the targeted block of loop-player is not set:
+#			set {_seeblock} to "air"
+#		if the targeted block of loop-player is white_concrete:
+#			set {_seeblock} to the loop-player's targeted block
+#		send action bar "You're looking at : %{_seeblock}%" to loop-player
+
+Function updateClassement():
+	clear {list_points::*}
+	loop all players:
+		if loop-player doesn't have permission "group.spectators":	
+			add {points.%loop-player%} to {list_points::*}
+			set {points_string.%loop-player%} to "%{points.%loop-player%}%"
+		set {list_points::*} to sorted {list_points::*}
+		set {list_points::*} to reversed {list_points::*}
+	loop all players:
+		if {list_points::1} is {points.%loop-player%}:
+			make server execute command "npc select 8"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 1 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::2} is {points.%loop-player%}:
+			make server execute command "npc select 9"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 2 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::3} is {points.%loop-player%}:
+			make server execute command "npc select 10"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 3 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::4} is {points.%loop-player%}:
+			make server execute command "npc select 11"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 4 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::5} is {points.%loop-player%}:
+			make server execute command "npc select 12"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 5 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::6} is {points.%loop-player%}:
+			make server execute command "npc select 13"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 6 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::7} is {points.%loop-player%}:
+			make server execute command "npc select 14"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 7 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::8} is {points.%loop-player%}:
+			make server execute command "npc select 15"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 8 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::9} is {points.%loop-player%}:
+			make server execute command "npc select 16"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 9 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+		if {list_points::10} is {points.%loop-player%}:
+			make server execute command "npc select 17"
+			make server execute command "npc skin %loop-player%"
+			make server execute command "npc rename Top 10 : %{color.%loop-player%}% %loop-player% &r--> %{points_string.%loop-player%}% ╣"
+
+Function updateParkour():
+	clear {list_parkour::*}
+	loop all players:
+		add "%{compl_parcour.%loop-player%}%" to {list_parkour::*}
+		set {compl_parcour_string.%loop-player%} to "%{compl_parcour.%loop-player%}%"
+	set {list_parkour::*} to sorted {list_parkour::*}
+	loop all players:
+		if {list_parkour::1} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 2 1st : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::2} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 3 2nd : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::3} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 4 3rd : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::4} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 5 4th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::5} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 6 5th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::6} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 7 6th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::7} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 8 7th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::8} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 9 8th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::9} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 10 9th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::10} is {points_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 11 10th : {papi: skript_compl_parcour.%loop-player%}"
+		make server execute command "hd reload"
+
+Function resetNPCs():
+	make server execute command "npc select 20"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "hd setLine S1E2W 2 TBD"
+	make server execute command "npc select 8"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 1 : TBD"
+	make server execute command "npc select 9"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 2 : TBD"
+	make server execute command "npc select 10"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 3 : TBD"
+	make server execute command "npc select 11"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 4 : TBD"
+	make server execute command "npc select 12"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 5 : TBD"
+	make server execute command "npc select 13"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 6 : TBD"
+	make server execute command "npc select 14"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 7 : TBD"
+	make server execute command "npc select 15"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 8 : TBD"
+	make server execute command "npc select 16"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 9 : TBD"
+	make server execute command "npc select 17"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 10 : TBD"
+
+Function endNPCs():
+	make server execute command "npc select 8"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 1 : &kHidden"
+	make server execute command "npc select 9"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 2 : &kHidden"
+	make server execute command "npc select 10"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 3 : &kHidden"
+	make server execute command "npc select 11"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 4 : &kHidden"
+	make server execute command "npc select 12"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 5 : &kHidden"
+	make server execute command "npc select 13"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 6 : &kHidden"
+	make server execute command "npc select 14"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 7 : &kHidden"
+	make server execute command "npc select 15"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 8 : &kHidden"
+	make server execute command "npc select 16"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 9 : &kHidden"
+	make server execute command "npc select 17"
+	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
+	wait 3 ticks
+	make server execute command "npc rename Top 10 : &kHidden"

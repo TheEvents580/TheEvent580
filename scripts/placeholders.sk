@@ -1,0 +1,8 @@
+on papi placeholder request for the prefix "skript":
+    loop all players:
+        if the identifier is "points.%loop-player%":
+            set {points_txt.%loop-player%} to "%loop-player% --> %{points.%loop-player%}% pts"
+            set the result to {points_txt.%loop-player%}
+        if the identifier is "compl_parcour.%loop-player%":
+            set {compl_parcour_txt.%loop-player%} to "%loop-player% --> %{compl_parcour.%loop-player%}% completions"
+            set the result to {compl_parcour_txt.%loop-player%}
