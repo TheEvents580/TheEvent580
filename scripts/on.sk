@@ -159,10 +159,6 @@ on join:
 		if player doesn't have permission "group.violet":
 			make server execute command "lp user %player% parent set violet"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	#if player is "Redye_":
-	#	if player doesn't have permission "group.rouge":
-	#		make server execute command "lp user %player% parent set rouge"
-	#		kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "EnCrypTeD__":
 		if player doesn't have permission "group.bleu_clair":
 			make server execute command "lp user %player% parent set bleu_clair"
@@ -172,13 +168,21 @@ on join:
 			make server execute command "lp user %player% parent set bleu"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "Frogqers":
-		if player doesn't have permission "group.vert":
-			make server execute command "lp user %player% parent set vert"
+		if player doesn't have permission "group.rose":
+			make server execute command "lp user %player% parent set rose"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "ItsDaniMilksops":
 		if player doesn't have permission "group.jaune":
 			make server execute command "lp user %player% parent set jaune"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
+	if player is "DigiZ":
+		if player doesn't have permission "group.jaune":
+			make server execute command "lp user %player% parent set jaune"
+			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
+	#if player is "Redye_":
+	#	if player doesn't have permission "group.rouge":
+	#		make server execute command "lp user %player% parent set rouge"
+	#		kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	reveal player to all players
 	reveal all players from player
 	if {flag.%player%} is not set:
