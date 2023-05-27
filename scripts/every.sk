@@ -1236,6 +1236,7 @@ every second:
 				loop all players:
 					if loop-player doesn't have permission "group.spectators":
 						set loop-player's game mode to adventure
+					clear loop-player's inventory
 					make server execute command "/hide %loop-player%"
 				broadcast "[&c&lTheEvent580&r] The Minigames are :"
 		if {timer-m} is 1:
@@ -2800,6 +2801,7 @@ every second:
 				loop all players:
 					set loop-player's game mode to adventure
 					make server execute command "/hide %loop-player%"
+					clear loop-player's inventory
 					if loop-player has permission "theevent580.staff":
 						send "[&c&lTheEvent580 - Admin&r] Event state : &eIntermission&r --> &aOpening votes" to loop-player
 						set {event_state} to "Opening votes"
