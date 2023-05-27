@@ -152,8 +152,8 @@ on join:
 			make server execute command "lp user %player% parent set spectators"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "LeRenard580":
-		if player doesn't have permission "group.vert":
-			make server execute command "lp user %player% parent set vert"
+		if player doesn't have permission "group.spectators":
+			make server execute command "lp user %player% parent set spectators"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "BetterPooka":
 		if player doesn't have permission "group.violet":
@@ -178,6 +178,10 @@ on join:
 	if player is "DigiZ":
 		if player doesn't have permission "group.jaune":
 			make server execute command "lp user %player% parent set jaune"
+			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
+	if player is "EinfachStam":
+		if player doesn't have permission "group.vert":
+			make server execute command "lp user %player% parent set vert"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	#if player is "Redye_":
 	#	if player doesn't have permission "group.rouge":
@@ -207,7 +211,7 @@ on join:
 		allow fly for player
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
-		make console execute command "/hide %loop-player%"
+		make console execute command "/hide %player%"
 	if player has permission "*":
 		add player to {staff::*}
 		send "[&c&lTheEvent580 - Admin&r] Online Staff :"
