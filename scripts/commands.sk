@@ -1805,3 +1805,29 @@ command /seeblock:
 		else:
 			set {check_block.%player%} to false
 			send "%nl%[&c&lTheEvent580 - Colorblind&r] You can no longer see the name of the block you're looking at !%nl%"
+
+command /wl <text> [<offline player>]:
+	permission: *
+	permission message: &cThis command does not exist
+	trigger:
+		if arg-1 is "add":
+			if arg-2 is not set:
+				send "[&cTheEvent580 - Admin&r] Please enter a username"
+			else:
+				if arg-2 is not whitelisted:
+					make console execute command "whitelist add %arg-2%"
+					send "[&cTheEvent580 - Admin&r] Player %arg-2% has been added to the whitelist"
+				else:
+					send "[&cTheEvent580 - Admin&r] Player %arg-2% is already whitelisted"
+		if arg-1 is "remove":
+			if arg-2 is not set:
+				send "[&cTheEvent580 - Admin&r] Please enter a username"
+			else:
+				if arg-2 is whitelisted:
+					make console execute command "whitelist remove %arg-2%"
+					send "[&cTheEvent580 - Admin&r] Player %arg-2% has been removed from the whitelist"
+				else:
+					send "[&cTheEvent580 - Admin&r] Player %arg-2% is already unwhitelisted"
+		if arg-1 is "list":
+			make console execute command "whitelist list"
+			send "[&cTheEvent580 - Admin] Please check the console"
