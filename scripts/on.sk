@@ -207,14 +207,7 @@ on join:
 		allow fly for player
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
-		hide player from all players
-		loop {finished::*}:
-			make console execute command "/see %loop-value%"
-			make console execute command "/hide %loop-value%"
-		loop all players:
-			if loop-player has permission "group.spectators":
-				make console execute command "/see %loop-player%"
-				make console execute command "/hide %loop-player%"
+		make console execute command "/hide %loop-player%"
 	if player has permission "*":
 		add player to {staff::*}
 		send "[&c&lTheEvent580 - Admin&r] Online Staff :"
@@ -584,6 +577,8 @@ on right click :
 				set helmet of player to carrot on a stick named "&rUnlabled Flag"
 				set {flag.%player%} to "&rUnlabled Flag"
 				send "[&c&lTheEvent580&r] You now have the Unlabled flag on your head"
+			if event-block is red concrete:
+				give 1 of apple to player
 		if {jeu_condi} is 4: #Find The Button
 			if {finished.%player%} is false:
 				if event-block is oak_button:
