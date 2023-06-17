@@ -20,9 +20,9 @@ Function reloadTab():
 	if {jeu_condi} is 9:
 		set {gametab} to "&1&lBuild Masters&r"
 	#Tests:
-	set {header} to "            &c&lTheEvent580 • Season 0.5 - Episode 1.5&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&eSpectators :&r%nl%%nl%%{color.TheFox580}%TheFox580&r%nl%%nl%&ePlayers :&r%nl%%nl%%{color.LeRenard580}%LeRenard580&r%nl%%{color.Case_Cool}%Case_Cool&r"
+	#set {header} to "            &c&lTheEvent580 • Season 0.5 - Episode 1.5&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&eSpectators :&r%nl%%nl%%{color.TheFox580}%TheFox580&r%nl%%nl%&ePlayers :&r%nl%%nl%%{color.LeRenard580}%LeRenard580&r%nl%%{color.Case_Cool}%Case_Cool&r"
 	#Events:
-	#set {header} to "            &c&lTheEvent580 • Season 1 - Episode 1&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&eSpectators :&r%nl%%nl%%{color.TheFox580}%TheFox580&r%nl%%{color.Case_Cool}%Case_Cool&r%nl%%nl%&ePlayers :&r%nl%%nl%%{color.BetterPooka}%BetterPooka&r%nl%%{color.Redye_}%Redye_&r%nl%%{color.EnCrypTeD__}%EnCrypTeD__&r%nl%%{color.SpixKokiri}%SpixKokiri&r%nl%%{color.ItsDaniMilksops}%ItsDaniMilksops&r%nl%%{color.Frogqers}%Frogqers&r"
+	set {header} to "            &c&lTheEvent580 • Season 1 - Episode 1&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&eSpectators :&r%nl%%nl%%{color.TheFox580}%TheFox580&r%nl%%{color.Case_Cool}%Case_Cool&r%nl%%nl%&ePlayers :&r%nl%%nl%%{color.BetterPooka}%BetterPooka&r%nl%%{color.Redye_}%Redye_&r%nl%%{color.EnCrypTeD__}%EnCrypTeD__&r%nl%%{color.SpixKokiri}%SpixKokiri&r%nl%%{color.ItsDaniMilksops}%ItsDaniMilksops&r%nl%%{color.Frogqers}%Frogqers&r"
 	set {blocker} to "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%"
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"
@@ -31,7 +31,6 @@ Function resetTab():
 	set {color.TheFox580} to "タ &7"
 	set {color.LeRenard580} to "タ &7"
 	set {color.Case_Cool} to "タ &7"
-	set {color.HTNMC} to "タ &7"
 #	set {color.DigiZ} to "タ &7"
 	set {color.Frogqers} to "タ &7"
 	set {color.BetterPooka} to "タ &7"
