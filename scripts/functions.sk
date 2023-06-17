@@ -358,33 +358,33 @@ Function updateParkour():
 		set {compl_parcour_string.%loop-player%} to "%{compl_parcour.%loop-player%}%"
 	set {list_parkour::*} to sorted {list_parkour::*}
 	loop all players:
-		if {list_parkour::1} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 2 1st : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::2} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 3 2nd : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::3} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 4 3rd : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::4} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 5 4th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::5} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 6 5th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::6} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 7 6th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::7} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 8 7th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::8} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 9 8th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::9} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 10 9th : {papi: skript_compl_parcour.%loop-player%}"
-		if {list_parkour::10} is {points_string.%loop-player%}:
-			make server execute command "hd setLine TrainParkourCompl 11 10th : {papi: skript_compl_parcour.%loop-player%}"
+		if {list_parkour::1} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 2 1st : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::2} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 3 2nd : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::3} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 4 3rd : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::4} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 5 4th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::5} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 6 5th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::6} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 7 6th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::7} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 8 7th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::8} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 9 8th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::9} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 10 9th : %{compl_parcour.%loop-player%}%"
+		if {list_parkour::10} is {compl_parcour_string.%loop-player%}:
+			make server execute command "hd setLine TrainParkourCompl 11 10th : %{compl_parcour.%loop-player%}%"
 		make server execute command "hd reload"
 
 Function resetNPCs():
-	make server execute command "npc select 20"
+	make server execute command "npc select 21"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
-	make server execute command "hd setLine S1E2W 2 TBD"
+	make server execute command "hd setLine S1E3W 2 TBD"
 	make server execute command "npc select 8"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
