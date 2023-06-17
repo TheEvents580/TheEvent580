@@ -2781,8 +2781,6 @@ every second:
 				make loop-player execute command "spawn"
 				make console execute command "fly %loop-player%"
 				clear loop-player's inventory
-				if {flag.%loop-player%} is not false:
-					set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
 				if loop-player has permission "theevent580.staff":
 					send "[&c&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aIntermission" to loop-player
 					set {event_state} to "Intermission"
@@ -2807,8 +2805,7 @@ every second:
 						set {event_state} to "Opening votes"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						force loop-player to fly
-						allow fly for loop-player
+						make server execute command "/hide %loop-player%"
 				set {timer} to 9
 			if {timer-m} is 1:
 				loop all players:
