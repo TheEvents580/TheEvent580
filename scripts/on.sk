@@ -22,7 +22,7 @@ on inventory click:
 		if {jeu_condi} is 0:
 			cancel event
 			close player's inventory
-			send "[&c&lTheEvent580&r] You cannot remove this cosmetic manually, please go on the pressure plate to remove it."
+			send "[&c&lTheEvent580&r] You cannot remove this cosmetic manually, please go on the &cX &rblock (mushroom island) to remove it."
 			wait 1 ticks
 			clear slot 0 of player's inventory
 			clear slot 1 of player's inventory
@@ -140,7 +140,7 @@ on chat:
 
 
 on server list ping:
-	set the motd to "&c&LTheEvent580 • Season 1 - Episode 2&f Later..."
+	set the motd to "&c&LTheEvent580 • Season 1 - Episode 3&f will be back in August..."
 
 on join:
 	if player is "TheFox580":
@@ -152,8 +152,8 @@ on join:
 			make server execute command "lp user %player% parent set spectators"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "LeRenard580":
-		if player doesn't have permission "group.spectators":
-			make server execute command "lp user %player% parent set spectators"
+		if player doesn't have permission "group.vert":
+			make server execute command "lp user %player% parent set vert"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "BetterPooka":
 		if player doesn't have permission "group.violet":
@@ -172,8 +172,8 @@ on join:
 			make server execute command "lp user %player% parent set rose"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "ItsDaniMilksops":
-		if player doesn't have permission "group.jaune":
-			make server execute command "lp user %player% parent set jaune"
+		if player doesn't have permission "group.rouge":
+			make server execute command "lp user %player% parent set rouge"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	if player is "DigiZ":
 		if player doesn't have permission "group.jaune":
@@ -183,10 +183,14 @@ on join:
 		if player doesn't have permission "group.vert":
 			make server execute command "lp user %player% parent set vert"
 			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	#if player is "Redye_":
-	#	if player doesn't have permission "group.rouge":
-	#		make server execute command "lp user %player% parent set rouge"
-	#		kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
+	if player is "Redye_":
+		if player doesn't have permission "group.violet":
+			make server execute command "lp user %player% parent set violet"
+			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
+	if player is "Redd_Zee":
+		if player doesn't have permission "group.violet":
+			make server execute command "lp user %player% parent set violet"
+			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
 	reveal player to all players
 	reveal all players from player
 	if {flag.%player%} is not set:
@@ -217,7 +221,7 @@ on join:
 		send "[&c&lTheEvent580 - Admin&r] Online Staff :"
 		loop {staff::*}:
 			send "[&c&lTheEvent580 - Admin&r] %loop-value%"
-	make server execute command "/team join nocolisions %player%"
+	make console execute command "/team join nocolisions %player%"
 	if {total_points.%player%} is not set:	
 		set {total_points.%player%} to 0
 		set {total_points_event.%player%} to 0
@@ -236,9 +240,9 @@ on join:
 	if player has permission "b":
 		set join message to "&r[&a+&r] &1%player%"
 		set {color.%player%} to "像&1 "
-	if player has permission "o":
-		set join message to "&r[&a+&r] &6%player%"
-		set {color.%player%} to "ャ&6 "
+	#if player has permission "o":
+	#	set join message to "&r[&a+&r] &6%player%"
+	#	set {color.%player%} to "ャ&6 "
 	if player has permission "y":
 		set join message to "&r[&a+&r] &e%player%"
 		set {color.%player%} to "ギ&e "
@@ -320,11 +324,16 @@ on quit:
 
 on damage:
 	if attacker has permission "group.spectators":
-		cancel event
+		if {jeu_condi} is 0 or -1:
+			cancel event
 	if victim has permission "group.spectators":
 		cancel event
 	if {timer} is 3 or 8:
-		cancel event
+		if attacker doesn't have permission "group.spectators":
+			cancel event
+	if {jeu_condi} is 0:
+		if attacker doesn't have permission "group.spectators":
+			cancel event
 	else:
 		if {damage} is 1 or 2:
 			if victim is a player:
@@ -492,7 +501,7 @@ on death:
 on respawn:
 	if {jeu_condi} is 3:
 		wait 1 tick
-		make server execute command "execute in bingo run tp %player% 307.0 64 147.5 0 0"
+		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
 	else if {jeu_condi} is 6:
 		wait 1 tick
 		if {game} is "SG1":
@@ -536,7 +545,7 @@ on right click with compass:
 
 on right click :
 	if player has permission "group.spectators":
-		if {timer} is not "pause" or 0:
+		if {timer} is not "pause" or 0 or "Fin":
 			cancel event
 	if {timer} is not "pause":
 		if {jeu_condi} is 0:
@@ -554,9 +563,9 @@ on right click :
 				set {flag.%player%} to "&rPride Flag"
 				send "[&c&lTheEvent580&r] You now have the Pride flag on your head"
 			if event-block is birch_button:
-				set helmet of player to carrot on a stick named "&rTransexual Flag"
-				set {flag.%player%} to "&rTransexual Flag"
-				send "[&c&lTheEvent580&r] You now have the Transexual flag on your head"
+				set helmet of player to carrot on a stick named "&rTransgender Flag"
+				set {flag.%player%} to "&rTransgender Flag"
+				send "[&c&lTheEvent580&r] You now have the Transgender flag on your head"
 			if event-block is jungle_button:
 				set helmet of player to carrot on a stick named "&rPansexual Flag"
 				set {flag.%player%} to "&rPansexual Flag"
@@ -566,9 +575,9 @@ on right click :
 				set {flag.%player%} to "&rLesbian Flag"
 				send "[&c&lTheEvent580&r] You now have the Lesbian flag on your head"
 			if event-block is dark_oak_button:
-				set helmet of player to carrot on a stick named "&rTransexual Inclusive Gay Men Flag"
-				set {flag.%player%} to "&rTransexual Inclusive Gay Men Flag"
-				send "[&c&lTheEvent580&r] You now have the Transexual Inclusive Gay Men flag on your head"
+				set helmet of player to carrot on a stick named "&rTrans-Inclusive Gay Men Flag"
+				set {flag.%player%} to "&rTrans-Inclusive Gay Men Flag"
+				send "[&c&lTheEvent580&r] You now have the Trans-Inclusive Gay Men flag on your head"
 			if event-block is mangrove_button:
 				set helmet of player to carrot on a stick named "&rNon Binary Flag"
 				set {flag.%player%} to "&rNon Binary Flag"
