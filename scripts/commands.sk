@@ -218,9 +218,6 @@ command /reset:
 				set {finished_players} to 0
 				set {online_players} to 0
 				set {checking_finished_players} to 0
-				set {courses_boat_timer_status} to false
-				set {courses_pied_timer_status} to false
-				set {courses_trident_timer_status} to false
 				set {damage} to 1
 				set {x} to 0.5
 				set {y} to 102
@@ -258,23 +255,6 @@ command /reset:
 					set {dropper_level.%loop-player%} to 0
 					#Find The Button
 					set {ftb_fin.%loop-player%} to 0
-					#Courses
-					set {courses_boat_timer_status.%loop-player%} to false
-					set {courses_boat_timer.%loop-player%} to 0
-					set {courses_boat.%loop-player%} to "Start"
-					set {courses_boat_timer.%loop-player%} to 0
-					set {courses_boat_timer_status} to false
-					set {courses_pied.%loop-player%} to "Start"
-					set {courses_pied_timer.%loop-player%} to 0
-					set {courses_pied_timer_section.%loop-player%} to 0
-					set {courses_pied_timer_status.%loop-player%} to false
-					set {courses_pied_timer_status} to false
-					set {courses_trident.%loop-player%} to "Start"
-					set {courses_trident_timer.%loop-player%} to 0
-					set {courses_trident_timer_section.%loop-player%} to 0
-					set {courses_trident_timer_status.%loop-player%} to false
-					set {has_trident.%loop-player%} to false
-					set {courses_trident_timer_status} to false
 					#Laby
 					set {laby_level.%loop-player%} to "Start"
 					#Bow PVP
@@ -285,13 +265,10 @@ command /reset:
 					set {ready_check.%loop-player%} to false
 					set {ready.%loop-player%} to true
 					#Spawn
-					set {compl_parcour.%loop-player%} to 0
 					make server execute command "gamemode adventure %loop-player%"
 					set the maximum health of loop-player to 10
 					heal loop-player
 					reveal hidden players of loop-player
-					if {flag.%loop-player%} is not false:
-						set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
 					if loop-player has permission "theevent580.staff":
 						send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 						send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
@@ -326,7 +303,7 @@ command /consolereset:
 	description: reset event
 	trigger:
 		loop {staff::*}:
-			send "[&c&lTheEvent580 - Admin&r] Reset started by Console" to loop-value
+			send "[&c&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
 		make server execute command "clear @a"
 		make server execute command "effect clear @a"
 		wait 1 seconds
@@ -393,9 +370,6 @@ command /consolereset:
 		set {finished_players} to 0
 		set {online_players} to 0
 		set {checking_finished_players} to 0
-		set {courses_boat_timer_status} to false
-		set {courses_pied_timer_status} to false
-		set {courses_trident_timer_status} to false
 		set {damage} to 1
 		set {x} to 0.5
 		set {y} to 102
@@ -433,23 +407,6 @@ command /consolereset:
 			set {dropper_level.%loop-player%} to 0
 			#Find The Button
 			set {ftb_fin.%loop-player%} to 0
-			#Courses
-			set {courses_boat_timer_status.%loop-player%} to false
-			set {courses_boat_timer.%loop-player%} to 0
-			set {courses_boat.%loop-player%} to "Start"
-			set {courses_boat_timer.%loop-player%} to 0
-			set {courses_boat_timer_status} to false
-			set {courses_pied.%loop-player%} to "Start"
-			set {courses_pied_timer.%loop-player%} to 0
-			set {courses_pied_timer_section.%loop-player%} to 0
-			set {courses_pied_timer_status.%loop-player%} to false
-			set {courses_pied_timer_status} to false
-			set {courses_trident.%loop-player%} to "Start"
-			set {courses_trident_timer.%loop-player%} to 0
-			set {courses_trident_timer_section.%loop-player%} to 0
-			set {courses_trident_timer_status.%loop-player%} to false
-			set {has_trident.%loop-player%} to false
-			set {courses_trident_timer_status} to false
 			#Laby
 			set {laby_level.%loop-player%} to "Start"
 			#Bow PVP
@@ -460,17 +417,15 @@ command /consolereset:
 			set {ready_check.%loop-player%} to false
 			set {ready.%loop-player%} to true
 			#Spawn
-			set {compl_parcour.%loop-player%} to 0
 			make server execute command "gamemode adventure %loop-player%"
 			set the maximum health of loop-player to 10
 			heal loop-player
 			reveal hidden players of loop-player
-			if {flag.%loop-player%} is not false:
-				set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
 			if loop-player has permission "theevent580.staff":
 				send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 				send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
 				set {event_state} to "Waiting"
+		broadcast "[&c&lTheEvent580&r] Event has been reset."
 
 command /parkour:
 	permission:*
