@@ -16,6 +16,15 @@ on Skript start:
 	set {online_players} to 0
 	clear {staff::*}
 	resetTab()
+	wait 10 seconds
+	#set {_requestContentHeader} to "{'Content-type': 'application/json', 'Authorization': 'Bearer : 980f351d057a6c83131178d6a97680b1'}"
+	#set {_requestContent} to "{""name"": ""Minecraft Server is being worked on"",""components"": [""ckf01fvnxywz50a35nh1qzssm""],""started"": ""2023-09-04T22:00:00.000Z"",""status"": ""INVESTIGATING"",""notify"": true,""statuses"": [{""id"": ""ckf01fvnxywz50a35nh1qzssm"",""status"": ""MONITORING""}]}"
+	#execute PUT request to "https://api.instatus.com/v1/clm67odel25514bdn0gbgsarhc/incidents/clm682q6d0104b4oicpjz9b3f" with headers {_requestContentHeader} and with data {_requestContent}
+
+#on Skript stop:
+#	set {_requestContentHeader} to "{'Content-type': 'application/json', 'Authorization': 'Bearer : 980f351d057a6c83131178d6a97680b1'}"
+#	set {_requestContent} to "{""name"": ""Minecraft Server is down"",""components"": [""ckf01fvnxywz50a35nh1qzssm""],""started"": ""2023-09-04T22:00:00.000Z"",""status"": ""MONITORING"",""notify"": true,""statuses"": [{""id"": ""ckf01fvnxywz50a35nh1qzssm"",""status"": ""INVESTIGATING""}]}"
+#	execute PUT request to "https://api.instatus.com/v1/clm67odel25514bdn0gbgsarhc/incidents/clm682q6d0104b4oicpjz9b3f" with headers {_requestContentHeader} and with data {_requestContent}
 
 on inventory click:
 	if clicked slot is 39:
@@ -33,6 +42,8 @@ on inventory click:
 			clear slot 6 of player's inventory
 			clear slot 7 of player's inventory
 			clear slot 8 of player's inventory
+	if {jeu_condi} is 1 or 2 or 5:
+		cancel event
 	if clicked slot is 8:
 		if {jeu_condi} is 3 or 4:
 			cancel event
@@ -114,10 +125,10 @@ on chat:
 	if {mute.server} is true:
 		if player doesn't have permission "group.spectators":
 			cancel event
-			send "[&c&lTheEvent580 - Chat&r] &6⚠&rThe chat is currently muted !"
+			send action bar "[&c&lTheEvent580 - Chat&r] &6⚠&rThe chat is currently muted !" to player
 	if {mute.%player%} is true:
 		cancel event
-		send "[&c&lTheEvent580 - Chat&r] &6⚠&rYou are currently muted by one of the staff members !"
+		send action bar "[&c&lTheEvent580 - Chat&r] &6⚠&rYou are currently muted by one of the staff members !" to player
 	else:
 		replace all "kys" with "***" in the message
 		replace all "shit" and "fuck" with "****" in the message
@@ -140,59 +151,41 @@ on chat:
 
 
 on server list ping:
-	set the motd to "&c&LTheEvent580 • Season 1 - Episode 3&f will be back in August..."
+	set the motd to "Fixing the bugs for &c&lTheEvent580 • Season 1 - Episode 4"
 
 on join:
-	if player is "TheFox580":
-		if player doesn't have permission "group.spectators":
-			make server execute command "lp user %player% parent set spectators"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "Case_cool":
-		if player doesn't have permission "group.spectators":
-			make server execute command "lp user %player% parent set spectators"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "LeRenard580":
-		if player doesn't have permission "group.vert":
-			make server execute command "lp user %player% parent set vert"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "BetterPooka":
-		if player doesn't have permission "group.violet":
-			make server execute command "lp user %player% parent set violet"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "EnCrypTeD__":
-		if player doesn't have permission "group.bleu_clair":
-			make server execute command "lp user %player% parent set bleu_clair"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "SpixKokiri":
-		if player doesn't have permission "group.bleu":
-			make server execute command "lp user %player% parent set bleu"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "Frogqers":
-		if player doesn't have permission "group.rose":
-			make server execute command "lp user %player% parent set rose"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "ItsDaniMilksops":
-		if player doesn't have permission "group.rouge":
-			make server execute command "lp user %player% parent set rouge"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "DigiZ":
-		if player doesn't have permission "group.jaune":
-			make server execute command "lp user %player% parent set jaune"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "EinfachStam":
-		if player doesn't have permission "group.vert":
-			make server execute command "lp user %player% parent set vert"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "Redye_":
-		if player doesn't have permission "group.violet":
-			make server execute command "lp user %player% parent set violet"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	if player is "Redd_Zee":
-		if player doesn't have permission "group.violet":
-			make server execute command "lp user %player% parent set violet"
-			kick player due to "[&c&lTheEvent580 - Colors&r] Please reconnect to get your color"
-	reveal player to all players
-	reveal all players from player
+	wait 3 ticks
+	apply saturation of tier 255 without any particles to the player for 999 days
+	if player has permission "group.spectators":
+		set the join message to "&r[&a+&r] &8%player%"
+		set {color.%player's uuid%} to "露&8 "
+		set {alive.%player%} to false
+	else:
+		set {alive.%player%} to true
+		if player has permission "group.bleu_clair":
+			set the join message to "&r[&a+&r] &b%player%"
+			set {color.%player's uuid%} to "動&b "
+		if player has permission "group.rouge":
+			set the join message to "&r[&a+&r] &c%player%"
+			set {color.%player's uuid%} to "ラ&c "
+		if player has permission "group.rose":
+			set the join message to "&r[&a+&r] &d%player%"
+			set {color.%player's uuid%} to "目&d "
+		if player has permission "group.vert":
+			set the join message to "&r[&a+&r] &a%player%"
+			set {color.%player's uuid%} to "画&a "
+		if player has permission "group.bleu":
+			set the join message to "&r[&a+&r] &1%player%"
+			set {color.%player's uuid%} to "像&1 "
+		if player has permission "group.orange":
+			set the join message to "&r[&a+&r] &6%player%"
+			set {color.%player's uuid%} to "ャ&6 "
+		if player has permission "group.jaune":
+			set the join message to "&r[&a+&r] &e%player%"
+			set {color.%player's uuid%} to "ギ&e "
+		if player has permission "group.violet":
+			set the join message to "&r[&a+&r] &5%player%"
+			set {color.%player's uuid%} to "の&5 "
 	if {flag.%player%} is not set:
 		set {flag.%player%} to false
 	if {Secret_Base_1.%player%} is not set:
@@ -215,6 +208,12 @@ on join:
 		allow fly for player
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
+		if {hide.%player%} is true:
+			make console execute command "/hide %player%"
+		make console execute command "/hide %player%"
+	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
+		if {hide.%player%} is false:
+			make console execute command "/hide %player%"
 		make console execute command "/hide %player%"
 	if player has permission "*":
 		add player to {staff::*}
@@ -222,46 +221,15 @@ on join:
 		loop {staff::*}:
 			send "[&c&lTheEvent580 - Admin&r] %loop-value%"
 	make console execute command "/team join nocolisions %player%"
-	if {total_points.%player%} is not set:	
-		set {total_points.%player%} to 0
-		set {total_points_event.%player%} to 0
-	if player has permission "lb":
-		set join message to "&r[&a+&r] &b%player%"
-		set {color.%player%} to "動&b "
-	if player has permission "r":
-		set join message to "&r[&a+&r] &c%player%"
-		set {color.%player%} to "ラ&c "
-	if player has permission "pi":
-		set join message to "&r[&a+&r] &d%player%"
-		set {color.%player%} to "目&d "
-	if player has permission "g":
-		set join message to "&r[&a+&r] &a%player%"
-		set {color.%player%} to "画&a "
-	if player has permission "b":
-		set join message to "&r[&a+&r] &1%player%"
-		set {color.%player%} to "像&1 "
-	#if player has permission "o":
-	#	set join message to "&r[&a+&r] &6%player%"
-	#	set {color.%player%} to "ャ&6 "
-	if player has permission "y":
-		set join message to "&r[&a+&r] &e%player%"
-		set {color.%player%} to "ギ&e "
-	if player has permission "pu":
-		set join message to "&r[&a+&r] &5%player%"
-		set {color.%player%} to "の&5 "
-	if player has permission "s":
-		set join message to "&r[&a+&r] &8%player%"
-		set {color.%player%} to "露&8 "
-	if player doesn't have permission "lb" or "r" or "pi" or "g" or "b" or "o" or "y" or "pu" or "s":
-		set join message to "&r[&a+&r] &8%player%"
-	if {points.%player%} is not set:
-		set {points.%player%} to 0
+	if {total_points.%player's uuid%} is not set:	
+		set {total_points.%player's uuid%} to 0
+		set {total_points_event.%player's uuid%} to 0
+	set {total_points_event.%player's uuid%} to {total_points_event.%player%}
+	if {points.%player's uuid%} is not set:
+		set {points.%player's uuid%} to 0
 	if {timer} is 0:
-		set {points.%player%} to 0
-		set {total_points_event.%player%} to 0
-	#For Tests --> put nothing
-	#add 1 to {online_players}
-	#For Event --> 
+		set {points.%player's uuid%} to 0
+		set {total_points_event.%player's uuid%} to 0
 	if player doesn't have permission "group.spectators":
 		add 1 to {online_players}
 	apply saturation without particles to player for 100 days
@@ -273,28 +241,323 @@ on join:
 			set player's gamemode to survival
 	else:
 		set player's gamemode to creative
-	if player's world is "wolrd":
+	if {jeu_condi} = 0:
 		make player execute command "/spawn"
+
+	if {jeu_condi} = 1:
+		if event-world is not "dropper":
+			make server execute command "execute in minecraft:dropper run tp %player% 30.0 129 6.0 90 0"
+
+	if {jeu_condi} = 2:
+		if event-world is not "parkour":
+			make server execute command "execute in minecraft:parkour run tp %player% 131.5 129.00 201.5 -90 0"
+
+	if {jeu_condi} = 3:
+		if event-world is not "bingo":
+			make server execute command "execute in minecraft:bingo run tp %player% 999889.0 153 999932.5 0 0"
+
+	if {jeu_condi} = 4:
+		if event-world is not "find_the_button":
+			make server execute command "execute in minecraft:find_the_button run tp %player% 0 148 0 0 0"
+
+	if {jeu_condi} = 5:
+		if event-world is not "races_lap_3":
+			make server execute command "execute in minecraft:races_lap_3 run tp %player% 0.5 131 3.5 180 0"
+
+	if {jeu_condi} = 9:
+		if event-world is not "build_masters":
+			if {timer} = 5 or 7:
+				make server execute command "execute in minecraft:build_masters run tp %player% 0.5 131 3.5 180 0"
+			if {timer} = 6:
+				if {build.location.%player%} is 0:
+					make server execute command "execute in build_masters run tp %player% 2.5 129 998.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 993 14 128 1002 air"
+				else if {build.location.%player%} is 1:
+					make server execute command "execute in build_masters run tp %player% 2.5 129 1019.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1014 14 128 1023 air"
+				else if {build.location.%player%} is 2:
+					make server execute command "execute in build_masters run tp %player% 2.5 129 1040.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1035 14 128 1044 air"
+				else if {build.location.%player%} is 3:
+					make server execute command "execute in build_masters run tp %player% 2.5 129 1061.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1056 14 128 1065 air"
+				else if {build.location.%player%} is 4:
+					make server execute command "execute in build_masters run tp %player% 2.5 129 1082.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 5 128 1077 14 128 1086 air"
+				else if {build.location.%player%} is 5:
+					make server execute command "execute in build_masters run tp %player% 23.5 129 998.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 993 35 128 1002 air"
+				else if {build.location.%player%} is 6:
+					make server execute command "execute in build_masters run tp %player% 23.5 129 1019.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1014 35 128 1023 air"
+				else if {build.location.%player%} is 7:
+					make server execute command "execute in build_masters run tp %player% 23.5 129 1040.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1035 35 128 1044 air"
+				else if {build.location.%player%} is 8:
+					make server execute command "execute in build_masters run tp %player% 23.5 129 1061.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1056 35 128 1065 air"
+				else if {build.location.%player%} is 9:
+					make server execute command "execute in build_masters run tp %player% 23.5 129 1082.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 26 128 1077 35 128 1086 air"
+				else if {build.location.%player%} is 10:
+					make server execute command "execute in build_masters run tp %player% 44.5 129 998.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 993 56 128 1002 air"
+				else if {build.location.%player%} is 11:
+					make server execute command "execute in build_masters run tp %player% 44.5 129 1019.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1014 56 128 1023 air"
+				else if {build.location.%player%} is 12:
+					make server execute command "execute in build_masters run tp %player% 44.5 129 1040.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1035 56 128 1044 air"
+				else if {build.location.%player%} is 13:
+					make server execute command "execute in build_masters run tp %player% 44.5 129 1061.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1056 56 128 1065 air"
+				else if {build.location.%player%} is 14:
+					make server execute command "execute in build_masters run tp %player% 44.5 129 1082.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 47 128 1077 56 128 1086 air"
+				else if {build.location.%player%} is 15:
+					make server execute command "execute in build_masters run tp %player% 65.5 129 998.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 993 77 128 1002 air"
+				else if {build.location.%player%} is 16:
+					make server execute command "execute in build_masters run tp %player% 65.5 129 1019.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1014 77 128 1023 air"
+				else if {build.location.%player%} is 17:
+					make server execute command "execute in build_masters run tp %player% 65.5 129 1040.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1035 77 128 1044 air"
+				else if {build.location.%player%} is 18:
+					make server execute command "execute in build_masters run tp %player% 65.5 129 1061.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1056 77 128 1065 air"
+				else if {build.location.%player%} is 19:
+					make server execute command "execute in build_masters run tp %player% 65.5 129 1082.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 68 128 1077 77 128 1086 air"
+				else if {build.location.%player%} is 20:
+					make server execute command "execute in build_masters run tp %player% 86.5 129 998.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 993"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 993 98 128 1002 air"
+				else if {build.location.%player%} is 21:
+					make server execute command "execute in build_masters run tp %player% 86.5 129 1019.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1014"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1014 98 128 1023 air"
+				else if {build.location.%player%} is 22:
+					make server execute command "execute in build_masters run tp %player% 86.5 129 1040.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1035"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1035 98 128 1044 air"
+				else if {build.location.%player%} is 23:
+					make server execute command "execute in build_masters run tp %player% 86.5 129 1061.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1056"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1056 98 128 1065 air"
+				else if {build.location.%player%} is 24:
+					make server execute command "execute in build_masters run tp %player% 86.5 129 1082.00000001"
+					if {build.%player%} is 1:
+						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
+						make server execute command "execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air"
+
+	if {jeu_condi} = 7:
+		if event-world is not "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
+			if {game} = "SG1":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1565.177 68 -635.511 28.3 24.3"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1577.5 59 -635.5 0 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1558.5 59 -628.5 45 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1551.5 59 -611.5 90 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1558.5 59 -592.5 135 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1577.5 59 -585.5 180 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1594.5 59 -592.5 -135 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1601.5 59 -611.5 -90 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg1 run tp %player% -1594.5 59 -628.5 -45 0"
+			if {game} = "SG2":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg2 run tp %player% 0 45 0 0 90"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg2 run tp %player% 20.5 21 0.5 90 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg2 run tp %player% 14.5 21 14.5 135 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg2 run tp %player% 0.5 21 20.5 180 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg2 run tp %player% -13.5 21 14.5 -135 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg2 run tp %player% -19.5 21 0.5 -90 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg2 run tp %player% -13.5 21 -13.5 -45 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg2 run tp %player% 0.5 21 -19.5 0 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg2 run tp %player% 14.5 21 -13.5 45 0"
+			if {game} = "SG3":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg3 run tp %player% 37 28 -18 65.1 30.7"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg3 run tp %player% 0 16 40 180 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg3 run tp %player% -27 16 28 -135 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg3 run tp %player% -40 16 0 -90 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg3 run tp %player% -27 16 27 -45 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg3 run tp %player% 0 16 -40 0 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg3 run tp %player% 28 16 -27 45 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg3 run tp %player% 40 16 0 90 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg3 run tp %player% 28 16 28 135 0"
+			if {game} = "SG4":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg4 run tp %player% 0 60 -2.5 0 90"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg4 run tp %player% 17 30 -2 90 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg4 run tp %player% 12 30 9 135 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg4 run tp %player% 0 30 14 180 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg4 run tp %player% -11 30 9 -135 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg4 run tp %player% -16 30 -2 -90 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg4 run tp %player% -11 30 -14 -45 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg4 run tp %player% 0 30 -19 0 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg4 run tp %player% 12 30 -14 45 0"
+			if {game} = "SG5":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg5 run tp %player% 15 86 24 0 90"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg5 run tp %player% 15 65 49 180 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg5 run tp %player% -2 65 42 -135 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg5 run tp %player% -9 65 24 -90 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg5 run tp %player% -2 65 6 -45 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg5 run tp %player% 15 65 -1 0 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg5 run tp %player% 33 65 6 45 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg5 run tp %player% 40 65 24 90 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg5 run tp %player% 33 65 42 135 0"
+			if {game} = "SG6":
+				if player have permission "group.spectators":
+					make server execute command "execute in minecraft:sg6 run tp %player% -164.5 91 -34.5 -180 90"
+				else if player have permission "group.rouge":
+					make server execute command "execute in minecraft:sg6 run tp %player% -136 66 -34 90 0"
+				else if player have permission "group.orange":
+					make server execute command "execute in minecraft:sg6 run tp %player% -144 66 -14 135 0"
+				else if player have permission "group.jaune":
+					make server execute command "execute in minecraft:sg6 run tp %player% -164 66 -6 180 0"
+				else if player have permission "group.vert":
+					make server execute command "execute in minecraft:sg6 run tp %player% -184 66 -14 -135 0"
+				else if player have permission "group.bleu_clair":
+					make server execute command "execute in minecraft:sg6 run tp %player% -192 66 -34 -90 0"
+				else if player have permission "group.bleu":
+					make server execute command "execute in minecraft:sg6 run tp %player% -184 66 -54 -45 0"
+				else if player have permission "group.violet":
+					make server execute command "execute in minecraft:sg6 run tp %player% -164 66 -62 0 0"
+				else if player have permission "group.rose":
+					make server execute command "execute in minecraft:sg6 run tp %player% -144 66 -54 45 0"
+
+	if {jeu_condi} = 8:
+		if event-world is not "bow_pvp":
+			respawnBowPVP(player)
+	wait 2 second
+	if event-world is "world":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/a3f2441716494ca072a77fffb69151fe121091cc.zip a3f2441716494ca072a77fffb69151fe121091cc" #Spawn
+	if event-world is "dropper":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Dropper
+	if event-world is "parkour":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/982bc0ce662b00159622b96b4d332d9c7431e45e.zip 982bc0ce662b00159622b96b4d332d9c7431e45e" #Parkour
+	if event-world is "bingo":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/79d7a829b27fbf56842e673860640d83bb7298c7.zip 79d7a829b27fbf56842e673860640d83bb7298c7" #Bingo
+	if event-world is "find_the_button":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Find The Button
+	if event-world is "races_lap_3":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/5899d48e4ae5f2a235de03399eb75f5d768c1cf0.zip 5899d48e4ae5f2a235de03399eb75f5d768c1cf0" #Multilap
+	if event-world is "build_masters":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/1ea8e13f19cf2861baa64210f93a7d79fb344d3b.zip 1ea8e13f19cf2861baa64210f93a7d79fb344d3b" #Build Masters
+	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Survival Games
+	if event-world is "Bow_PVP":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Bow PVP
 
 on vehicle destroy:
 	if {jeu_condi} is 0:
 		cancel event
 
 on vehicle exit:
+	set {in_vehicle.%player%} to false
 	if {jeu_condi} is 5:
-		if {courses} is "boat":
-			make server execute command "execute at %player% run kill @e[type=minecraft:boat,sort=nearest,limit=1]"
-			if y-coordinate of player is greater than 119:
-				if player's gamemode is adventure:
-					if block 1 meter under player is not air:
-						make server execute command "give %player% oak_boat"
+		make server execute command "execute at %player% run kill @e[type=minecraft:boat,sort=nearest,limit=1]"
+		if y-coordinate of player is greater than 119:
+			if player's gamemode is adventure:
+				wait 3 ticks
+				if {race_boat.%player%} is true:
+					give 1 of oak boat to player
+
+on vehicle enter:
+	set {in_vehicle.%player%} to true
 
 on quit:
 	if {gamemode.%player%} is 3:
 		remove 1 from {finished_players}
 	if player has permission "group.spectators":
 		remove player from {staff::*}
-	set {color.%player%} to "タ &7"
+	set {color.%player's uuid%} to "タ &7"
 	remove player from {players::*}
 	#For Tests --> put nothing
 	#remove 1 from {online_players}
@@ -319,8 +582,6 @@ on quit:
 		set leave message to "&r[&c-&r] &e%player%"
 	else if player has permission "groupe.violet":
 		set leave message to "&r[&c-&r] &5%player%"
-	if player doesn't have permission "lb" or "r" or "pi" or "g" or "b" or "o" or "y" or "pu" or "s":
-		set leave message to "&r[&c-&r] &8%player%"
 
 on damage:
 	if attacker has permission "group.spectators":
@@ -330,8 +591,27 @@ on damage:
 		cancel event
 	if {timer} is 3 or 8:
 		if attacker doesn't have permission "group.spectators":
-			cancel event
-	if {jeu_condi} is 0:
+			if damage cause is not projectile:
+				if attacker is not holding netherite sword:
+					cancel event
+				else: # Sword
+					cancel event
+					make console execute command "hide %victim%"
+					broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
+					set {alive.%victim%} to false
+					clear victim's inventory
+					allow flight for victim
+			else: # Crossbow
+				cancel event
+				make console execute command "execute at %victim% run kill @e[type=minecraft:arrow,sort=nearest,limit=1]"
+				make console execute command "hide %victim%"
+				broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
+				set {alive.%victim%} to false
+				clear victim's inventory
+				allow flight for victim
+	else if {timer} = 4 or 5:
+		cancel event
+	else if {jeu_condi} is 0:
 		if attacker doesn't have permission "group.spectators":
 			cancel event
 	else:
@@ -350,59 +630,61 @@ on damage:
 			else if damage cause is fall:
 				cancel event
 			if {jeu_condi} is 3:
-				if {bingo_cases.%attacker%} is "All":
+				if victim is item frame:
+					cancel event
+				if {bingo_cases.%attacker's uuid%} is "All":
+					cancel event
+			if {jeu_condi} = 6:
+				if {alive.%victim's uuid%} or {alive.%attacker's uuid%} = false:
 					cancel event
 
 on death:
 	if victim is a player:
 		if {jeu_condi} is not 3 or 8:
 			force victim to respawn
-			add victim to {finished::*}
-			loop {staff::*}:
-				make console execute command "/hide %loop-value%"
-			loop {finished::*}:
-				make console execute command "/hide %loop-value%"
-			hide victim for all players
-			force victim to fly
-			allow fly for victim
+			wait 5 ticks
+			make console execute command "hide %victim%"
+			make console execute command "fly %victim%"
 			if {jeu_condi} is 6:
 				if {game} is "SG1":
 					teleport victim to location(-1565.177, 68, -635.511, "sg1", 28.3, 24.3)
 				if {game} is "SG2":
 					teleport victim to location(0, 45, 0, "sg2", 0, 90)
+				if {game} is "SG3":
+					teleport victim to location(0, 25, 0, "sg3", 0.1, 90)
 				remove 1 from {finished_players}
+				set {alive.%victim's uuid%} to false
 		if attacker is a player:
 			if {jeu_condi} is 3:
-				if {bingo_kill.%attacker%} is false:
-					set {bingo_kill.%attacker%} to true
+				if {bingo_kill.%attacker's uuid%} is false:
+					set {bingo_kill.%attacker's uuid%} to true
 					send "[&c&lTheEvent580&r] You killed a player for the 1st time and recieved your bonus" to attacker
-				else if {bingo_kill.%attacker%} is 2:
+				else if {bingo_kill.%attacker's uuid%} is 2:
 					send "[&c&lTheEvent580&r] You already killed a player and got nothing" to attacker
 			else if {jeu_condi} is 6:
-				set {alive.%victim%} to false
 				if {1st_blood} is false:
-					add {pts_lvl_2} to {points_game.%attacker%}
-					add {pts_lvl_2} to {total_points.%attacker%}
-					add {pts_lvl_2} to {total_points_event.%attacker%}
-					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% [&1+%{pts_lvl_2}%&r╣]"
-					send "[&c&lTheEvent580&r] You killed %victim% [&1+%{pts_lvl_2}%&r╣]" to attacker
+					add {pts_lvl_2} to {points_game.%attacker's uuid%}
+					add {pts_lvl_2} to {total_points.%attacker's uuid%}
+					add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
+					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% [&5+%{pts_lvl_2}%&r╣]"
+					send "[&c&lTheEvent580&r] You killed %victim% [&5+%{pts_lvl_2}%&r╣]" to attacker
 					send "[&c&lTheEvent580&r] You got killed by %attacker%" to victim
 				else if {1st_blood} is true:
-					add {pts_lvl_1} to {points_game.%attacker%}
-					add {pts_lvl_1} to {total_points.%attacker%}
-					add {pts_lvl_1} to {total_points_event.%attacker%}
-					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% (1st blood) [&1+%{pts_lvl_1}%&r╣]"
-					send "[&c&lTheEvent580&r] You killed %victim% (1st blood) [&1+%{pts_lvl_2}%&r╣]" to attacker
+					add {pts_lvl_1} to {points_game.%attacker's uuid%}
+					add {pts_lvl_1} to {total_points.%attacker's uuid%}
+					add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
+					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% (1st blood) [&5+%{pts_lvl_1}%&r╣]"
+					send "[&c&lTheEvent580&r] You killed %victim% (1st blood) [&5+%{pts_lvl_2}%&r╣]" to attacker
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (1st blood)" to victim
 					set {1st_blood} to false
 		if {jeu_condi} is 6:
 			loop all players:
 				if loop-player is not attacker or victim:
-					if {alive.%loop-player%} is true:
-						add {pts_lvl_3} to {points_game.%loop-player%}
-						add {pts_lvl_3} to {total_points.%loop-player%}
-						add {pts_lvl_3} to {total_points_event.%loop-player%}
-						send "[&c&lTheEvent580&r] You survived to a kill [&1+%{pts_lvl_3}%&r╣]" to loop-player
+					if {alive.%loop-player's uuid%} is true:
+						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
+						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+						send "[&c&lTheEvent580&r] You survived to a kill [&5+%{pts_lvl_3}%&r╣]" to loop-player
 		if {jeu_condi} is 8:
 			if the maximum health of victim is bigger than 1:
 				if damage cause is void:
@@ -410,26 +692,26 @@ on death:
 					send "[&c&lTheEvent580&r] You died from the void (-1 &c❤ &r)" to victim
 					loop all players:
 						if loop-player is not attacker or victim:
-							if {alive.%loop-player%} is true:
-								add {pts_lvl_5} to {points_game.%loop-player%}
-								add {pts_lvl_5} to {total_points.%loop-player%}
-								add {pts_lvl_5} to {total_points_event.%loop-player%}
+							if {alive.%loop-player's uuid%} is true:
+								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You survived to a death [&d+%{pts_lvl_5}%&r╣]" to loop-player
 					wait 1 second
 					force victim to respawn
 				else if damage cause is projectile:
 					broadcast "[&c&lTheEvent580&r] %attacker% killed %victim% (-1 &c❤ &r) [&d+%{pts_lvl_1}%&r╣]"
 					send "[&c&lTheEvent580&r] You killed %victim% [&d+%{pts_lvl_1}%&r╣]" to attacker
-					add {pts_lvl_1} to {points_game.%attacker%}
-					add {pts_lvl_1} to {total_points.%attacker%}
-					add {pts_lvl_1} to {total_points_event.%attacker%}
+					add {pts_lvl_1} to {points_game.%attacker's uuid%}
+					add {pts_lvl_1} to {total_points.%attacker's uuid%}
+					add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (-1 &c❤ &r)" to victim
 					loop all players:
 						if loop-player is not attacker or victim:
-							if {alive.%loop-player%} is true:
-								add {pts_lvl_5} to {points_game.%loop-player%}
-								add {pts_lvl_5} to {total_points.%loop-player%}
-								add {pts_lvl_5} to {total_points_event.%loop-player%}
+							if {alive.%loop-player's uuid%} is true:
+								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You survived to a death [&d+%{pts_lvl_5}%&r╣]" to loop-player
 					wait 1 second
 					force victim to respawn
@@ -439,16 +721,16 @@ on death:
 					add 1 to the maximum health of attacker
 					broadcast "[&c&lTheEvent580&r] %attacker% killed %victim% (-1 &c❤ &rfrom %victim% & +1 &c❤ &rfor %attacker%) [&d+%{pts_lvl_2}%&r╣]"
 					send "[&c&lTheEvent580&r] You killed %victim% (+1 &c❤ &r) [&d+%{pts_lvl_2}%&r╣]" to attacker
-					add {pts_lvl_2} to {points_game.%attacker%}
-					add {pts_lvl_2} to {total_points.%attacker%}
-					add {pts_lvl_2} to {total_points_event.%attacker%}
+					add {pts_lvl_2} to {points_game.%attacker's uuid%}
+					add {pts_lvl_2} to {total_points.%attacker's uuid%}
+					add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (-1 &c❤ &r)" to victim
 					loop all players:
 						if loop-player is not attacker or victim:
-							if {alive.%loop-player%} is true:
-								add {pts_lvl_5} to {points_game.%loop-player%}
-								add {pts_lvl_5} to {total_points.%loop-player%}
-								add {pts_lvl_5} to {total_points_event.%loop-player%}
+							if {alive.%loop-player's uuid%} is true:
+								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
+								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You survived to a kill [&d+%{pts_lvl_5}%&r╣]" to loop-player	
 					wait 1 second
 					force victim to respawn
@@ -460,20 +742,20 @@ on death:
 				else if damage cause is projectile:
 					broadcast "[&c&lTheEvent580&r] %attacker% killed %victim% (-1 player) [&d+%{pts_lvl_3}%&r╣]"
 					send "[&c&lTheEvent580&r] You killed %victim% [&d+%{pts_lvl_3}%&r╣]" to attacker
-					add {pts_lvl_3} to {points_game.%attacker%}
-					add {pts_lvl_3} to {total_points.%attacker%}
-					add {pts_lvl_3} to {total_points_event.%attacker%}
+					add {pts_lvl_3} to {points_game.%attacker's uuid%}
+					add {pts_lvl_3} to {total_points.%attacker's uuid%}
+					add {pts_lvl_3} to {total_points_event.%attacker's uuid%}
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (Elimination)" to victim
 				else if damage cause is attack or sweep attack:
 					add 1 to the maximum health of attacker
 					broadcast "[&c&lTheEvent580&r] %attacker% killled %victim% (-1 player & +1 &c❤ &rfor %attacker%) [&d+%{pts_lvl_4}%&r╣]"
 					send "[&c&lTheEvent580&r] You killed %victim% (-1 player & +1 &c❤ &r [&d+%{pts_lvl_4}%&r╣]" to attacker
-					add {pts_lvl_4} to {points_game.%attacker%}
-					add {pts_lvl_4} to {total_points.%attacker%}
-					add {pts_lvl_4} to {total_points_event.%attacker%}
+					add {pts_lvl_4} to {points_game.%attacker's uuid%}
+					add {pts_lvl_4} to {total_points.%attacker's uuid%}
+					add {pts_lvl_4} to {total_points_event.%attacker's uuid%}
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (Elimination)" to victim
-				set {alive.%victim%} to false
-				set {gamemode.%victim%} to 3
+				set {alive.%victim's uuid%} to false
+				set {gamemode.%victim's uuid%} to 3
 				add victim to {finished::*}
 				loop {staff::*}:
 					make console execute command "/hide %loop-value%"
@@ -487,10 +769,10 @@ on death:
 				heal attacker
 				loop all players:
 					if loop-player is not attacker or victim:
-						if {alive.%loop-player%} is true:
-							add {pts_lvl_6} to {points_game.%loop-player%}
-							add {pts_lvl_6} to {total_points.%loop-player%}
-							add {pts_lvl_6} to {total_points_event.%loop-player%}
+						if {alive.%loop-player's uuid%} is true:
+							add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+							add {pts_lvl_6} to {total_points.%loop-player's uuid%}
+							add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 							send "[&c&lTheEvent580&r] You survived to an elimination [&d+%{pts_lvl_6}%&r╣]" to loop-player
 				remove 1 from {finished_players}
 				wait 1 second
@@ -502,12 +784,15 @@ on respawn:
 	if {jeu_condi} is 3:
 		wait 1 tick
 		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
+		make server execute command "effect give @a minecraft:night_vision 9999 255 true"
 	else if {jeu_condi} is 6:
 		wait 1 tick
 		if {game} is "SG1":
 			teleport player to location(-1565.177, 68, -635.511, "sg1", 28.3, 24.3)
 		else if {game} is "SG2":
 			teleport player to location(0, 45, 0, "sg2", 0, 90)
+		else if {game} is "SG3":
+			teleport player to location(37, 28, -18, "sg3", 65.1, 30.7)
 	else if {jeu_condi} is 8:
 		wait 1 tick
 		respawnBowPVP(player)
@@ -515,7 +800,11 @@ on respawn:
 on break:
 	if player's gamemode is not creative:
 		if {jeu_condi} is not 3 or 9:
-			cancel event
+			if {jeu_condi} is 6:
+				if event-block isn't cobweb or leaves or vines or mushroom or hay bale or wheat:
+					cancel event
+			else:
+				cancel event
 		else if {jeu_condi} is 9:
 			if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks:
 				cancel event
@@ -535,9 +824,139 @@ on right click with feather:
 	if name of tool of player is "Change player's fly speed":
 		make player execute command "speed"
 
+on right click with bone meal:
+	if targeted block is oak sapling:
+		remove 1 of bone meal from player
+		# Face 1
+		make 5 of happy_villager at location(318.2,66.3,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.3,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.3,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.6,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.6,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.6,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.9,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.9,335.3,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.9,335.3,"world") with force for all players
+		#Face 2
+		make 5 of happy_villager at location(318.2,66.3,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.3,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.3,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.6,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.6,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.6,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.9,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.9,335.6,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.9,335.6,"world") with force for all players
+		#Face 3
+		make 5 of happy_villager at location(318.2,66.3,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.3,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.3,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.6,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.6,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.6,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.2,66.9,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.5,66.9,335.9,"world") with force for all players
+		make 5 of happy_villager at location(318.8,66.9,335.9,"world") with force for all players
+
 on right click with carrot on a stick:
 	if name of tool of player is "&eTeleport to home":
 		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
+	if name of tool of player is "&6Skip level":
+		if {parkour.main_level.%player's uuid%} = 4:
+			if {parkour.sub_level.%player's uuid%} = 6:
+				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip this level... Good luck !"
+			else:
+				if {parkour.skip.%player's uuid%} = false:
+					set {parkour.skip.%player's uuid%} to true
+					set {parkour.skip_used.%player's uuid%} to true
+					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+					wait 2 tick
+					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+					wait 3 ticks
+					set {parkour.skip_used.%player's uuid%} to false
+					wait 15 ticks
+					wait 9 seconds
+					set {parkour.skip.%player's uuid%} to false
+				else:
+					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+		else if {parkour.main_level.%player's uuid%} = 1:
+			if {parkour.sub_level.%player's uuid%} = 1:
+				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the first level, you cannot skip this level... Good luck !"
+			else:
+				if {parkour.skip.%player's uuid%} = false:
+					set {parkour.skip.%player's uuid%} to true
+					set {parkour.skip_used.%player's uuid%} to true
+					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+					wait 2 tick
+					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+					wait 3 ticks
+					set {parkour.skip_used.%player's uuid%} to false
+					wait 15 ticks
+					wait 9 seconds
+					set {parkour.skip.%player's uuid%} to false
+				else:
+					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+		else:
+			if {parkour.skip.%player's uuid%} = false:
+				set {parkour.skip.%player's uuid%} to true
+				set {parkour.skip_used.%player's uuid%} to true
+				set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+				wait 2 tick
+				teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+				wait 3 ticks
+				set {parkour.skip_used.%player's uuid%} to false
+				wait 15 ticks
+				wait 9 seconds
+				set {parkour.skip.%player's uuid%} to false
+			else:
+				send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+	if name of tool of player is "Block a game":
+		send "Test"
+		if block 2 meter under player is red concrete:
+			blockGame("Dropper",player)
+		if block 2 meter under player is orange concrete:
+			blockGame("Parkour",player)
+		if block 2 meter under player is yellow concrete:
+			blockGame("Bingo",player)
+		if block 2 meter under player is lime concrete:
+			blockGame("Find The Button",player)
+		if block 2 meter under player is light blue concrete:
+			blockGame("Multilap",player)
+		if block 2 meter under player is blue concrete:
+			blockGame("Build Masters",player)
+		if block 2 meter under player is purple concrete:
+			blockGame("Survival Games",player)
+		if block 2 meter under player is pink concrete:
+			blockGame("Bow PVP",player)
+	if name of tool of player is "You choose the game":
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if loop-player != player:
+					make console execute command "hide %loop-player%"
+					set {alive.%loop-player's uuid%} to false
+					clear loop-player's inventory
+					allow flight for loop-player
+		broadcast "[&c&lTheEvent580&r] %player% is chosing the next game"
+	if name of tool of player is "Swap players and spectators":
+		loop all players:
+			set {alive.%loop-player's uuid%} to false
+			if loop-player has permission "group.spectators":
+				set {alive.%loop-player's uuid%} to true
+		loop all players:
+			if {alive.%loop-player's uuid%} = false:
+				make console execute command "hide %loop-player%"
+				allow flight for loop-player
+				clear loop-player's inventory
+			else:
+				make console execute command "hide %loop-player%"
+				disable fly for loop-player
+		broadcast "[&c&lTheEvent580&r] %{color.%player's uuid%}%%player%&r used the Players <> Spectators swap !"
+
+on right click with minecart:
+	if {timer} = 3:
+		if targeted entity is a player:
+			make console execute command "grab %targeted entity% %player%"
+			remove 1 of minecart from player
 
 on right click with compass:
 	if name of tool of player is "Teleport to player":
@@ -551,7 +970,7 @@ on right click :
 		if {jeu_condi} is 0:
 			if {timer} or {timer_save} is not 7 or 10 or "Fin":
 				if event-block is lever:
-					if {Herobrine.%player%} is false:
+					if {Herobrine.%player's uuid%} is false:
 						make server execute command "achivement %player% give Herobrine"
 		if {jeu_condi} is 0: #Spawn
 			if event-block is oak_button:
@@ -608,9 +1027,9 @@ on right click :
 						add 1 to {ftb_oak_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_1.%player%} to true
-						add {pts_lvl_1} to {points_game.%player%}
-						add {pts_lvl_1} to {total_points.%player%}
-						add {pts_lvl_1} to {total_points_event.%player%}
+						add {pts_lvl_1} to {points_game.%player's uuid%}
+						add {pts_lvl_1} to {total_points.%player's uuid%}
+						add {pts_lvl_1} to {total_points_event.%player's uuid%}
 						remove 10*{multiplier} from {pts_lvl_1}
 				if event-block is spruce_button:
 					if {ftb_2.%player%} is false:
@@ -626,9 +1045,9 @@ on right click :
 						add 1 to {ftb_spruce_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_2.%player%} to true
-						add {pts_lvl_2} to {points_game.%player%}
-						add {pts_lvl_2} to {total_points.%player%}
-						add {pts_lvl_2} to {total_points_event.%player%}
+						add {pts_lvl_2} to {points_game.%player's uuid%}
+						add {pts_lvl_2} to {total_points.%player's uuid%}
+						add {pts_lvl_2} to {total_points_event.%player's uuid%}
 						remove 15*{multiplier} from {pts_lvl_2}
 				if event-block is acacia_button:
 					if {ftb_3.%player%} is false:
@@ -644,9 +1063,9 @@ on right click :
 						add 1 to {ftb_acacia_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_3.%player%} to true
-						add {pts_lvl_3} to {points_game.%player%}
-						add {pts_lvl_3} to {total_points.%player%}
-						add {pts_lvl_3} to {total_points_event.%player%}
+						add {pts_lvl_3} to {points_game.%player's uuid%}
+						add {pts_lvl_3} to {total_points.%player's uuid%}
+						add {pts_lvl_3} to {total_points_event.%player's uuid%}
 						remove 20*{multiplier} from {pts_lvl_3}
 				if event-block is mangrove_button:
 					if {ftb_4.%player%} is false:
@@ -662,9 +1081,9 @@ on right click :
 						add 1 to {ftb_mangrove_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_4.%player%} to true
-						add {pts_lvl_4} to {points_game.%player%}
-						add {pts_lvl_4} to {total_points.%player%}
-						add {pts_lvl_4} to {total_points_event.%player%}
+						add {pts_lvl_4} to {points_game.%player's uuid%}
+						add {pts_lvl_4} to {total_points.%player's uuid%}
+						add {pts_lvl_4} to {total_points_event.%player's uuid%}
 						remove 25*{multiplier} from {pts_lvl_4}
 				if event-block is crimson_button:
 					if {ftb_5.%player%} is false:
@@ -680,9 +1099,9 @@ on right click :
 						add 1 to {ftb_crimson_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_5.%player%} to true
-						add {pts_lvl_5} to {points_game.%player%}
-						add {pts_lvl_5} to {total_points.%player%}
-						add {pts_lvl_5} to {total_points_event.%player%}
+						add {pts_lvl_5} to {points_game.%player's uuid%}
+						add {pts_lvl_5} to {total_points.%player's uuid%}
+						add {pts_lvl_5} to {total_points_event.%player's uuid%}
 						remove 30*{multiplier} from {pts_lvl_5}
 				if event-block is polished_blackstone_button:
 					if {ftb_6.%player%} is false:
@@ -698,9 +1117,9 @@ on right click :
 						add 1 to {ftb_polished_blackstone_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_6.%player%} to true
-						add {pts_lvl_6} to {points_game.%player%}
-						add {pts_lvl_6} to {total_points.%player%}
-						add {pts_lvl_6} to {total_points_event.%player%}
+						add {pts_lvl_6} to {points_game.%player's uuid%}
+						add {pts_lvl_6} to {total_points.%player's uuid%}
+						add {pts_lvl_6} to {total_points_event.%player's uuid%}
 						remove 35*{multiplier} from {pts_lvl_6}
 				if event-block is dark_oak_button:
 					if {ftb_7.%player%} is false:
@@ -716,9 +1135,9 @@ on right click :
 						add 1 to {ftb_dark_oak_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_7.%player%} to true
-						add {pts_lvl_7} to {points_game.%player%}
-						add {pts_lvl_7} to {total_points.%player%}
-						add {pts_lvl_7} to {total_points_event.%player%}
+						add {pts_lvl_7} to {points_game.%player's uuid%}
+						add {pts_lvl_7} to {total_points.%player's uuid%}
+						add {pts_lvl_7} to {total_points_event.%player's uuid%}
 						remove 40*{multiplier} from {pts_lvl_7}
 				if event-block is stone_button:
 					if {ftb_8.%player%} is false:
@@ -734,9 +1153,9 @@ on right click :
 						add 1 to {ftb_stone_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_8.%player%} to true
-						add {pts_lvl_8} to {points_game.%player%}
-						add {pts_lvl_8} to {total_points.%player%}
-						add {pts_lvl_8} to {total_points_event.%player%}
+						add {pts_lvl_8} to {points_game.%player's uuid%}
+						add {pts_lvl_8} to {total_points.%player's uuid%}
+						add {pts_lvl_8} to {total_points_event.%player's uuid%}
 						remove 45*{multiplier} from {pts_lvl_8}
 				if event-block is warped_button:
 					if {ftb_9.%player%} is false:
@@ -752,9 +1171,9 @@ on right click :
 						add 1 to {ftb_warped_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_9.%player%} to true
-						add {pts_lvl_9} to {points_game.%player%}
-						add {pts_lvl_9} to {total_points.%player%}
-						add {pts_lvl_9} to {total_points_event.%player%}
+						add {pts_lvl_9} to {points_game.%player's uuid%}
+						add {pts_lvl_9} to {total_points.%player's uuid%}
+						add {pts_lvl_9} to {total_points_event.%player's uuid%}
 						remove 50*{multiplier} from {pts_lvl_9}
 				if event-block is jungle_button:
 					if {ftb_10.%player%} is false:
@@ -771,9 +1190,9 @@ on right click :
 						add 1 to {ftb_jungle_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_10.%player%} to true
-						add {pts_lvl_10} to {points_game.%player%}
-						add {pts_lvl_10} to {total_points.%player%}
-						add {pts_lvl_10} to {total_points_event.%player%}
+						add {pts_lvl_10} to {points_game.%player's uuid%}
+						add {pts_lvl_10} to {total_points.%player's uuid%}
+						add {pts_lvl_10} to {total_points_event.%player's uuid%}
 						remove 55*{multiplier} from {pts_lvl_10}
 				if event-block is birch_button:
 					if {ftb_11.%player%} is false:
@@ -790,9 +1209,9 @@ on right click :
 						add 1 to {ftb_birch_completed}
 						add 1 to {ftb_fin.%player%}
 						set {ftb_11.%player%} to true
-						add {pts_lvl_11} to {points_game.%player%}
-						add {pts_lvl_11} to {total_points.%player%}
-						add {pts_lvl_11} to {total_points_event.%player%}
+						add {pts_lvl_11} to {points_game.%player's uuid%}
+						add {pts_lvl_11} to {total_points.%player's uuid%}
+						add {pts_lvl_11} to {total_points_event.%player's uuid%}
 						remove 60*{multiplier} from {pts_lvl_11}
 
 on place:
@@ -837,8 +1256,75 @@ on pickup:
 					set {_has_finished.%player%} to true
 			if {_has_finished.%player%} is true:
 				cancel event
+		if {jeu_condi} = 6 or 0:
+			if {alive.%player%} = false:
+				cancel event
 
 
 on craft:
-	if {jeu_condi} is not 3:
+	if {jeu_condi} is not 3 or 6:
 		cancel event
+
+on player world change:
+	loop all players:
+		if loop-player has permission "thefox580.staff":
+			if event-player doesn't have permission "group.spectators":
+				send "[&c&lTheEvent580&r] Player &c&l%event-player%&r got teleported from &6&l%past event-world%&r to &a&l%event-world%&r, loading texture pack..." to loop-player
+	send title "PLEASE STANDBY" with subtitle "for the texture pack to download" to player for 5 seconds
+	wait 2 second
+	if event-world is "world":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/a3f2441716494ca072a77fffb69151fe121091cc.zip a3f2441716494ca072a77fffb69151fe121091cc" #Spawn
+	if event-world is "dropper":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Dropper
+	if event-world is "parkour":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/982bc0ce662b00159622b96b4d332d9c7431e45e.zip 982bc0ce662b00159622b96b4d332d9c7431e45e" #Parkour
+	if event-world is "bingo":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/79d7a829b27fbf56842e673860640d83bb7298c7.zip 79d7a829b27fbf56842e673860640d83bb7298c7" #Bingo
+	if event-world is "find_the_button":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Find The Button
+	if event-world is "races_lap_3":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/5899d48e4ae5f2a235de03399eb75f5d768c1cf0.zip 5899d48e4ae5f2a235de03399eb75f5d768c1cf0" #Multilap
+	if event-world is "build_masters":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Build Masters
+	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Survival Games
+	if event-world is "Bow_PVP":
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Bow PVP
+
+on shoot:
+	if {timer} is 3:
+		wait 3 seconds
+		kill event-projectile
+
+on jump:
+	if event-world = "world":
+		if block 1 meter under player is deepslate coal ore:
+			if the y-coordinate of player = -5:
+				teleport player to location(328.5, 69.5, 316.5, world "world", 150, 0.0001)
+	if event-world = "Build_Masters":
+		if block 0 meter under event-player = green carpet or cyan carpet:
+			remove jump boost from event-player
+			apply jump boost 6 without particles to event-player for 2 ticks
+			push event-player up at speed 2
+		if block 0 meter under event-player = yellow carpet:
+			remove jump boost from event-player
+			apply jump boost 3 without particles to event-player for 2 ticks
+			push event-player east at speed 3
+		if block 0 meter under event-player = red carpet:
+			remove jump boost from event-player
+			apply jump boost 3 without particles to event-player for 2 ticks
+			push event-player west at speed 3
+		if block 0 meter under event-player = orange carpet:
+			remove jump boost from event-player
+			apply jump boost 3 without particles to event-player for 2 ticks
+			push event-player north at speed 3
+		if block 0 meter under event-player = lime carpet:
+			remove jump boost from event-player
+			apply jump boost 3 without particles to event-player for 2 ticks
+			push event-player south at speed 3
+		
+on sneak toggle:
+	if block 1 meter under player is deepslate coal ore:
+		if the y-coordinate of player = 69:
+			teleport player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
+			apply night vision 255 without particles to player for 200 days

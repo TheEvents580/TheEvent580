@@ -1,5 +1,5 @@
 command /dropper:
-	permission:*
+	permission: *
 	description: set le jeu "Dropper"
 	trigger:
 		make server execute command "execute in minecraft:dropper run tp @a 30.0 129 6.0 90 0"
@@ -54,9 +54,9 @@ every tick:
 						force loop-player to fly
 						allow fly for loop-player
 						teleport loop-player to location(30.0, 129, -118.0, "dropper", 90, 1)
-						add {pts_lvl_4} to {points_game.%loop-player%}
-						add {pts_lvl_4} to {total_points.%loop-player%}
-						add {pts_lvl_4} to {total_points_event.%loop-player%}
+						add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+						add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+						add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 						if {dropper_fin} is false:
 							set {dropper_fin} to true
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete the &c&lDropper&r."
@@ -73,9 +73,9 @@ every tick:
 					if {dropper_level.%loop-player%} is 3:
 						set {dropper_level.%loop-player%} to 4
 						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)
-						add {pts_lvl_3} to {points_game.%loop-player%}
-						add {pts_lvl_3} to {total_points.%loop-player%}
-						add {pts_lvl_3} to {total_points_event.%loop-player%}
+						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
+						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_3} is false:
 							set {dropper_lvl_3} to true
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 3."
@@ -86,9 +86,9 @@ every tick:
 					if {dropper_level.%loop-player%} is 2:
 						set {dropper_level.%loop-player%} to 3
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
-						add {pts_lvl_2} to {points_game.%loop-player%}
-						add {pts_lvl_2} to {total_points.%loop-player%}
-						add {pts_lvl_2} to {total_points_event.%loop-player%}
+						add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
+						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_2} is false:
 							set {dropper_lvl_2} to true
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 2."
@@ -99,9 +99,9 @@ every tick:
 					if {dropper_level.%loop-player%} is 1:
 						set {dropper_level.%loop-player%} to 2
 						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
-						add {pts_lvl_1} to {points_game.%loop-player%}
-						add {pts_lvl_1} to {total_points.%loop-player%}
-						add {pts_lvl_1} to {total_points_event.%loop-player%}
+						add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
+						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_1} is false:
 							set {dropper_lvl_1} to true
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 1."
