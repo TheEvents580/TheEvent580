@@ -938,8 +938,15 @@ every tick:
 
 	else if {jeu_condi} is 8: #Bow PVP
 		loop all players:
+            if {invincibility.%loop-player%} = true:
+                if {invicibility.time_left.%loop-player%} > 0:
+                    remove 0.05 from {invicibility.time_left.%loop-player%}
+                else:
+                    set {invincibility.%loop-player%} to false
 			if the y-coordinate of loop-player is smaller than 90:
-				if {gamemode.%loop-player%} is 3:
+				if {alive.%loop-player's uuid%} = true:
+					kill loop-player
+				else:
 					respawnBowPVP(loop-player)
 
 	else if {jeu_condi} is 9: #Build Masters
