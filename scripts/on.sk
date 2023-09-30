@@ -793,7 +793,7 @@ on death:
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580 - 💀&r] Player %victim% fell into the void [&d+%{points_lvl_5}%&r╣]" to loop-player
 				wait 3 ticks
-				remove 1 from the maximal health of victim
+				remove 1 from the maximum health of victim
 
 on respawn:
 	if {jeu_condi} is 3:
