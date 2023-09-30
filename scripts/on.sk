@@ -625,7 +625,7 @@ on damage:
 					send "[&c&lTheEvent580&r] You cannot kill yourself" to victim
 				if {invicibility.%victim%} = true:
 					cancel event
-					send "You should take damage right now but you're invincible for %{invicibility.time_left.%victim%}% more seconds"
+					send "You should take damage right now but you're invincible for %{invicibility.time_left.%victim%}% more seconds" to victim
 				if {finished.%victim%} or {finished.%attacker%} = true:
 					cancel event
 				if {alive.%victim%} or {alive.%attacker%} = false:
@@ -693,7 +693,7 @@ on death:
 		if {jeu_condi} = 8:
 			heal attacker
 			force victim to respawn
-			if the maximim health of victim < 1 :
+			if the maximum health of victim < 1 :
 				set {finished.%victim's uuid%} to true
 				set {alive.%victim's uuid%} to false
 				if damage cause = projectile:
@@ -704,13 +704,13 @@ on death:
 							add {pts_lvl_3} to {points_game.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - Elimination&r] You shot %victim% [+%{points_lvl_3}%]" to loop-player
+							send "[&c&lTheEvent580 - Elimination&r] You shot %victim% [&d+%{points_lvl_3}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was shot by %attacker% [+%{points_lvl_6}%]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was shot by %attacker% [&d+%{points_lvl_6}%&r╣]" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
@@ -719,13 +719,13 @@ on death:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - Elimination&r] You killed %victim% (+1 &c❤&r)[+%{points_lvl_2}%]" to loop-player
+							send "[&c&lTheEvent580 - Elimination&r] You killed %victim% (+1 &c❤&r)[&d+%{points_lvl_2}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker% [+%{points_lvl_6}%]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker% [&d+%{points_lvl_6}%&r╣]" to loop-player
 					add 1 to the maximal health of attacker
 					wait 2 ticks
 					heal attacker
@@ -738,7 +738,7 @@ on death:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% fell into the void [+%{points_lvl_6}%]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% fell into the void [&d+%{points_lvl_6}%&r╣]" to loop-player
 				wait 3 ticks
 				make console execute command "hide %victim%"
 				set the maximum health of the victim to 10
@@ -757,13 +757,13 @@ on death:
 							add {pts_lvl_1} to {points_game.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - 💀&r] You shot %victim% (+1 &c❤&r)[+%{points_lvl_5}%]" to loop-player
+							send "[&c&lTheEvent580 - 💀&r] You shot %victim% (+1 &c❤&r)[&d+%{points_lvl_5}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% was shot by %attacker% [+%{points_lvl_5}%]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% was shot by %attacker% [&d+%{points_lvl_5}%&r╣]" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
@@ -772,13 +772,13 @@ on death:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - 💀&r] You killed %victim% [+%{points_lvl_2}%]" to loop-player
+							send "[&c&lTheEvent580 - 💀&r] You killed %victim% [&d+%{points_lvl_2}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker% [+%{points_lvl_5}%]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker% [&d+%{points_lvl_5}%&r╣]" to loop-player
 					add 1 to the maximal health of attacker
 					wait 2 ticks
 					heal attacker
@@ -791,7 +791,7 @@ on death:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% fell into the void [+%{points_lvl_?}%]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% fell into the void [&d+%{points_lvl_5}%&r╣]" to loop-player
 				wait 3 ticks
 				remove 1 from the maximal health of victim
 
@@ -811,7 +811,7 @@ on respawn:
 	else if {jeu_condi} is 8:
 		wait 1 tick
 		respawnBowPVP(player)
-		heal victim
+		heal player
 		apply saturation without particles to player for 100 days
 
 on break:
