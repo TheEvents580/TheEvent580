@@ -700,7 +700,7 @@ on death:
 					loop all players:
 						if loop-player = victim:
 							send "[&c&lTheEvent580 - Elimination&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
-						else if loop-plyaer = attacker:
+						else if loop-player = attacker:
 							add {pts_lvl_3} to {points_game.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points_event.%attacker's uuid%}
@@ -715,7 +715,7 @@ on death:
 					loop all players:
 						if loop-player = victim:
 							send "[&c&lTheEvent580 - Elimination&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
-						else if loop-plyaer = attacker:
+						else if loop-player = attacker:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
@@ -726,7 +726,7 @@ on death:
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker% [&d+%{points_lvl_6}%&r╣]" to loop-player
-					add 1 to the maximal health of attacker
+					add 1 to the maximum health of attacker
 					wait 2 ticks
 					heal attacker
 				else if y-coordinate of victim < 95:
@@ -753,7 +753,7 @@ on death:
 					loop all players:
 						if loop-player = victim:
 							send "[&c&lTheEvent580 - 💀&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
-						else if loop-plyaer = attacker:
+						else if loop-player = attacker:
 							add {pts_lvl_1} to {points_game.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
@@ -768,7 +768,7 @@ on death:
 					loop all players:
 						if loop-player = victim:
 							send "[&c&lTheEvent580 - 💀&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
-						else if loop-plyaer = attacker:
+						else if loop-player = attacker:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
@@ -779,7 +779,7 @@ on death:
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker% [&d+%{points_lvl_5}%&r╣]" to loop-player
-					add 1 to the maximal health of attacker
+					add 1 to the maximum health of attacker
 					wait 2 ticks
 					heal attacker
 				else if damage cause = void:
