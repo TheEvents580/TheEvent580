@@ -20,7 +20,7 @@ every tick:
 					make loop-player execute command "spawn"
 				if block 0 or 1 meter below loop-player is dirt path:
 					remove speed from loop-player
-					apply speed 2 without particles to loop-player for 15 ticks
+					apply speed 2 without particles to loop-player for 1 second
 				if block 1 meter below loop-player is ochre froglight:
 					make loop-player execute command "spawn"
 				if block 1 meter below loop-player is verdant froglight:
