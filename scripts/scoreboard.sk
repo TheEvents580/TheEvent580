@@ -126,6 +126,11 @@ Function reloadScoreboard():
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
 		else if {jeu_condi} is 6:
 			set line 8 of loop-player's scoreboard to "&e&lHeight limit :&r %round({sg.height})%"
+		else if {jeu_condi} is 8:
+			if {invincibility.%loop-player's uuid%} = true:
+				set line 8 of loop-player's scoreboard to "&e&lYou are invincible for :&r %{invicibility.time_left.%loop-player's uuid%}%s"
+			else:
+				set line 8 of loop-player's scoreboard to "&e&lYou are not invincible"
 		else if {jeu_condi} is 9:
 			if loop-player has permission "group.spectators":
 				set line 8 of loop-player's scoreboard to "&e&lTotal Completed Builds :&r %{builds_total}%"
@@ -134,8 +139,8 @@ Function reloadScoreboard():
 					set line 8 of loop-player's scoreboard to "&e&lCompleted :&r %{builds.%loop-player%}%/10"
 				else:
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
-		else if {jeu_condi} is 7:
-			set line 8 of loop-player's scoreboard to "&e&lActual level :&r %{laby_level.%loop-player%}%"
+		#else if {jeu_condi} is 7:
+		#	set line 8 of loop-player's scoreboard to "&e&lActual level :&r %{laby_level.%loop-player%}%"
 		set line 7 of loop-player's scoreboard to ""
 		set line 6 of loop-player's scoreboard to "&e&lLast minigame : "
 		set line 5 of loop-player's scoreboard to "%{l6}%"

@@ -623,9 +623,9 @@ on damage:
 				if attacker = victim:
 					cancel event
 					send "[&c&lTheEvent580&r] You cannot kill yourself" to victim
-				if {invicibility.%victim%} = true:
+				if {invicibility.%victim's uuid%} = true:
 					cancel event
-					send "You should take damage right now but you're invincible for %{invicibility.time_left.%victim%}% more seconds" to victim
+					send "You should take damage right now but you're invincible for %{invicibility.time_left.%victim's uuid%}% more seconds" to victim
 				if {finished.%victim%} or {finished.%attacker%} = true:
 					cancel event
 				if {alive.%victim%} or {alive.%attacker%} = false:
@@ -747,8 +747,8 @@ on death:
 				allow fly for victim
 				clear victim's inventory
 			else:
-				set {invicibility.time_left.%victim%} to 5
-				set {invicibility.%victim%} to true
+				set {invicibility.time_left.%victim's uuid%} to 5
+				set {invicibility.%victim's uuid%} to true
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
