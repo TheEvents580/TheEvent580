@@ -521,7 +521,7 @@ on join:
 	if event-world is "dropper":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
 	if event-world is "parkour":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/6052827760cda4181c83f9e34b7f526f18e766f4.zip 6052827760cda4181c83f9e34b7f526f18e766f4" #Parkour
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/08e5ca271db60f0cbcc467d7f6d282b5d310c629.zip 08e5ca271db60f0cbcc467d7f6d282b5d310c629" #Parkour
 	if event-world is "bingo":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38.zip 5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38" #Bingo
 	if event-world is "find_the_button":
@@ -1294,7 +1294,7 @@ on player world change:
 	if event-world is "dropper":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
 	if event-world is "parkour":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/6052827760cda4181c83f9e34b7f526f18e766f4.zip 6052827760cda4181c83f9e34b7f526f18e766f4" #Parkour
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/08e5ca271db60f0cbcc467d7f6d282b5d310c629.zip 08e5ca271db60f0cbcc467d7f6d282b5d310c629" #Parkour
 	if event-world is "bingo":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38.zip 5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38" #Bingo
 	if event-world is "find_the_button":
