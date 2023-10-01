@@ -1318,6 +1318,7 @@ on jump:
 		if block 1 meter under player is deepslate coal ore:
 			if the y-coordinate of player = -5:
 				teleport player to location(328.5, 69.5, 316.5, world "world", 150, 0.0001)
+				remove night vision from the player
 	if event-world = "Build_Masters":
 		if block 0 meter under event-player = green carpet or cyan carpet:
 			remove jump boost from event-player
@@ -1344,4 +1345,4 @@ on sneak toggle:
 	if block 1 meter under player is deepslate coal ore:
 		if the y-coordinate of player = 69:
 			teleport player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
-			apply potion of night vision of tier 250 to the player for 10 minutes
+			make console execute command "effect give %player% minecraft:night_vision infinite 255 true"
