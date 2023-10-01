@@ -1344,4 +1344,4 @@ on sneak toggle:
 	if block 1 meter under player is deepslate coal ore:
 		if the y-coordinate of player = 69:
 			teleport player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
-			apply night vision 255 without particles to player for 200 days
+			apply infinite potion of night vision of tier 255 without particles to player
