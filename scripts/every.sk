@@ -1794,8 +1794,8 @@ every second:
 							teleport loop-player to location(0, 166, 0, world "Bow_PVP")
 						else:
 							respawnBowPVP(loop-player)
-							give 1 of bow of unbreaking 250 and infinity 1 named "&dUnbreakable Bow" to loop-player
-							give 1 of stone sword of unbreaking 250 named "&dUnbreakable Sword" to loop-player
+							give 1 of bow of unbreaking 250 and infinity 1 and power 250 named "&dUnbreakable Bow" to loop-player
+							give 1 of stone sword of unbreaking 250 and sharpness 250 named "&dUnbreakable Sword" to loop-player
 							set slot 8 of loop-player's inventory to arrow
 					broadcast "[&c&lTheEvent580&r] &d&lBow PVP&r is starting !"
 					loop all players:
