@@ -519,21 +519,21 @@ on join:
 	if event-world is "world":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/68576ed15f7c4715e754e2a7eb63a9503680ac16.zip 68576ed15f7c4715e754e2a7eb63a9503680ac16" #Spawn
 	if event-world is "dropper":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Dropper
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/3fbc55166417e98c58393591ff920aa379d6be0f.zip 3fbc55166417e98c58393591ff920aa379d6be0f" #Dropper
 	if event-world is "parkour":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/982bc0ce662b00159622b96b4d332d9c7431e45e.zip 982bc0ce662b00159622b96b4d332d9c7431e45e" #Parkour
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/974dc4e8904fe62a76f62b3893028cbc4f02aac5.zip 974dc4e8904fe62a76f62b3893028cbc4f02aac5" #Parkour
 	if event-world is "bingo":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/79d7a829b27fbf56842e673860640d83bb7298c7.zip 79d7a829b27fbf56842e673860640d83bb7298c7" #Bingo
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38.zip 5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38" #Bingo
 	if event-world is "find_the_button":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Find The Button
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/4fe3382657277e93db53d632d0fb2074c4a84a52.zip 4fe3382657277e93db53d632d0fb2074c4a84a52" #Find The Button
 	if event-world is "races_lap_3":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/5899d48e4ae5f2a235de03399eb75f5d768c1cf0.zip 5899d48e4ae5f2a235de03399eb75f5d768c1cf0" #Multilap
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/37727844970884921b6abbe9450ed5e17895f86e.zip 37727844970884921b6abbe9450ed5e17895f86e" #Multilap
 	if event-world is "build_masters":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/1ea8e13f19cf2861baa64210f93a7d79fb344d3b.zip 1ea8e13f19cf2861baa64210f93a7d79fb344d3b" #Build Masters
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/7194c3860f56385c3c3ce2c7f5b9b83cb33c9c86.zip 7194c3860f56385c3c3ce2c7f5b9b83cb33c9c86" #Build Masters
 	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Survival Games
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/a56d5c539fe300d216e64f41df09fd10d989a026.zip a56d5c539fe300d216e64f41df09fd10d989a026" #Survival Games
 	if event-world is "Bow_PVP":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Bow PVP
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/54c24368e1a7ec5f24b2eb443fcacc9aa6138c08.zip 54c24368e1a7ec5f24b2eb443fcacc9aa6138c08" #Bow PVP
 
 on vehicle destroy:
 	if {jeu_condi} is 0:
@@ -1292,21 +1292,21 @@ on player world change:
 	if event-world is "world":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/68576ed15f7c4715e754e2a7eb63a9503680ac16.zip 68576ed15f7c4715e754e2a7eb63a9503680ac16" #Spawn
 	if event-world is "dropper":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Dropper
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/3fbc55166417e98c58393591ff920aa379d6be0f.zip 3fbc55166417e98c58393591ff920aa379d6be0f" #Dropper
 	if event-world is "parkour":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/982bc0ce662b00159622b96b4d332d9c7431e45e.zip 982bc0ce662b00159622b96b4d332d9c7431e45e" #Parkour
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/974dc4e8904fe62a76f62b3893028cbc4f02aac5.zip 974dc4e8904fe62a76f62b3893028cbc4f02aac5" #Parkour
 	if event-world is "bingo":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/79d7a829b27fbf56842e673860640d83bb7298c7.zip 79d7a829b27fbf56842e673860640d83bb7298c7" #Bingo
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38.zip 5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38" #Bingo
 	if event-world is "find_the_button":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Find The Button
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/4fe3382657277e93db53d632d0fb2074c4a84a52.zip 4fe3382657277e93db53d632d0fb2074c4a84a52" #Find The Button
 	if event-world is "races_lap_3":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/5899d48e4ae5f2a235de03399eb75f5d768c1cf0.zip 5899d48e4ae5f2a235de03399eb75f5d768c1cf0" #Multilap
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/37727844970884921b6abbe9450ed5e17895f86e.zip 37727844970884921b6abbe9450ed5e17895f86e" #Multilap
 	if event-world is "build_masters":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Build Masters
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/7194c3860f56385c3c3ce2c7f5b9b83cb33c9c86.zip 7194c3860f56385c3c3ce2c7f5b9b83cb33c9c86" #Build Masters
 	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Survival Games
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/a56d5c539fe300d216e64f41df09fd10d989a026.zip a56d5c539fe300d216e64f41df09fd10d989a026" #Survival Games
 	if event-world is "Bow_PVP":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/b38d3a133575effe7e9f1a3481e8193786479592.zip b38d3a133575effe7e9f1a3481e8193786479592" #Bow PVP
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/54c24368e1a7ec5f24b2eb443fcacc9aa6138c08.zip 54c24368e1a7ec5f24b2eb443fcacc9aa6138c08" #Bow PVP
 
 on shoot:
 	if {timer} is 3:
