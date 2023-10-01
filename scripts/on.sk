@@ -527,7 +527,7 @@ on join:
 	if event-world is "find_the_button":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Find The Button
 	if event-world is "races_lap_3":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/c41f09f6d5347a7c11d7a939c508d0a08d3fc201.zip c41f09f6d5347a7c11d7a939c508d0a08d3fc201" #Multilap
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/2d6d579a86304775612992fdcac5d645783889e6.zip 2d6d579a86304775612992fdcac5d645783889e6" #Multilap
 	if event-world is "build_masters":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/d7af2588cb9bcb13535c952d915e5919ad0bd166.zip d7af2588cb9bcb13535c952d915e5919ad0bd166" #Build Masters
 	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
@@ -1294,13 +1294,13 @@ on player world change:
 	if event-world is "dropper":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
 	if event-world is "parkour":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/5f4ea9975ac959f8e4f6fb68d64212abb4c3a54e.zip 5f4ea9975ac959f8e4f6fb68d64212abb4c3a54e" #Parkour
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26.zip 1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26" #Parkour
 	if event-world is "bingo":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38.zip 5b7cf07cb063037d9c8a7fe3fcfc98f89ab35a38" #Bingo
 	if event-world is "find_the_button":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Find The Button
 	if event-world is "races_lap_3":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/c41f09f6d5347a7c11d7a939c508d0a08d3fc201.zip c41f09f6d5347a7c11d7a939c508d0a08d3fc201" #Multilap
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/2d6d579a86304775612992fdcac5d645783889e6.zip 2d6d579a86304775612992fdcac5d645783889e6" #Multilap
 	if event-world is "build_masters":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/d7af2588cb9bcb13535c952d915e5919ad0bd166.zip d7af2588cb9bcb13535c952d915e5919ad0bd166" #Build Masters
 	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
