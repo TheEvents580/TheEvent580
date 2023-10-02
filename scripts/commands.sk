@@ -1959,3 +1959,8 @@ command /storepurchase <text>:
 	permission: *
 	trigger:
 		broadcast "[&c&lTheEvent580 - Store&r] %arg-1%"
+
+command /uuid <offline player>:
+	permission: *
+	trigger:
+		send "<suggest command:%arg-1's uuid%>Here is %arg-1%'s uuid : %arg-1's uuid%<reset>"
