@@ -852,7 +852,7 @@ command /bowpvp:
 		set {jeu_condi} to 8
 		set {finished_players} to {checking_finished_players}
 		loop all players:
-			set {invicibility.%victim's uuid%} to false
+			set {invicibility.%loop-player's uuid%} to false
 			teleport loop-player to location(0.5, 169, 0.5, "Bow_PVP", -180, 90)
 			set the maximum health of loop-player to 5
 			set {gamemode.%loop-player%} to 2
