@@ -621,8 +621,6 @@ on damage:
 					cancel event
 				if {alive.%victim%} or {alive.%attacker%} = false:
 					cancel event
-				else:
-					kill victim
 			else if damage cause is fall:
 				cancel event
 			if {jeu_condi} is 3:
