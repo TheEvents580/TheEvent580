@@ -857,10 +857,11 @@ command /bowpvp:
 			set the maximum health of loop-player to 5
 			set {gamemode.%loop-player%} to 2
 			if loop-player has permission "group.spectators":
-				set {alive.%loop-player%} to false
-				make console execute command "hide %loop-player%"
+				set {alive.%loop-player's uuid%} to false
+				if {hide.%loop-player's uuid%} = false:
+					make console execute command "hide %loop-player%"
 			else:
-				set {alive.%loop-player%} to true
+				set {alive.%loop-player's uuid%} to true
 		wait 2 seconds
 		make server execute command "gamemode adventure @a"
 		set {pts_lvl_1} to 40*{multiplier}#kill bow & more than 1 heart
