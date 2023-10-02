@@ -575,6 +575,8 @@ on quit:
 		set leave message to "&r[&c-&r] &5%player%"
 
 on damage:
+	if damage cause is fall:
+		cancel event
 	if attacker has permission "group.spectators":
 		if {jeu_condi} is 0 or -1:
 			cancel event
@@ -623,8 +625,6 @@ on damage:
 					cancel event
 				if {alive.%victim%} or {alive.%attacker%} = false:
 					cancel event
-			else if damage cause is fall:
-				cancel event
 			if {jeu_condi} is 3:
 				if victim is item frame:
 					cancel event
