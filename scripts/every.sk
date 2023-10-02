@@ -2856,6 +2856,8 @@ every second:
 				make loop-player execute command "spawn"
 				make console execute command "fly %loop-player%"
 				clear loop-player's inventory
+				if {hide.%loop-player's uuid%} = true:
+					make console execute command "hide %loop-player%"
 				if loop-player has permission "theevent580.staff":
 					send "[&c&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aIntermission" to loop-player
 					set {event_state} to "Intermission"
