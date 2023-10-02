@@ -128,7 +128,7 @@ Function reloadScoreboard():
 			set line 8 of loop-player's scoreboard to "&e&lHeight limit :&r %round({sg.height})%"
 		if {jeu_condi} is 8:
 			if {invincibility.%loop-player's uuid%} = true:
-				set line 8 of loop-player's scoreboard to "&e&lYou are invincible for :&r %round(%{invincibility.time_left.%loop-player's uuid%}%)%s"
+				set line 8 of loop-player's scoreboard to "&e&lYou are invincible for :&r %round({invincibility.time_left.%loop-player's uuid%})%s"
 			else:
 				set line 8 of loop-player's scoreboard to "&e&lYou are not invincible"
 		else if {jeu_condi} is 9:
