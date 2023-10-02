@@ -683,7 +683,8 @@ on death:
 						send "[&c&lTheEvent580&r] You survived to a kill [&5+%{pts_lvl_3}%&r╣]" to loop-player
 		if {jeu_condi} = 8:
 			heal attacker
-			if the maximum health of victim < 1 :
+			if the maximum health of victim < 2 :
+				remove 1 from {finished_players}
 				set {finished.%victim's uuid%} to true
 				set {alive.%victim's uuid%} to false
 				if damage cause = projectile:
