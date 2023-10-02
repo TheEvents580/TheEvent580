@@ -591,6 +591,7 @@ on damage:
 					broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
 					set {alive.%victim%} to false
 					clear victim's inventory
+					clear attacker's inventory
 					allow flight for victim
 			else: # Crossbow
 				cancel event
@@ -599,6 +600,7 @@ on damage:
 				broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
 				set {alive.%victim%} to false
 				clear victim's inventory
+				clear attacker's inventory
 				allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
