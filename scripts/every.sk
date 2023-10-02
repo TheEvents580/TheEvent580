@@ -941,8 +941,8 @@ every tick:
 	else if {jeu_condi} is 8: #Bow PVP
 		loop all players:
 			if {invincibility.%loop-player's uuid%} = true:
-				if {invicibility.time_left.%loop-player's uuid%} > 0.05:
-					remove 0.05 from {invicibility.time_left.%loop-player's uuid%}
+				if {invincibility.time_left.%loop-player's uuid%} > 0.05:
+					remove 0.05 from {invincibility.time_left.%loop-player's uuid%}
 				else:
 					set {invincibility.%loop-player's uuid%} to false
 			if the y-coordinate of loop-player is smaller than 90:
