@@ -687,6 +687,7 @@ on death:
 				remove 1 from {finished_players}
 				set {finished.%victim's uuid%} to true
 				set {alive.%victim's uuid%} to false
+				clear victim's inventory
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
