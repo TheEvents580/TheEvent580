@@ -871,7 +871,7 @@ on right click with carrot on a stick:
 		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
 	if name of tool of player is "&6Skip level":
 		if {parkour.main_level.%player's uuid%} = 4:
-			if {parkour.sub_level.%player's uuid%} = 6:
+			if {parkour.sub_level.%player's uuid%} = 7:
 				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip this level... Good luck !"
 			else:
 				if {parkour.skip.%player's uuid%} = false:
@@ -884,6 +884,8 @@ on right click with carrot on a stick:
 					wait 3 ticks
 					set {parkour.skip_used.%player's uuid%} to false
 					wait 15 ticks
+					if {parkour.sub_level.%player's uuid%} = 6:
+						clear player's inventory
 					wait 9 seconds
 					set {parkour.skip.%player's uuid%} to false
 				else:
