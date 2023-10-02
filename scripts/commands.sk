@@ -472,7 +472,7 @@ command /parkour:
 		wait 2 seconds
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				set {points_game.%loop-player's uuid%} to 150 #everyone starts with 150 coins
+				set {points_game.%loop-player's uuid%} to 240 #everyone starts with 240 coins
 				set {game_multiplier.%loop-player's uuid%} to 1.0 # everyone starts with a x1.0 multiplier
 				set {parkour.next_level_coord.%loop-player's uuid%} to 155
 				set {parkour.main_level.%loop-player's uuid%} to 1

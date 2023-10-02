@@ -16,15 +16,6 @@ on Skript start:
 	set {online_players} to 0
 	clear {staff::*}
 	resetTab()
-	wait 10 seconds
-	#set {_requestContentHeader} to "{'Content-type': 'application/json', 'Authorization': 'Bearer : 980f351d057a6c83131178d6a97680b1'}"
-	#set {_requestContent} to "{""name"": ""Minecraft Server is being worked on"",""components"": [""ckf01fvnxywz50a35nh1qzssm""],""started"": ""2023-09-04T22:00:00.000Z"",""status"": ""INVESTIGATING"",""notify"": true,""statuses"": [{""id"": ""ckf01fvnxywz50a35nh1qzssm"",""status"": ""MONITORING""}]}"
-	#execute PUT request to "https://api.instatus.com/v1/clm67odel25514bdn0gbgsarhc/incidents/clm682q6d0104b4oicpjz9b3f" with headers {_requestContentHeader} and with data {_requestContent}
-
-#on Skript stop:
-#	set {_requestContentHeader} to "{'Content-type': 'application/json', 'Authorization': 'Bearer : 980f351d057a6c83131178d6a97680b1'}"
-#	set {_requestContent} to "{""name"": ""Minecraft Server is down"",""components"": [""ckf01fvnxywz50a35nh1qzssm""],""started"": ""2023-09-04T22:00:00.000Z"",""status"": ""MONITORING"",""notify"": true,""statuses"": [{""id"": ""ckf01fvnxywz50a35nh1qzssm"",""status"": ""INVESTIGATING""}]}"
-#	execute PUT request to "https://api.instatus.com/v1/clm67odel25514bdn0gbgsarhc/incidents/clm682q6d0104b4oicpjz9b3f" with headers {_requestContentHeader} and with data {_requestContent}
 
 on inventory click:
 	if clicked slot is 39:
@@ -889,6 +880,7 @@ on right click with carrot on a stick:
 					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 					wait 2 tick
 					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+					remove 10 from {points_game.%player's uuid%}
 					wait 3 ticks
 					set {parkour.skip_used.%player's uuid%} to false
 					wait 15 ticks
@@ -906,6 +898,7 @@ on right click with carrot on a stick:
 					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 					wait 2 tick
 					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+					remove 10 from {points_game.%player's uuid%}
 					wait 3 ticks
 					set {parkour.skip_used.%player's uuid%} to false
 					wait 15 ticks
@@ -920,6 +913,7 @@ on right click with carrot on a stick:
 				set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 				wait 2 tick
 				teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
+				remove 10 from {points_game.%player's uuid%}
 				wait 3 ticks
 				set {parkour.skip_used.%player's uuid%} to false
 				wait 15 ticks
