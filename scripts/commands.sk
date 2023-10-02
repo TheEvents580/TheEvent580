@@ -512,33 +512,34 @@ command /bingo:
 				allow fly for loop-player
 				hide loop-player from all entities
 		loop all players:
-			set slot 0 of loop-player to iron sword of unbreaking 250 and sharpness 1 named "&eIron sword"
-			set slot 1 of loop-player to iron axe of unbreaking 250 and efficiency 2 named "&eIron axe"
-			set slot 2 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and fortune 2 named "&eFortune iron pickaxe"
-			set slot 3 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and silk touch named "&eSilk touch iron pickaxe"
-			set slot 4 of loop-player to iron shovel of unbreaking 250 and efficiency 2 named "&eIron shovel"
-			set slot 6 of loop-player to 64 steaks named "&eSteak"
-			set helmet of loop-player to chainmail helmet of unbreaking 250 named "&eChainmail helmet"
-			set chestplate of loop-player to chainmail chestplate of unbreaking 250 named "&eChainmail chestplate"
-			set leggings of loop-player to chainmail leggings of unbreaking 250  named "&eChainmail leggings"
-			set boots of loop-player to chainmail boots of unbreaking 250 named "&eChainmail boots"
-			set {bingo_cases.%loop-player%} to 0
-			set {bingo_case_1.%loop-player%} to false
-			set {bingo_case_2.%loop-player%} to false
-			set {bingo_case_3.%loop-player%} to false
-			set {bingo_case_4.%loop-player%} to false
-			set {bingo_case_5.%loop-player%} to false
-			set {bingo_case_6.%loop-player%} to false
-			set {bingo_case_7.%loop-player%} to false
-			set {bingo_case_8.%loop-player%} to false
-			set {bingo_case_9.%loop-player%} to false
-			set {bingo_fin.%loop-player%} to false
-			set {bingo_kill.%loop-player%} to false
-			set {finished.%loop-player%} to false
-			wait 5 ticks
-			set loop-player's gamemode to adventure
-			set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
-			set slot 8 of loop-player to paper named "&eYour Bingo card"
+			loop 5 times:
+				set slot 0 of loop-player to iron sword of unbreaking 250 and sharpness 1 named "&eIron sword"
+				set slot 1 of loop-player to iron axe of unbreaking 250 and efficiency 2 named "&eIron axe"
+				set slot 2 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and fortune 2 named "&eFortune iron pickaxe"
+				set slot 3 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and silk touch named "&eSilk touch iron pickaxe"
+				set slot 4 of loop-player to iron shovel of unbreaking 250 and efficiency 2 named "&eIron shovel"
+				set slot 6 of loop-player to 64 steaks named "&eSteak"
+				set helmet of loop-player to chainmail helmet of unbreaking 250 named "&eChainmail helmet"
+				set chestplate of loop-player to chainmail chestplate of unbreaking 250 named "&eChainmail chestplate"
+				set leggings of loop-player to chainmail leggings of unbreaking 250  named "&eChainmail leggings"
+				set boots of loop-player to chainmail boots of unbreaking 250 named "&eChainmail boots"
+				set {bingo_cases.%loop-player%} to 0
+				set {bingo_case_1.%loop-player%} to false
+				set {bingo_case_2.%loop-player%} to false
+				set {bingo_case_3.%loop-player%} to false
+				set {bingo_case_4.%loop-player%} to false
+				set {bingo_case_5.%loop-player%} to false
+				set {bingo_case_6.%loop-player%} to false
+				set {bingo_case_7.%loop-player%} to false
+				set {bingo_case_8.%loop-player%} to false
+				set {bingo_case_9.%loop-player%} to false
+				set {bingo_fin.%loop-player%} to false
+				set {bingo_kill.%loop-player%} to false
+				set {finished.%loop-player%} to false
+				wait 5 ticks
+				set loop-player's gamemode to adventure
+				set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
+				set slot 8 of loop-player to paper named "&eYour Bingo card"
 		set {bingo_all_cases} to 0
 		set {bingo_case_1_completed} to 0
 		set {bingo_case_2_completed} to 0
