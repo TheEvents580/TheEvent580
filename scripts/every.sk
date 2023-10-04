@@ -1144,7 +1144,7 @@ every second:
 				set {pink} to 0
 			set {white} to 0
 			set {light_gray} to 0
-		if {timer-s} is 10:
+		if {timer-s} is 11:
 			loop all players:
 				if {vote_swap} = false:
 					if loop-player doesn't have permission "group.spectators":
@@ -1237,7 +1237,8 @@ every second:
 							add 1 to {light_gray}
 						else:
 							add 1 to {white}
-				clear all players's inventory
+		if {timer-s} = 10:
+			clear all players's inventory
 			checkBiggest()
 			after()
 		if {timer-s} is 3:
