@@ -2745,8 +2745,6 @@ every second:
 						set {points_game_covert.%loop-player's uuid%} to {points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%}
 						set {points_game.%loop-player's uuid%} to {points_game_covert.%loop-player's uuid%}
 					add {points_game.%loop-player's uuid%} to {points.%loop-player's uuid%}
-					add {points_game.%loop-player's uuid%} to {total_points_event.%loop-player's uuid%}
-					add {points_game.%loop-player's uuid%} to {total_points.%loop-player's uuid%}
 					add {points.%loop-player's uuid%} to {list_points::*}
 					set {points_string.%loop-player%} to "%{points.%loop-player's uuid%}%"
 			set {list_points::*} to sorted {list_points::*}
