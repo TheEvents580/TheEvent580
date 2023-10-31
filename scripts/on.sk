@@ -707,12 +707,13 @@ on death:
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 								send "[&c&lTheEvent580 - Elimination&r] Player %victim% fell into the void [&d+%{pts_lvl_6}%&r╣]" to loop-player
 				wait 3 ticks
-				make console execute command "hide %victim%"
 				set the maximum health of the victim to 10
 				push victim 2 blocks up
-				force victim to fly
-				allow fly for victim
-				clear victim's inventory
+				make console execute command "hide %victim%"
+				make console execute command "fly %victim%"
+				loop all players:
+					if loop-player = victim:
+						clear loop-players's inventory
 			else:
 				set {invincibility.time_left.%victim's uuid%} to 5
 				set {invincibility.%victim's uuid%} to true
