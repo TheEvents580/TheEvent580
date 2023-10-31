@@ -323,18 +323,18 @@ every tick:
 							add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 							remove 15*{multiplier} from {pts_lvl_2}
 							remove 1 mushroom stem from loop-player's inventory
-					if loop-item is red banner:
+					if loop-item is lime bed:
 						wait 1 tick
 						if {bingo_case_3.%loop-player%} is false:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_3_completed}
 							add 1 to {bingo_cases.%loop-player%}
 							if {bingo_case_3_1} is true:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eRed Banner&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eRed Banner&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eLime Bed&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eLime Bed&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
 							if {bingo_case_3_1} is false:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eRed Banner&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eRed Banner&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eLime Bed&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eLime Bed&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_3}% &r╣]" to loop-player
 								set {bingo_case_3_1} to true
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_3.%loop-player%} to true
@@ -342,7 +342,7 @@ every tick:
 							add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 							add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 							remove 25*{multiplier} from {pts_lvl_3}
-							remove 1 red banner from loop-player's inventory
+							remove 1 lime bed from loop-player's inventory
 					if loop-item is raw copper block:
 						wait 1 tick
 						if {bingo_case_4.%loop-player%} is false:
@@ -363,18 +363,18 @@ every tick:
 							add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 							remove 35*{multiplier} from {pts_lvl_4}
 							remove 1 raw copper block from loop-player's inventory
-					if loop-item is skulk sensor:
+					if loop-item is calibrated sculk sensor:
 						wait 1 tick
 						if {bingo_case_5.%loop-player%} is false:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_5_completed}
 							add 1 to {bingo_cases.%loop-player%}
 							if {bingo_case_5_1} is true:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eSculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eSculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eCalibrated Sculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eCalibrated Sculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
 							if {bingo_case_5_1} is false:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eSculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eSculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eCalibrated Sculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eCalibrated Sculk Sensor&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_5}% &r╣]" to loop-player
 								set {bingo_case_5_1} to true
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_5.%loop-player%} to true
@@ -382,19 +382,19 @@ every tick:
 							add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 							add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 							remove 45*{multiplier} from {pts_lvl_5}
-							remove 1 skulk sensor from loop-player's inventory
-					if loop-item is exposed cut copper stairs:
+							remove 1 calibrated sculk sensor from loop-player's inventory
+					if loop-item is waxed cut copper stairs:
 						wait 1 tick
 						if {bingo_case_6.%loop-player%} is false:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_6_completed}
 							add 1 to {bingo_cases.%loop-player%}
 							if {bingo_case_6_1} is true:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eExposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eExposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r completed the &eWaxed Waxed Exposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eWaxed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
 							if {bingo_case_6_1} is false:
-								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eExposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9)."
-								send "[&c&lTheEvent580&r] You completed the &eExposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
+								broadcast "[&c&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eWaxed Exposed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9)."
+								send "[&c&lTheEvent580&r] You completed the &eWaxed Cut Copper Stairs&r slot (%{bingo_cases.%loop-player%}%/9). [&e+%{pts_lvl_6}% &r╣]" to loop-player
 								set {bingo_case_6_1} to true
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_6.%loop-player%} to true
@@ -402,7 +402,7 @@ every tick:
 							add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 							add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 							remove 55*{multiplier} from {pts_lvl_6}
-							remove 1 exposed cut copper stairs from loop-player's inventory
+							remove 1 waxed cut copper stairs from loop-player's inventory
 					if loop-item is blue candle:
 						wait 1 tick
 						if {bingo_case_7.%loop-player%} is false:

@@ -609,21 +609,21 @@ command /card:
 					if {bingo_case_2.%player%} is true:
 						make gui slot 4 with mushroom stem named "&rMushroom Stem / &aValidated" with lore "&e+%{pts_lvl_2}% ╣"
 					if {bingo_case_3.%player%} is false:
-						make gui slot 5 with red banner named "&rRed Banner / &cNot validated" with lore "&e+%{pts_lvl_3}% ╣"
+						make gui slot 5 with lime bed named "&rLime Bed / &cNot validated" with lore "&e+%{pts_lvl_3}% ╣"
 					if {bingo_case_3.%player%} is true:
-						make gui slot 5 with red banner named "&rRed Banner / &aValidated" with lore "&e+%{pts_lvl_3}% ╣"
+						make gui slot 5 with lime bed named "&rLime Bed / &aValidated" with lore "&e+%{pts_lvl_3}% ╣"
 					if {bingo_case_4.%player%} is false:
 						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &cNot validated" with lore "&e+%{pts_lvl_4}% ╣"
 					if {bingo_case_4.%player%} is true:
 						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &aValidated" with lore "&e+%{pts_lvl_4}% ╣"
 					if {bingo_case_5.%player%} is false:
-						make gui slot 13 with skulk sensor named "&rSculk Sensor / &cNot validated" with lore "&e+%{pts_lvl_5}% ╣"
+						make gui slot 13 with calibrated sculk sensor named "&rCalibrated Sculk Sensor / &cNot validated" with lore "&e+%{pts_lvl_5}% ╣"
 					if {bingo_case_5.%player%} is true:
-						make gui slot 13 with skulk sensor named "&rSculk Sensor / &aValidated" with lore "&e+%{pts_lvl_5}% ╣"
+						make gui slot 13 with calibrated sculk sensor named "&rCalibrated Sculk Sensor / &aValidated" with lore "&e+%{pts_lvl_5}% ╣"
 					if {bingo_case_6.%player%} is false:
-						make gui slot 14 with exposed cut copper stairs named "&rExposed Cut Copper Stairs / &cNot validated" with lore "&e+%{pts_lvl_6}% ╣"
+						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &cNot validated" with lore "&e+%{pts_lvl_6}% ╣"
 					if {bingo_case_6.%player%} is true:
-						make gui slot 14 with exposed cut copper stairs named "&rExposed Cut Copper Stairs / &aValidated" with lore "&e+%{pts_lvl_6}% ╣"
+						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &aValidated" with lore "&e+%{pts_lvl_6}% ╣"
 					if {bingo_case_7.%player%} is false:
 						make gui slot 21 with blue candle named "&rBlue Candle / &cNot validated" with lore "&e+%{pts_lvl_7}% ╣"
 					if {bingo_case_7.%player%} is true:
@@ -633,9 +633,9 @@ command /card:
 					if {bingo_case_8.%player%} is true:
 						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &aValidated" with lore "&e+%{pts_lvl_8}% ╣"
 					if {bingo_case_9.%player%} is false:
-						make gui slot 23 with zombie head named "&rZombie Head / &cNot validated" with lore "&e+%{pts_lvl_9}% ╣"
+						make gui slot 23 with zombie head named "&fZombie Head / &cNot validated" with lore "&e+%{pts_lvl_9}% ╣"
 					if {bingo_case_9.%player%} is true:
-						make gui slot 23 with zombie head named "&rZombie Head / &aValidated" with lore "&e+%{pts_lvl_9}% ╣"
+						make gui slot 23 with zombie head named "&fZombie Head / &aValidated" with lore "&e+%{pts_lvl_9}% ╣"
 				open the last gui for the player
 			else:
 				send "[&c&lTheEvent580 - Bingo&r] Sorry, but you are not in &eBingo&r yet, so you are not allowed to see the &eBingo&r card"
@@ -643,13 +643,13 @@ command /card:
 			create a gui with virtual chest inventory with 3 rows named "&eSpec card":
 				make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &a%{bingo_case_1_completed}% completed" with lore "&e+%{pts_lvl_1}% ╣"
 				make gui slot 4 with mushroom stem named "&rMushroom Stem / &a%{bingo_case_2_completed}% completed" with lore "&e+%{pts_lvl_2}% ╣"
-				make gui slot 5 with red banner named "&rRed Banner / &a%{bingo_case_3_completed}% completed" with lore "&e+%{pts_lvl_3}% ╣"
+				make gui slot 5 with lime bed named "&rLime Bed / &a%{bingo_case_3_completed}% completed" with lore "&e+%{pts_lvl_3}% ╣"
 				make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &a%{bingo_case_4_completed}% completed" with lore "&e+%{pts_lvl_4}% ╣"
-				make gui slot 13 with skulk sensor named "&rSculk Sensor / &a%{bingo_case_5_completed}% completed" with lore "&e+%{pts_lvl_5}% ╣"
-				make gui slot 14 with exposed cut copper stairs named "&rExposed Cut Copper Stairs / &a%{bingo_case_6_completed}% completed" with lore "&e+%{pts_lvl_6}% ╣"
+				make gui slot 13 with calibrated sculk sensor named "&rCalibrated Sculk Sensor / &a%{bingo_case_5_completed}% completed" with lore "&e+%{pts_lvl_5}% ╣"
+				make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &a%{bingo_case_6_completed}% completed" with lore "&e+%{pts_lvl_6}% ╣"
 				make gui slot 21 with blue candle named "&rBlue Candle / &a%{bingo_case_7_completed}% completed" with lore "&e+%{pts_lvl_7}% ╣"
 				make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &a%{bingo_case_8_completed}% completed" with lore "&e+%{pts_lvl_8}% ╣"
-				make gui slot 23 with zombie head named "&rZombie Head / &a%{bingo_case_9_completed}% completed" with lore "&e+%{pts_lvl_9}% ╣"
+				make gui slot 23 with zombie head named "&fZombie Head / &a%{bingo_case_9_completed}% completed" with lore "&e+%{pts_lvl_9}% ╣"
 			open the last gui for the player
 
 command /ftb:
