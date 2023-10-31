@@ -148,34 +148,25 @@ on join:
 	wait 3 ticks
 	apply saturation of tier 255 without any particles to the player for 999 days
 	if player has permission "group.spectators":
-		set the join message to "&r[&a+&r] &8%player%"
 		set {color.%player's uuid%} to "露&8 "
 		set {alive.%player%} to false
 	else:
 		set {alive.%player%} to true
 		if player has permission "group.bleu_clair":
-			set the join message to "&r[&a+&r] &b%player%"
 			set {color.%player's uuid%} to "動&b "
 		if player has permission "group.rouge":
-			set the join message to "&r[&a+&r] &c%player%"
 			set {color.%player's uuid%} to "ラ&c "
 		if player has permission "group.rose":
-			set the join message to "&r[&a+&r] &d%player%"
 			set {color.%player's uuid%} to "目&d "
 		if player has permission "group.vert":
-			set the join message to "&r[&a+&r] &a%player%"
 			set {color.%player's uuid%} to "画&a "
 		if player has permission "group.bleu":
-			set the join message to "&r[&a+&r] &1%player%"
 			set {color.%player's uuid%} to "像&1 "
 		if player has permission "group.orange":
-			set the join message to "&r[&a+&r] &6%player%"
 			set {color.%player's uuid%} to "ャ&6 "
 		if player has permission "group.jaune":
-			set the join message to "&r[&a+&r] &e%player%"
 			set {color.%player's uuid%} to "ギ&e "
 		if player has permission "group.violet":
-			set the join message to "&r[&a+&r] &5%player%"
 			set {color.%player's uuid%} to "の&5 "
 	if {flag.%player%} is not set:
 		set {flag.%player%} to false
@@ -555,24 +546,6 @@ on quit:
 	#For Event --> 
 	if player doesn't have permission "group.spectators":
 		remove 1 from {online_players}
-	if player has permission "group.spectators":
-		set leave message to "&r[&c-&r] &8%player%"
-	else if player has permission "group.bleu_clair":
-		set leave message to "&r[&c-&r] &b%player%"
-	else if player has permission "group.rouge":
-		set leave message to "&r[&c-&r] &c%player%"
-	else if player has permission "group.rose":
-		set leave message to "&r[&c-&r] &d%player%"
-	else if player has permission "group.vert":
-		set leave message to "&r[&c-&r] &a%player%"
-	else if player has permission "groupe.bleu":
-		set leave message to "&r[&c-&r] &1%player%"
-	else if player has permission "groupe.orange":
-		set leave message to "&r[&c-&r] &6%player%"
-	else if player has permission "groupe.jaune":
-		set leave message to "&r[&c-&r] &e%player%"
-	else if player has permission "groupe.violet":
-		set leave message to "&r[&c-&r] &5%player%"
 
 on damage:
 	if damage cause is fall:
