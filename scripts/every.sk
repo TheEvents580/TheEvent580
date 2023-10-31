@@ -2990,9 +2990,9 @@ every second:
 			if {timer-m} is 0:
 				loop all players:
 					if {list_points::1} is {points.%loop-player's uuid%}:
-						make server execute command "npc select 21"
+						make server execute command "npc select 22"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "hd setLine S1E3W 2 %{color.%loop-player's uuid%}% %loop-player%"
+						make server execute command "hd setLine S1E4W 2 %{color.%loop-player's uuid%}% %loop-player%"
 				set {timer} to "Fin"
 				loop all players:
 					if {list_points::1} is {points.%loop-player's uuid%}:
