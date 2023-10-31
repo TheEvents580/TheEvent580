@@ -149,9 +149,9 @@ on join:
 	apply saturation of tier 255 without any particles to the player for 999 days
 	if player has permission "group.spectators":
 		set {color.%player's uuid%} to "露&8 "
-		set {alive.%player%} to false
+		set {alive.%player's uuid%} to false
 	else:
-		set {alive.%player%} to true
+		set {alive.%player's uuid%} to true
 		if player has permission "group.bleu_clair":
 			set {color.%player's uuid%} to "動&b "
 		if player has permission "group.rouge":
@@ -566,18 +566,18 @@ on damage:
 					cancel event
 					make console execute command "hide %victim%"
 					broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
-					set {alive.%victim%} to false
+					set {alive.%victim's uuid%} to false
 					clear victim's inventory
-					clear attacker's inventory
+					remove 1 netherite sword from attacker's inventory
 					allow flight for victim
 			else: # Crossbow
 				cancel event
 				make console execute command "execute at %victim% run kill @e[type=minecraft:arrow,sort=nearest,limit=1]"
 				make console execute command "hide %victim%"
 				broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
-				set {alive.%victim%} to false
+				set {alive.%victim's uuid%} to false
 				clear victim's inventory
-				clear attacker's inventory
+				remove 1 crossbow from attacker's inventory
 				allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
@@ -598,7 +598,7 @@ on damage:
 					send "You should take damage right now but you're invincible for %{invincibility.time_left.%victim's uuid%}% more seconds" to victim
 				if {finished.%victim%} or {finished.%attacker%} = true:
 					cancel event
-				if {alive.%victim%} or {alive.%attacker%} = false:
+				if {alive.%victim's uuid%} or {alive.%attacker's uuid%} = false:
 					cancel event
 			if {jeu_condi} is 3:
 				if victim is item frame:
@@ -1248,7 +1248,7 @@ on pickup:
 			if {_has_finished.%player%} is true:
 				cancel event
 		if {jeu_condi} = 6 or 0:
-			if {alive.%player%} = false:
+			if {alive.%player's uuid%} = false:
 				cancel event
 
 
