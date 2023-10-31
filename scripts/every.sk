@@ -2886,6 +2886,7 @@ every second:
 					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 				set {timer-s} to 60
 				set {timer-m} to 0
+				make server execute command "fill 8 253 9 -8 250 -9 air replace minecraft:polished_deepslate"
 				make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
 				make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
 				make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
