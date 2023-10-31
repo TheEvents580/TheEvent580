@@ -567,8 +567,9 @@ on damage:
 					make console execute command "hide %victim%"
 					broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
 					set {alive.%victim's uuid%} to false
-					clear victim's inventory
-					remove 1 netherite sword from attacker's inventory
+					loop all players:
+						if loop-player = attacker or victim:
+							clear loop-players's inventory
 					allow flight for victim
 			else: # Crossbow
 				cancel event
@@ -576,8 +577,9 @@ on damage:
 				make console execute command "hide %victim%"
 				broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
 				set {alive.%victim's uuid%} to false
-				clear victim's inventory
-				remove 1 crossbow from attacker's inventory
+				loop all players:
+					if loop-player = attacker or victim:
+						clear loop-players's inventory
 				allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
@@ -903,7 +905,6 @@ on right click with carrot on a stick:
 			else:
 				send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
 	if name of tool of player is "Block a game":
-		send "Test"
 		if block 2 meter under player is red concrete:
 			blockGame("Dropper",player)
 		if block 2 meter under player is orange concrete:
