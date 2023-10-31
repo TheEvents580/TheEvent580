@@ -2977,7 +2977,7 @@ every second:
 			if {timer-s} is 5:
 				if {timer-m} is 0:
 					endNPCs()
-					make server execute command "tp @a 327.23 68.94 307.70 -66.61 -24.43"
+					make server execute command "tp @a 336.548 -5.1 337.584 153.30 -21.00"
 					clear {list_points::*}
 					loop all players:
 						if loop-player doesn't have permission "group.spectators":
