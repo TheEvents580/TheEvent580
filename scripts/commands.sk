@@ -272,7 +272,7 @@ command /reset:
 					#Laby
 					#set {laby_level.%loop-player%} to "Start"
 					#SG
-					set {alive.%loop-player%} to true
+					set {alive.%loop-player's uuid%} to true
 					#Bow PVP
 					set {health.%loop-player%} to 10
 					#For Event : 
@@ -442,7 +442,7 @@ command /consolereset:
 			#Laby
 			#set {laby_level.%loop-player%} to "Start"
 			#SG
-			set {alive.%loop-player%} to true
+			set {alive.%loop-player's uuid%} to true
 			#Bow PVP
 			set {health.%loop-player%} to 10
 			#For Event : 
@@ -801,9 +801,9 @@ command /sg [<text>]:
 		loop all players:
 			if player doesn't have permission "group.spectators":
 				add 1 to {finished_players}
-				set {alive.%loop-player%} to true
+				set {alive.%loop-player's uuid%} to true
 			else:
-				set {alive.%loop-player%} to false
+				set {alive.%loop-player's uuid%} to false
 
 		set {1st_blood} to true
 		set {pts_lvl_1} to 50*{multiplier}
@@ -812,7 +812,7 @@ command /sg [<text>]:
 		set {pts_lvl_4} to 15*{multiplier}
 		set {pts_lvl_5} to 75*{multiplier}
 		loop all players:
-			make server execute command "effect give %loop-player% invisibility 90 1 true"
+			make server execute command "effect give %loop-player% invisibility 210 1 true"
 		set {game} to "SG3"
 		sgMapCheck()
 
