@@ -1324,12 +1324,12 @@ command /fly [<player>]:
 				disable fly for arg-1
 				send "[&c&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
 				if arg-1 is not player:
-					send "[&c&lTheEvent580 - Admin&r] Fly mode disabled by %player%" to arg-1
+					send "[&c&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
 			else:
 				allow fly for arg-1
 				send "[&c&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
 				if arg-1 is not player:
-					send "[&c&lTheEvent580 - Admin&r] Fly mode enabled by %player%" to arg-1
+					send "[&c&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
 		else:
 			if executor is player:
 				if player can fly:
