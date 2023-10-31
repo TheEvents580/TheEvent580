@@ -582,6 +582,8 @@ on damage:
 			cancel event
 	if victim has permission "group.spectators":
 		cancel event
+	if {timer} = "pause":
+		cancel event
 	if {timer} is 3 or 8:
 		if attacker doesn't have permission "group.spectators":
 			if damage cause is not projectile:
