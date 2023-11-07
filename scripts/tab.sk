@@ -1,4 +1,4 @@
-Function reloadTab():
+function reloadTab():
 	if {jeu_condi} is 0:
 		set {gametab} to "&lHub&r"
 	if {jeu_condi} is 1:
@@ -27,7 +27,7 @@ Function reloadTab():
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"
 
-Function resetTab():
+function resetTab():
 	set {color.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "タ &7" #TheFox580
 	set {head.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "{""translate"":""%%nox_uuid%%dc833b85-3cba-4ebd-8f4d-febc09f02422,false,0,0,1.0"",""fallback"":""🧍""}"
 	set {color.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "タ &7" #LeRenard580
@@ -68,3 +68,8 @@ Function resetTab():
 	set {head.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d} to "{""translate"":""%%nox_uuid%%3d09fa7f-be05-4f23-ae1b-a32d2567fd6d,false,0,0,1.0"",""fallback"":""🧍""}"
 	set {color.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "タ &7" #DustinnnGG
 	set {head.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "{""translate"":""%%nox_uuid%%24e94701-c27e-45f4-a58a-2a82108f5f0b,false,0,0,1.0"",""fallback"":""🧍""}"
+	set {color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "タ &7" #gewoonwifi
+	set {head.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "{""translate"":""%%nox_uuid%%b9e8cdfb-a532-4398-956d-a49fb6bfa9f1,false,0,0,1.0"",""fallback"":""🧍""}"
+	set {color.aba34626-90e3-498f-b70c-8314e0bb4277} to "タ &7" #KaNukei
+	set {head.aba34626-90e3-498f-b70c-8314e0bb4277} to "{""translate"":""%%nox_uuid%%aba34626-90e3-498f-b70c-8314e0bb4277,false,0,0,1.0"",""fallback"":""🧍""}"
+	s
