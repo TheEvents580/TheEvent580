@@ -72,4 +72,3 @@ function resetTab():
 	set {head.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "{""translate"":""%%nox_uuid%%b9e8cdfb-a532-4398-956d-a49fb6bfa9f1,false,0,0,1.0"",""fallback"":""🧍""}"
 	set {color.aba34626-90e3-498f-b70c-8314e0bb4277} to "タ &7" #KaNukei
 	set {head.aba34626-90e3-498f-b70c-8314e0bb4277} to "{""translate"":""%%nox_uuid%%aba34626-90e3-498f-b70c-8314e0bb4277,false,0,0,1.0"",""fallback"":""🧍""}"
-	s
