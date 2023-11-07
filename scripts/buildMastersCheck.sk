@@ -1,4 +1,4 @@
-Function checkBuild1(p:int):
+function checkBuild1(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 993 all run clone -11 138 10001 -11 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 993 all run setblock 1 129 10030 red_concrete"
@@ -551,7 +551,7 @@ Function checkBuild1(p:int):
 					add 1 to {builds_total}
 					remove 5*{multiplier} from {pts_lvl_1}
 
-Function checkBuild2(p:int):
+function checkBuild2(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 993 all run clone -53 138 10001 -53 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 993 all run setblock 1 129 10030 orange_concrete"
@@ -1028,7 +1028,7 @@ Function checkBuild2(p:int):
 					add 1 to {builds_total}
 					remove 15*{multiplier} from {pts_lvl_2}
 
-Function checkBuild3(p:int):
+function checkBuild3(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 993 all run clone -5 138 10001 -5 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 993 all run setblock 1 129 10030 yellow_concrete"
@@ -1605,7 +1605,7 @@ Function checkBuild3(p:int):
 					add 1 to {builds_total}
 					remove 25*{multiplier} from {pts_lvl_3}
 
-Function checkBuild4(p:int):
+function checkBuild4(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 993 all run setblock 1 129 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 993 all run clone -29 138 10001 -29 129 10010 19 131 993"
@@ -2207,7 +2207,7 @@ Function checkBuild4(p:int):
 					add 1 to {builds_total}
 					remove 40*{multiplier} from {pts_lvl_4}
 
-Function checkBuild5(p:int):
+function checkBuild5(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 993 all run clone -41 138 10001 -41 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 993 all run setblock 1 129 10030 cyan_concrete"
@@ -2784,7 +2784,7 @@ Function checkBuild5(p:int):
 					add 1 to {builds_total}
 					remove 60*{multiplier} from {pts_lvl_5}
 
-Function checkBuild6(p:int):
+function checkBuild6(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 993 all run clone -17 138 10001 -17 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 993 all run setblock 1 129 10030 light_blue_concrete"
@@ -3461,7 +3461,7 @@ Function checkBuild6(p:int):
 					add 1 to {builds_total}
 					remove 70*{multiplier} from {pts_lvl_6}
 
-Function checkBuild7(p:int):
+function checkBuild7(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 993 all run clone -35 138 10001 -35 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 993 all run setblock 1 129 10030 blue_concrete"
@@ -4138,7 +4138,7 @@ Function checkBuild7(p:int):
 					add 1 to {builds_total}
 					remove 80*{multiplier} from {pts_lvl_7}
 
-Function checkBuild8(p:int):
+function checkBuild8(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 993 all run clone -47 138 10001 -47 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 993 all run setblock 1 129 10030 purple_concrete"
@@ -4765,7 +4765,7 @@ Function checkBuild8(p:int):
 					add 1 to {builds_total}
 					remove 95*{multiplier} from {pts_lvl_8}
 
-Function checkBuild9(p:int):
+function checkBuild9(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 993 all run clone -59 138 10001 -59 129 10010 19 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 993 all run setblock 1 129 10030 magenta_concrete"
@@ -5942,7 +5942,7 @@ Function checkBuild9(p:int):
 					add 1 to {builds_total}
 					remove 120*{multiplier} from {pts_lvl_9}
 
-Function checkBuild10(p:int):
+function checkBuild10(p:int):
 	if {_p} is 0:
 		make server execute command "execute in minecraft:build_masters if blocks 3 206 10019 12 206 10028 5 128 993 all run setblock 1 129 10030 lime_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 206 10019 12 206 10028 5 128 993 all run clone 1 138 10001 1 129 10010 19 131 993"

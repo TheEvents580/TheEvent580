@@ -1,4 +1,4 @@
-Function sgMapCheck():
+function sgMapCheck():
 	loop all players:
 		if loop-player has permission "group.spectators":
 			force loop-player to fly
