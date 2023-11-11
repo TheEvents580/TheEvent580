@@ -30,11 +30,11 @@ command /dropper:
 		set {remove_pts_fin} to 40*{multiplier}
 		loop all players:
 			make console execute command "hide %loop-player%"
-			set {finished.%loop-player%} to false
+			set {finished.%loop-player's uuid%} to false
 			if loop-player has permission "group.spectators":
 				set slot 0 of loop-player to compass named "&rTeleport to player"
 				set slot 1 of loop-player to feather named "&rChange player's fly speed"
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 			set {gamemode.%loop-player%} to 2
 			set loop-player's gamemode to adventure
 			set {dropper_level.%loop-player%} to 1

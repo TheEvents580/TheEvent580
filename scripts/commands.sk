@@ -29,7 +29,7 @@ command /spawn [<player>]:
 		if arg-1 is not set:
 			if {jeu_condi} is 0 or -1:
 				if {timer} or {timer_save} is 7 or 0 or 1 or 9 or 10 or 8 or "Fin":
-					if {finished.%player%} is true:
+					if {finished.%player's uuid%} is true:
 						make console execute command "fly %player%"
 					if player's game mode is spectator:
 						make server execute command "execute in minecraft:overworld run tp %player% 322.081 75.5 341.571 147.5 21.5"
@@ -482,11 +482,11 @@ command /parkour:
 				set slot 7 of loop-player to carrot on a stick named "&6Skip level"
 				set {parkour.skip.%loop-player's uuid%} to false
 				set {parkour.skip_used.%loop-player's uuid%} to false
-				set {finished.%loop-player%} to false
+				set {finished.%loop-player's uuid%} to false
 			if {hide.%loop-player's uuid%} = false:
 				make console execute command "hide %loop-player%"
 			if loop-player has permission "group.spectators":
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 				clear loop-player's inventory
 			set {gamemode.%loop-player%} to 2
 		wait 2 seconds
@@ -537,7 +537,7 @@ command /bingo:
 				set {bingo_case_9.%loop-player%} to false
 				set {bingo_fin.%loop-player%} to false
 				set {bingo_kill.%loop-player%} to false
-				set {finished.%loop-player%} to false
+				set {finished.%loop-player's uuid%} to false
 				wait 5 ticks
 				set loop-player's gamemode to adventure
 				set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
@@ -592,7 +592,7 @@ command /bingo:
 				set slot 1 of loop-player to feather named "&rChange player's fly speed"
 				set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 
 command /card:
 	description: ouvre la carte
@@ -664,7 +664,7 @@ command /ftb:
 			make console execute command "hide %loop-player%"
 			set {gamemode.%loop-player%} to 2
 			set {ftb_fin.%loop-player%} to 0
-			set {finished.%loop-player%} to false
+			set {finished.%loop-player's uuid%} to false
 			set {ftb_1.%loop-player%} to false
 			set {ftb_2.%loop-player%} to false
 			set {ftb_3.%loop-player%} to false
@@ -678,7 +678,7 @@ command /ftb:
 			set {ftb_11.%loop-player%} to false
 		loop all players:
 			if loop-player has permission "group.spectators":
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 				force loop-player to fly
 				allow fly for loop-player
 				set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -769,9 +769,9 @@ command /courses:
 			set {race_checkpoint.%loop-player%} to 0
 			set {race_lap.%loop-player%} to 1
 			if loop-player has permission "group.spectators":
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 			else:
-				set {finished.%loop-player%} to false
+				set {finished.%loop-player's uuid%} to false
 				set slot 40 of loop-player to carrot on a stick named "&rYou're on Lap 1"
 				set {race_total_time.%loop-player%} to 0
 				set {race_lap_time.%loop-player%} to 0
@@ -831,10 +831,10 @@ command /laby:
 			set loop-player's gamemode to adventure
 			if loop-player has permission "group.spectators":
 				set loop-player's gamemode to spectator
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 				set {laby_level.%loop-player%} to "None"
 			else:
-				set {finished.%loop-player%} to false
+				set {finished.%loop-player's uuid%} to false
 				set {gamemode.%loop-player%} to 2
 				set {laby_level.%loop-player%} to "Start"
 				make server execute command "effect give %loop-player% invisibility 660 1 true"
@@ -897,11 +897,11 @@ command /bm:
 				set {build.location.%loop-player%} to -1
 				set {build.%loop-player%} to -1
 				set {builds.%loop-player%} to "Spec"
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 			else:
 				set {build.%loop-player%} to 1
 				set {builds.%loop-player%} to 0
-				set {finished.%loop-player%} to false
+				set {finished.%loop-player's uuid%} to false
 				set {build.location.%loop-player%} to {_pos.player}
 				send "[&c&lTheEvent580 - Build Masters&r] Player %loop-player% has been set to plot %{_pos.player}%" to console
 				add 1 to {_pos.player}
@@ -1207,35 +1207,44 @@ command /staff <text> [<player>]:
 
 command /tpspec:
 	trigger:
-		set {_user} to player
-		if {finished.%player%} is true:
-			create a gui with virtual chest inventory with 6 rows named "Spectator menu":
-				wait 1 tick
-				set {_slot} to 0
-				loop all players:
-					if {finished.%loop-player%} is false:
-						set {_head} to "%loop-value%" parsed as an offline player
-						make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
-							teleport {_user} to {_head}
-							close {_user}'s inventory
-						add 1 to {_slot}
-			open the last gui for the player
-		else:
-			loop {finished::*}:
-				if loop-value is player:
-					loop all players:
-						if loop-player doesn't have permission "group.spectators":
-							add loop-player to {_players::*}
-					create a gui with virtual chest inventory with 6 rows named "Spectator menu":
-						wait 1 tick
-						set {_slot} to 0
-						loop {_players::*}:
-							set {_head} to "%loop-value-2%" parsed as an offline player
-							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
-								teleport {_user} to {_head}
-								close {_user}'s inventory
-							add 1 to {_slot}
-					open the last gui for the player
+		if {finished.%player's uuid%} is true:
+			create a gui with virtual chest inventory with 8 rows named "Spectator menu":
+				make gui slot 0 with red stained glass pane named "&r&cRed"
+				make gui slot 9 with red stained glass pane named "&r&cRed"
+				make gui slot 18 with red stained glass pane named "&r&cRed"
+				make gui slot 27 with red stained glass pane named "&r&cRed"
+				make gui slot 36 with red stained glass pane named "&r&cRed"
+				make gui slot 45 with red stained glass pane named "&r&cRed"
+				make gui slot 54 with red stained glass pane named "&r&cRed"
+				make gui slot 63 with red stained glass pane named "&r&cRed"
+		#set {_user} to player
+		#if {finished.%player's uuid%} is true:
+		#	create a gui with virtual chest inventory with 6 rows named "Spectator menu":
+		#		wait 1 tick
+		#		set {_slot} to 0
+		#		loop all players:
+		#			if {finished.%loop-player's uuid%} is false:
+		#				set {_head} to "%loop-value%" parsed as an offline player
+		#				make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
+		#					teleport {_user} to {_head}
+		#					close {_user}'s inventory
+		#				add 1 to {_slot}
+		#	open the last gui for the player
+		#else:
+		#	if {finished.%player's uuid%} = true:
+		#		loop all players:
+		#			if loop-player doesn't have permission "group.spectators":
+		#				add loop-player to {_players::*}
+		#		create a gui with virtual chest inventory with 6 rows named "Spectator menu":
+		#			wait 1 tick
+		#			set {_slot} to 0
+		#			loop {_players::*}:
+		#				set {_head} to "%loop-value-2%" parsed as an offline player
+		#				make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
+		#					teleport {_user} to {_head}
+		#					close {_user}'s inventory
+		#				add 1 to {_slot}
+		#		open the last gui for the player
 
 command /tests <int>:
 	permission: *
@@ -1477,7 +1486,7 @@ command /see <player>:
 	trigger:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				if {finished.%loop-player%} is false:
+				if {finished.%loop-player's uuid%} is false:
 					reveal loop-player for arg-1
 		send "[&c&lTheEvent580 - Admin&r] You can now see the players who haven't finished yet" to arg-1
 

@@ -1005,7 +1005,7 @@ on right click :
 			if event-block is red concrete:
 				give 1 of apple to player
 		if {jeu_condi} is 4: #Find The Button
-			if {finished.%player%} is false:
+			if {finished.%player's uuid%} is false:
 				if event-block is oak_button:
 					if {ftb_1.%player%} is false:
 						if {ftb_1} is true:
@@ -1243,11 +1243,11 @@ on pickup:
 			cancel event
 			make server execute command "execute at %player% run kill @e[type=minecraft:arrow,limit=1]"
 		if {jeu_condi} is 9:
-			set {_has_finished.%player%} to false
+			set {_has_finished.%player's uuid%} to false
 			loop {finished::*}:
 				if loop-value is player:
-					set {_has_finished.%player%} to true
-			if {_has_finished.%player%} is true:
+					set {_has_finished.%player's uuid%} to true
+			if {_has_finished.%player's uuid%} is true:
 				cancel event
 		if {jeu_condi} = 6 or 0:
 			if {alive.%player's uuid%} = false:

@@ -91,12 +91,12 @@ function reloadScoreboard():
 		if {jeu_condi} is 0 or -1:
 			set line 8 of loop-player's scoreboard to "&e&lOnline players :&r %{online_players}%/9"
 		else if {jeu_condi} is 1:
-			if {finished.%loop-player%} = false:
+			if {finished.%loop-player's uuid%} = false:
 				set line 8 of loop-player's scoreboard to "&e&lLevel :&r %{dropper_level.%loop-player%}%"
 			else:
 				set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
 		else if {jeu_condi} is 2:
-			if {finished.%loop-player%} = false:
+			if {finished.%loop-player's uuid%} = false:
 				set line 8 of loop-player's scoreboard to "&e&lLevel :&r %{parkour.main_level.%loop-player's uuid%}% - %{parkour.sub_level.%loop-player's uuid%}%"
 			else:
 				set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
@@ -104,7 +104,7 @@ function reloadScoreboard():
 			if loop-player has permission "group.spectators":
 				set line 8 of loop-player's scoreboard to "&e&lTotal slot completed :&r %{bingo_all_cases}%"
 			else:
-				if {finished.%loop-player%} = false:
+				if {finished.%loop-player's uuid%} = false:
 					set line 8 of loop-player's scoreboard to "&e&lCompleted :&r %{bingo_cases.%loop-player%}%/9"
 				else:
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
@@ -112,7 +112,7 @@ function reloadScoreboard():
 			if loop-player has permission "group.spectators":
 				set line 8 of loop-player's scoreboard to "&e&lTotal buttons pressed :&r %{total_buttons_pressed}%"
 			else:
-				if {finished.%loop-player%} = false:
+				if {finished.%loop-player's uuid%} = false:
 					set line 8 of loop-player's scoreboard to "&e&lButton pressed :&r %{ftb_fin.%loop-player%}% / 11"
 				else:
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
@@ -120,7 +120,7 @@ function reloadScoreboard():
 			if loop-player has permission "group.spectators":
 				set line 8 of loop-player's scoreboard to "&e&lCurrent opened path :&r %{race_lap}%"
 			else:
-				if {finished.%loop-player%} = false:
+				if {finished.%loop-player's uuid%} = false:
 					set line 8 of loop-player's scoreboard to "&e&lCheckpoint :&r %{race_checkpoint.%loop-player%}%"
 				else:
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"
@@ -135,7 +135,7 @@ function reloadScoreboard():
 			if loop-player has permission "group.spectators":
 				set line 8 of loop-player's scoreboard to "&e&lTotal Completed Builds :&r %{builds_total}%"
 			else:
-				if {finished.%loop-player%} = false:
+				if {finished.%loop-player's uuid%} = false:
 					set line 8 of loop-player's scoreboard to "&e&lCompleted :&r %{builds.%loop-player%}%/10"
 				else:
 					set line 8 of loop-player's scoreboard to "&e&lWaiting for other players"

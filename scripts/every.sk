@@ -4,7 +4,7 @@ every tick:
 	if {race_timer} is true:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				if {finished.%loop-player%} is false:
+				if {finished.%loop-player's uuid%} is false:
 					add 0.05 to {race_lap_time.%loop-player%}
 					add 0.05 to {race_total_time.%loop-player%}
 			reloadTimer()
@@ -51,7 +51,7 @@ every tick:
 					teleport loop-player to {parkour_checkpoint_location.%loop-player's uuid%}
 			if the game mode of loop-player is adventure:
 				if loop-player doesn't have permission "group.spectators":
-					if {finished.%loop-player%} = false:
+					if {finished.%loop-player's uuid%} = false:
 						if the x-coordinate of loop-player > {parkour.next_level_coord.%loop-player's uuid%}:
 							if the y coordinate of loop-player > 128:
 								if the z-coordinate of loop-player is between 198 and 204 :
@@ -120,7 +120,7 @@ every tick:
 											clear loop-player's inventory
 										if {parkour.sub_level.%loop-player's uuid%} = 8:
 											add 1.3 to {game_multiplier.%loop-player's uuid%}
-											set {finished.%loop-player%} to true
+											set {finished.%loop-player's uuid%} to true
 											loop all players:
 												if loop-player-1 = loop-player-2:
 													send "[&c&lTheEvent580 - Parkour&r] You fully finished &6Parkour&r ! You get rewarded with %{points_game.%loop-player-1's uuid%} * {game_multiplier.%loop-player-1's uuid%}% ╣ !" to loop-player-1
@@ -243,7 +243,7 @@ every tick:
 					#if block 2 meters below loop-player is diamond_block:
 					#	if {parkour_checkpoint.%loop-player%} is 5:
 					#		make console execute command "/see %loop-player%"
-					#		set {finished.%loop-player%} to true
+					#		set {finished.%loop-player's uuid%} to true
 					#		make server execute command "/hide %loop-player%"
 					#		make server execute command "/hide %loop-player%"
 					#		force loop-player to fly
@@ -471,7 +471,7 @@ every tick:
 					send "[&c&lTheEvent580&r] You just completed the bingo &e&lBingo&r" to loop-player
 					set {bingo_fin.%loop-player%} to true
 					make console execute command "/see %loop-player%"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					set loop-player's gamemode to adventure
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
@@ -491,7 +491,7 @@ every tick:
 						set {gamemode.%loop-player%} to 3
 						add 1 to {finished_players}
 						make console execute command "/see %loop-player%"
-						set {finished.%loop-player%} to true
+						set {finished.%loop-player's uuid%} to true
 						set slot 0 of loop-player to compass named "&rTeleport to player"
 						set slot 1 of loop-player to feather named "&rChange player's fly speed"
 						make console execute command "/hide %loop-player%"
@@ -516,7 +516,7 @@ every tick:
 			if the x coordinate of loop-player is between 4 and -4:
 				if the y coordinate of loop-player is between 128 and 134:
 					if the z coordinate of loop-player is between 1 and 0:
-						if {finished.%loop-player%} = false:
+						if {finished.%loop-player's uuid%} = false:
 							if {race_checkpoint.%loop-player%} >= 2:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								if {race_lap.%loop-player%} = 3:
@@ -526,7 +526,7 @@ every tick:
 										make console execute command "execute in minecraft:races_lap_3 run fill -10 130 -43 -12 136 -43 air replace stone"
 										make console execute command "execute in minecraft:races_lap_3 run fill -16 130 -43 -18 136 -43 air replace smooth_basalt"
 									set {gamemode.%loop-player%} to 3
-									set {finished.%loop-player%} to true
+									set {finished.%loop-player's uuid%} to true
 									clear loop-player's inventory
 									make console execute command "/hide %loop-player%"
 									force loop-player to fly
@@ -575,7 +575,7 @@ every tick:
 					if the z coordinate of loop-player is between -51 and -42:
 						if {race_checkpoint.%loop-player%} = 1:
 							set {race_checkpoint_pos.%loop-player%} to position of loop-player
-							if {finished.%loop-player%} = false:
+							if {finished.%loop-player's uuid%} = false:
 								add 1 to {race_checkpoint.%loop-player%}
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player%}% passed" to loop-player for 1 second
 			if the x coordinate of loop-player is between 31 and 30:
@@ -606,7 +606,7 @@ every tick:
 						if {race_checkpoint.%loop-player%} = 0:
 							set {race_checkpoint_pos.%loop-player%} to position of loop-player
 							add 1 to {race_checkpoint.%loop-player%}
-							if {finished.%loop-player%} = false:
+							if {finished.%loop-player's uuid%} = false:
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player%}% passed" to loop-player for 1 second
 			if the x coordinate of loop-player is between -55 and -60:
 				if the y coordinate of loop-player is between 139 and 144:
@@ -617,14 +617,14 @@ every tick:
 					if the z coordinate of loop-player is between -34 and -32:
 						if {race_checkpoint.%loop-player%} = 1:
 							set {race_checkpoint_pos.%loop-player%} to position of loop-player
-							if {finished.%loop-player%} = false:
+							if {finished.%loop-player's uuid%} = false:
 								add 1 to {race_checkpoint.%loop-player%}
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player%}% passed" to loop-player for 1 second
 			if the x coordinate of loop-player is between 0 and 20:
 				if the y coordinate of loop-player is between 138 and 200:
 					if the z coordinate of loop-player is between -32 and -30:
 						if {race_checkpoint.%loop-player%} = 2:
-							if {finished.%loop-player%} = false:
+							if {finished.%loop-player's uuid%} = false:
 								add 1 to {race_checkpoint.%loop-player%}
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player%}% passed" to loop-player for 1 second
 							set {race_checkpoint_pos.%loop-player%} to position of loop-player
@@ -632,7 +632,7 @@ every tick:
 					if the z coordinate of loop-player is between -89 and -87:
 						if {race_checkpoint.%loop-player%} = 1:
 							set {race_checkpoint_pos.%loop-player%} to position of loop-player
-							if {finished.%loop-player%} = false:
+							if {finished.%loop-player's uuid%} = false:
 								add 1 to {race_checkpoint.%loop-player%}
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player%}% passed" to loop-player for 1 second
 					if the z coordinate of loop-player is between -90 and -89:
@@ -670,7 +670,7 @@ every tick:
 		#					if block 2 meters below loop-player is white_concrete or black_concrete:
 		#						set {courses_boat.%loop-player%} to "End"
 		#						set {gamemode.%loop-player%} to 3
-		#						set {finished.%loop-player%} to true
+		#						set {finished.%loop-player's uuid%} to true
 		#						clear loop-player's inventory
 		#						make console execute command "/hide %loop-player%"
 		#						force loop-player to fly
@@ -709,7 +709,7 @@ every tick:
 		#					if block 2 meters below loop-player is white_concrete or black_concrete:
 		#						set {courses_pied.%loop-player%} to "End"
 		#						set {gamemode.%loop-player%} to 3
-		#						set {finished.%loop-player%} to true
+		#						set {finished.%loop-player's uuid%} to true
 		#						make console execute command "/see %loop-player%"
 		#						make server execute command "/hide %loop-player%"
 		#						force loop-player to fly
@@ -902,7 +902,7 @@ every tick:
 	#					if block 2 meters below loop-player is white_concrete or black_concrete:
 	#						set {laby_level.%loop-player%} to "End"
 	#						set {gamemode.%loop-player%} to 3
-	#						set {finished.%loop-player%} to true
+	#						set {finished.%loop-player's uuid%} to true
 	#						set loop-player's gamemode to spectator
 	#						force loop-player to fly
 	#						allow fly for loop-player
@@ -977,7 +977,7 @@ every tick:
 				allow fly for loop-player
 				force loop-player to fly
 				set loop-player's gamemode to adventure
-				set {finished.%loop-player%} to true
+				set {finished.%loop-player's uuid%} to true
 				set {build.%loop-player%} to "end"
 
 every second:

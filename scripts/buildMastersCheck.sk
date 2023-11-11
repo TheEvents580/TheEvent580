@@ -5968,7 +5968,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6001,7 +6001,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6034,7 +6034,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6067,7 +6067,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6100,7 +6100,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6133,7 +6133,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6166,7 +6166,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6199,7 +6199,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6232,7 +6232,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6265,7 +6265,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6298,7 +6298,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6331,7 +6331,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6364,7 +6364,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6397,7 +6397,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6430,7 +6430,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6463,7 +6463,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6496,7 +6496,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6529,7 +6529,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6562,7 +6562,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6595,7 +6595,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6628,7 +6628,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6661,7 +6661,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6694,7 +6694,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6727,7 +6727,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -6760,7 +6760,7 @@ function checkBuild10(p:int):
 								make server execute command "achivement %loop-player% give 1SecBM"
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					set {finished.%loop-player%} to true
+					set {finished.%loop-player's uuid%} to true
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
