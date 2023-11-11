@@ -150,7 +150,9 @@ on join:
 	if player has permission "group.spectators":
 		set {color.%player's uuid%} to "露&8 "
 		set {alive.%player's uuid%} to false
+		set {finished.%player's uuid%} to true
 	else:
+		set {finished.%player's uuid%} to false
 		set {alive.%player's uuid%} to true
 		if player has permission "group.bleu_clair":
 			set {color.%player's uuid%} to "動&b "
