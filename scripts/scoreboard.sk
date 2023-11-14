@@ -89,7 +89,7 @@ function reloadScoreboard():
 			set line 10 of loop-player's scoreboard to "Timer paused"
 		set line 9 of loop-player's scoreboard to ""
 		if {jeu_condi} is 0 or -1:
-			set line 8 of loop-player's scoreboard to "&e&lOnline players :&r %{online_players}%/10"
+			set line 8 of loop-player's scoreboard to "&e&lOnline players :&r %{online_players}%/11"
 		else if {jeu_condi} is 1:
 			if {finished.%loop-player's uuid%} = false:
 				set line 8 of loop-player's scoreboard to "&e&lLevel :&r %{dropper_level.%loop-player%}%"
