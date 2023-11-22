@@ -1040,7 +1040,7 @@ every second:
 				newPlayers()
 			if {timer-s} is 0:
 				set {timer-m} to 0
-				set {timer-s} to 59
+				set {timer-s} to 60
 		remove 1 from {timer-s}
 	if {timer} is 2:
 		if {timer-s} is 28:
