@@ -1,7 +1,7 @@
 function reloadScoreboard():
 	loop all players:
-		#set title of loop-player's scoreboard to "    &c&lTheEvent580 • Season 1    "#Events
-		set title of loop-player's scoreboard to "    &c&lTheEvent580 • Season 0.5    " #Tests
+		set title of loop-player's scoreboard to "    &c&lTheEvent580 • Season 1    "#Events
+		#set title of loop-player's scoreboard to "    &c&lTheEvent580 • Season 0.5    " #Tests
 		set line 15 of loop-player's scoreboard to ""
 		set line 14 of loop-player's scoreboard to "&e&lMiningame :"
 		set line 13 of loop-player's scoreboard to "%{jeu}%/6&e&l - %{jeu_nom}%"
