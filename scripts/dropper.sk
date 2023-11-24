@@ -62,7 +62,7 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete the &c&lDropper&r."
 						else if {dropper_fin} is true:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed the &c&lDropper&r."
-						send "[&c&lTheEvent580&r] You completed the &c&lDropper&r ! [&c+%{pts_lvl_4}% &r╣]" to loop-player
+						send "[&c&lTheEvent580&r] You completed the &c&lDropper&r ! [&c+%{pts_lvl_4}% &r工]" to loop-player
 						remove {remove_pts_lvl_4} from {pts_lvl_4}
 						make console execute command "/see %loop-player%"
 						make console execute command "/hide %loop-player%"
@@ -81,7 +81,7 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 3."
 						else if {dropper_lvl_3} is true:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 3."
-						send "[&c&lTheEvent580&r] You completed level 3 [&c+%{pts_lvl_3}% &r╣]" to loop-player
+						send "[&c&lTheEvent580&r] You completed level 3 [&c+%{pts_lvl_3}% &r工]" to loop-player
 						remove {remove_pts_lvl_3} from {pts_lvl_3}
 					if {dropper_level.%loop-player%} is 2:
 						set {dropper_level.%loop-player%} to 3
@@ -94,7 +94,7 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 2."
 						else if {dropper_lvl_2} is true:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 2."
-						send "[&c&lTheEvent580&r] You completed level 2 [&c+%{pts_lvl_2}% &r╣]" to loop-player
+						send "[&c&lTheEvent580&r] You completed level 2 [&c+%{pts_lvl_2}% &r工]" to loop-player
 						remove {remove_pts_lvl_2} from {pts_lvl_2}
 					if {dropper_level.%loop-player%} is 1:
 						set {dropper_level.%loop-player%} to 2
@@ -107,7 +107,7 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 1."
 						else if {dropper_lvl_1} is true:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 1."
-						send "[&c&lTheEvent580&r] You completed level 1 [&c+%{pts_lvl_1}% &r╣]" to loop-player
+						send "[&c&lTheEvent580&r] You completed level 1 [&c+%{pts_lvl_1}% &r工]" to loop-player
 						remove {remove_pts_lvl_1} from {pts_lvl_1}
 				if block 1 meter under loop-player is not red_concrete or air or white_concrete or white_wool or water or end_gateway or light or cobweb:
 					if {dropper_level.%loop-player%} is 1:
