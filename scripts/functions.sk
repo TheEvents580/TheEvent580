@@ -297,43 +297,43 @@ function updateClassement():
 		if {list_points::1} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 8"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 1 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 1 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::2} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 9"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 2 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 2 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::3} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 10"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 3 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 3 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::4} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 11"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 4 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 4 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::5} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 12"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 5 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 5 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::6} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 13"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 6 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 6 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::7} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 14"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 7 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 7 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::8} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 15"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 8 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 8 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::9} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 16"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 9 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 9 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 		if {list_points::10} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 17"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 10 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename Top 10 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
 
 function updateParkour():
 	clear {list_parkour::*}

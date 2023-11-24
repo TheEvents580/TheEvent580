@@ -641,15 +641,15 @@ on death:
 					add {pts_lvl_2} to {points_game.%attacker's uuid%}
 					add {pts_lvl_2} to {total_points.%attacker's uuid%}
 					add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% [&5+%{pts_lvl_2}%&r工]"
-					send "[&c&lTheEvent580&r] You killed %victim% [&5+%{pts_lvl_2}%&r工]" to attacker
+					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% [&5+%{pts_lvl_2}%&r╣]"
+					send "[&c&lTheEvent580&r] You killed %victim% [&5+%{pts_lvl_2}%&r╣]" to attacker
 					send "[&c&lTheEvent580&r] You got killed by %attacker%" to victim
 				else if {1st_blood} is true:
 					add {pts_lvl_1} to {points_game.%attacker's uuid%}
 					add {pts_lvl_1} to {total_points.%attacker's uuid%}
 					add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% (1st blood) [&5+%{pts_lvl_1}%&r工]"
-					send "[&c&lTheEvent580&r] You killed %victim% (1st blood) [&5+%{pts_lvl_1}%&r工]" to attacker
+					broadcast "[&c&lTheEvent580&r] %victim% got killed by %attacker% (1st blood) [&5+%{pts_lvl_1}%&r╣]"
+					send "[&c&lTheEvent580&r] You killed %victim% (1st blood) [&5+%{pts_lvl_1}%&r╣]" to attacker
 					send "[&c&lTheEvent580&r] You got killed by %attacker% (1st blood)" to victim
 					set {1st_blood} to false
 		if {jeu_condi} is 6:
@@ -659,7 +659,7 @@ on death:
 						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
 						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
-						send "[&c&lTheEvent580&r] You survived to a kill [&5+%{pts_lvl_3}%&r工]" to loop-player
+						send "[&c&lTheEvent580&r] You survived to a kill [&5+%{pts_lvl_3}%&r╣]" to loop-player
 		if {jeu_condi} = 8:
 			heal attacker
 			if the maximum health of victim < 2 :
@@ -675,13 +675,13 @@ on death:
 							add {pts_lvl_3} to {points_game.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - Elimination&r] You shot %victim% [&d+%{pts_lvl_3}%&r工]" to loop-player
+							send "[&c&lTheEvent580 - Elimination&r] You shot %victim% [&d+%{pts_lvl_3}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was shot by %attacker% [&d+%{pts_lvl_6}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was shot by %attacker% [&d+%{pts_lvl_6}%&r╣]" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
@@ -690,13 +690,13 @@ on death:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - Elimination&r] You killed %victim% (+1 &c❤&r)[&d+%{pts_lvl_2}%&r工]" to loop-player
+							send "[&c&lTheEvent580 - Elimination&r] You killed %victim% (+1 &c❤&r)[&d+%{pts_lvl_2}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker% [&d+%{pts_lvl_6}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker% [&d+%{pts_lvl_6}%&r╣]" to loop-player
 					add 1 to the maximum health of attacker
 					wait 2 ticks
 					heal attacker
@@ -709,7 +709,7 @@ on death:
 								add {pts_lvl_6} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - Elimination&r] Player %victim% fell into the void [&d+%{pts_lvl_6}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - Elimination&r] Player %victim% fell into the void [&d+%{pts_lvl_6}%&r╣]" to loop-player
 				wait 3 ticks
 				set the maximum health of the victim to 10
 				push victim 2 blocks up
@@ -729,13 +729,13 @@ on death:
 							add {pts_lvl_1} to {points_game.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - 💀&r] You shot %victim% [&d+%{pts_lvl_1}%&r工]" to loop-player
+							send "[&c&lTheEvent580 - 💀&r] You shot %victim% [&d+%{pts_lvl_1}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% was shot by %attacker% [&d+%{pts_lvl_5}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% was shot by %attacker% [&d+%{pts_lvl_5}%&r╣]" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
@@ -744,13 +744,13 @@ on death:
 							add {pts_lvl_2} to {points_game.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[&c&lTheEvent580 - 💀&r] You killed %victim% (+1 &c❤&r)[&d+%{pts_lvl_2}%&r工]" to loop-player
+							send "[&c&lTheEvent580 - 💀&r] You killed %victim% (+1 &c❤&r)[&d+%{pts_lvl_2}%&r╣]" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker% [&d+%{pts_lvl_5}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker% [&d+%{pts_lvl_5}%&r╣]" to loop-player
 					add 1 to the maximum health of attacker
 					wait 2 ticks
 					heal attacker
@@ -763,7 +763,7 @@ on death:
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[&c&lTheEvent580 - 💀&r] Player %victim% fell into the void [&d+%{pts_lvl_5}%&r工]" to loop-player
+								send "[&c&lTheEvent580 - 💀&r] Player %victim% fell into the void [&d+%{pts_lvl_5}%&r╣]" to loop-player
 				wait 3 ticks
 				remove 1 from the maximum health of victim
 			wait 1 second
@@ -1012,10 +1012,10 @@ on right click :
 					if {ftb_1.%player%} is false:
 						if {ftb_1} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the oak button !"
-							send "[&c&lTheEvent580&r] You found the oak button [&a+%{pts_lvl_1}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the oak button [&a+%{pts_lvl_1}% &r╣]" to player
 						if {ftb_1} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the oak button !"
-							send "[&c&lTheEvent580&r] You found the oak button [&a+%{pts_lvl_1}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the oak button [&a+%{pts_lvl_1}% &r╣]" to player
 							set {ftb_1} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1030,10 +1030,10 @@ on right click :
 					if {ftb_2.%player%} is false:
 						if {ftb_2} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the spruce button !"
-							send "[&c&lTheEvent580&r] You found the spruce button [&a+%{pts_lvl_2}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the spruce button [&a+%{pts_lvl_2}% &r╣]" to player
 						if {ftb_2} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the spruce button !"
-							send "[&c&lTheEvent580&r] You found the spruce button [&a+%{pts_lvl_2}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the spruce button [&a+%{pts_lvl_2}% &r╣]" to player
 							set {ftb_2} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1048,10 +1048,10 @@ on right click :
 					if {ftb_3.%player%} is false:
 						if {ftb_3} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the acacia button !"
-							send "[&c&lTheEvent580&r] You found the acacia button [&a+%{pts_lvl_3}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the acacia button [&a+%{pts_lvl_3}% &r╣]" to player
 						if {ftb_3} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the acacia button !"
-							send "[&c&lTheEvent580&r] You found the acacia button [&a+%{pts_lvl_3}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the acacia button [&a+%{pts_lvl_3}% &r╣]" to player
 							set {ftb_3} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1066,10 +1066,10 @@ on right click :
 					if {ftb_4.%player%} is false:
 						if {ftb_4} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the mangrove button !"
-							send "[&c&lTheEvent580&r] You found the mangrove button [&a+%{pts_lvl_4}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the mangrove button [&a+%{pts_lvl_4}% &r╣]" to player
 						if {ftb_4} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the mangrove button !"
-							send "[&c&lTheEvent580&r] You just found the mangrove button [&a+%{pts_lvl_4}% &r工]" to player
+							send "[&c&lTheEvent580&r] You just found the mangrove button [&a+%{pts_lvl_4}% &r╣]" to player
 							set {ftb_4} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1084,10 +1084,10 @@ on right click :
 					if {ftb_5.%player%} is false:
 						if {ftb_5} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the crimson button !"
-							send "[&c&lTheEvent580&r] You found the crimson button [&a+%{pts_lvl_5}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the crimson button [&a+%{pts_lvl_5}% &r╣]" to player
 						if {ftb_5} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the crimson button !"
-							send "[&c&lTheEvent580&r] You found the crimson button [&a+%{pts_lvl_5}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the crimson button [&a+%{pts_lvl_5}% &r╣]" to player
 							set {ftb_5} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1102,10 +1102,10 @@ on right click :
 					if {ftb_6.%player%} is false:
 						if {ftb_6} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the polished blackstone button !"
-							send "[&c&lTheEvent580&r] You found the polished blackstone button [&a+%{pts_lvl_6}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the polished blackstone button [&a+%{pts_lvl_6}% &r╣]" to player
 						if {ftb_6} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the polished blackstone button !"
-							send "[&c&lTheEvent580&r] You found the polished blackstone button [&a+%{pts_lvl_6}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the polished blackstone button [&a+%{pts_lvl_6}% &r╣]" to player
 							set {ftb_6} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1120,10 +1120,10 @@ on right click :
 					if {ftb_7.%player%} is false:
 						if {ftb_7} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the dark oak button !"
-							send "[&c&lTheEvent580&r] You found the dark oak button [&a+%{pts_lvl_7}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the dark oak button [&a+%{pts_lvl_7}% &r╣]" to player
 						if {ftb_7} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the dark oak button !"
-							send "[&c&lTheEvent580&r] You just found the dark oak button [&a+%{pts_lvl_7}% &r工]" to player
+							send "[&c&lTheEvent580&r] You just found the dark oak button [&a+%{pts_lvl_7}% &r╣]" to player
 							set {ftb_7} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1138,10 +1138,10 @@ on right click :
 					if {ftb_8.%player%} is false:
 						if {ftb_8} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the stone button !"
-							send "[&c&lTheEvent580&r] You just found the stone button [&a+%{pts_lvl_8}% &r工]" to player
+							send "[&c&lTheEvent580&r] You just found the stone button [&a+%{pts_lvl_8}% &r╣]" to player
 						if {ftb_8} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the stone button !"
-							send "[&c&lTheEvent580&r] You just found the stone button [&a+%{pts_lvl_8}% &r工]" to player
+							send "[&c&lTheEvent580&r] You just found the stone button [&a+%{pts_lvl_8}% &r╣]" to player
 							set {ftb_8} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1156,10 +1156,10 @@ on right click :
 					if {ftb_9.%player%} is false:
 						if {ftb_9} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the warped button !"
-							send "[&c&lTheEvent580&r] You found the warped button [&a+%{pts_lvl_9}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the warped button [&a+%{pts_lvl_9}% &r╣]" to player
 						if {ftb_9} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the warped button !"
-							send "[&c&lTheEvent580&r] You found the warped button [&a+%{pts_lvl_9}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the warped button [&a+%{pts_lvl_9}% &r╣]" to player
 							set {ftb_9} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1174,11 +1174,11 @@ on right click :
 					if {ftb_10.%player%} is false:
 						if {ftb_10} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the jungle button !"
-							send "[&c&lTheEvent580&r] You found the jungle button [&a+%{pts_lvl_10}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the jungle button [&a+%{pts_lvl_10}% &r╣]" to player
 							wait 1 second
 						if {ftb_10} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the jungle button !"
-							send "[&c&lTheEvent580&r] You found the jungle button [&a+%{pts_lvl_10}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the jungle button [&a+%{pts_lvl_10}% &r╣]" to player
 							set {ftb_10} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
@@ -1193,11 +1193,11 @@ on right click :
 					if {ftb_11.%player%} is false:
 						if {ftb_11} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the birch button !"
-							send "[&c&lTheEvent580&r] You found the birch button [&a+%{pts_lvl_11}% &r工]" to player
+							send "[&c&lTheEvent580&r] You found the birch button [&a+%{pts_lvl_11}% &r╣]" to player
 							wait 1 second
 						if {ftb_11} is false:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r is the 1st player to find the birch button !"
-							send "[&c&lTheEvent580&r] You just found the birch button [&a+%{pts_lvl_11}% &r工]" to player
+							send "[&c&lTheEvent580&r] You just found the birch button [&a+%{pts_lvl_11}% &r╣]" to player
 							set {ftb_11} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
