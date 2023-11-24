@@ -498,11 +498,6 @@ function currentPlayers():
 		if loop-player's uuid is "b9e8cdfb-a532-4398-956d-a49fb6bfa9f1":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 second
-	send subtitle "%{color.0eab4b9d-596e-4d28-ac75-b934d53f3f2b}% EnCrypTeD__&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "0eab4b9d-596e-4d28-ac75-b934d53f3f2b":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
 	send subtitle "%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}% Joeyfish1000*&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "82d1eccf-d5a7-4636-8374-891f0d67fcc3":
