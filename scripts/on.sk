@@ -501,7 +501,7 @@ on join:
 			respawnBowPVP(player)
 	wait 2 second
 	if event-world is "world":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/0e49489c13ce3c0b375cb77f250ce00bbdd4a126.zip 0e49489c13ce3c0b375cb77f250ce00bbdd4a126" #Spawn
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/00f58e93166e5deb00f98d74f94e37f67ef84350.zip 00f58e93166e5deb00f98d74f94e37f67ef84350" #Spawn
 	if event-world is "dropper":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
 	if event-world is "parkour":
@@ -1268,7 +1268,7 @@ on player world change:
 	send title "PLEASE STANDBY" with subtitle "for the texture pack to download" to player for 5 seconds
 	wait 2 second
 	if event-world is "world":
-		make console execute command "setrp %player% https://download.mc-packs.net/pack/0e49489c13ce3c0b375cb77f250ce00bbdd4a126.zip 0e49489c13ce3c0b375cb77f250ce00bbdd4a126" #Spawn
+		make console execute command "setrp %player% https://download.mc-packs.net/pack/00f58e93166e5deb00f98d74f94e37f67ef84350.zip 00f58e93166e5deb00f98d74f94e37f67ef84350" #Spawn
 	if event-world is "dropper":
 		make console execute command "setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
 	if event-world is "parkour":
