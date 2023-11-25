@@ -469,6 +469,11 @@ function newPlayers():
 	loop all players:
 		if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
 			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send title "Announcing new players :" with subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
+			apply glowing without particles to loop-player for 2 seconds
 
 function currentPlayers():
 	send title "Now announcing the players :" to all players for 15 seconds
@@ -521,6 +526,11 @@ function currentPlayers():
 	send subtitle "%{color.81ff6334-7c28-4159-8b92-8395d00308f1}% makaajana" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "81ff6334-7c28-4159-8b92-8395d00308f1":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 seconds
+	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
 			apply glowing without particles to loop-player for 2 seconds
 
 function currentSpecs():
