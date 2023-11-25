@@ -2755,57 +2755,57 @@ every second:
 				if loop-player doesn't have permission "group.spectators":
 					if {list_points::1} is {points.%loop-player's uuid%}:
 						set {pos1} to "[&c&lTheEvent580&r] 1st : %loop-player% - %{points.%loop-player's uuid%}% ╣"
-						set {pos.%loop-player%} to "&a&l(1st)"
+						set {pos.%loop-player%} to "&a&l1st"
 					if {list_points::2} is {points.%loop-player's uuid%}:
 						set {pos2} to "[&c&lTheEvent580&r] 2nd : %loop-player% - %{points.%loop-player's uuid%}% ╣"
-						set {pos.%loop-player%} to "&a&l(2nd)"
+						set {pos.%loop-player%} to "&a&l2nd"
 					if {list_points::3} is {points.%loop-player's uuid%}:
 						set {pos3} to "[&c&lTheEvent580&r] 3rd : %loop-player% - %{points.%loop-player's uuid%}% ╣"
-						set {pos.%loop-player%} to "&a&l(3rd)"
+						set {pos.%loop-player%} to "&a&l3rd"
 					if {list_points::4} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(4th)"
+						set {pos.%loop-player%} to "&a&l4th"
 					if {list_points::5} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(5th)"
+						set {pos.%loop-player%} to "&a&l5th"
 					if {list_points::6} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(6th)"
+						set {pos.%loop-player%} to "&a&l6th"
 					if {list_points::7} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(7th)"
+						set {pos.%loop-player%} to "&a&l7th"
 					if {list_points::8} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(8th)"
+						set {pos.%loop-player%} to "&a&l8th"
 					if {list_points::9} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(9th)"
+						set {pos.%loop-player%} to "&a&l9th"
 					if {list_points::10} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(10th)"
+						set {pos.%loop-player%} to "&a&l10th"
 					if {list_points::11} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(11th)"
+						set {pos.%loop-player%} to "&a&l11th"
 					if {list_points::12} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(12th)"
+						set {pos.%loop-player%} to "&a&l12th"
 					if {list_points::13} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(13th)"
+						set {pos.%loop-player%} to "&a&l13th"
 					if {list_points::14} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(14th)"
+						set {pos.%loop-player%} to "&a&l14th"
 					if {list_points::15} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(15th)"
+						set {pos.%loop-player%} to "&a&l15th"
 					if {list_points::16} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(16th)"
+						set {pos.%loop-player%} to "&a&l16th"
 					if {list_points::17} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(17th)"
+						set {pos.%loop-player%} to "&a&l17th"
 					if {list_points::18} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(18th)"
+						set {pos.%loop-player%} to "&a&l18th"
 					if {list_points::19} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(19th)"
+						set {pos.%loop-player%} to "&a&l19th"
 					if {list_points::20} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(20th)"
+						set {pos.%loop-player%} to "&a&l20th"
 					if {list_points::21} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(21st)"
+						set {pos.%loop-player%} to "&a&l21st"
 					if {list_points::22} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(22nd)"
+						set {pos.%loop-player%} to "&a&l22nd"
 					if {list_points::23} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(23rd)"
+						set {pos.%loop-player%} to "&a&l23rd"
 					if {list_points::24} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(24th)"
+						set {pos.%loop-player%} to "&a&l24th"
 					if {list_points::25} is {points.%loop-player's uuid%}:
-						set {pos.%loop-player%} to "&a&l(25th)"
+						set {pos.%loop-player%} to "&a&l25th"
 				else:
 					set {pos.%loop-player%} to "&a&lSpec"
 			loop all players:
