@@ -528,7 +528,7 @@ function currentPlayers():
 		if loop-player's uuid is "81ff6334-7c28-4159-8b92-8395d00308f1":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 seconds
-	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1" to all players for 2 seconds
+	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1*" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
 			apply glowing without particles to loop-player for 2 seconds
