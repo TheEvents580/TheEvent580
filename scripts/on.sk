@@ -117,32 +117,13 @@ on chat:
 		if player doesn't have permission "group.spectators":
 			cancel event
 			send action bar "[&c&lTheEvent580 - Chat&r] &6⚠&rThe chat is currently muted !" to player
-	if {mute.%player%} is true:
+	if {mute.%player's uuid%} is true:
 		cancel event
 		send action bar "[&c&lTheEvent580 - Chat&r] &6⚠&rYou are currently muted by one of the staff members !" to player
-	else:
-		replace all "kys" with "***" in the message
-		replace all "shit" and "fuck" with "****" in the message
-		replace all "nigge" and "nigga" with "*****" in the message
-		replace all "nigger" and "niggas" with "******" in the message
-		replace all "niggers" with "*******" in the message
-		replace all ":skull:" with "☠" in the message
-		replace all ":darkredlove:" with "&4❤" in the message
-		replace all ":redlove:" with "&c❤" in the message
-		replace all ":orangelove:" with "&6❤" in the message
-		replace all ":yellowlove:" with "&e❤" in the message
-		replace all ":limelove:" with "&a❤" in the message
-		replace all ":greenlove:" with "&2❤" in the message
-		replace all ":cyanlove:" with "&3❤" in the message
-		replace all ":lightbluelove:" with "&b❤" in the message
-		replace all ":bluelove:" with "&9❤" in the message
-		replace all ":darkbluelove:" with "&1❤" in the message
-		replace all ":purplelove:" with "&5❤" in the message
-		replace all ":pinklove:" with "&d❤" in the message
 
 
 on server list ping:
-	set the motd to "Fixing the bugs for &c&lTheEvent580 • Season 1 - Episode 4"
+	set the motd to "Fixing the bugs for &c&lTheEvent580 • Season 1 - Episode 5"
 
 on join:
 	wait 3 ticks
@@ -597,7 +578,7 @@ on damage:
 				if attacker = victim:
 					cancel event
 					send "[&c&lTheEvent580&r] You cannot kill yourself" to victim
-				if {invincibility.%victim's uuid%} = true:
+				if {invincibility.%victim's uuid%} or {invincibility.%attacker's uuid%} = true:
 					cancel event
 					send "You should take damage right now but you're invincible for %{invincibility.time_left.%victim's uuid%}% more seconds" to victim
 				if {finished.%victim%} or {finished.%attacker%} = true:
@@ -667,6 +648,7 @@ on death:
 				set {finished.%victim's uuid%} to true
 				set {alive.%victim's uuid%} to false
 				clear victim's inventory
+				make console execute command "fly %victim%"
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
@@ -721,6 +703,7 @@ on death:
 			else:
 				set {invincibility.time_left.%victim's uuid%} to 5
 				set {invincibility.%victim's uuid%} to true
+				make console execute command "hide %victim%"
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
@@ -1004,8 +987,10 @@ on right click :
 				set helmet of player to carrot on a stick named "&rUnlabled Flag"
 				set {flag.%player%} to "&rUnlabled Flag"
 				send "[&c&lTheEvent580&r] You now have the Unlabled flag on your head"
-			if event-block is red concrete:
-				give 1 of apple to player
+			#if event-block is red concrete:
+			#	give 1 of apple to player
+			if event-block is yellow concrete or white concrete:
+				give 1 of egg to player
 		if {jeu_condi} is 4: #Find The Button
 			if {finished.%player's uuid%} is false:
 				if event-block is oak_button:
@@ -1208,6 +1193,9 @@ on right click :
 						add {pts_lvl_11} to {total_points.%player's uuid%}
 						add {pts_lvl_11} to {total_points_event.%player's uuid%}
 						remove 60*{multiplier} from {pts_lvl_11}
+		if {jeu_condi} = 6:
+			if {alive.%player's uuid%} = false:
+				cancel event
 
 on place:
 	if {timer} is "pause":
