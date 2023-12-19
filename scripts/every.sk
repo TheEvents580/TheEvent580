@@ -71,8 +71,6 @@ every tick:
 											loop all players:
 												if loop-player-1 = loop-player-2:
 													send "[&c&lTheEvent580 - Parkour&r] &aEasy&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
-												else:
-													send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &aEasy&r sub-level 1-%{parkour.sub_level.%loop-player-1's uuid%} - 1%." to loop-player-2
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
@@ -88,8 +86,6 @@ every tick:
 											loop all players:
 												if loop-player-1 = loop-player-2:
 													send "[&c&lTheEvent580 - Parkour&r] &6Medium&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
-												else:
-													send "[&c1lTheEvent580 - Parkour&r] %loop-player-1% finished &6Meduim&r sub-level 2-%{parkour.sub_level.%loop-player-1's uuid%} - 1%." to loop-player-2
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
@@ -105,8 +101,6 @@ every tick:
 											loop all players:
 												if loop-player-1 = loop-player-2:
 													send "[&c&lTheEvent580 - Parkour&r] &cHard&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
-												else:
-													send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &cHard&r sub-level 3-%{parkour.sub_level.%loop-player-1's uuid%} - 1%." to loop-player-2
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
@@ -121,11 +115,12 @@ every tick:
 										if {parkour.sub_level.%loop-player's uuid%} = 8:
 											add 1.3 to {game_multiplier.%loop-player's uuid%}
 											set {finished.%loop-player's uuid%} to true
+											make console execute command "fly %loop-player%"
 											loop all players:
 												if loop-player-1 = loop-player-2:
 													send "[&c&lTheEvent580 - Parkour&r] You fully finished &6Parkour&r ! You get rewarded with %{points_game.%loop-player-1's uuid%} * {game_multiplier.%loop-player-1's uuid%}% ╣ !" to loop-player-1
 												else:
-													send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished all 24 levels of &6Parkour&r !" to loop-player-2
+													send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished all 25 levels of &6Parkour&r !" to loop-player-2
 										else:
 											if {parkour.sub_level.%loop-player's uuid%} - 1 > 0:
 												if {parkour.skip_used.%loop-player's uuid%} = false:
@@ -133,8 +128,6 @@ every tick:
 												loop all players:
 													if loop-player-1 = loop-player-2:
 														send "[&c&lTheEvent580 - Parkour&r] &4Extreme&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
-													else:
-														send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &4Extreme&r sub-level 4-%{parkour.sub_level.%loop-player-1's uuid%} - 1%." to loop-player-2
 					#if block 2 meters below loop-player is iron_block:
 					#	if {parkour_checkpoint.%loop-player%} is 0:
 					#		add {pts_lvl_1} to {points_game.%loop-player's uuid%}
@@ -945,6 +938,7 @@ every tick:
 					remove 0.05 from {invincibility.time_left.%loop-player's uuid%}
 				else:
 					set {invincibility.%loop-player's uuid%} to false
+					make console execute command "hide %victim%"
 			if the y-coordinate of loop-player is smaller than 90:
 				if {alive.%loop-player's uuid%} = true:
 					kill loop-player
@@ -1497,6 +1491,7 @@ every second:
 				if {timer-s} is 0:
 					make server execute command "execute in minecraft:races_lap_3 run fill -3 132 0 3 130 0 air destroy"
 					set {race_timer} to true
+					make console execute command "/team leave %loop-player%"
 					loop all players:
 						if {hide.%loop-player's uuid%} is true:
 							make console execute command "/hide %loop-player%"
@@ -2855,7 +2850,8 @@ every second:
 				set {points_game.%loop-player's uuid%} to 0
 				set the game mode of loop-player to adventure
 				make loop-player execute command "spawn"
-				make console execute command "fly %loop-player%"
+				if loop-player can fly:
+					make console execute command "fly %loop-player%"
 				clear loop-player's inventory
 				if {hide.%loop-player's uuid%} = true:
 					make console execute command "hide %loop-player%"
@@ -2977,7 +2973,7 @@ every second:
 			if {timer-s} is 5:
 				if {timer-m} is 0:
 					endNPCs()
-					make server execute command "tp @a 336.548 -5.1 337.584 153.30 -21.00"
+					make server execute command "tp @a 336.548 -4.1 337.584 153.30 -21.00"
 					clear {list_points::*}
 					loop all players:
 						if loop-player doesn't have permission "group.spectators":
@@ -2990,9 +2986,9 @@ every second:
 			if {timer-m} is 0:
 				loop all players:
 					if {list_points::1} is {points.%loop-player's uuid%}:
-						make server execute command "npc select 22"
+						make server execute command "npc select 23"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "hd setLine S1E4W 2 %{color.%loop-player's uuid%}% %loop-player%"
+						make server execute command "hd setLine S1E5W 2 %{color.%loop-player's uuid%}% %loop-player%"
 				set {timer} to "Fin"
 				loop all players:
 					if {list_points::1} is {points.%loop-player's uuid%}:
