@@ -13,21 +13,21 @@ command /dropper:
 		set {dropper_lvl_3} to false
 		set {dropper_lvl_4} to false
 		set {dropper_fin} to false
-		set {pts_lvl_1} to 5*{checking_finished_players}
+		set {pts_lvl_1} to 15*{checking_finished_players}
 		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
-		set {remove_pts_lvl_1} to 5*{multiplier}
-		set {pts_lvl_2} to 10*{checking_finished_players}
+		set {remove_pts_lvl_1} to 15*{multiplier}
+		set {pts_lvl_2} to 25*{checking_finished_players}
 		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
-		set {remove_pts_lvl_2} to 10*{multiplier}
-		set {pts_lvl_3} to 15*{checking_finished_players}
+		set {remove_pts_lvl_2} to 25*{multiplier}
+		set {pts_lvl_3} to 40*{checking_finished_players}
 		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
-		set {remove_pts_lvl_3} to 15*{multiplier}
-		set {pts_lvl_4} to 20*{checking_finished_players}
+		set {remove_pts_lvl_3} to 40*{multiplier}
+		set {pts_lvl_4} to 55*{checking_finished_players}
 		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}
-		set {remove_pts_lvl_4} to 20*{multiplier}
-		set {pts_fin} to 40*{checking_finished_players}
+		set {remove_pts_lvl_4} to 55*{multiplier}
+		set {pts_fin} to 65*{checking_finished_players}
 		set {pts_fin} to {pts_fin}*{multiplier}
-		set {remove_pts_fin} to 40*{multiplier}
+		set {remove_pts_fin} to 65*{multiplier}
 		loop all players:
 			make console execute command "hide %loop-player%"
 			set {finished.%loop-player's uuid%} to false
