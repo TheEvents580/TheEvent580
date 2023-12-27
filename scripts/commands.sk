@@ -912,19 +912,19 @@ command /bm:
 		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}#build 2
 		set {pts_lvl_3} to 25*{checking_finished_players}#build 3
 		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}#build 3
-		set {pts_lvl_4} to 40*{checking_finished_players}#build 4
+		set {pts_lvl_4} to 30*{checking_finished_players}#build 4
 		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}#build 4
-		set {pts_lvl_5} to 60*{checking_finished_players}#build 5
+		set {pts_lvl_5} to 40*{checking_finished_players}#build 5
 		set {pts_lvl_5} to {pts_lvl_5}*{multiplier}#build 5
-		set {pts_lvl_6} to 70*{checking_finished_players}#build 6
+		set {pts_lvl_6} to 55*{checking_finished_players}#build 6
 		set {pts_lvl_6} to {pts_lvl_6}*{multiplier}#build 6
-		set {pts_lvl_7} to 80*{checking_finished_players}#build 7
+		set {pts_lvl_7} to 70*{checking_finished_players}#build 7
 		set {pts_lvl_7} to {pts_lvl_7}*{multiplier}#build 7
-		set {pts_lvl_8} to 95*{checking_finished_players}#build 8
+		set {pts_lvl_8} to 80*{checking_finished_players}#build 8
 		set {pts_lvl_8} to {pts_lvl_8}*{multiplier}#build 8
-		set {pts_lvl_9} to 120*{checking_finished_players}#build 9
+		set {pts_lvl_9} to 95*{checking_finished_players}#build 9
 		set {pts_lvl_9} to {pts_lvl_9}*{multiplier}#build 9
-		set {pts_lvl_10} to 150*{checking_finished_players}#build 10
+		set {pts_lvl_10} to 110*{checking_finished_players}#build 10
 		set {pts_lvl_10} to {pts_lvl_10}*{multiplier}#build 10
 		make server execute command "execute in minecraft:build_masters run setblock 1 129 10030 white_concrete"
 		make server execute command "execute in minecraft:build_masters run setblock 1 131 10030 white_concrete"
