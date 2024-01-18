@@ -1073,7 +1073,7 @@ command /readycheck:
 						set {pos} to 0
 						loop all players:
 							set {head} to "%loop-player-2%" parsed as an offline player
-							if {ready.%loop-player-2%} is false:
+							if {ready.%loop-player-2's uuid%} is false:
 								make gui slot {pos} with skull of {head} named "&r&c&l%loop-player-2%&f isn't ready"
 								add 1 to {pos}
 					open the last gui for the loop-player
