@@ -20,7 +20,7 @@ function randomColor():
 function reloadTimer():
 	loop all players:
 		if loop-player doesn't have permission "group.spectators":
-			send action bar "&bLap time : %{race_lap_time.%loop-player%}%s | Total time : %{race_total_time.%loop-player%}%s" to loop-player
+			send action bar "&bLap time : %{race_lap_time.%loop-player's uuid%}%s | Total time : %{race_total_time.%loop-player's uuid%}%s" to loop-player
 
 function checkBiggest():
 	clear {games::*}
@@ -342,7 +342,7 @@ function updateParkour():
 		set {compl_parcour_string.%loop-player's uuid%} to "%{compl_parcour.%loop-player's uuid%}%"
 	set {list_parkour::*} to sorted {list_parkour::*}
 	loop all players:
-		if {list_parkour::1} is {compl_parkour.%loop-player%}:
+		if {list_parkour::1} is {compl_parkour.%loop-player's uuid%}:
 			make server execute command "hd setLine TrainParkourCompl 2 1st : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
 		if {list_parkour::2} is {compl_parcour.%loop-player's uuid%}:
 			make server execute command "hd setLine TrainParkourCompl 3 2nd : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"

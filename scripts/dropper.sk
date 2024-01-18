@@ -35,9 +35,9 @@ command /dropper:
 				set slot 0 of loop-player to compass named "&rTeleport to player"
 				set slot 1 of loop-player to feather named "&rChange player's fly speed"
 				set {finished.%loop-player's uuid%} to true
-			set {gamemode.%loop-player%} to 2
+			set {gamemode.%loop-player's uuid%} to 2
 			set loop-player's gamemode to adventure
-			set {dropper_level.%loop-player%} to 1
+			set {dropper_level.%loop-player's uuid%} to 1
 
 
 every tick:
@@ -48,9 +48,9 @@ every tick:
 					if block 2 meter under loop-player is not air:
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
 				if loop-player is in water:
-					if {dropper_level.%loop-player%} is 4:
+					if {dropper_level.%loop-player's uuid%} is 4:
 						add loop-player to {finished::*}
-						set {dropper_level.%loop-player%} to "End"
+						set {dropper_level.%loop-player's uuid%} to "End"
 						force loop-player to fly
 						allow fly for loop-player
 						teleport loop-player to location(30.0, 129, -118.0, "dropper", 90, 1)
@@ -70,8 +70,8 @@ every tick:
 						add 1 to {finished_players}
 						set slot 0 of loop-player to compass named "&rTeleport to player"
 						set slot 1 of loop-player to feather named "&rChange player's fly speed"
-					if {dropper_level.%loop-player%} is 3:
-						set {dropper_level.%loop-player%} to 4
+					if {dropper_level.%loop-player's uuid%} is 3:
+						set {dropper_level.%loop-player's uuid%} to 4
 						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)
 						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
 						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
@@ -83,8 +83,8 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 3."
 						send "[&c&lTheEvent580&r] You completed level 3 [&c+%{pts_lvl_3}% &r╣]" to loop-player
 						remove {remove_pts_lvl_3} from {pts_lvl_3}
-					if {dropper_level.%loop-player%} is 2:
-						set {dropper_level.%loop-player%} to 3
+					if {dropper_level.%loop-player's uuid%} is 2:
+						set {dropper_level.%loop-player's uuid%} to 3
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
 						add {pts_lvl_2} to {points_game.%loop-player's uuid%}
 						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
@@ -96,8 +96,8 @@ every tick:
 							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 2."
 						send "[&c&lTheEvent580&r] You completed level 2 [&c+%{pts_lvl_2}% &r╣]" to loop-player
 						remove {remove_pts_lvl_2} from {pts_lvl_2}
-					if {dropper_level.%loop-player%} is 1:
-						set {dropper_level.%loop-player%} to 2
+					if {dropper_level.%loop-player's uuid%} is 1:
+						set {dropper_level.%loop-player's uuid%} to 2
 						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
 						add {pts_lvl_1} to {points_game.%loop-player's uuid%}
 						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
@@ -110,11 +110,11 @@ every tick:
 						send "[&c&lTheEvent580&r] You completed level 1 [&c+%{pts_lvl_1}% &r╣]" to loop-player
 						remove {remove_pts_lvl_1} from {pts_lvl_1}
 				if block 1 meter under loop-player is not red_concrete or air or white_concrete or white_wool or water or end_gateway or light or cobweb:
-					if {dropper_level.%loop-player%} is 1:
+					if {dropper_level.%loop-player's uuid%} is 1:
 						teleport loop-player to location(30.0, 129, 6.0, "dropper", 90, 0.1)
-					if {dropper_level.%loop-player%} is 2:
+					if {dropper_level.%loop-player's uuid%} is 2:
 						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
-					if {dropper_level.%loop-player%} is 3:
+					if {dropper_level.%loop-player's uuid%} is 3:
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
-					if {dropper_level.%loop-player%} is 4:
+					if {dropper_level.%loop-player's uuid%} is 4:
 						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)

@@ -1,7 +1,7 @@
 every tick:
     loop all players:
         if loop-player is in world "build_masters":
-            if {check_block.%loop-player%} is true:
+            if {check_block.%loop-player's uuid%} is true:
                 if type of loop-player's targeted block is set:
                     if type of loop-player's targeted block is not barrier block:
                         send action bar "%type of loop-player's targeted block%" to loop-player

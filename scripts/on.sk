@@ -41,75 +41,75 @@ on inventory click:
 	if clicked slot is 7:
 		if {jeu_condi} is 3:
 			cancel event
-	if {menu.%player%} is "main":
+	if {menu.%player's uuid%} is "main":
 		cancel event
 		if clicked slot is 0:
 			make player say ":skull:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 1:
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 			make player execute command "emotes heart"
 		if clicked slot is 26:
 			close player's inventory
-			clear {menu.%player%}
-	else if {menu.%player%} is "heart":
+			clear {menu.%player's uuid%}
+	else if {menu.%player's uuid%} is "heart":
 		cancel event
 		if clicked slot is 0:
 			make player say ":darkredlove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 1:
 			make player say ":redlove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 2:
 			make player say ":orangelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 3:
 			make player say ":yellowlove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 4:
 			make player say ":limelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 5:
 			make player say ":greenlove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 6:
 			make player say ":cyanlove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 7:
 			make player say ":lightbluelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 8:
 			make player say ":bluelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 9:
 			make player say ":darkbluelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 10:
 			make player say ":purplelove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 11:
 			make player say ":pinklove:"
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 		if clicked slot is 25:
 			close player's inventory
 			make player execute command "emotes"
 		if clicked slot is 26:
 			close player's inventory
-			clear {menu.%player%}
+			clear {menu.%player's uuid%}
 
 
 on chat:
@@ -151,33 +151,33 @@ on join:
 			set {color.%player's uuid%} to "ギ&e "
 		if player has permission "group.violet":
 			set {color.%player's uuid%} to "の&5 "
-	if {flag.%player%} is not set:
-		set {flag.%player%} to false
-	if {Secret_Base_1.%player%} is not set:
-		set {Secret_Base_1.%player%} to false
+	if {flag.%player's uuid%} is not set:
+		set {flag.%player's uuid%} to false
+	if {Secret_Base_1.%player's uuid%} is not set:
+		set {Secret_Base_1.%player's uuid%} to false
 		set {Secret_Base_1.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You found the secret base in the hub !"
-	if {Herobrine.%player%} is not set:
-		set {Herobrine.%player%} to false
+	if {Herobrine.%player's uuid%} is not set:
+		set {Herobrine.%player's uuid%} to false
 		set {Herobrine.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You discovered Herobrine !"
-	if {HubParkour.%player%} is not set:
-		set {HubParkour.%player%} to false
+	if {HubParkour.%player's uuid%} is not set:
+		set {HubParkour.%player's uuid%} to false
 		set {HubParkour.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You finished the Hub parkour !"
-	if {1SecBM.%player%} is not set:
-		set {1SecBM.%player%} to false
+	if {1SecBM.%player's uuid%} is not set:
+		set {1SecBM.%player's uuid%} to false
 		set {1SecBM.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : Finishing the Build Master 5 seconds before the end !"
-	if {check_block.%player%} is not set:
-		set {check_block.%player%} to false
-	if {gamemode.%player%} is 3:
+	if {check_block.%player's uuid%} is not set:
+		set {check_block.%player's uuid%} to false
+	if {gamemode.%player's uuid%} is 3:
 		wait 1 second
 		force player to fly
 		allow fly for player
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
-		if {hide.%player%} is true:
+		if {hide.%player's uuid%} is true:
 			make console execute command "/hide %player%"
 		make console execute command "/hide %player%"
 	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
-		if {hide.%player%} is false:
+		if {hide.%player's uuid%} is false:
 			make console execute command "/hide %player%"
 		make console execute command "/hide %player%"
 	if player has permission "*":
@@ -189,7 +189,7 @@ on join:
 	if {total_points.%player's uuid%} is not set:	
 		set {total_points.%player's uuid%} to 0
 		set {total_points_event.%player's uuid%} to 0
-	set {total_points_event.%player's uuid%} to {total_points_event.%player%}
+	set {total_points_event.%player's uuid%} to {total_points_event.%player's uuid%}
 	if {points.%player's uuid%} is not set:
 		set {points.%player's uuid%} to 0
 	if {timer} is 0:
@@ -234,129 +234,129 @@ on join:
 			if {timer} = 5 or 7:
 				make server execute command "execute in minecraft:build_masters run tp %player% 0.5 131 3.5 180 0"
 			if {timer} = 6:
-				if {build.location.%player%} is 0:
+				if {build.location.%player's uuid%} is 0:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 998.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 993"
 						make server execute command "execute in minecraft:build_masters run fill 5 128 993 14 128 1002 air"
-				else if {build.location.%player%} is 1:
+				else if {build.location.%player's uuid%} is 1:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1019.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1014"
 						make server execute command "execute in minecraft:build_masters run fill 5 128 1014 14 128 1023 air"
-				else if {build.location.%player%} is 2:
+				else if {build.location.%player's uuid%} is 2:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1040.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1035"
 						make server execute command "execute in minecraft:build_masters run fill 5 128 1035 14 128 1044 air"
-				else if {build.location.%player%} is 3:
+				else if {build.location.%player's uuid%} is 3:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1061.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1056"
 						make server execute command "execute in minecraft:build_masters run fill 5 128 1056 14 128 1065 air"
-				else if {build.location.%player%} is 4:
+				else if {build.location.%player's uuid%} is 4:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1082.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1077"
 						make server execute command "execute in minecraft:build_masters run fill 5 128 1077 14 128 1086 air"
-				else if {build.location.%player%} is 5:
+				else if {build.location.%player's uuid%} is 5:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 998.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 993"
 						make server execute command "execute in minecraft:build_masters run fill 26 128 993 35 128 1002 air"
-				else if {build.location.%player%} is 6:
+				else if {build.location.%player's uuid%} is 6:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1019.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1014"
 						make server execute command "execute in minecraft:build_masters run fill 26 128 1014 35 128 1023 air"
-				else if {build.location.%player%} is 7:
+				else if {build.location.%player's uuid%} is 7:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1040.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1035"
 						make server execute command "execute in minecraft:build_masters run fill 26 128 1035 35 128 1044 air"
-				else if {build.location.%player%} is 8:
+				else if {build.location.%player's uuid%} is 8:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1061.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1056"
 						make server execute command "execute in minecraft:build_masters run fill 26 128 1056 35 128 1065 air"
-				else if {build.location.%player%} is 9:
+				else if {build.location.%player's uuid%} is 9:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1082.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1077"
 						make server execute command "execute in minecraft:build_masters run fill 26 128 1077 35 128 1086 air"
-				else if {build.location.%player%} is 10:
+				else if {build.location.%player's uuid%} is 10:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 998.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 993"
 						make server execute command "execute in minecraft:build_masters run fill 47 128 993 56 128 1002 air"
-				else if {build.location.%player%} is 11:
+				else if {build.location.%player's uuid%} is 11:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1019.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1014"
 						make server execute command "execute in minecraft:build_masters run fill 47 128 1014 56 128 1023 air"
-				else if {build.location.%player%} is 12:
+				else if {build.location.%player's uuid%} is 12:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1040.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1035"
 						make server execute command "execute in minecraft:build_masters run fill 47 128 1035 56 128 1044 air"
-				else if {build.location.%player%} is 13:
+				else if {build.location.%player's uuid%} is 13:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1061.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1056"
 						make server execute command "execute in minecraft:build_masters run fill 47 128 1056 56 128 1065 air"
-				else if {build.location.%player%} is 14:
+				else if {build.location.%player's uuid%} is 14:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1082.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1077"
 						make server execute command "execute in minecraft:build_masters run fill 47 128 1077 56 128 1086 air"
-				else if {build.location.%player%} is 15:
+				else if {build.location.%player's uuid%} is 15:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 998.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 993"
 						make server execute command "execute in minecraft:build_masters run fill 68 128 993 77 128 1002 air"
-				else if {build.location.%player%} is 16:
+				else if {build.location.%player's uuid%} is 16:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1019.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1014"
 						make server execute command "execute in minecraft:build_masters run fill 68 128 1014 77 128 1023 air"
-				else if {build.location.%player%} is 17:
+				else if {build.location.%player's uuid%} is 17:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1040.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1035"
 						make server execute command "execute in minecraft:build_masters run fill 68 128 1035 77 128 1044 air"
-				else if {build.location.%player%} is 18:
+				else if {build.location.%player's uuid%} is 18:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1061.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1056"
 						make server execute command "execute in minecraft:build_masters run fill 68 128 1056 77 128 1065 air"
-				else if {build.location.%player%} is 19:
+				else if {build.location.%player's uuid%} is 19:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1082.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1077"
 						make server execute command "execute in minecraft:build_masters run fill 68 128 1077 77 128 1086 air"
-				else if {build.location.%player%} is 20:
+				else if {build.location.%player's uuid%} is 20:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 998.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 993"
 						make server execute command "execute in minecraft:build_masters run fill 89 128 993 98 128 1002 air"
-				else if {build.location.%player%} is 21:
+				else if {build.location.%player's uuid%} is 21:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1019.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1014"
 						make server execute command "execute in minecraft:build_masters run fill 89 128 1014 98 128 1023 air"
-				else if {build.location.%player%} is 22:
+				else if {build.location.%player's uuid%} is 22:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1040.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1035"
 						make server execute command "execute in minecraft:build_masters run fill 89 128 1035 98 128 1044 air"
-				else if {build.location.%player%} is 23:
+				else if {build.location.%player's uuid%} is 23:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1061.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1056"
 						make server execute command "execute in minecraft:build_masters run fill 89 128 1056 98 128 1065 air"
-				else if {build.location.%player%} is 24:
+				else if {build.location.%player's uuid%} is 24:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1082.00000001"
-					if {build.%player%} is 1:
+					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
 						make server execute command "execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air"
 
@@ -505,20 +505,20 @@ on vehicle destroy:
 		cancel event
 
 on vehicle exit:
-	set {in_vehicle.%player%} to false
+	set {in_vehicle.%player's uuid%} to false
 	if {jeu_condi} is 5:
 		make server execute command "execute at %player% run kill @e[type=minecraft:boat,sort=nearest,limit=1]"
 		if y-coordinate of player is greater than 119:
 			if player's gamemode is adventure:
 				wait 3 ticks
-				if {race_boat.%player%} is true:
+				if {race_boat.%player's uuid%} is true:
 					give 1 of oak boat to player
 
 on vehicle enter:
-	set {in_vehicle.%player%} to true
+	set {in_vehicle.%player's uuid%} to true
 
 on quit:
-	if {gamemode.%player%} is 3:
+	if {gamemode.%player's uuid%} is 3:
 		remove 1 from {finished_players}
 	if player has permission "group.spectators":
 		remove player from {staff::*}
@@ -838,7 +838,7 @@ on right click with carrot on a stick:
 	if name of tool of player is "&6Skip level":
 		if {parkour.main_level.%player's uuid%} = 4:
 			if {parkour.sub_level.%player's uuid%} = 7:
-				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip this level... Good luck !"
+				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip this level... Good luck !" to player
 			else:
 				if {parkour.skip.%player's uuid%} = false:
 					set {parkour.skip.%player's uuid%} to true
@@ -855,10 +855,10 @@ on right click with carrot on a stick:
 					wait 9 seconds
 					set {parkour.skip.%player's uuid%} to false
 				else:
-					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again" to player
 		else if {parkour.main_level.%player's uuid%} = 1:
 			if {parkour.sub_level.%player's uuid%} = 1:
-				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the first level, you cannot skip this level... Good luck !"
+				send "[&c&lTheEvent580 - Parkour&r] Sorry, but as this is the first level, you cannot skip this level... Good luck !" to player
 			else:
 				if {parkour.skip.%player's uuid%} = false:
 					set {parkour.skip.%player's uuid%} to true
@@ -873,7 +873,7 @@ on right click with carrot on a stick:
 					wait 9 seconds
 					set {parkour.skip.%player's uuid%} to false
 				else:
-					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+					send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again" to player
 		else:
 			if {parkour.skip.%player's uuid%} = false:
 				set {parkour.skip.%player's uuid%} to true
@@ -888,7 +888,7 @@ on right click with carrot on a stick:
 				wait 9 seconds
 				set {parkour.skip.%player's uuid%} to false
 			else:
-				send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again"
+				send "[&c&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again" to player
 	if name of tool of player is "Block a game":
 		if block 2 meter under player is red concrete:
 			blockGame("Dropper",player)
@@ -953,40 +953,40 @@ on right click :
 		if {jeu_condi} is 0: #Spawn
 			if event-block is oak_button:
 				set helmet of player to carrot on a stick named "&rAsexual Flag"
-				set {flag.%player%} to "&rAsexual Flag"
-				send "[&c&lTheEvent580&r] You now have the Asexual flag on your head"
+				set {flag.%player's uuid%} to "&rAsexual Flag"
+				send "[&c&lTheEvent580&r] You now have the Asexual flag on your head" to player
 			if event-block is spruce_button:
 				set helmet of player to carrot on a stick named "&rPride Flag"
-				set {flag.%player%} to "&rPride Flag"
-				send "[&c&lTheEvent580&r] You now have the Pride flag on your head"
+				set {flag.%player's uuid%} to "&rPride Flag"
+				send "[&c&lTheEvent580&r] You now have the Pride flag on your head" to player
 			if event-block is birch_button:
 				set helmet of player to carrot on a stick named "&rTransgender Flag"
-				set {flag.%player%} to "&rTransgender Flag"
-				send "[&c&lTheEvent580&r] You now have the Transgender flag on your head"
+				set {flag.%player's uuid%} to "&rTransgender Flag"
+				send "[&c&lTheEvent580&r] You now have the Transgender flag on your head" to player
 			if event-block is jungle_button:
 				set helmet of player to carrot on a stick named "&rPansexual Flag"
-				set {flag.%player%} to "&rPansexual Flag"
-				send "[&c&lTheEvent580&r] You now have the Pansexual flag on your head"
+				set {flag.%player's uuid%} to "&rPansexual Flag"
+				send "[&c&lTheEvent580&r] You now have the Pansexual flag on your head" to player
 			if event-block is acacia_button:
 				set helmet of player to carrot on a stick named "&rLesbian Flag"
-				set {flag.%player%} to "&rLesbian Flag"
-				send "[&c&lTheEvent580&r] You now have the Lesbian flag on your head"
+				set {flag.%player's uuid%} to "&rLesbian Flag"
+				send "[&c&lTheEvent580&r] You now have the Lesbian flag on your head" to player
 			if event-block is dark_oak_button:
 				set helmet of player to carrot on a stick named "&rTrans-Inclusive Gay Men Flag"
-				set {flag.%player%} to "&rTrans-Inclusive Gay Men Flag"
-				send "[&c&lTheEvent580&r] You now have the Trans-Inclusive Gay Men flag on your head"
+				set {flag.%player's uuid%} to "&rTrans-Inclusive Gay Men Flag"
+				send "[&c&lTheEvent580&r] You now have the Trans-Inclusive Gay Men flag on your head" to player
 			if event-block is mangrove_button:
 				set helmet of player to carrot on a stick named "&rNon Binary Flag"
-				set {flag.%player%} to "&rNon Binary Flag"
-				send "[&c&lTheEvent580&r] You now have the Non Binary flag on your head"
+				set {flag.%player's uuid%} to "&rNon Binary Flag"
+				send "[&c&lTheEvent580&r] You now have the Non Binary flag on your head" to player
 			if event-block is stone_button:
 				set helmet of player to carrot on a stick named "&rBisexual Flag"
-				set {flag.%player%} to "&rBisexual Flag"
-				send "[&c&lTheEvent580&r] You now have the Bisexual flag on your head"
+				set {flag.%player's uuid%} to "&rBisexual Flag"
+				send "[&c&lTheEvent580&r] You now have the Bisexual flag on your head" to player
 			if event-block is polished_blackstone_button:
 				set helmet of player to carrot on a stick named "&rUnlabled Flag"
-				set {flag.%player%} to "&rUnlabled Flag"
-				send "[&c&lTheEvent580&r] You now have the Unlabled flag on your head"
+				set {flag.%player's uuid%} to "&rUnlabled Flag"
+				send "[&c&lTheEvent580&r] You now have the Unlabled flag on your head" to player
 			#if event-block is red concrete:
 			#	give 1 of apple to player
 			if event-block is yellow concrete or white concrete:
@@ -994,7 +994,7 @@ on right click :
 		if {jeu_condi} is 4: #Find The Button
 			if {finished.%player's uuid%} is false:
 				if event-block is oak_button:
-					if {ftb_1.%player%} is false:
+					if {ftb_1.%player's uuid%} is false:
 						if {ftb_1} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the oak button !"
 							send "[&c&lTheEvent580&r] You found the oak button [&a+%{pts_lvl_1}% &r╣]" to player
@@ -1005,14 +1005,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_oak_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_1.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_1.%player's uuid%} to true
 						add {pts_lvl_1} to {points_game.%player's uuid%}
 						add {pts_lvl_1} to {total_points.%player's uuid%}
 						add {pts_lvl_1} to {total_points_event.%player's uuid%}
 						remove 10*{multiplier} from {pts_lvl_1}
 				if event-block is spruce_button:
-					if {ftb_2.%player%} is false:
+					if {ftb_2.%player's uuid%} is false:
 						if {ftb_2} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the spruce button !"
 							send "[&c&lTheEvent580&r] You found the spruce button [&a+%{pts_lvl_2}% &r╣]" to player
@@ -1023,14 +1023,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_spruce_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_2.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_2.%player's uuid%} to true
 						add {pts_lvl_2} to {points_game.%player's uuid%}
 						add {pts_lvl_2} to {total_points.%player's uuid%}
 						add {pts_lvl_2} to {total_points_event.%player's uuid%}
 						remove 15*{multiplier} from {pts_lvl_2}
 				if event-block is acacia_button:
-					if {ftb_3.%player%} is false:
+					if {ftb_3.%player's uuid%} is false:
 						if {ftb_3} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the acacia button !"
 							send "[&c&lTheEvent580&r] You found the acacia button [&a+%{pts_lvl_3}% &r╣]" to player
@@ -1041,14 +1041,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_acacia_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_3.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_3.%player's uuid%} to true
 						add {pts_lvl_3} to {points_game.%player's uuid%}
 						add {pts_lvl_3} to {total_points.%player's uuid%}
 						add {pts_lvl_3} to {total_points_event.%player's uuid%}
 						remove 20*{multiplier} from {pts_lvl_3}
 				if event-block is mangrove_button:
-					if {ftb_4.%player%} is false:
+					if {ftb_4.%player's uuid%} is false:
 						if {ftb_4} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the mangrove button !"
 							send "[&c&lTheEvent580&r] You found the mangrove button [&a+%{pts_lvl_4}% &r╣]" to player
@@ -1059,14 +1059,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_mangrove_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_4.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_4.%player's uuid%} to true
 						add {pts_lvl_4} to {points_game.%player's uuid%}
 						add {pts_lvl_4} to {total_points.%player's uuid%}
 						add {pts_lvl_4} to {total_points_event.%player's uuid%}
 						remove 25*{multiplier} from {pts_lvl_4}
 				if event-block is crimson_button:
-					if {ftb_5.%player%} is false:
+					if {ftb_5.%player's uuid%} is false:
 						if {ftb_5} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the crimson button !"
 							send "[&c&lTheEvent580&r] You found the crimson button [&a+%{pts_lvl_5}% &r╣]" to player
@@ -1077,14 +1077,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_crimson_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_5.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_5.%player's uuid%} to true
 						add {pts_lvl_5} to {points_game.%player's uuid%}
 						add {pts_lvl_5} to {total_points.%player's uuid%}
 						add {pts_lvl_5} to {total_points_event.%player's uuid%}
 						remove 30*{multiplier} from {pts_lvl_5}
 				if event-block is polished_blackstone_button:
-					if {ftb_6.%player%} is false:
+					if {ftb_6.%player's uuid%} is false:
 						if {ftb_6} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the polished blackstone button !"
 							send "[&c&lTheEvent580&r] You found the polished blackstone button [&a+%{pts_lvl_6}% &r╣]" to player
@@ -1095,14 +1095,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_polished_blackstone_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_6.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_6.%player's uuid%} to true
 						add {pts_lvl_6} to {points_game.%player's uuid%}
 						add {pts_lvl_6} to {total_points.%player's uuid%}
 						add {pts_lvl_6} to {total_points_event.%player's uuid%}
 						remove 35*{multiplier} from {pts_lvl_6}
 				if event-block is dark_oak_button:
-					if {ftb_7.%player%} is false:
+					if {ftb_7.%player's uuid%} is false:
 						if {ftb_7} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the dark oak button !"
 							send "[&c&lTheEvent580&r] You found the dark oak button [&a+%{pts_lvl_7}% &r╣]" to player
@@ -1113,14 +1113,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_dark_oak_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_7.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_7.%player's uuid%} to true
 						add {pts_lvl_7} to {points_game.%player's uuid%}
 						add {pts_lvl_7} to {total_points.%player's uuid%}
 						add {pts_lvl_7} to {total_points_event.%player's uuid%}
 						remove 40*{multiplier} from {pts_lvl_7}
 				if event-block is stone_button:
-					if {ftb_8.%player%} is false:
+					if {ftb_8.%player's uuid%} is false:
 						if {ftb_8} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the stone button !"
 							send "[&c&lTheEvent580&r] You just found the stone button [&a+%{pts_lvl_8}% &r╣]" to player
@@ -1131,14 +1131,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_stone_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_8.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_8.%player's uuid%} to true
 						add {pts_lvl_8} to {points_game.%player's uuid%}
 						add {pts_lvl_8} to {total_points.%player's uuid%}
 						add {pts_lvl_8} to {total_points_event.%player's uuid%}
 						remove 45*{multiplier} from {pts_lvl_8}
 				if event-block is warped_button:
-					if {ftb_9.%player%} is false:
+					if {ftb_9.%player's uuid%} is false:
 						if {ftb_9} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the warped button !"
 							send "[&c&lTheEvent580&r] You found the warped button [&a+%{pts_lvl_9}% &r╣]" to player
@@ -1149,14 +1149,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_warped_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_9.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_9.%player's uuid%} to true
 						add {pts_lvl_9} to {points_game.%player's uuid%}
 						add {pts_lvl_9} to {total_points.%player's uuid%}
 						add {pts_lvl_9} to {total_points_event.%player's uuid%}
 						remove 50*{multiplier} from {pts_lvl_9}
 				if event-block is jungle_button:
-					if {ftb_10.%player%} is false:
+					if {ftb_10.%player's uuid%} is false:
 						if {ftb_10} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the jungle button !"
 							send "[&c&lTheEvent580&r] You found the jungle button [&a+%{pts_lvl_10}% &r╣]" to player
@@ -1168,14 +1168,14 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_jungle_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_10.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_10.%player's uuid%} to true
 						add {pts_lvl_10} to {points_game.%player's uuid%}
 						add {pts_lvl_10} to {total_points.%player's uuid%}
 						add {pts_lvl_10} to {total_points_event.%player's uuid%}
 						remove 55*{multiplier} from {pts_lvl_10}
 				if event-block is birch_button:
-					if {ftb_11.%player%} is false:
+					if {ftb_11.%player's uuid%} is false:
 						if {ftb_11} is true:
 							broadcast "[&c&lTheEvent580&r] &a&l%player%&r found the birch button !"
 							send "[&c&lTheEvent580&r] You found the birch button [&a+%{pts_lvl_11}% &r╣]" to player
@@ -1187,8 +1187,8 @@ on right click :
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_birch_completed}
-						add 1 to {ftb_fin.%player%}
-						set {ftb_11.%player%} to true
+						add 1 to {ftb_fin.%player's uuid%}
+						set {ftb_11.%player's uuid%} to true
 						add {pts_lvl_11} to {points_game.%player's uuid%}
 						add {pts_lvl_11} to {total_points.%player's uuid%}
 						add {pts_lvl_11} to {total_points_event.%player's uuid%}
@@ -1206,7 +1206,7 @@ on place:
 			if block 1 meter under event-location is not quartz bricks:
 				if gamemode of player is not creative:
 					cancel event
-					send "[&c&lTheEvent580&r] Please place the block in the replication zone only"
+					send "[&c&lTheEvent580&r] Please place the block in the replication zone only" to player
 
 on swap hand item:
 	if name of tool of player is "&eYour Bingo card":

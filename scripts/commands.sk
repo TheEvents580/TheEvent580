@@ -54,7 +54,7 @@ command /spawn [<player>]:
 					heal player
 					if {timer} is 7:
 						send "[&c&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players"
-					set {hide.%player%} to false
+					set {hide.%player's uuid%} to false
 				else:
 					send "[&c&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -244,11 +244,11 @@ command /reset:
 				set {race_lap_2_finished} to false
 				set {race_lap_3_finished} to false
 				loop all players:
-					clear {ride.%loop-player%}
+					clear {ride.%loop-player's uuid%}
 					add 1 to {online_players}
 					make loop-player execute command "spawn"
 					apply saturation without particles to loop-player for 100 days
-					set {gamemode.%loop-player%} to 2
+					set {gamemode.%loop-player's uuid%} to 2
 					set {points_game.%loop-player's uuid%} to 0
 					set {points.%loop-player's uuid%} to 0
 					if {total_points.%loop-player's uuid%} is not set:
@@ -258,35 +258,35 @@ command /reset:
 						remove {total_points_event.%loop-player's uuid%} from {total_points.%loop-player's uuid%}
 						set {total_points_event.%loop-player's uuid%} to 0
 					#Parkour
-					set {parkour_checkpoint.%loop-player%} to "Start"
+					set {parkour_checkpoint.%loop-player's uuid%} to "Start"
 					#Dropper
-					set {dropper_level.%loop-player%} to 0
+					set {dropper_level.%loop-player's uuid%} to 0
 					#Find The Button
-					set {ftb_fin.%loop-player%} to 0
+					set {ftb_fin.%loop-player's uuid%} to 0
 					#Multilap
-					set {race_checkpoint.%loop-player%} to 0
-					set {race_lap.%loop-player%} to 1
-					set {race_total_time.%loop-player%} to 0
-					set {race_lap_time.%loop-player%} to 0
-					set {race_boat.%loop-player%} to false
+					set {race_checkpoint.%loop-player's uuid%} to 0
+					set {race_lap.%loop-player's uuid%} to 1
+					set {race_total_time.%loop-player's uuid%} to 0
+					set {race_lap_time.%loop-player's uuid%} to 0
+					set {race_boat.%loop-player's uuid%} to false
 					#Laby
-					#set {laby_level.%loop-player%} to "Start"
+					#set {laby_level.%loop-player's uuid%} to "Start"
 					#SG
 					set {alive.%loop-player's uuid%} to true
 					#Bow PVP
-					set {health.%loop-player%} to 10
+					set {health.%loop-player's uuid%} to 10
 					#For Event : 
 					if loop-player has permission "group.spectators":
 						remove 1 from {online_players}
-					set {ready_check.%loop-player%} to false
-					set {ready.%loop-player%} to true
+					set {ready_check.%loop-player's uuid%} to false
+					set {ready.%loop-player's uuid%} to true
 					#Spawn
 					make server execute command "gamemode adventure %loop-player%"
 					set the maximum health of loop-player to 10
 					heal loop-player
 					reveal hidden players of loop-player
-					if {flag.%loop-player%} is not false:
-						set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
+					if {flag.%loop-player's uuid%} is not false:
+						set helmet of loop-player to carrot on a stick named "%{flag.%loop-player's uuid%}%"
 					if loop-player has permission "theevent580.staff":
 						send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 						send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
@@ -414,11 +414,11 @@ command /consolereset:
 		set {race_lap_2_finished} to false
 		set {race_lap_3_finished} to false
 		loop all players:
-			clear {ride.%loop-player%}
+			clear {ride.%loop-player's uuid%}
 			add 1 to {online_players}
 			make loop-player execute command "spawn"
 			apply saturation without particles to loop-player for 100 days
-			set {gamemode.%loop-player%} to 2
+			set {gamemode.%loop-player's uuid%} to 2
 			set {points_game.%loop-player's uuid%} to 0
 			set {points.%loop-player's uuid%} to 0
 			if {total_points.%loop-player's uuid%} is not set:
@@ -428,35 +428,35 @@ command /consolereset:
 				remove {total_points_event.%loop-player's uuid%} from {total_points.%loop-player's uuid%}
 				set {total_points_event.%loop-player's uuid%} to 0
 			#Parkour
-			set {parkour_checkpoint.%loop-player%} to "Start"
+			set {parkour_checkpoint.%loop-player's uuid%} to "Start"
 			#Dropper
-			set {dropper_level.%loop-player%} to 0
+			set {dropper_level.%loop-player's uuid%} to 0
 			#Find The Button
-			set {ftb_fin.%loop-player%} to 0
+			set {ftb_fin.%loop-player's uuid%} to 0
 			#Multilap
-			set {race_checkpoint.%loop-player%} to 0
-			set {race_lap.%loop-player%} to 1
-			set {race_total_time.%loop-player%} to 0
-			set {race_lap_time.%loop-player%} to 0
-			set {race_boat.%loop-player%} to false
+			set {race_checkpoint.%loop-player's uuid%} to 0
+			set {race_lap.%loop-player's uuid%} to 1
+			set {race_total_time.%loop-player's uuid%} to 0
+			set {race_lap_time.%loop-player's uuid%} to 0
+			set {race_boat.%loop-player's uuid%} to false
 			#Laby
-			#set {laby_level.%loop-player%} to "Start"
+			#set {laby_level.%loop-player's uuid%} to "Start"
 			#SG
 			set {alive.%loop-player's uuid%} to true
 			#Bow PVP
-			set {health.%loop-player%} to 10
+			set {health.%loop-player's uuid%} to 10
 			#For Event : 
 			if loop-player has permission "group.spectators":
 				remove 1 from {online_players}
-			set {ready_check.%loop-player%} to false
-			set {ready.%loop-player%} to true
+			set {ready_check.%loop-player's uuid%} to false
+			set {ready.%loop-player's uuid%} to true
 			#Spawn
 			make server execute command "gamemode adventure %loop-player%"
 			set the maximum health of loop-player to 10
 			heal loop-player
 			reveal hidden players of loop-player
-			if {flag.%loop-player%} is not false:
-				set helmet of loop-player to carrot on a stick named "%{flag.%loop-player%}%"
+			if {flag.%loop-player's uuid%} is not false:
+				set helmet of loop-player to carrot on a stick named "%{flag.%loop-player's uuid%}%"
 			if loop-player has permission "theevent580.staff":
 				send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 				send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
@@ -488,7 +488,7 @@ command /parkour:
 			if loop-player has permission "group.spectators":
 				set {finished.%loop-player's uuid%} to true
 				clear loop-player's inventory
-			set {gamemode.%loop-player%} to 2
+			set {gamemode.%loop-player's uuid%} to 2
 		wait 2 seconds
 		loop all players:
 			set loop-player's gamemode to adventure
@@ -525,18 +525,18 @@ command /bingo:
 				set chestplate of loop-player to chainmail chestplate of unbreaking 250 named "&eChainmail chestplate"
 				set leggings of loop-player to chainmail leggings of unbreaking 250  named "&eChainmail leggings"
 				set boots of loop-player to chainmail boots of unbreaking 250 named "&eChainmail boots"
-				set {bingo_cases.%loop-player%} to 0
-				set {bingo_case_1.%loop-player%} to false
-				set {bingo_case_2.%loop-player%} to false
-				set {bingo_case_3.%loop-player%} to false
-				set {bingo_case_4.%loop-player%} to false
-				set {bingo_case_5.%loop-player%} to false
-				set {bingo_case_6.%loop-player%} to false
-				set {bingo_case_7.%loop-player%} to false
-				set {bingo_case_8.%loop-player%} to false
-				set {bingo_case_9.%loop-player%} to false
-				set {bingo_fin.%loop-player%} to false
-				set {bingo_kill.%loop-player%} to false
+				set {bingo_cases.%loop-player's uuid%} to 0
+				set {bingo_case_1.%loop-player's uuid%} to false
+				set {bingo_case_2.%loop-player's uuid%} to false
+				set {bingo_case_3.%loop-player's uuid%} to false
+				set {bingo_case_4.%loop-player's uuid%} to false
+				set {bingo_case_5.%loop-player's uuid%} to false
+				set {bingo_case_6.%loop-player's uuid%} to false
+				set {bingo_case_7.%loop-player's uuid%} to false
+				set {bingo_case_8.%loop-player's uuid%} to false
+				set {bingo_case_9.%loop-player's uuid%} to false
+				set {bingo_fin.%loop-player's uuid%} to false
+				set {bingo_kill.%loop-player's uuid%} to false
 				set {finished.%loop-player's uuid%} to false
 				wait 5 ticks
 				set loop-player's gamemode to adventure
@@ -600,41 +600,41 @@ command /card:
 		if player doesn't have permission "group.spectators":
 			if {jeu_condi} is 3:
 				create a gui with virtual chest inventory with 3 rows named "&eYour card":
-					if {bingo_case_1.%player%} is false:
+					if {bingo_case_1.%player's uuid%} is false:
 						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &cNot validated" with lore "&e+%{pts_lvl_1}% ╣"
-					if {bingo_case_1.%player%} is true:
+					if {bingo_case_1.%player's uuid%} is true:
 						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &aValidated" with lore "&e+%{pts_lvl_1}% ╣"
-					if {bingo_case_2.%player%} is false:
+					if {bingo_case_2.%player's uuid%} is false:
 						make gui slot 4 with mushroom stem named "&rMushroom Stem / &cNot validated" with lore "&e+%{pts_lvl_2}% ╣"
-					if {bingo_case_2.%player%} is true:
+					if {bingo_case_2.%player's uuid%} is true:
 						make gui slot 4 with mushroom stem named "&rMushroom Stem / &aValidated" with lore "&e+%{pts_lvl_2}% ╣"
-					if {bingo_case_3.%player%} is false:
+					if {bingo_case_3.%player's uuid%} is false:
 						make gui slot 5 with lime bed named "&rLime Bed / &cNot validated" with lore "&e+%{pts_lvl_3}% ╣"
-					if {bingo_case_3.%player%} is true:
+					if {bingo_case_3.%player's uuid%} is true:
 						make gui slot 5 with lime bed named "&rLime Bed / &aValidated" with lore "&e+%{pts_lvl_3}% ╣"
-					if {bingo_case_4.%player%} is false:
+					if {bingo_case_4.%player's uuid%} is false:
 						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &cNot validated" with lore "&e+%{pts_lvl_4}% ╣"
-					if {bingo_case_4.%player%} is true:
+					if {bingo_case_4.%player's uuid%} is true:
 						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &aValidated" with lore "&e+%{pts_lvl_4}% ╣"
-					if {bingo_case_5.%player%} is false:
+					if {bingo_case_5.%player's uuid%} is false:
 						make gui slot 13 with sculk sensor named "&rSculk Sensor / &cNot validated" with lore "&e+%{pts_lvl_5}% ╣"
-					if {bingo_case_5.%player%} is true:
+					if {bingo_case_5.%player's uuid%} is true:
 						make gui slot 13 with sculk sensor named "&r Sculk Sensor / &aValidated" with lore "&e+%{pts_lvl_5}% ╣"
-					if {bingo_case_6.%player%} is false:
+					if {bingo_case_6.%player's uuid%} is false:
 						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &cNot validated" with lore "&e+%{pts_lvl_6}% ╣"
-					if {bingo_case_6.%player%} is true:
+					if {bingo_case_6.%player's uuid%} is true:
 						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &aValidated" with lore "&e+%{pts_lvl_6}% ╣"
-					if {bingo_case_7.%player%} is false:
+					if {bingo_case_7.%player's uuid%} is false:
 						make gui slot 21 with blue candle named "&rBlue Candle / &cNot validated" with lore "&e+%{pts_lvl_7}% ╣"
-					if {bingo_case_7.%player%} is true:
+					if {bingo_case_7.%player's uuid%} is true:
 						make gui slot 21 with blue candle named "&rBlue Candle / &aValidated" with lore "&e+%{pts_lvl_7}% ╣"
-					if {bingo_case_8.%player%} is false:
+					if {bingo_case_8.%player's uuid%} is false:
 						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &cNot validated" with lore "&e+%{pts_lvl_8}% ╣"
-					if {bingo_case_8.%player%} is true:
+					if {bingo_case_8.%player's uuid%} is true:
 						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &aValidated" with lore "&e+%{pts_lvl_8}% ╣"
-					if {bingo_case_9.%player%} is false:
+					if {bingo_case_9.%player's uuid%} is false:
 						make gui slot 23 with zombie head named "&fZombie Head / &cNot validated" with lore "&e+%{pts_lvl_9}% ╣"
-					if {bingo_case_9.%player%} is true:
+					if {bingo_case_9.%player's uuid%} is true:
 						make gui slot 23 with zombie head named "&fZombie Head / &aValidated" with lore "&e+%{pts_lvl_9}% ╣"
 				open the last gui for the player
 			else:
@@ -662,20 +662,20 @@ command /ftb:
 		set {finished_players} to 0
 		loop all players:
 			make console execute command "hide %loop-player%"
-			set {gamemode.%loop-player%} to 2
-			set {ftb_fin.%loop-player%} to 0
+			set {gamemode.%loop-player's uuid%} to 2
+			set {ftb_fin.%loop-player's uuid%} to 0
 			set {finished.%loop-player's uuid%} to false
-			set {ftb_1.%loop-player%} to false
-			set {ftb_2.%loop-player%} to false
-			set {ftb_3.%loop-player%} to false
-			set {ftb_4.%loop-player%} to false
-			set {ftb_5.%loop-player%} to false
-			set {ftb_6.%loop-player%} to false
-			set {ftb_7.%loop-player%} to false
-			set {ftb_8.%loop-player%} to false
-			set {ftb_9.%loop-player%} to false
-			set {ftb_10.%loop-player%} to false
-			set {ftb_11.%loop-player%} to false
+			set {ftb_1.%loop-player's uuid%} to false
+			set {ftb_2.%loop-player's uuid%} to false
+			set {ftb_3.%loop-player's uuid%} to false
+			set {ftb_4.%loop-player's uuid%} to false
+			set {ftb_5.%loop-player's uuid%} to false
+			set {ftb_6.%loop-player's uuid%} to false
+			set {ftb_7.%loop-player's uuid%} to false
+			set {ftb_8.%loop-player's uuid%} to false
+			set {ftb_9.%loop-player's uuid%} to false
+			set {ftb_10.%loop-player's uuid%} to false
+			set {ftb_11.%loop-player's uuid%} to false
 		loop all players:
 			if loop-player has permission "group.spectators":
 				set {finished.%loop-player's uuid%} to true
@@ -766,16 +766,16 @@ command /courses:
 		set {jeu_condi} to 5
 		set {finished_players} to 0
 		loop all players:
-			set {race_checkpoint.%loop-player%} to 0
-			set {race_lap.%loop-player%} to 1
+			set {race_checkpoint.%loop-player's uuid%} to 0
+			set {race_lap.%loop-player's uuid%} to 1
 			if loop-player has permission "group.spectators":
 				set {finished.%loop-player's uuid%} to true
 			else:
 				set {finished.%loop-player's uuid%} to false
 				set slot 40 of loop-player to carrot on a stick named "&rYou're on Lap 1"
-				set {race_total_time.%loop-player%} to 0
-				set {race_lap_time.%loop-player%} to 0
-			set {race_boat.%loop-player%} to false
+				set {race_total_time.%loop-player's uuid%} to 0
+				set {race_lap_time.%loop-player's uuid%} to 0
+			set {race_boat.%loop-player's uuid%} to false
 		set {race_timer_status} to false
 		set {race_lap_1_finished} to false
 		set {race_lap_2_finished} to false
@@ -832,11 +832,11 @@ command /laby:
 			if loop-player has permission "group.spectators":
 				set loop-player's gamemode to spectator
 				set {finished.%loop-player's uuid%} to true
-				set {laby_level.%loop-player%} to "None"
+				set {laby_level.%loop-player's uuid%} to "None"
 			else:
 				set {finished.%loop-player's uuid%} to false
-				set {gamemode.%loop-player%} to 2
-				set {laby_level.%loop-player%} to "Start"
+				set {gamemode.%loop-player's uuid%} to 2
+				set {laby_level.%loop-player's uuid%} to "Start"
 				make server execute command "effect give %loop-player% invisibility 660 1 true"
 				make server execute command "effect give %loop-player% night_vision 660 255 true"
 		set {pts_lvl_1} to 30*{checking_finished_players}
@@ -860,7 +860,7 @@ command /bowpvp:
 			set {invicibility.%loop-player's uuid%} to false
 			teleport loop-player to location(0.5, 169, 0.5, "Bow_PVP", -180, 90)
 			set the maximum health of loop-player to 5
-			set {gamemode.%loop-player%} to 2
+			set {gamemode.%loop-player's uuid%} to 2
 			if loop-player has permission "group.spectators":
 				set {alive.%loop-player's uuid%} to false
 				if {hide.%loop-player's uuid%} = false:
@@ -894,15 +894,15 @@ command /bm:
 				make console execute command "hide %loop-player%"
 				allow fly for loop-player
 				force loop-player to fly
-				set {build.location.%loop-player%} to -1
-				set {build.%loop-player%} to -1
-				set {builds.%loop-player%} to "Spec"
+				set {build.location.%loop-player's uuid%} to -1
+				set {build.%loop-player's uuid%} to -1
+				set {builds.%loop-player's uuid%} to "Spec"
 				set {finished.%loop-player's uuid%} to true
 			else:
-				set {build.%loop-player%} to 1
-				set {builds.%loop-player%} to 0
+				set {build.%loop-player's uuid%} to 1
+				set {builds.%loop-player's uuid%} to 0
 				set {finished.%loop-player's uuid%} to false
-				set {build.location.%loop-player%} to {_pos.player}
+				set {build.location.%loop-player's uuid%} to {_pos.player}
 				send "[&c&lTheEvent580 - Build Masters&r] Player %loop-player% has been set to plot %{_pos.player}%" to console
 				add 1 to {_pos.player}
 		set {builds_total} to 0
@@ -979,7 +979,7 @@ command /health <int> <offline player>:
 	permission message: &cThis command does not exist
 	trigger:
 		set the maximum health of player to arg-1
-		set {health.%player%} to arg-2
+		set {health.%player's uuid%} to arg-2
 		heal player
 
 command /jeu <int>:
@@ -992,7 +992,7 @@ command /gm <int>:
 	permission: group.spectators
 	permission message: &cThis command does not exist
 	trigger:
-		set {gamemode.%player%} to arg-1
+		set {gamemode.%player's uuid%} to arg-1
 		if arg-1 is 1:
 			set player's gamemode to creative
 		if arg-1 is 2:
@@ -1030,11 +1030,11 @@ command /readycheck:
 		make player execute command "mute"
 		wait 3 seconds
 		loop all players:
-			set {ready_check.%loop-player%} to false
-			set {ready.%loop-player%} to false
+			set {ready_check.%loop-player's uuid%} to false
+			set {ready.%loop-player's uuid%} to false
 			if loop-player has permission "group.spectators":
 				send "[&c&lTheEvent580 - Admin&r] Ready check started by %executor%, ends in 30 seconds" to loop-player
-				set {ready.%loop-player%} to true
+				set {ready.%loop-player's uuid%} to true
 			else:
 				add 1 to {check_players}
 				send "%nl%--------------------------------%nl%%nl%%nl%" to loop-player
@@ -1058,15 +1058,15 @@ command /readycheck:
 		loop all players:
 			loop 500 times:
 				send "" to loop-player
-			if {ready.%loop-player%} is true:
+			if {ready.%loop-player's uuid%} is true:
 				if loop-player doesn't have permission "group.spectators":
 					remove 1 from {check_players}
 		if {check_players} is 0:
 			send "[&c&lTheEvent580 - Admin&r] Everyone is ready, start whenever you want !" to executor
 		else:
 			loop all players:
-				if {ready_check.%loop-player%} is false:
-					set {ready_check.%loop-player%} to true
+				if {ready_check.%loop-player's uuid%} is false:
+					set {ready_check.%loop-player's uuid%} to true
 				if loop-player has permission "group.spectators":
 					create a gui with virtual chest inventory with 3 rows named "Not ready players":
 						wait 1 tick
@@ -1083,9 +1083,9 @@ command /readycheck:
 command /ready:
 	description: ready you automatically
 	trigger:
-		if {ready_check.%player%} is false:
-			set {ready_check.%player%} to true
-			set {ready.%player%} to true
+		if {ready_check.%player's uuid%} is false:
+			set {ready_check.%player's uuid%} to true
+			set {ready.%player's uuid%} to true
 			add 1 to {ready_player}
 			add 1 to {replied}
 			broadcast "[&c&lTheEvent580&r] &a&l%player%&r is ready to start."
@@ -1093,9 +1093,9 @@ command /ready:
 command /notready:
 	description: unready you automatically
 	trigger:
-		if {ready_check.%player%} is false:
-			set {ready_check.%player%} to true
-			set {ready.%player%} to false
+		if {ready_check.%player's uuid%} is false:
+			set {ready_check.%player's uuid%} to true
+			set {ready.%player's uuid%} to false
 			add 1 to {replied}
 			broadcast "[&c&lTheEvent580&r] &c&l%player%&r isn't ready to start."
 
@@ -1140,8 +1140,8 @@ command /fake <text> [<text>]:
 			set {pts_fin} to {pts_fin}*{multiplier}
 			set {remove_pts_fin} to 40*{multiplier}
 			loop all players:
-				set {gamemode.%loop-player%} to 2
-				set {dropper_level.%loop-player%} to 1
+				set {gamemode.%loop-player's uuid%} to 2
+				set {dropper_level.%loop-player's uuid%} to 1
 		if arg-1 is "courses":
 			if arg-2 is "boat":
 				set {courses} to "boat"
@@ -1411,7 +1411,7 @@ command /emotes [<text>]:
 			set slot 0 of current inventory of player to {_skull}
 			set slot 1 of current inventory of player to {_heartmenu}
 			set slot 26 of current inventory of player to barrier named "&r&cClose emote menu"
-			set {menu.%player%} to "main"
+			set {menu.%player's uuid%} to "main"
 		else:
 			if arg-1 is "heart":
 				set {_heart1} to a player head
@@ -1469,7 +1469,7 @@ command /emotes [<text>]:
 				set slot 11 of current inventory of player to {_heart12}
 				set slot 25 of current inventory of player to {_goback}
 				set slot 26 of current inventory of player to barrier named "&r&cClose emote menu"
-				set {menu.%player%} to "heart"
+				set {menu.%player's uuid%} to "heart"
 
 command /fly [<player>]:
 	permission: group.spectators
@@ -1557,7 +1557,7 @@ command /seeplacement:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
 				add {points.%loop-player's uuid%} to {list_points::*}
-				set {points_string.%loop-player%} to "%{points.%loop-player's uuid%}%"
+				set {points_string.%loop-player's uuid%} to "%{points.%loop-player's uuid%}%"
 		set {list_points::*} to sorted {list_points::*}
 		set {list_points::*} to reversed {list_points::*}
 
@@ -1674,47 +1674,47 @@ command /skip:
 				loop all players:
 					clear loop-player's inventory
 					make loop-player execute command "spawn"
-					set {gamemode.%loop-player%} to 2
+					set {gamemode.%loop-player's uuid%} to 2
 					remove {points_game.%loop-player's uuid%} from {total_points.%loop-player's uuid%}
 					set {points_game.%loop-player's uuid%} to 0
 					#Parkour
-					set {parkour_checkpoint.%loop-player%} to "Start"
+					set {parkour_checkpoint.%loop-player's uuid%} to "Start"
 					#Dropper
-					set {dropper_level.%loop-player%} to 0
+					set {dropper_level.%loop-player's uuid%} to 0
 					#Find The Button
-					set {ftb_fin.%loop-player%} to 0
-					set {ftb_1.%loop-player%} to false
-					set {ftb_2.%loop-player%} to false
-					set {ftb_3.%loop-player%} to false
-					set {ftb_4.%loop-player%} to false
-					set {ftb_5.%loop-player%} to false
-					set {ftb_6.%loop-player%} to false
-					set {ftb_7.%loop-player%} to false
-					set {ftb_8.%loop-player%} to false
-					set {ftb_9.%loop-player%} to false
-					set {ftb_10.%loop-player%} to false
-					set {ftb_11.%loop-player%} to false
+					set {ftb_fin.%loop-player's uuid%} to 0
+					set {ftb_1.%loop-player's uuid%} to false
+					set {ftb_2.%loop-player's uuid%} to false
+					set {ftb_3.%loop-player's uuid%} to false
+					set {ftb_4.%loop-player's uuid%} to false
+					set {ftb_5.%loop-player's uuid%} to false
+					set {ftb_6.%loop-player's uuid%} to false
+					set {ftb_7.%loop-player's uuid%} to false
+					set {ftb_8.%loop-player's uuid%} to false
+					set {ftb_9.%loop-player's uuid%} to false
+					set {ftb_10.%loop-player's uuid%} to false
+					set {ftb_11.%loop-player's uuid%} to false
 					#Courses
-					set {courses_boat_timer_status.%loop-player%} to false
-					set {courses_boat_timer.%loop-player%} to 0
-					set {courses_boat.%loop-player%} to "Start"
-					set {courses_boat_timer.%loop-player%} to 0
+					set {courses_boat_timer_status.%loop-player's uuid%} to false
+					set {courses_boat_timer.%loop-player's uuid%} to 0
+					set {courses_boat.%loop-player's uuid%} to "Start"
+					set {courses_boat_timer.%loop-player's uuid%} to 0
 					set {courses_boat_timer_status} to false
-					set {courses_pied.%loop-player%} to "Start"
-					set {courses_pied_timer.%loop-player%} to 0
-					set {courses_pied_timer_section.%loop-player%} to 0
-					set {courses_pied_timer_status.%loop-player%} to false
+					set {courses_pied.%loop-player's uuid%} to "Start"
+					set {courses_pied_timer.%loop-player's uuid%} to 0
+					set {courses_pied_timer_section.%loop-player's uuid%} to 0
+					set {courses_pied_timer_status.%loop-player's uuid%} to false
 					set {courses_pied_timer_status} to false
-					set {courses_trident.%loop-player%} to "Start"
-					set {courses_trident_timer.%loop-player%} to 0
-					set {courses_trident_timer_section.%loop-player%} to 0
-					set {courses_trident_timer_status.%loop-player%} to false
-					set {has_trident.%loop-player%} to false
+					set {courses_trident.%loop-player's uuid%} to "Start"
+					set {courses_trident_timer.%loop-player's uuid%} to 0
+					set {courses_trident_timer_section.%loop-player's uuid%} to 0
+					set {courses_trident_timer_status.%loop-player's uuid%} to false
+					set {has_trident.%loop-player's uuid%} to false
 					set {courses_trident_timer_status} to false
 					#Laby
-					set {laby_level.%loop-player%} to "Start"
+					set {laby_level.%loop-player's uuid%} to "Start"
 					#Bow PVP
-					set {health.%loop-player%} to 10
+					set {health.%loop-player's uuid%} to 10
 					#Spawn
 					set the maximum health of loop-player to 10
 					heal loop-player
@@ -1918,11 +1918,11 @@ command /seeblock:
 	aliases: colorblind
 	description: toggles the action bar to see the block and all
 	trigger:
-		if {check_block.%player%} is false:
-			set {check_block.%player%} to true
+		if {check_block.%player's uuid%} is false:
+			set {check_block.%player's uuid%} to true
 			send "%nl%[&c&lTheEvent580 - Colorblind&r] You are now able to see the name of the block you're looking at !%nl%"
 		else:
-			set {check_block.%player%} to false
+			set {check_block.%player's uuid%} to false
 			send "%nl%[&c&lTheEvent580 - Colorblind&r] You can no longer see the name of the block you're looking at !%nl%"
 
 command /wl <text> [<offline player>]:
