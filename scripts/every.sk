@@ -940,7 +940,7 @@ every tick:
 					remove 0.05 from {invincibility.time_left.%loop-player's uuid%}
 				else:
 					set {invincibility.%loop-player's uuid%} to false
-					make console execute command "hide %victim%"
+					make console execute command "hide %loop-player%"
 			if the y-coordinate of loop-player is smaller than 90:
 				if {alive.%loop-player's uuid%} = true:
 					kill loop-player
@@ -1493,8 +1493,8 @@ every second:
 				if {timer-s} is 0:
 					make server execute command "execute in minecraft:races_lap_3 run fill -3 132 0 3 130 0 air destroy"
 					set {race_timer} to true
-					make console execute command "/team leave %loop-player%"
 					loop all players:
+						make console execute command "/team leave %loop-player%"
 						if {hide.%loop-player's uuid%} is true:
 							make console execute command "/hide %loop-player%"
 						make console execute command "/team join nocolisions %loop-player%"
@@ -2963,7 +2963,7 @@ every second:
 				endNPCs()
 				loop all players:
 					if loop-player doesn't have permission "group.spectators":
-						set {show} to {points_game.%loop-value-1%}
+						set {show} to {points_game.%loop-value-1's uuid%}
 					loop {staff::*}:
 						if loop-value-1 is not loop-value-2:
 							send "[&c&lTheEvent580&r] %loop-value-1% had %{show}% coins this game !" to loop-value-2

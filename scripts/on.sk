@@ -155,16 +155,16 @@ on join:
 		set {flag.%player's uuid%} to false
 	if {Secret_Base_1.%player's uuid%} is not set:
 		set {Secret_Base_1.%player's uuid%} to false
-		set {Secret_Base_1.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You found the secret base in the hub !"
+		set {Secret_Base_1.%player's uuid%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You found the secret base in the hub !"
 	if {Herobrine.%player's uuid%} is not set:
 		set {Herobrine.%player's uuid%} to false
-		set {Herobrine.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You discovered Herobrine !"
+		set {Herobrine.%player's uuid%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You discovered Herobrine !"
 	if {HubParkour.%player's uuid%} is not set:
 		set {HubParkour.%player's uuid%} to false
-		set {HubParkour.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You finished the Hub parkour !"
+		set {HubParkour.%player's uuid%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You finished the Hub parkour !"
 	if {1SecBM.%player's uuid%} is not set:
 		set {1SecBM.%player's uuid%} to false
-		set {1SecBM.%player%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : Finishing the Build Master 5 seconds before the end !"
+		set {1SecBM.%player's uuid%.infos} to "[&c&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : Finishing the Build Master 5 seconds before the end !"
 	if {check_block.%player's uuid%} is not set:
 		set {check_block.%player's uuid%} to false
 	if {gamemode.%player's uuid%} is 3:
