@@ -1,5 +1,5 @@
 every tick:
-	reloadScoreboard()
+	#reloadScoreboard()
 	reloadTab()
 	if {race_timer} is true:
 		loop all players:
