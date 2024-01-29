@@ -815,7 +815,7 @@ command /sg [<text>]:
 		set {pts_lvl_5} to 75*{multiplier}
 		loop all players:
 			make server execute command "effect give %loop-player% invisibility 210 1 true"
-		set {game} to "SG3"
+		set {game} to "SG4"
 		sgMapCheck()
 
 command /laby:
