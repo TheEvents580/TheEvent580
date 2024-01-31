@@ -153,7 +153,7 @@ function sgMapCheck():
 	#			set loop-player's gamemode to adventure
 	#			make server execute command "execute in minecraft:sg3 run tp %loop-player% 28.5 16 28.5 135 0"
 	#	make server execute command "execute in minecraft:sg3 run time set day"
-	else if {game} is "SG4":
+	if {game} is "SG4":
 		loop all players:
 			if loop-player have permission "group.spectators":
 				make server execute command "execute in minecraft:sg4 run tp %loop-player% 0 60 -2.5 0 90"
