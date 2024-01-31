@@ -277,13 +277,13 @@ function respawnBowPVP(p:player):
 		else if {random_respawn} is 8:
 			teleport {_p} to location(5.5, 111, -33.5, "Bow_PVP", -90, 0.1)
 		else if {random_respawn} is 9:
-			teleport {_p} to location(9.5, 128, 0.5, "Bow_PVP", 90, 0.1)
+			teleport {_p} to location(10.299, 124, -33.5, "Bow_PVP", 90, 0.1)
 		else if {random_respawn} is 10:
-			teleport {_p} to location(1.5, 128, 8.5, "Bow_PVP", 180, 0.1)
+			teleport {_p} to location(35.5, 124, 9.299, "Bow_PVP", 180, 0.1)
 		else if {random_respawn} is 11:
-			teleport {_p} to location(-6.5, 128, 0.5, "Bow_PVP", -90, 0.1)
+			teleport {_p} to location(-7.299, 124, 34.5, "Bow_PVP", -90, 0.1)
 		else if {random_respawn} is 12:
-			teleport {_p} to location(1.5, 128, 7.5, "Bow_PVP", 0.1, 0.1)
+			teleport {_p} to location(-32.5, 124, -8.299, "Bow_PVP", 0.1, 0.1)
 
 function updateClassement():
 	clear {list_points::*}
