@@ -838,11 +838,12 @@ every tick:
 		if {timer} = 6:
 			if {sg.height} > 12.4999999:
 				remove (1/15)/10 from {sg.height}
+				make console execute command "setsgheight %{sg.height}%"
 		loop all players:
 			if loop-player's world is "sg3":
 				set {_x.block} to the x-coordinate of loop-player
 				set {_z.block} to the z-coordinate of loop-player
-				if {alive.%loop-player's uuid%} = false=:
+				if {alive.%loop-player's uuid%} = false:
 					make 10 of dust using dustOption(lime,1) at location({_x.block}-1,{sg.height},{_z.block}-1,"sg3") with force for loop-player
 					make 10 of dust using dustOption(lime,1) at location({_x.block}-1,{sg.height},{_z.block},"sg3") with force for loop-player
 					make 10 of dust using dustOption(lime,1) at location({_x.block}+1,{sg.height},{_z.block},"sg3") with force for loop-player
