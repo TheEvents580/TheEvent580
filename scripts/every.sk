@@ -2303,7 +2303,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_5}%")
 								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_5}%")
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for until the final battle [&5+%{pts_lvl_5}%&r╣]" to loop-player
@@ -2313,7 +2315,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 19 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2324,7 +2328,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 16 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2332,7 +2338,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 13 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2340,7 +2348,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 10 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2348,7 +2358,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 7 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2356,7 +2368,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 4 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2364,7 +2378,9 @@ every second:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 1 mins and 30 secs [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2417,7 +2433,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 18 minutes [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2441,7 +2459,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 15 mins [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2476,7 +2496,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 12 mins [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2521,7 +2543,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 9 mins [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2555,7 +2579,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 6 mins [&5+%{pts_lvl_4}%&r╣]" to loop-player
@@ -2602,7 +2628,9 @@ every second:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
+								command("gamepoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								command("totalpoints %loop-player% %{pts_lvl_4}%")
 								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 3 mins [&5+%{pts_lvl_4}%&r╣]" to loop-player
