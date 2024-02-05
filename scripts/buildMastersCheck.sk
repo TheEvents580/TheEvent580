@@ -16,7 +16,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -39,7 +41,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -61,7 +65,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -83,7 +89,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -105,7 +113,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -127,7 +137,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -149,7 +161,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -171,7 +185,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -193,7 +209,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -215,7 +233,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -237,7 +257,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -259,7 +281,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -281,7 +305,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -303,7 +329,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -325,7 +353,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -347,7 +377,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -369,7 +401,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -391,7 +425,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -413,7 +449,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -435,7 +473,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -457,7 +497,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -479,7 +521,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -501,7 +545,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -523,7 +569,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -545,7 +593,9 @@ function checkBuild1(p:int):
 					send "[&c&lTheEvent580&r] You completed build 1 [&1+%{pts_lvl_1}% &r╣]" to loop-player					
 					set {build.%loop-player's uuid%} to 2
 					set {builds.%loop-player's uuid%} to 1
+					command("gamepoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_1}%")
 					add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -566,7 +616,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -585,7 +637,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -604,7 +658,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -623,7 +679,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -642,7 +700,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -661,7 +721,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -680,7 +742,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -699,7 +763,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -718,7 +784,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -737,7 +805,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -756,7 +826,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -775,7 +847,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -794,7 +868,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -813,7 +889,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -832,7 +910,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -851,7 +931,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -870,7 +952,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -889,7 +973,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -908,7 +994,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -927,7 +1015,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -946,7 +1036,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -965,7 +1057,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -984,7 +1078,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1003,7 +1099,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1022,7 +1120,9 @@ function checkBuild2(p:int):
 					set {builds.%loop-player's uuid%} to 2
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 2"
 					send "[&c&lTheEvent580&r] You completed build 2 [&1+%{pts_lvl_2}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_2}%")
 					add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1047,7 +1147,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1070,7 +1172,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1093,7 +1197,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1116,7 +1222,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1139,7 +1247,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1162,7 +1272,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1185,7 +1297,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1208,7 +1322,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1231,7 +1347,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1254,7 +1372,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1277,7 +1397,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1300,7 +1422,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1323,7 +1447,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1346,7 +1472,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1369,7 +1497,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1392,7 +1522,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1415,7 +1547,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1438,7 +1572,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1461,7 +1597,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1484,7 +1622,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1507,7 +1647,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1530,7 +1672,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1553,7 +1697,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1576,7 +1722,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1599,7 +1747,9 @@ function checkBuild3(p:int):
 					set {builds.%loop-player's uuid%} to 3
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 3"
 					send "[&c&lTheEvent580&r] You completed build 3 [&1+%{pts_lvl_3}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_3}%")
 					add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1625,7 +1775,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1649,7 +1801,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1673,7 +1827,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1697,7 +1853,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1721,7 +1879,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1745,7 +1905,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1769,7 +1931,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1793,7 +1957,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1817,7 +1983,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1841,7 +2009,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1865,7 +2035,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1889,7 +2061,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1913,7 +2087,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1937,7 +2113,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1961,7 +2139,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -1985,7 +2165,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2009,7 +2191,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2033,7 +2217,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2057,7 +2243,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2081,7 +2269,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2105,7 +2295,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2129,7 +2321,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2153,7 +2347,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2177,7 +2373,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2201,7 +2399,9 @@ function checkBuild4(p:int):
 					set {builds.%loop-player's uuid%} to 4
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 4"
 					send "[&c&lTheEvent580&r] You completed build 4 [&1+%{pts_lvl_4}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_4}%")
 					add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2226,7 +2426,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2249,7 +2451,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2272,7 +2476,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2295,7 +2501,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2318,7 +2526,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2341,7 +2551,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2364,7 +2576,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2387,7 +2601,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2410,7 +2626,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2433,7 +2651,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2456,7 +2676,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2479,7 +2701,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2502,7 +2726,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2525,7 +2751,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2548,7 +2776,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2571,7 +2801,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2594,7 +2826,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2617,7 +2851,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2640,7 +2876,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2663,7 +2901,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2686,7 +2926,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2709,7 +2951,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2732,7 +2976,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2755,7 +3001,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2778,7 +3026,9 @@ function checkBuild5(p:int):
 					set {builds.%loop-player's uuid%} to 5
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 5"
 					send "[&c&lTheEvent580&r] You completed build 5 [&1+%{pts_lvl_5}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_5}%")
 					add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2807,7 +3057,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2834,7 +3086,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2861,7 +3115,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2888,7 +3144,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2915,7 +3173,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2942,7 +3202,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2969,7 +3231,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -2996,7 +3260,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3023,7 +3289,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3050,7 +3318,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3077,7 +3347,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3104,7 +3376,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3131,7 +3405,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3158,7 +3434,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3185,7 +3463,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3212,7 +3492,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3239,7 +3521,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3266,7 +3550,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3293,7 +3579,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3320,7 +3608,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3347,7 +3637,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3374,7 +3666,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3401,7 +3695,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3428,7 +3724,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3455,7 +3753,9 @@ function checkBuild6(p:int):
 					set {builds.%loop-player's uuid%} to 6
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 6"
 					send "[&c&lTheEvent580&r] You completed build 6 [&1+%{pts_lvl_6}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_6}%")
 					add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3484,7 +3784,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3511,7 +3813,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3538,7 +3842,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3565,7 +3871,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3592,7 +3900,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3619,7 +3929,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3646,7 +3958,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3673,7 +3987,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3700,7 +4016,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3727,7 +4045,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3754,7 +4074,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3781,7 +4103,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3808,7 +4132,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3835,7 +4161,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3862,7 +4190,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3889,7 +4219,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3916,7 +4248,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3943,7 +4277,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3970,7 +4306,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -3997,7 +4335,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4024,7 +4364,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4051,7 +4393,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4078,7 +4422,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4105,7 +4451,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4132,7 +4480,9 @@ function checkBuild7(p:int):
 					set {builds.%loop-player's uuid%} to 7
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 7"
 					send "[&c&lTheEvent580&r] You completed build 7 [&1+%{pts_lvl_7}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_7}%")
 					add {pts_lvl_7} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4159,7 +4509,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4184,7 +4536,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4209,7 +4563,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4234,7 +4590,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4259,7 +4617,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4284,7 +4644,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4309,7 +4671,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4334,7 +4698,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4359,7 +4725,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4384,7 +4752,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4409,7 +4779,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4434,7 +4806,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4459,7 +4833,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4484,7 +4860,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4509,7 +4887,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4534,7 +4914,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4559,7 +4941,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4584,7 +4968,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4609,7 +4995,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4634,7 +5022,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4659,7 +5049,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4684,7 +5076,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4709,7 +5103,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4734,7 +5130,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4759,7 +5157,9 @@ function checkBuild8(p:int):
 					set {builds.%loop-player's uuid%} to 8
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 8"
 					send "[&c&lTheEvent580&r] You completed build 8 [&1+%{pts_lvl_8}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_8}%")
 					add {pts_lvl_8} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4808,7 +5208,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4855,7 +5257,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4902,7 +5306,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4949,7 +5355,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -4996,7 +5404,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5043,7 +5453,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5090,7 +5502,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5137,7 +5551,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5184,7 +5600,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5231,7 +5649,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5278,7 +5698,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5325,7 +5747,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5372,7 +5796,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5419,7 +5845,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5466,7 +5894,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5513,7 +5943,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5560,7 +5992,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5607,7 +6041,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5654,7 +6090,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5701,7 +6139,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5748,7 +6188,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5795,7 +6237,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5842,7 +6286,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5889,7 +6335,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5936,7 +6384,9 @@ function checkBuild9(p:int):
 					set {builds.%loop-player's uuid%} to 9
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 9"
 					send "[&c&lTheEvent580&r] You completed build 9 [&1+%{pts_lvl_9}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_9}%")
 					add {pts_lvl_9} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5955,7 +6405,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -5988,7 +6440,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6021,7 +6475,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6054,7 +6510,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6087,7 +6545,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6120,7 +6580,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6153,7 +6615,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6186,7 +6650,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6219,7 +6685,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6252,7 +6720,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6285,7 +6755,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6318,7 +6790,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6351,7 +6825,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6384,7 +6860,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6417,7 +6895,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6450,7 +6930,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6483,7 +6965,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6516,7 +7000,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6549,7 +7035,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6582,7 +7070,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6615,7 +7105,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6648,7 +7140,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6681,7 +7175,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6714,7 +7210,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
@@ -6747,7 +7245,9 @@ function checkBuild10(p:int):
 					set {builds.%loop-player's uuid%} to 10
 					broadcast "[&c&lTheEvent580&r] &1&l%loop-player%&r completed build 10"
 					send "[&c&lTheEvent580&r] You completed build 10 [&1+%{pts_lvl_10}% &r╣]" to loop-player
+					command("gamepoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {points_game.%loop-player's uuid%}
+					command("totalpoints %loop-player% %{pts_lvl_10}%")
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}

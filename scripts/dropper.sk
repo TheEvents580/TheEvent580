@@ -54,7 +54,9 @@ every tick:
 						force loop-player to fly
 						allow fly for loop-player
 						teleport loop-player to location(30.0, 129, -118.0, "dropper", 90, 1)
+						command("gamepoints %loop-player% %{pts_lvl_4}%")
 						add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+						command("totalpoints %loop-player% %{pts_lvl_4}%")
 						add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 						if {dropper_fin} is false:
@@ -73,7 +75,9 @@ every tick:
 					if {dropper_level.%loop-player's uuid%} is 3:
 						set {dropper_level.%loop-player's uuid%} to 4
 						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)
+						command("gamepoints %loop-player% %{pts_lvl_3}%")
 						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+						command("totalpoints %loop-player% %{pts_lvl_3}%")
 						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_3} is false:
@@ -86,7 +90,9 @@ every tick:
 					if {dropper_level.%loop-player's uuid%} is 2:
 						set {dropper_level.%loop-player's uuid%} to 3
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
+						command("gamepoints %loop-player% %{pts_lvl_2}%")
 						add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+						command("totalpoints %loop-player% %{pts_lvl_2}%")
 						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_2} is false:
@@ -99,7 +105,9 @@ every tick:
 					if {dropper_level.%loop-player's uuid%} is 1:
 						set {dropper_level.%loop-player's uuid%} to 2
 						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
+						command("gamepoints %loop-player% %{pts_lvl_1}%")
 						add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+						command("totalpoints %loop-player% %{pts_lvl_1}%")
 						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_1} is false:
