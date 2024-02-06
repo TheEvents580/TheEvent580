@@ -592,9 +592,9 @@ every tick:
 			if the x coordinate of loop-player is between 31 and 30:
 				if the y coordinate of loop-player is between 139 and 145:
 					if the z coordinate of loop-player is between -8 and -16:
-						if {race_boat.%loop-player's uuid%}:
+						if {race_boat.%loop-player's uuid%} = true:
 							send title "&7[&c-&7] &cBoat removed" to loop-player for 1 second
-							if {in_vehicle.%loop-player's uuid%}:
+							if {in_vehicle.%loop-player's uuid%} = true:
 								make console execute command "execute in minecraft:races_lap_3 at %loop-player% run kill @e[type=minecraft:boat,limit=1,sort=nearest]"
 							remove 5 of oak boat from loop-player
 							set {race_boat.%loop-player's uuid%} to false
@@ -952,18 +952,18 @@ every tick:
 
 	else if {jeu_condi} is 8: #Bow PVP
 		loop all players:
-			if {invincibility.%loop-player's uuid%}:
+			if {invincibility.%loop-player's uuid%} = true:
 				if {invincibility.time_left.%loop-player's uuid%} > 0.05:
 					remove 0.05 from {invincibility.time_left.%loop-player's uuid%}
 				else:
 					set {invincibility.%loop-player's uuid%} to false
 					#make console execute command "hide %loop-player%"
-					set helmet of victim to air
-					set chestplate of victim to air
-					set leggings of victim to air
-					set boots of victim to air
+					set helmet of loop-player to air
+					set chestplate of loop-player to air
+					set leggings of loop-player to air
+					set boots of loop-player to air
 			if the y-coordinate of loop-player is smaller than 90:
-				if {alive.%loop-player's uuid%}:
+				if {alive.%loop-player's uuid%} = true:
 					kill loop-player
 				else:
 					respawnBowPVP(loop-player)

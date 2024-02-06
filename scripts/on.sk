@@ -797,10 +797,10 @@ on respawn:
 		respawnBowPVP(player)
 		heal player
 		apply saturation without particles to player for 100 days
-		set helmet of victim to netherite helmet
-		set chestplate of victim to netherite chestplate
-		set leggings of victim to netherite leggings
-		set boots of victim to nethetite boots
+		set helmet of player to netherite helmet
+		set chestplate of player to netherite chestplate
+		set leggings of player to netherite leggings
+		set boots of player to netherite boots
 
 on break:
 	if player's gamemode is not creative:
