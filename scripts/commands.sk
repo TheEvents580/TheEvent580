@@ -1918,7 +1918,7 @@ command /resetNPCs:
 	trigger:
 		resetNPCs()
 
-command /settotalpoints <int> <player>:
+command /settotalpoints <number> <player>:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
