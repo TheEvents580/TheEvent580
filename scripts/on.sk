@@ -15,7 +15,7 @@ on command "tell":
 on Skript start:
 	set {online_players} to 0
 	clear {staff::*}
-	resetTab()
+	#resetTab()
 
 on inventory click:
 	if clicked slot is 39:
