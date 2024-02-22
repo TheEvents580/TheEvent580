@@ -239,52 +239,42 @@ on join:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 993"
-						make server execute command "execute in minecraft:build_masters run fill 5 128 993 14 128 1002 air"
 				else if {build.location.%player's uuid%} is 1:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1019.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1014"
-						make server execute command "execute in minecraft:build_masters run fill 5 128 1014 14 128 1023 air"
 				else if {build.location.%player's uuid%} is 2:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1040.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1035"
-						make server execute command "execute in minecraft:build_masters run fill 5 128 1035 14 128 1044 air"
 				else if {build.location.%player's uuid%} is 3:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1061.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1056"
-						make server execute command "execute in minecraft:build_masters run fill 5 128 1056 14 128 1065 air"
 				else if {build.location.%player's uuid%} is 4:
 					make server execute command "execute in build_masters run tp %player% 2.5 129 1082.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1077"
-						make server execute command "execute in minecraft:build_masters run fill 5 128 1077 14 128 1086 air"
 				else if {build.location.%player's uuid%} is 5:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 993"
-						make server execute command "execute in minecraft:build_masters run fill 26 128 993 35 128 1002 air"
 				else if {build.location.%player's uuid%} is 6:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1019.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1014"
-						make server execute command "execute in minecraft:build_masters run fill 26 128 1014 35 128 1023 air"
 				else if {build.location.%player's uuid%} is 7:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1040.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1035"
-						make server execute command "execute in minecraft:build_masters run fill 26 128 1035 35 128 1044 air"
 				else if {build.location.%player's uuid%} is 8:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1061.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1056"
-						make server execute command "execute in minecraft:build_masters run fill 26 128 1056 35 128 1065 air"
 				else if {build.location.%player's uuid%} is 9:
 					make server execute command "execute in build_masters run tp %player% 23.5 129 1082.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1077"
-						make server execute command "execute in minecraft:build_masters run fill 26 128 1077 35 128 1086 air"
 				else if {build.location.%player's uuid%} is 10:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
