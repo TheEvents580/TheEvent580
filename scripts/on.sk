@@ -289,77 +289,62 @@ on join:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 993"
-						make server execute command "execute in minecraft:build_masters run fill 47 128 993 56 128 1002 air"
 				else if {build.location.%player's uuid%} is 11:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1019.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1014"
-						make server execute command "execute in minecraft:build_masters run fill 47 128 1014 56 128 1023 air"
 				else if {build.location.%player's uuid%} is 12:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1040.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1035"
-						make server execute command "execute in minecraft:build_masters run fill 47 128 1035 56 128 1044 air"
 				else if {build.location.%player's uuid%} is 13:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1061.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1056"
-						make server execute command "execute in minecraft:build_masters run fill 47 128 1056 56 128 1065 air"
 				else if {build.location.%player's uuid%} is 14:
 					make server execute command "execute in build_masters run tp %player% 44.5 129 1082.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1077"
-						make server execute command "execute in minecraft:build_masters run fill 47 128 1077 56 128 1086 air"
 				else if {build.location.%player's uuid%} is 15:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 993"
-						make server execute command "execute in minecraft:build_masters run fill 68 128 993 77 128 1002 air"
 				else if {build.location.%player's uuid%} is 16:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1019.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1014"
-						make server execute command "execute in minecraft:build_masters run fill 68 128 1014 77 128 1023 air"
 				else if {build.location.%player's uuid%} is 17:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1040.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1035"
-						make server execute command "execute in minecraft:build_masters run fill 68 128 1035 77 128 1044 air"
 				else if {build.location.%player's uuid%} is 18:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1061.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1056"
-						make server execute command "execute in minecraft:build_masters run fill 68 128 1056 77 128 1065 air"
 				else if {build.location.%player's uuid%} is 19:
 					make server execute command "execute in build_masters run tp %player% 65.5 129 1082.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1077"
-						make server execute command "execute in minecraft:build_masters run fill 68 128 1077 77 128 1086 air"
 				else if {build.location.%player's uuid%} is 20:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 998.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 993"
-						make server execute command "execute in minecraft:build_masters run fill 89 128 993 98 128 1002 air"
 				else if {build.location.%player's uuid%} is 21:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1019.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1014"
-						make server execute command "execute in minecraft:build_masters run fill 89 128 1014 98 128 1023 air"
 				else if {build.location.%player's uuid%} is 22:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1040.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1035"
-						make server execute command "execute in minecraft:build_masters run fill 89 128 1035 98 128 1044 air"
 				else if {build.location.%player's uuid%} is 23:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1061.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1056"
-						make server execute command "execute in minecraft:build_masters run fill 89 128 1056 98 128 1065 air"
 				else if {build.location.%player's uuid%} is 24:
 					make server execute command "execute in build_masters run tp %player% 86.5 129 1082.00000001"
 					if {build.%player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
-						make server execute command "execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air"
 
 	if {jeu_condi} = 7:
 		if event-world is not "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
@@ -976,6 +961,40 @@ on right click with compass:
 		make player execute command "tpspec"
 
 on right click :
+	if event-entity is a villager:
+		if name of event-entity is "Give 30 seconds":
+			if {timer} = 5 or 6:
+				if {finished.%player's uuid%} is false:
+					if {timer_minute.%player's uuid%} > 2:
+						giveThirtySecs(player)
+					else:
+						send "[&c&lTheEvent580&r] You need at least 3 minutes to give this amount of time to any other players" to player
+				else:
+					send "[&c&lTheEvent580&r] You already finished the game, you cannot give time to anyone" to player
+			else:
+				send "[&c&lTheEvent580&r] The game has already ended" to player
+		if name of event-entity is "Give 1 minute":
+			if {timer} = 5 or 6:
+				if {finished.%player's uuid%} is false:
+					if {timer_minute.%player's uuid%} > 3:
+						giveOneMinute(player)
+					else:
+						send "[&c&lTheEvent580&r] You need at least 4 minutes to give this amount of time to any other players" to player
+				else:
+					send "[&c&lTheEvent580&r] You already finished the game, you cannot give time to anyone" to player
+			else:
+				send "[&c&lTheEvent580&r] The game has already ended" to player
+		if name of event-entity is "Give 3 minutes":
+			if {timer} = 5 or 6:
+				if {finished.%player's uuid%} is false:
+					if {timer_minute.%player's uuid%} > 4:
+						giveThreeMinute(player)
+					else:
+						send "[&c&lTheEvent580&r] You need at least 5 minutes to give this amount of time to any other players" to player
+				else:
+					send "[&c&lTheEvent580&r] You already finished the game, you cannot give time to anyone" to player
+			else:
+				send "[&c&lTheEvent580&r] The game has already ended" to player
 	if player has permission "group.spectators":
 		if {timer} is not "pause" or 0 or "Fin":
 			cancel event

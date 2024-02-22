@@ -894,10 +894,12 @@ command /bm:
 		set {finished_players} to 0
 		set {damage} to 2
 		make server execute command "execute in build_masters run tp @a 0.5 128 0.5 -90 0"
+		make console execute command "bossbar set minecraft:mall visible false"
 		wait 5 ticks
 		set {_pos.player} to 0
 		reveal hidden players of all players
 		loop all players:
+			make console execute command "execute run bossbar set minecraft:mall players %loop-player%"
 			set loop-player's gamemode to adventure
 			if loop-player has permission "group.spectators":
 				make console execute command "hide %loop-player%"
@@ -2134,3 +2136,324 @@ command /uuid <offline player>:
 	permission: *
 	trigger:
 		send "Here is %arg-1%'s uuid : %arg-1's uuid%<reset>"
+
+command /rlsb:
+	permission: *
+	trigger:
+		reloadScoreboard()
+
+command /refill <text> <text> <integer>:
+	permission: *
+	trigger:
+		if arg-1 = "red":
+			if arg-2 = "concrete":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 74 133 5069 69 131 5066 red_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 131 5070 70 133 5065 red_concrete"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 74 138 5069 69 136 5066 red_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 136 5070 70 138 5065 red_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 33 133 4930 38 131 4933 red_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 133 4929 37 131 4934 red_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 33 138 4930 38 136 4933 red_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 138 4929 37 136 4934 red_terracotta"
+		if arg-1 = "orange":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 61 131 5070 58 133 5065 orange_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 62 131 5069 57 133 5066 orange_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 61 136 5070 58 138 5065 orange_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 62 136 5069 57 138 5066 orange_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 45 133 4930 50 131 4933 orange_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 133 4929 49 131 4934 orange_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 45 138 4930 50 136 4933 orange_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 138 4929 49 136 4934 orange_terracotta"
+		if arg-1 = "yellow":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 45 133 5066 50 131 5069 yellow_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 133 5070 46 131 5065 yellow_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 45 138 5066 50 136 5069 yellow_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 138 5070 46 136 5065 yellow_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 57 133 4930 62 131 4933 yellow_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 133 4929 61 131 4934 yellow_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 57 138 4930 62 136 4933 yellow_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 138 4929 61 136 4934 yellow_terracotta"
+		if arg-1 = "lime":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 38 133 5069 33 131 5066 lime_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 133 5065 34 131 5070 lime_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 38 138 5069 33 136 5066 lime_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 138 5065 34 136 5070 lime_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 69 133 4930 74 131 4933 lime_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 133 4929 73 131 4934 lime_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 69 138 4930 74 136 4933 lime_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 138 4929 73 136 4934 lime_terracotta"
+		if arg-1 = "green":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 74 133 5083 69 131 5080 green_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 70 133 5079 73 131 5084 green_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 74 138 5083 69 136 5080 green_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 70 138 5079 73 136 5084 green_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 33 133 4916 38 131 4919 green_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 133 4915 37 131 4920 green_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 33 138 4916 38 136 4919 green_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 138 4915 37 136 4920 green_terracotta"
+		if arg-1 = "cyan":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 62 133 5083 57 131 5080 cyan_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 133 5084 58 131 5079 cyan_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 62 138 5083 57 136 5080 cyan_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 138 5084 58 136 5079 cyan_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 45 133 4916 50 131 4919 cyan_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 133 4915 49 131 4920 cyan_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 45 138 4916 50 136 4919 cyan_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 138 4915 49 136 4920 cyan_terracotta"
+		if arg-1 = "lightblue":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 50 133 5083 45 131 5080 light_blue_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 133 5084 46 131 5079 light_blue_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 50 138 5083 45 136 5080 light_blue_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 138 5084 46 136 5079 light_blue_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 57 133 4916 62 131 4919 light_blue_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 133 4915 61 131 4920 light_blue_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 57 138 4916 62 136 4919 light_blue_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 138 4915 61 136 4920 light_blue_terracotta"
+		if arg-1 = "blue":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 38 133 5083 33 131 5080 blue_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 133 5084 34 131 5079 blue_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 38 138 5083 33 136 5080 blue_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 138 5084 34 136 5079 blue_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 69 133 4916 74 131 4919 blue_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 133 4915 73 131 4920 blue_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 69 138 4916 74 136 4919 blue_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 138 4915 73 136 4920 blue_terracotta"
+		if arg-1 = "purple":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 74 133 5097 69 131 5094 purple_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 133 5098 70 131 5093 purple_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 74 138 5097 69 136 5094 purple_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 138 5098 70 136 5093 purple_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 33 131 4902 38 133 4905 purple_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 133 4901 37 131 4906 purple_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 33 136 4902 38 138 4905 purple_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 138 4901 37 136 4906 purple_terracotta"
+		if arg-1 = "magenta":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 62 133 5097 57 131 5094 magenta_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 133 5098 58 131 5093 magenta_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 62 138 5097 57 136 5094 magenta_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 138 5098 58 136 5093 magenta_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 45 131 4902 50 133 4905 magenta_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 133 4901 49 131 4906 magenta_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 45 136 4902 50 138 4905 magenta_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 138 4901 49 136 4906 magenta_terracotta"
+		if arg-1 = "pink":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 50 133 5097 45 131 5094 pink_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 133 5098 46 131 5093 pink_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 50 138 5097 45 136 5094 pink_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 138 5098 46 136 5093 pink_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 57 131 4902 62 133 4905 pink_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 133 4901 61 131 4906 pink_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 57 136 4902 62 138 4905 pink_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 138 4901 61 136 4906 pink_terracotta"
+		if arg-1 = "brown":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 38 133 5097 33 131 5094 brown_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 133 5098 34 131 5093 brown_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 38 138 5097 33 136 5094 brown_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 138 5098 34 136 5093 brown_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 69 131 4902 74 133 4905 brown_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 133 4901 73 131 4906 brown_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 69 136 4902 74 138 4905 brown_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 138 4901 73 136 4906 brown_terracotta"
+		if arg-1 = "black":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 74 133 5111 69 131 5108 black_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 133 5112 70 131 5107 black_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 74 138 5111 69 136 5108 black_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 73 138 5112 70 136 5107 black_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 33 131 4888 38 133 4891 black_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 131 4887 37 133 4892 black_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 33 136 4888 38 138 4891 black_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 34 136 4887 37 138 4892 black_terracotta"
+		if arg-1 = "gray":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 62 133 5111 57 131 5108 gray_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 133 5112 58 131 5107 gray_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 62 138 5111 57 136 5108 gray_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 61 138 5112 58 136 5107 gray_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 45 131 4888 50 133 4891 gray_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 131 4887 49 133 4892 gray_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 45 136 4888 50 138 4891 gray_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 46 136 4887 49 138 4892 gray_terracotta"
+		if arg-1 = "lightgray":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 50 133 5111 45 131 5108 light_gray_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 133 5112 46 131 5107 light_gray_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 50 138 5111 45 136 5108 light_gray_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 49 138 5112 46 136 5107 light_gray_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 57 131 4888 62 133 4891 light_gray_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 131 4887 61 133 4892 light_gray_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 57 136 4888 62 138 4891 light_gray_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 58 136 4887 61 138 4892 light_gray_terracotta"
+		if arg-1 = "white":
+			if arg-2 = "concrete":
+				if arg-3 is 0:
+					make console execute command "execute in minecraft:build_masters run fill 38 133 5111 33 131 5108 white_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 133 5112 34 131 5107 white_concrete"
+				if arg-3 is 1:
+					make console execute command "execute in minecraft:build_masters run fill 38 138 5111 33 136 5108 white_concrete"
+					make console execute command "execute in minecraft:build_masters run fill 37 138 5112 34 136 5107 white_concrete"
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 69 131 4888 74 133 4891 white_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 131 4887 73 133 4892 white_terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 69 136 4888 74 138 4891 white_terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 70 136 4887 73 138 4892 white_terracotta"
+		if arg-1 = "clear":
+			if arg-2 = "terracotta":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 51 131 4874 56 133 4877 terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 52 131 4873 55 133 4878 terracotta"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 51 136 4874 56 138 4877 terracotta"
+					make console execute command "execute in minecraft:build_masters run fill 52 136 4873 55 138 4878 terracotta"
+		if arg-1 = "copper":
+			if arg-2 = "normal":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 120 131 4975 117 133 4980 waxed_copper_block"
+					make console execute command "execute in minecraft:build_masters run fill 116 131 4976 121 133 4979 waxed_copper_block"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 120 136 4975 117 138 4980 waxed_copper_block"
+					make console execute command "execute in minecraft:build_masters run fill 116 136 4976 121 138 4979 waxed_copper_block"
+			if arg-2 = "exposed":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 120 131 4989 117 133 4994 waxed_exposed_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 131 4990 121 133 4993 waxed_exposed_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 120 136 4989 117 138 4994 waxed_exposed_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 136 4990 121 138 4993 waxed_exposed_copper"
+			if arg-2 = "weathered":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 120 131 5005 117 133 5010 waxed_weathered_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 131 5006 121 133 5009 waxed_weathered_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 120 136 5005 117 138 5010 waxed_weathered_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 136 5006 121 138 5009 waxed_weathered_copper"
+			if arg-2 = "oxidized":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 120 131 5019 117 133 5024 waxed_oxidized_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 131 5020 121 133 5023 waxed_oxidized_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 120 136 5019 117 138 5024 waxed_oxidized_copper"
+					make console execute command "execute in minecraft:build_masters run fill 116 136 5020 121 138 5023 waxed_oxidized_copper"
+		if arg-1 = "cutcopper":
+			if arg-2 = "normal":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 134 131 4975 131 133 4980 waxed_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 131 4976 135 133 4979 waxed_cut_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 134 136 4975 131 138 4980 waxed_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 136 4976 135 138 4979 waxed_cut_copper"
+			if arg-2 = "exposed":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 134 131 4989 131 133 4994 waxed_exposed_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 131 4990 135 133 4993 waxed_exposed_cut_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 134 136 4989 131 138 4994 waxed_exposed_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 136 4990 135 138 4993 waxed_exposed_cut_copper"
+			if arg-2 = "weathered":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 134 131 5005 131 133 5010 waxed_weathered_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 131 5006 135 133 5009 waxed_weathered_cut_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 134 136 5005 131 138 5010 waxed_weathered_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 136 5006 135 138 5009 waxed_weathered_cut_copper"
+			if arg-2 = "oxidized":
+				if arg-3 = 0:
+					make console execute command "execute in minecraft:build_masters run fill 134 131 5019 131 133 5024 waxed_oxidized_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 131 5020 135 133 5023 waxed_oxidized_cut_copper"
+				if arg-3 = 1:
+					make console execute command "execute in minecraft:build_masters run fill 134 136 5019 131 138 5024 waxed_oxidized_cut_copper"
+					make console execute command "execute in minecraft:build_masters run fill 130 136 5020 135 138 5023 waxed_oxidized_cut_copper"
+
+
+command /refillall:
+	permission: *
+	trigger:
+		refillAll()

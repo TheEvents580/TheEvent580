@@ -712,3 +712,180 @@ function blockGame(game:text,p:player):
 				teleport loop-player to location(0.5, 251, 0.5, world("world"))
 				broadcast "[&c&lTheEvent580 - ALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
 		remove 1 of carrot on a stick named "Block a game" from {_p}
+
+function refillAll():
+	loop all players:
+		if the z-coordinate of loop-player > 3000:
+			send "[&c&lTheEvent580 - Mall&r] The Mall will be restocked in 5 seconds" to loop-player
+	loop 5 times:
+		wait 1 second
+		bossbarRemove1Sec("mall")
+	make console execute command "refill red concrete 0"
+	make console execute command "refill red concrete 1"
+	make console execute command "refill red terracotta 0"
+	make console execute command "refill red terracotta 1"
+	make console execute command "refill orange concrete 0"
+	make console execute command "refill orange concrete 1"
+	make console execute command "refill orange terracotta 0"
+	make console execute command "refill orange terracotta 1"
+	make console execute command "refill yellow concrete 0"
+	make console execute command "refill yellow concrete 1"
+	make console execute command "refill yellow terracotta 0"
+	make console execute command "refill yellow terracotta 1"
+	make console execute command "refill lime concrete 0"
+	make console execute command "refill lime concrete 1"
+	make console execute command "refill lime terracotta 0"
+	make console execute command "refill lime terracotta 1"
+	make console execute command "refill green concrete 0"
+	make console execute command "refill green concrete 1"
+	make console execute command "refill green terracotta 0"
+	make console execute command "refill green terracotta 1"
+	make console execute command "refill cyan concrete 0"
+	make console execute command "refill cyan concrete 1"
+	make console execute command "refill cyan terracotta 0"
+	make console execute command "refill cyan terracotta 1"
+	make console execute command "refill lightblue concrete 0"
+	make console execute command "refill lightblue concrete 1"
+	make console execute command "refill lightblue terracotta 0"
+	make console execute command "refill lightblue terracotta 1"
+	make console execute command "refill blue concrete 0"
+	make console execute command "refill blue concrete 1"
+	make console execute command "refill blue terracotta 0"
+	make console execute command "refill blue terracotta 1"
+	make console execute command "refill purple concrete 0"
+	make console execute command "refill purple concrete 1"
+	make console execute command "refill purple terracotta 0"
+	make console execute command "refill purple terracotta 1"
+	make console execute command "refill magenta concrete 0"
+	make console execute command "refill magenta concrete 1"
+	make console execute command "refill magenta terracotta 0"
+	make console execute command "refill magenta terracotta 1"
+	make console execute command "refill pink concrete 0"
+	make console execute command "refill pink concrete 1"
+	make console execute command "refill pink terracotta 0"
+	make console execute command "refill pink terracotta 1"
+	make console execute command "refill brown concrete 0"
+	make console execute command "refill brown concrete 1"
+	make console execute command "refill brown terracotta 0"
+	make console execute command "refill brown terracotta 1"
+	make console execute command "refill black concrete 0"
+	make console execute command "refill black concrete 1"
+	make console execute command "refill black terracotta 0"
+	make console execute command "refill black terracotta 1"
+	make console execute command "refill gray concrete 0"
+	make console execute command "refill gray concrete 1"
+	make console execute command "refill gray terracotta 0"
+	make console execute command "refill gray terracotta 1"
+	make console execute command "refill lightgray concrete 0"
+	make console execute command "refill lightgray concrete 1"
+	make console execute command "refill lightgray terracotta 0"
+	make console execute command "refill lightgray terracotta 1"
+	make console execute command "refill white concrete 0"
+	make console execute command "refill white concrete 1"
+	make console execute command "refill white terracotta 0"
+	make console execute command "refill white terracotta 1"
+	make console execute command "refill clear terracotta 0"
+	make console execute command "refill clear terracotta 1"
+	make console execute command "refill copper normal 0"
+	make console execute command "refill copper normal 1"
+	make console execute command "refill copper exposed 0"
+	make console execute command "refill copper exposed 1"
+	make console execute command "refill copper weathered 0"
+	make console execute command "refill copper weathered 1"
+	make console execute command "refill copper oxidized 0"
+	make console execute command "refill copper oxidized 1"
+	make console execute command "refill cutcopper normal 0"
+	make console execute command "refill cutcopper normal 1"
+	make console execute command "refill cutcopper exposed 0"
+	make console execute command "refill cutcopper exposed 1"
+	make console execute command "refill cutcopper weathered 0"
+	make console execute command "refill cutcopper weathered 1"
+	make console execute command "refill cutcopper oxidized 0"
+	make console execute command "refill cutcopper oxidized 1"
+
+	loop all players:
+		if the z-coordinate of loop-player > 3000:
+			send "[&c&lTheEvent580 - Mall&r] The Mall has been restocked" to loop-player
+		bossbarRefill("mall")
+		
+	loop 25 times:
+		wait 1 second
+		bossbarRemove1Sec("mall")
+		
+function bossbarRemove1Sec(name:text):
+	remove 1 from {bar_progress_%{_name}%}
+	make console execute command "/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%"
+	if {_name} = "mall":
+		make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
+
+function bossbarRefill(name:text):
+	if {_name} = "mall":
+		set {bar_progress_%{_name}%} to 30
+	make console execute command "/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%"
+	make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
+
+function giveThirtySecs(p:player):
+	create a gui with virtual chest inventory with 6 rows named "&rGive 30 seconds to a player":
+		wait 1 tick
+		set {_slot} to 0
+		loop all players:
+			if {finished.%loop-player's uuid%} is false:
+				set {_head} to "%loop-value%" parsed as an offline player
+				make gui slot {_slot} with skull of {_head} named "&fGive 30 seconds to %{color.%loop-player's uuid%}%%{_head}%":
+					close {_p}'s inventory
+					if {timer_second.%{_p}'s uuid%} > 30:
+						remove 30 from {timer_second.%{_p}'s uuid%}
+					else:
+						remove 1 from {timer_minute.%{_p}'s uuid%}
+						add 30 to {timer_second.%{_p}'s uuid%}
+					if {timer_second.%{_head}'s uuid%} <= 30:
+						add 30 to {timer_second.%{_head}'s uuid%}
+					else:
+						add 1 to {timer_minute.%{_head}'s uuid%}
+						remove 30 from {timer_minute%{_head}'s uuid%}
+				add 1 to {_slot}
+	open the last gui for {_p}
+
+function giveOneMinute(p:player):
+	create a gui with virtual chest inventory with 6 rows named "&rGive 1 minute to a player":
+		wait 1 tick
+		set {_slot} to 0
+		loop all players:
+			if {finished.%loop-player's uuid%} is false:
+				set {_head} to "%loop-value%" parsed as an offline player
+				make gui slot {_slot} with skull of {_head} named "&fGive 1 minute to %{color.%loop-player's uuid%}%%{_head}%":
+					close {_p}'s inventory
+					remove 1 from {timer_minute.%{_p}'s uuid%}
+					add 1 to {timer_minute.%{_head}'s uuid%}
+				add 1 to {_slot}
+	open the last gui for {_p}
+
+function giveThreeMinute(p:player):
+	create a gui with virtual chest inventory with 6 rows named "&rGive 3 minutes to a player":
+		wait 1 tick
+		set {_slot} to 0
+		loop all players:
+			if {finished.%loop-player's uuid%} is false:
+				set {_head} to "%loop-value%" parsed as an offline player
+				make gui slot {_slot} with skull of {_head} named "&fGive 3 minutes to %{color.%loop-player's uuid%}%%{_head}%":
+					close {_p}'s inventory
+					remove 3 from {timer_minute.%{_p}'s uuid%}
+					add 3 to {timer_minute.%{_head}'s uuid%}
+				add 1 to {_slot}
+	open the last gui for {_p}
+
+function removeTime(seconds:number, p:player):
+	set {_minutes} to 0
+	if {_seconds} < {timer_seconds.%{_p}'s uuid%}:
+		remove {_seconds} from {timer_seconds.%{_p}'s uuid%}
+	else:
+		set {_minutes} to floor({_seconds}/60)
+		remove {_minutes}*60 from {_seconds}
+		remove {_minutes} from {timer_minutes.%{_p}'s uuid%}
+		if {_seconds} < {timer_seconds.%{_p}'s uuid%}:
+			remove {_seconds} from {timer_seconds.%{_p}'s uuid%}
+		else:
+			remove 1 from {timer_minutes.%{_p}'s uuid%}
+			set {_seconds_2} to 60-{_seconds}+{timer_seconds.%{_p}'s uuid%}
+			set {timer_seconds.%{_p}'s uuid%} to {_seconds_2}
+	send "[&c&lTheEvent580&r] You've lost %{_minutes}% minutes and %{_seconds}% to your payment to the mall." to {_p}
