@@ -1,16 +1,27 @@
-command /startskript:
+command /start:
 	permission: *
 	permission message: &cThis command does not exist
-	description: start event (skript side)
+	description: start event
 	trigger:
-		loop all players:
-			if loop-player doesn't have permission "group.spectators":
-				add 1 to {checking_finished_players}
-			if loop-player has permission "theevent580.staff":
-				send "[&c&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
-				send "[&c&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-				set {event_state} to "Start Countdown"
-			send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+		create a gui with virtual chest inventory with 3 rows named "Are you sure to start the event ?":
+			make gui slot 12 with lime wool named "&aYes" with lore "&rI am sure to start the event !":
+				close player's inventory
+				set {timer-s} to 30
+				set {timer-m} to 1
+				set {timer} to 1
+				broadcast "[&c&lTheEvent580&r] Event starting in 1 minute and 30 seconds."
+				loop all players:
+					play sound "custom:intro" in voice category with volume 1 to the loop-player
+					if loop-player doesn't have permission "group.spectators":
+						add 1 to {checking_finished_players}
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
+						send "[&c&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
+						set {event_state} to "Start Countdown"
+					send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
+				close player's inventory
+		open the last gui for the player
 
 command /spawn [<player>]:
 	description: tp to spawn
