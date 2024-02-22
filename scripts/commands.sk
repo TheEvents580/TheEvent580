@@ -1221,7 +1221,7 @@ command /tpspec:
 		set {_user} to player
 		if {timer} = 5 or 6:
 			if {finished.%player's uuid%} is true:
-				create a gui with virtual chest inventory with 6 rows named "&r露 &8Spectator menu":
+				create a gui with virtual chest inventory with 6 rows named "&f露 &8Spectator menu":
 					wait 1 tick
 					make gui slot 0 with red stained glass pane named "&rラ &cRed"
 					make gui slot 9 with orange stained glass pane named "&rャ &6Orange"
@@ -1262,13 +1262,12 @@ command /tpspec:
 					set {_slot} to 8
 					loop 6 times:
 						make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
-							teleport {_user} to {_head}
 							close {_user}'s inventory
 						add 9 to {_slot}
 				open the last gui for the player
 		else:
 			if player has permission "group.spectators":
-				create a gui with virtual chest inventory with 6 rows named "&r露 &8Spectator menu":
+				create a gui with virtual chest inventory with 6 rows named "&f露 &8Spectator menu":
 					wait 1 tick
 					make gui slot 0 with red stained glass pane named "&rラ &cRed"
 					make gui slot 9 with orange stained glass pane named "&rャ &6Orange"
@@ -1309,7 +1308,6 @@ command /tpspec:
 					set {_slot} to 8
 					loop 6 times:
 						make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
-							teleport {_user} to {_head}
 							close {_user}'s inventory
 							make player execute command "tpspec2"
 						add 9 to {_slot}
@@ -1347,7 +1345,7 @@ command /tpspec2:
 		set {_user} to player
 		if {timer} = 5 or 6:
 			if {finished.%player's uuid%} is true:
-				create a gui with virtual chest inventory with 2 rows named "&r露 &8Spectator menu":
+				create a gui with virtual chest inventory with 2 rows named "&f露 &8Spectator menu":
 					wait 1 tick
 					make gui slot 0 with purple stained glass pane named "&rの &5Purple"
 					make gui slot 9 with pink stained glass pane named "&r目 &dPink"
@@ -1359,7 +1357,7 @@ command /tpspec2:
 							if loop-player has permission "group.violet":
 								set {_slot} to {_slot.purple}
 								add 1 to {_slot.purple}
-							if loop-player has permission "group.pink":
+							if loop-player has permission "group.rose":
 								set {_slot} to {_slot.pink}
 								add 1 to {_slot.pink}
 							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
@@ -1368,14 +1366,13 @@ command /tpspec2:
 					set {_slot} to 8
 					loop 2 times:
 						make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
-							teleport {_user} to {_head}
 							close {_user}'s inventory
 							make player execute command "tpspec"
 						add 9 to {_slot}
 			open the last gui for the player
 		else:
 			if player has permission "group.spectators":
-				create a gui with virtual chest inventory with 2 rows named "&r露 &8Spectator menu":
+				create a gui with virtual chest inventory with 2 rows named "&f露 &8Spectator menu":
 					wait 1 tick
 					make gui slot 0 with purple stained glass pane named "&rの &5Purple"
 					make gui slot 9 with pink stained glass pane named "&r目 &dPink"
@@ -1387,7 +1384,7 @@ command /tpspec2:
 							if loop-player has permission "group.violet":
 								set {_slot} to {_slot.purple}
 								add 1 to {_slot.purple}
-							if loop-player has permission "group.pink":
+							if loop-player has permission "group.rose":
 								set {_slot} to {_slot.pink}
 								add 1 to {_slot.pink}
 							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
@@ -1396,7 +1393,6 @@ command /tpspec2:
 					set {_slot} to 8
 					loop 2 times:
 						make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
-							teleport {_user} to {_head}
 							close {_user}'s inventory
 							make player execute command "tpspec"
 						add 9 to {_slot}
