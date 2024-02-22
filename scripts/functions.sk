@@ -384,10 +384,10 @@ function updateParkour():
 		make server execute command "hd reload"
 
 function resetNPCs():
-	make server execute command "npc select 22"
+	make server execute command "npc select 23"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
-	make server execute command "hd setLine S1E4W 2 TBD"
+	make server execute command "hd setLine S1E5W 2 TBD"
 	make server execute command "npc select 8"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
