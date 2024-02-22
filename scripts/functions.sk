@@ -565,6 +565,23 @@ function currentSpecs():
 	#	if loop-player is "Case_cool":
 	#		apply glowing without particles to loop-player for 2 seconds
 
+function checkPoints(points: number) :: text:
+	if {_points} > 999999:
+		set {_setpoints1} to the length of "%{_points}%" - 6
+		set {_setpoints2} to the length of "%{_points}%" - 3
+		set {_points.subtext1} to subtext of "%{_points}%" from character 1 to {_setpoints1}
+		set {_points.subtext2} to subtext of "%{_points}%" from character 2 to {_setpoints2}
+		set {_points.subtext3} to the last 3 characters of "%{_points}%"
+		set {_points.text} to "%{_points.subtext1}%,%{_points.subtext2}%,%{_points.subtext3}%"
+	else if {_points} > 999:
+		set {_setpoints} to the length of "%{_points}%" - 3
+		set {_points.subtext1} to subtext of "%{_points}%" from character 1 to {_setpoints}
+		set {_points.subtext2} to the last 3 characters of "%{_points}%"
+		set {_points.text} to "%{_points.subtext1}%,%{_points.subtext2}%"
+	else:
+		set {_points.text} to "%{_points}%"
+	return {_points.text}
+
 function giveRandomItems(p:player):
 	set {_random} to a random number between 1 and 100
 	if {_random} = 54:

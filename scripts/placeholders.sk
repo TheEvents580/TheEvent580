@@ -1,5 +1,5 @@
 on papi placeholder request for the prefix "skript":
     loop all players:
         if the identifier is "points.%loop-player's uuid%":
-            set {points_txt.%loop-player's uuid%} to "%loop-player% --> %{points.%loop-player's uuid%}% pts"
+            set {points_txt.%loop-player's uuid%} to "%loop-player% --> %checkPoints({points.%loop-player's uuid%})% pts"
             set the result to {points_txt.%loop-player's uuid%}

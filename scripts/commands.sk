@@ -474,7 +474,7 @@ command /parkour:
 		wait 2 seconds
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				set {points_game.%loop-player's uuid%} to 240 #everyone starts with 240 coins
+				set {points_game.%loop-player's uuid%} to round(240*{multiplier}) #everyone starts with 240 coins
 				set {game_multiplier.%loop-player's uuid%} to 1.0 # everyone starts with a x1.0 multiplier
 				set {parkour.next_level_coord.%loop-player's uuid%} to 155
 				set {parkour.main_level.%loop-player's uuid%} to 1
@@ -566,23 +566,23 @@ command /bingo:
 		set {bingo_case_9_1} to false
 		set {bingo_fin} to false
 		set {pts_lvl_1} to 5*{checking_finished_players}
-		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
+		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
 		set {pts_lvl_2} to 15*{checking_finished_players}
-		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
+		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
 		set {pts_lvl_3} to 25*{checking_finished_players}
-		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
+		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
 		set {pts_lvl_4} to 35*{checking_finished_players}
-		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}
+		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})
 		set {pts_lvl_5} to 45*{checking_finished_players}
-		set {pts_lvl_5} to {pts_lvl_5}*{multiplier}
+		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})
 		set {pts_lvl_6} to 55*{checking_finished_players}
-		set {pts_lvl_6} to {pts_lvl_6}*{multiplier}
+		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})
 		set {pts_lvl_7} to 70*{checking_finished_players}
-		set {pts_lvl_7} to {pts_lvl_7}*{multiplier}
+		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})
 		set {pts_lvl_8} to 85*{checking_finished_players}
-		set {pts_lvl_8} to {pts_lvl_8}*{multiplier}
+		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
 		set {pts_lvl_9} to 100*{checking_finished_players}
-		set {pts_lvl_9} to {pts_lvl_9}*{multiplier}
+		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
 		make server execute command "//world bingo"
 		make server execute command "//pos1 289,64,164"
 		make server execute command "//pos2 322,71,132"
@@ -715,27 +715,27 @@ command /ftb:
 		set {ftb_11} to false
 		set {ftb_fin} to false
 		set {pts_lvl_1} to 10*{checking_finished_players}
-		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
+		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
 		set {pts_lvl_2} to 15*{checking_finished_players}
-		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
+		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
 		set {pts_lvl_3} to 20*{checking_finished_players}
-		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
+		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
 		set {pts_lvl_4} to 25*{checking_finished_players}
-		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}
+		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})
 		set {pts_lvl_5} to 30*{checking_finished_players}
-		set {pts_lvl_5} to {pts_lvl_5}*{multiplier}
+		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})
 		set {pts_lvl_6} to 35*{checking_finished_players}
-		set {pts_lvl_6} to {pts_lvl_6}*{multiplier}
+		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})
 		set {pts_lvl_7} to 40*{checking_finished_players}
-		set {pts_lvl_7} to {pts_lvl_7}*{multiplier}
+		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})
 		set {pts_lvl_8} to 45*{checking_finished_players}
-		set {pts_lvl_8} to {pts_lvl_8}*{multiplier}
+		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
 		set {pts_lvl_9} to 50*{checking_finished_players}
-		set {pts_lvl_9} to {pts_lvl_9}*{multiplier}
+		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
 		set {pts_lvl_10} to 55*{checking_finished_players}
-		set {pts_lvl_10} to {pts_lvl_10}*{multiplier}
+		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})
 		set {pts_lvl_11} to 60*{checking_finished_players}
-		set {pts_lvl_11} to {pts_lvl_11}*{multiplier}
+		set {pts_lvl_11} to round({pts_lvl_11}*{multiplier})
 		make server execute command "//world find_the_button"
 		make server execute command "//pos1 -4,152,4"
 		make server execute command "//pos2 4,147,-4"
@@ -791,14 +791,14 @@ command /courses:
 		set {race_lap_3_finished} to false
 		set {race_lap} to 1
 		set {pts_lvl_1} to 40*{checking_finished_players}
-		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
-		set {remove_pts_lvl_1} to 40*{multiplier}
+		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
+		set {remove_pts_lvl_1} to round(40*{multiplier})
 		set {pts_lvl_2} to 60*{checking_finished_players}
-		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
-		set {remove_pts_lvl_2} to 60*{multiplier}
+		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
+		set {remove_pts_lvl_2} to round(60*{multiplier})
 		set {pts_lvl_3} to 80*{checking_finished_players}
-		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
-		set {remove_pts_lvl_3} to 80*{multiplier}
+		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
+		set {remove_pts_lvl_3} to round(80*{multiplier})
 		make server execute command "execute in minecraft:races_lap_3 run tp @a 0.5 131 3.5 180 0"
 		wait 2 seconds
 		make server execute command "gamemode adventure @a"
@@ -817,11 +817,11 @@ command /sg [<text>]:
 				set {alive.%loop-player's uuid%} to false
 
 		set {1st_blood} to true
-		set {pts_lvl_1} to 50*{multiplier}
-		set {pts_lvl_2} to 20*{multiplier}
-		set {pts_lvl_3} to 10*{multiplier}
-		set {pts_lvl_4} to 15*{multiplier}
-		set {pts_lvl_5} to 75*{multiplier}
+		set {pts_lvl_1} to round(50*{multiplier})
+		set {pts_lvl_2} to round(20*{multiplier})
+		set {pts_lvl_3} to round(10*{multiplier})
+		set {pts_lvl_4} to round(15*{multiplier})
+		set {pts_lvl_5} to round(75*{multiplier})
 		loop all players:
 			make server execute command "effect give %loop-player% invisibility 210 1 true"
 		set {game} to "SG4"
@@ -878,12 +878,12 @@ command /bowpvp:
 				set {alive.%loop-player's uuid%} to true
 		wait 2 seconds
 		make server execute command "gamemode adventure @a"
-		set {pts_lvl_1} to 40*{multiplier}#kill bow & more than 1 heart
-		set {pts_lvl_2} to 30*{multiplier}#kill sword & more than 1 heart
-		set {pts_lvl_3} to 60*{multiplier}#kill bow & elemination
-		set {pts_lvl_4} to 45*{multiplier}#kill sword & elemination
-		set {pts_lvl_5} to 5*{multiplier}#pitty points more than 1 heart
-		set {pts_lvl_6} to 10*{multiplier}#pitty points elemination
+		set {pts_lvl_1} to round(40*{multiplier}) #kill bow & more than 1 heart
+		set {pts_lvl_2} to round(30*{multiplier}) #kill sword & more than 1 heart
+		set {pts_lvl_3} to round(60*{multiplier}) #kill bow & elemination
+		set {pts_lvl_4} to round(45*{multiplier}) #kill sword & elemination
+		set {pts_lvl_5} to round(5*{multiplier}) #pitty points more than 1 heart
+		set {pts_lvl_6} to round(10*{multiplier}) #pitty points elemination
 
 command /bm:
 	description: starts Build Masters
@@ -916,25 +916,25 @@ command /bm:
 				add 1 to {_pos.player}
 		set {builds_total} to 0
 		set {pts_lvl_1} to 5*{checking_finished_players}#build 1
-		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}#build 1
+		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})#build 1
 		set {pts_lvl_2} to 15*{checking_finished_players}#build 2
-		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}#build 2
+		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})#build 2
 		set {pts_lvl_3} to 25*{checking_finished_players}#build 3
-		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}#build 3
+		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})#build 3
 		set {pts_lvl_4} to 30*{checking_finished_players}#build 4
-		set {pts_lvl_4} to {pts_lvl_4}*{multiplier}#build 4
+		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})#build 4
 		set {pts_lvl_5} to 40*{checking_finished_players}#build 5
-		set {pts_lvl_5} to {pts_lvl_5}*{multiplier}#build 5
+		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})#build 5
 		set {pts_lvl_6} to 55*{checking_finished_players}#build 6
-		set {pts_lvl_6} to {pts_lvl_6}*{multiplier}#build 6
+		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})#build 6
 		set {pts_lvl_7} to 70*{checking_finished_players}#build 7
-		set {pts_lvl_7} to {pts_lvl_7}*{multiplier}#build 7
+		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})#build 7
 		set {pts_lvl_8} to 80*{checking_finished_players}#build 8
-		set {pts_lvl_8} to {pts_lvl_8}*{multiplier}#build 8
+		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})#build 8
 		set {pts_lvl_9} to 95*{checking_finished_players}#build 9
-		set {pts_lvl_9} to {pts_lvl_9}*{multiplier}#build 9
+		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})#build 9
 		set {pts_lvl_10} to 110*{checking_finished_players}#build 10
-		set {pts_lvl_10} to {pts_lvl_10}*{multiplier}#build 10
+		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})#build 10
 		make server execute command "execute in minecraft:build_masters run setblock 1 129 10030 white_concrete"
 		make server execute command "execute in minecraft:build_masters run setblock 1 131 10030 white_concrete"
 		make server execute command "execute in minecraft:build_masters run setblock 1 133 10030 white_concrete"
