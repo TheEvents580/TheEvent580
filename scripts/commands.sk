@@ -540,7 +540,10 @@ command /bingo:
 				set {finished.%loop-player's uuid%} to false
 				wait 5 ticks
 				set loop-player's gamemode to adventure
-				set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
+				set {_item} to carrot on a stick
+				set {_item.nbt} to nbt compound of {_item}
+				add nbt compound of "{display:{Name:'{""text"":""Teleport to Home"",""italic"":""false"",""color"":""yellow""}'},CustomModelData:21}" to {_item.nbt}
+				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 		set {bingo_all_cases} to 0
 		set {bingo_case_1_completed} to 0
@@ -590,7 +593,10 @@ command /bingo:
 				clear loop-player's inventory
 				set slot 0 of loop-player to compass named "&rTeleport to player"
 				set slot 1 of loop-player to feather named "&rChange player's fly speed"
-				set slot 7 of loop-player to carrot on a stick named "&r&eTeleport to home"
+				set {_item} to carrot on a stick
+				set {_item.nbt} to nbt compound of {_item}
+				add nbt compound of "{display:{Name:'{""""text"""":""""Teleport to Home"""",""""italic"""":""""false"""",""""color"""":""""yellow""""}'},CustomModelData:21}" to {_item.nbt}
+				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 				set {finished.%loop-player's uuid%} to true
 
@@ -772,7 +778,10 @@ command /courses:
 				set {finished.%loop-player's uuid%} to true
 			else:
 				set {finished.%loop-player's uuid%} to false
-				set slot 40 of loop-player to carrot on a stick named "&rYou're on Lap 1"
+				set {_item} to carrot on a stick
+				set {_item.nbt} to nbt compound of {_item}
+				add nbt compound of "{display:{Name:'{""text"":""You are on Lap 1"",""italic"":""false"",""color"":""green""}'},CustomModelData:27}" to {_item.nbt}
+				set slot 40 of loop-player to {_item}
 				set {race_total_time.%loop-player's uuid%} to 0
 				set {race_lap_time.%loop-player's uuid%} to 0
 			set {race_boat.%loop-player's uuid%} to false

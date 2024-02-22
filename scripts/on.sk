@@ -986,39 +986,66 @@ on right click :
 						make server execute command "achivement %player% give Herobrine"
 		if {jeu_condi} is 0: #Spawn
 			if event-block is oak_button:
-				set helmet of player to carrot on a stick named "&rAsexual Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Asexual Flag"",""italic"":""false""}'},CustomModelData:1}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rAsexual Flag"
 				send "[&c&lTheEvent580&r] You now have the Asexual flag on your head" to player
 			if event-block is spruce_button:
-				set helmet of player to carrot on a stick named "&rPride Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Pride Flag"",""italic"":""false""}'},CustomModelData:6}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rPride Flag"
 				send "[&c&lTheEvent580&r] You now have the Pride flag on your head" to player
 			if event-block is birch_button:
-				set helmet of player to carrot on a stick named "&rTransgender Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Transgender Flag"",""italic"":""false""}'},CustomModelData:8}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rTransgender Flag"
 				send "[&c&lTheEvent580&r] You now have the Transgender flag on your head" to player
 			if event-block is jungle_button:
-				set helmet of player to carrot on a stick named "&rPansexual Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Pansexual Flag"",""italic"":""false""}'},CustomModelData:5}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rPansexual Flag"
 				send "[&c&lTheEvent580&r] You now have the Pansexual flag on your head" to player
 			if event-block is acacia_button:
-				set helmet of player to carrot on a stick named "&rLesbian Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Lesbian Flag"",""italic"":""false""}'},CustomModelData:3}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rLesbian Flag"
 				send "[&c&lTheEvent580&r] You now have the Lesbian flag on your head" to player
 			if event-block is dark_oak_button:
-				set helmet of player to carrot on a stick named "&rTrans-Inclusive Gay Men Flag"
-				set {flag.%player's uuid%} to "&rTrans-Inclusive Gay Men Flag"
-				send "[&c&lTheEvent580&r] You now have the Trans-Inclusive Gay Men flag on your head" to player
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Trans-Inclusive Gay Flag"",""italic"":""false""}'},CustomModelData:7}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
+				set {flag.%player's uuid%} to "&rTrans-Inclusive Gay Flag"
+				send "[&c&lTheEvent580&r] You now have the Trans-Inclusive Gay flag on your head" to player
 			if event-block is mangrove_button:
-				set helmet of player to carrot on a stick named "&rNon Binary Flag"
-				set {flag.%player's uuid%} to "&rNon Binary Flag"
-				send "[&c&lTheEvent580&r] You now have the Non Binary flag on your head" to player
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Non-Binary Flag"",""italic"":""false""}'},CustomModelData:4}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
+				set {flag.%player's uuid%} to "&rNon-Binary Flag"
+				send "[&c&lTheEvent580&r] You now have the Non-Binary flag on your head" to player
 			if event-block is stone_button:
-				set helmet of player to carrot on a stick named "&rBisexual Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Bisexual Flag"",""italic"":""false""}'},CustomModelData:2}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rBisexual Flag"
 				send "[&c&lTheEvent580&r] You now have the Bisexual flag on your head" to player
 			if event-block is polished_blackstone_button:
-				set helmet of player to carrot on a stick named "&rUnlabled Flag"
+				set {flag.%player's uuid%} to a carrot on a stick
+				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
+				add nbt compound of "{display:{Name:'{""text"":""Unlabled Flag"",""italic"":""false""}'},CustomModelData:9}" to {flag.nbt.%player's uuid%}
+				set helmet of player to {flag.%player's uuid%}
 				set {flag.%player's uuid%} to "&rUnlabled Flag"
 				send "[&c&lTheEvent580&r] You now have the Unlabled flag on your head" to player
 			#if event-block is red concrete:
