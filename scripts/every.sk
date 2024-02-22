@@ -68,39 +68,39 @@ every tick:
 										if {parkour.skip_used.%loop-player's uuid%} = false:
 											add 0.1 to {game_multiplier.%loop-player's uuid%}
 										if {parkour.sub_level.%loop-player's uuid%} - 1 > 0:
-											send "[&c&lTheEvent580 - Parkour&r] &aEasy&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
+											send "[&c&lTheEvent580 - Parkour&r] &aEasy&r sub-level completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
 												loop all players:
 													if loop-player-1 = loop-player-2:
-														send "[&c&lTheEvent580 - Parkour&r] &aEasy&r levels completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
+														send "[&c&lTheEvent580 - Parkour&r] &aEasy&r levels completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
 													else:
 														send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &aEasy&r levels 1-1 to 1-6." to loop-player-2
 									if {parkour.main_level.%loop-player's uuid%} = 2:
 										if {parkour.skip_used.%loop-player's uuid%} = false:
 											add 0.2 to {game_multiplier.%loop-player's uuid%}
 										if {parkour.sub_level.%loop-player's uuid%} - 1 > 0:
-											send "[&c&lTheEvent580 - Parkour&r] &6Medium&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
+											send "[&c&lTheEvent580 - Parkour&r] &6Medium&r sub-level completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
 												loop all players:
 													if loop-player-1 = loop-player-2:
-														send "[&c&lTheEvent580 - Parkour&r] &6Medium&r levels completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
+														send "[&c&lTheEvent580 - Parkour&r] &6Medium&r levels completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
 													else:
 														send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &6Medium&r levels 2-1 to 2-6." to loop-player-2
 									if {parkour.main_level.%loop-player's uuid%} = 3:
 										if {parkour.skip_used.%loop-player's uuid%} = false:
 											add 0.4 to {game_multiplier.%loop-player's uuid%}
 										if {parkour.sub_level.%loop-player's uuid%} - 1 > 0:
-											send "[&c&lTheEvent580 - Parkour&r] &cHard&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
+											send "[&c&lTheEvent580 - Parkour&r] &cHard&r sub-level completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
 											if {parkour.sub_level.%loop-player's uuid%} = 7:
 												set {parkour.sub_level.%loop-player's uuid%} to 1
 												add 1 to {parkour.main_level.%loop-player's uuid%}
 												loop all players:
 													if loop-player-1 = loop-player-2:
-														send "[&c&lTheEvent580 - Parkour&r] &cHard&r levels completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
+														send "[&c&lTheEvent580 - Parkour&r] &cHard&r levels completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player-1
 													else:
 														send "[&c&lTheEvent580 - Parkour&r] %loop-player-1% finished &cHard&r levels 3-1 to 3-6." to loop-player-2
 									if {parkour.main_level.%loop-player's uuid%} = 4:
@@ -122,7 +122,7 @@ every tick:
 											if {parkour.sub_level.%loop-player's uuid%} - 1 > 0:
 												if {parkour.skip_used.%loop-player's uuid%} = false:
 													add 0.75 to {game_multiplier.%loop-player's uuid%}
-												send "[&c&lTheEvent580 - Parkour&r] &4Extreme&r sub-level completed ! New multiplier : ║%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
+												send "[&c&lTheEvent580 - Parkour&r] &4Extreme&r sub-level completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
 					#if block 2 meters below loop-player is iron_block:
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 0:
 					#		add {pts_lvl_1} to {points_game.%loop-player's uuid%}
@@ -2862,7 +2862,7 @@ every second:
 					set {show} to {points_game.%loop-player's uuid%}
 					loop all players:
 						if loop-player-2 has permission "group.spectators":
-							send "[&c&lTheEvent580&r] %loop-player-1% had %{show}% ╣ this game !" to loop-player-2
+							send "[&c&lTheEvent580&r] %loop-player-1% had %{show}% 工 this game !" to loop-player-2
 							send "[&c&lTheEvent580&r] %loop-player-1% had %{show}% coins this game !" to console
 
 		if {timer-s} is 25:
@@ -2971,7 +2971,7 @@ every second:
 	if {timer} is 9:
 		if {timer-s} is 5:
 			if {jeu} is 3:
-				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1║ to 1.5║" to all players for 3 seconds
+				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1必 to 1.5必" to all players for 3 seconds
 				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
 				wait 1 ticks
 				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
@@ -2980,7 +2980,7 @@ every second:
 				wait 1 ticks
 				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 2 to all players
 			if {jeu} is 5:
-				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1.5║ to 2║" to all players for 3 seconds
+				send title "&c&lNew multiplier !" with subtitle "Multiplier went from 1.5必 to 2必" to all players for 3 seconds
 				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
 				wait 1 ticks
 				play sound "block.note_block.iron_xylophone" in voice category with volume 2 and pitch 1 to all players
@@ -3048,43 +3048,43 @@ every second:
 					if {list_points::1} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 8"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 1 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 1 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::2} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 9"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 2 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 2 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::3} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 10"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 3 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 3 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::4} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 11"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 4 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 4 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::5} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 12"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 5 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 5 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::6} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 13"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 6 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 6 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::7} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 14"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 7 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 7 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::8} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 15"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 8 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 8 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::9} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 16"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 9 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 9 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 					if {list_points::10} is {points.%loop-player's uuid%}:
 						make server execute command "npc select 17"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename Top 10 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% ╣"
+						make server execute command "npc rename Top 10 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
 			if {timer-m} is 1:
 				set {timer-s} to 60
 				set {timer-m} to 0

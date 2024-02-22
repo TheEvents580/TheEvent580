@@ -607,55 +607,55 @@ command /card:
 			if {jeu_condi} is 3:
 				create a gui with virtual chest inventory with 3 rows named "&eYour card":
 					if {bingo_case_1.%player's uuid%} is false:
-						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &cNot validated" with lore "&e+%{pts_lvl_1}% ╣"
+						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &cNot validated" with lore "&e+%{pts_lvl_1}% 工"
 					if {bingo_case_1.%player's uuid%} is true:
-						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &aValidated" with lore "&e+%{pts_lvl_1}% ╣"
+						make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &aValidated" with lore "&e+%{pts_lvl_1}% 工"
 					if {bingo_case_2.%player's uuid%} is false:
-						make gui slot 4 with mushroom stem named "&rMushroom Stem / &cNot validated" with lore "&e+%{pts_lvl_2}% ╣"
+						make gui slot 4 with mushroom stem named "&rMushroom Stem / &cNot validated" with lore "&e+%{pts_lvl_2}% 工"
 					if {bingo_case_2.%player's uuid%} is true:
-						make gui slot 4 with mushroom stem named "&rMushroom Stem / &aValidated" with lore "&e+%{pts_lvl_2}% ╣"
+						make gui slot 4 with mushroom stem named "&rMushroom Stem / &aValidated" with lore "&e+%{pts_lvl_2}% 工"
 					if {bingo_case_3.%player's uuid%} is false:
-						make gui slot 5 with lime bed named "&rLime Bed / &cNot validated" with lore "&e+%{pts_lvl_3}% ╣"
+						make gui slot 5 with lime bed named "&rLime Bed / &cNot validated" with lore "&e+%{pts_lvl_3}% 工"
 					if {bingo_case_3.%player's uuid%} is true:
-						make gui slot 5 with lime bed named "&rLime Bed / &aValidated" with lore "&e+%{pts_lvl_3}% ╣"
+						make gui slot 5 with lime bed named "&rLime Bed / &aValidated" with lore "&e+%{pts_lvl_3}% 工"
 					if {bingo_case_4.%player's uuid%} is false:
-						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &cNot validated" with lore "&e+%{pts_lvl_4}% ╣"
+						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &cNot validated" with lore "&e+%{pts_lvl_4}% 工"
 					if {bingo_case_4.%player's uuid%} is true:
-						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &aValidated" with lore "&e+%{pts_lvl_4}% ╣"
+						make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &aValidated" with lore "&e+%{pts_lvl_4}% 工"
 					if {bingo_case_5.%player's uuid%} is false:
-						make gui slot 13 with sculk sensor named "&rSculk Sensor / &cNot validated" with lore "&e+%{pts_lvl_5}% ╣"
+						make gui slot 13 with sculk sensor named "&rSculk Sensor / &cNot validated" with lore "&e+%{pts_lvl_5}% 工"
 					if {bingo_case_5.%player's uuid%} is true:
-						make gui slot 13 with sculk sensor named "&r Sculk Sensor / &aValidated" with lore "&e+%{pts_lvl_5}% ╣"
+						make gui slot 13 with sculk sensor named "&r Sculk Sensor / &aValidated" with lore "&e+%{pts_lvl_5}% 工"
 					if {bingo_case_6.%player's uuid%} is false:
-						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &cNot validated" with lore "&e+%{pts_lvl_6}% ╣"
+						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &cNot validated" with lore "&e+%{pts_lvl_6}% 工"
 					if {bingo_case_6.%player's uuid%} is true:
-						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &aValidated" with lore "&e+%{pts_lvl_6}% ╣"
+						make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &aValidated" with lore "&e+%{pts_lvl_6}% 工"
 					if {bingo_case_7.%player's uuid%} is false:
-						make gui slot 21 with blue candle named "&rBlue Candle / &cNot validated" with lore "&e+%{pts_lvl_7}% ╣"
+						make gui slot 21 with blue candle named "&rBlue Candle / &cNot validated" with lore "&e+%{pts_lvl_7}% 工"
 					if {bingo_case_7.%player's uuid%} is true:
-						make gui slot 21 with blue candle named "&rBlue Candle / &aValidated" with lore "&e+%{pts_lvl_7}% ╣"
+						make gui slot 21 with blue candle named "&rBlue Candle / &aValidated" with lore "&e+%{pts_lvl_7}% 工"
 					if {bingo_case_8.%player's uuid%} is false:
-						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &cNot validated" with lore "&e+%{pts_lvl_8}% ╣"
+						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &cNot validated" with lore "&e+%{pts_lvl_8}% 工"
 					if {bingo_case_8.%player's uuid%} is true:
-						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &aValidated" with lore "&e+%{pts_lvl_8}% ╣"
+						make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &aValidated" with lore "&e+%{pts_lvl_8}% 工"
 					if {bingo_case_9.%player's uuid%} is false:
-						make gui slot 23 with zombie head named "&fZombie Head / &cNot validated" with lore "&e+%{pts_lvl_9}% ╣"
+						make gui slot 23 with zombie head named "&fZombie Head / &cNot validated" with lore "&e+%{pts_lvl_9}% 工"
 					if {bingo_case_9.%player's uuid%} is true:
-						make gui slot 23 with zombie head named "&fZombie Head / &aValidated" with lore "&e+%{pts_lvl_9}% ╣"
+						make gui slot 23 with zombie head named "&fZombie Head / &aValidated" with lore "&e+%{pts_lvl_9}% 工"
 				open the last gui for the player
 			else:
 				send "[&c&lTheEvent580 - Bingo&r] Sorry, but you are not in &eBingo&r yet, so you are not allowed to see the &eBingo&r card"
 		else:
 			create a gui with virtual chest inventory with 3 rows named "&eSpec card":
-				make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &a%{bingo_case_1_completed}% completed" with lore "&e+%{pts_lvl_1}% ╣"
-				make gui slot 4 with mushroom stem named "&rMushroom Stem / &a%{bingo_case_2_completed}% completed" with lore "&e+%{pts_lvl_2}% ╣"
-				make gui slot 5 with lime bed named "&rLime Bed / &a%{bingo_case_3_completed}% completed" with lore "&e+%{pts_lvl_3}% ╣"
-				make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &a%{bingo_case_4_completed}% completed" with lore "&e+%{pts_lvl_4}% ╣"
-				make gui slot 13 with sculk sensor named "&rSculk Sensor / &a%{bingo_case_5_completed}% completed" with lore "&e+%{pts_lvl_5}% ╣"
-				make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &a%{bingo_case_6_completed}% completed" with lore "&e+%{pts_lvl_6}% ╣"
-				make gui slot 21 with blue candle named "&rBlue Candle / &a%{bingo_case_7_completed}% completed" with lore "&e+%{pts_lvl_7}% ╣"
-				make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &a%{bingo_case_8_completed}% completed" with lore "&e+%{pts_lvl_8}% ╣"
-				make gui slot 23 with zombie head named "&fZombie Head / &a%{bingo_case_9_completed}% completed" with lore "&e+%{pts_lvl_9}% ╣"
+				make gui slot 3 with dark oak leaves named "&rDark Oak Leaves / &a%{bingo_case_1_completed}% completed" with lore "&e+%{pts_lvl_1}% 工"
+				make gui slot 4 with mushroom stem named "&rMushroom Stem / &a%{bingo_case_2_completed}% completed" with lore "&e+%{pts_lvl_2}% 工"
+				make gui slot 5 with lime bed named "&rLime Bed / &a%{bingo_case_3_completed}% completed" with lore "&e+%{pts_lvl_3}% 工"
+				make gui slot 12 with raw copper block named "&rBlock of Raw Copper / &a%{bingo_case_4_completed}% completed" with lore "&e+%{pts_lvl_4}% 工"
+				make gui slot 13 with sculk sensor named "&rSculk Sensor / &a%{bingo_case_5_completed}% completed" with lore "&e+%{pts_lvl_5}% 工"
+				make gui slot 14 with waxed cut copper stairs named "&rWaxed Cut Copper Stairs / &a%{bingo_case_6_completed}% completed" with lore "&e+%{pts_lvl_6}% 工"
+				make gui slot 21 with blue candle named "&rBlue Candle / &a%{bingo_case_7_completed}% completed" with lore "&e+%{pts_lvl_7}% 工"
+				make gui slot 22 with deepslate emerald ore named "&rDeepslate Emerald Ore / &a%{bingo_case_8_completed}% completed" with lore "&e+%{pts_lvl_8}% 工"
+				make gui slot 23 with zombie head named "&fZombie Head / &a%{bingo_case_9_completed}% completed" with lore "&e+%{pts_lvl_9}% 工"
 			open the last gui for the player
 
 command /ftb:
@@ -751,17 +751,17 @@ command /totalbuttons:
 	permission: "group.spectators"
 	trigger:
 		create a gui with virtual chest inventory with 4 rows named "&aAll buttons":
-			make gui slot 3 with oak button named "&rOak Button / &a%{ftb_oak_completed}% Pressed" with lore "&e+%{pts_lvl_1}% ╣"
-			make gui slot 4 with spruce button named "&rSpruce Button / &a%{ftb_spruce_completed}% Pressed" with lore "&e+%{pts_lvl_2}% ╣"
-			make gui slot 5 with acacia button named "&rAccacia Button / &a%{ftb_acacia_completed}% Pressed" with lore "&e+%{pts_lvl_3}% ╣"
-			make gui slot 12 with mangrove button named "&rMangrove Button / &a%{ftb_mangrove_completed}% Pressed" with lore "&e+%{pts_lvl_4}% ╣"
-			make gui slot 13 with crimson button named "&rCrimson Button / &a%{ftb_crimson_completed}% Pressed" with lore "&e+%{pts_lvl_5}% ╣"
-			make gui slot 14 with polished blackstone button named "&rPolished Blackstone Button / &a%{ftb_polished_blackstone_completed}% Pressed" with lore "&e+%{pts_lvl_6}% ╣"
-			make gui slot 21 with dark oak button named "&rDark Oak Button / &a%{ftb_dark_oak_completed}% Pressed" with lore "&e+%{pts_lvl_7}% ╣"
-			make gui slot 22 with stone button named "&rStone Button / &a%{ftb_stone_completed}% Pressed" with lore "&e+%{pts_lvl_8}% ╣"
-			make gui slot 23 with warped button named "&rWarped Button / &a%{ftb_warped_completed}% Pressed" with lore "&e+%{pts_lvl_9}% ╣"
-			make gui slot 30 with jungle button named "&rJungle Button / &a%{ftb_jungle_completed}% Pressed" with lore "&e+%{pts_lvl_10}% ╣"
-			make gui slot 31 with birch button named "&rBirch Button / &a%{ftb_birch_completed}% Pressed" with lore "&e+%{pts_lvl_11}% ╣"
+			make gui slot 3 with oak button named "&rOak Button / &a%{ftb_oak_completed}% Pressed" with lore "&e+%{pts_lvl_1}% 工"
+			make gui slot 4 with spruce button named "&rSpruce Button / &a%{ftb_spruce_completed}% Pressed" with lore "&e+%{pts_lvl_2}% 工"
+			make gui slot 5 with acacia button named "&rAccacia Button / &a%{ftb_acacia_completed}% Pressed" with lore "&e+%{pts_lvl_3}% 工"
+			make gui slot 12 with mangrove button named "&rMangrove Button / &a%{ftb_mangrove_completed}% Pressed" with lore "&e+%{pts_lvl_4}% 工"
+			make gui slot 13 with crimson button named "&rCrimson Button / &a%{ftb_crimson_completed}% Pressed" with lore "&e+%{pts_lvl_5}% 工"
+			make gui slot 14 with polished blackstone button named "&rPolished Blackstone Button / &a%{ftb_polished_blackstone_completed}% Pressed" with lore "&e+%{pts_lvl_6}% 工"
+			make gui slot 21 with dark oak button named "&rDark Oak Button / &a%{ftb_dark_oak_completed}% Pressed" with lore "&e+%{pts_lvl_7}% 工"
+			make gui slot 22 with stone button named "&rStone Button / &a%{ftb_stone_completed}% Pressed" with lore "&e+%{pts_lvl_8}% 工"
+			make gui slot 23 with warped button named "&rWarped Button / &a%{ftb_warped_completed}% Pressed" with lore "&e+%{pts_lvl_9}% 工"
+			make gui slot 30 with jungle button named "&rJungle Button / &a%{ftb_jungle_completed}% Pressed" with lore "&e+%{pts_lvl_10}% 工"
+			make gui slot 31 with birch button named "&rBirch Button / &a%{ftb_birch_completed}% Pressed" with lore "&e+%{pts_lvl_11}% 工"
 		open the last gui for the player
 
 command /courses:
@@ -1576,7 +1576,7 @@ command /seeplacement:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
 					if {list_points::%{seepts}%} = {points.%loop-player's uuid%}:
-						send "[&c&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% ╣"
+						send "[&c&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
 			add 1 to {seepts}
 
 command /announcements <text>:
@@ -1746,7 +1746,7 @@ command /speed:
 				set player's flying speed to player's flying speed * 2
 			set {_flyspeed} to the flying speed of player
 			set  {_flyspeed} to {_flyspeed} * 10
-			send "[&c&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%║"
+			send "[&c&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%必"
 		else:
 			set {_isplayer} to false
 			loop {finished::*}:
@@ -1760,7 +1760,7 @@ command /speed:
 						set player's flying speed to player's flying speed * 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[&c&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%║"
+					send "[&c&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%必"
 			if {_isplayer} is false:
 				send "[&c&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
 
@@ -1921,7 +1921,7 @@ command /settotalpoints <int> <player>:
 	permission message: &cThis command does not exist
 	trigger:
 		set {total_points.%arg-2's uuid%} to arg-1
-		send "[&c&lTheEvent580 - Admin&r] The new total points of %arg-2% is now %arg-1% ╣"
+		send "[&c&lTheEvent580 - Admin&r] The new total points of %arg-2% is now %arg-1% 工"
 
 command /seeblock:
 	aliases: colorblind
