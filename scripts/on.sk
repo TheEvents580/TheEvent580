@@ -127,6 +127,8 @@ on server list ping:
 
 on join:
 	wait 3 ticks
+	add 1 to {total_points.%player's uuid%}
+	remove 1 from {total_points.%player's uuid%}
 	apply saturation of tier 255 without any particles to the player for 999 days
 	if player has permission "group.spectators":
 		set {color.%player's uuid%} to "露&8 "
@@ -196,8 +198,6 @@ on join:
 	if {timer} is 0:
 		set {points.%player's uuid%} to 0
 		set {total_points_event.%player's uuid%} to 0
-	if player doesn't have permission "group.spectators":
-		add 1 to {online_players}
 	apply saturation without particles to player for 100 days
 	wait 2 ticks
 	if player doesn't have permission "group.spectators":
