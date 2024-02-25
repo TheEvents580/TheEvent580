@@ -2460,3 +2460,8 @@ command /refillall:
 	permission: *
 	trigger:
 		refillAll()
+
+command /hasfinished <player>:
+	permission: *
+	trigger:
+		send "%{finished.%arg-1's uuid%}%" to sender
