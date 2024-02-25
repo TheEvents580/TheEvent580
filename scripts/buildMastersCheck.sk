@@ -4536,7 +4536,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4546,7 +4545,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4572,7 +4570,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4582,7 +4579,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4608,7 +4604,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4618,7 +4613,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4644,7 +4638,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4654,7 +4647,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4680,7 +4672,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4690,7 +4681,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4716,7 +4706,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4726,7 +4715,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4752,7 +4740,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4762,7 +4749,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4788,7 +4774,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4798,7 +4783,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4824,7 +4808,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4834,7 +4817,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4860,7 +4842,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4870,7 +4851,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4896,7 +4876,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4906,7 +4885,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4932,7 +4910,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4942,7 +4919,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -4968,7 +4944,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -4978,7 +4953,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5004,7 +4978,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5014,7 +4987,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5040,7 +5012,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5050,7 +5021,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5076,7 +5046,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5086,7 +5055,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5112,7 +5080,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5122,7 +5089,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5148,7 +5114,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5158,7 +5123,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5184,7 +5148,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5194,7 +5157,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5220,7 +5182,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5230,7 +5191,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5256,7 +5216,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5266,7 +5225,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5292,7 +5250,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5302,7 +5259,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5328,7 +5284,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5338,7 +5293,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5364,7 +5318,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5374,7 +5327,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks
@@ -5400,7 +5352,6 @@ function checkBuild10(p:int):
 					add {pts_lvl_10} to {total_points.%loop-player's uuid%}
 					add {pts_lvl_10} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
-					add 1 to {finished_players}
 					remove round(110*{multiplier}) from {pts_lvl_10}
 					clear loop-player's inventory
 					if {timer-m} is 0:
@@ -5410,7 +5361,6 @@ function checkBuild10(p:int):
 					set slot 0 of loop-player to compass named "&rTeleport to player"
 					set slot 1 of loop-player to feather named "&rChange player's fly speed"
 					set {finished.%loop-player's uuid%} to true
-					add 1 to {finished_players}
 					make console execute command "/hide %loop-player%"
 					make console execute command "/see %loop-player%"
 					wait 5 ticks

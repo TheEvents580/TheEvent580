@@ -1113,7 +1113,6 @@ every tick:
 						set slot 0 of loop-player to compass named "&rTeleport to player"
 						set slot 1 of loop-player to feather named "&rChange player's fly speed"
 						set {finished.%loop-player's uuid%} to true
-						add 1 to {finished_players}
 						make console execute command "/hide %loop-player%"
 						make console execute command "/see %loop-player%"
 						wait 5 ticks
@@ -2600,7 +2599,11 @@ every second:
 								add 60 to {timer_second.%loop-player's uuid%}
 							remove 1 from {timer_second.%loop-player's uuid%}
 				remove 1 from {timer-s}
-			else if {finished_players} is {online_players}:
+			set {_online_players_finished} to 0
+			loop all players:
+				if {finished.%loop-player's uuid%} is true:
+					add 1 to {_online_players_finished}
+			else if {_online_players_finished} is {online_players}:
 				force all players to fly
 				loop all players:
 					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
