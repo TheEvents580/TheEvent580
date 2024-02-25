@@ -127,8 +127,6 @@ on server list ping:
 
 on join:
 	wait 3 ticks
-	add 1 to {total_points.%player's uuid%}
-	remove 1 from {total_points.%player's uuid%}
 	apply saturation of tier 255 without any particles to the player for 999 days
 	if player has permission "group.spectators":
 		set {color.%player's uuid%} to "露&8 "
@@ -204,9 +202,13 @@ on join:
 		if {jeu_condi} is not 3 or 6 or 9:
 			set player's gamemode to adventure
 		else:
-			set player's gamemode to survival
+			if {timer} = 6:
+				set player's gamemode to survival
+			else:
+				set player's gamemode to adventure
 	else:
 		set player's gamemode to creative
+
 	if {jeu_condi} = 0:
 		make player execute command "/spawn"
 
@@ -456,9 +458,11 @@ on join:
 	if {jeu_condi} = 8:
 		if event-world is not "bow_pvp":
 			respawnBowPVP(player)
+	wait 2 seconds
 	if player doesn't have permission "group.spectators":
-		wait 2 seconds
 		add 1 to {online_players}
+	add 1 to {total_points.%player's uuid%}
+	remove 1 from {total_points.%player's uuid%}
 	#wait 2 second
 	#if event-world is "world":
 	#	make console execute command "setrp %player% https://www.dropbox.com/scl/fi/wom59ahuut504nxqjw51q/TheEvent580_Spawn.zip?rlkey=em5fv8t9dqm0onj1kbbc0cd15&dl=1" #Spawn
@@ -529,6 +533,7 @@ on damage:
 					make console execute command "hide %victim%"
 					broadcast "[&c&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
 					set {alive.%victim's uuid%} to false
+					play sound "entity.player.attack.crit" in player category with volume 1 to the attacker
 					loop all players:
 						if loop-player = attacker or victim:
 							clear loop-players's inventory
