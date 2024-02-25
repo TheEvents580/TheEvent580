@@ -790,10 +790,12 @@ on break:
 			else:
 				cancel event
 		else if {jeu_condi} is 9:
-			if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks:
-				cancel event
-			if the y-coordinate of block is bigger than 129:
-				cancel event
+			if {finished.%player's uuid%} is false:
+				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks:
+					cancel event
+				if the z-coordinate of player < 3000:
+					if the y-coordinate of block is bigger than 129:
+						cancel event
 	if {timer} is "pause":
 		if player doesn't have permission "group.spectators":
 			cancel event
@@ -1300,7 +1302,7 @@ on place:
 	else:
 		if {jeu_condi} is 9:
 			if block 1 meter under event-location is not quartz bricks:
-				if gamemode of player is not creative:
+				if {finished.%player's uuid%} is false:
 					cancel event
 					send "[&c&lTheEvent580&r] Please place the block in the replication zone only" to player
 

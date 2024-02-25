@@ -978,105 +978,148 @@ every tick:
 
 	else if {jeu_condi} is 9: #Build Masters
 		loop all players:
-			if {build.%loop-player's uuid%} = 1:
-				checkBuild1({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 2:
-				checkBuild2({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 3:
-				checkBuild3({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 4:
-				checkBuild4({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 5:
-				checkBuild5({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 6:
-				checkBuild6({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 7:
-				checkBuild7({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 8:
-				checkBuild8({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 9:
-				checkBuild9({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} = 10:
-				checkBuild10({build.location.%loop-player's uuid%})
-			if {build.%loop-player's uuid%} is "End":
-				allow fly for loop-player
-				force loop-player to fly
-				set loop-player's gamemode to adventure
-				set {finished.%loop-player's uuid%} to true
-				set {build.%loop-player's uuid%} to "end"
-			set {_x_%loop-player's uuid%} to the x-coordinate of loop-player
-			set {_z_%loop-player's uuid%} to the z-coordinate of loop-player
-			if block at location({_x_%loop-player's uuid%}, 128, {_z_%loop-player's uuid%}, "build_masters") is pumpkin:
-				if the z-coordinate of loop-player > 3000:
-					set {_concrete_items} to 0
-					set {_terracotta_items} to 0
-					set {_copper_items} to 0
-					loop all items in loop-player's inventory:
-						if loop-item is red concrete or orange concrete or yellow concrete or lime concrete or green concrete or cyan concrete or light blue concrete or blue concrete or purple concrete or magenta concrete or pink concrete or brown concrete or black concrete or gray concrete or light gray concrete or white concrete :
-							add 1 to {_concrete_items}
-						if loop-item is red terracotta or orange terracotta or yellow terracotta or lime terracotta or green terracotta or cyan terracotta or light blue terracotta or blue terracotta or purple terracotta or magenta terracotta or pink terracotta or brown terracotta or black terracotta or gray terracotta or light gray terracotta or white terracotta or terracotta:
-							add 1 to {_terracotta_items}
-						if loop-item is red terracotta or orange terracotta or yellow terracotta or lime terracotta or green terracotta or cyan terracotta or light blue terracotta or blue terracotta or purple terracotta or magenta terracotta or pink terracotta or brown terracotta or black terracotta or gray terracotta or light gray terracotta or white terracotta or terracotta:
-							add 1 to {_terracotta_items}
-						if loop-item is waxed copper block or waxed exposed copper block or waxed weathered copper block or waxed oxidized copper block or waxed cut copper block or waxed exposed cut copper block or waxed weathered cut copper block or waxed oxidized cut copper block :
-							add 1 to {_copper_items}
-					set {_total_pay} to {_concrete_items} + {_terracotta_items} * 2 + {_copper_items} * 3
-					removeTime({_total_pay}, loop-player)
-					if {build.location.%loop-player's uuid%} is 0:
-						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 998.00000001"
-					else if {build.location.%loop-player's uuid%} is 1:
-						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1019.00000001"
-					else if {build.location.%loop-player's uuid%} is 2:
-						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1040.00000001"
-					else if {build.location.%loop-player's uuid%} is 3:
-						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1061.00000001"
-					else if {build.location.%loop-player's uuid%} is 4:
-						make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1082.00000001"
-					else if {build.location.%loop-player's uuid%} is 5:
-						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 998.00000001"
-					else if {build.location.%loop-player's uuid%} is 6:
-						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1019.00000001"
-					else if {build.location.%loop-player's uuid%} is 7:
-						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1040.00000001"
-					else if {build.location.%loop-player's uuid%} is 8:
-						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1061.00000001"
-					else if {build.location.%loop-player's uuid%} is 9:
-						make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1082.00000001"
-					else if {build.location.%loop-player's uuid%} is 10:
-						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 998.00000001"
-					else if {build.location.%loop-player's uuid%} is 11:
-						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1019.00000001"
-					else if {build.location.%loop-player's uuid%} is 12:
-						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1040.00000001"
-					else if {build.location.%loop-player's uuid%} is 13:
-						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1061.00000001"
-					else if {build.location.%loop-player's uuid%} is 14:
-						make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1082.00000001"
-					else if {build.location.%loop-player's uuid%} is 15:
-						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 998.00000001"
-					else if {build.location.%loop-player's uuid%} is 16:
-						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1019.00000001"
-					else if {build.location.%loop-player's uuid%} is 17:
-						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1040.00000001"
-					else if {build.location.%loop-player's uuid%} is 18:
-						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1061.00000001"
-					else if {build.location.%loop-player's uuid%} is 19:
-						make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1082.00000001"
-					else if {build.location.%loop-player's uuid%} is 20:
-						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 998.00000001"
-					else if {build.location.%loop-player's uuid%} is 21:
-						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1019.00000001"
-					else if {build.location.%loop-player's uuid%} is 22:
-						make server execute command "execute in build_masters run tp %loop-player% 4.5 131.5 5000.5"
-					else if {build.location.%loop-player's uuid%} is 23:
-						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1061.00000001"
-					else if {build.location.%loop-player's uuid%} is 24:
-						make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1082.00000001"
-				else:
-					make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1082.00000001"
-			if the z-coordinate of loop-player > 3000:
-				remove speed from loop-player
-				apply speed 4 without particles to loop-player for 2 ticks
+			if loop-player doesn't have permission "group.spectators":
+				if {finished.%loop-player's uuid%} is false:
+					if {timer_minute.%loop-player's uuid%} >= 0:
+						if {build.%loop-player's uuid%} = 1:
+							checkBuild1({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 2:
+							checkBuild2({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 3:
+							checkBuild3({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 4:
+							checkBuild4({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 5:
+							checkBuild5({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 6:
+							checkBuild6({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 7:
+							checkBuild7({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 8:
+							checkBuild8({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 9:
+							checkBuild9({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} = 10:
+							checkBuild10({build.location.%loop-player's uuid%})
+						if {build.%loop-player's uuid%} is "End":
+							allow fly for loop-player
+							force loop-player to fly
+							set loop-player's gamemode to adventure
+							set {finished.%loop-player's uuid%} to true
+							set {build.%loop-player's uuid%} to "end"
+						set {_x_%loop-player's uuid%} to the x-coordinate of loop-player
+						set {_z_%loop-player's uuid%} to the z-coordinate of loop-player
+						if {timeout_portal.%loop-player's uuid%} > 0:
+							remove 0.05 from {timeout_portal.%loop-player's uuid%}
+						if block at location({_x_%loop-player's uuid%}, 128, {_z_%loop-player's uuid%}, "build_masters") is pumpkin:
+							if {timeout_portal.%loop-player's uuid%} <= 0:
+								if the z-coordinate of loop-player > 3000:
+									set {_concrete_items} to 0
+									set {_terracotta_items} to 0
+									set {_copper_items} to 0
+									loop all items in loop-player's inventory:
+										if loop-item is red concrete or orange concrete or yellow concrete or lime concrete or green concrete or cyan concrete or light blue concrete or blue concrete or purple concrete or magenta concrete or pink concrete or brown concrete or black concrete or gray concrete or light gray concrete or white concrete :
+											add the amount of loop-item in loop-player's inventory to {_concrete_items}
+										if loop-item is red terracotta or orange terracotta or yellow terracotta or lime terracotta or green terracotta or cyan terracotta or light blue terracotta or blue terracotta or purple terracotta or magenta terracotta or pink terracotta or brown terracotta or black terracotta or gray terracotta or light gray terracotta or white terracotta or terracotta:
+											add the amount of loop-item in loop-player's inventory to {_terracotta_items}
+										if loop-item is waxed copper block or waxed exposed copper block or waxed weathered copper block or waxed oxidized copper block or waxed cut copper block or waxed exposed cut copper block or waxed weathered cut copper block or waxed oxidized cut copper block :
+											add the amount of loop-item in loop-player's inventory to {_copper_items}
+									set {_total_pay} to {_concrete_items} + {_terracotta_items} * 2 + {_copper_items} * 3
+									removeTime({_total_pay}, loop-player)
+									if {build.location.%loop-player's uuid%} = 0:
+										make server execute command "execute in build_masters run tp %loop-player% 2.5 129 998.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 1:
+										make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1019.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 2:
+										make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1040.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 3:
+										make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1061.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 4:
+										make server execute command "execute in build_masters run tp %loop-player% 2.5 129 1082.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 5:
+										make server execute command "execute in build_masters run tp %loop-player% 23.5 129 998.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 6:
+										make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1019.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 7:
+										make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1040.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 8:
+										make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1061.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 9:
+										make server execute command "execute in build_masters run tp %loop-player% 23.5 129 1082.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 10:
+										make server execute command "execute in build_masters run tp %loop-player% 44.5 129 998.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 11:
+										make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1019.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 12:
+										make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1040.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 13:
+										make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1061.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 14:
+										make server execute command "execute in build_masters run tp %loop-player% 44.5 129 1082.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 15:
+										make server execute command "execute in build_masters run tp %loop-player% 65.5 129 998.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 16:
+										make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1019.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 17:
+										make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1040.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 18:
+										make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1061.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 19:
+										make server execute command "execute in build_masters run tp %loop-player% 65.5 129 1082.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 20:
+										make server execute command "execute in build_masters run tp %loop-player% 86.5 129 998.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 21:
+										make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1019.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 22:
+										make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1040.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 23:
+										make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1061.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+									else if {build.location.%loop-player's uuid%} is 24:
+										make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1082.00000001"
+										set {timeout_portal.%loop-player's uuid%} to 5
+								else:
+									make server execute command "execute in build_masters run tp %loop-player% 6.5 131 5000.5 -90 0"
+							else:
+								send "[&c&lTheEvent580&r] You need to wait %round({timeout_portal.%loop-player's uuid%})% seconds before going into the portal again" to loop-player
+						if the z-coordinate of loop-player > 3000:
+							remove speed from loop-player
+							apply speed 4 without particles to loop-player for 2 ticks
+					else:
+						clear loop-player's inventory
+						set slot 0 of loop-player to compass named "&rTeleport to player"
+						set slot 1 of loop-player to feather named "&rChange player's fly speed"
+						set {finished.%loop-player's uuid%} to true
+						add 1 to {finished_players}
+						make console execute command "/hide %loop-player%"
+						make console execute command "/see %loop-player%"
+						wait 5 ticks
+						allow fly for loop-player
+						force loop-player to fly
+						set loop-player's gamemode to adventure
 	
 
 every second:
@@ -1703,9 +1746,11 @@ every second:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
 					broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r starting in 1."
+					set {finished_players} to 0
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
+					refillAll()
 					loop all players:
 						if {build.location.%loop-player's uuid%} is 0:
 							make server execute command "execute in build_masters run tp %loop-player% 2.5 129 998.00000001"
@@ -1807,24 +1852,23 @@ every second:
 							make server execute command "execute in build_masters run tp %loop-player% 86.5 129 1082.00000001"
 							make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
 							make server execute command "execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air"
-						give 1 of netherite pickaxe of unbreaking 250 and efficiency 2 named "&1Unbreakable Pickaxe" to loop-player
-						give 92 of white concrete to loop-player
-						give 8 of black concrete to loop-player
+						make console execute command "bossbar set minecraft:mall players @a"
 						make console execute command "bossbar set minecraft:mall visible true"
-						refillAll()
 						if loop-player has permission "group.spectators":
-							clear loop-player's inventory
 							make server execute command "execute in minecraft:build_masters run tp %loop-player% -7.53 153.24 1040.13 -90.66 36.09"
-							make server execute command "clear %loop-player%"
 							set loop-player's game mode to adventure
 							force loop-player to fly
 							allow flight to loop-player
 						else:
+							give 1 of netherite pickaxe of unbreaking 250 and efficiency 2 named "&1Unbreakable Pickaxe" to loop-player
 							set loop-player's game mode to survival
 					broadcast "[&c&lTheEvent580&r] &1&lBuild Masters&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						play sound "custom:race3" in record category with volume 1 to the loop-player
+						set {timer_minute.%loop-player's uuid%} to 9
+						set {timer_second.%loop-player's uuid%} to 60
+						set {timeout_portal.%loop-player's uuid%} to 0
 						if loop-player has permission "theevent580.staff":
 							send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&1Build Masters" to loop-player
 							set {event_state} to "Game &r&1Build Masters"
@@ -1946,6 +1990,8 @@ every second:
 		if {jeu_condi} is not 6 or 8:
 			if {finished_players} is smaller than {checking_finished_players}:
 				if {jeu_condi} = 9:
+					#Build Masters
+						#Refills
 					if {timer-s} = 30:
 						if {timer-m} is 0:
 							refillAll()
@@ -2009,6 +2055,17 @@ every second:
 							refillAll()
 						if {timer-m} is 30:
 							refillAll()
+					# Warnings
+					loop all players:
+						if {timer_second.%loop-player's uuid%} = 0:
+							if {timer_minute.%loop-player's uuid%} = 5:
+								send title "&e5 minutes left" with subtitle "&eHurry up !" to loop-player
+							if {timer_minute.%loop-player's uuid%} = 3:
+								send title "&63 minutes left" with subtitle "&6You better finish this build !" to loop-player
+							if {timer_minute.%loop-player's uuid%} = 2:
+								send title "&c2 minutes left" with subtitle "&cYou're almost out !" to loop-player
+							if {timer_minute.%loop-player's uuid%} = 1:
+								send title "&41 minute left" with subtitle "&4This is your last chance." to loop-player
 				#Sounds
 				loop all players:
 					if {jeu_condi} = 1: #Dropper
@@ -2183,6 +2240,39 @@ every second:
 							if {timer-s} = 0:
 								play sound "custom:race1" in record category with volume 1 to the loop-player
 					if {jeu_condi} = 9: #Build Masters
+						if {timer-m} = 29:
+							if {timer-s} = 40:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
+						if {timer-m} = 28:
+							if {timer-s} = 19:
+								play sound "custom:race5" in record category with volume 1 to the loop-player
+						if {timer-m} = 27:
+							if {timer-s} = 12:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
+						if {timer-m} = 26:
+							if {timer-s} = 1:
+								play sound "custom:race5" in record category with volume 1 to the loop-player
+						if {timer-m} = 24:
+							if {timer-s} = 54:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
+						if {timer-m} = 23:
+							if {timer-s} = 43:
+								play sound "custom:race5" in record category with volume 1 to the loop-player
+						if {timer-m} = 22:
+							if {timer-s} = 36:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
+						if {timer-m} = 21:
+							if {timer-s} = 25:
+								play sound "custom:race5" in record category with volume 1 to the loop-player
+						if {timer-m} = 20:
+							if {timer-s} = 18:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
+						if {timer-m} = 19:
+							if {timer-s} = 07:
+								play sound "custom:race5" in record category with volume 1 to the loop-player
+						if {timer-m} = 18:
+							if {timer-s} = 0:
+								play sound "custom:race3" in record category with volume 1 to the loop-player
 						if {timer-m} = 16:
 							if {timer-s} = 49:
 								play sound "custom:race5" in record category with volume 1 to the loop-player
@@ -2289,209 +2379,250 @@ every second:
 						set {finished_players} to 0
 						make server execute command "clear @a"
 					if {timer-m} is 1:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						set {timer-m} to 0
 						set {timer-s} to 60
+					if {timer-m} is 2:
 						if {jeu_condi} = 9:
 							refillAll()
-					if {timer-m} is 2:
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						set {timer-m} to 1
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 3:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 4:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 5:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 6:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 7:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 8:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 9:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 10:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 11:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 12:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 13:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 14:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 15:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 16:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 17:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 18:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 					if {timer-m} is 19:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
-						if {jeu_condi} = 9:
-							refillAll()
 						if {jeu_condi} is 3:
 							set {damage} to 0
 						else if {jeu_condi} is 6:
 							set {damage} to 3
 					if {timer-m} is 20:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 21:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 22:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 23:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 24:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 25:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 26:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 27:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 28:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 29:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
 					if {timer-m} is 30:
+						if {jeu_condi} = 9:
+							refillAll()
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
-						if {jeu_condi} = 9:
-							refillAll()
+						set {timer-s} to 60
+				if {jeu_condi} is 9:
+					loop all players:
+						if {finished.%loop-player's uuid%} is false:
+							if {timer_second.%loop-player's uuid%} = 0:
+								remove 1 from {timer_minute.%loop-player's uuid%}
+								add 60 to {timer_second.%loop-player's uuid%}
+							remove 1 from {timer_second.%loop-player's uuid%}
 				remove 1 from {timer-s}
+			else if {finished_players} is {online_players}:
+				force all players to fly
+				loop all players:
+					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
+					allow fly for loop-player
+					set {gamemode.%loop-player's uuid%} to 3
+				if {jeu_condi} is 9:
+					loop all players:
+						if loop-player has permission "theevent580.staff":
+							send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&1Build Masters&r --> &aShowing scores" to loop-player
+				set {event_state} to "Showing scores"
+				if {jeu} is not 6:
+					set {timer-m} to 0
+					set {timer-s} to 30
+					set {timer} to 7
+				if {jeu} is 6:
+					set {timer-m} to 1
+					set {timer-s} to 30
+					set {timer} to 10
+				set {jeu_condi} to 0
+				set {damage} to 1
+				set {finished_players} to 0
+				make server execute command "clear @a"
 			else if {finished_players} is {checking_finished_players}:
 				force all players to fly
 				loop all players:
@@ -3026,14 +3157,16 @@ every second:
 				set {finished_players} to 0
 				make server execute command "clear @a"
 	if {timer} is 7:
+		if {jeu_condi} = 9:
+			make server execute command "bossbar set minecraft:mall visible false"
 		if {timer-s} is 29:
-			if {jeu_condi} = 9: 
-				make console execute command "bossbar set minecraft:mall visible false"
 			make console execute command "stopsound @a"
+			clear all players's inventory
 			loop all players:
 				remove invisibility from loop-player
 				remove speed from loop-player
 				clear {pos.%loop-player's uuid%}
+				set {finished.%loop-player's uuid%} to false
 				send title "&cGame Over" with subtitle "Check the chat to see your 工" to loop-player for 5 seconds
 			clear {pos1}
 			clear {pos2}

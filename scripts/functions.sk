@@ -831,19 +831,20 @@ function giveThirtySecs(p:player):
 		loop all players:
 			if {finished.%loop-player's uuid%} is false:
 				set {_head} to "%loop-value%" parsed as an offline player
-				make gui slot {_slot} with skull of {_head} named "&fGive 30 seconds to %{color.%loop-player's uuid%}%%{_head}%":
-					close {_p}'s inventory
-					if {timer_second.%{_p}'s uuid%} > 30:
-						remove 30 from {timer_second.%{_p}'s uuid%}
-					else:
-						remove 1 from {timer_minute.%{_p}'s uuid%}
-						add 30 to {timer_second.%{_p}'s uuid%}
-					if {timer_second.%{_head}'s uuid%} <= 30:
-						add 30 to {timer_second.%{_head}'s uuid%}
-					else:
-						add 1 to {timer_minute.%{_head}'s uuid%}
-						remove 30 from {timer_minute%{_head}'s uuid%}
-				add 1 to {_slot}
+				if loop-player is not {_p}:
+					make gui slot {_slot} with skull of {_head} named "&fGive 30 seconds to %{color.%loop-player's uuid%}%%{_head}%":
+						close {_p}'s inventory
+						if {timer_second.%{_p}'s uuid%} >= 30:
+							remove 30 from {timer_second.%{_p}'s uuid%}
+						else:
+							remove 1 from {timer_minute.%{_p}'s uuid%}
+							add 30 to {timer_second.%{_p}'s uuid%}
+						if {timer_second.%{_head}'s uuid%} <= 30:
+							add 30 to {timer_second.%{_head}'s uuid%}
+						else:
+							add 1 to {timer_minute.%{_head}'s uuid%}
+							remove 30 from {timer_second.%{_head}'s uuid%}
+					add 1 to {_slot}
 	open the last gui for {_p}
 
 function giveOneMinute(p:player):
@@ -853,11 +854,12 @@ function giveOneMinute(p:player):
 		loop all players:
 			if {finished.%loop-player's uuid%} is false:
 				set {_head} to "%loop-value%" parsed as an offline player
-				make gui slot {_slot} with skull of {_head} named "&fGive 1 minute to %{color.%loop-player's uuid%}%%{_head}%":
-					close {_p}'s inventory
-					remove 1 from {timer_minute.%{_p}'s uuid%}
-					add 1 to {timer_minute.%{_head}'s uuid%}
-				add 1 to {_slot}
+				if loop-player is not {_p}:
+					make gui slot {_slot} with skull of {_head} named "&fGive 1 minute to %{color.%loop-player's uuid%}%%{_head}%":
+						close {_p}'s inventory
+						remove 1 from {timer_minute.%{_p}'s uuid%}
+						add 1 to {timer_minute.%{_head}'s uuid%}
+					add 1 to {_slot}
 	open the last gui for {_p}
 
 function giveThreeMinute(p:player):
@@ -867,25 +869,36 @@ function giveThreeMinute(p:player):
 		loop all players:
 			if {finished.%loop-player's uuid%} is false:
 				set {_head} to "%loop-value%" parsed as an offline player
-				make gui slot {_slot} with skull of {_head} named "&fGive 3 minutes to %{color.%loop-player's uuid%}%%{_head}%":
-					close {_p}'s inventory
-					remove 3 from {timer_minute.%{_p}'s uuid%}
-					add 3 to {timer_minute.%{_head}'s uuid%}
-				add 1 to {_slot}
+				if loop-player is not {_p}:
+					make gui slot {_slot} with skull of {_head} named "&fGive 3 minutes to %{color.%loop-player's uuid%}%%{_head}%":
+						close {_p}'s inventory
+						remove 3 from {timer_minute.%{_p}'s uuid%}
+						add 3 to {timer_minute.%{_head}'s uuid%}
+					add 1 to {_slot}
 	open the last gui for {_p}
 
 function removeTime(seconds:number, p:player):
 	set {_minutes} to 0
-	if {_seconds} < {timer_seconds.%{_p}'s uuid%}:
-		remove {_seconds} from {timer_seconds.%{_p}'s uuid%}
+	if {_seconds} < {timer_second.%{_p}'s uuid%}:
+		remove {_seconds} from {timer_second.%{_p}'s uuid%}
 	else:
 		set {_minutes} to floor({_seconds}/60)
 		remove {_minutes}*60 from {_seconds}
-		remove {_minutes} from {timer_minutes.%{_p}'s uuid%}
-		if {_seconds} < {timer_seconds.%{_p}'s uuid%}:
-			remove {_seconds} from {timer_seconds.%{_p}'s uuid%}
+		remove {_minutes} from {timer_minute.%{_p}'s uuid%}
+		if {_seconds} < {timer_second.%{_p}'s uuid%}:
+			remove {_seconds} from {timer_second.%{_p}'s uuid%}
 		else:
-			remove 1 from {timer_minutes.%{_p}'s uuid%}
-			set {_seconds_2} to 60-{_seconds}+{timer_seconds.%{_p}'s uuid%}
-			set {timer_seconds.%{_p}'s uuid%} to {_seconds_2}
+			remove 1 from {timer_minute.%{_p}'s uuid%}
+			set {_seconds_2} to 60-{_seconds}+{timer_second.%{_p}'s uuid%}
+			set {timer_second.%{_p}'s uuid%} to {_seconds_2}
 	send "[&c&lTheEvent580&r] You've lost %{_minutes}% minutes and %{_seconds}% to your payment to the mall." to {_p}
+	loop all players:
+		if loop-player has permission "group.spectators":
+			send "[&c&lTheEvent580&r] %{color.%{_p}'s uuid%}%%{_p}% &rhas lost lost %{_minutes}% minutes and %{_seconds}% to their payment to the mall." to loop-player
+
+#function checkPlayerOutOfTime(p:player) :: boolean:
+#	if {finished.%{_p}'s uuid%} is false:
+#		if {timer_minute.%{_p}'s uuid%} < 0:
+#			return true
+#		return false
+#	return false

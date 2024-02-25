@@ -4,4 +4,7 @@ every tick:
             if {check_block.%loop-player's uuid%} is true:
                 if type of loop-player's targeted block is set:
                     if type of loop-player's targeted block is not barrier block:
-                        send action bar "%type of loop-player's targeted block%" to loop-player
+                        if type of loop-player's targeted block is not light block:
+                            set {_block.%loop-player's uuid%} to type of loop-player's targeted block
+                            set {_block.%loop-player's uuid%} to "%{_block.%loop-player's uuid%}%"
+                            send action bar "%{_block.%loop-player's uuid%} in strict proper case%" to loop-player

@@ -216,6 +216,7 @@ command /reset:
 				make server execute command "xp set @a 0 levels"
 				make server execute command "xp set @a 0 points"
 				make server execute command "stopsound @a"
+				make server execute command "bossbar set minecraft:mall visible false"
 				set {mute.server} to false
 				set {finished_players} to 0
 				set {online_players} to 0
@@ -386,6 +387,7 @@ command /consolereset:
 		make server execute command "xp set @a 0 levels"
 		make server execute command "xp set @a 0 points"
 		make server execute command "stopsound @a"
+		make server execute command "bossbar set minecraft:mall visible false"
 		set {mute.server} to false
 		set {finished_players} to 0
 		set {online_players} to 0
@@ -898,6 +900,7 @@ command /bm:
 		wait 5 ticks
 		set {_pos.player} to 0
 		reveal hidden players of all players
+		clear all players's inventory
 		loop all players:
 			make console execute command "execute run bossbar set minecraft:mall players %loop-player%"
 			set loop-player's gamemode to adventure
@@ -910,6 +913,10 @@ command /bm:
 				set {builds.%loop-player's uuid%} to "Spec"
 				set {finished.%loop-player's uuid%} to true
 			else:
+				if loop-player can fly:
+					disable fly for loop-player
+				set {timer_minute.%loop-player's uuid%} to 9
+				set {timer_second.%loop-player's uuid%} to 60
 				set {build.%loop-player's uuid%} to 1
 				set {builds.%loop-player's uuid%} to 0
 				set {finished.%loop-player's uuid%} to false
