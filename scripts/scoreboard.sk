@@ -9,61 +9,81 @@ function reloadScoreboard():
 		if {timer} is not "pause":
 			if {timer} is 0 or 1:
 				set line 11 of loop-player's scoreboard to "&e&lEvent starting in :"
-			if {timer} is 2 or 9:
+			else if {timer} is 2 or 9:
 				set line 11 of loop-player's scoreboard to "&e&lOpening votes in :"
-			if {timer} is 3:
+			else if {timer} is 3:
 				set line 11 of loop-player's scoreboard to "&e&lMinigame announced in :"
-			if {timer} is 4:
+			else if {timer} is 4:
 				set line 11 of loop-player's scoreboard to "&e&lTeleportation to the minigame in :"
-			if {timer} is 5:
+			else if {timer} is 5:
 				set line 11 of loop-player's scoreboard to "&e&lMinigame starting in :"
-			if {timer} is 6:
+			else if {timer} is 6:
 				if {timer-s} and {timer-m} = 0:
 					set line 11 of loop-player's scoreboard to "&e&lPlayers still alive :"
 				else:
 					if {jeu_condi} = 6:
 						set line 11 of loop-player's scoreboard to "&e&lFinal battle in :"
-					if {jeu_condi} = 9:
+					else if {jeu_condi} = 9:
 						set line 11 of loop-player's scoreboard to "&e&lTime left :"
 					else:
 						set line 11 of loop-player's scoreboard to "&e&lMinigame ending in :"
-			if {timer} is 7:
+			else if {timer} is 7:
 				set line 11 of loop-player's scoreboard to "&e&lBack to hub in :"
-			if {timer} is 8:
+			else if {timer} is 8:
 				set line 11 of loop-player's scoreboard to "&e&lIntermission ends in :"
-			if {timer} is 10:
+			else if {timer} is 10:
 				set line 11 of loop-player's scoreboard to "&e&lResults in :"
-			if {timer} is "Fin":
+			else if {timer} is "Fin":
 				set line 11 of loop-player's scoreboard to "&e&lResulsts announced :"
 			if {timer} is 0:
 				set line 10 of loop-player's scoreboard to "Soon"
-			if {timer} is "Fin":
+			else if {timer} is "Fin":
 				set line 10 of loop-player's scoreboard to "Event Over !"
-			if {timer} is not 0 or "Fin":
-				if {timer-s} > 9:
-					if {timer-m} > 9:
-						set line 10 of loop-player's scoreboard to "%{timer-m}%:%{timer-s}%"
-					else:
-						set line 10 of loop-player's scoreboard to "0%{timer-m}%:%{timer-s}%"
-				if {timer-s} < 10:
-					if {timer-m} > 9:
-						set line 10 of loop-player's scoreboard to "%{timer-m}%:0%{timer-s}%"
-					else:
-						set line 10 of loop-player's scoreboard to "0%{timer-m}%:0%{timer-s}%"
-			if {jeu_condi} = 9:
-				if {timer_second.%loop-player's uuid%} > 9:
-					if {timer_minute.%loop-player's uuid%} > 9:
-						set line 10 of loop-player's scoreboard to "%{timer_minute.%loop-player's uuid%}%:%{timer_second.%loop-player's uuid%}%"
-					else:
-						set line 10 of loop-player's scoreboard to "0%{timer_minute.%loop-player's uuid%}%:%{timer_second.%loop-player's uuid%}%"
-				if {timer_second.%loop-player's uuid%} < 10:
-					if {timer_minute.%loop-player's uuid%} > 9:
-						set line 10 of loop-player's scoreboard to "%{timer_minute.%loop-player's uuid%}%:0%{timer_second.%loop-player's uuid%}%"
-					else:
-						set line 10 of loop-player's scoreboard to "0%{timer_minute.%loop-player's uuid%}%:0%{timer_second.%loop-player's uuid%}%"
-				if {jeu_condi} = 6:
-					if {timer-s} and {timer-m} = 0:
-						set line 10 of loop-player's scoreboard to "%{finished_players}%"
+			else:
+				if loop-player has permission "group.spectators":
+					if {timer} is not 0 or "Fin":
+						if {jeu_condi} = 6:
+							if {timer-s} and {timer-m} = 0:
+								set line 10 of loop-player's scoreboard to "%{finished_players}%"
+						else:
+							if {timer-s} > 9:
+								if {timer-m} > 9:
+									set line 10 of loop-player's scoreboard to "%{timer-m}%:%{timer-s}%"
+								else:
+									set line 10 of loop-player's scoreboard to "0%{timer-m}%:%{timer-s}%"
+							if {timer-s} < 10:
+								if {timer-m} > 9:
+									set line 10 of loop-player's scoreboard to "%{timer-m}%:0%{timer-s}%"
+								else:
+									set line 10 of loop-player's scoreboard to "0%{timer-m}%:0%{timer-s}%"
+				else :
+					if {timer} = 6:
+						if {jeu_condi} = 9:
+							if {finished.%loop-player's uuid%} is false:
+								if {timer_second.%loop-player's uuid%} > 9:
+									if {timer_minute.%loop-player's uuid%} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer_minute.%loop-player's uuid%}%:%{timer_second.%loop-player's uuid%}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer_minute.%loop-player's uuid%}%:%{timer_second.%loop-player's uuid%}%"
+								if {timer_second.%loop-player's uuid%} < 10:
+									if {timer_minute.%loop-player's uuid%} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer_minute.%loop-player's uuid%}%:0%{timer_second.%loop-player's uuid%}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer_minute.%loop-player's uuid%}%:0%{timer_second.%loop-player's uuid%}%"
+							else:
+								if {timer-s} > 9:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:%{timer-s}%"
+								else:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:0%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:0%{timer-s}%"
+						else if {jeu_condi} = 6:
+							if {timer-s} and {timer-m} = 0:
+								set line 10 of loop-player's scoreboard to "%{finished_players}%"
 					else:
 						if {timer-s} > 9:
 							if {timer-m} > 9:
