@@ -45,6 +45,17 @@ function reloadScoreboard():
 						if {jeu_condi} = 6:
 							if {timer-s} and {timer-m} = 0:
 								set line 10 of loop-player's scoreboard to "%{finished_players}%"
+							else:
+								if {timer-s} > 9:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:%{timer-s}%"
+								if {timer-s} < 10:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:0%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:0%{timer-s}%"
 						else:
 							if {timer-s} > 9:
 								if {timer-m} > 9:
@@ -84,6 +95,17 @@ function reloadScoreboard():
 						else if {jeu_condi} = 6:
 							if {timer-s} and {timer-m} = 0:
 								set line 10 of loop-player's scoreboard to "%{finished_players}%"
+							else:
+								if {timer-s} > 9:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:%{timer-s}%"
+								if {timer-s} < 10:
+									if {timer-m} > 9:
+										set line 10 of loop-player's scoreboard to "%{timer-m}%:0%{timer-s}%"
+									else:
+										set line 10 of loop-player's scoreboard to "0%{timer-m}%:0%{timer-s}%"
 					else:
 						if {timer-s} > 9:
 							if {timer-m} > 9:
