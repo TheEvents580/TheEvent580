@@ -1706,11 +1706,16 @@ every second:
 					#	make server execute command "//pos1 29,33,0"
 					#	make server execute command "//pos2 29,33,0"
 					#	make server execute command "//set redstone_block"
-					if {game} is "SG3":
-						make server execute command "//world sg3"
-						make server execute command "//pos1 46,26,-13"
-						make server execute command "//pos2 46,26,-13"
-						make server execute command "//set redstone_block"
+					#if {game} is "SG3":
+					#	make server execute command "//world sg3"
+					#	make server execute command "//pos1 46,26,-13"
+					#	make server execute command "//pos2 46,26,-13"
+					#	make server execute command "//set redstone_block"
+					if {game} is "SG4":
+						make server execute command "//world sg4"
+						make server execute command "//pos1 27,37,-3"
+						make server execute command "//pos2 27,37,-3"
+						make server execute command "//set air"
 				if {timer-s} is 0:
 					set {finished_players} to 0
 					set {sg.height} to 279
