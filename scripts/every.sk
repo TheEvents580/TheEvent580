@@ -2619,7 +2619,7 @@ every second:
 			loop all players:
 				if {finished.%loop-player's uuid%} is true:
 					add 1 to {_online_players_finished}
-			else if {_online_players_finished} is {online_players}:
+			if {_online_players_finished} is {online_players}:
 				force all players to fly
 				loop all players:
 					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
