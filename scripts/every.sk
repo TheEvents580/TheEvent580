@@ -862,7 +862,7 @@ every tick:
 
 	else if {jeu_condi} is 6: #Survival Games
 		if {timer} = 6:
-			if {sg.height} > 12.4999999:
+			if {sg.height} > 33.4999999:
 				remove (1/15)/10 from {sg.height}
 				make console execute command "setsgheight %{sg.height}%"
 			loop {sg.wb} times:
@@ -1713,8 +1713,8 @@ every second:
 						make server execute command "//set redstone_block"
 				if {timer-s} is 0:
 					set {finished_players} to 0
-					set {sg.height} to 256
-					make server execute command "execute in minecraft:sg3 run time set 0"
+					set {sg.height} to 279
+					make server execute command "execute in minecraft:sg4 run time set 0"
 					broadcast "[&c&lTheEvent580&r] &5&lSurvival Games&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
