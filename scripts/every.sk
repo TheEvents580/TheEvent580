@@ -125,9 +125,9 @@ every tick:
 												send "[&c&lTheEvent580 - Parkour&r] &4Extreme&r sub-level completed ! New multiplier : 必%{game_multiplier.%loop-player-1's uuid%}% !" to loop-player
 					#if block 2 meters below loop-player is iron_block:
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 0:
-					#		add {pts_lvl_1} to {points_game.%loop-player's uuid%}
-					#		add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-					#		add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+					#		add round({pts_lvl_1}) to {points_game.%loop-player's uuid%}
+					#		add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+					#		add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 					#		if {parkour_checkpoint_1} is false:
 					#			set {parkour_checkpoint_1} to true
 					#			broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 1"
@@ -140,9 +140,9 @@ every tick:
 					#		set {parkour_checkpoint_location.%loop-player's uuid%} to loop-player's location
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 2:
 					#		if {parkour_skip.%loop-player's uuid%} = false:
-					#			add {pts_lvl_3} to {points_game.%loop-player's uuid%}
-					#			add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-					#			add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+					#			add round({pts_lvl_3}) to {points_game.%loop-player's uuid%}
+					#			add round({pts_lvl_3}) to {total_points.%loop-player's uuid%}
+					#			add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 					#			if {parkour_checkpoint_3} is false:
 					#				set {parkour_checkpoint_3} to true
 					#				broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 3"
@@ -158,9 +158,9 @@ every tick:
 					#		set {parkour_checkpoint_location.%loop-player's uuid%} to loop-player's location
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 4:
 					#		if the inventory of loop-player contains a carrot on a stick named "&6Skip Level":
-					#			add {pts_lvl_5} to {points_game.%loop-player's uuid%}
-					#			add {pts_lvl_5} to {total_points.%loop-player's uuid%}
-					#			add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
+					#			add round({pts_lvl_5}) to {points_game.%loop-player's uuid%}
+					#			add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
+					#			add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
 					#			if {parkour_checkpoint_5} is false:
 					#				set {parkour_checkpoint_5} to true
 					#				broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 5"
@@ -194,9 +194,9 @@ every tick:
 					#		set {parkour_checkpoint_location.%loop-player's uuid%} to loop-player's location
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 1:
 					#		if {parkour_skip.%loop-player's uuid%} = false:
-					#			add {pts_lvl_2} to {points_game.%loop-player's uuid%}
-					#			add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-					#			add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+					#			add round({pts_lvl_2}) to {points_game.%loop-player's uuid%}
+					#			add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+					#			add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 					#			if {parkour_checkpoint_2} is false:
 					#				set {parkour_checkpoint_2} to true
 					#				broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 2"
@@ -212,9 +212,9 @@ every tick:
 					#		set {parkour_checkpoint_location.%loop-player's uuid%} to loop-player's location
 					#	if {parkour_checkpoint.%loop-player's uuid%} is 3:
 					#		if {parkour_skip.%loop-player's uuid%} = false:
-					#			add {pts_lvl_4} to {points_game.%loop-player's uuid%}
-					#			add {pts_lvl_4} to {total_points.%loop-player's uuid%}
-					#			add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
+					#			add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
+					#			add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+					#			add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 					#			if {parkour_checkpoint_4} is false:
 					#				set {parkour_checkpoint_4} to true
 					#				broadcast "[&c&lTheEvent580&r] &6&l%loop-player%&r was the 1st player to get to checkpoint 4"
@@ -287,10 +287,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_1.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_1}%")
-							add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_1}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_1}%")
-							add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 							remove round(5*{multiplier}) from {pts_lvl_1}
 							remove 1 dark oak leaves from loop-player's inventory
 					if loop-item is mushroom stem:
@@ -309,10 +309,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_2.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_2}%")
-							add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_2}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_2}%")
-							add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 							remove round(15*{multiplier}) from {pts_lvl_2}
 							remove 1 mushroom stem from loop-player's inventory
 					if loop-item is lime bed:
@@ -331,10 +331,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_3.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_3}%")
-							add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_3}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_3}%")
-							add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_3}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 							remove round(25*{multiplier}) from {pts_lvl_3}
 							remove 1 lime bed from loop-player's inventory
 					if loop-item is raw copper block:
@@ -353,10 +353,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_4.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_4}%")
-							add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_4}%")
-							add {pts_lvl_4} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 							remove round(35*{multiplier}) from {pts_lvl_4}
 							remove 1 raw copper block from loop-player's inventory
 					if loop-item is sculk sensor:
@@ -375,10 +375,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_5.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_5}%")
-							add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_5}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_5}%")
-							add {pts_lvl_5} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
 							remove round(45*{multiplier}) from {pts_lvl_5}
 							remove 1 sculk sensor from loop-player's inventory
 					if loop-item is waxed cut copper stairs:
@@ -397,10 +397,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_6.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_6}%")
-							add {pts_lvl_6} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_6}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_6}%")
-							add {pts_lvl_6} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_6}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_6}) to {total_points_event.%loop-player's uuid%}
 							remove round(55*{multiplier}) from {pts_lvl_6}
 							remove 1 waxed cut copper stairs from loop-player's inventory
 					if loop-item is blue candle:
@@ -419,8 +419,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_7.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_7}%")
-							add {pts_lvl_7} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_7}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_7}%")
+							add round({pts_lvl_7}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_7}) to {total_points_event.%loop-player's uuid%}
 							remove round(70*{multiplier}) from {pts_lvl_7}
 							remove 1 blue candle from loop-player's inventory
 					if loop-item is deepslate emerald ore:
@@ -439,10 +441,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_8.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_8}%")
-							add {pts_lvl_8} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_8}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_8}%")
-							add {pts_lvl_8} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_8}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_8}) to {total_points_event.%loop-player's uuid%}
 							remove round(85*{multiplier}) from {pts_lvl_8}
 							remove 1 deepslate emerald ore from loop-player's inventory
 					if loop-item is zombie head:
@@ -461,10 +463,10 @@ every tick:
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
 							set {bingo_case_9.%loop-player's uuid%} to true
 							command("gamepoints %loop-player% %{pts_lvl_9}%")
-							add {pts_lvl_9} to {points_game.%loop-player's uuid%}
+							add round({pts_lvl_9}) to {points_game.%loop-player's uuid%}
 							command("totalpoints %loop-player% %{pts_lvl_9}%")
-							add {pts_lvl_9} to {total_points.%loop-player's uuid%}
-							add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
+							add round({pts_lvl_9}) to {total_points.%loop-player's uuid%}
+							add round({pts_lvl_9}) to {total_points_event.%loop-player's uuid%}
 							remove round(100*{multiplier}) from {pts_lvl_9}
 							remove 1 zombie head from loop-player's inventory
 				if {bingo_cases.%loop-player's uuid%} is 9:
@@ -540,10 +542,10 @@ every tick:
 									broadcast "[&c&lTheEvent580&r] %loop-player% just completed the race in &b%{race_total_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_3})% &r工]"
 									send "[&c&lTheEvent580&r] You just completed the race in &b%{race_total_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_3})% &r工]" to loop-player
 									command("gamepoints %loop-player% %{pts_lvl_3}%")
-									add {pts_lvl_3} to {points_game.%loop-player's uuid%}
+									add round({pts_lvl_3}) to {points_game.%loop-player's uuid%}
 									command("totalpoints %loop-player% %{pts_lvl_3}%")
-									add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-									add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+									add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+									add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 									add 1 to {finished_players}
 									remove round(80*{multiplier}) from {pts_lvl_3}
 									set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -558,10 +560,10 @@ every tick:
 										broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 1st lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_1})% &r工]"
 										send "[&c&lTheEvent580&r] You just completed the 1st lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_1})% &r工]" to loop-player
 										command("gamepoints %loop-player% %{pts_lvl_1}%")
-										add {pts_lvl_1} to {points_game.%loop-player's uuid%}
+										add round({pts_lvl_1}) to {points_game.%loop-player's uuid%}
 										command("totalpoints %loop-player% %{pts_lvl_1}%")
-										add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-										add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+										add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+										add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 										remove round(40*{multiplier}) from {pts_lvl_1}
 										set {_item} to carrot on a stick
 										set {_item.nbt} to nbt compound of {_item}
@@ -576,10 +578,10 @@ every tick:
 										broadcast "[&c&lTheEvent580&r] %loop-player% just completed the 2nd lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_2})% &r工]"
 										send "[&c&lTheEvent580&r] You just completed the 2nd lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_2})% &r工]" to loop-player
 										command("gamepoints %loop-player% %{pts_lvl_2}%")
-										add {pts_lvl_2} to {points_game.%loop-player's uuid%}
+										add round({pts_lvl_2}) to {points_game.%loop-player's uuid%}
 										command("totalpoints %loop-player% %{pts_lvl_2}%")
-										add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-										add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+										add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+										add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 										remove round(60*{multiplier}) from {pts_lvl_2}
 										set {_item} to carrot on a stick
 										set {_item.nbt} to nbt compound of {_item}
@@ -699,8 +701,8 @@ every tick:
 		#						send "[&c&lTheEvent580&r] You just completed the boat race in &b%{courses_boat_timer.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_1})% &r工]" to loop-player
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						add {pts_lvl_1} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 		#						add 1 to {finished_players}
 		#						remove {remove_pts_lvl_1} from {pts_lvl_1}
 		#						set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -738,8 +740,8 @@ every tick:
 		#						send "[&c&lTheEvent580&r] you just completed the foot race in &b%{courses_pied_timer.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_1})% &r工]" to loop-player
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						add {pts_lvl_1} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 		#						add 1 to {finished_players}
 		#						remove {remove_pts_lvl_1} from {pts_lvl_1}
 		#						set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -755,8 +757,8 @@ every tick:
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						set {courses_pied_timer_section.%loop-player's uuid%} to 0
 		#						add {pts_lvl_5} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_5} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
 		#						remove {remove_pts_lvl_5} from {pts_lvl_5}
 		#						if {hide.%loop-player's uuid%} is false:
 		#							make server execute command "/hide %loop-player%"
@@ -768,8 +770,8 @@ every tick:
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						set {courses_pied_timer_section.%loop-player's uuid%} to 0
 		#						add {pts_lvl_3} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_3}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 		#						remove {remove_pts_lvl_3} from {pts_lvl_3}
 		#						if {hide.%loop-player's uuid%} is false:
 		#							make server execute command "/hide %loop-player%"
@@ -782,8 +784,8 @@ every tick:
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						set {courses_pied_timer_section.%loop-player's uuid%} to 0
 		#						add {pts_lvl_4} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_4} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 		#						remove {remove_pts_lvl_4} from {pts_lvl_4}
 		#						if {hide.%loop-player's uuid%} is false:
 		#							make server execute command "/hide %loop-player%"
@@ -795,8 +797,8 @@ every tick:
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						set {courses_pied_timer_section.%loop-player's uuid%} to 0
 		#						add {pts_lvl_2} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 		#						remove {remove_pts_lvl_2} from {pts_lvl_2}
 		#						if {hide.%loop-player's uuid%} is false:
 		#							make server execute command "/hide %loop-player%"
@@ -831,8 +833,8 @@ every tick:
 		#						send "[&c&lTheEvent580&r] You just completed the trident race in &b%{courses_trident_timer.%loop-player's uuid%}% &rseconds [&b+%checkPoints({pts_lvl_1})% &r工]" to loop-player
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						add {pts_lvl_1} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 		#						add 1 to {finished_players}
 		#						remove {remove_pts_lvl_1} from {pts_lvl_1}
 		#						set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -846,8 +848,8 @@ every tick:
 		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 		#						set {courses_pied_timer_section.%loop-player's uuid%} to 0
 		#						add {pts_lvl_2} to {points.%loop-player's uuid%}
-		#						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-		#						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+		#						add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 		#						remove {remove_pts_lvl_2} from {pts_lvl_2}		
 		#				else if {courses_pied.%loop-player's uuid%} is "Start":
 		#					if block 2 meters below loop-player is iron_block:
@@ -930,8 +932,8 @@ every tick:
 	#						send "[&c&lTheEvent580&r] You just completed the &5Labyrinth &r[&5+%checkPoints({pts_lvl_3})% &r工]" to loop-player
 	#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 	#						add {pts_lvl_3} to {points.%loop-player's uuid%}
-	#						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-	#						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
+	#						add round({pts_lvl_3}) to {total_points.%loop-player's uuid%}
+	#						add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 	#						add 1 to {finished_players}
 	#						remove {remove_pts_lvl_3} from {pts_lvl_3}
 	#				else if {laby_level.%loop-player's uuid%} is 1:
@@ -941,8 +943,8 @@ every tick:
 	#						send "[&c&lTheEvent580&r] You just completed the 2nd part of the &5Labyrinth &r[&5+%checkPoints({pts_lvl_2})% &r工]" to loop-player
 	#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 	#						add {pts_lvl_2} to {points.%loop-player's uuid%}
-	#						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
-	#						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
+	#						add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
+	#						add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 	#						remove {remove_pts_lvl_2} from {pts_lvl_2}
 	#				else if {laby_level.%loop-player's uuid%} is "Start":
 	#					if block 1 meter below loop-player is iron_block:
@@ -951,8 +953,8 @@ every tick:
 	#						send "[&c&lTheEvent580&r] You just completed the 1st part of the &5Labyrinth &r[&5+%checkPoints({pts_lvl_1})% &r工]" to loop-player
 	#						play sound "custom:coins" in voice category with volume 2 to the loop-player
 	#						add {pts_lvl_1} to {points.%loop-player's uuid%}
-	#						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
-	#						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
+	#						add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
+	#						add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 	#						remove {remove_pts_lvl_1} from {pts_lvl_1}
 	#			if {gamemode.%loop-player's uuid%} is 3:
 	#				if the y-coordinate of loop-player is 120:
@@ -2690,10 +2692,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_5}%")
-								add {pts_lvl_5} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_5}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_5}%")
-								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for until the final battle [&5+%checkPoints({pts_lvl_5})%&r工]" to loop-player
 								make console execute command "achivement %loop-player% give FBSG"
 				if {timer-s} is 30:
@@ -2702,10 +2704,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 19 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						if {game} is "SG3":
 							make server execute command "execute in minecraft:sg3 run worldborder set 3 10"
@@ -2715,60 +2717,65 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 16 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
+					if {timer-m} = 4:
+						set {sg.wb} to 30
 					if {timer-m} is 6:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 13 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
+					if {timer-m} = 7:
+						set {sg.wb} to 50
 					if {timer-m} is 9:
+						set {sg.wb} to 100
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 10 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 					if {timer-m} is 12:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 7 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 					if {timer-m} is 15:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 4 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 					if {timer-m} is 18:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 1 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 				else if {timer-s} is 0:
 					#if {timer-m} is 0:
@@ -2807,11 +2814,11 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 10 blocks over 10 seconds. Last shrinking in 30 seconds."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 3 10"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 6 blocks over 10 seconds. This is the last zone."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 3 10"
 						else if {game} is "SG6":
 							make server execute command "execute in minecraft:sg6 run worldborder set 3 10"
-						broadcast "[&c&lTheEvent580&r] Border is shrinking."
 					if {timer-m} is 2:
 						set {timer-m} to 1
 						set {timer-s} to 60
@@ -2820,10 +2827,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 18 minutes [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						if {game} is "SG3":
 							make server execute command "execute in minecraft:sg3 run worldborder set 19 15"
@@ -2846,10 +2853,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 15 mins [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						if {game} is "SG1":
 							make server execute command "execute in minecraft:sg1 run worldborder set 9 10"
@@ -2860,6 +2867,7 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 52 blocks over 30 seconds. Next shrinking in 3 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 9 10"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 10 blocks over a minute. Last shrinking in 4 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 9 10"
 						else if {game} is "SG6":
@@ -2883,10 +2891,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 12 mins [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						if {game} is "SG1":
 							make server execute command "execute in minecraft:sg1 run worldborder set 19 15"
@@ -2897,6 +2905,7 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 3 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 19 15"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 30 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 19 15"
 						else if {game} is "SG6":
@@ -2920,20 +2929,22 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 49 30"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 50 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 49 30"
 						else if {game} is "SG6":
 							make server execute command "execute in minecraft:sg6 run worldborder set 59 45"
 					if {timer-m} is 11:
+						set {sg.wb} to 100
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 9 mins [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
@@ -2949,6 +2960,7 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 99 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 99 60"
 						else if {game} is "SG6":
@@ -2956,6 +2968,7 @@ every second:
 						remove 1 from {timer-m}
 						set {timer-s} to 60
 					if {timer-m} is 13:
+						set {sg.wb} to 200
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
@@ -2966,10 +2979,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 6 mins [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						if {game} is "SG1":
 							make server execute command "execute in minecraft:sg1 run worldborder set 199 60"
@@ -2980,6 +2993,7 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 199 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 199 60"
 						else if {game} is "SG6":
@@ -2987,6 +3001,7 @@ every second:
 						remove 1 from {timer-m}
 						set {timer-s} to 60
 					if {timer-m} is 15:
+						set {sg.wb} to 300
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
@@ -3003,6 +3018,7 @@ every second:
 							broadcast "[&c&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG4":
 							make server execute command "execute in minecraft:sg4 run worldborder set 299 60"
+							broadcast "[&c&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
 						else if {game} is "SG5":
 							make server execute command "execute in minecraft:sg5 run worldborder set 299 60"
 						else if {game} is "SG6":
@@ -3015,10 +3031,10 @@ every second:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
 								command("gamepoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {points_game.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {points_game.%loop-player's uuid%}
 								command("totalpoints %loop-player% %{pts_lvl_4}%")
-								add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
-								add {pts_lvl_4} to {total_points.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 3 mins [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
 						remove 1 from {timer-m}
 						set {timer-s} to 60
