@@ -1236,54 +1236,8 @@ command /staff <text> [<player>]:
 command /tpspec:
 	trigger:
 		set {_user} to player
-		if {timer} = 5 or 6:
+		if {timer} or {timer_save} = 5 or 6:
 			if {finished.%player's uuid%} is true:
-				create a gui with virtual chest inventory with 6 rows named "&f露 &8Spectator menu":
-					wait 1 tick
-					make gui slot 0 with red stained glass pane named "&rラ &cRed"
-					make gui slot 9 with orange stained glass pane named "&rャ &6Orange"
-					make gui slot 18 with yellow stained glass pane named "&rギ &eYellow"
-					make gui slot 27 with lime stained glass pane named "&r画 &aLime"
-					make gui slot 36 with light blue stained glass pane named "&r動 &bLight Blue"
-					make gui slot 45 with blue stained glass pane named "&r像 &1Blue"
-					set {_slot.red} to 1
-					set {_slot.orange} to 10
-					set {_slot.yellow} to 19
-					set {_slot.lime} to 28
-					set {_slot.light_blue} to 37
-					set {_slot.blue} to 46
-					loop all players:
-						if {finished.%loop-player's uuid%} is false:
-							set {_head} to "%loop-value%" parsed as an offline player
-							if loop-player has permission "group.rouge":
-								set {_slot} to {_slot.red}
-								add 1 to {_slot.red}
-							if loop-player has permission "group.orange":
-								set {_slot} to {_slot.orange}
-								add 1 to {_slot.orange}
-							if loop-player has permission "group.jaune":
-								set {_slot} to {_slot.yellow}
-								add 1 to {_slot.yellow}
-							if loop-player has permission "group.vert":
-								set {_slot} to {_slot.lime}
-								add 1 to {_slot.lime}
-							if loop-player has permission "group.bleu_clair":
-								set {_slot} to {_slot.light_blue}
-								add 1 to {_slot.light_blue}
-							if loop-player has permission "group.bleu":
-								set {_slot} to {_slot.blue}
-								add 1 to {_slot.blue}
-							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
-								teleport {_user} to {_head}
-								close {_user}'s inventory
-					set {_slot} to 8
-					loop 6 times:
-						make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
-							close {_user}'s inventory
-						add 9 to {_slot}
-				open the last gui for the player
-		else:
-			if player has permission "group.spectators":
 				create a gui with virtual chest inventory with 6 rows named "&f露 &8Spectator menu":
 					wait 1 tick
 					make gui slot 0 with red stained glass pane named "&rラ &cRed"
@@ -1329,6 +1283,55 @@ command /tpspec:
 							make player execute command "tpspec2"
 						add 9 to {_slot}
 				open the last gui for the player
+			else:
+				if player has permission "group.spectators":
+					create a gui with virtual chest inventory with 6 rows named "&f露 &8Spectator menu":
+						wait 1 tick
+						make gui slot 0 with red stained glass pane named "&rラ &cRed"
+						make gui slot 9 with orange stained glass pane named "&rャ &6Orange"
+						make gui slot 18 with yellow stained glass pane named "&rギ &eYellow"
+						make gui slot 27 with lime stained glass pane named "&r画 &aLime"
+						make gui slot 36 with light blue stained glass pane named "&r動 &bLight Blue"
+						make gui slot 45 with blue stained glass pane named "&r像 &1Blue"
+						set {_slot.red} to 1
+						set {_slot.orange} to 10
+						set {_slot.yellow} to 19
+						set {_slot.lime} to 28
+						set {_slot.light_blue} to 37
+						set {_slot.blue} to 46
+						loop all players:
+							if {finished.%loop-player's uuid%} is false:
+								set {_head} to "%loop-value%" parsed as an offline player
+								if loop-player has permission "group.rouge":
+									set {_slot} to {_slot.red}
+									add 1 to {_slot.red}
+								if loop-player has permission "group.orange":
+									set {_slot} to {_slot.orange}
+									add 1 to {_slot.orange}
+								if loop-player has permission "group.jaune":
+									set {_slot} to {_slot.yellow}
+									add 1 to {_slot.yellow}
+								if loop-player has permission "group.vert":
+									set {_slot} to {_slot.lime}
+									add 1 to {_slot.lime}
+								if loop-player has permission "group.bleu_clair":
+									set {_slot} to {_slot.light_blue}
+									add 1 to {_slot.light_blue}
+								if loop-player has permission "group.bleu":
+									set {_slot} to {_slot.blue}
+									add 1 to {_slot.blue}
+								make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
+									teleport {_user} to {_head}
+									close {_user}'s inventory
+						set {_slot} to 8
+						loop 6 times:
+							make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
+								close {_user}'s inventory
+								make player execute command "tpspec2"
+							add 9 to {_slot}
+					open the last gui for the player
+		else:
+			send "[&c&lTheEvent580&r] You currently don't have access to the teleport menu"
 		#set {_user} to player
 		#if {finished.%player's uuid%} is true:
 		#	create a gui with virtual chest inventory with 6 rows named "Spectator menu":
@@ -1360,7 +1363,7 @@ command /tpspec:
 command /tpspec2:
 	trigger:
 		set {_user} to player
-		if {timer} = 5 or 6:
+		if {timer} or {timer_save} = 5 or 6:
 			if {finished.%player's uuid%} is true:
 				create a gui with virtual chest inventory with 2 rows named "&f露 &8Spectator menu":
 					wait 1 tick
@@ -1386,34 +1389,36 @@ command /tpspec2:
 							close {_user}'s inventory
 							make player execute command "tpspec"
 						add 9 to {_slot}
-			open the last gui for the player
-		else:
-			if player has permission "group.spectators":
-				create a gui with virtual chest inventory with 2 rows named "&f露 &8Spectator menu":
-					wait 1 tick
-					make gui slot 0 with purple stained glass pane named "&rの &5Purple"
-					make gui slot 9 with pink stained glass pane named "&r目 &dPink"
-					set {_slot.purple} to 1
-					set {_slot.pink} to 10
-					loop all players:
-						if {finished.%loop-player's uuid%} is false:
-							set {_head} to "%loop-value%" parsed as an offline player
-							if loop-player has permission "group.violet":
-								set {_slot} to {_slot.purple}
-								add 1 to {_slot.purple}
-							if loop-player has permission "group.rose":
-								set {_slot} to {_slot.pink}
-								add 1 to {_slot.pink}
-							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
-								teleport {_user} to {_head}
+				open the last gui for the player
+			else:
+				if player has permission "group.spectators":
+					create a gui with virtual chest inventory with 2 rows named "&f露 &8Spectator menu":
+						wait 1 tick
+						make gui slot 0 with purple stained glass pane named "&rの &5Purple"
+						make gui slot 9 with pink stained glass pane named "&r目 &dPink"
+						set {_slot.purple} to 1
+						set {_slot.pink} to 10
+						loop all players:
+							if {finished.%loop-player's uuid%} is false:
+								set {_head} to "%loop-value%" parsed as an offline player
+								if loop-player has permission "group.violet":
+									set {_slot} to {_slot.purple}
+									add 1 to {_slot.purple}
+								if loop-player has permission "group.rose":
+									set {_slot} to {_slot.pink}
+									add 1 to {_slot.pink}
+								make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
+									teleport {_user} to {_head}
+									close {_user}'s inventory
+						set {_slot} to 8
+						loop 2 times:
+							make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
 								close {_user}'s inventory
-					set {_slot} to 8
-					loop 2 times:
-						make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
-							close {_user}'s inventory
-							make player execute command "tpspec"
-						add 9 to {_slot}
-			open the last gui for the player
+								make player execute command "tpspec"
+							add 9 to {_slot}
+				open the last gui for the player
+		else:
+			send "[&c&lTheEvent580&r] You currently don't have access to the teleport menu"
 
 command /tests <int>:
 	permission: *
