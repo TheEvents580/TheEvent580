@@ -160,6 +160,7 @@ command /reset:
 			make gui slot 12 with lime wool named "&aYes" with lore "&rI am sure to reset the event !":
 				close player's inventory
 				loop {staff::*}:
+					send "[&c&lTheEvent580 - Admin&r] Code : 0" to loop-value
 					send "[&c&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
 				make server execute command "clear @a"
 				make server execute command "effect clear @a"
@@ -331,6 +332,7 @@ command /consolereset:
 	description: reset event
 	trigger:
 		loop {staff::*}:
+			send "[&c&lTheEvent580 - Admin&r] Code : 0" to loop-value
 			send "[&c&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
 		make server execute command "clear @a"
 		make server execute command "effect clear @a"
