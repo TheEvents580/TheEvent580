@@ -29,6 +29,11 @@ command /spawn [<player>]:
 		if arg-1 is not set:
 			if {jeu_condi} is 0 or -1:
 				if {timer} or {timer_save} is 7 or 0 or 1 or 9 or 10 or 8 or "Fin":
+					if {timer-s} > 3:
+						if sender is player:
+							if {timer} or {timer_save} = 7:
+								send "[&c&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+								stop trigger
 					if {finished.%player's uuid%} is true:
 						make console execute command "fly %player%"
 					if player's game mode is spectator:
@@ -63,6 +68,10 @@ command /spawn [<player>]:
 			if player has permission "group.spectators":
 				if {jeu_condi} is 0 or -1:
 					if {timer} or {timer_save} is 7 or 0 or 1 or 9 or 8 or 10 or "Fin":
+						if {timer-s} > 3:
+							if {timer} or {timer_save} = 7:
+								send "[&c&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+								stop trigger
 						if {finished.%arg-1's uuid%} is true:
 							make console execute command "fly %arg-1%"
 						if arg-1's game mode is spectator:
