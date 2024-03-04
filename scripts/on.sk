@@ -961,6 +961,16 @@ on right click with compass:
 		make player execute command "tpspec"
 
 on right click :
+	if event-block is chest:
+		if {jeu_condi} = 6:
+			if {timer} is "pause":
+				cancel event
+			else:
+				if location of event-block is location(121.5, 36.5, -60.5, "SG4"):
+					make console execute command "//world sg4"
+					make console execute command "//pos1 113,34,-54"
+					make console execute command "//pos2 127,34,-70"
+					make console execute command "//replace gravel air"
 	if event-entity is a villager:
 		if name of event-entity is "Give 30 seconds":
 			if {timer} = 5 or 6:

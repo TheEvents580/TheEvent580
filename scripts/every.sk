@@ -861,50 +861,50 @@ every tick:
 		#							set {has_trident.%loop-player's uuid%} to true
 
 	else if {jeu_condi} is 6: #Survival Games
+		loop {sg.wb} times:
+			loop {sg.wb} times:
+				if {timer-m} > 10:
+					set {_x.block} to the loop-value-1 * 10 - ceil({sg.wb}) * 5
+					set {_z.block} to the loop-value-2 * 10 - ceil({sg.wb}) * 5
+				else:
+					set {_x.block} to the loop-value-1 * 5 - ceil({sg.wb}) * 3
+					set {_z.block} to the loop-value-2 * 5 - ceil({sg.wb}) * 3.5
+				make 10 of dust using dustOption(blue,2) at location({_x.block},{sg.height},{_z.block},"sg4") with force for all players
 		if {timer} = 6:
 			if {sg.height} > 33.4999999:
 				remove (1/15)/10 from {sg.height}
 				make console execute command "setsgheight %{sg.height}%"
-			loop {sg.wb} times:
-				loop {sg.wb} times:
-					loop all players:
-						set {_x.block} to the (loop-value-1*10)-(ceil({sg.wb})/*5)
-						set {_z.block} to the (loop-value-2*10)-(ceil({sg.wb})/*5)
-						if {alive.%loop-player's uuid%} = false:
-							set {_color.particles} to lime
-						else:
-							set {_color.particles} to red
-						make 10 of dust using dustOption({_color.particles},1) at location({_x.block},{sg.height},{_z.block},"sg4") with force for loop-player
-						set {_x.block.player} to the x-coordinate of loop-player
-						set {_z.block.player} to the z-coordinate of loop-player
-						if {alive.%loop-player's uuid%} = false:
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for loop-player
-							make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for loop-player
-						else:
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for all players
-							make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for all players
+			loop all players:
+				set {_x.block.player} to the x-coordinate of loop-player
+				set {_z.block.player} to the z-coordinate of loop-player
+				if {alive.%loop-player's uuid%} = false:
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for loop-player
+					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for loop-player
+				else:
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for all players
+					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for all players
 
 	#	loop all players:
 	#		if {timer} is 6:
@@ -2530,8 +2530,6 @@ every second:
 								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 16 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
-					if {timer-m} = 4:
-						set {sg.wb} to 30
 					if {timer-m} is 6:
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
@@ -2542,10 +2540,9 @@ every second:
 								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 								send "[&c&lTheEvent580&r] You stayed alive for 13 mins and 30 secs [&5+%checkPoints({pts_lvl_4})%&r工]" to loop-player
-					if {timer-m} = 7:
-						set {sg.wb} to 50
+					if {timer-m} is 7:
+						set {sg.wb} to 5
 					if {timer-m} is 9:
-						set {sg.wb} to 100
 						loop all players:
 							if {alive.%loop-player's uuid%} is true:
 								play sound "custom:coins" in voice category with volume 2 to the loop-player
@@ -2686,6 +2683,7 @@ every second:
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 					if {timer-m} is 7:
+						set {sg.wb} to 3
 						remove 1 from {timer-m}
 						set {timer-s} to 60
 						if {finished_players} is bigger than {checking_finished_players}:
@@ -2743,7 +2741,7 @@ every second:
 						else if {game} is "SG6":
 							make server execute command "execute in minecraft:sg6 run worldborder set 59 45"
 					if {timer-m} is 11:
-						set {sg.wb} to 100
+						set {sg.wb} to 10
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 							if {alive.%loop-player's uuid%} is true:
@@ -2776,7 +2774,7 @@ every second:
 						remove 1 from {timer-m}
 						set {timer-s} to 60
 					if {timer-m} is 13:
-						set {sg.wb} to 200
+						set {sg.wb} to 20
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}
@@ -2809,7 +2807,7 @@ every second:
 						remove 1 from {timer-m}
 						set {timer-s} to 60
 					if {timer-m} is 15:
-						set {sg.wb} to 300
+						set {sg.wb} to 30
 						loop all players:
 							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
 						remove 1 from {timer-m}

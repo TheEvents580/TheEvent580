@@ -811,7 +811,7 @@ command /sg [<text>]:
 	permission message: &cThis command does not exist
 	trigger:
 		set {jeu_condi} to 6
-		set {sg.wb} to 150
+		set {sg.wb} to 40
 		loop all players:
 			if player doesn't have permission "group.spectators":
 				add 1 to {finished_players}
@@ -2471,3 +2471,4 @@ command /wb:
 	permission: *
 	trigger:
 		send "%{sg.wb}%" to sender
+
