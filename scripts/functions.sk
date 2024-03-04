@@ -584,37 +584,38 @@ function checkPoints(points: number) :: text:
 
 function giveRandomItems(p:player):
 	set {_random} to a random number between 1 and 100
+	set {_random} to round({_random})
 	if {_random} = 54:
 		give 1 of carrot on a stick named "&rSwap players and spectators" with lore "&rRight click to swap the players and the spectators" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
-	if {_random} = 66:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
+	else if {_random} = 66:
 		give 1 of carrot on a stick named "&rYou choose the game" with lore "&rRight click to choose the game" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
-	if {_random} is between 1 and 19:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
+	else if {_random} is between 1 and 19:
 		give 1 of golden chestplate named "&rVote x2" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
-	if {_random} is between 20 and 29:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
+	else if {_random} is between 20 and 29:
 		give 1 of diamond chestplate named "&rVote x3" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &b&lRARE&r ""Vote x3"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &b&lRARE&r ""Vote x3"" !" to loop-player
-	if {_random} is between 81 and 85:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
+	else if {_random} is between 81 and 85:
 		give 1 of carrot on a stick named "&rBlock a game" with lore "&rRight click in a game category to block this game" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &5&lEPIC&r ""Block a game"" !" to loop-player
-	if {_random} is between 30 and 39:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
+	else if {_random} is between 30 and 39:
 		set {_netheritesword} to a netherite sword named "&rKill a player"
 		set {_netheriteswordnbt} to nbt compound of {_netheritesword}
 		add nbt compound of "{Damage:2030}" to {_netheriteswordnbt}
@@ -622,22 +623,26 @@ function giveRandomItems(p:player):
 		give 1 of {_netheritesword} to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
-	if {_random} is between 40 and 49:
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
+	else if {_random} is between 40 and 49:
 		set {_crossbow} to a crossbow named "&rKill a player"
 		set {_crossbownbt} to nbt compound of {_crossbow}
 		add nbt compound of "{Damage:465,ChargedProjectiles:[{id:""minecraft:arrow"",Count:1b}],Charged:1b}" to {_crossbownbt}
 		send "[&c&lTheEvent580&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
 		give 1 of {_crossbow} to {_p}
-	if {_random} is between 70 and 79:
+	else if {_random} is between 70 and 79:
 		give 1 of minecart named "&rGrab a player" with lore "&rClick on a player to grab them on you" to {_p}
 		send "[&c&lTheEvent580&r] You recieved &b&lRARE&r ""Grab a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r recieved &b&lRARE&r ""Grab a player"" !" to loop-player
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
+	else:
+		loop all players:
+			if loop-player has permission "group.specators":
+				send "[&c&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
 
 function blockGame(game:text,p:player):
 	if {_game} = "Dropper":
