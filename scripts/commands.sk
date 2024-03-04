@@ -287,7 +287,7 @@ command /reset:
 					heal loop-player
 					reveal hidden players of loop-player
 					if {flag.%loop-player's uuid%} is not false:
-						set helmet of loop-player to carrot on a stick named "%{flag.%loop-player's uuid%}%"
+						set helmet of player to {flag.%player's uuid%}
 					if loop-player has permission "theevent580.staff":
 						send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 						send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
@@ -458,7 +458,7 @@ command /consolereset:
 			heal loop-player
 			reveal hidden players of loop-player
 			if {flag.%loop-player's uuid%} is not false:
-				set helmet of loop-player to carrot on a stick named "%{flag.%loop-player's uuid%}%"
+				set helmet of player to {flag.%player's uuid%}
 			if loop-player has permission "theevent580.staff":
 				send "[&c&lTheEvent580 - Admin&r] Reset ended" to loop-player
 				send "[&c&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player

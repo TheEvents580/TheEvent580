@@ -3111,6 +3111,7 @@ every second:
 			set {l6} to {jeu_nom}
 			set {jeu_nom} to "&rHub"
 			loop all players:
+				set helmet of loop-player to {flag.%loop-player's uuid%}
 				set {gamemode.%loop-player's uuid%} to 2
 				set {points_game.%loop-player's uuid%} to 0
 				set the game mode of loop-player to adventure
