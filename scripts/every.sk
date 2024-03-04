@@ -17,7 +17,8 @@ every tick:
 					add 1 to {compl_parcour.%loop-player's uuid%}
 					updateParkour()
 				if block 0 meter below loop-player is water:
-					make loop-player execute command "spawn"
+					if loop-player's gamemode is adventure:
+						make loop-player execute command "spawn"
 				if block 0 or 1 meter below loop-player is dirt path:
 					remove speed from loop-player
 					apply speed 2 without particles to loop-player for 1 second
