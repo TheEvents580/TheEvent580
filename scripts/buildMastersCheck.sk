@@ -17,8 +17,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1014 all run clone -11 138 10001 -11 129 10010 19 131 1014"
@@ -38,8 +38,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1035 all run clone -11 138 10001 -11 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1035 all run setblock 1 133 10030 red_concrete"
@@ -58,8 +58,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1056 all run clone -11 138 10001 -11 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1056 all run setblock 1 135 10030 red_concrete"
@@ -78,8 +78,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1077 all run clone -11 138 10001 -11 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 5 128 1077 all run setblock 1 137 10030 red_concrete"
@@ -98,8 +98,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 993 all run clone -11 138 10001 -11 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 993 all run setblock 1 139 10030 red_concrete"
@@ -118,8 +118,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1014 all run clone -11 138 10001 -11 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1014 all run setblock 1 141 10030 red_concrete"
@@ -138,8 +138,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1035 all run setblock 1 143 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1035 all run clone -11 138 10001 -11 129 10010 40 131 1035"
@@ -158,8 +158,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1056 all run setblock 1 145 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1056 all run clone -11 138 10001 -11 129 10010 40 131 1056"
@@ -178,8 +178,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1077 all run setblock 1 147 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 26 128 1077 all run clone -11 138 10001 -11 129 10010 40 131 1077"
@@ -198,8 +198,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 993 all run clone -11 138 10001 -11 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 993 all run setblock 1 149 10030 red_concrete"
@@ -218,8 +218,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1014 all run setblock 1 151 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1014 all run clone -11 138 10001 -11 129 10010 61 131 1014"
@@ -238,8 +238,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1035 all run setblock 1 153 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1035 all run clone -11 138 10001 -11 129 10010 61 131 1035"
@@ -258,8 +258,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1056 all run clone -11 138 10001 -11 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1056 all run setblock 1 155 10030 red_concrete"
@@ -278,8 +278,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1077 all run setblock 1 157 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 47 128 1077 all run clone -11 138 10001 -11 129 10010 61 131 1077"
@@ -298,8 +298,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 993 all run setblock 1 159 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 993 all run clone -11 138 10001 -11 129 10010 82 131 993"
@@ -318,8 +318,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1014 all run setblock 1 161 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1014 all run clone -11 138 10001 -11 129 10010 82 131 1014"
@@ -338,8 +338,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1035 all run setblock 1 163 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1035 all run clone -11 138 10001 -11 129 10010 82 131 1035"
@@ -358,8 +358,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1056 all run setblock 1 165 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1056 all run clone -11 138 10001 -11 129 10010 82 131 1056"
@@ -378,8 +378,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1077 all run setblock 1 167 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 68 128 1077 all run clone -11 138 10001 -11 129 10010 82 131 1077"
@@ -398,8 +398,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 993 all run setblock 1 169 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 993 all run clone -11 138 10001 -11 129 10010 103 131 993"
@@ -418,8 +418,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1014 all run setblock 1 171 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1014 all run clone -11 138 10001 -11 129 10010 103 131 1014"
@@ -438,8 +438,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1035 all run setblock 1 173 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1035 all run clone -11 138 10001 -11 129 10010 103 131 1035"
@@ -458,8 +458,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1056 all run setblock 1 175 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1056 all run clone -11 138 10001 -11 129 10010 103 131 1056"
@@ -478,8 +478,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1077 all run setblock 1 177 10030 red_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 143 10019 12 143 10028 89 128 1077 all run clone -11 138 10001 -11 129 10010 103 131 1077"
@@ -498,8 +498,8 @@ function checkBuild1(p:int):
 					add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(5*{multiplier}) from {pts_lvl_1}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 
 function checkBuild2(p:int):
 	if {_p} is 0:
@@ -520,8 +520,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1014 all run clone -53 138 10001 -53 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1014 all run setblock 1 131 10030 orange_concrete"
@@ -540,8 +540,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1035 all run clone -53 138 10001 -53 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1035 all run setblock 1 133 10030 orange_concrete"
@@ -560,8 +560,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1056 all run clone -53 138 10001 -53 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1056 all run setblock 1 135 10030 orange_concrete"
@@ -580,8 +580,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1077 all run clone -53 138 10001 -53 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 5 128 1077 all run setblock 1 137 10030 orange_concrete"
@@ -600,8 +600,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 993 all run clone -53 138 10001 -53 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 993 all run setblock 1 139 10030 orange_concrete"
@@ -620,8 +620,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1014 all run clone -53 138 10001 -53 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1014 all run setblock 1 141 10030 orange_concrete"
@@ -640,8 +640,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1035 all run clone -53 138 10001 -53 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1035 all run setblock 1 143 10030 orange_concrete"
@@ -660,8 +660,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1056 all run clone -53 138 10001 -53 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1056 all run setblock 1 145 10030 orange_concrete"
@@ -680,8 +680,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1077 all run clone -53 138 10001 -53 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 26 128 1077 all run setblock 1 147 10030 orange_concrete"
@@ -700,8 +700,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 993 all run clone -53 138 10001 -53 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 993 all run setblock 1 149 10030 orange_concrete"
@@ -720,8 +720,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1014 all run clone -53 138 10001 -53 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1014 all run setblock 1 151 10030 orange_concrete"
@@ -740,8 +740,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1035 all run clone -53 138 10001 -53 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1035 all run setblock 1 153 10030 orange_concrete"
@@ -760,8 +760,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1056 all run clone -53 138 10001 -53 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1056 all run setblock 1 155 10030 orange_concrete"
@@ -780,8 +780,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1077 all run clone -53 138 10001 -53 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 47 128 1077 all run setblock 1 157 10030 orange_concrete"
@@ -800,8 +800,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 993 all run clone -53 138 10001 -53 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 993 all run setblock 1 159 10030 orange_concrete"
@@ -820,8 +820,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1014 all run clone -53 138 10001 -53 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1014 all run setblock 1 161 10030 orange_concrete"
@@ -840,8 +840,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1035 all run clone -53 138 10001 -53 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1035 all run setblock 1 163 10030 orange_concrete"
@@ -860,8 +860,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1056 all run clone -53 138 10001 -53 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1056 all run setblock 1 165 10030 orange_concrete"
@@ -880,8 +880,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1077 all run clone -53 138 10001 -53 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 68 128 1077 all run setblock 1 167 10030 orange_concrete"
@@ -900,8 +900,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 993 all run clone -53 138 10001 -53 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 993 all run setblock 1 169 10030 orange_concrete"
@@ -920,8 +920,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1014 all run clone -53 138 10001 -53 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1014 all run setblock 1 171 10030 orange_concrete"
@@ -940,8 +940,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1035 all run clone -53 138 10001 -53 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1035 all run setblock 1 173 10030 orange_concrete"
@@ -960,8 +960,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1056 all run clone -53 138 10001 -53 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1056 all run setblock 1 175 10030 orange_concrete"
@@ -980,8 +980,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1077 all run clone -53 138 10001 -53 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 150 10019 12 150 10028 89 128 1077 all run setblock 1 177 10030 orange_concrete"
@@ -1000,8 +1000,8 @@ function checkBuild2(p:int):
 					add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(15*{multiplier}) from {pts_lvl_2}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 
 function checkBuild3(p:int):
 	if {_p} is 0:
@@ -1022,8 +1022,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1014 all run clone -5 138 10001 -5 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1014 all run setblock 1 131 10030 yellow_concrete"
@@ -1042,8 +1042,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1035 all run clone -5 138 10001 -5 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1035 all run setblock 1 133 10030 yellow_concrete"
@@ -1062,8 +1062,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1056 all run clone -5 138 10001 -5 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1056 all run setblock 1 135 10030 yellow_concrete"
@@ -1082,8 +1082,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1077 all run clone -5 138 10001 -5 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 5 128 1077 all run setblock 1 137 10030 yellow_concrete"
@@ -1102,8 +1102,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 993 all run clone -5 138 10001 -5 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 993 all run setblock 1 139 10030 yellow_concrete"
@@ -1122,8 +1122,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1014 all run clone -5 138 10001 -5 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1014 all run setblock 1 141 10030 yellow_concrete"
@@ -1142,8 +1142,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1035 all run clone -5 138 10001 -5 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1035 all run setblock 1 143 10030 yellow_concrete"
@@ -1162,8 +1162,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1056 all run clone -5 138 10001 -5 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1056 all run setblock 1 145 10030 yellow_concrete"
@@ -1182,8 +1182,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1077 all run clone -5 138 10001 -5 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 26 128 1077 all run setblock 1 147 10030 yellow_concrete"
@@ -1202,8 +1202,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 993 all run clone -5 138 10001 -5 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 993 all run setblock 1 149 10030 yellow_concrete"
@@ -1222,8 +1222,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1014 all run clone -5 138 10001 -5 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1014 all run setblock 1 151 10030 yellow_concrete"
@@ -1242,8 +1242,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1035 all run clone -5 138 10001 -5 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1035 all run setblock 1 153 10030 yellow_concrete"
@@ -1262,8 +1262,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1056 all run clone -5 138 10001 -5 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1056 all run setblock 1 155 10030 yellow_concrete"
@@ -1282,8 +1282,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1077 all run clone -5 138 10001 -5 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 47 128 1077 all run setblock 1 157 10030 yellow_concrete"
@@ -1302,8 +1302,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 993 all run clone -5 138 10001 -5 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 993 all run setblock 1 159 10030 yellow_concrete"
@@ -1322,8 +1322,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1014 all run clone -5 138 10001 -5 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1014 all run setblock 1 161 10030 yellow_concrete"
@@ -1342,8 +1342,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1035 all run clone -5 138 10001 -5 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1035 all run setblock 1 163 10030 yellow_concrete"
@@ -1362,8 +1362,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1056 all run clone -5 138 10001 -5 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1056 all run setblock 1 165 10030 yellow_concrete"
@@ -1382,8 +1382,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1077 all run clone -5 138 10001 -5 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 68 128 1077 all run setblock 1 167 10030 yellow_concrete"
@@ -1402,8 +1402,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 993 all run clone -5 138 10001 -5 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 993 all run setblock 1 169 10030 yellow_concrete"
@@ -1422,8 +1422,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1014 all run clone -5 138 10001 -5 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1014 all run setblock 1 171 10030 yellow_concrete"
@@ -1442,8 +1442,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1035 all run clone -5 138 10001 -5 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1035 all run setblock 1 173 10030 yellow_concrete"
@@ -1462,8 +1462,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1056 all run clone -5 138 10001 -5 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1056 all run setblock 1 175 10030 yellow_concrete"
@@ -1482,8 +1482,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1077 all run clone -5 138 10001 -5 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 157 10019 12 157 10028 89 128 1077 all run setblock 1 177 10030 yellow_concrete"
@@ -1502,8 +1502,8 @@ function checkBuild3(p:int):
 					add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(25*{multiplier}) from {pts_lvl_3}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 
 function checkBuild4(p:int):
 	if {_p} is 0:
@@ -1524,8 +1524,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1014 all run setblock 1 131 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1014 all run clone -29 138 10001 -29 129 10010 19 131 1014"
@@ -1544,8 +1544,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1035 all run setblock 1 133 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1035 all run clone -29 138 10001 -29 129 10010 19 131 1035"
@@ -1564,8 +1564,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1056 all run setblock 1 135 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1056 all run clone -29 138 10001 -29 129 10010 19 131 1056"
@@ -1584,8 +1584,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1077 all run setblock 1 137 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 5 128 1077 all run clone -29 138 10001 -29 129 10010 19 131 1077"
@@ -1604,8 +1604,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 993 all run setblock 1 139 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 993 all run clone -29 138 10001 -29 129 10010 40 131 993"
@@ -1624,8 +1624,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1014 all run setblock 1 141 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1014 all run clone -29 138 10001 -29 129 10010 40 131 1014"
@@ -1644,8 +1644,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1035 all run setblock 1 143 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1035 all run clone -29 138 10001 -29 129 10010 40 131 1035"
@@ -1664,8 +1664,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1056 all run setblock 1 145 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1056 all run clone -29 138 10001 -29 129 10010 40 131 1056"
@@ -1684,8 +1684,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1077 all run setblock 1 147 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 26 128 1077 all run clone -29 138 10001 -29 129 10010 40 131 1077"
@@ -1704,8 +1704,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 993 all run setblock 1 149 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 993 all run clone -29 138 10001 -29 129 10010 61 131 993"
@@ -1724,8 +1724,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1014 all run setblock 1 151 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1014 all run clone -29 138 10001 -29 129 10010 61 131 1014"
@@ -1744,8 +1744,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1035 all run setblock 1 153 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1035 all run clone -29 138 10001 -29 129 10010 61 131 1035"
@@ -1764,8 +1764,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1056 all run setblock 1 155 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1056 all run clone -29 138 10001 -29 129 10010 61 131 1056"
@@ -1784,8 +1784,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1077 all run setblock 1 157 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 47 128 1077 all run clone -29 138 10001 -29 129 10010 61 131 1077"
@@ -1804,8 +1804,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 993 all run setblock 1 159 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 993 all run clone -29 138 10001 -29 129 10010 82 131 993"
@@ -1824,8 +1824,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1014 all run setblock 1 161 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1014 all run clone -29 138 10001 -29 129 10010 82 131 1014"
@@ -1844,8 +1844,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1035 all run setblock 1 163 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1035 all run clone -29 138 10001 -29 129 10010 82 131 1035"
@@ -1864,8 +1864,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1056 all run setblock 1 165 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1056 all run clone -29 138 10001 -29 129 10010 82 131 1056"
@@ -1884,8 +1884,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1077 all run setblock 1 167 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 68 128 1077 all run clone -29 138 10001 -29 129 10010 82 131 1077"
@@ -1904,8 +1904,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 993 all run setblock 1 169 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 993 all run clone -29 138 10001 -29 129 10010 103 131 993"
@@ -1924,8 +1924,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1014 all run setblock 1 171 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1014 all run clone -29 138 10001 -29 129 10010 103 131 1014"
@@ -1944,8 +1944,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1035 all run setblock 1 173 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1035 all run clone -29 138 10001 -29 129 10010 103 131 1035"
@@ -1964,8 +1964,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1056 all run setblock 1 175 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1056 all run clone -29 138 10001 -29 129 10010 103 131 1056"
@@ -1984,8 +1984,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1077 all run setblock 1 177 10030 green_concrete"
 		make server execute command "execute in minecraft:build_masters if blocks 3 164 10019 12 164 10028 89 128 1077 all run clone -29 138 10001 -29 129 10010 103 131 1077"
@@ -2004,8 +2004,8 @@ function checkBuild4(p:int):
 					add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(30*{multiplier}) from {pts_lvl_4}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 
 function checkBuild5(p:int):
 	if {_p} is 0:
@@ -2026,8 +2026,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1014 all run clone -41 138 10001 -41 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1014 all run setblock 1 131 10030 cyan_concrete"
@@ -2046,8 +2046,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1035 all run clone -41 138 10001 -41 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1035 all run setblock 1 133 10030 cyan_concrete"
@@ -2066,8 +2066,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1056 all run clone -41 138 10001 -41 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1056 all run setblock 1 135 10030 cyan_concrete"
@@ -2086,8 +2086,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1077 all run clone -41 138 10001 -41 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 5 128 1077 all run setblock 1 137 10030 cyan_concrete"
@@ -2106,8 +2106,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 993 all run clone -41 138 10001 -41 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 993 all run setblock 1 139 10030 cyan_concrete"
@@ -2126,8 +2126,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1014 all run clone -41 138 10001 -41 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1014 all run setblock 1 141 10030 cyan_concrete"
@@ -2146,8 +2146,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1035 all run clone -41 138 10001 -41 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1035 all run setblock 1 143 10030 cyan_concrete"
@@ -2166,8 +2166,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1056 all run clone -41 138 10001 -41 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1056 all run setblock 1 145 10030 cyan_concrete"
@@ -2186,8 +2186,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1077 all run clone -41 138 10001 -41 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 26 128 1077 all run setblock 1 147 10030 cyan_concrete"
@@ -2206,8 +2206,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 993 all run clone -41 138 10001 -41 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 993 all run setblock 1 149 10030 cyan_concrete"
@@ -2226,8 +2226,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1014 all run clone -41 138 10001 -41 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1014 all run setblock 1 151 10030 cyan_concrete"
@@ -2246,8 +2246,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1035 all run clone -41 138 10001 -41 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1035 all run setblock 1 153 10030 cyan_concrete"
@@ -2266,8 +2266,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1056 all run clone -41 138 10001 -41 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1056 all run setblock 1 155 10030 cyan_concrete"
@@ -2286,8 +2286,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1077 all run clone -41 138 10001 -41 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 47 128 1077 all run setblock 1 157 10030 cyan_concrete"
@@ -2306,8 +2306,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 993 all run clone -41 138 10001 -41 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 993 all run setblock 1 159 10030 cyan_concrete"
@@ -2326,8 +2326,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1014 all run clone -41 138 10001 -41 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1014 all run setblock 1 161 10030 cyan_concrete"
@@ -2346,8 +2346,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1035 all run clone -41 138 10001 -41 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1035 all run setblock 1 163 10030 cyan_concrete"
@@ -2366,8 +2366,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1056 all run clone -41 138 10001 -41 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1056 all run setblock 1 165 10030 cyan_concrete"
@@ -2386,8 +2386,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1077 all run clone -41 138 10001 -41 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 68 128 1077 all run setblock 1 167 10030 cyan_concrete"
@@ -2406,8 +2406,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 993 all run clone -41 138 10001 -41 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 993 all run setblock 1 169 10030 cyan_concrete"
@@ -2426,8 +2426,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1014 all run clone -41 138 10001 -41 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1014 all run setblock 1 171 10030 cyan_concrete"
@@ -2446,8 +2446,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1035 all run clone -41 138 10001 -41 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1035 all run setblock 1 173 10030 cyan_concrete"
@@ -2466,8 +2466,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1056 all run clone -41 138 10001 -41 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1056 all run setblock 1 175 10030 cyan_concrete"
@@ -2486,8 +2486,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1077 all run clone -41 138 10001 -41 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 171 10019 12 171 10028 89 128 1077 all run setblock 1 177 10030 cyan_concrete"
@@ -2506,8 +2506,8 @@ function checkBuild5(p:int):
 					add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(40*{multiplier}) from {pts_lvl_5}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 
 function checkBuild6(p:int):
 	if {_p} is 0:
@@ -2528,8 +2528,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1014 all run clone -17 138 10001 -17 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1014 all run setblock 1 131 10030 light_blue_concrete"
@@ -2548,8 +2548,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1035 all run clone -17 138 10001 -17 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1035 all run setblock 1 133 10030 light_blue_concrete"
@@ -2568,8 +2568,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1056 all run clone -17 138 10001 -17 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1056 all run setblock 1 135 10030 light_blue_concrete"
@@ -2588,8 +2588,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1077 all run clone -17 138 10001 -17 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 5 128 1077 all run setblock 1 137 10030 light_blue_concrete"
@@ -2608,8 +2608,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 993 all run clone -17 138 10001 -17 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 993 all run setblock 1 139 10030 light_blue_concrete"
@@ -2628,8 +2628,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1014 all run clone -17 138 10001 -17 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1014 all run setblock 1 141 10030 light_blue_concrete"
@@ -2648,8 +2648,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1035 all run clone -17 138 10001 -17 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1035 all run setblock 1 143 10030 light_blue_concrete"
@@ -2668,8 +2668,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1056 all run clone -17 138 10001 -17 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1056 all run setblock 1 145 10030 light_blue_concrete"
@@ -2688,8 +2688,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1077 all run clone -17 138 10001 -17 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 26 128 1077 all run setblock 1 147 10030 light_blue_concrete"
@@ -2708,8 +2708,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 993 all run clone -17 138 10001 -17 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 993 all run setblock 1 149 10030 light_blue_concrete"
@@ -2728,8 +2728,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1014 all run clone -17 138 10001 -17 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1014 all run setblock 1 151 10030 light_blue_concrete"
@@ -2748,8 +2748,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1035 all run clone -17 138 10001 -17 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1035 all run setblock 1 153 10030 light_blue_concrete"
@@ -2768,8 +2768,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1056 all run clone -17 138 10001 -17 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1056 all run setblock 1 155 10030 light_blue_concrete"
@@ -2788,8 +2788,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1077 all run clone -17 138 10001 -17 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 47 128 1077 all run setblock 1 157 10030 light_blue_concrete"
@@ -2808,8 +2808,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 993 all run clone -17 138 10001 -17 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 993 all run setblock 1 159 10030 light_blue_concrete"
@@ -2828,8 +2828,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1014 all run clone -17 138 10001 -17 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1014 all run setblock 1 161 10030 light_blue_concrete"
@@ -2848,8 +2848,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1035 all run clone -17 138 10001 -17 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1035 all run setblock 1 163 10030 light_blue_concrete"
@@ -2868,8 +2868,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1056 all run clone -17 138 10001 -17 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1056 all run setblock 1 165 10030 light_blue_concrete"
@@ -2888,8 +2888,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1077 all run clone -17 138 10001 -17 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 68 128 1077 all run setblock 1 167 10030 light_blue_concrete"
@@ -2908,8 +2908,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 993 all run clone -17 138 10001 -17 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 993 all run setblock 1 169 10030 light_blue_concrete"
@@ -2928,8 +2928,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1014 all run clone -17 138 10001 -17 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1014 all run setblock 1 171 10030 light_blue_concrete"
@@ -2948,8 +2948,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1035 all run clone -17 138 10001 -17 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1035 all run setblock 1 173 10030 light_blue_concrete"
@@ -2968,8 +2968,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1056 all run clone -17 138 10001 -17 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1056 all run setblock 1 175 10030 light_blue_concrete"
@@ -2988,8 +2988,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1077 all run clone -17 138 10001 -17 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 178 10019 12 178 10028 89 128 1077 all run setblock 1 177 10030 light_blue_concrete"
@@ -3008,8 +3008,8 @@ function checkBuild6(p:int):
 					add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(55*{multiplier}) from {pts_lvl_6}
-					add 4 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 4 minutes from completing this build" to loop-player
+					add 5 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
 
 function checkBuild7(p:int):
 	if {_p} is 0:
@@ -3030,8 +3030,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1014 all run clone -35 138 10001 -35 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1014 all run setblock 1 131 10030 blue_concrete"
@@ -3050,8 +3050,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1035 all run clone -35 138 10001 -35 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1035 all run setblock 1 133 10030 blue_concrete"
@@ -3070,8 +3070,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1056 all run clone -35 138 10001 -35 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1056 all run setblock 1 135 10030 blue_concrete"
@@ -3090,8 +3090,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1077 all run clone -35 138 10001 -35 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 5 128 1077 all run setblock 1 137 10030 blue_concrete"
@@ -3110,8 +3110,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 993 all run clone -35 138 10001 -35 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 993 all run setblock 1 139 10030 blue_concrete"
@@ -3130,8 +3130,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1014 all run clone -35 138 10001 -35 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1014 all run setblock 1 141 10030 blue_concrete"
@@ -3150,8 +3150,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1035 all run clone -35 138 10001 -35 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1035 all run setblock 1 143 10030 blue_concrete"
@@ -3170,8 +3170,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1056 all run clone -35 138 10001 -35 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1056 all run setblock 1 145 10030 blue_concrete"
@@ -3190,8 +3190,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1077 all run clone -35 138 10001 -35 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 26 128 1077 all run setblock 1 147 10030 blue_concrete"
@@ -3210,8 +3210,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 993 all run clone -35 138 10001 -35 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 993 all run setblock 1 149 10030 blue_concrete"
@@ -3230,8 +3230,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1014 all run clone -35 138 10001 -35 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1014 all run setblock 1 151 10030 blue_concrete"
@@ -3250,8 +3250,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1035 all run clone -35 138 10001 -35 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1035 all run setblock 1 153 10030 blue_concrete"
@@ -3270,8 +3270,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1056 all run clone -35 138 10001 -35 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1056 all run setblock 1 155 10030 blue_concrete"
@@ -3290,8 +3290,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1077 all run clone -35 138 10001 -35 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 47 128 1077 all run setblock 1 157 10030 blue_concrete"
@@ -3310,8 +3310,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 993 all run clone -35 138 10001 -35 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 993 all run setblock 1 159 10030 blue_concrete"
@@ -3330,8 +3330,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1014 all run clone -35 138 10001 -35 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1014 all run setblock 1 161 10030 blue_concrete"
@@ -3350,8 +3350,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1035 all run clone -35 138 10001 -35 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1035 all run setblock 1 163 10030 blue_concrete"
@@ -3370,8 +3370,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1056 all run clone -35 138 10001 -35 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1056 all run setblock 1 165 10030 blue_concrete"
@@ -3390,8 +3390,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1077 all run clone -35 138 10001 -35 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 68 128 1077 all run setblock 1 167 10030 blue_concrete"
@@ -3410,8 +3410,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 993 all run clone -35 138 10001 -35 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 993 all run setblock 1 169 10030 blue_concrete"
@@ -3430,8 +3430,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1014 all run clone -35 138 10001 -35 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1014 all run setblock 1 171 10030 blue_concrete"
@@ -3450,8 +3450,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1035 all run clone -35 138 10001 -35 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1035 all run setblock 1 173 10030 blue_concrete"
@@ -3470,8 +3470,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1056 all run clone -35 138 10001 -35 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1056 all run setblock 1 175 10030 blue_concrete"
@@ -3490,8 +3490,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1077 all run clone -35 138 10001 -35 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 185 10019 12 185 10028 89 128 1077 all run setblock 1 177 10030 blue_concrete"
@@ -3510,8 +3510,8 @@ function checkBuild7(p:int):
 					add {pts_lvl_7} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(70*{multiplier}) from {pts_lvl_7}
-					add 5 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 5 minutes from completing this build" to loop-player
+					add 6 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
 
 function checkBuild8(p:int):
 	if {_p} is 0:
@@ -3532,8 +3532,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1014 all run clone -47 138 10001 -47 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1014 all run setblock 1 131 10030 purple_concrete"
@@ -3552,8 +3552,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1035 all run clone -47 138 10001 -47 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1035 all run setblock 1 133 10030 purple_concrete"
@@ -3572,8 +3572,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1056 all run clone -47 138 10001 -47 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1056 all run setblock 1 135 10030 purple_concrete"
@@ -3592,8 +3592,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1077 all run clone -47 138 10001 -47 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 5 128 1077 all run setblock 1 137 10030 purple_concrete"
@@ -3612,8 +3612,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 993 all run clone -47 138 10001 -47 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 993 all run setblock 1 139 10030 purple_concrete"
@@ -3632,8 +3632,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1014 all run clone -47 138 10001 -47 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1014 all run setblock 1 141 10030 purple_concrete"
@@ -3652,8 +3652,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1035 all run clone -47 138 10001 -47 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1035 all run setblock 1 143 10030 purple_concrete"
@@ -3672,8 +3672,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1056 all run clone -47 138 10001 -47 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1056 all run setblock 1 145 10030 purple_concrete"
@@ -3692,8 +3692,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1077 all run clone -47 138 10001 -47 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 26 128 1077 all run setblock 1 147 10030 purple_concrete"
@@ -3712,8 +3712,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 993 all run clone -47 138 10001 -47 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 993 all run setblock 1 149 10030 purple_concrete"
@@ -3732,8 +3732,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1014 all run clone -47 138 10001 -47 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1014 all run setblock 1 151 10030 purple_concrete"
@@ -3752,8 +3752,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1035 all run clone -47 138 10001 -47 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1035 all run setblock 1 153 10030 purple_concrete"
@@ -3772,8 +3772,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1056 all run clone -47 138 10001 -47 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1056 all run setblock 1 155 10030 purple_concrete"
@@ -3792,8 +3792,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1077 all run clone -47 138 10001 -47 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 47 128 1077 all run setblock 1 157 10030 purple_concrete"
@@ -3812,8 +3812,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 993 all run clone -47 138 10001 -47 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 993 all run setblock 1 159 10030 purple_concrete"
@@ -3832,8 +3832,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1014 all run clone -47 138 10001 -47 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1014 all run setblock 1 161 10030 purple_concrete"
@@ -3852,8 +3852,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1035 all run clone -47 138 10001 -47 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1035 all run setblock 1 163 10030 purple_concrete"
@@ -3872,8 +3872,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1056 all run clone -47 138 10001 -47 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1056 all run setblock 1 165 10030 purple_concrete"
@@ -3892,8 +3892,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1077 all run clone -47 138 10001 -47 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 68 128 1077 all run setblock 1 167 10030 purple_concrete"
@@ -3912,8 +3912,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 993 all run clone -47 138 10001 -47 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 993 all run setblock 1 169 10030 purple_concrete"
@@ -3932,8 +3932,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1014 all run clone -47 138 10001 -47 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1014 all run setblock 1 171 10030 purple_concrete"
@@ -3952,8 +3952,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1035 all run clone -47 138 10001 -47 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1035 all run setblock 1 173 10030 purple_concrete"
@@ -3972,8 +3972,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1056 all run clone -47 138 10001 -47 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1056 all run setblock 1 175 10030 purple_concrete"
@@ -3992,8 +3992,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1077 all run clone -47 138 10001 -47 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 192 10019 12 192 10028 89 128 1077 all run setblock 1 177 10030 purple_concrete"
@@ -4012,8 +4012,8 @@ function checkBuild8(p:int):
 					add {pts_lvl_8} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(80*{multiplier}) from {pts_lvl_8}
-					add 8 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 8 minutes from completing this build" to loop-player
+					add 9 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 9 minutes from completing this build" to loop-player
 
 function checkBuild9(p:int):
 	if {_p} is 0:
@@ -4034,8 +4034,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 1:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1014 all run clone -59 138 10001 -59 129 10010 19 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1014 all run setblock 1 131 10030 magenta_concrete"
@@ -4054,8 +4054,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 2:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1035 all run clone -59 138 10001 -59 129 10010 19 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1035 all run setblock 1 133 10030 magenta_concrete"
@@ -4074,8 +4074,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 3:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1056 all run clone -59 138 10001 -59 129 10010 19 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1056 all run setblock 1 135 10030 magenta_concrete"
@@ -4094,8 +4094,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 4:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1077 all run clone -59 138 10001 -59 129 10010 19 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 5 128 1077 all run setblock 1 137 10030 magenta_concrete"
@@ -4114,8 +4114,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 5:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 993 all run clone -59 138 10001 -59 129 10010 40 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 993 all run setblock 1 139 10030 magenta_concrete"
@@ -4134,8 +4134,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 6:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1014 all run clone -59 138 10001 -59 129 10010 40 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1014 all run setblock 1 141 10030 magenta_concrete"
@@ -4154,8 +4154,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 7:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1035 all run clone -59 138 10001 -59 129 10010 40 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1035 all run setblock 1 143 10030 magenta_concrete"
@@ -4174,8 +4174,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 8:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1056 all run clone -59 138 10001 -59 129 10010 40 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1056 all run setblock 1 145 10030 magenta_concrete"
@@ -4194,8 +4194,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 9:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1077 all run clone -59 138 10001 -59 129 10010 40 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 26 128 1077 all run setblock 1 147 10030 magenta_concrete"
@@ -4214,8 +4214,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 10:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 993 all run clone -59 138 10001 -59 129 10010 61 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 993 all run setblock 1 149 10030 magenta_concrete"
@@ -4234,8 +4234,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 11:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1014 all run clone -59 138 10001 -59 129 10010 61 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1014 all run setblock 1 151 10030 magenta_concrete"
@@ -4254,8 +4254,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 12:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1035 all run clone -59 138 10001 -59 129 10010 61 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1035 all run setblock 1 153 10030 magenta_concrete"
@@ -4274,8 +4274,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 13:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1056 all run clone -59 138 10001 -59 129 10010 61 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1056 all run setblock 1 155 10030 magenta_concrete"
@@ -4294,8 +4294,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 14:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1077 all run clone -59 138 10001 -59 129 10010 61 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 47 128 1077 all run setblock 1 157 10030 magenta_concrete"
@@ -4314,8 +4314,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 15:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 993 all run clone -59 138 10001 -59 129 10010 82 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 993 all run setblock 1 159 10030 magenta_concrete"
@@ -4334,8 +4334,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 16:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1014 all run clone -59 138 10001 -59 129 10010 82 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1014 all run setblock 1 161 10030 magenta_concrete"
@@ -4354,8 +4354,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 17:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1035 all run clone -59 138 10001 -59 129 10010 82 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1035 all run setblock 1 163 10030 magenta_concrete"
@@ -4374,8 +4374,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 18:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1056 all run clone -59 138 10001 -59 129 10010 82 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1056 all run setblock 1 165 10030 magenta_concrete"
@@ -4394,8 +4394,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 19:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1077 all run clone -59 138 10001 -59 129 10010 82 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 68 128 1077 all run setblock 1 167 10030 magenta_concrete"
@@ -4414,8 +4414,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 20:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 993 all run clone -59 138 10001 -59 129 10010 103 131 993"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 993 all run setblock 1 169 10030 magenta_concrete"
@@ -4434,8 +4434,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 21:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1014 all run clone -59 138 10001 -59 129 10010 103 131 1014"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1014 all run setblock 1 171 10030 magenta_concrete"
@@ -4454,8 +4454,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 22:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1035 all run clone -59 138 10001 -59 129 10010 103 131 1035"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1035 all run setblock 1 173 10030 magenta_concrete"
@@ -4474,8 +4474,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 23:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1056 all run clone -59 138 10001 -59 129 10010 103 131 1056"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1056 all run setblock 1 175 10030 magenta_concrete"
@@ -4494,8 +4494,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 	else if {_p} is 24:
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1077 all run clone -59 138 10001 -59 129 10010 103 131 1077"
 		make server execute command "execute in minecraft:build_masters if blocks 3 199 10019 12 199 10028 89 128 1077 all run setblock 1 177 10030 magenta_concrete"
@@ -4514,8 +4514,8 @@ function checkBuild9(p:int):
 					add {pts_lvl_9} to {total_points_event.%loop-player's uuid%}
 					add 1 to {builds_total}
 					remove round(95*{multiplier}) from {pts_lvl_9}
-					add 6 to {timer_minute.%loop-player's uuid%}
-					send "[&c&lTheEvent580&r] You gained 6 minutes from completing this build" to loop-player
+					add 7 to {timer_minute.%loop-player's uuid%}
+					send "[&c&lTheEvent580&r] You gained 7 minutes from completing this build" to loop-player
 
 function checkBuild10(p:int):
 	if {_p} is 0:

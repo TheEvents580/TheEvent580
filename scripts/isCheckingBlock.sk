@@ -7,4 +7,8 @@ every tick:
                         if type of loop-player's targeted block is not light block:
                             set {_block.%loop-player's uuid%} to type of loop-player's targeted block
                             set {_block.%loop-player's uuid%} to "%{_block.%loop-player's uuid%}%"
+                            if {_block.%loop-player's uuid%} is "lime carpet" or "red carpet" or "yellow carpet" or "orange carpet":
+                                set {_block.%loop-player's uuid%} to "boost pad"
+                            if {_block.%loop-player's uuid%} is "dark green carpet" or "cyan carpet":
+                                set {_block.%loop-player's uuid%} to "jump pad"
                             send action bar "%{_block.%loop-player's uuid%} in strict proper case%" to loop-player

@@ -796,7 +796,7 @@ on break:
 				cancel event
 		else if {jeu_condi} is 9:
 			if {finished.%player's uuid%} is false:
-				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks:
+				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks or lime carpet or red carpet or yellow carpet or orange carpet or green carpet or cyan carpet:
 					cancel event
 				if the z-coordinate of player < 3000:
 					if the y-coordinate of block is bigger than 129:

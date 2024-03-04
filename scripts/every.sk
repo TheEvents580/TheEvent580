@@ -1888,7 +1888,7 @@ every second:
 							send "[&c&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&1Build Masters" to loop-player
 							set {event_state} to "Game &r&1Build Masters"
 					set {timer} to 6
-					set {timer-m} to 30
+					set {timer-m} to 59
 					set {timer-s} to 60
 					set {blue} to -10000
 			if {jeu_nom} is "&5&lLabyrinth":
@@ -2393,214 +2393,7 @@ every second:
 						set {damage} to 1
 						set {finished_players} to 0
 						make server execute command "clear @a"
-					if {timer-m} is 1:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						set {timer-m} to 0
-						set {timer-s} to 60
-					if {timer-m} is 2:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						set {timer-m} to 1
-						set {timer-s} to 60
-					if {timer-m} is 3:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 4:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 5:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 6:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 7:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 8:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 9:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 10:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 11:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 12:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 13:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 14:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 15:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 16:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 17:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 18:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 19:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						if {jeu_condi} is 3:
-							set {damage} to 0
-						else if {jeu_condi} is 6:
-							set {damage} to 3
-					if {timer-m} is 20:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 21:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 22:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 23:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 24:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 25:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 26:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 27:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 28:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 29:
-						if {jeu_condi} = 9:
-							refillAll()
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 30:
+					if {timer-m} > 0:
 						if {jeu_condi} = 9:
 							refillAll()
 						loop all players:
@@ -2615,11 +2408,12 @@ every second:
 								add 60 to {timer_second.%loop-player's uuid%}
 							remove 1 from {timer_second.%loop-player's uuid%}
 				remove 1 from {timer-s}
-			set {_online_players_finished} to 0
+			set {online_players_finished} to 0
 			loop all players:
 				if {finished.%loop-player's uuid%} is true:
-					add 1 to {_online_players_finished}
-			if {_online_players_finished} is {online_players}:
+					if loop-player doesn't have permission "group.spectators":
+						add 1 to {online_players_finished}
+			if {online_players_finished} is {online_players}:
 				force all players to fly
 				loop all players:
 					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
