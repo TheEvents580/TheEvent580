@@ -2472,3 +2472,13 @@ command /wb:
 	trigger:
 		send "%{sg.wb}%" to sender
 
+command /codes:
+	permission: theevent580.staff
+	trigger:
+		send "Here are the list of codes on why something ended :" to sender
+		send "Code -1 : Crash somewhere, probably" to sender
+		send "Code 0 : Event has reset" to sender
+		send "Code 1 : Game ended with overall timer being (00:00)" to sender
+		send "Code 2 : Game ended because only one player was left (most liekly Survival Games)" to sender
+		send "Code 3 : Game ended because everyone finished" to sender
+		send "Code 4 : Game ended because all indiv timer was 0 OR players have finished" to sender

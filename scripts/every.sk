@@ -2343,6 +2343,8 @@ every second:
 							play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
 							allow fly for loop-player
 							set {gamemode.%loop-player's uuid%} to 3
+							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580&r] Code : 1" to loop-player
 						if {jeu_condi} is 1:
 							make server execute command "execute in dropper run fill 14 127 10 5 127 1 barrier"
 							loop all players:
@@ -2419,6 +2421,8 @@ every second:
 					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
 					allow fly for loop-player
 					set {gamemode.%loop-player's uuid%} to 3
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580&r] Code : 4" to loop-player
 				if {jeu_condi} is 9:
 					loop all players:
 						if loop-player has permission "theevent580.staff":
@@ -2442,6 +2446,8 @@ every second:
 					play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
 					allow fly for loop-player
 					set {gamemode.%loop-player's uuid%} to 3
+					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580&r] Code : 3" to loop-player
 				if {barrier} is "red":
 					make server execute command "execute in dropper run fill 14 127 10 5 127 1 barrier"
 					loop all players:
@@ -2879,6 +2885,7 @@ every second:
 					allow fly for loop-player
 					set {gamemode.%loop-player's uuid%} to 3
 					if loop-player has permission "theevent580.staff":
+						send "[&c&lTheEvent580&r] Code : 2" to loop-player
 						send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&5Survival Games&r --> &aShowing scores" to loop-player
 						set {event_state} to "Showing scores"
 				if {jeu} is not 6:
@@ -2901,6 +2908,7 @@ every second:
 							allow fly for loop-player
 							set {gamemode.%loop-player's uuid%} to 3
 							if loop-player has permission "theevent580.staff":
+								send "[&c&lTheEvent580&r] Code : 2" to loop-player
 								send "[&c&lTheEvent580 - Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
 								set {event_state} to "Showing scores"
 						if {jeu} is not 6:
