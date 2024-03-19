@@ -12,17 +12,17 @@ function reloadTab():
 	if {jeu_condi} is 5:
 		set {gametab} to "&b&lRaces&r"
 	if {jeu_condi} is 6:
-		set {gametab} to "&1&lSurvival Games&r"
-	if {jeu_condi} is 7:
-		set {gametab} to "&5&lLabyrinth&r"
+		set {gametab} to "&5&lSurvival Games&r"
+	#f {jeu_condi} is 7:
+	#	set {gametab} to "&5&lLabyrinth&r"
 	if {jeu_condi} is 8:
 		set {gametab} to "&d&lBow PVP&r"
 	if {jeu_condi} is 9:
 		set {gametab} to "&1&lBuild Masters&r"
 	#Tests:
-	#set {header} to "            &c&lTheEvent580 • Season 0.5 - Episode 4.5&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&eSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r て%nl%%nl%&eTesters :&r%nl%%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r%nl%%{color.252fda4d-bb94-4449-876d-fec8d172dda0}%Case_Cool&r"
+	#set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>Spectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r て%nl%%nl%<##E2F093>Testers :&r%nl%%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r%nl%%{color.252fda4d-bb94-4449-876d-fec8d172dda0}%Case_Cool&r"
 	#Events:
-	set {header} to "            &c&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%&eCurrently in : &r%{gametab}%%nl%%nl%%nl%&e&lSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%nl%&e&lPlayers :&r%nl%%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%Frogqers&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokiriz&r%nl%%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}%Svubo&r%nl%%{color.750f5ea8-e31b-4581-8db6-d213a755651b}%PrabsSSP&r%nl%%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}%gewoonwifi*&r%nl%%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}%Joeyfish1000*&r%nl%%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}%EinfachStam&r%nl%%{color.128c5102-ce00-4945-8653-c41f4ddefbe7}%BetterPooka&r%nl%%{color.aba34626-90e3-498f-b70c-8314e0bb4277}%KaNukei*&r%nl%%{color.81ff6334-7c28-4159-8b92-8395d00308f1}%makaajana&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1*&r%nl%%nl%%nl%&e* = New players"
+	set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>&lSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%nl%<##E2F093>&lPlayers :&r%nl%%nl%%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}%EinfachStam&r%nl%%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}%Bluekwyrm&r%nl%%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}%Joeyfish1000&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1&r%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%Frogqers&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokirri&r%nl%%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}%gewoonwifi&r%nl%%{color.81ff6334-7c28-4159-8b92-8395d00308f1}%makaajana&r%nl%%nl%%nl%<##E2F093>* = New players"
 	set {blocker} to "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%"
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"
@@ -48,7 +48,7 @@ function reloadTab():
 #	set {head.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "{""translate"":""%%nox_uuid%%cadb7cce-fdae-44ee-9426-ec08cdb6798c,false,0,0,1.0"",""fallback"":""👤""}"
 #	set {color.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "タ &7" #EnCrypTeD__
 #	set {head.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "{""translate"":""%%nox_uuid%%0eab4b9d-596e-4d28-ac75-b934d53f3f2b,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.1ba03542-0da6-4981-bc25-1c303dd2f940} to "タ &7" #SpixKokiri / Kokiriz
+#	set {color.1ba03542-0da6-4981-bc25-1c303dd2f940} to "タ &7" #SpixKokiri / Kokiriz / Kokirri
 #	set {head.1ba03542-0da6-4981-bc25-1c303dd2f940} to "{""translate"":""%%nox_uuid%%1ba03542-0da6-4981-bc25-1c303dd2f940,false,0,0,1.0"",""fallback"":""👤""}"
 #	set {color.cfffe406-66be-4eb9-b72e-dca11de4836b} to "タ &7" #HalfLime_
 #	set {head.cfffe406-66be-4eb9-b72e-dca11de4836b} to "{""translate"":""%%nox_uuid%%cfffe406-66be-4eb9-b72e-dca11de4836b,false,0,0,1.0"",""fallback"":""👤""}"

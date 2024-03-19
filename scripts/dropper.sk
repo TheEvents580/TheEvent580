@@ -54,17 +54,13 @@ every tick:
 						force loop-player to fly
 						allow fly for loop-player
 						teleport loop-player to location(30.0, 129, -118.0, "dropper", 90, 1)
-						command("gamepoints %loop-player% %{pts_lvl_4}%")
-						add {pts_lvl_4} to {points_game.%loop-player's uuid%}
-						command("totalpoints %loop-player% %{pts_lvl_4}%")
+						command("gamepoints %loop-player% %{pts_lvl_4}% Completed &r&c&lDropper")
 						add {pts_lvl_4} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_4} to {total_points_event.%loop-player's uuid%}
 						if {dropper_fin} is false:
 							set {dropper_fin} to true
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete the &c&lDropper&r."
-						else if {dropper_fin} is true:
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed the &c&lDropper&r."
-						send "[&c&lTheEvent580&r] You completed the &c&lDropper&r ! [&c+%checkPoints({pts_lvl_4})% &r工]" to loop-player
+							broadcast "[<##155966>&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete the &c&lDropper&r."
+						send "[<##155966>&lTheEvent580&r] You completed the &c&lDropper&r !" to loop-player
 						remove {remove_pts_lvl_4} from {pts_lvl_4}
 						make console execute command "/see %loop-player%"
 						make console execute command "/hide %loop-player%"
@@ -75,47 +71,35 @@ every tick:
 					if {dropper_level.%loop-player's uuid%} is 3:
 						set {dropper_level.%loop-player's uuid%} to 4
 						teleport loop-player to location(30.0, 129, -87.0, "dropper", 90, 0.1)
-						command("gamepoints %loop-player% %{pts_lvl_3}%")
-						add {pts_lvl_3} to {points_game.%loop-player's uuid%}
-						command("totalpoints %loop-player% %{pts_lvl_3}%")
+						command("gamepoints %loop-player% %{pts_lvl_3}% Completed level 3")
 						add {pts_lvl_3} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_3} is false:
 							set {dropper_lvl_3} to true
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 3."
-						else if {dropper_lvl_3} is true:
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 3."
-						send "[&c&lTheEvent580&r] You completed level 3 [&c+%checkPoints({pts_lvl_3})% &r工]" to loop-player
+							broadcast "[<##155966>&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 3."
+						send "[<##155966>&lTheEvent580&r] You completed level 3" to loop-player
 						remove {remove_pts_lvl_3} from {pts_lvl_3}
 					if {dropper_level.%loop-player's uuid%} is 2:
 						set {dropper_level.%loop-player's uuid%} to 3
 						teleport loop-player to location(30.0, 129, -56.0, "dropper", 90, 1)
-						command("gamepoints %loop-player% %{pts_lvl_2}%")
-						add {pts_lvl_2} to {points_game.%loop-player's uuid%}
-						command("totalpoints %loop-player% %{pts_lvl_2}%")
+						command("gamepoints %loop-player% %{pts_lvl_2}% Completed level 2")
 						add {pts_lvl_2} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_2} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_2} is false:
 							set {dropper_lvl_2} to true
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 2."
-						else if {dropper_lvl_2} is true:
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 2."
-						send "[&c&lTheEvent580&r] You completed level 2 [&c+%checkPoints({pts_lvl_2})% &r工]" to loop-player
+							broadcast "[<##155966>&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 2."
+						send "[<##155966>&lTheEvent580&r] You completed level 2" to loop-player
 						remove {remove_pts_lvl_2} from {pts_lvl_2}
 					if {dropper_level.%loop-player's uuid%} is 1:
 						set {dropper_level.%loop-player's uuid%} to 2
 						teleport loop-player to location(30.0, 129, -25.0, "dropper", 90, 0.1)
-						command("gamepoints %loop-player% %{pts_lvl_1}%")
-						add {pts_lvl_1} to {points_game.%loop-player's uuid%}
-						command("totalpoints %loop-player% %{pts_lvl_1}%")
+						command("gamepoints %loop-player% %{pts_lvl_1}% Completed level 1")
 						add {pts_lvl_1} to {total_points.%loop-player's uuid%}
 						add {pts_lvl_1} to {total_points_event.%loop-player's uuid%}
 						if {dropper_lvl_1} is false:
 							set {dropper_lvl_1} to true
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 1."
-						else if {dropper_lvl_1} is true:
-							broadcast "[&c&lTheEvent580&r] &c&l%loop-player%&r completed level 1."
-						send "[&c&lTheEvent580&r] You completed level 1 [&c+%checkPoints({pts_lvl_1})% &r工]" to loop-player
+							broadcast "[<##155966>&lTheEvent580&r] &c&l%loop-player%&r is the 1st player to complete level 1."
+						send "[<##155966>&lTheEvent580&r] You completed level 1" to loop-player
 						remove {remove_pts_lvl_1} from {pts_lvl_1}
 				if block 1 meter under loop-player is not red_concrete or air or white_concrete or white_wool or water or end_gateway or light or cobweb:
 					if {dropper_level.%loop-player's uuid%} is 1:
