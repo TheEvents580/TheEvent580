@@ -25,6 +25,26 @@ function randomColor():
 		if {color} is 8:
 			make server execute command "execute in minecraft:overworld run setblock 310 64 323 pink_stained_glass"
 
+function setPlayerColor(p:player):
+	if {_p} has permission "group.spectators":
+		set {color.%{_p}'s uuid%} to "露&8 "
+	else if {_p} has permission "group.rouge":
+		set {color.%{_p}'s uuid%} to "ラ&c "
+	else if {_p} has permission "group.orange":
+		set {color.%{_p}'s uuid%} to "ャ&6 "
+	else if {_p} has permission "group.jaune":
+		set {color.%{_p}'s uuid%} to "ギ&e "
+	else if {_p} has permission "group.vert":
+		set {color.%{_p}'s uuid%} to "画&a "
+	else if {_p} has permission "group.bleu_clair":
+		set {color.%{_p}'s uuid%} to "動&b "
+	else if {_p} has permission "group.bleu":
+		set {color.%{_p}'s uuid%} to "像&1 "
+	else if {_p} has permission "group.violet":
+		set {color.%{_p}'s uuid%} to "の&5 "
+	else if {_p} has permission "group.rose":
+		set {color.%{_p}'s uuid%} to "目&d "
+
 function reloadTimer():
 	loop all players:
 		if loop-player doesn't have permission "group.spectators":
@@ -502,44 +522,59 @@ function newPlayers():
 function currentPlayers():
 	send title "Now announcing the players :" to all players for 15 seconds
 	wait 1.5 second
-	send subtitle "%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}% EinfachStam&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "c65a31f2-f0a1-4bc9-9f09-16cb533c78da":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}% Bluekwyrm&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "fedb60d7-ecb9-4c74-8630-c95aa1692b7d":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}% JoeyFish1000&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "82d1eccf-d5a7-4636-8374-891f0d67fcc3":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
 	send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% Frogqers&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "c6ef5a1b-be62-40d2-a156-beffe050c36e":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 second
-	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokirri&r" to all players for 2 seconds
+	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokiriz&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 second
-	send subtitle "%{color.81ff6334-7c28-4159-8b92-8395d00308f1}% makaajana&r" to all players for 2 seconds
+	send subtitle "%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}% Svubo&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "3d09fa7f-be05-4f23-ae1b-a32d2567fd6d":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.750f5ea8-e31b-4581-8db6-d213a755651b}% PrabsSSP&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "750f5ea8-e31b-4581-8db6-d213a755651b":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}% gewoonwifi*&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "b9e8cdfb-a532-4398-956d-a49fb6bfa9f1":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}% Joeyfish1000*&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "82d1eccf-d5a7-4636-8374-891f0d67fcc3":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}% EinfachStam&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "c65a31f2-f0a1-4bc9-9f09-16cb533c78da":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.128c5102-ce00-4945-8653-c41f4ddefbe7}% BetterPooka&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "128c5102-ce00-4945-8653-c41f4ddefbe7":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 seconds
+	send subtitle "%{color.aba34626-90e3-498f-b70c-8314e0bb4277}% KaNukei*" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 seconds
+	send subtitle "%{color.81ff6334-7c28-4159-8b92-8395d00308f1}% makaajana" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "81ff6334-7c28-4159-8b92-8395d00308f1":
 			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}% gewoonwifi&r" to all players for 2 seconds
+	wait 1.5 seconds
+	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1*" to all players for 2 seconds
 	loop all players:
-		if loop-player's uuid is "b9e8cdfb-a532-4398-956d-a49fb6bfa9f1":
+		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
 			apply glowing without particles to loop-player for 2 seconds
 
 function currentSpecs():
@@ -547,13 +582,13 @@ function currentSpecs():
 	wait 1.5 second
 	send title "And here are your spectators :" with subtitle "%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}% TheFox580&r" to all players for 2 seconds
 	loop all players:
-		if loop-player is "TheFox580":
+		if loop-player's uuid is "dc833b85-3cba-4ebd-8f4d-febc09f02422":
 			apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send title "And here are your spectators " with subtitle "%{color.252fda4d-bb94-4449-876d-fec8d172dda0}% Case_cool&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player is "Case_cool":
-	#		apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send title "And here are your spectators " with subtitle "%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}% Redye_&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "cadb7cce-fdae-44ee-9426-ec08cdb6798c":
+			apply glowing without particles to loop-player for 2 seconds
 
 function checkPoints(points: number) :: text:
 	set {_points} to round({_points})

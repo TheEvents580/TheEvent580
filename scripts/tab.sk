@@ -22,55 +22,55 @@ function reloadTab():
 	#Tests:
 	#set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>Spectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r て%nl%%nl%<##E2F093>Testers :&r%nl%%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r%nl%%{color.252fda4d-bb94-4449-876d-fec8d172dda0}%Case_Cool&r"
 	#Events:
-	set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>&lSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%nl%<##E2F093>&lPlayers :&r%nl%%nl%%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}%EinfachStam&r%nl%%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}%Bluekwyrm&r%nl%%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}%Joeyfish1000&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1&r%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%Frogqers&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokirri&r%nl%%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}%gewoonwifi&r%nl%%{color.81ff6334-7c28-4159-8b92-8395d00308f1}%makaajana&r%nl%%nl%%nl%<##E2F093>* = New players"
+	set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>&lSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}%Redye_&r%nl%%nl%<##E2F093>&lPlayers :&r%nl%%nl%%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}%EinfachStam&r%nl%%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}%Bluekwyrm&r%nl%%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}%Joeyfish1000&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1&r%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%Frogqers&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokirri&r%nl%%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}%gewoonwifi&r%nl%%{color.81ff6334-7c28-4159-8b92-8395d00308f1}%makaajana&r%nl%%nl%%nl%<##E2F093>* = New players"
 	set {blocker} to "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%"
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"
 
-#function resetTab():
-#	set {color.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "タ &7" #TheFox580
-#	set {head.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "{""translate"":""%%nox_uuid%%dc833b85-3cba-4ebd-8f4d-febc09f02422,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "タ &7" #LeRenard580
-#	set {head.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898} to "タ &7" #TheFox581
-#	set {head.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.252fda4d-bb94-4449-876d-fec8d172dda0} to "タ &7" #Case_cool
-#	set {head.252fda4d-bb94-4449-876d-fec8d172dda0} to "{""translate"":""%%nox_uuid%%a0f5d8c3-3248-42f5-a2ef-b216e5d6d898,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.4b5526fd-97ae-4303-aeb1-ef9d642b94b6} to "タ &7" #DigiZ
-#	set {head.4b5526fd-97ae-4303-aeb1-ef9d642b94b6} to "{""translate"":""%%nox_uuid%%4b5526fd-97ae-4303-aeb1-ef9d642b94b6,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.c6ef5a1b-be62-40d2-a156-beffe050c36e} to "タ &7" #Frogqers
-#	set {head.c6ef5a1b-be62-40d2-a156-beffe050c36e} to "{""translate"":""%%nox_uuid%%c6ef5a1b-be62-40d2-a156-beffe050c36e,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.128c5102-ce00-4945-8653-c41f4ddefbe7} to "タ &7" #BetterPooka
-#	set {head.128c5102-ce00-4945-8653-c41f4ddefbe7} to "{""translate"":""%%nox_uuid%%128c5102-ce00-4945-8653-c41f4ddefbe7,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.82d1eccf-d5a7-4636-8374-891f0d67fcc3} to "タ &7" #JoeyFish1000
-#	set {head.82d1eccf-d5a7-4636-8374-891f0d67fcc3} to "{""translate"":""%%nox_uuid%%82d1eccf-d5a7-4636-8374-891f0d67fcc3,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "タ &7" #Redye_
-#	set {head.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "{""translate"":""%%nox_uuid%%cadb7cce-fdae-44ee-9426-ec08cdb6798c,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "タ &7" #EnCrypTeD__
-#	set {head.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "{""translate"":""%%nox_uuid%%0eab4b9d-596e-4d28-ac75-b934d53f3f2b,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.1ba03542-0da6-4981-bc25-1c303dd2f940} to "タ &7" #SpixKokiri / Kokiriz / Kokirri
-#	set {head.1ba03542-0da6-4981-bc25-1c303dd2f940} to "{""translate"":""%%nox_uuid%%1ba03542-0da6-4981-bc25-1c303dd2f940,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.cfffe406-66be-4eb9-b72e-dca11de4836b} to "タ &7" #HalfLime_
-#	set {head.cfffe406-66be-4eb9-b72e-dca11de4836b} to "{""translate"":""%%nox_uuid%%cfffe406-66be-4eb9-b72e-dca11de4836b,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.95451223-350a-47e5-929f-67ca4a412cc6} to "タ &7" #ItsDaniMilksops / DaniMilksops
-#	set {head.95451223-350a-47e5-929f-67ca4a412cc6} to "{""translate"":""%%nox_uuid%%95451223-350a-47e5-929f-67ca4a412cc6,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da} to "タ &7" #EinfachStam
-#	set {head.c65a31f2-f0a1-4bc9-9f09-16cb533c78da} to "{""translate"":""%%nox_uuid%%c65a31f2-f0a1-4bc9-9f09-16cb533c78da,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.19fcc862-7e4b-4d42-a258-98a6723ea948} to "タ &7" #Redd_Zee
-#	set {head.19fcc862-7e4b-4d42-a258-98a6723ea948} to "{""translate"":""%%nox_uuid%%19fcc862-7e4b-4d42-a258-98a6723ea948,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d} to "タ &7" #Bluekwyrm
-#	set {head.fedb60d7-ecb9-4c74-8630-c95aa1692b7d} to "{""translate"":""%%nox_uuid%%fedb60d7-ecb9-4c74-8630-c95aa1692b7d,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.750f5ea8-e31b-4581-8db6-d213a755651b} to "タ &7" #PrabsSSp
-#	set {head.750f5ea8-e31b-4581-8db6-d213a755651b} to "{""translate"":""%%nox_uuid%%750f5ea8-e31b-4581-8db6-d213a755651b,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.81ff6334-7c28-4159-8b92-8395d00308f1} to "タ &7" #makaajana
-#	set {head.81ff6334-7c28-4159-8b92-8395d00308f1} to "{""translate"":""%%nox_uuid%%81ff6334-7c28-4159-8b92-8395d00308f1,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d} to "タ &7" #Svubo
-#	set {head.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d} to "{""translate"":""%%nox_uuid%%3d09fa7f-be05-4f23-ae1b-a32d2567fd6d,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "タ &7" #DustinnnGG
-#	set {head.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "{""translate"":""%%nox_uuid%%24e94701-c27e-45f4-a58a-2a82108f5f0b,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "タ &7" #gewoonwifi
-#	set {head.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "{""translate"":""%%nox_uuid%%b9e8cdfb-a532-4398-956d-a49fb6bfa9f1,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.aba34626-90e3-498f-b70c-8314e0bb4277} to "タ &7" #KaNukei
-#	set {head.aba34626-90e3-498f-b70c-8314e0bb4277} to "{""translate"":""%%nox_uuid%%aba34626-90e3-498f-b70c-8314e0bb4277,false,0,0,1.0"",""fallback"":""👤""}"
-#	set {color.e701d8fc-b26f-4362-8c88-07300a3f1a36} to "タ &7" #NotTooSwift
-#	set {head.e701d8fc-b26f-4362-8c88-07300a3f1a36} to "{""translate"":""%%nox_uuid%%e701d8fc-b26f-4362-8c88-07300a3f1a36,false,0,0,1.0"",""fallback"":""👤""}"
+function resetTab():
+	set {color.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "タ &7" #TheFox580
+	set {color.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "タ &7" #LeRenard580
+	set {color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898} to "タ &7" #TheFox581
+	set {color.252fda4d-bb94-4449-876d-fec8d172dda0} to "タ &7" #Case_cool
+	set {color.4b5526fd-97ae-4303-aeb1-ef9d642b94b6} to "タ &7" #DigiZ
+	set {color.c6ef5a1b-be62-40d2-a156-beffe050c36e} to "タ &7" #Frogqers
+	set {color.128c5102-ce00-4945-8653-c41f4ddefbe7} to "タ &7" #BetterPooka
+	set {color.82d1eccf-d5a7-4636-8374-891f0d67fcc3} to "タ &7" #JoeyFish1000
+	set {color.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "タ &7" #Redye_
+	set {color.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "タ &7" #EnCrypTeD__
+	set {color.1ba03542-0da6-4981-bc25-1c303dd2f940} to "タ &7" #SpixKokiri / Kokiriz / Kokirri
+	set {color.cfffe406-66be-4eb9-b72e-dca11de4836b} to "タ &7" #HalfLime_
+	set {color.95451223-350a-47e5-929f-67ca4a412cc6} to "タ &7" #ItsDaniMilksops / DaniMilksops
+	set {color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da} to "タ &7" #EinfachStam
+	set {color.19fcc862-7e4b-4d42-a258-98a6723ea948} to "タ &7" #Redd_Zee
+	set {color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d} to "タ &7" #Bluekwyrm
+	set {color.750f5ea8-e31b-4581-8db6-d213a755651b} to "タ &7" #PrabsSSp
+	set {color.81ff6334-7c28-4159-8b92-8395d00308f1} to "タ &7" #makaajana
+	set {color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d} to "タ &7" #Svubo
+	set {color.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "タ &7" #DustinnnGG
+	set {color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "タ &7" #gewoonwifi
+	set {color.aba34626-90e3-498f-b70c-8314e0bb4277} to "タ &7" #KaNukei
+	set {color.e701d8fc-b26f-4362-8c88-07300a3f1a36} to "タ &7" #NotTooSwift
+	#set {head.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "{""translate"":""%%nox_uuid%%dc833b85-3cba-4ebd-8f4d-febc09f02422,false,0,0,1.0"",""fallback"":""👤""}" #TheFox580
+	#set {head.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}" #LeRenard580
+	#set {head.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}" #TheFox581
+	#set {head.252fda4d-bb94-4449-876d-fec8d172dda0} to "{""translate"":""%%nox_uuid%%a0f5d8c3-3248-42f5-a2ef-b216e5d6d898,false,0,0,1.0"",""fallback"":""👤""}" #Case_cool
+	#set {head.4b5526fd-97ae-4303-aeb1-ef9d642b94b6} to "{""translate"":""%%nox_uuid%%4b5526fd-97ae-4303-aeb1-ef9d642b94b6,false,0,0,1.0"",""fallback"":""👤""}" #DigiZ
+	#set {head.c6ef5a1b-be62-40d2-a156-beffe050c36e} to "{""translate"":""%%nox_uuid%%c6ef5a1b-be62-40d2-a156-beffe050c36e,false,0,0,1.0"",""fallback"":""👤""}" #Frogqers
+	#set {head.128c5102-ce00-4945-8653-c41f4ddefbe7} to "{""translate"":""%%nox_uuid%%128c5102-ce00-4945-8653-c41f4ddefbe7,false,0,0,1.0"",""fallback"":""👤""}" #BetterPooka
+	#set {head.82d1eccf-d5a7-4636-8374-891f0d67fcc3} to "{""translate"":""%%nox_uuid%%82d1eccf-d5a7-4636-8374-891f0d67fcc3,false,0,0,1.0"",""fallback"":""👤""}" #JoeyFish1000
+	#set {head.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "{""translate"":""%%nox_uuid%%cadb7cce-fdae-44ee-9426-ec08cdb6798c,false,0,0,1.0"",""fallback"":""👤""}" #Redye_
+	#set {head.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "{""translate"":""%%nox_uuid%%0eab4b9d-596e-4d28-ac75-b934d53f3f2b,false,0,0,1.0"",""fallback"":""👤""}" #EnCrypTeD__
+	#set {head.1ba03542-0da6-4981-bc25-1c303dd2f940} to "{""translate"":""%%nox_uuid%%1ba03542-0da6-4981-bc25-1c303dd2f940,false,0,0,1.0"",""fallback"":""👤""}" #SpixKokiri / Kokiriz / Kokirri
+	#set {head.cfffe406-66be-4eb9-b72e-dca11de4836b} to "{""translate"":""%%nox_uuid%%cfffe406-66be-4eb9-b72e-dca11de4836b,false,0,0,1.0"",""fallback"":""👤""}" #HalfLime_
+	#set {head.95451223-350a-47e5-929f-67ca4a412cc6} to "{""translate"":""%%nox_uuid%%95451223-350a-47e5-929f-67ca4a412cc6,false,0,0,1.0"",""fallback"":""👤""}" #ItsDaniMilksops / DaniMilksops
+	#set {head.c65a31f2-f0a1-4bc9-9f09-16cb533c78da} to "{""translate"":""%%nox_uuid%%c65a31f2-f0a1-4bc9-9f09-16cb533c78da,false,0,0,1.0"",""fallback"":""👤""}" #EinfachStam
+	#set {head.19fcc862-7e4b-4d42-a258-98a6723ea948} to "{""translate"":""%%nox_uuid%%19fcc862-7e4b-4d42-a258-98a6723ea948,false,0,0,1.0"",""fallback"":""👤""}" #Redd_Zee
+	#set {head.fedb60d7-ecb9-4c74-8630-c95aa1692b7d} to "{""translate"":""%%nox_uuid%%fedb60d7-ecb9-4c74-8630-c95aa1692b7d,false,0,0,1.0"",""fallback"":""👤""}" #Bluekwyrm
+	#set {head.750f5ea8-e31b-4581-8db6-d213a755651b} to "{""translate"":""%%nox_uuid%%750f5ea8-e31b-4581-8db6-d213a755651b,false,0,0,1.0"",""fallback"":""👤""}" #PrabsSSp
+	#set {head.81ff6334-7c28-4159-8b92-8395d00308f1} to "{""translate"":""%%nox_uuid%%81ff6334-7c28-4159-8b92-8395d00308f1,false,0,0,1.0"",""fallback"":""👤""}" #makaajana
+	#set {head.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d} to "{""translate"":""%%nox_uuid%%3d09fa7f-be05-4f23-ae1b-a32d2567fd6d,false,0,0,1.0"",""fallback"":""👤""}" #Svubo
+	#set {head.24e94701-c27e-45f4-a58a-2a82108f5f0b} to "{""translate"":""%%nox_uuid%%24e94701-c27e-45f4-a58a-2a82108f5f0b,false,0,0,1.0"",""fallback"":""👤""}" #DustinnnGG
+	#set {head.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "{""translate"":""%%nox_uuid%%b9e8cdfb-a532-4398-956d-a49fb6bfa9f1,false,0,0,1.0"",""fallback"":""👤""}" #gewoonwifi
+	#set {head.aba34626-90e3-498f-b70c-8314e0bb4277} to "{""translate"":""%%nox_uuid%%aba34626-90e3-498f-b70c-8314e0bb4277,false,0,0,1.0"",""fallback"":""👤""}" #KaNukei
+	#set {head.e701d8fc-b26f-4362-8c88-07300a3f1a36} to "{""translate"":""%%nox_uuid%%e701d8fc-b26f-4362-8c88-07300a3f1a36,false,0,0,1.0"",""fallback"":""👤""}" #NotTooSwift

@@ -255,11 +255,13 @@ command /reset:
 				clear {games::*}
 				set {vote_swap} to false
 				resetNPCs()
+				resetTab()
 				set {race_timer} to false
 				set {race_lap_1_finished} to false
 				set {race_lap_2_finished} to false
 				set {race_lap_3_finished} to false
 				loop all players:
+					setPlayerColor(player)
 					clear {ride.%loop-player's uuid%}
 					add 1 to {online_players}
 					make loop-player execute command "spawn"
@@ -430,11 +432,13 @@ command /consolereset:
 		clear {games::*}
 		set {vote_swap} to false
 		resetNPCs()
+		resetTab()
 		set {race_timer} to false
 		set {race_lap_1_finished} to false
 		set {race_lap_2_finished} to false
 		set {race_lap_3_finished} to false
 		loop all players:
+			setPlayerColor(player)
 			clear {ride.%loop-player's uuid%}
 			add 1 to {online_players}
 			make loop-player execute command "spawn"

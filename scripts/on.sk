@@ -127,29 +127,12 @@ on server list ping:
 on join:
 	wait 3 ticks
 	apply saturation of tier 255 without any particles to the player for 999 days
+	setPlayerColor(player)
+	set {finished.%player's uuid%} to false
+	set {alive.%player's uuid%} to true
 	if player has permission "group.spectators":
-		set {color.%player's uuid%} to "露&8 "
 		set {alive.%player's uuid%} to false
 		set {finished.%player's uuid%} to true
-	else:
-		set {finished.%player's uuid%} to false
-		set {alive.%player's uuid%} to true
-		if player has permission "group.bleu_clair":
-			set {color.%player's uuid%} to "動&b "
-		if player has permission "group.rouge":
-			set {color.%player's uuid%} to "ラ&c "
-		if player has permission "group.rose":
-			set {color.%player's uuid%} to "目&d "
-		if player has permission "group.vert":
-			set {color.%player's uuid%} to "画&a "
-		if player has permission "group.bleu":
-			set {color.%player's uuid%} to "像&1 "
-		if player has permission "group.orange":
-			set {color.%player's uuid%} to "ャ&6 "
-		if player has permission "group.jaune":
-			set {color.%player's uuid%} to "ギ&e "
-		if player has permission "group.violet":
-			set {color.%player's uuid%} to "の&5 "
 	if {flag.%player's uuid%} is not set:
 		set {flag.%player's uuid%} to false
 	if {Secret_Base_1.%player's uuid%} is not set:
