@@ -1367,6 +1367,7 @@ command /tpspec:
 								set {_good_color} to true
 								set {_slot} to {_slot.blue}
 								add 1 to {_slot.blue}
+						if {_good_color} = true:
 							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
 								teleport {_user} to {_head}
 								close {_user}'s inventory
@@ -1421,10 +1422,10 @@ command /tpspec:
 									set {_good_color} to true
 									set {_slot} to {_slot.blue}
 									add 1 to {_slot.blue}
-								if {_good_color} is true:
-									make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
-										teleport {_user} to {_head}
-										close {_user}'s inventory
+							if {_good_color} = true:
+								make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
+									teleport {_user} to {_head}
+									close {_user}'s inventory
 						set {_slot} to 8
 						loop 6 times:
 							make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
@@ -1485,10 +1486,10 @@ command /tpspec2:
 								set {_good_color} to true
 								set {_slot} to {_slot.pink}
 								add 1 to {_slot.pink}
-							if {_good_color} is true:
-								make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
-									teleport {_user} to {_head}
-									close {_user}'s inventory
+						if {_good_color} is true:
+							make gui slot {_slot} with skull of {_head} named "&fTeleport to %{color.%loop-player's uuid%}%%{_head}%":
+								teleport {_user} to {_head}
+								close {_user}'s inventory
 					set {_slot} to 8
 					loop 2 times:
 						make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
