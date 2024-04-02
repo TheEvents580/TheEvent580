@@ -554,7 +554,7 @@ every tick:
 										remove round(40*{multiplier}) from {pts_lvl_1}
 										set {_item} to carrot on a stick
 										set {_item.nbt} to nbt compound of {_item}
-										add nbt compound of "{display:{Name:'{""text"":""You're on Lap 2"",""italic"""":""false"",""color"":""gold""}'},CustomModelData:29}" to {_item.nbt}
+										add nbt compound of "{display:{Name:'{""text"":""You are on Lap 2"",""italic"""":""false"",""color"":""gold""}'},CustomModelData:29}" to {_item.nbt}
 										set slot 40 of loop-player to {_item}
 									if {race_lap.%loop-player's uuid%} = 2:
 										if {race_lap_2_finished} = false:
@@ -570,7 +570,7 @@ every tick:
 										remove round(60*{multiplier}) from {pts_lvl_2}
 										set {_item} to carrot on a stick
 										set {_item.nbt} to nbt compound of {_item}
-										add nbt compound of "{display:{Name:'{""text"":""You're on Lap 3"",""italic"":""false"",""color"":""red""}'},CustomModelData:31}" to {_item.nbt}
+										add nbt compound of "{display:{Name:'{""text"":""You are on Lap 3"",""italic"":""false"",""color"":""red""}'},CustomModelData:31}" to {_item.nbt}
 										set slot 40 of loop-player to {_item}
 									add 1 to {race_lap.%loop-player's uuid%}
 									send title "&7[&bLap&7] &bEntered Lap %{race_lap.%loop-player's uuid%}%" to loop-player for 1 second
@@ -1622,7 +1622,10 @@ every second:
 						make console execute command "/team join nocolisions %loop-player%"
 						set {race_lap_time.%loop-player's uuid%} to 0
 						set {race_total_time.%loop-player's uuid%} to 0
-						set slot 40 of loop-player to carrot on a stick named "&rYou're on Lap %{race_lap.%loop-player's uuid%}%"
+						set {_item} to carrot on a stick
+						set {_item.nbt} to nbt compound of {_item}
+						add nbt compound of "{display:{Name:'{""text"":""You are on Lap 1"",""italic"""":""false"",""color"":""gold""}'},CustomModelData:27}" to {_item.nbt}
+						set slot 40 of loop-player to {_item}
 					set {timer-m} to 9
 					set {timer-s} to 60
 					broadcast "[<##155966>&lTheEvent580&r] &b&lMultilap&r is starting !"
@@ -1636,7 +1639,7 @@ every second:
 					set {light_blue} to -10000
 					set {damage} to 1
 					wait 10 seconds
-					make console execute command "execute in minecraft:races_lap_3 run fill 6 129 6 -6 133 6 air replace minecraft:red_stained_glass"
+					make console execute command "execute in minecraft:races_lap_3 run fill 6 129 6 -6 134 6 air replace minecraft:red_stained_glass"
 			if {jeu_condi} is 6:
 				if {timer-s} is 35:
 					broadcast "[<##155966>&lTheEvent580&r] Welcome to &5&lSurvival Games&r."
