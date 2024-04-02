@@ -2656,3 +2656,11 @@ command /leaderboard:
 			send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n-∞&r 工"
 		else:
 			send {_position.%player's uuid%} to player
+
+command /getplayertime <player>:
+	permission: group.spectators
+	trigger:
+		if {timer_minute.%arg-1's uuid%} < 0:
+			send "%{color.%arg-1's uuid%}%%arg-1%&r is out of time"
+		else:
+			send "%{color.%arg-1's uuid%}%%arg-1%&r has %{timer_minute.%arg-1's uuid%}%:%{timer_second.%arg-1's uuid%}% left"
