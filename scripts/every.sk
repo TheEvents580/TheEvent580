@@ -1456,12 +1456,12 @@ every second:
 							make console execute command "/see %loop-player%"
 					broadcast "[<##155966>&lTheEvent580&r] Welcome to &6&lParkour&r."
 				if {timer-s} is 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal is to complete all 24 levels in less than 10 minutes."
+					broadcast "[<##155966>&lTheEvent580&r] Your goal is to complete all 25 levels in less than 10 minutes."
 				if {timer-s} is 25:
-					broadcast "[<##155966>&lTheEvent580&r] Finishing a section will up your modifier, so try to get the most you can !."
+					broadcast "[<##155966>&lTheEvent580&r] Finishing a section will up your multiplier, so try to get the most you can !."
 					broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
 				if {timer-s} is 20:
-					broadcast "[<##155966>&lTheEvent580&r] You willl get invisibility AND NO COLLISIONS."
+					broadcast "[<##155966>&lTheEvent580&r] You will get invisibility AND NO COLLISIONS."
 				if {timer-s} is 3:
 					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r starting in 3."
 					loop all players:
