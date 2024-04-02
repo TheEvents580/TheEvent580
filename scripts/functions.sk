@@ -409,10 +409,10 @@ function updateParkour():
 		make server execute command "hd reload"
 
 function resetNPCs():
-	make server execute command "npc select 23"
+	make server execute command "npc select 24"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
-	make server execute command "hd setLine S1E5W 2 TBD"
+	make server execute command "execute as @e[type=minecraft:text_display,tag=S1E5-5W] run data modify entity @s text set value '{""text"":""TBD""}'"
 	make server execute command "npc select 8"
 	make server execute command "npc skin --url https://s.namemc.com/i/fc14461a38710880.png"
 	wait 3 ticks
