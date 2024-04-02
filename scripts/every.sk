@@ -3008,6 +3008,10 @@ every second:
 					set {alive.%loop-player's uuid%} to true
 		if {timer-s} is 15:
 			broadcast "[<##155966>&lTheEvent580&r] You placement is visible next to your points count in the middle of the games"
+		if {timer-s} is 10:
+			broadcast "[<##155966>&lTheEvent580&r] You are placed :"
+			loop all players:
+				send "<##E2F093>%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - &n%checkPoints({points.%loop-player's uuid%})%&r 工" to loop-player
 		if {timer-s} is 1:
 			if {jeu} is 3:
 				set {timer-m} to 5
@@ -3144,6 +3148,10 @@ every second:
 			loop all players:
 				remove invisibility from loop-player
 				remove speed from loop-player
+			if {timer-s} is 10:
+				broadcast "[<##155966>&lTheEvent580&r] You are placed :"
+				loop all players:
+					send "<##E2F093>&k%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - &k%checkPoints({points.%loop-player's uuid%})%&r 工" to loop-player
 		if {timer-m} is 0:
 			if {timer-s} is 5:
 				if {timer-m} is 0:
