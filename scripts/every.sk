@@ -1222,6 +1222,7 @@ every second:
 				remove 1 of minecart named "&rGrab a player" from loop-player
 				remove 1 of netherite sword named "&rKill a player" from loop-player
 				remove 1 of crossbow named "&rKill a player" from loop-player
+				remove 1 of fox spawn egg named "&rSpawn a Fox" from loop-player
 				clear {ride.%loop-player's uuid%}
 		if {timer-s} is 0:
 			set {timer} to 4
@@ -1263,6 +1264,28 @@ every second:
 			set {white} to 0
 			set {light_gray} to 0
 		if {timer-s} is 11:
+			loop all entities in world "world":
+				if loop-entity is fox:
+					if block 2 meters below loop-entity is red_concrete:
+						add 1 to {red}
+					else if block 2 meters below loop-entity is orange_concrete:
+						add 1 to {orange}
+					else if block 2 meters below loop-entity is yellow_concrete:
+						add 1 to {yellow}
+					else if block 2 meters below loop-entity is lime_concrete:
+						add 1 to {lime}
+					else if block 2 meters below loop-entity is light_blue_concrete:
+						add 1 to {light_blue}
+					else if block 2 meters below loop-entity is blue_concrete:
+						add 1 to {blue}
+					else if block 2 meters below loop-entity is purple_concrete:
+						add 1 to {purple}
+					else if block 2 meters below loop-entity is pink_concrete:
+						add 1 to {pink}
+					else if block 2 meters below loop-entity is light_gray_concrete:
+						add 1 to {light_gray}
+					else:
+						add 1 to {white}
 			loop all players:
 				if {vote_swap} = false:
 					if loop-player doesn't have permission "group.spectators":

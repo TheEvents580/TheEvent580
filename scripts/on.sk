@@ -884,6 +884,9 @@ on right click with carrot on a stick:
 		if block 2 meter under player is pink concrete:
 			blockGame("Bow PVP",player)
 	if name of tool of player is "You choose the game":
+		loop all entities in world "world":
+			if loop-entity is fox:
+				kill loop-entity
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
 				if loop-player != player:
@@ -893,6 +896,9 @@ on right click with carrot on a stick:
 					allow flight for loop-player
 		broadcast "[<##155966>&lTheEvent580&r] %player% is chosing the next game"
 	if name of tool of player is "Swap players and spectators":
+		loop all entities in world "world":
+			if loop-entity is fox:
+				kill loop-entity
 		loop all players:
 			set {alive.%loop-player's uuid%} to false
 			if loop-player has permission "group.spectators":

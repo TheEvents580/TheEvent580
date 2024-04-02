@@ -627,7 +627,7 @@ function giveRandomItems(p:player):
 		loop all players:
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
-	else if {_random} is between 1 and 19:
+	else if {_random} is between 1 and 14:
 		give 1 of golden chestplate named "&rVote x2" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
 		loop all players:
@@ -669,6 +669,12 @@ function giveRandomItems(p:player):
 		loop all players:
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
+	else if {_random} is between 86 and 100:
+		give 1 of fox spawn egg named "&rSpawn a Fox" with lore "&rRight click to spawn a fox that will count as a +1 vote !" to {_p}
+		send "[<##155966>&lTheEvent580&r] You recieved &a&lCOMMON&r ""Spawn a Fox"" !" to {_p}
+		loop all players:
+			if loop-player has permission "group.specators":
+				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Spawn a Fox"" !" to loop-player
 	else:
 		loop all players:
 			if loop-player has permission "group.specators":
