@@ -971,9 +971,6 @@ on right click :
 					send "[<##155966>&lTheEvent580&r] You already finished the game, you cannot give time to anyone" to player
 			else:
 				send "[<##155966>&lTheEvent580&r] The game has already ended" to player
-	if player has permission "group.spectators":
-		if {timer} is not "pause" or 0 or "Fin":
-			cancel event
 	if {timer} is not "pause":
 		if {jeu_condi} is 0:
 			if {timer} or {timer_save} is not 7 or 10 or "Fin":
