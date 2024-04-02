@@ -685,73 +685,73 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill 3 247 8 -3 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 3 251 8 -3 253 3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is red concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &c&lDROPPER&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &c&lDROPPER&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is red concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Parkour":
 		make console execute command "execute in minecraft:overworld run fill -3 247 8 -8 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -3 251 8 -8 253 3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is orange concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is orange concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Bingo":
 		make console execute command "execute in minecraft:overworld run fill -8 247 3 -3 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -8 251 3 -3 253 -3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is yellow concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is yellow concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Find The Button":
 		make console execute command "execute in minecraft:overworld run fill -8 247 -3 -3 247 -8 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -8 251 -3 -3 253 -8 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is lime concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &a&lFIND THE BUTTON&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &a&lFIND THE BUTTON&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is lime concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Multilap":
 		make console execute command "execute in minecraft:overworld run fill -3 247 -8 3 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -3 251 -8 3 253 -3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is light blue concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is light blue concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Build Masters":
 		make console execute command "execute in minecraft:overworld run fill 3 247 -8 8 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 3 251 -8 8 253 -3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is blue concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &1&lBUILD MASTERS&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &1&lBUILD MASTERS&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is blue concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Survival Games":
 		make console execute command "execute in minecraft:overworld run fill 8 247 -3 3 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 8 251 -3 3 253 3 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is purple concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &5&lSURVIVAL GAMES&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &5&lSURVIVAL GAMES&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is purple concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Bow PVP":
 		make console execute command "execute in minecraft:overworld run fill 8 247 3 3 247 8 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 8 251 3 3 253 8 minecraft:polished_deepslate"
-		loop all players:
-			if block 2 meters under loop-player is pink concrete:
-				teleport loop-player to location(0.5, 251, 0.5, world("world"))
-				broadcast "[<##155966>&lTheEvent580 - ALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
+		loop all entities in world "world":
+			if block 2 meters under loop-entity is pink concrete:
+				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 
 function refillAll():
