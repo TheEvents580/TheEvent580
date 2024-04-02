@@ -938,22 +938,22 @@ function removeTime(seconds:number, p:player):
 			send "[<##155966>&lTheEvent580&r] %{color.%{_p}'s uuid%}%%{_p}% &rhas lost lost %{_minutes}% minutes and %{_seconds}% seconds to their payment to the mall." to loop-player
 
 function resetEventTime(current_event_second:number, current_event_minute:number, current_event_hour:number, total_event_second:number, total_event_minute:number, total_event_hour:number):
-	if {_current_event_second} > {_total_event_second}:
-		set {event_timer_second_total} to 60-{_current_event_second}+{_total_event_second}
-		if {_total_event_minute} = 0:
-			add 59 to {event_timer_minute_total}
-			remove 1 from {event_timer_hour_total}
-	else:
-		remove {_current_event_second} from {event_timer_second_total}
-	if {_current_event_minute} > {_total_event_minute}:
-		set {event_timer_minute_total} to 60-{_current_event_minute}+{_total_event_minute}
-		remove 1 from {event_timer_hour_total}
-	else:
-		remove {_current_event_minute} from {event_timer_minute_total}
-	remove {current_event_hour} from {event_timer_hour_total}
+	#f {_current_event_second} > {_total_event_second}:
+	#	set {event_timer_second_total} to 60-{_current_event_second}+{_total_event_second}
+	#	if {_total_event_minute} = 0:
+	#		add 59 to {event_timer_minute_total}
+	#		remove 1 from {event_timer_hour_total}
+	#lse:
+	#	remove {_current_event_second} from {event_timer_second_total}
+	#f {_current_event_minute} > {_total_event_minute}:
+	#	set {event_timer_minute_total} to 60-{_current_event_minute}+{_total_event_minute}
+	#	remove 1 from {event_timer_hour_total}
+	#lse:
+	#	remove {_current_event_minute} from {event_timer_minute_total}
+	#emove {current_event_hour} from {event_timer_hour_total}
 	set {event_timer_second} to 0
 	set {event_timer_minute} to 0
 	set {event_timer_hour} to 0
-	#set {event_timer_second_total} to 0
-	#set {event_timer_minute_total} to 0
-	#set {event_timer_hour_total} to 0
+	set {event_timer_second_total} to 35
+	set {event_timer_minute_total} to 42
+	set {event_timer_hour_total} to 1
