@@ -122,7 +122,7 @@ on chat:
 
 
 on server list ping:
-	set the motd to "<##D9DBF1>Adding the last finishing touches to <##155966>&lTheEvent580 • Season 1 - Episode 5"
+	set the motd to "<##D9DBF1>Time to play <##155966>&lTheEvent580 • Season 1 - Episode 5"
 
 on join:
 	wait 3 ticks
