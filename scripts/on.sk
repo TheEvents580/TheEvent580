@@ -496,6 +496,8 @@ on quit:
 		remove 1 from {online_players}
 
 on damage:
+	if victim is chicken:
+		kill victim
 	if damage cause is fall:
 		cancel event
 	if attacker has permission "group.spectators":
@@ -520,16 +522,17 @@ on damage:
 						if loop-player = attacker or victim:
 							clear loop-players's inventory
 					allow flight for victim
-			else: # Crossbow
-				cancel event
-				command("execute at %victim% run kill @e[type=minecraft:arrow,sort=nearest,limit=1]")
-				command("hide %victim%")
-				broadcast "[<##155966>&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
-				set {alive.%victim's uuid%} to false
-				loop all players:
-					if loop-player = attacker or victim:
-						clear loop-players's inventory
-				allow flight for victim
+			else:
+				if projectile is arrow: # Crossbow
+					cancel event
+					command("execute at %victim% run kill @e[type=minecraft:arrow,sort=nearest,limit=1]")
+					command("hide %victim%")
+					broadcast "[<##155966>&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
+					set {alive.%victim's uuid%} to false
+					loop all players:
+						if loop-player = attacker or victim:
+							clear loop-players's inventory
+					allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
 	else if {jeu_condi} is 0:
