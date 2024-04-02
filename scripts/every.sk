@@ -1505,8 +1505,6 @@ every second:
 				if {timer-s} is 15:
 					broadcast "[<##155966>&lTheEvent580&r] You can only get 1 bonus, by killing someone (ONLY ONCE), it'll replace your iron sword & pickaxe by a diamond one, also unbreakable."
 				if {timer-s} is 10:
-					broadcast "[<##155966>&lTheEvent580&r] &lTo get a validated item, you'll have to drop it and pick it up back &r(YOU ARE WARNED)."
-				if {timer-s} is 10:
 					broadcast "[<##155966>&lTheEvent580&r] You'll also get a 1 minute grace periode to leave and run."
 				if {timer-s} is 3:
 					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r starting in 3."
