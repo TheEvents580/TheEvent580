@@ -530,7 +530,7 @@ command /bingo:
 	permission message: &cThis command does not exist
 	description: set le jeu "Bingo"
 	trigger:
-		make server execute command "execute in minecraft:bingo run tp @a 999889.0 153 999932.5 0 0"
+		make server execute command "execute in minecraft:bingo run tp @a -999968.00 151 -999922.5 0 0"
 		set {jeu_condi} to 3
 		set {finished_players} to 0
 		set {damage} to 2

@@ -1501,7 +1501,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] Getting an item before other people will give you more points, so try to be the fastest."
 					broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
 				if {timer-s} is 20:
-					broadcast "[<##155966>&lTheEvent580&r] You'll spawn wait a chainmail armor, an iron sword, an iron axe, an iron shovel & an iron pickaxe, all unbreakable."
+					broadcast "[<##155966>&lTheEvent580&r] You'll spawn with a chainmail armor, an iron sword, an iron axe, an iron shovel & an iron pickaxe, all unbreakable."
 				if {timer-s} is 15:
 					broadcast "[<##155966>&lTheEvent580&r] You can only get 1 bonus, by killing someone (ONLY ONCE), it'll replace your iron sword & pickaxe by a diamond one, also unbreakable."
 				if {timer-s} is 10:
