@@ -3140,6 +3140,12 @@ every second:
 				endNPCs()
 				loop all players:
 					if loop-player doesn't have permission "group.spectators":
+						if {jeu_nom} = "&6&lParkour":
+							set {points_game_covert.%loop-player's uuid%} to round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%})
+							set {points_game.%loop-player's uuid%} to {points_game_covert.%loop-player's uuid%}
+						add {points_game.%loop-player's uuid%} to {points.%loop-player's uuid%}
+						add {points.%loop-player's uuid%} to {list_points::*}
+						set {points_string.%loop-player's uuid%} to checkPoints({points.%loop-player's uuid%})
 						set {show} to {points_game.%loop-value-1's uuid%}
 					loop {staff::*}:
 						if loop-value-1 is not loop-value-2:
