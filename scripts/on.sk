@@ -445,6 +445,7 @@ on join:
 		add 1 to {online_players}
 	add 1 to {total_points.%player's uuid%}
 	remove 1 from {total_points.%player's uuid%}
+	toggle scoreboards of player on
 	#wait 2 second
 	#if event-world is "world":
 	#	command("setrp %player% https://www.dropbox.com/scl/fi/wom59ahuut504nxqjw51q/TheEvent580_Spawn.zip?rlkey=em5fv8t9dqm0onj1kbbc0cd15&dl=1" #Spawn
