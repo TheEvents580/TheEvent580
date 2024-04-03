@@ -584,13 +584,13 @@ every tick:
 							if {finished.%loop-player's uuid%} = false:
 								add 1 to {race_checkpoint.%loop-player's uuid%}
 								send title "&7[&bCP&7] &bCheckpoint %{race_checkpoint.%loop-player's uuid%}% passed" to loop-player for 1 second
-			if the x coordinate of loop-player is between 31 and 30:
+			if the x coordinate of loop-player is between 29 and 30:
 				if the y coordinate of loop-player is between 139 and 145:
-					if the z coordinate of loop-player is between -8 and -16:
+					if the z coordinate of loop-player is between -8 and -15:
 						if {race_boat.%loop-player's uuid%} = true:
 							send title "&7[&c-&7] &cBoat removed" to loop-player for 1 second
 							if {in_vehicle.%loop-player's uuid%} = true:
-								make console execute command "execute in minecraft:races_lap_3 at %loop-player% run kill @e[type=minecraft:boat,limit=1,sort=nearest]"
+								make console execute command "execute in minecraft:races_lap_3 at %loop-player% run kill @e[type=minecraft:chest_boat,limit=1,sort=nearest]"
 							remove 5 of oak boat from loop-player
 							set {race_boat.%loop-player's uuid%} to false
 			if the x coordinate of loop-player is between 26 and 27:
@@ -598,7 +598,7 @@ every tick:
 					if the z coordinate of loop-player is between -51 and -42:
 						if {race_boat.%loop-player's uuid%} is false:
 							send title "&7[&a+&7] &aBoat equipped" to loop-player for 1 second
-							give 1 of oak boat to loop-player
+							give 1 of oak boat with chest to loop-player
 							set {race_boat.%loop-player's uuid%} to true
 			if the x coordinate of loop-player is between -5 and -4:
 				if the y coordinate of loop-player is between 130 and 135:
