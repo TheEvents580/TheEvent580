@@ -561,6 +561,7 @@ every tick:
 											set {race_lap} to 3
 											make console execute command "execute in minecraft:races_lap_3 run fill -16 130 -43 -18 136 -43 smooth_basalt replace air"
 											make console execute command "execute in minecraft:races_lap_3 run fill -4 130 -43 -6 136 -43 air replace blackstone"
+											command("setblock 44 131 -20 minecraft:redstone_block")
 										broadcast "[<##155966>&lTheEvent580&r] %loop-player% just completed the 2nd lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds"
 										send "[<##155966>&lTheEvent580&r] You just completed the 2nd lap of the race in &b%{race_lap_time.%loop-player's uuid%}% &rseconds" to loop-player
 										command("gamepoints %loop-player% %{pts_lvl_2}% Completed Lap 2")
