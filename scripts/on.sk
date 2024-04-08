@@ -679,46 +679,46 @@ on death:
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - 💀&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_1}% Shot a player")
 							add {pts_lvl_1} to {total_points.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - 💀&r] You shot %victim%" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You shot %victim%" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %attacker% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - 💀&r] Player %victim% was shot by %attacker%" to loop-player
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% was shot by %attacker%" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - 💀&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_2}% Killed a player")
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - 💀&r] You killed %victim% (+1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You killed %victim% (+1 &c❤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - 💀&r] Player %victim% was killed by %attacker%" to loop-player
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% was killed by %attacker%" to loop-player
 					add 1 to the maximum health of attacker
 					wait 2 ticks
 					heal attacker
 				else if damage cause = void:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - 💀&r] You fell into the void (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You fell into the void (-1 &c❤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - 💀&r] Player %victim% fell into the void" to loop-player
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% fell into the void" to loop-player
 				wait 3 ticks
 				remove 1 from the maximum health of victim
 			wait 1 second
