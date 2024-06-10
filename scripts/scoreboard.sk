@@ -154,7 +154,7 @@ every 2 ticks:
 			set line 10 of loop-player's scoreboard to "Timer paused"
 		set line 9 of loop-player's scoreboard to ""
 		if {jeu_condi} is 0 or -1:
-			set line 8 of loop-player's scoreboard to "<##E2F093>&lOnline players :&r %{online_players}%/8"
+			set line 8 of loop-player's scoreboard to "<##E2F093>&lOnline players :&r %{online_players}%/18"
 		else if {jeu_condi} is 1:
 			if {finished.%loop-player's uuid%} = false:
 				set line 8 of loop-player's scoreboard to "<##E2F093>&lLevel :&r %{dropper_level.%loop-player's uuid%}%"
@@ -237,7 +237,7 @@ every 2 ticks:
 					if {scoreboard.pos} is 0:
 						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:&r %checkPoints({points.%loop-player's uuid%})%"
 					if {scoreboard.pos} is 1:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:&r %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 8th"
+						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:&r %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 18th"
 					set line 2 of loop-player's scoreboard to "<##BCD71D>&lYour All Time &r工 <##BCD71D>&l:&r %checkPoints({total_points.%loop-player's uuid%})%"
 			else if {timer} is 5 or 6 or 7 or 10:
 				set line 2 of loop-player's scoreboard to ""

@@ -12,6 +12,15 @@ on command "tell":
 	cancel event
 	send "[<##155966>&lTheEvent580 - Private Messages&r] This command is disabled, please use /msg instead"
 
+on command "w":
+	cancel event
+	send "[<##155966>&lTheEvent580 - Private Messages&r] This command is disabled, please use /msg instead"
+
+on command "whisper":
+	cancel event
+	send "[<##155966>&lTheEvent580 - Private Messages&r] This command is disabled, please use /msg instead"
+
+
 on Skript start:
 	set {online_players} to 0
 	clear {staff::*}
@@ -122,14 +131,17 @@ on chat:
 
 
 on server list ping:
-	set the motd to "<##D9DBF1>Time to play <##155966>&lTheEvent580 • Season 1 - Episode 5"
+	set the motd to "<##D9DBF1>Coding for <##155966>&lTheEvent580 • Season 1 - Episode 6"
 
 on join:
 	wait 3 ticks
 	apply saturation of tier 255 without any particles to the player for 999 days
 	setPlayerColor(player)
-	set {finished.%player's uuid%} to false
-	set {alive.%player's uuid%} to true
+	if player = "TheFox580":
+		set {total_points.%player's uuid%} to 18684
+	if {timet} != 6:
+		set {finished.%player's uuid%} to false
+		set {alive.%player's uuid%} to true
 	if player has permission "group.spectators":
 		set {alive.%player's uuid%} to false
 		set {finished.%player's uuid%} to true
@@ -471,14 +483,18 @@ on vehicle destroy:
 		cancel event
 
 on vehicle exit:
+	if {jeu_condi} = 0:
+		if {ride.%player's uuid%} is set:
+			cancel event
+			make player ride {ride.%player's uuid%}
 	set {in_vehicle.%player's uuid%} to false
 	if {jeu_condi} is 5:
-		make server execute command "execute at %player% run kill @e[type=minecraft:boat,sort=nearest,limit=1]"
+		make server execute command "execute at %player% run kill @e[type=minecraft:chest_boat,sort=nearest,limit=1]"
 		if y-coordinate of player is greater than 119:
 			if player's gamemode is adventure:
 				wait 3 ticks
 				if {race_boat.%player's uuid%} is true:
-					give 1 of oak boat to player
+					give 1 of oak boat with chest to player
 
 on vehicle enter:
 	set {in_vehicle.%player's uuid%} to true
@@ -497,13 +513,13 @@ on quit:
 		remove 1 from {online_players}
 
 on damage:
-	if victim is chicken:
-		kill victim
+	if victim's world isn't "trials":
+		command("stopsound %victim% voice minecraft:entity.player.attack.crit")
+		command("stopsound %victim% voice minecraft:entity.player.attack.nodamage")
 	if damage cause is fall:
 		cancel event
-	if attacker has permission "group.spectators":
-		if {jeu_condi} is 0 or -1:
-			cancel event
+	if victim is villager:
+		cancel event
 	if victim has permission "group.spectators":
 		cancel event
 	if {timer} = "pause":
@@ -536,7 +552,7 @@ on damage:
 					allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
-	else if {jeu_condi} is 0:
+	else if {jeu_condi} is 0 or -1:
 		if attacker doesn't have permission "group.spectators":
 			cancel event
 	else:
@@ -548,10 +564,14 @@ on damage:
 				if attacker = victim:
 					cancel event
 					send "[<##155966>&lTheEvent580&r] You cannot kill yourself" to victim
-				if {invincibility.%victim's uuid%} or {invincibility.%attacker's uuid%} = true:
-					cancel event
-					send "You should take damage right now but you're invincible for %{invincibility.time_left.%victim's uuid%}% more seconds" to victim
-				if {finished.%victim%} or {finished.%attacker%} = true:
+				if damage cause isn't fall:
+					if {invincibility.%victim's uuid%} = true:
+						cancel event
+						send "You should take damage right now but you're invincible for %{invincibility.time_left.%victim's uuid%}% more seconds" to victim
+					if {invincibility.%attacker's uuid%} = true:
+						cancel event
+						send "You should deal damage right now but you're invincible for %{invincibility.time_left.%attacker's uuid%}% more seconds" to attacker
+				if {finished.%victim's uuid%} or {finished.%attacker's uuid%} = true:
 					cancel event
 				if {alive.%victim's uuid%} or {alive.%attacker's uuid%} = false:
 					cancel event
@@ -593,16 +613,16 @@ on death:
 					command("gamepoints %attacker% %{pts_lvl_2}% Killed a player")
 					add {pts_lvl_2} to {total_points.%attacker's uuid%}
 					add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-					broadcast "[<##155966>&lTheEvent580&r] %victim% got killed by %attacker%"
-					send "[<##155966>&lTheEvent580&r] You killed %victim%" to attacker
-					send "[<##155966>&lTheEvent580&r] You got killed by %attacker%" to victim
+					broadcast "[<##155966>&lTheEvent580&r] %{color.%victim's uuid%}%%victim%&r got killed by %{color.%attacker's uuid%}%%attacker%&r"
+					send "[<##155966>&lTheEvent580&r] You killed %{color.%victim's uuid%}%%victim%&r" to attacker
+					send "[<##155966>&lTheEvent580&r] You got killed by %{color.%attacker's uuid%}%%attacker%&r" to victim
 				else if {1st_blood} is true:
 					command("gamepoints %attacker% %{pts_lvl_1}% Killed a player (1st blood)")
 					add {pts_lvl_1} to {total_points.%attacker's uuid%}
 					add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-					broadcast "[<##155966>&lTheEvent580&r] %victim% got killed by %attacker% (1st blood)"
-					send "[<##155966>&lTheEvent580&r] You killed %victim% (1st blood)" to attacker
-					send "[<##155966>&lTheEvent580&r] You got killed by %attacker% (1st blood)" to victim
+					broadcast "[<##155966>&lTheEvent580&r] %{color.%victim's uuid%}%%victim%&r got killed by %{color.%attacker's uuid%}%%attacker%&r (1st blood)"
+					send "[<##155966>&lTheEvent580&r] You killed %{color.%victim's uuid%}%%victim%&r (1st blood)" to attacker
+					send "[<##155966>&lTheEvent580&r] You got killed by %{color.%attacker's uuid%}%%attacker%&r (1st blood)" to victim
 					set {1st_blood} to false
 		if {jeu_condi} is 6:
 			loop all players:
@@ -613,8 +633,8 @@ on death:
 						add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
 						send "[<##155966>&lTheEvent580&r] You survived to a kill" to loop-player
 		if {jeu_condi} = 8:
-			heal attacker
-			if the maximum health of victim < 2 :
+			#if the maximum health of victim < 2 :
+			if {max_health.%victim's uuid%} < 2 :
 				remove 1 from {finished_players}
 				set {finished.%victim's uuid%} to true
 				set {alive.%victim's uuid%} to false
@@ -624,54 +644,59 @@ on death:
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - Elimination&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - Elemination&r] You were shot by %{color.%attacker's uuid%}%%attacker%&r (-1👤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_3}% Shot a player")
 							add {pts_lvl_3} to {total_points.%attacker's uuid%}
 							add {pts_lvl_3} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - Elimination&r] You shot %victim%" to loop-player
+							send "[<##155966>&lTheEvent580 - Elemination&r] You shot %{color.%victim's uuid%}%%victim%&r (-1 👤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_6}% Survived to a kill")
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - Elimination&r] Player %victim% was shot by %attacker%" to loop-player
+								send "[<##155966>&lTheEvent580 - Elemination&r] Player %{color.%victim's uuid%}%%victim%&r was eliminated by %{color.%attacker's uuid%}%%attacker%&r (-1 👤&r)" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - Elimination&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - Elemination&r] You were killed by %{color.%attacker's uuid%}%%attacker%&r (-1 &c❤&r | -1 👤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_2}% Killed a player")
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - Elimination&r] You killed %victim% (+1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - Elemination&r] You killed %{color.%victim's uuid%}%%victim%&r (+1 &c❤&r | -1 👤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_6}% Survived to a kill")
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - Elimination&r] Player %victim% was killed by %attacker%" to loop-player
-					add 1 to the maximum health of attacker
+								send "[<##155966>&lTheEvent580 - Elemination&r] Player %{color.%victim's uuid%}%%victim%&r was eliminated by %{color.%attacker's uuid%}%%attacker%&r (-1 👤&r)" to loop-player
+					add 1 to {max_health.%attacker's uuid%}
+					set maximum health of attacker to {max_health.%attacker's uuid%}
 					wait 2 ticks
-					heal attacker
 				else if y-coordinate of victim < 95:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - Elimination&r] You fell into the void (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - Elemination&r] You fell into the void (-1 👤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_6}% Survived to a kill")
 								add {pts_lvl_6} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_6} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - Elimination&r] Player %victim% fell into the void" to loop-player
+								send "[<##155966>&lTheEvent580 - Elemination&r] Player %{color.%victim's uuid%}%%victim%&r fell into the void" to loop-player
+				wait 1 second
+				force victim to respawn
 				wait 3 ticks
-				set the maximum health of the victim to 10
+				set {max_health.%victim's uuid%} to 10
+				set the maximum health of the victim to {max_health.%victim's uuid%}
 				push victim 2 blocks up
-				command("hide %victim%")
+				make console execute command "/see %victim%"
+				hide victim from all players
+				set {hide.%victim's uuid%} to true
 				command("fly %victim%")
-				loop all players:
-					if loop-player = victim:
-						clear loop-players's inventory
+				clear victim's inventory
+				set slot 0 of victim to compass named "&rTeleport to player"
+				set slot 1 of victim to feather named "&rChange player's fly speed"
 			else:
 				set {invincibility.time_left.%victim's uuid%} to 5
 				set {invincibility.%victim's uuid%} to true
@@ -679,34 +704,35 @@ on death:
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - ☠&r] You were shot by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You were shot by %{color.%attacker's uuid%}%%attacker%&r (-1 &c❤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_1}% Shot a player")
 							add {pts_lvl_1} to {total_points.%attacker's uuid%}
 							add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - ☠&r] You shot %victim%" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You shot %{color.%victim's uuid%}%%victim%&r" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %attacker% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% was shot by %attacker%" to loop-player
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%&r" to loop-player
 				else if damage cause = attack:
 					loop all players:
 						if loop-player = victim:
-							send "[<##155966>&lTheEvent580 - ☠&r] You were killed by %attacker% (-1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You were killed by %{color.%attacker's uuid%}%%attacker%&r (-1 &c❤&r)" to loop-player
 						else if loop-player = attacker:
 							command("gamepoints %attacker% %{pts_lvl_2}% Killed a player")
 							add {pts_lvl_2} to {total_points.%attacker's uuid%}
 							add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-							send "[<##155966>&lTheEvent580 - ☠&r] You killed %victim% (+1 &c❤&r)" to loop-player
+							send "[<##155966>&lTheEvent580 - ☠&r] You killed %{color.%victim's uuid%}%%victim%&r (+1 &c❤&r)" to loop-player
 						else:
 							if {alive.%loop-player's uuid%} is true:
 								command("gamepoints %loop-player% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% was killed by %attacker%" to loop-player
-					add 1 to the maximum health of attacker
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%" to loop-player
+					add 1 to {max_health.%attacker's uuid%}
+					set the maximum health of attacker to {max_health.%attacker's uuid%}
 					wait 2 ticks
 					heal attacker
 				else if damage cause = void:
@@ -718,11 +744,14 @@ on death:
 								command("gamepoints %loop-player% %{pts_lvl_5}% Survived to a kill")
 								add {pts_lvl_5} to {total_points.%loop-player's uuid%}
 								add {pts_lvl_5} to {total_points_event.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580 - ☠&r] Player %victim% fell into the void" to loop-player
+								send "[<##155966>&lTheEvent580 - ☠&r] Player %{color.%victim's uuid%}%%victim%&r fell into the void" to loop-player
+				wait 1 second
+				force victim to respawn
 				wait 3 ticks
-				remove 1 from the maximum health of victim
-			wait 1 second
-			force victim to respawn
+				remove 1 from {max_health.%victim's uuid%}
+				set the maximum health of victim to {max_health.%victim's uuid%}
+			heal attacker
+			heal victim
 
 on respawn:
 	if {jeu_condi} is 3:
@@ -816,7 +845,7 @@ on right click with carrot on a stick:
 	if name of tool of player is "&6Skip level":
 		if {parkour.main_level.%player's uuid%} = 4:
 			if {parkour.sub_level.%player's uuid%} = 7:
-				send "[<##155966>&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip this level... Good luck !" to player
+				send "[<##155966>&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip it... Good luck !" to player
 			else:
 				if {parkour.skip.%player's uuid%} = false:
 					set {parkour.skip.%player's uuid%} to true
@@ -824,8 +853,7 @@ on right click with carrot on a stick:
 					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 					wait 2 tick
 					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-					command("gamepoints %player% %round(-5*{multiplier})%")
-					remove round(5*{multiplier}) from {points_game.%player's uuid%}
+					command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
 					wait 3 ticks
 					set {parkour.skip_used.%player's uuid%} to false
 					wait 15 ticks
@@ -845,8 +873,7 @@ on right click with carrot on a stick:
 					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 					wait 2 tick
 					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-					remove round(5*{multiplier}) from {points_game.%player's uuid%}
-					command("gamepoints %player% %round(-5*{multiplier})%")
+					command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
 					wait 3 ticks
 					set {parkour.skip_used.%player's uuid%} to false
 					wait 15 ticks
@@ -861,8 +888,7 @@ on right click with carrot on a stick:
 				set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
 				wait 2 tick
 				teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-				remove round(5*{multiplier}) from {points_game.%player's uuid%}
-				command("gamepoints %player% %round(-5*{multiplier})%")
+				command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
 				wait 3 ticks
 				set {parkour.skip_used.%player's uuid%} to false
 				wait 15 ticks
@@ -1036,205 +1062,183 @@ on right click :
 			#if event-block is red concrete:
 			#	give 1 of apple to player
 			if event-block is yellow concrete or white concrete:
-				give 1 of egg to player
+				if the y coordinate of player < 120:
+					give 1 of egg to player
+			if event-item is fox spawn egg:
+				spawn 1 fox at the block above targeted block
+				set name of last spawned entity to "&f%{color.%event-player's uuid%}%%event-player%&f's Fox"
+				if event-player has permission "group.rouge":
+					command("execute at %event-player% run team join red @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.orange":
+					command("execute at %event-player% run team join yellow @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.jaune":
+					command("execute at %event-player% run team join orange @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.vert":
+					command("execute at %event-player% run team join green @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.bleu_clair":
+					command("execute at %event-player% run team join lb @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.bleu":
+					command("execute at %event-player% run team join blue @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.violet":
+					command("execute at %event-player% run team join purple @e[type=fox,sort=nearest,limit=1]")
+				if event-player has permission "group.rose":
+					command("execute at %event-player% run team join rose @e[type=fox,sort=nearest,limit=1]")
+				remove 1 of fox spawn egg from event-player's inventory
+				loop entities in radius 4 around event-player:
+					if loop-entity isn't a player:
+						apply infinite glowing without any particles to the loop-entity
 		if {jeu_condi} is 4: #Find The Button
 			if {finished.%player's uuid%} is false:
 				if event-block is oak_button:
 					if {ftb_1.%player's uuid%} is false:
-						if {ftb_1} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the oak button !"
-							send "[<##155966>&lTheEvent580&r] You found the oak button" to player
+						set {ftb_1.%player's uuid%} to true
 						if {ftb_1} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the oak button !"
-							send "[<##155966>&lTheEvent580&r] You found the oak button" to player
 							set {ftb_1} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_oak_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_1.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_1}% Found the oak button")
 						add {pts_lvl_1} to {total_points.%player's uuid%}
 						add {pts_lvl_1} to {total_points_event.%player's uuid%}
 						remove round(10*{multiplier}) from {pts_lvl_1}
 				if event-block is spruce_button:
 					if {ftb_2.%player's uuid%} is false:
-						if {ftb_2} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the spruce button !"
-							send "[<##155966>&lTheEvent580&r] You found the spruce button" to player
+						set {ftb_2.%player's uuid%} to true
 						if {ftb_2} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the spruce button !"
-							send "[<##155966>&lTheEvent580&r] You found the spruce button" to player
 							set {ftb_2} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_spruce_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_2.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_2}% Found the spruce button")
 						add {pts_lvl_2} to {total_points.%player's uuid%}
 						add {pts_lvl_2} to {total_points_event.%player's uuid%}
 						remove round(15*{multiplier}) from {pts_lvl_2}
 				if event-block is acacia_button:
 					if {ftb_3.%player's uuid%} is false:
-						if {ftb_3} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the acacia button !"
-							send "[<##155966>&lTheEvent580&r] You found the acacia button" to player
+						set {ftb_3.%player's uuid%} to true
 						if {ftb_3} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the acacia button !"
-							send "[<##155966>&lTheEvent580&r] You found the acacia button" to player
 							set {ftb_3} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_acacia_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_3.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_3}% Found the acacia button")
 						add {pts_lvl_3} to {total_points.%player's uuid%}
 						add {pts_lvl_3} to {total_points_event.%player's uuid%}
 						remove round(20*{multiplier}) from {pts_lvl_3}
 				if event-block is mangrove_button:
 					if {ftb_4.%player's uuid%} is false:
-						if {ftb_4} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the mangrove button !"
-							send "[<##155966>&lTheEvent580&r] You found the mangrove button" to player
+						set {ftb_4.%player's uuid%} to true
 						if {ftb_4} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the mangrove button !"
-							send "[<##155966>&lTheEvent580&r] You just found the mangrove button" to player
 							set {ftb_4} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_mangrove_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_4.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_4}% Found the mangrove button")
 						add {pts_lvl_4} to {total_points.%player's uuid%}
 						add {pts_lvl_4} to {total_points_event.%player's uuid%}
 						remove round(25*{multiplier}) from {pts_lvl_4}
 				if event-block is crimson_button:
 					if {ftb_5.%player's uuid%} is false:
-						if {ftb_5} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the crimson button !"
-							send "[<##155966>&lTheEvent580&r] You found the crimson button" to player
+						set {ftb_5.%player's uuid%} to true
 						if {ftb_5} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the crimson button !"
-							send "[<##155966>&lTheEvent580&r] You found the crimson button" to player
 							set {ftb_5} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_crimson_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_5.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_5}% Found the crimson button")
 						add {pts_lvl_5} to {total_points.%player's uuid%}
 						add {pts_lvl_5} to {total_points_event.%player's uuid%}
 						remove round(30*{multiplier}) from {pts_lvl_5}
 				if event-block is polished_blackstone_button:
 					if {ftb_6.%player's uuid%} is false:
-						if {ftb_6} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the polished blackstone button !"
-							send "[<##155966>&lTheEvent580&r] You found the polished blackstone button" to player
+						set {ftb_6.%player's uuid%} to true
 						if {ftb_6} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the polished blackstone button !"
-							send "[<##155966>&lTheEvent580&r] You found the polished blackstone button" to player
 							set {ftb_6} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_polished_blackstone_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_6.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_6}% Found the polished blackstone button")
 						add {pts_lvl_6} to {total_points.%player's uuid%}
 						add {pts_lvl_6} to {total_points_event.%player's uuid%}
 						remove round(35*{multiplier}) from {pts_lvl_6}
 				if event-block is dark_oak_button:
 					if {ftb_7.%player's uuid%} is false:
-						if {ftb_7} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the dark oak button !"
-							send "[<##155966>&lTheEvent580&r] You found the dark oak button" to player
+						set {ftb_7.%player's uuid%} to true
 						if {ftb_7} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the dark oak button !"
-							send "[<##155966>&lTheEvent580&r] You just found the dark oak button" to player
 							set {ftb_7} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_dark_oak_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_7.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_7}% Found the dark oak button")
 						add {pts_lvl_7} to {total_points.%player's uuid%}
 						add {pts_lvl_7} to {total_points_event.%player's uuid%}
 						remove round(40*{multiplier}) from {pts_lvl_7}
 				if event-block is stone_button:
 					if {ftb_8.%player's uuid%} is false:
-						if {ftb_8} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the stone button !"
-							send "[<##155966>&lTheEvent580&r] You just found the stone button" to player
+						set {ftb_8.%player's uuid%} to true
 						if {ftb_8} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the stone button !"
-							send "[<##155966>&lTheEvent580&r] You just found the stone button" to player
 							set {ftb_8} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_stone_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_8.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_8}% Found the stone button")
 						add {pts_lvl_8} to {total_points.%player's uuid%}
 						add {pts_lvl_8} to {total_points_event.%player's uuid%}
 						remove round(45*{multiplier}) from {pts_lvl_8}
 				if event-block is warped_button:
 					if {ftb_9.%player's uuid%} is false:
-						if {ftb_9} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the warped button !"
-							send "[<##155966>&lTheEvent580&r] You found the warped button" to player
+						set {ftb_9.%player's uuid%} to true
 						if {ftb_9} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the warped button !"
-							send "[<##155966>&lTheEvent580&r] You found the warped button" to player
 							set {ftb_9} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_warped_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_9.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_9}% Found the warped button")
 						add {pts_lvl_9} to {total_points.%player's uuid%}
 						add {pts_lvl_9} to {total_points_event.%player's uuid%}
 						remove round(50*{multiplier}) from {pts_lvl_9}
 				if event-block is jungle_button:
 					if {ftb_10.%player's uuid%} is false:
-						if {ftb_10} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the jungle button !"
-							send "[<##155966>&lTheEvent580&r] You found the jungle button" to player
-							wait 1 second
+						set {ftb_10.%player's uuid%} to true
 						if {ftb_10} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the jungle button !"
-							send "[<##155966>&lTheEvent580&r] You found the jungle button" to player
 							set {ftb_10} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_jungle_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_10.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_10}% Found the jungle button")
 						add {pts_lvl_10} to {total_points.%player's uuid%}
 						add {pts_lvl_10} to {total_points_event.%player's uuid%}
 						remove round(55*{multiplier}) from {pts_lvl_10}
 				if event-block is birch_button:
 					if {ftb_11.%player's uuid%} is false:
-						if {ftb_11} is true:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r found the birch button !"
-							send "[<##155966>&lTheEvent580&r] You found the birch button" to player
-							wait 1 second
+						set {ftb_11.%player's uuid%} to true
 						if {ftb_11} is false:
 							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the birch button !"
-							send "[<##155966>&lTheEvent580&r] You just found the birch button" to player
 							set {ftb_11} to true
 						play sound "custom:coins" in voice category with volume 2 to the player 
 						add 1 to {total_buttons_pressed}
 						add 1 to {ftb_birch_completed}
 						add 1 to {ftb_fin.%player's uuid%}
-						set {ftb_11.%player's uuid%} to true
 						command("gamepoints %player% %{pts_lvl_11}% Found the birch button")
 						add {pts_lvl_11} to {total_points.%player's uuid%}
 						add {pts_lvl_11} to {total_points_event.%player's uuid%}
@@ -1265,6 +1269,8 @@ on drop:
 		cancel event
 	if event-item is a carrot on a stick named "&eTeleport to home":
 		cancel event
+	if {finished.%event-player's uuid%} is true:
+		cancel event
 	if {jeu_condi} is 5 or 8 or 9:
 		cancel event
 	if {timer} is 3:
@@ -1277,6 +1283,8 @@ on pickup:
 		if {jeu_condi} is not 0:
 			cancel event
 	else:
+		if {finished.%event-player's uuid%} is true:
+			cancel event
 		if {jeu_condi} is 8:
 			cancel event
 			make server execute command "execute at %player% run kill @e[type=minecraft:arrow,limit=1]"

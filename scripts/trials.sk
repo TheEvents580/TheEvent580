@@ -1,0 +1,808 @@
+command /trialsplatform <integer>:
+	permission: *
+	trigger:
+		if {trials.platform} = arg-1:
+			send "Nothing changed, this is the same platform" to executor
+			if arg-1 = 1:
+				command("execute in minecraft:trials run clone -18 134 1001 17 142 966 -19 125 -17")
+			else if arg-1 = 2:
+				command("execute in minecraft:trials run clone -18 124 1001 17 132 966 -19 125 -17")
+			else if arg-1 = 3:
+				command("execute in minecraft:trials run clone -18 114 1001 17 122 966 -19 125 -17")
+			else if arg-1 = 4:
+				command("execute in minecraft:trials run clone -18 104 1001 17 112 966 -19 125 -17")
+			else if arg-1 = 5:
+				command("execute in minecraft:trials run clone -18 94 1001 17 102 966 -19 125 -17")
+		else:
+			if {trials.platform} < arg-1:
+				broadcast "[&6⚠&r] The platform &nwill be shrinking&r in 5 seconds"
+				loop 2 times:
+					command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:red_stained_glass replace minecraft:gray_concrete")
+					wait 1 second
+					command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:gray_concrete replace minecraft:red_stained_glass")
+					wait 1 second
+				command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:red_stained_glass replace minecraft:gray_concrete")
+				wait 1 second
+			else:
+				broadcast "[&6⚠&r] The platform &nwill be growing&r in 5 seconds"
+				loop 2 times:
+					command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:lime_stained_glass replace minecraft:gray_concrete")
+					wait 1 second
+					command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:gray_concrete replace minecraft:lime_stained_glass")
+					wait 1 second
+				command("execute in minecraft:trials run fill 14 126 -15 -18 126 17 minecraft:lime_stained_glass replace minecraft:gray_concrete")
+				wait 1 second
+			if arg-1 = 1:
+				command("execute in minecraft:trials run clone -18 134 1001 17 142 966 -19 125 -17")
+			else if arg-1 = 2:
+				command("execute in minecraft:trials run clone -18 124 1001 17 132 966 -19 125 -17")
+			else if arg-1 = 3:
+				command("execute in minecraft:trials run clone -18 114 1001 17 122 966 -19 125 -17")
+			else if arg-1 = 4:
+				command("execute in minecraft:trials run clone -18 104 1001 17 112 966 -19 125 -17")
+			else if arg-1 = 5:
+				command("execute in minecraft:trials run clone -18 94 1001 17 102 966 -19 125 -17")
+			if {trials.platform} < arg-1:
+				set {_times} to arg-1 - {trials.platform}
+				loop {_times} times:
+					play sound "minecraft:block.glass.break" in voice category with volume 3 to all players
+					wait 2 ticks
+			else:
+				set {_times} to {trials.platform} - arg-1
+				loop {_times} times:
+					play sound "minecraft:block.glass.place" in voice category with volume 3 to all players
+					wait 2 ticks
+			set {trials.platform} to arg-1
+
+command /trialsglass <integer>:
+    permission: *
+    trigger:
+        if arg-1 = 1:
+            command("execute in minecraft:trials run fill -19 133 -16 15 126 18 air replace tinted_glass")
+            wait 10 seconds
+            command("execute in minecraft:trials run fill -19 133 -16 15 126 18 tinted_glass replace air")
+        if arg-1 = 2:
+            command("execute in minecraft:trials run fill -16 133 -13 12 126 15 air replace tinted_glass")
+            wait 9 seconds
+            command("execute in minecraft:trials run fill -16 133 -13 12 126 15 tinted_glass replace air")
+        if arg-1 = 3:
+            command("execute in minecraft:trials run fill -13 133 -10 9 126 12 air replace tinted_glass")
+            wait 8 seconds
+            command("execute in minecraft:trials run fill -13 133 -10 9 126 12 tinted_glass replace air")
+        if arg-1 = 4:
+            command("execute in minecraft:trials run fill -10 133 -7 6 126 9 air replace tinted_glass")
+            wait 7 seconds
+            command("execute in minecraft:trials run fill -10 133 -7 6 126 9 tinted_glass replace air")
+        if arg-1 = 5:
+            command("execute in minecraft:trials run fill -7 133 -4 3 126 6 air replace tinted_glass")
+            wait 6 seconds
+            command("execute in minecraft:trials run fill -7 133 -4 3 126 6 tinted_glass replace air")
+
+command /trialslist <text> [<text>]:
+    permission: *
+    trigger:
+        if arg-1 = "get":
+            if {trials::1} is not set:
+                send "No trials have been registered"
+            else:
+                send "Here are all of the trials :" to player
+                loop {trials::*}:
+                    send "%loop-index% - %loop-value%" to player
+        if arg-1 = "add":
+            add arg-2 to {trials::*}
+            send "Added ""%size of {trials::*}% - %arg-2%"""
+        if arg-1 = "remove":
+            send "Removed %arg-2% - %{trials::%arg-2%}%"
+            clear {trials::%arg-2%}
+        if arg-1 = "random":
+            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        if arg-1 = "do":
+            loop all players:
+                set {trials.%loop-player's uuid%_trial} to false
+        if arg-1 = "don't":
+            loop all players:
+                set {trials.%loop-player's uuid%_trial} to true
+
+command /trialsdodont <text> [<integer>]:
+    permission: *
+    trigger:
+        if arg-1 = "get":
+            if {trials.do::1} and {trials.dont::1} is not set:
+                send "No trials have been registered"
+            else:
+                send "Here are all of the ""Do"" trials :" to player
+                loop {trials.do::*}:
+                    send "Trial n°%loop-value% - %{trials::%loop-value%}%" to player
+                send "----" to player
+                send "Here are all of the ""Don't"" trials :" to player
+                loop {trials.dont::*}:
+                    send "Trial n°%loop-value% - %{trials::%loop-value%}%" to player
+        if arg-1 = "do":
+            add {trials::%arg-2%} to {trials.do::*}
+        if arg-1 = "don't":
+            add {trials::%arg-2%} to {trials.dont::*}
+        if arg-1 = "remove":
+            remove {trials::%arg-2%} from {trials.do::*}
+            remove {trials::%arg-2%} from {trials.dont::*}
+
+command /testnewgame:
+    permission: *
+    trigger:
+        loop all players:
+            set {trials.%loop-player's uuid%.points} to 0
+            set {points_game.%loop-player's uuid%} to 0
+        set {trials.stage} to 1
+        set {checking_finished_players} to 1
+        set {finished_players} to 0
+        set {jeu_condi} to 10
+        set {timer-m} to 9
+        set {timer-s} to 60
+        set {timer} to 6
+        bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+
+every tick:
+    if {timer} = 6:
+        if {jeu_condi} is 10:
+            loop all players:
+                send action bar "<##D9D8F1>Trial points : +%{trials.%loop-player's uuid%.points}% <##4e5c24>工" to loop-player
+            if {trials.time} > 0:
+            
+                if {trials.random_trial} = 1 or 2 or 22:
+                    loop all players:
+                        if loop-player doesn't have permission "group.spectators":
+                            if {trials.time} = (11-{trials.stage}) :
+                                set {trials.%loop-player's uuid%.jump} to 0
+                            
+                if {trials.random_trial} = 3 or 4 or 23:
+                    loop all players:
+                        if loop-player doesn't have permission "group.spectators":
+                            if {trials.time} = (11-{trials.stage}) :
+                                set {trials.%loop-player's uuid%.sneak} to 0
+                            
+                if {trials.random_trial} = 6 or 24:
+                    loop all players:
+                        if loop-player doesn't have permission "group.spectators":
+                            if {trials.time} = (11-{trials.stage}) :
+                                set {trials.%loop-player's uuid%.punch_player} to 0
+
+                if {trials.time} < 10.5 - {trials.stage}:
+                #UNDER THIS LINE --> TRIALS
+
+                    if {trials.random_trial} = 1:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.jump} = 1:
+                                if {trials.%loop-player's uuid%.points} is 0:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+                            else:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 2:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.jump} = 2:
+                                if {trials.%loop-player's uuid%.points} is 0:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+                            else:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 3:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.sneak} = 1:
+                                if {trials.%loop-player's uuid%.points} is 0:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+                            else:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 4:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.sneak} = 2:
+                                if {trials.%loop-player's uuid%.points} is 0:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+                            else:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 5:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 6:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.punch_player} = 1:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+                            else:
+                                set {trials.%loop-player's uuid%.punch_player} to 0
+
+                    if {trials.random_trial} = 10:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 11:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 12:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 13:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 14:
+                        loop all players:
+                            if the x coordinate of loop-player >= 0:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 15:
+                        loop all players:
+                            if the z coordinate of loop-player >= 0:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 16:
+                        loop all players:
+                            if the x coordinate of loop-player < 0:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 17:
+                        loop all players:
+                            if the z coordinate of loop-player < 0:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 18:
+                        loop all players:
+                            if type of loop-player's targeted entity is a player:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 19:
+                        loop all players:
+                            if type of loop-player's targeted block is a tinted glass:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 20:
+                        loop all players:
+                            if the pitch of loop-player <= -65:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 21:
+                        loop all players:
+                            if the pitch of loop-player >= 65:
+                                if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                    set {trials.%loop-player's uuid%.points} to round({trials.points})
+
+                    if {trials.random_trial} = 22:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.jump} > 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 23:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.sneak} > 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 24 or 26:
+                        loop all players:
+                            if {trials.%loop-player's uuid%.punch_player} > 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 25:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 30:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 31:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 32:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 33:
+                        loop all players:
+                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 34:
+                        loop all players:
+                            if the x coordinate of loop-player >= 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 35:
+                        loop all players:
+                            if the z coordinate of loop-player >= 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 36:
+                        loop all players:
+                            if the x coordinate of loop-player < 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 37:
+                        loop all players:
+                            if the z coordinate of loop-player < 0:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 38:
+                        loop all players:
+                            if type of loop-player's targeted entity is a player:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 39:
+                        loop all players:
+                            if type of loop-player's targeted block is a tinted glass:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 40:
+                        loop all players:
+                            if the pitch of loop-player <= -65:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 41:
+                        loop all players:
+                            if the pitch of loop-player >= 65:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.random_trial} = 49:
+                        loop all players:
+                            set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
+                            set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
+                            set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
+                            wait 1 tick
+                            if the x coordinate of loop-player = {_trials.%loop-player's uuid%.x}:
+                                if the y coordinate of loop-player = {_trials.%loop-player's uuid%.y}:
+                                    if the z coordinate of loop-player = {_trials.%loop-player's uuid%.z}:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                    if {trials.random_trial} = 50:
+                        loop all players:
+                            set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
+                            set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
+                            set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
+                            wait 1 tick
+                            if the x coordinate of loop-player != {_trials.%loop-player's uuid%.x}:
+                                set {trials.%loop-player's uuid%.points} to 0
+                            if the y coordinate of loop-player != {_trials.%loop-player's uuid%.y}:
+                                set {trials.%loop-player's uuid%.points} to 0
+                            if the z coordinate of loop-player != {_trials.%loop-player's uuid%.z}:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                                
+                #UNDER THIS LINE --> Time removal
+                remove 0.05 from {trials.time}
+            else:
+                if {trials.time} = 0:
+                    remove 0.1 from {trials.time}
+                    loop all players:
+                        if {trials.%loop-player's uuid%.points} > 0:
+                            send title "&aTrial completed !" with subtitle "<##D9D8F1>+%{trials.%loop-player's uuid%.points}% &r工" to loop-player for 3 seconds
+                            if loop-player doesn't have permission "group.spectators":
+                                command("gamepoints %loop-player% %{trials.%loop-player's uuid%.points}% Completed a trial")
+                                set {trials.%loop-player's uuid%.points} to 0
+                        else:
+                            send title "&cTrial failed !" with subtitle "<##D9D8F1>Better luck next time" to loop-player for 3 seconds
+                loop all players:
+                    if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                        command("execute in trials run tp %loop-player% -1.5 127 1.5")
+
+            if {trials.points} > 0:
+                if {trials.time} < 10.5 - {trials.stage}:
+                    remove 5/(11-{trials.stage}) from {trials.points}
+
+every second:
+    if {timer} = 6:
+        if {jeu_condi} = 10:
+            if {timer-m} and {timer-s} = 0:
+                set {jeu_condi} to -2
+                #if {jeu} is 6:
+                #    set {timer-m} to 1
+                #    set {timer-s} to 30
+                #    set {timer} to 10
+                #else:
+                #    set {timer-m} to 0
+                #    set {timer-s} to 30
+                #    set {timer} to 7
+                #force all players to fly
+                #allow fly for all players
+                #loop all players:
+                #    play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
+                #    allow fly for loop-player
+                #if {jeu_condi} = 10:
+                #    loop all players:
+                #        if loop-player has permission "theevent580.staff":
+                #            send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&l&cTrials&r --> &aShowing scores" to loop-player
+                #set {jeu_condi} to 0
+                #set {damage} to 1
+                #set {finished_players} to 0
+                #make server execute command "clear @a"
+        
+            if {timer-s} = 4:
+                if {timer-m} = 7:
+                    add 1 to {trials.stage}
+                    command("trialsplatform %{trials.stage}%")
+                    send title "It's getting faster !" with subtitle "10s --> 9s" to all players for 2 seconds
+            
+            if {timer-s} = 56:
+                if {timer-m} = 4:
+                    add 1 to {trials.stage}
+                    command("trialsplatform %{trials.stage}%")
+                    send title "It's getting faster !" with subtitle "9s --> 8s" to all players for 2 seconds
+            
+            if {timer-s} = 59:
+                if {timer-m} = 2:
+                    add 1 to {trials.stage}
+                    command("trialsplatform %{trials.stage}%")
+                    send title "It's getting faster !" with subtitle "8s --> 7s" to all players for 2 seconds
+            
+            if {timer-s} = 57:
+                if {timer-m} = 0:
+                    add 1 to {trials.stage}
+                    command("trialsplatform %{trials.stage}%")
+                    send title "It's getting faster !" with subtitle "7s --> 6s" to all players for 2 seconds
+            
+            if {trials.stage} = 1:
+                if {timer-s} = 59 or 44 or 29 or 14:
+                    set {trials.time} to 11-{trials.stage}
+                    set {trials.points} to 100*{multiplier}
+                    set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                    broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                    if {trials.random_trial} is between 42 and 48:
+                        send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                    else:
+                        send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                    
+
+
+                    if {trials.random_trial} = 5 or 25:
+                        command("trialsglass %{trials.platform}%")
+
+                    if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                        command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                        wait 10 seconds
+                        command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+
+
+                    if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                        loop all players:
+                            set {trials.%loop-player's uuid%.points} to 0
+
+                    if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                        loop all players:
+                            set {trials.%loop-player's uuid%.points} to 100
+            
+            if {trials.stage} = 2:
+                if {timer-m} = 6:
+                    if {timer-s} = 59 or 45 or 31 or 17 or 3:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 air replace light")
+                            wait 9 seconds
+                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+
+                if {timer-m} = 5:
+                    if {timer-s} = 48 or 34 or 20 or 6:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 air replace light")
+                            wait 9 seconds
+                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+            
+            if {trials.stage} = 3:
+
+                if {timer-m} = 4:
+                    if {timer-s} = 51 or 38 or 25 or 12:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 air replace light")
+                            wait 8 seconds
+                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+
+                if {timer-m} = 3:
+                    if {timer-s} = 59 or 46 or 33 or 20 or 7:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 air replace light")
+                            wait 8 seconds
+                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+            
+            if {trials.stage} = 4:
+
+                if {timer-m} = 2:
+                    if {timer-s} = 54 or 42 or 30 or 18 or 6:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 air replace light")
+                            wait 7 seconds
+                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+
+                if {timer-m} = 1:
+                    if {timer-s} = 53 or 41 or 29 or 17 or 5:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 air replace light")
+                            wait 7 seconds
+                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+            
+            if {trials.stage} = 5:
+
+                if {timer-m} = 0:
+                    if {timer-s} = 52 or 41 or 30 or 19 or 8:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+
+                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
+
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+
+
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 2 133 5 -6 127 -3 air replace light")
+                            wait 6 seconds
+                            command("execute in minecraft:trials run fill 2 133 5 -6 127 -3 light replace air")
+
+
+                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 0
+
+                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
+                            loop all players:
+                                set {trials.%loop-player's uuid%.points} to 100
+
+                    if {timer-s} = 2:
+                        send title "You can breath," with subtitle "Trials is over..." to all players for 2 seconds
+
+        if {timer-m} > 0:
+            if {timer-s} = 0:
+                add 60 to {timer-s}
+                remove 1 from {timer-m}
+        remove 1 from {timer-s}
+        bossbarRemove1Sec("count")
+
+on damage:
+    if attacker is player:
+        if victim is player:
+            add 1 to {trials.%attacker's uuid%.punch_player}
+
+on jump:
+    add 1 to {trials.%event-player's uuid%.jump}
+
+on sneak toggle:
+    if player is sneaking:
+        add 1 to {trials.%event-player's uuid%.sneak}
+
+on chat:
+    if {trials.random_trial} = 7:
+        if message in lowercase contains "minecraft":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 8:
+        if message in lowercase contains "theeevent580":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 9:
+        if message in lowercase contains "trials":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+
+    if {trials.random_trial} = 27:
+        if message in lowercase contains "minecraft":
+            set {trials.%event-player's uuid%.points} to 0
+            command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;11743532],FadeColors:[I;11743532]}]}}}}")
+    if {trials.random_trial} = 28:
+        if message in lowercase contains "theeevent580":
+            set {trials.%event-player's uuid%.points} to 0
+            command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;11743532],FadeColors:[I;11743532]}]}}}}")
+    if {trials.random_trial} = 29:
+        if message in lowercase contains "trials":
+            set {trials.%event-player's uuid%.points} to 0
+            command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;11743532],FadeColors:[I;11743532]}]}}}}")
+
+
+    if {trials.random_trial} = 42:
+        if message in lowercase contains "8":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 43:
+        if message in lowercase contains "18":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 44:
+        if message in lowercase contains "235":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 45:
+        if message in lowercase contains "5":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 46:
+        if message in lowercase contains "105":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 47:
+        if message in lowercase contains "19":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")
+    if {trials.random_trial} = 48:
+        if message in lowercase contains "2":
+            if {trials.%event-player's uuid%.points} < {trials.points}:
+                set {trials.%event-player's uuid%.points} to round({trials.points})
+                command("execute at %event-player% run summon firework_rocket ~ ~1 ~ {LifeTime:0,FireworksItem:{id:firework_rocket,Count:1,tag:{Fireworks:{Flight:1,Explosions:[{Type:0,Flicker:0,Trail:0,Colors:[I;4312372],FadeColors:[I;4312372]}]}}}}")

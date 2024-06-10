@@ -1,8 +1,8 @@
 function reloadTab():
 	if {jeu_condi} is 0:
 		set {gametab} to "&lHub&r"
-	if {jeu_condi} is 1:
-		set {gametab} to "&c&lDropper&r"
+	#if {jeu_condi} is 1:
+	#	set {gametab} to "&c&lDropper&r"
 	if {jeu_condi} is 2:
 		set {gametab} to "&6&lParkour&r"
 	if {jeu_condi} is 3:
@@ -19,10 +19,12 @@ function reloadTab():
 		set {gametab} to "&d&lBow PVP&r"
 	if {jeu_condi} is 9:
 		set {gametab} to "&1&lBuild Masters&r"
+	if {jeu_condi} is 10:
+		set {gametab} to "&c&lTrials&r"
 	#Tests:
-	#set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>Spectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r て%nl%%nl%<##E2F093>Testers :&r%nl%%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r%nl%%{color.252fda4d-bb94-4449-876d-fec8d172dda0}%Case_Cool&r"
+	#set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>Spectators :&r%nl%None%nl%%nl%<##E2F093>Testers :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r"
 	#Events:
-	set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>&lSpectators :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}%Redye_&r%nl%%nl%<##E2F093>&lPlayers :&r%nl%%nl%%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}%EinfachStam&r%nl%%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}%Bluekwyrm&r%nl%%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}%Joeyfish1000&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1&r%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%Frogqers&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokirri&r%nl%%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}%gewoonwifi&r%nl%%{color.81ff6334-7c28-4159-8b92-8395d00308f1}%makaajana&r%nl%%nl%%nl%<##E2F093>* = New players"
+	set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5.5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>&lSpectators :&r%nl%%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%nl%<##E2F093>&lPlayers :&r%nl%%nl%%{color.19fcc862-7e4b-4d42-a258-98a6723ea948}%Redd_Zee&r%nl%%{color.aba34626-90e3-498f-b70c-8314e0bb4277}%KaNukei&r%nl%%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}%NotTooSwift1&r%nl%%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}%Svubo&r%nl%%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}%Kokirri&r%nl%%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}%Redye_&r%nl%%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}%frogqers&r%nl%%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}%NotTooGroovy<##E2F093>*&r%nl%%{color.af5c243a-0dfc-4eca-a1d0-6c62ecbae10a}%ThatDarkPhoenix<##E2F093>*&r%nl%%{color.c677bbaf-1aa6-4a9c-896c-ca76aae83c8d}%TheHauntedCheese<##E2F093>*&r%nl%%{color.d806e539-b327-499b-99d8-cd41cfefce49}%FiremanRD<##E2F093>*&r%nl%%{color.e6a25a6e-7d33-4d65-a1a3-f014e95e00bd}%Portalities<##E2F093>*&r%nl%%{color.4c948549-78bd-48b6-a47d-551a249e905d}%Dudesnaps<##E2F093>*&r%nl%%{color.163120b9-1f24-4957-9c2b-9b7a880b892a}%KubaBabilon<##E2F093>*&r%nl%%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}%victoriaskyetv<##E2F093>*&r%nl%%{color.13e97dc8-20d4-46f7-b445-26f393f77076}%dark004fly<##E2F093>*&r%nl%%{color.2aaaa93c-42cd-4b24-aa6b-f68a3a3c7fc6}%BlocksoBlock<##E2F093>*&r%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580<##E2F093>*&r%nl%%nl%%nl%<##E2F093>* = New players"
 	set {blocker} to "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%"
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"
@@ -36,6 +38,7 @@ function resetTab():
 	set {color.c6ef5a1b-be62-40d2-a156-beffe050c36e} to "タ &7" #Frogqers
 	set {color.128c5102-ce00-4945-8653-c41f4ddefbe7} to "タ &7" #BetterPooka
 	set {color.82d1eccf-d5a7-4636-8374-891f0d67fcc3} to "タ &7" #JoeyFish1000
+	set {color.3419f049-aecb-4494-8a4d-a1452fd143ca} to "タ &7" #NotTooGroovy
 	set {color.cadb7cce-fdae-44ee-9426-ec08cdb6798c} to "タ &7" #Redye_
 	set {color.0eab4b9d-596e-4d28-ac75-b934d53f3f2b} to "タ &7" #EnCrypTeD__
 	set {color.1ba03542-0da6-4981-bc25-1c303dd2f940} to "タ &7" #SpixKokiri / Kokiriz / Kokirri
@@ -51,6 +54,15 @@ function resetTab():
 	set {color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1} to "タ &7" #gewoonwifi
 	set {color.aba34626-90e3-498f-b70c-8314e0bb4277} to "タ &7" #KaNukei
 	set {color.e701d8fc-b26f-4362-8c88-07300a3f1a36} to "タ &7" #NotTooSwift
+	set {color.af5c243a-0dfc-4eca-a1d0-6c62ecbae10a} to "タ &7" #ThatDarkPhoenix
+	set {color.c677bbaf-1aa6-4a9c-896c-ca76aae83c8d} to "タ &7" #TheHauntedCheese
+	set {color.d806e539-b327-499b-99d8-cd41cfefce49} to "タ &7" #FiremanRD
+	set {color.e6a25a6e-7d33-4d65-a1a3-f014e95e00bd} to "タ &7" #Portalities
+	set {color.4c948549-78bd-48b6-a47d-551a249e905d} to "タ &7" #Dudesnaps
+	set {color.163120b9-1f24-4957-9c2b-9b7a880b892a} to "タ &7" #KubaBabilon
+	set {color.85279072-5699-4a82-bb7c-2ded4d6deda2} to "タ &7" #victoriaskyetv
+	set {color.13e97dc8-20d4-46f7-b445-26f393f77076} to "タ &7" #dark004fly
+	set {color.2aaaa93c-42cd-4b24-aa6b-f68a3a3c7fc6} to "タ &7" #BlocksoBlock
 	#set {head.dc833b85-3cba-4ebd-8f4d-febc09f02422} to "{""translate"":""%%nox_uuid%%dc833b85-3cba-4ebd-8f4d-febc09f02422,false,0,0,1.0"",""fallback"":""👤""}" #TheFox580
 	#set {head.a5b68cfe-e546-4b63-a87d-26f065710dc1} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}" #LeRenard580
 	#set {head.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898} to "{""translate"":""%%nox_uuid%%a5b68cfe-e546-4b63-a87d-26f065710dc1,false,0,0,1.0"",""fallback"":""👤""}" #TheFox581

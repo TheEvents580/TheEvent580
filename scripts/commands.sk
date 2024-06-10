@@ -9,6 +9,8 @@ command /start:
 				set {event_timer} to true
 				set {timer-s} to 30
 				set {timer-m} to 1
+				command("bossbar set minecraft:count players @a")
+				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 				set {timer} to 1
 				broadcast "[<##155966>&lTheEvent580&r] Event starting in 1 minute and 30 seconds."
 				loop all players:
@@ -119,15 +121,15 @@ command /timer <text> [<text>] [<int>]:
 				set {timer_save} to {timer}
 				set {timer} to "pause"
 				set {event_timer} to false
+				command("execute run bossbar set minecraft:count name {""text"":""惠上为Event is paused"",""color"":""##4e5c24""}")
 				if {jeu_condi} is 5:
-					set {courses_boat_timer_status} to false
-					set {courses_pied_timer_status} to false
-					set {courses_trident_timer_status} to false
+					set {race_timer} to true
 				broadcast "[<##155966>&lTheEvent580&r] The Event is currently paused, please wait"
 		else if arg-1 is "play":
 			set {timer} to {timer_save}
 			clear {timer_save}
 			set {event_timer} to true
+			bossbarRefill("count", {timer-m}*60 + {timer-s})
 			if {jeu_condi} is 5:
 				set {courses_boat_timer_status} to true
 				set {courses_pied_timer_status} to true
@@ -144,6 +146,7 @@ command /timer <text> [<text>] [<int>]:
 			if arg-2 and arg-3 is set:
 				set {timer-m} to arg-2 parsed as a integer
 				set {timer-s} to arg-3
+				bossbarRefill("count", {timer-m}*60 + {timer-s})
 			else:
 				send "--> /timer set 1 30 ( example )"
 		else if arg-1 is "status":
@@ -260,6 +263,7 @@ command /reset:
 				set {race_lap_1_finished} to false
 				set {race_lap_2_finished} to false
 				set {race_lap_3_finished} to false
+				command("bossbar set minecraft:count visible false")
 				loop all players:
 					setPlayerColor(player)
 					clear {ride.%loop-player's uuid%}
@@ -322,6 +326,8 @@ command /consolestart:
 		set {event_timer} to false
 		set {timer-s} to 30
 		set {timer-m} to 1
+		command("bossbar set minecraft:count players @a")
+		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 		set {timer} to 1
 		broadcast "[<##155966>&lTheEvent580&r] Event starting in 1 minute and 30 seconds."
 		loop all players:
@@ -612,8 +618,8 @@ command /bingo:
 		set {pts_lvl_9} to 100*{checking_finished_players}
 		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
 		make server execute command "//world bingo"
-		make server execute command "//pos1 289,64,164"
-		make server execute command "//pos2 322,71,132"
+		make server execute command "//pos1 -999986,157,-999938"
+		make server execute command "//pos2 -999953,150,-999906"
 		make server execute command "//walls barrier"
 		loop all players:
 			if loop-player has permission "group.spectators":
@@ -904,9 +910,12 @@ command /bowpvp:
 				if {hide.%loop-player's uuid%} = false:
 					make console execute command "hide %loop-player%"
 			else:
+				set {max_health.%loop-player's uuid%} to 5
 				set {alive.%loop-player's uuid%} to true
+				set {finished.%loop-player's uuid%} to false
 		wait 2 seconds
 		make server execute command "gamemode adventure @a"
+		make server execute command "effect clear @a"
 		set {pts_lvl_1} to round(40*{multiplier}) #kill bow & more than 1 heart
 		set {pts_lvl_2} to round(30*{multiplier}) #kill sword & more than 1 heart
 		set {pts_lvl_3} to round(60*{multiplier}) #kill bow & elemination
@@ -931,6 +940,7 @@ command /bm:
 		loop all players:
 			make console execute command "execute run bossbar set minecraft:mall players %loop-player%"
 			set loop-player's gamemode to adventure
+			disable fly for loop-player
 			if loop-player has permission "group.spectators":
 				make console execute command "hide %loop-player%"
 				allow fly for loop-player
@@ -940,8 +950,8 @@ command /bm:
 				set {builds.%loop-player's uuid%} to "Spec"
 				set {finished.%loop-player's uuid%} to true
 			else:
-				if loop-player can fly:
-					disable fly for loop-player
+				reveal player for all players
+				disable fly for loop-player
 				set {timer_minute.%loop-player's uuid%} to 9
 				set {timer_second.%loop-player's uuid%} to 60
 				set {build.%loop-player's uuid%} to 1
@@ -1011,18 +1021,18 @@ command /points <offline player> [<int>] [<text>]:
 			add arg-2 to {points.%arg-1's uuid%}
 			if arg-3 is not set:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%)" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%)<##D9D8F1>" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%)" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
 			else:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
 				else:
 					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points.%arg-1's uuid%})%&r 工" to executor
 
@@ -1036,18 +1046,18 @@ command /gamepoints <offline player> [<int>] [<text>]:
 			add arg-2 to {points_game.%arg-1's uuid%}
 			if arg-3 is not set:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%)" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%)" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
 			else:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points_game.%arg-1's uuid%})%&r<##D9D8F1> game &r工" to executor
 
@@ -1061,18 +1071,18 @@ command /totalpoints <offline player> [<int>] [<text>]:
 			add arg-2 to {total_points.%arg-1's uuid%}
 			if arg-3 is not set:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%)" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%)" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
 			else:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%"")" to executor
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
+					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({total_points.%arg-1's uuid%})%&r<##D9D8F1> total &r工" to executor
 
@@ -1160,22 +1170,50 @@ command /readycheck:
 		while {replied} != {online_players}:
 			wait 1 tick
 			remove 1 from {timer-s}
+			if {timer-s} < 1:
+				loop all players:
+					loop 500 times:
+						send "" to loop-player
+					if {ready.%loop-player's uuid%} is true:
+						if loop-player doesn't have permission "group.spectators":
+							remove 1 from {check_players}
 			if {timer-s} > 21:
 				send action bar "&e&lTime left : &a&l%{timer-s}%&e&ls" to all players
+			if {timer-s} = 20 or 10 or 0:
+				clear {ready::*}
+				loop all players:
+					if {ready.%loop-player's uuid%} = false:
+						add "%{color.%loop-player's uuid%}%%loop-player%&r" to {ready::*}
+				set {ready_message} to ""
+				if the size of {ready::*} = 1:
+					if {timer-s} = 20:
+						set {ready_message} to "%{ready::1}% hasn't replied."
+					if {timer-s} = 10:
+						set {ready_message} to "%{ready::1}% still hasn't replied."
+					if {timer-s} = 0:
+						set {ready_message} to "%{ready::1}% failed to reply."
+				else:
+					loop {ready::*}:
+						if loop-index = "1":
+							set {ready_message} to loop-value
+						if loop-index = "%size of {ready::*}%":
+							if {timer-s} = 20:
+								set {ready_message} to "%{ready_message}% and %loop-value% haven't replied."
+							if {timer-s} = 10:
+								set {ready_message} to "%{ready_message}% and %loop-value% still haven't replied."
+							if {timer-s} = 0:
+								set {ready_message} to "%{ready_message}% and %loop-value% failed to reply."
+						else:
+							if {ready_message} != loop-value:
+								set {ready_message} to "%{ready_message}%, %loop-value%"
+				broadcast "[<##155966>&lTheEvent580&r] %{ready_message}%"
+				if {timer-s} = 0:
+					exit loop
 			else if {timer-s} > 11:
 				send action bar "&e&lTime left : &6&l%{timer-s}%&e&ls" to all players
 			else if {timer-s} > 0:
 				send action bar "&e&lTime left : &c&l%{timer-s}%&e&ls" to all players
-			if {timer-s} < 1:
-				exit loop
 			wait 19 ticks
-		
-		loop all players:
-			loop 500 times:
-				send "" to loop-player
-			if {ready.%loop-player's uuid%} is true:
-				if loop-player doesn't have permission "group.spectators":
-					remove 1 from {check_players}
 		if {check_players} is 0:
 			send "[<##155966>&lTheEvent580 - Admin&r] Everyone is ready, start whenever you want !" to executor
 		else:
@@ -1268,31 +1306,31 @@ command /world:
 	trigger:
 		send player's world to player
 
-command /ping [<player>]:
-	description: send arg-1's ping (if precised) to executor
-	trigger:
-		if arg-1 is set:
-			if arg-1's ping < 50:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
-			else if arg-1's ping < 100:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
-			else if arg-1's ping < 150:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
-			else if arg-1's ping < 200:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
-			else if arg-1's ping > 199:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
-		else:
-			if executor's ping < 50:
-				send "[<##155966>&lTheEvent580&r] Your ping is &a&l%executor's ping% &rms" to executor
-			else if executor's ping < 100:
-				send "[<##155966>&lTheEvent580&r] Your ping is &e&l%executor's ping% &rms" to executor
-			else if executor's ping < 150:
-				send "[<##155966>&lTheEvent580&r] Your ping is &6&l%executor's ping% &rms" to executor
-			else if executor's ping < 200:
-				send "[<##155966>&lTheEvent580&r] Your ping is &c&l%executor's ping% &rms" to executor
-			else if executor's ping > 199:
-				send "[<##155966>&lTheEvent580&r] Your ping is &4&l%executor's ping% &rms" to executor
+#command /ping [<player>]:
+#	description: send arg-1's ping (if precised) to executor
+#	trigger:
+#		if arg-1 is set:
+#			if arg-1's ping < 50:
+#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
+#			else if arg-1's ping < 100:
+#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
+#			else if arg-1's ping < 150:
+#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
+#			else if arg-1's ping < 200:
+#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
+#			else if arg-1's ping > 199:
+#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
+#		else:
+#			if executor's ping < 50:
+#				send "[<##155966>&lTheEvent580&r] Your ping is &a&l%executor's ping% &rms" to executor
+#			else if executor's ping < 100:
+#				send "[<##155966>&lTheEvent580&r] Your ping is &e&l%executor's ping% &rms" to executor
+#			else if executor's ping < 150:
+#				send "[<##155966>&lTheEvent580&r] Your ping is &6&l%executor's ping% &rms" to executor
+#			else if executor's ping < 200:
+#				send "[<##155966>&lTheEvent580&r] Your ping is &c&l%executor's ping% &rms" to executor
+#			else if executor's ping > 199:
+#				send "[<##155966>&lTheEvent580&r] Your ping is &4&l%executor's ping% &rms" to executor
 
 command /msg <player> <text>:
 	aliases: tell
@@ -1709,13 +1747,6 @@ command /seeplacement:
 					if {list_points::%{seepts}%} = {points.%loop-player's uuid%}:
 						send "[<##155966>&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
 			add 1 to {seepts}
-
-command /announcements <text>:
-	aliases: announcement, announce, bc, broadcast, alert, alerts
-	permission: *
-	permission message: &cThis command does not exist
-	trigger:
-		broadcast "[<##155966>&lTheEvent580 - Announcement&r] %arg-1%"
 
 command /on:
 	permission: *
@@ -2263,11 +2294,6 @@ command /uuid <offline player>:
 	trigger:
 		send "Here is %arg-1%'s uuid : %arg-1's uuid%<reset>"
 
-command /rlsb:
-	permission: *
-	trigger:
-		reloadScoreboard()
-
 command /refill <text> <text> <integer>:
 	permission: *
 	trigger:
@@ -2589,6 +2615,11 @@ command /hasfinished <player>:
 	trigger:
 		send "%{finished.%arg-1's uuid%}%" to sender
 
+command /isalive <player>:
+	permission: *
+	trigger:
+		send "%{alive.%arg-1's uuid%}%" to sender
+
 command /wb:
 	permission: *
 	trigger:
@@ -2608,54 +2639,59 @@ command /codes:
 command /leaderboard:
 	aliases: lb
 	trigger:
-		clear {_leaderboard.overall::*}
-		loop all players:
-			if loop-player doesn't have permission "group.spectators":
-				add {points.%loop-player's uuid%} to {_leaderboard.overall::*}
-		set {_leaderboard.overall::*} to sorted {_leaderboard.overall::*}
-		set {_leaderboard.overall::*} to reversed {_leaderboard.overall::*}
-		loop the size of {_leaderboard.overall::*} times:
+		if {jeu} = 0:
+			send "<##2395A9>No games have been played yet."
+		if {timer} = 10:
+			send "<##2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
+		else:
+			clear {_leaderboard.overall::*}
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
-					if {points.%loop-player's uuid%} = {_leaderboard.overall::%loop-value-1%}:
-						if loop-player = player:
-							set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工"
-						else:
-							set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<##E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
-			if loop-value = 1 or 21:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-					set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+					add {points.%loop-player's uuid%} to {_leaderboard.overall::*}
+			set {_leaderboard.overall::*} to sorted {_leaderboard.overall::*}
+			set {_leaderboard.overall::*} to reversed {_leaderboard.overall::*}
+			loop the size of {_leaderboard.overall::*} times:
+				loop all players:
+					if loop-player doesn't have permission "group.spectators":
+						if {points.%loop-player's uuid%} = {_leaderboard.overall::%loop-value-1%}:
+							if loop-player = player:
+								set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工"
+							else:
+								set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<##E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
+				if loop-value = 1 or 21:
+					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
+						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+						set {_leaderboard.overall::%loop-value%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+					else:
+						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
+				else if loop-value = 2 or 22:
+					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
+						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+					else:
+						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
+				else if loop-value = 3 or 23:
+					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
+						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+					else:
+						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
 				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
-			else if loop-value = 2 or 22:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-					set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
-				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
-			else if loop-value = 3 or 23:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-					set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
-				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
+					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
+						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+						if loop-value != the size of {_leaderboard.overall::*}:
+							add newline to {_leaderboard.overall::%loop-value%}
+					else:
+						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
+			send "<##2395A9>Here is the event &n&loverall&r<##2395A9> leaderboard :"
+			loop {_leaderboard.overall::*}:
+				send loop-value to player
+			send "%nl%<##BCD71D>&lYou are placed :" to player
+			if player has permission "group.spectators":
+				send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n-∞&r 工"
 			else:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-					set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					if loop-value != the size of {_leaderboard.overall::*}:
-						add "%nl%" to {_leaderboard.overall::%loop-value%}
-				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
-		send "<##2395A9>Here is the event &n&loverall&r<##2395A9> leaderboard :"
-		loop {_leaderboard.overall::*}:
-			send loop-value to player
-		send "%nl%<##BCD71D>&lYou are placed :" to player
-		if player has permission "group.spectators":
-			send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n-∞&r 工"
-		else:
-			send {_position.%player's uuid%} to player
+				send {_position.%player's uuid%} to player
 
 command /getplayertime <player>:
 	permission: group.spectators
@@ -2664,3 +2700,27 @@ command /getplayertime <player>:
 			send "%{color.%arg-1's uuid%}%%arg-1%&r is out of time"
 		else:
 			send "%{color.%arg-1's uuid%}%%arg-1%&r has %{timer_minute.%arg-1's uuid%}%:%{timer_second.%arg-1's uuid%}% left"
+
+command /settroll:
+	permission: *
+	trigger:
+		command("execute in minecraft:races_lap_3 positioned 8 136 -83 as @e[type=minecraft:block_display,limit=4,sort=nearest] run kill @s")
+		command("execute in minecraft:races_lap_3 run summon minecraft:block_display 9.0 135.00 -84.0 {block_state:{Name:""minecraft:stone""}}")
+		command("execute in minecraft:races_lap_3 run summon minecraft:block_display 8.0 135.00 -84.0 {block_state:{Name:""minecraft:stone""}}")
+		command("execute in minecraft:races_lap_3 run summon minecraft:block_display 9.0 136.00 -83.0 {block_state:{Name:""minecraft:stone""}}")
+		command("execute in minecraft:races_lap_3 run summon minecraft:block_display 8.0 136.00 -83.0 {block_state:{Name:""minecraft:stone""}}")
+		
+command /endnpc:
+	permission: *
+	trigger:
+		endNPCs()
+
+command /setbossbar <text> <int> <boolean = false>:
+	permission: *
+	trigger:
+		bossbarRefill(arg-1, arg-2, arg-3)
+
+command /test:
+	permission: *
+	trigger:
+		

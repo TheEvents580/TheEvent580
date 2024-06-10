@@ -1,30 +1,6 @@
 function command(command:text):
 	make console execute command "%{_command}%"
 
-function randomColor():
-	set {_check_color} to {color}
-	set {color} to a random integer between 1 and 8
-	if {_check_color} = {color}:
-		randomColor()
-		stop trigger
-	else:
-		if {color} is 1:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 red_stained_glass"
-		if {color} is 2:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 orange_stained_glass"
-		if {color} is 3:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 yellow_stained_glass"
-		if {color} is 4:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 lime_stained_glass"
-		if {color} is 5:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 light_blue_stained_glass"
-		if {color} is 6:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 blue_stained_glass"
-		if {color} is 7:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 purple_stained_glass"
-		if {color} is 8:
-			make server execute command "execute in minecraft:overworld run setblock 310 64 323 pink_stained_glass"
-
 function setPlayerColor(p:player):
 	if {_p} has permission "group.spectators":
 		set {color.%{_p}'s uuid%} to "露&8 "
@@ -45,10 +21,22 @@ function setPlayerColor(p:player):
 	else if {_p} has permission "group.rose":
 		set {color.%{_p}'s uuid%} to "目&d "
 
+function minuteSecond(time: number) :: text:
+	set {_minute} to floor({_time}/60)
+	set {_second} to {_time} - ({_minute}*60)
+
+	if {_minute} < 10:
+		set {_minute} to "0%{_minute}%"
+	
+	if {_second} < 10:
+		set {_second} to "0%{_second}%"
+
+	return "%{_minute}%:%{_second}%"
+
 function reloadTimer():
 	loop all players:
 		if loop-player doesn't have permission "group.spectators":
-			send action bar "&bLap time : %{race_lap_time.%loop-player's uuid%}%s | Total time : %{race_total_time.%loop-player's uuid%}%s" to loop-player
+			send action bar "&bLap time : %minuteSecond({race_lap_time.%loop-player's uuid%})%s | Total time : %minuteSecond({race_total_time.%loop-player's uuid%})%s" to loop-player
 
 function checkBiggest():
 	clear {games::*}
@@ -110,83 +98,93 @@ function checkBiggest():
 				send title "&c&lDropper" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lDropper&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lDropper"
-			command("setgame 1")
+			set {jeu_logo} to ""
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+			wait 7 seconds
+			command("dropper")
 		else if {biggest} is {orange}:
 			wait 10 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
-			command("setgame 2")
+			command("parkour")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+			wait 7 seconds
+			command("parkour")
 		else if {biggest} is {yellow}:
 			wait 10 seconds
 			loop all players:
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
-			command("setgame 4")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+			wait 7 seconds
+			command("bingo")
 		else if {biggest} is {lime}:
 			wait 10 seconds
 			loop all players:
 				send title "&a&lFind The Button" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &a&lFind The Button&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lFind The Button"
-			command("setgame 5")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+			wait 7 seconds
+			command("ftb")
 		else if {biggest} is {light_blue}:
 			wait 10 seconds
 			loop all players:
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
-			command("setgame 6")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+			wait 7 seconds
+			command("courses")
 		else if {biggest} is {blue}:
 			wait 10 seconds
 			loop all players:
 				send title "&1&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &1&lBuild Masters&r with&r &1&l%{blue}%&r votes"
 			set {jeu_nom} to "&1&lBuild Masters"
-			command("setgame 7")
 			#	send title "&1&lSurvival Games" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			#broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &1&lSurvival Games&r with&r &1&l%{blue}%&r votes"
 			#set {jeu_nom} to "&1&lSurvival Games &e(&r%{map_sg}% / 2&e)&r"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+			wait 7 seconds
+			command("bm")
 		else if {biggest} is {purple}:
 			wait 10 seconds
 			loop all players:
 				send title "&5&lSurvival Games" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &5&lSurvival Games&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lSurvival Games"
-			command("setgame 8")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+			wait 7 seconds
+			command("sg")
 		else if {biggest} is {pink}:
 			wait 10 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
-			command("setgame 8")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+			wait 7 seconds
+			command("bowpvp")
 	if the size of {games::*} is greater than 1:
 		loop all players:
 			if loop-player has permission "group.spectators":
@@ -204,97 +202,104 @@ function checkBiggest():
 				send title "&c&lDropper" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lDropper&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lDropper"
-			command("setgame 1")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+			wait 7 seconds
+			command("dropper")
 		if {games::%{_random}%} is "&6&lParkour":
 			wait 5 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
-			command("setgame 2")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+			wait 7 seconds
+			command("parkour")
 		if {games::%{_random}%} is "&e&lBingo":
 			wait 5 seconds
 			loop all players:
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
-			command("setgame 3")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+			wait 7 seconds
+			command("bingo")
 		if {games::%{_random}%} is "&a&lFind The Button":
 			wait 5 seconds
 			loop all players:
 				send title "&a&lFind The Button" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &a&lFind The Button&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lFind The Button"
-			command("setgame 4")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+			wait 7 seconds
+			command("ftb")
 		if {games::%{_random}%} is "&b&lMultilap":
 			wait 5 seconds
 			loop all players:
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
-			command("setgame 5")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+			wait 7 seconds
+			command("courses")
 		if {games::%{_random}%} is "&1&lBuild Masters":
 			wait 5 seconds
 			loop all players:
 				send title "&1&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &1&lBuild Masters&r with&r &1&l%{blue}%&r votes"
 			set {jeu_nom} to "&1&lBuild Masters"
-			command("setgame 6")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+			wait 7 seconds
+			command("bm")
 		if {games::%{_random}%} is "&5&lSurvival Games":
 			wait 5 seconds
 			loop all players:
 				send title "&5&lSurvival Games" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &5&lSurvival Games&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lSurvival Games&r"
-			command("setgame 7")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+			wait 7 seconds
+			command("sg")
 		if {games::%{_random}%} is "&d&lBow PVP":
 			wait 5 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
-			command("setgame 8")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+			wait 7 seconds
+			command("bowpvp")
 
 function after():
-	wait 10 seconds
 	if {white} is greater than 1:
 		if {light_gray} is greater than 1:
 			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[&6&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
 			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted !"
 	else if {white} is 1:
 		if {light_gray} is greater than 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player haven't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player haven't voted !"
+			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted !"
 	else if {white} is 0:
 		if {light_gray} is greater than 1:
 			broadcast "[<##155966>&lTheEvent580&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
@@ -341,43 +346,43 @@ function updateClassement():
 		if {list_points::1} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 8"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 1 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::2} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 9"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 2 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::3} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 10"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 3 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::4} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 11"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 4 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::5} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 12"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 5 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::6} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 13"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 6 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::7} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 14"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 7 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::8} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 15"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 8 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::9} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 16"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 9 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 		if {list_points::10} is {points.%loop-player's uuid%}:
 			make server execute command "npc select 17"
 			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename Top 10 : %{color.%loop-player's uuid%}% %loop-player% &r--> %{points_string.%loop-player's uuid%}% 工"
+			make server execute command "npc rename <##D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
 
 function updateParkour():
 	clear {list_parkour::*}
@@ -497,97 +502,112 @@ function endNPCs():
 	make server execute command "npc rename Top 10 : &kHidden"
 
 function newPlayers():
-	#send title "Announcing new players :" to all players for 2 seconds
-	#wait 2 seconds
-	#send title "Announcing new players :" with subtitle "%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}% gewoonwifi&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "b9e8cdfb-a532-4398-956d-a49fb6bfa9f1":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 2 seconds
-	#send title "Announcing new players :" with subtitle "%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}% Joeyfish1000" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "82d1eccf-d5a7-4636-8374-891f0d67fcc3":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 2 seconds
-	#send title "Announcing new players :" with subtitle "%{color.aba34626-90e3-498f-b70c-8314e0bb4277}% KaNukei" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 2 seconds
-	#send title "Announcing new players :" with subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
-	#		apply glowing without particles to loop-player for 2 seconds
+	send title "Announcing new players :" to all players for 22 seconds
+	wait 2 seconds
+	send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGroovy" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.af5c243a-0dfc-4eca-a1d0-6c62ecbae10a}% ThatDarkPhoenix" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "af5c243a-0dfc-4eca-a1d0-6c62ecbae10a":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.c677bbaf-1aa6-4a9c-896c-ca76aae83c8d}% TheHauntedCheese" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "c677bbaf-1aa6-4a9c-896c-ca76aae83c8d":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.d806e539-b327-499b-99d8-cd41cfefce49}% FiremanRD" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "d806e539-b327-499b-99d8-cd41cfefce49":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.e6a25a6e-7d33-4d65-a1a3-f014e95e00bd}% Portalities" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "e6a25a6e-7d33-4d65-a1a3-f014e95e00bd":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.163120b9-1f24-4957-9c2b-9b7a880b892a}% KubaBabilon" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "163120b9-1f24-4957-9c2b-9b7a880b892a":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% thatgirlvic" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.13e97dc8-20d4-46f7-b445-26f393f77076}% dark004fly" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "13e97dc8-20d4-46f7-b445-26f393f77076":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.2aaaa93c-42cd-4b24-aa6b-f68a3a3c7fc6}% BlocksoBlock" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "2aaaa93c-42cd-4b24-aa6b-f68a3a3c7fc6":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}% TheFox580" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "dc833b85-3cba-4ebd-8f4d-febc09f02422":
+			apply glowing without particles to loop-player for 2 seconds
 
 function currentPlayers():
-	send title "Now announcing the players :" to all players for 15 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% Frogqers&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "c6ef5a1b-be62-40d2-a156-beffe050c36e":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokiriz&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}% Svubo&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "3d09fa7f-be05-4f23-ae1b-a32d2567fd6d":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.750f5ea8-e31b-4581-8db6-d213a755651b}% PrabsSSP&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "750f5ea8-e31b-4581-8db6-d213a755651b":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.b9e8cdfb-a532-4398-956d-a49fb6bfa9f1}% gewoonwifi*&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "b9e8cdfb-a532-4398-956d-a49fb6bfa9f1":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.82d1eccf-d5a7-4636-8374-891f0d67fcc3}% Joeyfish1000*&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "82d1eccf-d5a7-4636-8374-891f0d67fcc3":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.c65a31f2-f0a1-4bc9-9f09-16cb533c78da}% EinfachStam&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "c65a31f2-f0a1-4bc9-9f09-16cb533c78da":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 second
-	#send subtitle "%{color.128c5102-ce00-4945-8653-c41f4ddefbe7}% BetterPooka&r" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "128c5102-ce00-4945-8653-c41f4ddefbe7":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 seconds
-	#send subtitle "%{color.aba34626-90e3-498f-b70c-8314e0bb4277}% KaNukei*" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 seconds
-	#send subtitle "%{color.81ff6334-7c28-4159-8b92-8395d00308f1}% makaajana" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "81ff6334-7c28-4159-8b92-8395d00308f1":
-	#		apply glowing without particles to loop-player for 2 seconds
-	#wait 1.5 seconds
-	#send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1*" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
-	#		apply glowing without particles to loop-player for 2 seconds
+	send title "Now announcing the players :" with subtitle " " to all players for 15 seconds
+	wait 1.5 second
+	send subtitle "%{color.19fcc862-7e4b-4d42-a258-98a6723ea948}% Redd_Zee&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "19fcc862-7e4b-4d42-a258-98a6723ea948":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.aba34626-90e3-498f-b70c-8314e0bb4277}% KaNukei&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.750f5ea8-e31b-4581-8db6-d213a755651b}% Svubo&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "750f5ea8-e31b-4581-8db6-d213a755651b":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}% gewoonwifi&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "3d09fa7f-be05-4f23-ae1b-a32d2567fd6d":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokirri&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}% Redye_&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "cadb7cce-fdae-44ee-9426-ec08cdb6798c":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% frogqers&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "c6ef5a1b-be62-40d2-a156-beffe050c36e":
+			apply glowing without particles to loop-player for 2 seconds
 
 function currentSpecs():
 	send title "And here are your spectators:" to all players for 2 seconds
 	wait 1.5 second
-	send title "And here are your spectators :" with subtitle "%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}% TheFox580&r" to all players for 2 seconds
+	send title "And here are your spectators :" with subtitle "%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}% LeRenard580&r" to all players for 2 seconds
 	loop all players:
-		if loop-player's uuid is "dc833b85-3cba-4ebd-8f4d-febc09f02422":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send title "And here are your spectators " with subtitle "%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}% Redye_&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "cadb7cce-fdae-44ee-9426-ec08cdb6798c":
+		if loop-player's uuid is "a5b68cfe-e546-4b63-a87d-26f065710dc1":
 			apply glowing without particles to loop-player for 2 seconds
 
 function checkPoints(points: number) :: text:
@@ -616,13 +636,19 @@ function giveRandomItems(p:player):
 	set {_random} to a random number between 1 and 100
 	set {_random} to round({_random})
 	if {_random} = 54:
-		give 1 of carrot on a stick named "&rSwap players and spectators" with lore "&rRight click to swap the players and the spectators" to {_p}
+		set {_item} to carrot on a stick
+		set {_item.nbt} to nbt compound of {_item}
+		add nbt compound of "{display:{Name:'[{""text"":""Swap players and spectators"",""italic"":false}]',Lore:['[{""text"":""Right click to swap the players and the spectators"",""italic"":false,""color"":""white""}]']},CustomModelData:19}" to {_item.nbt}
+		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
 	else if {_random} = 66:
-		give 1 of carrot on a stick named "&rYou choose the game" with lore "&rRight click to choose the game" to {_p}
+		set {_item} to carrot on a stick
+		set {_item.nbt} to nbt compound of {_item}
+		add nbt compound of "{display:{Name:'[{""text"":""You choose the game"",""italic"":false}]',Lore:['[{""text"":""Right click to choose the game"",""italic"":false,""color"":""white""}]']},CustomModelData:20}" to {_item.nbt}
+		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
@@ -640,7 +666,10 @@ function giveRandomItems(p:player):
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
 	else if {_random} is between 81 and 85:
-		give 1 of carrot on a stick named "&rBlock a game" with lore "&rRight click in a game category to block this game" to {_p}
+		set {_item} to carrot on a stick
+		set {_item.nbt} to nbt compound of {_item}
+		add nbt compound of "{display:{Name:'[{""text"":""Block a game"",""italic"":false}]',Lore:['[{""text"":""Right click in a game category to block this game"",""italic"":false,""color"":""white""}]']},CustomModelData:18}" to {_item.nbt}
+		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
@@ -847,7 +876,7 @@ function refillAll():
 	loop all players:
 		if the z-coordinate of loop-player > 3000:
 			send "[<##155966>&lTheEvent580 - Mall&r] The Mall has been restocked" to loop-player
-		bossbarRefill("mall")
+		bossbarRefill("mall", 30)
 		
 	loop 25 times:
 		wait 1 second
@@ -858,12 +887,27 @@ function bossbarRemove1Sec(name:text):
 	make console execute command "/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%"
 	if {_name} = "mall":
 		make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
+	if {_name} = "count":
+		make console execute command "/execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({bar_progress_%{_name}%})%"",""color"":""##4e5c24""}"
 
-function bossbarRefill(name:text):
+function bossbarRefill(name:text, value:integer, total:boolean = false):
+	set {bar_progress_%{_name}%} to {_value}
 	if {_name} = "mall":
-		set {bar_progress_%{_name}%} to 30
-	make console execute command "/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%"
-	make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
+		command("execute run bossbar set minecraft:%{_name}% name ""Refill in %{_value}%s""")
+	if {_name} = "count":
+		command("execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({_value})%"",""color"":""##4e5c24""}")
+	if {_total} = true:
+		command("execute run bossbar set minecraft:%{_name}% max %{_value}%")
+	command("execute run bossbar set minecraft:%{_name}% value %{_value}%")
+
+function intToTime(value:integer) :: text:
+	set {_minutes} to floor({_value}/60)
+	set {_seconds} to {_value}-({_minutes}*60)
+	if {_minutes} < 10:
+		set {_minutes} to "0%{_minutes}%"
+	if {_seconds} < 10:
+		set {_seconds} to "0%{_seconds}%"
+	return "%{_minutes}%:%{_seconds}%"
 
 function giveThirtySecs(p:player):
 	create a gui with virtual chest inventory with 6 rows named "&rGive 30 seconds to a player":
@@ -938,22 +982,22 @@ function removeTime(seconds:number, p:player):
 			send "[<##155966>&lTheEvent580&r] %{color.%{_p}'s uuid%}%%{_p}% &rhas lost lost %{_minutes}% minutes and %{_seconds}% seconds to their payment to the mall." to loop-player
 
 function resetEventTime(current_event_second:number, current_event_minute:number, current_event_hour:number, total_event_second:number, total_event_minute:number, total_event_hour:number):
-	#f {_current_event_second} > {_total_event_second}:
-	#	set {event_timer_second_total} to 60-{_current_event_second}+{_total_event_second}
-	#	if {_total_event_minute} = 0:
-	#		add 59 to {event_timer_minute_total}
-	#		remove 1 from {event_timer_hour_total}
-	#lse:
-	#	remove {_current_event_second} from {event_timer_second_total}
-	#f {_current_event_minute} > {_total_event_minute}:
-	#	set {event_timer_minute_total} to 60-{_current_event_minute}+{_total_event_minute}
-	#	remove 1 from {event_timer_hour_total}
-	#lse:
-	#	remove {_current_event_minute} from {event_timer_minute_total}
-	#emove {current_event_hour} from {event_timer_hour_total}
+	#if {_current_event_second} > {_total_event_second}:
+	#	 set {event_timer_second_total} to 60-{_current_event_second}+{_total_event_second}
+	#	 if {_total_event_minute} = 0:
+	#		 add 59 to {event_timer_minute_total}
+	#		 remove 1 from {event_timer_hour_total}
+	#else:
+	#	 remove {_current_event_second} from {event_timer_second_total}
+	#if {_current_event_minute} > {_total_event_minute}:
+	#	 set {event_timer_minute_total} to 60-{_current_event_minute}+{_total_event_minute}
+	#	 remove 1 from {event_timer_hour_total}
+	#else:
+	#	 remove {_current_event_minute} from {event_timer_minute_total}
+	#remove {current_event_hour} from {event_timer_hour_total}
 	set {event_timer_second} to 0
 	set {event_timer_minute} to 0
 	set {event_timer_hour} to 0
-	set {event_timer_second_total} to 35
-	set {event_timer_minute_total} to 42
-	set {event_timer_hour_total} to 1
+	set {event_timer_second_total} to 45
+	set {event_timer_minute_total} to 20
+	set {event_timer_hour_total} to 3
