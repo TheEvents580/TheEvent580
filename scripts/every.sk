@@ -1555,7 +1555,6 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race6" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cTrials" to loop-player
 							set {event_state} to "Game &r&cTrials"
@@ -1594,7 +1593,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race2" in record category with volume 1 to the loop-player
+						#play sound "custom:race2" in record category with volume 1 to the loop-player
 						make console execute command "/team join nocolisions %loop-player%"
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&6Parkour" to loop-player
@@ -1645,7 +1644,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race8" in record category with volume 1 to the loop-player
+						#play sound "custom:race8" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&eBingo" to loop-player
 							set {event_state} to "Game &r&eBingo"
@@ -1696,6 +1695,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+						#play sound "custom:race11" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
 							set {event_state} to "Game &r&aTag"
@@ -1747,7 +1747,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &b&lMultilap&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race7" in record category with volume 1 to the loop-player
+						#play sound "custom:race7" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&bMultilap" to loop-player
 							set {event_state} to "Game &r&bMultilap"
@@ -1965,7 +1965,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &1&lBuild Masters&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race3" in record category with volume 1 to the loop-player
+						#play sound "custom:race3" in record category with volume 1 to the loop-player
 						set {timer_minute.%loop-player's uuid%} to 9
 						set {timer_second.%loop-player's uuid%} to 60
 						set {timeout_portal.%loop-player's uuid%} to 0
@@ -2053,7 +2053,7 @@ every second:
 					broadcast "[<##155966>&lTheEvent580&r] &d&lBow PVP&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race1" in record category with volume 1 to the loop-player
+						#play sound "custom:race1" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&dBow PVP" to loop-player
 							set {event_state} to "Game &r&dBow PVP"
@@ -2109,7 +2109,8 @@ every second:
 								send title "&c2 minutes left" with subtitle "&cYou're almost out !" to loop-player
 							if {timer_minute.%loop-player's uuid%} = 1:
 								send title "&41 minute left" with subtitle "&4This is your last chance." to loop-player
-				#Sounds
+				#Sounds -- MUSIC IS OFF, IT WILL BE REOPENED ONCE I GET PROPER MUSIC
+				###
 				loop all players:
 					if {jeu_condi} = 1: #Dropper
 						if {timer-m} = 3:
@@ -2361,7 +2362,8 @@ every second:
 						if {timer-m} = 00:
 							if {timer-s} = 43:
 								play sound "custom:race5" in record category with volume 1 to the loop-player
-
+				###
+				
 				#Time and all
 				if {timer-s} is 0:
 					if {timer-m} is 0:
