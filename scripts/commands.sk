@@ -1347,11 +1347,14 @@ command /tele:
 		set {jeu_condi} to 8
 		respawnBowPVP(player)
 
-command /damage <int>:
+command /damage [<int>]:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		set {damage} to arg-1
+		if arg-1 is set:
+			set {damage} to arg-1
+		else:
+			send "Damage : %{damage}%"
 
 command /health <int> <offline player>:
 	permission: *
