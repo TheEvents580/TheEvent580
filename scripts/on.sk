@@ -584,7 +584,7 @@ on damage:
 					cancel event
 				if {alive.%victim's uuid%} or {alive.%attacker's uuid%} = false:
 					cancel event
-			if {jeu_condi} is 3:
+			if {jeu_condi} = 3:
 				if victim is item frame:
 					cancel event
 				if {bingo_cases.%attacker's uuid%} is "All":
