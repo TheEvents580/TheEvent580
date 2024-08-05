@@ -336,53 +336,100 @@ function respawnBowPVP(p:player):
 
 function updateClassement():
 	clear {list_points::*}
+	clear {list_points_players::*}
+	clear {list_points_pos_done::*}
 	loop all players:
 		if loop-player doesn't have permission "group.spectators":	
 			add {points.%loop-player's uuid%} to {list_points::*}
-			set {points_string.%loop-player's uuid%} to "%{points.%loop-player's uuid%}%"
 		set {list_points::*} to sorted {list_points::*}
 		set {list_points::*} to reversed {list_points::*}
 	loop all players:
-		if {list_points::1} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 8"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::2} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 9"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::3} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 10"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::4} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 11"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::5} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 12"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::6} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 13"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::7} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 14"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::8} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 15"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::9} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 16"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
-		if {list_points::10} is {points.%loop-player's uuid%}:
-			make server execute command "npc select 17"
-			make server execute command "npc skin %loop-player%"
-			make server execute command "npc rename <##D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r<##D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+		if loop-player doesn't have permission "group.spectators":
+			if {list_points_players::*} doesn't contain loop-player's name:
+				if {list_points_pos_done::*} doesn't contain 1:
+					if {list_points::1} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 1 to {list_points_pos_done::*}
+						make server execute command "npc select 8"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 2:
+					if {list_points::2} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 2 to {list_points_pos_done::*}
+						make server execute command "npc select 9"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 3:
+					if {list_points::3} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 3 to {list_points_pos_done::*}
+						make server execute command "npc select 10"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 4:
+					if {list_points::4} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 4 to {list_points_pos_done::*}
+						make server execute command "npc select 11"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 5:
+					if {list_points::5} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 5 to {list_points_pos_done::*}
+						make server execute command "npc select 12"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 6:
+					if {list_points::6} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 6 to {list_points_pos_done::*}
+						make server execute command "npc select 13"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 7:
+					if {list_points::7} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 7 to {list_points_pos_done::*}
+						make server execute command "npc select 14"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 8:
+					if {list_points::8} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 8 to {list_points_pos_done::*}
+						make server execute command "npc select 15"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 9:
+					if {list_points::9} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 9 to {list_points_pos_done::*}
+						make server execute command "npc select 16"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+				else if {list_points_pos_done::*} doesn't contain 10:
+					if {list_points::10} is {points.%loop-player's uuid%}:
+						add loop-player's name to {list_points_players::*}
+						add 10 to {list_points_pos_done::*}
+						make server execute command "npc select 17"
+						make server execute command "npc skin %loop-player%"
+						make server execute command "npc rename <#D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r<#D9D8F1> --> %checkPoints({points.%loop-player's uuid%})%&r 工"
+
+function resetParkour():
+	make server execute command "hd setLine TrainParkourCompl 2 <#D9D8F1>1st : N/A"
+	make server execute command "hd setLine TrainParkourCompl 3 <#D9D8F1>2nd : N/A"
+	make server execute command "hd setLine TrainParkourCompl 4 <#D9D8F1>3rd : N/A"
+	make server execute command "hd setLine TrainParkourCompl 5 <#D9D8F1>4th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 6 <#D9D8F1>5th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 7 <#D9D8F1>6th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 8 <#D9D8F1>7th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 9 <#D9D8F1>8th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 10 <#D9D8F1>9th : N/A"
+	make server execute command "hd setLine TrainParkourCompl 11 <#D9D8F1>10th : N/A"
+	loop all players:
+		set {compl_parcour.%loop-player's uuid%} to 0
 
 function updateParkour():
 	clear {list_parkour::*}
@@ -1034,4 +1081,63 @@ function resetEventTime(current_event_second:number, current_event_minute:number
 	set {event_timer_hour} to 0
 	set {event_timer_second_total} to 45
 	set {event_timer_minute_total} to 20
-	set {event_timer_hour_total} to 3
+	set {event_timer_hour_total} to 3function seeLeaderboard(sender: player):
+	clear {_leaderboard.overall::*}
+	clear {_leaderboard.overall.players::*}
+	loop all players:
+		if loop-player doesn't have permission "group.spectators":
+			add {points.%loop-player's uuid%} to {_leaderboard.overall::*}
+	set {_leaderboard.overall::*} to sorted {_leaderboard.overall::*}
+	set {_leaderboard.overall::*} to reversed {_leaderboard.overall::*}
+	loop the size of {_leaderboard.overall::*} times:
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				if {points.%loop-player's uuid%} = {_leaderboard.overall::%loop-value-1%}:
+					if {_leaderboard.overall.players::*} doesn't contain loop-player's name:
+						if loop-player = {_sender}:
+							set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工"
+						else:
+							set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<##E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
+						add loop-player's name to {_leaderboard.overall.players::*}
+		if loop-value = 1 or 21:
+			if {_leaderboard.overall.players::*} doesn't contain loop-value:
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				else:
+					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
+				add loop-value to {_leaderboard.overall.players::*}
+		else if loop-value = 2 or 22:
+			if {_leaderboard.overall.players::*} doesn't contain loop-value:
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				else:
+					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
+				add loop-value to {_leaderboard.overall.players::*}
+		else if loop-value = 3 or 23:
+			if {_leaderboard.overall.players::*} doesn't contain loop-value:
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				else:
+					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
+				add loop-value to {_leaderboard.overall.players::*}
+		else:
+			if {_leaderboard.overall.players::*} doesn't contain loop-value:
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					if loop-value != the size of {_leaderboard.overall::*}:
+						add newline to {_leaderboard.overall::%loop-value%}
+				else:
+					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
+				add loop-value to {_leaderboard.overall.players::*}
+	send "<##2395A9>Here is the event &n&loverall&r<##2395A9> leaderboard :" to {_sender}
+	loop {_leaderboard.overall::*}:
+		send loop-value to {_sender}
+	send "%nl%<##BCD71D>&lYou are placed :" to {_sender}
+	if {_sender} has permission "group.spectators":
+		send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n-∞&r 工" to {_sender}
+	else:
+		send {_position.%{_sender}'s uuid%} to {_sender}

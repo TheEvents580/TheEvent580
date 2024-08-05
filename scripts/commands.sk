@@ -2021,6 +2021,7 @@ command /seeplacement:
 		clear {show}
 		clear {finished::*}
 		clear {list_points::*}
+		clear {list_points_player::*}
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
 				add {points.%loop-player's uuid%} to {list_points::*}
@@ -2033,8 +2034,10 @@ command /seeplacement:
 		loop {list_points::*}:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
-					if {list_points::%{seepts}%} = {points.%loop-player's uuid%}:
-						send "[<##155966>&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
+					if {list_points_player::*} doesn't contain loop-player's name:
+						add loop-player's name to {list_points_player::*}
+						if {list_points::%{seepts}%} = {points.%loop-player's uuid%}:
+							send "[<##155966>&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
 			add 1 to {seepts}
 
 command /on:
@@ -2960,59 +2963,15 @@ command /codes:
 command /leaderboard:
 	aliases: lb
 	trigger:
-		if {jeu} = 0:
-			send "<##2395A9>No games have been played yet."
-		if {timer} = 10:
-			send "<##2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
-		else:
-			clear {_leaderboard.overall::*}
-			loop all players:
-				if loop-player doesn't have permission "group.spectators":
-					add {points.%loop-player's uuid%} to {_leaderboard.overall::*}
-			set {_leaderboard.overall::*} to sorted {_leaderboard.overall::*}
-			set {_leaderboard.overall::*} to reversed {_leaderboard.overall::*}
-			loop the size of {_leaderboard.overall::*} times:
-				loop all players:
-					if loop-player doesn't have permission "group.spectators":
-						if {points.%loop-player's uuid%} = {_leaderboard.overall::%loop-value-1%}:
-							if loop-player = player:
-								set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工"
-							else:
-								set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<##E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
-				if loop-value = 1 or 21:
-					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-						set {_leaderboard.overall::%loop-value%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
-					else:
-						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
-				else if loop-value = 2 or 22:
-					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
-					else:
-						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
-				else if loop-value = 3 or 23:
-					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
-					else:
-						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
-				else:
-					if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n%checkPoints({points.%player's uuid%})%&r 工":
-						set {_position.%player's uuid%} to "<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-						set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-						if loop-value != the size of {_leaderboard.overall::*}:
-							add newline to {_leaderboard.overall::%loop-value%}
-					else:
-						set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
-			send "<##2395A9>Here is the event &n&loverall&r<##2395A9> leaderboard :"
-			loop {_leaderboard.overall::*}:
-				send loop-value to player
-			send "%nl%<##BCD71D>&lYou are placed :" to player
-			if player has permission "group.spectators":
-				send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%player's uuid%}%%player%&r<##BCD71D>&l - &n-∞&r 工"
+		if player doesn't have permission "*":
+			if {jeu} = 0:
+				send "<##2395A9>No games have been played yet."
+			else if {timer} = 10:
+				send "<##2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
 			else:
-				send {_position.%player's uuid%} to player
+				seeLeaderboard(executor)
+		else:
+			seeLeaderboard(executor)
 
 command /getplayertime <player>:
 	permission: group.spectators
