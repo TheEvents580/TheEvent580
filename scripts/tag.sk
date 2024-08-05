@@ -1,0 +1,108 @@
+function setRandomHunter():
+    set {players_alive} to 0
+    clear {_player_list::*}
+    loop all players:
+        if loop-player doesn't have permission "group.spectators":
+            if {finished.%loop-player's uuid%} = false:
+                add loop-player's name to {_player_list::*}
+                add 1 to {players_alive}
+        else:
+            setToSpec(loop-player)
+    set {_player_list::*} to shuffled {_player_list::*}
+    set {_select_random_player} to a random integer between 1 and {players_alive}
+    loop {_select_random_player} times:
+        send title "%{_player_list::%{_select_random_player}%}%" to all players
+        send subtitle "has been chosen to be the &cHunter" to all players
+        wait 5 ticks
+    loop all players:
+        if loop-player doesn't have permission "group.spectators":
+            if {_player_list::%{_select_random_player}%} is loop-player's name:
+                if the maximum health of loop-player > 1:
+                    remove 1 from maximum health of loop-player
+                set glowing of loop-player to true
+                apply blindness potion of tier 5 without any particles whilst hiding the potion icon to the loop-player for 10 seconds
+                set {time_hider.%loop-player's uuid%} to -1
+            else:
+                set {time_hider.%loop-player's uuid%} to 0
+    set {time_left_before_explosion} to 30
+    set {backup_time_left_before_explosion} to 30
+
+command /tag:
+    permission: *
+    trigger:
+        teleport all players to location(0, 129, 0, world "tag")
+        set {jeu_condi} to 11
+        set {jeu_logo} to "" #Tag Logo (\uE004)
+        set {damage} to 3
+        set the maximum health of all players to 3
+        clear all players's inventory
+        loop all players:
+            if loop-player doesn't have permission "group.spectators":
+                set {finished.%loop-player's uuid%} to false
+                command("hide %loop-player% false")
+            else:
+                set {finished.%loop-player's uuid%} to true
+                command("hide %loop-player% true")
+
+every second:
+    if {timer} = 6:
+        if {jeu_condi} = 11:
+            if {time_left_before_explosion} > 0:
+                remove 1 from {time_left_before_explosion}
+            else if {time_left_before_explosion} = 0:
+                if {players_alive} > 2:
+                    loop all players:
+                        if loop-player doesn't have permission "group.spectators":
+                            if glowing of loop-player = true:
+                                set glowing of loop-player to false
+                                if the maximum health of loop-player = 1:
+                                    setToSpec(loop-player)
+                                    setRandomHunter()
+                                else:
+                                    remove 1 from the maximum health of loop-player
+                                    if {backup_time_left_before_explosion} > 11:
+                                        remove 1 from {backup_time_left_before_explosion}
+                                    set {time_left_before_explosion} to {backup_time_left_before_explosion} - 1
+                            else:
+                                command("gamepoints %loop-player% %15*{multiplier}% Surviving to an explosion")
+                else:
+                    loop all players:
+                        if glowing of loop-player = true:
+                            set glowing of loop-player to false
+                        if loop-player has permission "theevent580.staff":
+                            send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&aFind The Button&r --> &aShowing scores" to loop-player
+                    set {event_state} to "Showing scores"
+                    set {timer-m} to 1
+                    set {timer-s} to 30
+                    bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+                    if {jeu} is 6:
+                        set {timer} to 10
+                    else:
+                        set {timer} to 7
+                    set {jeu_condi} to 0
+                    set {damage} to 1
+                    set {finished_players} to 0
+                    make server execute command "clear @a"
+            loop all players:
+                if loop-player doesn't have permission "group.spectators":
+                    if {time_hider.%loop-player's uuid%} >= 0:
+                        add 1 to {time_hider.%loop-player's uuid%}
+                    if mod({time_hider.%loop-player's uuid%}, 10) = 0:
+                        if glowing of loop-player is false:
+                            command("gamepoints %loop-player% %10*{multiplier}% Surviving 10 seconds without being tagged")
+
+every tick:
+    if {timer} = 6:
+        if {jeu_condi} = 11:
+            loop all players:
+                if glowing of loop-player = true:
+                    send action bar "You will &c&lexplode&r in &c&l%{time_left_before_explosion}%&r seconds" to loop-player
+            if ({players_alive}/{checking_finished_players}) <= 1/4: #25% of players left
+                if size of world border of world "tag" = 37.5:
+                    shrink world border of world "tag" by 18.75 in 30 seconds
+            else if ({players_alive}/{checking_finished_players}) <= 2/4: #50% of players left
+                if size of world border of world "tag" = 56.25:
+                    shrink world border of world "tag" by 18.75 in 30 seconds
+            else if ({players_alive}/{checking_finished_players}) <= 3/4: #75% of players left
+                if size of world border of world "tag" = 75:
+                    shrink world border of world "tag" by 18.75 in 30 seconds

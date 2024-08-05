@@ -1630,17 +1630,26 @@ every second:
 					set {yellow} to -10000
 					set {damage} to 2
 					broadcast "[<##155966>&lTheEvent580&r] Grace periode ends in 1 minute."
+			if {jeu_nom} is "&a&lTag":
 				if {timer-s} is 35:
+					broadcast "[<##155966>&lTheEvent580&r] Welcome to &a&lTag&r."
 				if {timer-s} is 30:
+					broadcast "[<##155966>&lTheEvent580&r] Your goal is to stay hidden as long as possible."
 				if {timer-s} is 25:
+					broadcast "[<##155966>&lTheEvent580&r] One player will be randomly chosen to be the seeker, they must tag someone else before their time runs out, or they will lose a life!"
 				if {timer-s} is 20:
+					broadcast "[<##155966>&lTheEvent580&r] You only have 3 lives, so don't get tagged"
+					broadcast "[<##155966>&lTheEvent580&r] (If you are the seeker at the start, then you will only start with 2 lives)"
 				if {timer-s} is 3:
+					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 2:
+					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
+					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
@@ -1657,6 +1666,7 @@ every second:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
+							set {event_state} to "Game &r&aTag"
 					set {timer} to 6
 					#set {timer-m} to 12
 					#set {timer-s} to 31
