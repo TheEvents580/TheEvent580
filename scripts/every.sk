@@ -3119,8 +3119,9 @@ every second:
 			broadcast "[<##155966>&lTheEvent580&r] You are placed :"
 			loop all players:
 				send "<##E2F093>%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - &n%checkPoints({points.%loop-player's uuid%})%&r 工" to loop-player
-		if {timer-s} is 1:
+		if {timer-s} is 2:
 			send title "轉" to all players
+		if {timer-s} is 1:
 			if {jeu} is 2:
 				set time in world "world" to day
 			if {jeu} is 4:
