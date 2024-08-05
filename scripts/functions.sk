@@ -970,14 +970,14 @@ function bossbarRemove1Sec(name:text):
 	if {_name} = "mall":
 		make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
 	if {_name} = "count":
-		make console execute command "/execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({bar_progress_%{_name}%})%"",""color"":""##4e5c24""}"
+		make console execute command "/execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({bar_progress_%{_name}%})%"",""color"":""#4e5c24""}"
 
 function bossbarRefill(name:text, value:integer, total:boolean = false):
 	set {bar_progress_%{_name}%} to {_value}
 	if {_name} = "mall":
 		command("execute run bossbar set minecraft:%{_name}% name ""Refill in %{_value}%s""")
 	if {_name} = "count":
-		command("execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({_value})%"",""color"":""##4e5c24""}")
+		command("execute run bossbar set minecraft:%{_name}% name {""text"":""氣到惡%intToTime({_value})%"",""color"":""#4e5c24""}")
 	if {_total} = true:
 		command("execute run bossbar set minecraft:%{_name}% max %{_value}%")
 	command("execute run bossbar set minecraft:%{_name}% value %{_value}%")
