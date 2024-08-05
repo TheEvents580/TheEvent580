@@ -180,7 +180,6 @@ on join:
 		send "[<##155966>&lTheEvent580 - Admin&r] Online Staff :"
 		loop {staff::*}:
 			send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
-	command("/team join nocolisions %player%")
 	if {total_points.%player's uuid%} is not set:	
 		set {total_points.%player's uuid%} to 0
 	else if {total_points.%player's uuid%} is not round({total_points.%player's uuid%}):
