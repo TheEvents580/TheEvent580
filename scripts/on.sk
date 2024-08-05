@@ -1333,7 +1333,8 @@ on pickup:
 
 on craft:
 	if {jeu_condi} is not 3 or 6:
-		cancel event
+		if {finished.%player%} = false:
+			cancel event
 
 #on player world change:
 #	loop all players:
