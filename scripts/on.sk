@@ -586,6 +586,7 @@ on damage:
 			if {jeu_condi} = 11:
 				if glowing of attacker is true:
 					if victim is a player:
+						send "test" to victim
 						set glowing of attacker to false
 						set glowing of victim to true
 						command("gamepoints %attacker% %20*{multiplier}% Tagging %victim's name%")
