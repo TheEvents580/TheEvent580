@@ -1364,11 +1364,23 @@ command /health <int> <offline player>:
 		set {health.%player's uuid%} to arg-2
 		heal player
 
-command /jeu <int>:
+command /jeucondi [<int>]:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		set {jeu_condi} to arg-1
+		if arg-1 is set:
+			set {jeu_condi} to arg-1
+		else:
+			send "The current game condition is : %{jeu_condi}%"
+
+command /jeu [<int>]:
+	permission: *
+	permission message: &cThis command does not exist
+	trigger:
+		if arg-1 is set:
+			set {jeu} to arg-1
+		else:
+			send "The current game number is : %{jeu}%"
 
 command /gm <int>:
 	permission: group.spectators
