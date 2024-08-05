@@ -2483,52 +2483,61 @@ command /color <offline player>:
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set rouge"
 				set {color.%{arg1.uuid}%} to "ラ&c "
+				command("/team join red %{arg1}%")
 			make gui slot 11 with orange concrete named "&6Orange":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set orange"
+				command("/team join orange %{arg1}%")
 				set {color.%{arg1.uuid}%} to "ャ&6 "
 			make gui slot 19 with yellow concrete named "&eYellow":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set jaune"
+				command("/team join jaune %{arg1}%")
 				set {color.%{arg1.uuid}%} to "ギ&e "
 			make gui slot 20 with lime concrete named "&aGreen":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set vert"
+				command("/team join vert %{arg1}%")
 				set {color.%{arg1.uuid}%} to "画&a "
 			make gui slot 15 with light blue concrete named "&bLight Blue":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set bleu_clair"
+				command("/team join bleu_clair %{arg1}%")
 				set {color.%{arg1.uuid}%} to "動&b "
 			make gui slot 16 with blue concrete named "&1Blue":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set bleu"
+				command("/team join bleu %{arg1}%")
 				set {color.%{arg1.uuid}%} to "像&1 "
 			make gui slot 24 with purple concrete named "&5Purple":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set violet"
+				command("/team join violet %{arg1}%")
 				set {color.%{arg1.uuid}%} to "の&5 "
 			make gui slot 25 with pink concrete named "&dPink":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set rose"
+				command("/team join rose %{arg1}%")
 				set {color.%{arg1.uuid}%} to "目&d "
 			make gui slot 22 with gray concrete named "&8Spectator":
 				close player's inventory
 				remove 1 from {online_players}
 				make console execute command "lp user %{arg1}% parent set spectators"
+				command("/team join spectators %{arg1}%")
 				set {color.%{arg1.uuid}%} to "露&8 "
 		open the last gui for the player
 
