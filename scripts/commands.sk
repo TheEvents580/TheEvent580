@@ -2599,20 +2599,20 @@ command /grab <player> <player>:
 #		if {timer} = 6:
 #			make console execute command "playsgmusic"
 	
-command /item <player>:
-	permission: *
-	trigger:
-		give 1 of carrot on a stick named "&rSwap players and spectators" with lore "&rRight click to swap the players and the spectators" to arg-1
+#command /item <player>:
+#	permission: *
+#	trigger:
+#		give 1 of carrot on a stick named "&rSwap players and spectators" with lore "&rRight click to swap the players and the spectators" to arg-1
 
 command /seepoints <player>:
 	permission: *
 	trigger:
 		send {points.%arg-1's uuid%} to player
 
-command /storepurchase <text>:
-	permission: *
-	trigger:
-		broadcast "[<##155966>&lTheEvent580 - Store&r] %arg-1%"
+#command /storepurchase <text>:
+#	permission: *
+#	trigger:
+#		broadcast "[<##155966>&lTheEvent580 - Store&r] %arg-1%"
 
 command /uuid <offline player>:
 	permission: *
