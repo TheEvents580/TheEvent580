@@ -140,7 +140,7 @@ on join:
 	setPlayerColor(player)
 	if player = "TheFox580":
 		set {total_points.%player's uuid%} to 18684
-	if {timet} != 6:
+	if {timer} != 6:
 		set {finished.%player's uuid%} to false
 		set {alive.%player's uuid%} to true
 	if player has permission "group.spectators":
