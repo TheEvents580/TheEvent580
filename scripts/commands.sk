@@ -3001,7 +3001,8 @@ command /setbossbar <text> <int> <boolean = false>:
 	trigger:
 		bossbarRefill(arg-1, arg-2, arg-3)
 
-command /test:
+command /resetparkour:
 	permission: *
 	trigger:
-		
+		resetParkour()
+		send "Parkour leaderboard has been reset"
