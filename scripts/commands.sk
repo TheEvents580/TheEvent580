@@ -1575,31 +1575,31 @@ command /world:
 	trigger:
 		send player's world to player
 
-#command /ping [<player>]:
-#	description: send arg-1's ping (if precised) to executor
-#	trigger:
-#		if arg-1 is set:
-#			if arg-1's ping < 50:
-#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
-#			else if arg-1's ping < 100:
-#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
-#			else if arg-1's ping < 150:
-#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
-#			else if arg-1's ping < 200:
-#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
-#			else if arg-1's ping > 199:
-#				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
-#		else:
-#			if executor's ping < 50:
-#				send "[<##155966>&lTheEvent580&r] Your ping is &a&l%executor's ping% &rms" to executor
-#			else if executor's ping < 100:
-#				send "[<##155966>&lTheEvent580&r] Your ping is &e&l%executor's ping% &rms" to executor
-#			else if executor's ping < 150:
-#				send "[<##155966>&lTheEvent580&r] Your ping is &6&l%executor's ping% &rms" to executor
-#			else if executor's ping < 200:
-#				send "[<##155966>&lTheEvent580&r] Your ping is &c&l%executor's ping% &rms" to executor
-#			else if executor's ping > 199:
-#				send "[<##155966>&lTheEvent580&r] Your ping is &4&l%executor's ping% &rms" to executor
+command /ping [<player>]:
+	description: send arg-1's ping (if precised) to executor
+	trigger:
+		if arg-1 is set:
+			if arg-1's ping < 50:
+				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
+			else if arg-1's ping < 100:
+				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
+			else if arg-1's ping < 150:
+				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
+			else if arg-1's ping < 200:
+				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
+			else if arg-1's ping > 199:
+				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
+		else:
+			if executor's ping < 50:
+				send "[<##155966>&lTheEvent580&r] Your ping is &a&l%executor's ping% &rms" to executor
+			else if executor's ping < 100:
+				send "[<##155966>&lTheEvent580&r] Your ping is &e&l%executor's ping% &rms" to executor
+			else if executor's ping < 150:
+				send "[<##155966>&lTheEvent580&r] Your ping is &6&l%executor's ping% &rms" to executor
+			else if executor's ping < 200:
+				send "[<##155966>&lTheEvent580&r] Your ping is &c&l%executor's ping% &rms" to executor
+			else if executor's ping > 199:
+				send "[<##155966>&lTheEvent580&r] Your ping is &4&l%executor's ping% &rms" to executor
 
 command /msg <player> <text>:
 	aliases: tell
