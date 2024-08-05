@@ -489,26 +489,26 @@ every tick:
 					set {gamemode.%loop-player's uuid%} to 3
 					add 1 to {finished_players}
 
-	else if {jeu_condi} is 4: #Find The Button
-		loop all players:
-			if the game mode of loop-player is adventure:
-				if loop-player doesn't have permission "group.spectators":
-					if {ftb_fin.%loop-player's uuid%} is 11:
-						broadcast "[<##155966>&lTheEvent580&r] &a&l%loop-player%&r found all the buttons and finished the &a&lFind The Button&r !"
-						set {ftb_fin.%loop-player's uuid%} to "All"
-						set {gamemode.%loop-player's uuid%} to 3
-						add 1 to {finished_players}
-						make console execute command "/see %loop-player%"
-						set {finished.%loop-player's uuid%} to true
-						command("gamepoints %loop-player% %10*{multiplier}% Completion bonus")
-						add 10*{multiplier} to {total_points.%loop-player's uuid%}
-						add 10*{multiplier} to {total_points_event.%loop-player's uuid%}
-						set slot 0 of loop-player to compass named "&rTeleport to player"
-						set slot 1 of loop-player to feather named "&rChange player's fly speed"
-						make console execute command "/hide %loop-player%"
-						make console execute command "/hide %loop-player%"
-						force loop-player to fly
-						allow fly for loop-player
+	#else if {jeu_condi} is 4: #Find The Button
+	#	loop all players:
+	#		if the game mode of loop-player is adventure:
+	#			if loop-player doesn't have permission "group.spectators":
+	#				if {ftb_fin.%loop-player's uuid%} is 11:
+	#					broadcast "[<##155966>&lTheEvent580&r] &a&l%loop-player%&r found all the buttons and finished the &a&lFind The Button&r !"
+	#					set {ftb_fin.%loop-player's uuid%} to "All"
+	#					set {gamemode.%loop-player's uuid%} to 3
+	#					add 1 to {finished_players}
+	#					make console execute command "/see %loop-player%"
+	#					set {finished.%loop-player's uuid%} to true
+	#					command("gamepoints %loop-player% %10*{multiplier}% Completion bonus")
+	#					add 10*{multiplier} to {total_points.%loop-player's uuid%}
+	#					add 10*{multiplier} to {total_points_event.%loop-player's uuid%}
+	#					set slot 0 of loop-player to compass named "&rTeleport to player"
+	#					set slot 1 of loop-player to feather named "&rChange player's fly speed"
+	#					make console execute command "/hide %loop-player%"
+	#					make console execute command "/hide %loop-player%"
+	#					force loop-player to fly
+	#					allow fly for loop-player
 
 	else if {jeu_condi} is 5: #Races
 		loop all players:
@@ -1630,47 +1630,37 @@ every second:
 					set {yellow} to -10000
 					set {damage} to 2
 					broadcast "[<##155966>&lTheEvent580&r] Grace periode ends in 1 minute."
-			if {jeu_nom} is "&a&lFind The Button":
 				if {timer-s} is 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &a&lFind The Button&r."
 				if {timer-s} is 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal is to press on all 11 buttons in less than 5 minutes."
 				if {timer-s} is 25:
-					broadcast "[<##155966>&lTheEvent580&r] WARNING, THERE CAN BE PLOTS WITHOUT ANY BUTTONS !"
 				if {timer-s} is 20:
-					broadcast "[<##155966>&lTheEvent580&r] Pressing a button before other people will give you more points, so try to be the fastest."
-					broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
 				if {timer-s} is 3:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lFind The Button&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 2:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lFind The Button&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lFind The Button&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
-					make server execute command "//world find_the_button"
-					make server execute command "//pos1 -4,152,4"
-					make server execute command "//pos2 4,147,-4"
-					make server execute command "//set air"
-					make server execute command "//world world"
-					make server execute command "execute in minecraft:find_the_button run gamerule doDaylightCycle true"
-					make server execute command "execute in minecraft:find_the_button run time set 0"
-					broadcast "[<##155966>&lTheEvent580&r] &a&lFind The Button&r started !"
+					#make server execute command "//world find_the_button"
+					#make server execute command "//pos1 -4,152,4"
+					#make server execute command "//pos2 4,147,-4"
+					#make server execute command "//set air"
+					#make server execute command "//world world"
+					#make server execute command "execute in minecraft:find_the_button run gamerule doDaylightCycle true"
+					#make server execute command "execute in minecraft:find_the_button run time set 0"
+					setRandomHunter()
+					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						play sound "custom:race11" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
-							set {event_state} to "Game &r&aFind The Button"
 					set {timer} to 6
-					set {timer-m} to 12
-					set {timer-s} to 31
-					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+					#set {timer-m} to 12
+					#set {timer-s} to 31
+					#bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {lime} to -10000
 			if {jeu_nom} is "&b&lMultilap":
 				if {timer-s} is 25:

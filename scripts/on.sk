@@ -934,7 +934,6 @@ on right click with carrot on a stick:
 		if block 2 meter under player is yellow concrete:
 			blockGame("Bingo",player)
 		if block 2 meter under player is lime concrete:
-			blockGame("Find The Button",player)
 		if block 2 meter under player is light blue concrete:
 			blockGame("Multilap",player)
 		if block 2 meter under player is blue concrete:

@@ -692,111 +692,112 @@ command /card:
 				make gui slot 23 with zombie head named "&fZombie Head / &a%{bingo_case_9_completed}% completed" with lore "&e+%{pts_lvl_9}% 工"
 			open the last gui for the player
 
-command /ftb:
-	permission: *
-	permission message: &cThis command does not exist
-	description: lance find the button
-	trigger:
-		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
-		set {jeu_condi} to 4
-		set {finished_players} to 0
-		loop all players:
-			make console execute command "hide %loop-player%"
-			set {gamemode.%loop-player's uuid%} to 2
-			set {ftb_fin.%loop-player's uuid%} to 0
-			set {finished.%loop-player's uuid%} to false
-			set {ftb_1.%loop-player's uuid%} to false
-			set {ftb_2.%loop-player's uuid%} to false
-			set {ftb_3.%loop-player's uuid%} to false
-			set {ftb_4.%loop-player's uuid%} to false
-			set {ftb_5.%loop-player's uuid%} to false
-			set {ftb_6.%loop-player's uuid%} to false
-			set {ftb_7.%loop-player's uuid%} to false
-			set {ftb_8.%loop-player's uuid%} to false
-			set {ftb_9.%loop-player's uuid%} to false
-			set {ftb_10.%loop-player's uuid%} to false
-			set {ftb_11.%loop-player's uuid%} to false
-		loop all players:
-			if loop-player has permission "group.spectators":
-				set {finished.%loop-player's uuid%} to true
-				force loop-player to fly
-				allow fly for loop-player
-				set slot 0 of loop-player to compass named "&rTeleport to player"
-				set slot 1 of loop-player to feather named "&rChange player's fly speed"
-				set slot 8 of loop-player to paper named "&aTotal of button pressed card"
-		set {total_buttons_pressed} to 0
-		set {ftb_oak_completed} to 0
-		set {ftb_spruce_completed} to 0
-		set {ftb_acacia_completed} to 0
-		set {ftb_mangrove_completed} to 0
-		set {ftb_crimson_completed} to 0
-		set {ftb_polished_blackstone_completed} to 0
-		set {ftb_dark_oak_completed} to 0
-		set {ftb_stone_completed} to 0
-		set {ftb_warped_completed} to 0
-		set {ftb_jungle_completed} to 0
-		set {ftb_birch_completed} to 0
-		set {ftb_1} to false
-		set {ftb_2} to false
-		set {ftb_3} to false
-		set {ftb_4} to false
-		set {ftb_5} to false
-		set {ftb_6} to false
-		set {ftb_7} to false
-		set {ftb_8} to false
-		set {ftb_9} to false
-		set {ftb_10} to false
-		set {ftb_11} to false
-		set {ftb_fin} to false
-		set {pts_lvl_1} to 10*{checking_finished_players}
-		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
-		set {pts_lvl_2} to 15*{checking_finished_players}
-		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
-		set {pts_lvl_3} to 20*{checking_finished_players}
-		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
-		set {pts_lvl_4} to 25*{checking_finished_players}
-		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})
-		set {pts_lvl_5} to 30*{checking_finished_players}
-		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})
-		set {pts_lvl_6} to 35*{checking_finished_players}
-		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})
-		set {pts_lvl_7} to 40*{checking_finished_players}
-		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})
-		set {pts_lvl_8} to 45*{checking_finished_players}
-		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
-		set {pts_lvl_9} to 50*{checking_finished_players}
-		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
-		set {pts_lvl_10} to 55*{checking_finished_players}
-		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})
-		set {pts_lvl_11} to 60*{checking_finished_players}
-		set {pts_lvl_11} to round({pts_lvl_11}*{multiplier})
-		make server execute command "//world find_the_button"
-		make server execute command "//pos1 -4,152,4"
-		make server execute command "//pos2 4,147,-4"
-		make server execute command "//set glass"
-		make server execute command "//pos1 -3,151,3"
-		make server execute command "//pos2 3,148,-3"
-		make server execute command "//set air"
-		wait 1 second
-		make server execute command "gamemode adventure @a"
-		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
+#command /ftb:
+#	permission: *
+#	permission message: &cThis command does not exist
+#	description: lance find the button
+#	trigger:
+#		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
+#		set {jeu_condi} to 4
+#		set {jeu_logo} to "" #Find The Button Logo (\uE004)
+#		set {finished_players} to 0
+#		loop all players:
+#			make console execute command "hide %loop-player%"
+#			set {gamemode.%loop-player's uuid%} to 2
+#			set {ftb_fin.%loop-player's uuid%} to 0
+#			set {finished.%loop-player's uuid%} to false
+#			set {ftb_1.%loop-player's uuid%} to false
+#			set {ftb_2.%loop-player's uuid%} to false
+#			set {ftb_3.%loop-player's uuid%} to false
+#			set {ftb_4.%loop-player's uuid%} to false
+#			set {ftb_5.%loop-player's uuid%} to false
+#			set {ftb_6.%loop-player's uuid%} to false
+#			set {ftb_7.%loop-player's uuid%} to false
+#			set {ftb_8.%loop-player's uuid%} to false
+#			set {ftb_9.%loop-player's uuid%} to false
+#			set {ftb_10.%loop-player's uuid%} to false
+#			set {ftb_11.%loop-player's uuid%} to false
+#		loop all players:
+#			if loop-player has permission "group.spectators":
+#				set {finished.%loop-player's uuid%} to true
+#				force loop-player to fly
+#				allow fly for loop-player
+#				set slot 0 of loop-player to compass named "&rTeleport to player"
+#				set slot 1 of loop-player to feather named "&rChange player's fly speed"
+#				set slot 8 of loop-player to paper named "&aTotal of button pressed card"
+#		set {total_buttons_pressed} to 0
+#		set {ftb_oak_completed} to 0
+#		set {ftb_spruce_completed} to 0
+#		set {ftb_acacia_completed} to 0
+#		set {ftb_mangrove_completed} to 0
+#		set {ftb_crimson_completed} to 0
+#		set {ftb_polished_blackstone_completed} to 0
+#		set {ftb_dark_oak_completed} to 0
+#		set {ftb_stone_completed} to 0
+#		set {ftb_warped_completed} to 0
+#		set {ftb_jungle_completed} to 0
+#		set {ftb_birch_completed} to 0
+#		set {ftb_1} to false
+#		set {ftb_2} to false
+#		set {ftb_3} to false
+#		set {ftb_4} to false
+#		set {ftb_5} to false
+#		set {ftb_6} to false
+#		set {ftb_7} to false
+#		set {ftb_8} to false
+#		set {ftb_9} to false
+#		set {ftb_10} to false
+#		set {ftb_11} to false
+#		set {ftb_fin} to false
+#		set {pts_lvl_1} to 10*{checking_finished_players}
+#		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
+#		set {pts_lvl_2} to 15*{checking_finished_players}
+#		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
+#		set {pts_lvl_3} to 20*{checking_finished_players}
+#		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
+#		set {pts_lvl_4} to 25*{checking_finished_players}
+#		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})
+#		set {pts_lvl_5} to 30*{checking_finished_players}
+#		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})
+#		set {pts_lvl_6} to 35*{checking_finished_players}
+#		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})
+#		set {pts_lvl_7} to 40*{checking_finished_players}
+#		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})
+#		set {pts_lvl_8} to 45*{checking_finished_players}
+#		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
+#		set {pts_lvl_9} to 50*{checking_finished_players}
+#		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
+#		set {pts_lvl_10} to 55*{checking_finished_players}
+#		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})
+#		set {pts_lvl_11} to 60*{checking_finished_players}
+#		set {pts_lvl_11} to round({pts_lvl_11}*{multiplier})
+#		make server execute command "//world find_the_button"
+#		make server execute command "//pos1 -4,152,4"
+#		make server execute command "//pos2 4,147,-4"
+#		make server execute command "//set glass"
+#		make server execute command "//pos1 -3,151,3"
+#		make server execute command "//pos2 3,148,-3"
+#		make server execute command "//set air"
+#		wait 1 second
+#		make server execute command "gamemode adventure @a"
+#		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
 
-command /totalbuttons:
-	permission: "group.spectators"
-	trigger:
-		create a gui with virtual chest inventory with 4 rows named "&aAll buttons":
-			make gui slot 3 with oak button named "&rOak Button / &a%{ftb_oak_completed}% Pressed" with lore "&e+%{pts_lvl_1}% 工"
-			make gui slot 4 with spruce button named "&rSpruce Button / &a%{ftb_spruce_completed}% Pressed" with lore "&e+%{pts_lvl_2}% 工"
-			make gui slot 5 with acacia button named "&rAccacia Button / &a%{ftb_acacia_completed}% Pressed" with lore "&e+%{pts_lvl_3}% 工"
-			make gui slot 12 with mangrove button named "&rMangrove Button / &a%{ftb_mangrove_completed}% Pressed" with lore "&e+%{pts_lvl_4}% 工"
-			make gui slot 13 with crimson button named "&rCrimson Button / &a%{ftb_crimson_completed}% Pressed" with lore "&e+%{pts_lvl_5}% 工"
-			make gui slot 14 with polished blackstone button named "&rPolished Blackstone Button / &a%{ftb_polished_blackstone_completed}% Pressed" with lore "&e+%{pts_lvl_6}% 工"
-			make gui slot 21 with dark oak button named "&rDark Oak Button / &a%{ftb_dark_oak_completed}% Pressed" with lore "&e+%{pts_lvl_7}% 工"
-			make gui slot 22 with stone button named "&rStone Button / &a%{ftb_stone_completed}% Pressed" with lore "&e+%{pts_lvl_8}% 工"
-			make gui slot 23 with warped button named "&rWarped Button / &a%{ftb_warped_completed}% Pressed" with lore "&e+%{pts_lvl_9}% 工"
-			make gui slot 30 with jungle button named "&rJungle Button / &a%{ftb_jungle_completed}% Pressed" with lore "&e+%{pts_lvl_10}% 工"
-			make gui slot 31 with birch button named "&rBirch Button / &a%{ftb_birch_completed}% Pressed" with lore "&e+%{pts_lvl_11}% 工"
-		open the last gui for the player
+#command /totalbuttons:
+#	permission: "group.spectators"
+#	trigger:
+#		create a gui with virtual chest inventory with 4 rows named "&aAll buttons":
+#			make gui slot 3 with oak button named "&rOak Button / &a%{ftb_oak_completed}% Pressed" with lore "&e+%{pts_lvl_1}% 工"
+#			make gui slot 4 with spruce button named "&rSpruce Button / &a%{ftb_spruce_completed}% Pressed" with lore "&e+%{pts_lvl_2}% 工"
+#			make gui slot 5 with acacia button named "&rAccacia Button / &a%{ftb_acacia_completed}% Pressed" with lore "&e+%{pts_lvl_3}% 工"
+#			make gui slot 12 with mangrove button named "&rMangrove Button / &a%{ftb_mangrove_completed}% Pressed" with lore "&e+%{pts_lvl_4}% 工"
+#			make gui slot 13 with crimson button named "&rCrimson Button / &a%{ftb_crimson_completed}% Pressed" with lore "&e+%{pts_lvl_5}% 工"
+#			make gui slot 14 with polished blackstone button named "&rPolished Blackstone Button / &a%{ftb_polished_blackstone_completed}% Pressed" with lore "&e+%{pts_lvl_6}% 工"
+#			make gui slot 21 with dark oak button named "&rDark Oak Button / &a%{ftb_dark_oak_completed}% Pressed" with lore "&e+%{pts_lvl_7}% 工"
+#			make gui slot 22 with stone button named "&rStone Button / &a%{ftb_stone_completed}% Pressed" with lore "&e+%{pts_lvl_8}% 工"
+#			make gui slot 23 with warped button named "&rWarped Button / &a%{ftb_warped_completed}% Pressed" with lore "&e+%{pts_lvl_9}% 工"
+#			make gui slot 30 with jungle button named "&rJungle Button / &a%{ftb_jungle_completed}% Pressed" with lore "&e+%{pts_lvl_10}% 工"
+#			make gui slot 31 with birch button named "&rBirch Button / &a%{ftb_birch_completed}% Pressed" with lore "&e+%{pts_lvl_11}% 工"
+#		open the last gui for the player
 
 command /courses:
 	description: lance race
