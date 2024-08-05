@@ -859,56 +859,56 @@ every tick:
 		#							make server execute command "give %loop-player% trident{Unbreakable:1b,Enchantments:[{id:riptide,lvl:3}]} 1"
 		#							set {has_trident.%loop-player's uuid%} to true
 
-	else if {jeu_condi} is 6: #Survival Games
-		#loop {sg.wb} times:
-		#	loop {sg.wb} times:
-		#		if {timer-m} > 10:
-		#			set {_x.block} to the loop-value-1 * 10 - ceil({sg.wb}) * 5
-		#			set {_z.block} to the loop-value-2 * 10 - ceil({sg.wb}) * 5
-		#		else:
-		#			set {_x.block} to the loop-value-1 * 5 - ceil({sg.wb}) * 3
-		#			set {_z.block} to the loop-value-2 * 5 - ceil({sg.wb}) * 4
-		#		make 10 of dust using dustOption(blue,2) at location({_x.block},{sg.height},{_z.block},"sg4") with force for all players
-		if {timer} = 6:
-			if {timer-m} and {timer-s} = 0:
-				if {sg.height} > 40:
-					remove (1/10) from {sg.height}
-				else:
-					remove (1/15)/5 from {sg.height}
-			else:
-				remove (1/15)/10 from {sg.height}
-				#make console execute command "setsgheight %{sg.height}%"
-			loop all players:
-				set {_x.block.player} to the x-coordinate of loop-player
-				set {_z.block.player} to the z-coordinate of loop-player
-				if {alive.%loop-player's uuid%} = false:
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for loop-player
-					make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for loop-player
-				else:
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for all players
-					make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for all players
+	#else if {jeu_condi} is 6: #Survival Games
+	#	#loop {sg.wb} times:
+	#	#	loop {sg.wb} times:
+	#	#		if {timer-m} > 10:
+	#	#			set {_x.block} to the loop-value-1 * 10 - ceil({sg.wb}) * 5
+	#	#			set {_z.block} to the loop-value-2 * 10 - ceil({sg.wb}) * 5
+	#	#		else:
+	#	#			set {_x.block} to the loop-value-1 * 5 - ceil({sg.wb}) * 3
+	#	#			set {_z.block} to the loop-value-2 * 5 - ceil({sg.wb}) * 4
+	#	#		make 10 of dust using dustOption(blue,2) at location({_x.block},{sg.height},{_z.block},"sg4") with force for all players
+	#	if {timer} = 6:
+	#		if {timer-m} and {timer-s} = 0:
+	#			if {sg.height} > 40:
+	#				remove (1/10) from {sg.height}
+	#			else:
+	#				remove (1/15)/5 from {sg.height}
+	#		else:
+	#			remove (1/15)/10 from {sg.height}
+	#			#make console execute command "setsgheight %{sg.height}%"
+	#		loop all players:
+	#			set {_x.block.player} to the x-coordinate of loop-player
+	#			set {_z.block.player} to the z-coordinate of loop-player
+	#			if {alive.%loop-player's uuid%} = false:
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for loop-player
+	#				make 10 of dust using dustOption(lime,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for loop-player
+	#			else:
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player},"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player},"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}-1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}-1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}+1,{sg.height},{_z.block.player}+1,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}-2,{sg.height},{_z.block.player},"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}+2,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player}-2,"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player}+2,{sg.height},{_z.block.player},"sg4") with force for all players
+	#				make 10 of dust using dustOption(red,1) at location({_x.block.player},{sg.height},{_z.block.player},"sg4") with force for all players
 
 	#	loop all players:
 	#		if {timer} is 6:
@@ -1452,44 +1452,65 @@ every second:
 				send title "%{jeu_logo}% %{jeu_nom}%" to all players
 		set {scoreboard.pos} to 0
 		if {timer-m} = 0:
-			if {jeu_nom} is "&c&lDropper":
-				set {barrier} to "red"
+			#if {jeu_nom} is "&c&lDropper":
+			#	set {barrier} to "red"
+			#	if {timer-s} is 35:
+			#		broadcast "[<##155966>&lTheEvent580&r] Welcome to &c&lDropper&r."
+			#	if {timer-s} is 30:
+			#		broadcast "[<##155966>&lTheEvent580&r] Your goal is to finish the 5 levels in less than 5 minutes."
+			#	if {timer-s} is 25:
+			#		broadcast "[<##155966>&lTheEvent580&r] Finishing a level before other people will give you more points, so try to be the fastest."
+			#	if {timer-s} is 20:
+			#		broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
+			#	if {timer-s} is 15:
+			#		broadcast "[<##155966>&lTheEvent580&r] To get to the next levels, just jump in the water."
+			#	if {timer-s} is 10:
+			#		broadcast "[<##155966>&lTheEvent580&r] To complete the &c&lDropper&r, do the same on the last level."
+			#	if {timer-s} is 3:
+			#		broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 3."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 2:
+			#		broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 2."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 1:
+			#		broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 1."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 0:
+			#		make server execute command "execute in minecraft:dropper run gamerule randomTickSpeed 0"
+			#		make server execute command "execute in minecraft:dropper run fill 14 127 10 5 127 1 air replace barrier"
+			#		broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r started !"
+			#		loop all players:
+			#			play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+			#			play sound "custom:race6" in record category with volume 1 to the loop-player
+			#			if loop-player has permission "theevent580.staff":
+			#				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cDropper" to loop-player
+			#				set {event_state} to "Game &r&cDropper"
+			if {jeu_nom} is "&c&lTrials":
 				if {timer-s} is 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &c&lDropper&r."
 				if {timer-s} is 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal is to finish the 5 levels in less than 5 minutes."
 				if {timer-s} is 25:
-					broadcast "[<##155966>&lTheEvent580&r] Finishing a level before other people will give you more points, so try to be the fastest."
 				if {timer-s} is 20:
-					broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
 				if {timer-s} is 15:
 					broadcast "[<##155966>&lTheEvent580&r] To get to the next levels, just jump in the water."
 				if {timer-s} is 10:
-					broadcast "[<##155966>&lTheEvent580&r] To complete the &c&lDropper&r, do the same on the last level."
 				if {timer-s} is 3:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 2:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
-					make server execute command "execute in minecraft:dropper run gamerule randomTickSpeed 0"
-					make server execute command "execute in minecraft:dropper run fill 14 127 10 5 127 1 air replace barrier"
-					broadcast "[<##155966>&lTheEvent580&r] &c&lDropper&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						play sound "custom:race6" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cDropper" to loop-player
 							set {event_state} to "Game &r&cDropper"
-					set {timer} to 6
-					set {timer-m} to 4
 					set {timer-s} to 60
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {red} to -10000
@@ -1725,27 +1746,27 @@ every second:
 					#	make server execute command "//pos1 46,26,-13"
 					#	make server execute command "//pos2 46,26,-13"
 					#	make server execute command "//set redstone_block"
-					if {game} is "SG4":
-						make server execute command "execute in minecraft:sg4 run setblock 27 37 -3 air"
+					#if {game} is "SG4":
+					#	make server execute command "execute in minecraft:sg4 run setblock 27 37 -3 air"
 				if {timer-s} is 0:
-					set {finished_players} to 0
-					set {sg.height} to 279
-					make server execute command "execute in minecraft:sg4 run time set 0"
+					#set {finished_players} to 0
+					#set {sg.height} to 279
+					#make server execute command "execute in minecraft:sg4 run time set 0"
 					broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Survival Games" to loop-player
 							set {event_state} to "Game &r&5Survival Games"
-						if loop-player doesn't have permission "group.specators":
-							add 1 to {finished_players}
-					loop all players:
-						if loop-player has permission "group.spectators":
-							allow fly for loop-player
-							force loop-player to fly
-							set {alive.%loop-player's uuid%} to false
-						else:
-							set loop-player's gamemode to survival
+						#if loop-player doesn't have permission "group.specators":
+						#	add 1 to {finished_players}
+					#loop all players:
+					#	if loop-player has permission "group.spectators":
+					#		allow fly for loop-player
+					#		force loop-player to fly
+					#		set {alive.%loop-player's uuid%} to false
+					#	else:
+					#		set loop-player's gamemode to survival
 					make console execute command "execute run effect clear @a saturation"
 					set {timer} to 6
 					set {timer-m} to 19
@@ -1753,7 +1774,7 @@ every second:
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {purple} to -10000
 					set {damage} to 2
-					broadcast "[<##155966>&lTheEvent580&r] Grace period endinng in 1 minute."
+					#broadcast "[<##155966>&lTheEvent580&r] Grace period endinng in 1 minute."
 			if {jeu_condi} is 9:
 				if {timer-s} is 30:
 					broadcast "[<##155966>&lTheEvent580&r] Welcome to &1&lBuild Masters&r."
@@ -2460,378 +2481,378 @@ every second:
 				set {damage} to 1
 				set {finished_players} to 0
 				make server execute command "clear @a"
-		if {jeu_condi} is 6:
-			if {finished_players} is bigger than 1:
-				if {timer-s} = 1:
-					if {timer-m} = 0:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_5}% Survived until the final battle")
-								add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for until the final battle" to loop-player
-								make console execute command "achivement %loop-player% give FBSG"
-				if {timer-s} is 30:
-					if {timer-m} is 0:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 19 mins and 30 secs" to loop-player
-						if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 3 10"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 6 blocks over 10 seconds. This is the last zone."
-					if {timer-m} is 3:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 16 mins and 30 secs" to loop-player
-					if {timer-m} is 6:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 13 mins and 30 secs" to loop-player
-					if {timer-m} is 7:
-						set {sg.wb} to 5
-					if {timer-m} is 9:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 10 mins and 30 secs" to loop-player
-					if {timer-m} is 12:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 7 mins and 30 secs" to loop-player
-					if {timer-m} is 15:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 4 mins and 30 secs" to loop-player
-					if {timer-m} is 18:
-						loop all players:
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 1 mins and 30 secs" to loop-player
-				else if {timer-s} is 0:
-					#if {timer-m} is 0:
-					#	if {finihsed_players} > 1:
-					#		stop trigger
-					#	else:
-					#		force all players to fly
-					#		loop all players:
-					#			allow fly for loop-player
-					#			set {gamemode.%loop-player's uuid%} to 3
-					#			if loop-player has permission "theevent580.staff":
-					#				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Survival Games&r --> &aShowing scores" to loop-player
-					#				set {event_state} to "Showing scores"
-					#		if {jeu} is not 6:
-					#			set {timer-m} to 0
-					#			set {timer-s} to 30
-					#			set {timer} to 7
-					#		if {jeu} is 8:
-					#			set {timer-m} to 1
-					#			set {timer-s} to 30
-					#			set {timer} to 10
-					#		set {jeu_condi} to 0
-					#	set {damage} to 1
-					#	make server execute command "clear @a"
-					if {timer-m} is 1:
-						set {timer-m} to 0
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 3 10"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 3 10"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 9 10"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 10 blocks over 10 seconds. Last shrinking in 30 seconds."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 3 10"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 6 blocks over 10 seconds. This is the last zone."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 3 10"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 3 10"
-					if {timer-m} is 2:
-						set {timer-m} to 1
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 18 minutes" to loop-player
-						if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 19 15"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 32 blocks over 15 seconds. Next shrinking in 1 minute."
-					if {timer-m} is 3:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-					if {timer-m} is 4:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-					if {timer-m} is 5:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 15 mins" to loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 9 10"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 9 10"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 41 30"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 52 blocks over 30 seconds. Next shrinking in 3 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 9 10"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 10 blocks over a minute. Last shrinking in 4 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 9 10"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 9 15"
-					if {timer-m} is 6:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-					if {timer-m} is 7:
-						set {sg.wb} to 3
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						if {finished_players} is bigger than {checking_finished_players}:
-							loop all players:
-								play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-					if {timer-m} is 8:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 12 mins" to loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 19 15"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 19 15"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 93 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 3 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 19 15"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 30 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 19 15"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 19 30"
-					if {timer-m} is 9:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 10:
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 49 30"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 49 30"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 195 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 49 30"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 50 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 49 30"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 59 45"
-					if {timer-m} is 11:
-						set {sg.wb} to 10
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 9 mins" to loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 12:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 99 60"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 99 60"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 297 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 99 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 99 60"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 109 60"
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 13:
-						set {sg.wb} to 20
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 14:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 6 mins" to loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 199 60"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 199 60"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 399 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 199 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 199 60"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 219 60"
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 15:
-						set {sg.wb} to 30
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 16:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 299 60"
-						if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 299 60"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 501 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG4":
-							make server execute command "execute in minecraft:sg4 run worldborder set 299 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 299 60"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 329 60"
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 17:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-							if {alive.%loop-player's uuid%} is true:
-								play sound "custom:coins" in voice category with volume 2 to the loop-player
-								command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
-								add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
-								add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
-								send "[<##155966>&lTheEvent580&r] You stayed alive for 3 mins" to loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 18:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						if {game} is "SG1":
-							make server execute command "execute in minecraft:sg1 run worldborder set 399 60"
-						else if {game} is "SG2":
-							make server execute command "execute in minecraft:sg2 run worldborder set 399 60"
-						else if {game} is "SG3":
-							make server execute command "execute in minecraft:sg3 run worldborder set 603 60"
-							broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
-						else if {game} is "SG5":
-							make server execute command "execute in minecraft:sg5 run worldborder set 399 60"
-						else if {game} is "SG6":
-							make server execute command "execute in minecraft:sg6 run worldborder set 439 60"
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-					if {timer-m} is 19:
-						loop all players:
-							play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
-						remove 1 from {timer-m}
-						set {timer-s} to 60
-						if {jeu_condi} is 3:
-							set {damage} to 0
-						else if {jeu_condi} is 6:
-							set {damage} to 3
-						broadcast "[<##155966>&lTheEvent580&r] End of the grace period."
-						command("effect clear @a invisibility")
-				if {timer-s} or {timer-m} > 0:
-					remove 1 from {timer-s}
-			if {finished_players} < 2:
-				force all players to fly
-				loop all players:
-					allow fly for loop-player
-					set {gamemode.%loop-player's uuid%} to 3
-					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Survival Games&r --> &aShowing scores" to loop-player
-						set {event_state} to "Showing scores"
-				set {timer-m} to 1
-				set {timer-s} to 30
-				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
-				if {jeu} is 6:
-					set {timer} to 10
-				else:
-					set {timer} to 7
-				set {jeu_condi} to 0
-				set {damage} to 1
-				make server execute command "clear @a"
+		#if {jeu_condi} is 6:
+		#	if {finished_players} is bigger than 1:
+		#		if {timer-s} = 1:
+		#			if {timer-m} = 0:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_5}% Survived until the final battle")
+		#						add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for until the final battle" to loop-player
+		#						make console execute command "achivement %loop-player% give FBSG"
+		#		if {timer-s} is 30:
+		#			if {timer-m} is 0:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 19 mins and 30 secs" to loop-player
+		#				if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 3 10"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 6 blocks over 10 seconds. This is the last zone."
+		#			if {timer-m} is 3:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 16 mins and 30 secs" to loop-player
+		#			if {timer-m} is 6:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 13 mins and 30 secs" to loop-player
+		#			if {timer-m} is 7:
+		#				set {sg.wb} to 5
+		#			if {timer-m} is 9:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 10 mins and 30 secs" to loop-player
+		#			if {timer-m} is 12:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 7 mins and 30 secs" to loop-player
+		#			if {timer-m} is 15:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 4 mins and 30 secs" to loop-player
+		#			if {timer-m} is 18:
+		#				loop all players:
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 1 mins and 30 secs" to loop-player
+		#		else if {timer-s} is 0:
+		#			#if {timer-m} is 0:
+		#			#	if {finihsed_players} > 1:
+		#			#		stop trigger
+		#			#	else:
+		#			#		force all players to fly
+		#			#		loop all players:
+		#			#			allow fly for loop-player
+		#			#			set {gamemode.%loop-player's uuid%} to 3
+		#			#			if loop-player has permission "theevent580.staff":
+		#			#				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Survival Games&r --> &aShowing scores" to loop-player
+		#			#				set {event_state} to "Showing scores"
+		#			#		if {jeu} is not 6:
+		#			#			set {timer-m} to 0
+		#			#			set {timer-s} to 30
+		#			#			set {timer} to 7
+		#			#		if {jeu} is 8:
+		#			#			set {timer-m} to 1
+		#			#			set {timer-s} to 30
+		#			#			set {timer} to 10
+		#			#		set {jeu_condi} to 0
+		#			#	set {damage} to 1
+		#			#	make server execute command "clear @a"
+		#			if {timer-m} is 1:
+		#				set {timer-m} to 0
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 3 10"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 3 10"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 9 10"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 10 blocks over 10 seconds. Last shrinking in 30 seconds."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 3 10"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 6 blocks over 10 seconds. This is the last zone."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 3 10"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 3 10"
+		#			if {timer-m} is 2:
+		#				set {timer-m} to 1
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 18 minutes" to loop-player
+		#				if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 19 15"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 32 blocks over 15 seconds. Next shrinking in 1 minute."
+		#			if {timer-m} is 3:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#			if {timer-m} is 4:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#			if {timer-m} is 5:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 15 mins" to loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 9 10"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 9 10"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 41 30"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 52 blocks over 30 seconds. Next shrinking in 3 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 9 10"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 10 blocks over a minute. Last shrinking in 4 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 9 10"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 9 15"
+		#			if {timer-m} is 6:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#			if {timer-m} is 7:
+		#				set {sg.wb} to 3
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				if {finished_players} is bigger than {checking_finished_players}:
+		#					loop all players:
+		#						play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#			if {timer-m} is 8:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 12 mins" to loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 19 15"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 19 15"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 93 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 3 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 19 15"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 30 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 19 15"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 19 30"
+		#			if {timer-m} is 9:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 10:
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 49 30"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 49 30"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 195 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 49 30"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 50 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 49 30"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 59 45"
+		#			if {timer-m} is 11:
+		#				set {sg.wb} to 10
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 9 mins" to loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 12:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 99 60"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 99 60"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 297 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 99 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 99 60"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 109 60"
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 13:
+		#				set {sg.wb} to 20
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 14:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 6 mins" to loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 199 60"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 199 60"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 399 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 102 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 199 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 199 60"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 219 60"
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 15:
+		#				set {sg.wb} to 30
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 16:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 299 60"
+		#				if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 299 60"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 501 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG4":
+		#					make server execute command "execute in minecraft:sg4 run worldborder set 299 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 299 60"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 329 60"
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 17:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#					if {alive.%loop-player's uuid%} is true:
+		#						play sound "custom:coins" in voice category with volume 2 to the loop-player
+		#						command("gamepoints %loop-player% %{pts_lvl_4}% Survived 1:30")
+		#						add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
+		#						add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
+		#						send "[<##155966>&lTheEvent580&r] You stayed alive for 3 mins" to loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 18:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				if {game} is "SG1":
+		#					make server execute command "execute in minecraft:sg1 run worldborder set 399 60"
+		#				else if {game} is "SG2":
+		#					make server execute command "execute in minecraft:sg2 run worldborder set 399 60"
+		#				else if {game} is "SG3":
+		#					make server execute command "execute in minecraft:sg3 run worldborder set 603 60"
+		#					broadcast "[<##155966>&lTheEvent580&r] Border is shrinking by 100 blocks over a minute. Next shrinking in 2 minutes."
+		#				else if {game} is "SG5":
+		#					make server execute command "execute in minecraft:sg5 run worldborder set 399 60"
+		#				else if {game} is "SG6":
+		#					make server execute command "execute in minecraft:sg6 run worldborder set 439 60"
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#			if {timer-m} is 19:
+		#				loop all players:
+		#					play sound "block.note_block.banjo" in voice category with volume 2 and pitch 1 to the loop-player
+		#				remove 1 from {timer-m}
+		#				set {timer-s} to 60
+		#				if {jeu_condi} is 3:
+		#					set {damage} to 0
+		#				else if {jeu_condi} is 6:
+		#					set {damage} to 3
+		#				broadcast "[<##155966>&lTheEvent580&r] End of the grace period."
+		#				command("effect clear @a invisibility")
+		#		if {timer-s} or {timer-m} > 0:
+		#			remove 1 from {timer-s}
+		#	if {finished_players} < 2:
+		#		force all players to fly
+		#		loop all players:
+		#			allow fly for loop-player
+		#			set {gamemode.%loop-player's uuid%} to 3
+		#			if loop-player has permission "theevent580.staff":
+		#				send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player
+		#				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Survival Games&r --> &aShowing scores" to loop-player
+		#				set {event_state} to "Showing scores"
+		#		set {timer-m} to 1
+		#		set {timer-s} to 30
+		#		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+		#		if {jeu} is 6:
+		#			set {timer} to 10
+		#		else:
+		#			set {timer} to 7
+		#		set {jeu_condi} to 0
+		#		set {damage} to 1
+		#		make server execute command "clear @a"
 		if {jeu_condi} is 8:
 			if {finished_players} is bigger than 1:
 				if {timer-s} is 0:
