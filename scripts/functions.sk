@@ -386,32 +386,66 @@ function updateClassement():
 
 function updateParkour():
 	clear {list_parkour::*}
+	clear {list_parkour_players::*}
+	clear {list_parkour_pos_done::*}
 	loop all players:
 		add {compl_parcour.%loop-player's uuid%} to {list_parkour::*}
-		set {compl_parcour_string.%loop-player's uuid%} to "%{compl_parcour.%loop-player's uuid%}%"
 	set {list_parkour::*} to sorted {list_parkour::*}
+	set {list_parkour::*} to reversed {list_parkour::*}
 	loop all players:
-		if {list_parkour::1} is {compl_parkour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 2 1st : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::2} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 3 2nd : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::3} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 4 3rd : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::4} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 5 4th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::5} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 6 5th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::6} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 7 6th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::7} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 8 7th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::8} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 9 8th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::9} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 10 9th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		if {list_parkour::10} is {compl_parcour.%loop-player's uuid%}:
-			make server execute command "hd setLine TrainParkourCompl 11 10th : %loop-player% with %{compl_parcour.%loop-player's uuid%}%"
-		make server execute command "hd reload"
+		if {list_parkour_players::*} doesn't contain loop-player's name:
+			if {list_parkour_pos_done::*} doesn't contain 1:
+				if {list_parkour::1} is {compl_parcour.%loop-player's uuid%}:
+					add 1 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 2 <#D9D8F1>1st : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 2:
+				if {list_parkour::2} is {compl_parcour.%loop-player's uuid%}:
+					add 2 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 3 <#D9D8F1>2nd : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 3:
+				if {list_parkour::3} is {compl_parcour.%loop-player's uuid%}:
+					add 3 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 4 <#D9D8F1>3rd : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 4:
+				if {list_parkour::4} is {compl_parcour.%loop-player's uuid%}:
+					add 4 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 5 <#D9D8F1>4th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 5:
+				if {list_parkour::5} is {compl_parcour.%loop-player's uuid%}:
+					add 5 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 6 <#D9D8F1>5th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 6:
+				if {list_parkour::6} is {compl_parcour.%loop-player's uuid%}:
+					add 6 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 7 <#D9D8F1>6th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 7:
+				if {list_parkour::7} is {compl_parcour.%loop-player's uuid%}:
+					add 7 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 8 <#D9D8F1>7th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 8:
+				if {list_parkour::8} is {compl_parcour.%loop-player's uuid%}:
+					add 8 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 9 <#D9D8F1>8th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 9:
+				if {list_parkour::9} is {compl_parcour.%loop-player's uuid%}:
+					add 9 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+					make server execute command "hd setLine TrainParkourCompl 10 <#D9D8F1>9th : %%theevent580_parkour.%loop-player's uuid%%%"
+			else if {list_parkour_pos_done::*} doesn't contain 10:
+				if {list_parkour::10} is {compl_parcour.%loop-player's uuid%}:
+					add 10 to {list_parkour_pos_done::*}
+					add loop-player's name to {list_parkour_players::*}
+				make server execute command "hd setLine TrainParkourCompl 11 <#D9D8F1>10th : %%theevent580_parkour.%loop-player's uuid%%%"
+	make server execute command "hd setLine TrainParkourCompl 13 %%theevent580_parkour.solo%%"
+	make server execute command "hd reload"
 
 function resetNPCs():
 	make server execute command "npc select 24"

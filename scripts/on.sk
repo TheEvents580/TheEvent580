@@ -136,6 +136,7 @@ on server list ping:
 on join:
 	wait 3 ticks
 	apply saturation of tier 255 without any particles to the player for 999 days
+	set {compl_parcour.%event-player's uuid%} to 0
 	setPlayerColor(player)
 	if player = "TheFox580":
 		set {total_points.%player's uuid%} to 18684

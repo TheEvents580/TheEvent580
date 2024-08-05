@@ -259,6 +259,7 @@ command /reset:
 				set {vote_swap} to false
 				resetNPCs()
 				resetTab()
+				resetParkour()
 				set {race_timer} to false
 				set {race_lap_1_finished} to false
 				set {race_lap_2_finished} to false
@@ -440,6 +441,7 @@ command /consolereset:
 		set {vote_swap} to false
 		resetNPCs()
 		resetTab()
+		resetParkour()
 		set {race_timer} to false
 		set {race_lap_1_finished} to false
 		set {race_lap_2_finished} to false

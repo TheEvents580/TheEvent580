@@ -1,5 +1,25 @@
-on papi placeholder request for the prefix "skript":
+on papi placeholder request for the prefix "theevent580":
+    if the identifier is "parkour.solo":
+        if {compl_parcour.%player's uuid%} = 0:
+            set the result to "<#D9D8F1>You haven't completed the parkour yet!"
+            stop trigger
+        loop the size of {list_parkour::*} times:
+            if {list_parkour::%loop-value%} = {compl_parcour.%player's uuid%}:
+                if loop-value = 1 or 21:
+                    set the result to "<#D9D8F1>You have %{compl_parcour.%player's uuid%}% completions &r&l(%loop-value%st)"
+                    stop trigger
+                else if loop-value = 2 or 22:
+                    set the result to "<#D9D8F1>You have %{compl_parcour.%player's uuid%}% completions &r&l(%loop-value%nd)"
+                    stop trigger
+                else if loop-value = 3 or 23:
+                    set the result to "<#D9D8F1>You have %{compl_parcour.%player's uuid%}% completions &r&l(%loop-value%rd)"
+                    stop trigger
+                else:
+                    set the result to "<#D9D8F1>You have %{compl_parcour.%player's uuid%}% completions &r&l(%loop-value%th)"
+                    stop trigger
     loop all players:
         if the identifier is "points.%loop-player's uuid%":
-            set {points_txt.%loop-player's uuid%} to "%loop-player% --> %checkPoints({points.%loop-player's uuid%})% pts"
-            set the result to {points_txt.%loop-player's uuid%}
+            set the result to "%loop-player% --> %checkPoints({points.%loop-player's uuid%})% pts"
+        if the identifier is "parkour.%loop-player's uuid%":
+            set the result to "%loop-player% with %{compl_parcour.%loop-player's uuid%}% completions"
+    
