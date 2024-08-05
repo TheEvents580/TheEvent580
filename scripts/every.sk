@@ -1486,7 +1486,8 @@ every second:
 						force loop-player to fly
 						allow fly for loop-player
 			if {timer-s} = 0:
-				send title "%{jeu_logo}% %{jeu_nom}%" to all players
+				if {timer-m} = 1:
+					send title "<##4e5c24>%{jeu_logo}%&r %{jeu_nom}%" to all players
 		set {scoreboard.pos} to 0
 		if {timer-m} = 0:
 			#if {jeu_nom} is "&c&lDropper":

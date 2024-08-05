@@ -505,6 +505,7 @@ command /parkour:
 	trigger:
 		make server execute command "execute in minecraft:parkour run tp @a 131.5 129.00 201.5 -90 0"
 		set {jeu_condi} to 2
+		set {jeu_logo} to "" #Parkour Logo (\uE002)
 		set {finished_players} to 0
 		wait 2 seconds
 		loop all players:
@@ -542,6 +543,7 @@ command /bingo:
 	trigger:
 		make server execute command "execute in minecraft:bingo run tp @a 999899.00 140.00 -999831.5 180 0"
 		set {jeu_condi} to 3
+		set {jeu_logo} to "" #Bingo Logo (\uE003)
 		set {finished_players} to 0
 		set {damage} to 2
 		make server execute command "clear @a"
@@ -1052,6 +1054,7 @@ command /courses:
 	permission message: &cThis command does not exist
 	trigger:
 		set {jeu_condi} to 5
+		set {jeu_logo} to "" #Multilap Logo (\uE005)
 		set {finished_players} to 0
 		loop all players:
 			set {race_checkpoint.%loop-player's uuid%} to 0
@@ -1148,6 +1151,7 @@ command /bowpvp:
 	permission message: &cThis command does not exist
 	trigger:
 		set {jeu_condi} to 8
+		set {jeu_logo} to "" #Bow PVP Logo (\uE008)
 		set {finished_players} to {checking_finished_players}
 		loop all players:
 			set {invicibility.%loop-player's uuid%} to false
@@ -1178,6 +1182,7 @@ command /bm:
 	permission message: &cThis command does not exist
 	trigger:
 		set {jeu_condi} to 9
+		set {jeu_logo} to "" #Build Masters Logo (\uE006)
 		set {finished_players} to 0
 		set {damage} to 2
 		make server execute command "execute in build_masters run tp @a 0.5 128 0.5 -90 0"
