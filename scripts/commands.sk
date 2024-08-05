@@ -1918,29 +1918,49 @@ command /emotes [<text>]:
 				set slot 26 of current inventory of player to barrier named "&r&cClose emote menu"
 				set {menu.%player's uuid%} to "heart"
 
-command /fly [<player>]:
+command /fly [<player>] [<boolean>]:
 	permission: group.spectators
 	permission message: &cThis command does not exist
 	trigger:
 		if arg-1 is set:
-			if arg-1 can fly:
-				disable fly for arg-1
-				send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
-				if arg-1 is not player:
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
+			if arg-2 is set:
+				if arg-2 is true:
+					allow fly for arg-1
+					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
+					if arg-1 is not player:
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
+				else:
+					disable fly for arg-1
+					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
+					if arg-1 is not player:
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
 			else:
-				allow fly for arg-1
-				send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
-				if arg-1 is not player:
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
+				if arg-1 can fly:
+					disable fly for arg-1
+					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
+					if arg-1 is not player:
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
+				else:
+					allow fly for arg-1
+					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
+					if arg-1 is not player:
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
 		else:
 			if executor is player:
-				if player can fly:
-					disable fly for player
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled" to player
+				if arg-2 is set:
+					if arg-2 is true:
+						allow fly for player
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to players
+					else:
+						disable fly for player
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled" to player
 				else:
-					allow fly for player
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled" to player
+					if player can fly:
+						disable fly for player
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled" to player
+					else:
+						allow fly for player
+						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled" to player
 
 command /mute [<player>]:
 	permission: *
@@ -2195,42 +2215,74 @@ command /speed:
 			if {_isplayer} is false:
 				send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
 
-command /hide [<player>]:
+command /hide [<player>] [<boolean>]:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
 		if arg-1 is not set:
-			if {hide.%player's uuid%} is true:
-				reveal player for all players
-				set {hide.%player's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players"
-			else if {hide.%player's uuid%} is not set:
-				hide player from all players
-				set {hide.%player's uuid%} to true
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+			if arg-2 is not set:
+				if {hide.%player's uuid%} is true:
+					reveal player for all players
+					set {hide.%player's uuid%} to false
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players"
+				else if {hide.%player's uuid%} is not set:
+					hide player from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%player's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+				else:
+					hide player from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%player's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
 			else:
-				hide player from all players
-				set {hide.%player's uuid%} to true
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+				if arg-2 is true:
+					hide player from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%player's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+				else:
+					reveal player for all players
+					set {hide.%player's uuid%} to false
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players"
 		else:
-			if {hide.%arg-1's uuid%} is true:
-				reveal arg-1 for all players
-				set {hide.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
-			else if {hide.%arg-1's uuid%} is not set:
-				hide arg-1 from all players
-				loop all players:
-					if loop-player has permission "group.spectators":
-						reveal arg-1 for loop-player
-				set {hide.%arg-1's uuid%} to true
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+			if arg-2 is not set:
+				if {hide.%arg-1's uuid%} is true:
+					reveal arg-1 for all players
+					set {hide.%arg-1's uuid%} to false
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
+				else if {hide.%arg-1's uuid%} is not set:
+					hide arg-1 from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%arg-1's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+				else:
+					hide arg-1 from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%arg-1's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
 			else:
-				hide arg-1 from all players
-				loop all players:
-					if loop-player has permission "group.spectators":
-						reveal arg-1 for loop-player
-				set {hide.%arg-1's uuid%} to true
-				send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+				if arg-2 is true:
+					hide arg-1 from all players
+					loop all players:
+						if loop-player has permission "group.spectators":
+							reveal arg-1 for loop-player
+					set {hide.%arg-1's uuid%} to true
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+				else:
+					reveal arg-1 for all players
+					set {hide.%arg-1's uuid%} to false
+					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
 
 command /multiplier [<int>]:
 	permission: *
