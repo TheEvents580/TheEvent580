@@ -11,4 +11,6 @@ every tick:
                                 set {_block.%loop-player's uuid%} to "boost pad"
                             if {_block.%loop-player's uuid%} is "dark green carpet" or "cyan carpet":
                                 set {_block.%loop-player's uuid%} to "jump pad"
-                            send action bar "%{_block.%loop-player's uuid%} in strict proper case%" to loop-player
+                            if {_block.%loop-player's uuid%} is "ender gateway":
+                                set {_block.%loop-player's uuid%} to "teleporter"
+                            send action bar "&l%{_block.%loop-player's uuid%} in strict proper case%" to loop-player

@@ -512,10 +512,18 @@ on quit:
 	if player doesn't have permission "group.spectators":
 		remove 1 from {online_players}
 
+on player teleport:
+	wait 1 tick
+	if the world of event-player = "build_masters":
+		if the z-coordinate of event-player <= 1100:
+			if the z-coordinate of event-player >= 980:
+				if {finished.%event-player's uuid%} = true:
+					command("execute in minecraft:build_masters run teleport %event-player% %x-coordinate of event-player% 150 %z-coordinate of event-player% %yaw of event-player% %pitch of event-player%")
+
 on damage:
 	if victim's world isn't "trials":
-		command("stopsound %victim% voice minecraft:entity.player.attack.crit")
-		command("stopsound %victim% voice minecraft:entity.player.attack.nodamage")
+		stop sound "entity.player.attack.crit" for the victim
+		stop sound "entity.player.attack.nodamage" for the victim
 	if damage cause is fall:
 		cancel event
 	if victim is villager:

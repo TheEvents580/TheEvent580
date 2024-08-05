@@ -1113,9 +1113,15 @@ every tick:
 					else:
 						if block at location({_x_%loop-player's uuid%}, 128, {_z_%loop-player's uuid%}, "build_masters") is pumpkin:
 							if the z-coordinate of loop-player > 3000:
-								make server execute command "execute in minecraft:build_masters run tp %loop-player% -7.53 153.24 1040.13 -90.66 36.09"
+								make server execute command "execute in minecraft:build_masters run tp %loop-player% -7.0 153.5 1040.0 -90 35"
 						else if block 1 meter under loop-player is pumpkin :
 							make server execute command "execute in build_masters run tp %loop-player% 6.5 131 5000.5 -90 0"
+						if the z-coordinate of loop-player >= 980 :
+							if the z-coordinate of loop-player <= 1100:
+								if the y-coordinate of loop-player < 150:
+									send "[<##155966>&lTheEvent580&r] You are not allowed to interact with the remaining players" to loop-player
+									command("execute in minecraft:build_masters run teleport %loop-player% %x-coordinate of loop-player% 150 %z-coordinate of loop-player% %yaw of loop-player% %pitch of loop-player%")
+									#teleport loop-player to location(x-coordinate of loop-player, 150, z-coordinate of loop-player, world of loop-player, yaw of loop-player, pitch of loop-player)
 
 every second:
 	if {timer} is 1:
@@ -1510,6 +1516,7 @@ every second:
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
+					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
