@@ -1490,27 +1490,38 @@ every second:
 			#				set {event_state} to "Game &r&cDropper"
 			if {jeu_nom} is "&c&lTrials":
 				if {timer-s} is 35:
+					broadcast "[<##155966>&lTheEvent580&r] Welcome to &c&lTrials&r."
 				if {timer-s} is 30:
+					broadcast "[<##155966>&lTheEvent580&r] Your goal is to complete as many trials as possible in 10 minutes."
 				if {timer-s} is 25:
+					broadcast "[<##155966>&lTheEvent580&r] The faster you go, the more points you get, so try to be the fastest."
 				if {timer-s} is 20:
+					broadcast "[<##155966>&lTheEvent580&r] You can get additional infos on the website."
 				if {timer-s} is 15:
-					broadcast "[<##155966>&lTheEvent580&r] To get to the next levels, just jump in the water."
+					broadcast "[<##155966>&lTheEvent580&r] Every 2 minutes, the time between the trials will get smaller, and so will the platform!"
 				if {timer-s} is 10:
+					broadcast "[<##155966>&lTheEvent580&r] The trial completion time will go from 10s to 6s."
 				if {timer-s} is 3:
+					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 2:
+					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
+					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						play sound "custom:race6" in record category with volume 1 to the loop-player
 						if loop-player has permission "theevent580.staff":
-							set {event_state} to "Game &r&cDropper"
+							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cTrials" to loop-player
+							set {event_state} to "Game &r&cTrials"
+					set {jeu_condi} to 10
+					set {timer-m} to 9
 					set {timer-s} to 60
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {red} to -10000

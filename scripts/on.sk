@@ -583,6 +583,27 @@ on damage:
 			if {jeu_condi} = 6:
 				if {alive.%victim's uuid%} or {alive.%attacker's uuid%} = false:
 					cancel event
+			if {jeu_condi} = 11:
+				if glowing of attacker is true:
+					if victim is a player:
+						set glowing of attacker to false
+						set glowing of victim to true
+						command("gamepoints %attacker% %20*{multiplier}% Tagging %victim's name%")
+						command("gamepoints %victim% %-20*{multiplier}% Getting tagged by %attacker's name%")
+						set {time_hider.%attacker's uuid%} to 0
+						if the maximum health of victim = 1:
+							setToSpec(victim)
+							setRandomHunter()
+						else:
+							remove 1 from the maximum health of victim
+							if {backup_time_left_before_explosion} = 40:
+								set {backup_time_left_before_explosion} to 30
+							else if {backup_time_left_before_explosion} > 11:
+								remove 1 from {backup_time_left_before_explosion}
+							set {time_left_before_explosion} to {backup_time_left_before_explosion} - 1
+							set {time_hider.%victim's uuid%} to -1
+				else:
+					cancel event
 
 on death:
 	if victim is a player:
@@ -898,6 +919,7 @@ on right click with carrot on a stick:
 				send "[<##155966>&lTheEvent580 - Parkour&r] You have to wait 10 seconds before using the skip again" to player
 	if name of tool of player is "Block a game":
 		if block 2 meter under player is red concrete:
+			blockGame("Trials",player)
 		if block 2 meter under player is orange concrete:
 			blockGame("Parkour",player)
 		if block 2 meter under player is yellow concrete:

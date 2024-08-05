@@ -125,26 +125,29 @@ command /trialsdodont <text> [<integer>]:
             remove {trials::%arg-2%} from {trials.do::*}
             remove {trials::%arg-2%} from {trials.dont::*}
 
-command /testnewgame:
+command /trials:
     permission: *
     trigger:
         loop all players:
             set {trials.%loop-player's uuid%.points} to 0
             set {points_game.%loop-player's uuid%} to 0
+        make server execute command "execute in trials run tp @a 0.5 130 0.5 0 0"
         set {trials.stage} to 1
-        set {checking_finished_players} to 1
+        set {checking_finished_players} to 3
         set {finished_players} to 0
-        set {jeu_condi} to 10
-        set {timer-m} to 9
-        set {timer-s} to 60
-        set {timer} to 6
-        bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+        set {jeu_logo} to "" #Trials Logo (\uE001)
+        set the game mode of all players to adventure
+
+local function isdo(trial: text) :: boolean:
+    if {trials.do::*} contains {_trial}:
+        return true
+    return false
 
 every tick:
     if {timer} = 6:
         if {jeu_condi} is 10:
             loop all players:
-                send action bar "<##D9D8F1>Trial points : +%{trials.%loop-player's uuid%.points}% <##4e5c24>工" to loop-player
+                send action bar "<#D9D8F1>Trial points : +%{trials.%loop-player's uuid%.points}% <#4e5c24>工" to loop-player
             if {trials.time} > 0:
             
                 if {trials.random_trial} = 1 or 2 or 22:
@@ -395,6 +398,7 @@ every tick:
             else:
                 if {trials.time} = 0:
                     remove 0.1 from {trials.time}
+                    set {trials.random_trial} to 0
                     loop all players:
                         if {trials.%loop-player's uuid%.points} > 0:
                             send title "&aTrial completed !" with subtitle "<##D9D8F1>+%{trials.%loop-player's uuid%.points}% &r工" to loop-player for 3 seconds
@@ -442,284 +446,255 @@ every second:
                 if {timer-m} = 7:
                     add 1 to {trials.stage}
                     command("trialsplatform %{trials.stage}%")
+                    wait 1 second
                     send title "It's getting faster !" with subtitle "10s --> 9s" to all players for 2 seconds
             
             if {timer-s} = 56:
                 if {timer-m} = 4:
                     add 1 to {trials.stage}
                     command("trialsplatform %{trials.stage}%")
+                    wait 1 second
                     send title "It's getting faster !" with subtitle "9s --> 8s" to all players for 2 seconds
             
             if {timer-s} = 59:
                 if {timer-m} = 2:
                     add 1 to {trials.stage}
                     command("trialsplatform %{trials.stage}%")
+                    wait 1 second
                     send title "It's getting faster !" with subtitle "8s --> 7s" to all players for 2 seconds
             
             if {timer-s} = 57:
                 if {timer-m} = 0:
                     add 1 to {trials.stage}
                     command("trialsplatform %{trials.stage}%")
+                    wait 1 second
                     send title "It's getting faster !" with subtitle "7s --> 6s" to all players for 2 seconds
             
             if {trials.stage} = 1:
                 if {timer-s} = 59 or 44 or 29 or 14:
-                    set {trials.time} to 11-{trials.stage}
-                    set {trials.points} to 100*{multiplier}
-                    set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                    broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                    if {trials.random_trial} is between 42 and 48:
-                        send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                    else:
-                        send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-                    
-
-
-                    if {trials.random_trial} = 5 or 25:
-                        command("trialsglass %{trials.platform}%")
-
-                    if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                        command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
-                        wait 10 seconds
-                        command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
-
-
-                    if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                        loop all players:
-                            set {trials.%loop-player's uuid%.points} to 0
-
-                    if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                        loop all players:
-                            set {trials.%loop-player's uuid%.points} to 100
+                    if {trials.random_trial} = 0:
+                        set {trials.time} to 11-{trials.stage}
+                        set {trials.points} to 100*{multiplier}
+                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+    
+                        if {trials.random_trial} is between 42 and 48:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                        else:
+                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                        
+                        if {trials.random_trial} = 5 or 25:
+                            command("trialsglass %{trials.platform}%")
+        
+                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                            command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                            wait 10 seconds
+                            command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+        
+                            if isdo({trials::%{trials.random_trial}%}) = true:
+                                loop all players:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                            else:
+                                loop all players:
+                                    set {trials.%loop-player's uuid%.points} to 100
             
             if {trials.stage} = 2:
                 if {timer-m} = 6:
                     if {timer-s} = 59 or 45 or 31 or 17 or 3:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 air replace light")
-                            wait 9 seconds
-                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
 
                 if {timer-m} = 5:
                     if {timer-s} = 48 or 34 or 20 or 6:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 air replace light")
-                            wait 9 seconds
-                            command("execute in minecraft:trials run fill 11 133 14 -15 127 -12 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
             
             if {trials.stage} = 3:
 
                 if {timer-m} = 4:
                     if {timer-s} = 51 or 38 or 25 or 12:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 air replace light")
-                            wait 8 seconds
-                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
 
                 if {timer-m} = 3:
                     if {timer-s} = 59 or 46 or 33 or 20 or 7:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 air replace light")
-                            wait 8 seconds
-                            command("execute in minecraft:trials run fill 8 133 11 -12 127 -9 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
             
             if {trials.stage} = 4:
 
                 if {timer-m} = 2:
                     if {timer-s} = 54 or 42 or 30 or 18 or 6:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 air replace light")
-                            wait 7 seconds
-                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
 
                 if {timer-m} = 1:
                     if {timer-s} = 53 or 41 or 29 or 17 or 5:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 air replace light")
-                            wait 7 seconds
-                            command("execute in minecraft:trials run fill 5 133 8 -9 127 -6 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
             
             if {trials.stage} = 5:
 
                 if {timer-m} = 0:
-                    if {timer-s} = 52 or 41 or 30 or 19 or 8:
-                        set {trials.time} to 11-{trials.stage}
-                        set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
-
-                        broadcast "%{trials.random_trial}% - %{trials::%{trials.random_trial}%}%"
-
-                        if {trials.random_trial} is between 42 and 48:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
-                        else:
-                            send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
-
-
-                        if {trials.random_trial} = 5 or 25:
-                            command("trialsglass %{trials.platform}%")
-
-                        if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
-                            command("execute in minecraft:trials run fill 2 133 5 -6 127 -3 air replace light")
-                            wait 6 seconds
-                            command("execute in minecraft:trials run fill 2 133 5 -6 127 -3 light replace air")
-
-
-                        if {trials.do::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-
-                        if {trials.dont::*} contains {trials::%{trials.random_trial}%}:
-                            loop all players:
-                                set {trials.%loop-player's uuid%.points} to 100
-
                     if {timer-s} = 2:
                         send title "You can breath," with subtitle "Trials is over..." to all players for 2 seconds
+
+                    if {timer-s} = 52 or 41 or 30 or 19 or 8:
+                        if {trials.random_trial} = 0:
+                            set {trials.time} to 11-{trials.stage}
+                            set {trials.points} to 100*{multiplier}
+                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+        
+                            if {trials.random_trial} is between 42 and 48:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
+                            else:
+                                send title "%{trials::%{trials.random_trial}%}%" with subtitle "" to all players
+                            
+                            if {trials.random_trial} = 5 or 25:
+                                command("trialsglass %{trials.platform}%")
+            
+                            if {trials.random_trial} = 10 or 11 or 12 or 13 or 19 or 30 or 31 or 32 or 33 or 39:
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
+                                wait 10 seconds
+                                command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+            
+                                if isdo({trials::%{trials.random_trial}%}) = true:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                else:
+                                    loop all players:
+                                        set {trials.%loop-player's uuid%.points} to 100
 
         if {timer-m} > 0:
             if {timer-s} = 0:

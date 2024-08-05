@@ -41,6 +41,7 @@ function reloadTimer():
 function checkBiggest():
 	clear {games::*}
 	set {biggest} to {red}
+	add "&c&lTrials" to {games::*}
 	if {orange} is greater than {biggest}:
 		set {biggest} to {orange}
 		clear {games::*}
@@ -94,6 +95,9 @@ function checkBiggest():
 		if {biggest} is {red}:
 			wait 10 seconds
 			loop all players:
+				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
+			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
+			set {jeu_nom} to "&c&lTrials"
 			set {jeu_logo} to ""
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
@@ -192,8 +196,12 @@ function checkBiggest():
 		loop all players:
 			send title "&c&lVote is tied" with subtitle "Vote tied between %size of {games::*}% games" to loop-player for 3 seconds
 		broadcast "[<##155966>&lTheEvent580&r] Vote tied between %size of {games::*}% games"
+		if {games::%{_random}%} is "&c&lTrials":
 			wait 5 seconds
 			loop all players:
+				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
+			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
+			set {jeu_nom} to "&c&lTrials"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
@@ -702,9 +710,11 @@ function giveRandomItems(p:player):
 				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
 
 function blockGame(game:text,p:player):
+	if {_game} = "Trials":
 		make console execute command "execute in minecraft:overworld run fill 3 247 8 -3 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 3 251 8 -3 253 3 minecraft:polished_deepslate"
+		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &c&lTRIALS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is red concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
