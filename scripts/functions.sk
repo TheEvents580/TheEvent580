@@ -1081,7 +1081,23 @@ function resetEventTime(current_event_second:number, current_event_minute:number
 	set {event_timer_hour} to 0
 	set {event_timer_second_total} to 45
 	set {event_timer_minute_total} to 20
-	set {event_timer_hour_total} to 3function seeLeaderboard(sender: player):
+	set {event_timer_hour_total} to 3
+
+function setToSpec(spec: player):
+	set glowing of {_spec} to false
+	make console execute command "fly %{_spec}'s name% true"
+	command("hide %{_spec}'s name%")
+	command("see %{_spec}'s name%")
+	clear {_spec}'s inventory
+	set slot 0 of {_spec} to compass named "&rTeleport to player"
+	set slot 1 of {_spec} to feather named "&rChange player's fly speed"
+	set {finished.%{_spec}'s uuid%} to true
+	set the maximum health of {_spec} to 10
+	heal {_spec}
+	feed {_spec}
+	apply infinite saturation potion without any particles whilst hiding the potion icon to {_spec}
+
+function seeLeaderboard(sender: player):
 	clear {_leaderboard.overall::*}
 	clear {_leaderboard.overall.players::*}
 	loop all players:
