@@ -265,6 +265,7 @@ command /reset:
 				set {race_lap_3_finished} to false
 				command("bossbar set minecraft:count visible false")
 				loop all players:
+					set glowing of loop-player to false
 					setPlayerColor(player)
 					clear {ride.%loop-player's uuid%}
 					add 1 to {online_players}
@@ -444,6 +445,7 @@ command /consolereset:
 		set {race_lap_2_finished} to false
 		set {race_lap_3_finished} to false
 		loop all players:
+			set glowing of loop-player to false
 			setPlayerColor(player)
 			clear {ride.%loop-player's uuid%}
 			add 1 to {online_players}
