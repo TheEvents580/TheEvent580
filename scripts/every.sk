@@ -267,212 +267,243 @@ every tick:
 							give 1 of diamond pickaxe of unbreaking 250 and efficiency 4 and fortune 1 named "&eFortune diamond pickaxe" to player
 					open the last gui for the loop-player
 				loop all items in loop-player's inventory:
-					if loop-item is red sandstone:
+					if loop-item is dried kelp:
 						wait 1 tick
-						if {bingo_case_1.%loop-player's uuid%} is false:
+						if {bingo_case_1.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_1_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_1_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eRed Sandstone&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eRed Sandstone&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_1_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eRed Sandstone&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eRed Sandstone&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eDried Kelp&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_1_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eDried Kelp&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eDried Kelp&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_1.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_1}% Collected &r&eRed Sandstone")
+							set {bingo_case_1.%loop-player's uuid%} to {bingo_case_1_completed}
+							command("gamepoints %loop-player% %{pts_lvl_1}% Collected &r&eDried Kelp")
 							add round({pts_lvl_1}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 							remove round(5*{multiplier}) from {pts_lvl_1}
 							if {pts_lvl_1} < 0:
 								set {pts_lvl_1} to 0
-							remove 1 red sandstone from loop-player's inventory
-					if loop-item is white wool:
+							remove 1 dried kelp from loop-player's inventory
+					if loop-item is bread:
 						wait 1 tick
-						if {bingo_case_2.%loop-player's uuid%} is false:
+						if {bingo_case_2.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_2_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_2_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eWhite Wool&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eWhite Wool&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_2_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eWhite Wool&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eWhite Wool&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eBread&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_2_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eBread&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eBread&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_2.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_2}% Collected &r&eWhite Wool")
+							set {bingo_case_2.%loop-player's uuid%} to {bingo_case_2_completed}
+							command("gamepoints %loop-player% %{pts_lvl_2}% Collected &r&eBread")
 							add round({pts_lvl_2}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 							remove round(15*{multiplier}) from {pts_lvl_2}
 							if {pts_lvl_2} < 0:
 								set {pts_lvl_2} to 0
-							remove 1 white wool from loop-player's inventory
-					if loop-item is gold block:
+							remove 1 bread from loop-player's inventory
+					if loop-item is netherrack:
 						wait 1 tick
-						if {bingo_case_3.%loop-player's uuid%} is false:
+						if {bingo_case_3.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_3_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_3_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eGold Block&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eGold Block&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_3_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eGold Block&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eGold Block&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eNetherrack&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_3_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eNetherrack&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eNetherrack&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_3.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_3}% Collected &r&eGold Block")
+							set {bingo_case_3.%loop-player's uuid%} to {bingo_case_3_completed}
+							command("gamepoints %loop-player% %{pts_lvl_3}% Collected &r&eNetherrack")
 							add round({pts_lvl_3}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_3}) to {total_points_event.%loop-player's uuid%}
 							remove round(25*{multiplier}) from {pts_lvl_3}
 							if {pts_lvl_3} < 0:
 								set {pts_lvl_3} to 0
-							remove 1 gold block from loop-player's inventory
-					if loop-item is amethyst cluster:
+							remove 1 netherrack from loop-player's inventory
+					if loop-item is scaffolding:
 						wait 1 tick
-						if {bingo_case_4.%loop-player's uuid%} is false:
+						if {bingo_case_4.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_4_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_4_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eAmethyst Cluster&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eAmethyst Cluster&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_4_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eAmethyst Cluster&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eAmethyst Cluster&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eScaffolding&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_4_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eScaffolding&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eScaffolding&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_4.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_4}% Collected &r&eAmethyst Cluster")
+							set {bingo_case_4.%loop-player's uuid%} to {bingo_case_4_completed}
+							command("gamepoints %loop-player% %{pts_lvl_4}% Collected &r&eScaffolding")
 							add round({pts_lvl_4}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_4}) to {total_points_event.%loop-player's uuid%}
 							remove round(35*{multiplier}) from {pts_lvl_4}
 							if {pts_lvl_4} < 0:
 								set {pts_lvl_4} to 0
-							remove 1 amethyst cluster from loop-player's inventory
-					if loop-item is enchanting table:
+							remove 1 scaffolding from loop-player's inventory
+					if loop-item is pumpkin pie:
 						wait 1 tick
-						if {bingo_case_5.%loop-player's uuid%} is false:
+						if {bingo_case_5.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_5_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_5_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eEnchanting table&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eEnchanting table&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_5_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eEnchanting table&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eEnchanting table&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &ePumpkin Pie&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_5_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &ePumpkin Pie&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &ePumpkin Pie&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_5.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_5}% Collected &r&eEnchanting table")
+							set {bingo_case_5.%loop-player's uuid%} to {bingo_case_5_completed}
+							command("gamepoints %loop-player% %{pts_lvl_5}% Collected &r&ePumpkin Pie")
 							add round({pts_lvl_5}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_5}) to {total_points_event.%loop-player's uuid%}
 							remove round(45*{multiplier}) from {pts_lvl_5}
 							if {pts_lvl_5} < 0:
 								set {pts_lvl_5} to 0
-							remove 1 enchanting table from loop-player's inventory
-					if loop-item is dune armor trim smithing template:
+							remove 1 pumpkin pie from loop-player's inventory
+					if loop-item is muddy mangrove roots:
 						wait 1 tick
-						if {bingo_case_6.%loop-player's uuid%} is false:
+						if {bingo_case_6.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_6_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_6_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eDune armor trim&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eDune armor trim&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_6_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eDune armor trim&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eDune armor trim&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eMuddy Mangrove Roots&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_6_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eMuddy Mangrove Roots&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eMuddy Mangrove Roots&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_6.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_6}% Collected &r&eDune armor trim")
+							set {bingo_case_6.%loop-player's uuid%} to {bingo_case_6_completed}
+							command("gamepoints %loop-player% %{pts_lvl_6}% Collected &r&eMuddy Mangrove Roots")
 							add round({pts_lvl_6}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_6}) to {total_points_event.%loop-player's uuid%}
 							remove round(55*{multiplier}) from {pts_lvl_6}
 							if {pts_lvl_6} < 0:
 								set {pts_lvl_6} to 0
-							remove 1 dune armor trim smithing template from loop-player's inventory
-					if loop-item is blue candle:
+							remove 1 muddy mangrove roots from loop-player's inventory
+					if loop-item is light gray glazed terracotta:
 						wait 1 tick
-						if {bingo_case_7.%loop-player's uuid%} is false:
+						if {bingo_case_7.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_7_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_7_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eBlue Candle&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eBlue Candle&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_7_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eBlue Candle&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eBlue Candle&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eLight Gray Glazed Terracotta&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_7_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eLight Gray Glazed Terracotta&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eLight Gray Glazed Terracotta&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_7.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_7}% Collected &r&eBlue Candle")
+							set {bingo_case_7.%loop-player's uuid%} to {bingo_case_7_completed}
+							command("gamepoints %loop-player% %{pts_lvl_7}% Collected &r&eLight Gray Glazed Terracotta")
 							add round({pts_lvl_7}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_7}) to {total_points_event.%loop-player's uuid%}
 							remove round(70*{multiplier}) from {pts_lvl_7}
 							if {pts_lvl_7} < 0:
 								set {pts_lvl_7} to 0
-							remove 1 blue candle from loop-player's inventory
-					if loop-item is deepslate emerald ore:
+							remove 1 light gray glazed terracotta from loop-player's inventory
+					if loop-item is dead brain coral fan:
 						wait 1 tick
-						if {bingo_case_8.%loop-player's uuid%} is false:
+						if {bingo_case_8.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_8_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_8_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eDeepslate Emerald Ore&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eDeepslate Emerald Ore&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_8_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eDeepslate Emerald Ore&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eDeepslate Emerald Ore&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eDead Brain Coral Fan&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_8_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eDead Brain Coral Fan&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eDead Brain Coral Fan&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_8.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_8}% Collected &r&eDeepslate Emerald Ore")
+							set {bingo_case_8.%loop-player's uuid%} to {bingo_case_8_completed}
+							command("gamepoints %loop-player% %{pts_lvl_8}% Collected &r&eDead Brain Coral Fan")
 							add round({pts_lvl_8}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_8}) to {total_points_event.%loop-player's uuid%}
 							remove round(85*{multiplier}) from {pts_lvl_8}
 							if {pts_lvl_8} < 0:
 								set {pts_lvl_8} to 0
-							remove 1 deepslate emerald ore from loop-player's inventory
-					if loop-item is zombie head:
+							remove 1 dead brain coral fan from loop-player's inventory
+					if loop-item is sponge:
 						wait 1 tick
-						if {bingo_case_9.%loop-player's uuid%} is false:
+						if {bingo_case_9.%loop-player's uuid%} is 0:
 							add 1 to {bingo_all_cases}
 							add 1 to {bingo_case_9_completed}
 							add 1 to {bingo_cases.%loop-player's uuid%}
 							if {bingo_case_9_1} is true:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r completed the &eZombie Head&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eZombie Head&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
-							if {bingo_case_9_1} is false:
-								broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &eZombie Head&r slot (%{bingo_cases.%loop-player's uuid%}%/9)."
-								send "[<##155966>&lTheEvent580&r] You completed the &eZombie Head&r slot (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r collected &eSponge&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							else:
 								set {bingo_case_9_1} to true
+								loop all players:
+									if loop-player-1 != loop-player-2:
+										send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to collect &eSponge&r (%{bingo_cases.%loop-player-1's uuid%}%/9)." to loop-player-2
+							send "[<##155966>&lTheEvent580&r] You collected &eSponge&r (%{bingo_cases.%loop-player's uuid%}%/9)." to loop-player
 							play sound "custom:coins" in voice category with volume 2 to the loop-player
-							set {bingo_case_9.%loop-player's uuid%} to true
-							command("gamepoints %loop-player% %{pts_lvl_9}% Collected &r&eZombie Head")
+							set {bingo_case_9.%loop-player's uuid%} to {bingo_case_9_completed}
+							command("gamepoints %loop-player% %{pts_lvl_9}% Collected &r&eSponge")
 							add round({pts_lvl_9}) to {total_points.%loop-player's uuid%}
 							add round({pts_lvl_9}) to {total_points_event.%loop-player's uuid%}
 							remove round(100*{multiplier}) from {pts_lvl_9}
 							if {pts_lvl_9} < 0:
 								set {pts_lvl_9} to 0
-							remove 1 zombie head from loop-player's inventory
+							remove 1 sponge from loop-player's inventory
 				if {bingo_cases.%loop-player's uuid%} is 9:
 					set {bingo_cases.%loop-player's uuid%} to "All"
 					if {bingo_fin} is false:
 						set {bingo_fin} to true
-						broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r is the 1st player to complete the &e&lBingo&r."
-					else if {bingo_fin} is true:
-						broadcast "[<##155966>&lTheEvent580&r] &e%loop-player%&r just completed the &e&lBingo&r."
-					send "[<##155966>&lTheEvent580&r] You just completed the bingo &e&lBingo&r" to loop-player
+						loop all players:
+							if loop-player-1 != loop-player-2 :
+								send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r is the 1st player to complete &e&lBingo&r." to loop-player-2
+					else:
+						loop all players:
+							if loop-player-1 != loop-player-2 :
+								send "[<##155966>&lTheEvent580&r] &e%loop-player-1%&r completed &e&lBingo&r." to loop-player-2
+					send "[<##155966>&lTheEvent580&r] You completed &e&lBingo&r" to loop-player
 					set {bingo_fin.%loop-player's uuid%} to true
 					make console execute command "/see %loop-player%"
 					set {finished.%loop-player's uuid%} to true
@@ -1604,8 +1635,8 @@ every second:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 0:
 					make server execute command "//world bingo"
-					make server execute command "//pos1 -999986,157,-999938"
-					make server execute command "//pos2 -999953,150,-999906"
+					make server execute command "//pos1 999880,139,-999848"
+					make server execute command "//pos2 999915,149,-999814"
 					make server execute command "//walls air"
 					make server execute command "//world world"
 					make server execute command "execute in minecraft:bingo run gamerule randomTickSpeed 20"
