@@ -1977,45 +1977,45 @@ every second:
 					set {timer-s} to 60
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {blue} to -10000
-			if {jeu_nom} is "&5&lLabyrinth":
-				if {timer-s} is 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &5&lLabyrinth&r."
-				if {timer-s} is 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal is to get to the other side of the &5&lLabyrinth&r in less than 5 minutes."
-				if {timer-s} is 25:
-					broadcast "[<##155966>&lTheEvent580&r] Completing a section / the &5&lLabyrinth&r before other people will give you more points, so try to be the fastest."
-					broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
-				if {timer-s} is 20:
-					broadcast "[<##155966>&lTheEvent580&r] To get to the next level, just fint the right path !"
-				if {timer-s} is 15:
-					broadcast "[<##155966>&lTheEvent580&r] To complete &5&lLabyrinth&r, just walk on the black / white concrete blocks."
-				if {timer-s} is 10:
-					broadcast "[<##155966>&lTheEvent580&r] &lWarning, it is possible that you need to go down a level to get to a higher one ! &r(You are warned)"
-				if {timer-s} is 3:
-					broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 3."
-					loop all players:
-						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
-				if {timer-s} is 2:
-					broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 2."
-					loop all players:
-						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
-				if {timer-s} is 1:
-					broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 1."
-					loop all players:
-						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
-				if {timer-s} is 0:
-					make server execute command "execute in minecraft:labyrinthe run fill 4 130 1 3 128 0 air destroy"
-					broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r is starting !"
-					loop all players:
-						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
-						if loop-player has permission "theevent580.staff":
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Labyrinth" to loop-player
-							set {event_state} to "Game &r&5Labyrith"
-					set {timer} to 6
-					set {timer-m} to 4
-					set {timer-s} to 60
-					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
-					set {purple} to -10000
+			#if {jeu_nom} is "&5&lLabyrinth":
+			#	if {timer-s} is 35:
+			#		broadcast "[<##155966>&lTheEvent580&r] Welcome to &5&lLabyrinth&r."
+			#	if {timer-s} is 30:
+			#		broadcast "[<##155966>&lTheEvent580&r] Your goal is to get to the other side of the &5&lLabyrinth&r in less than 5 minutes."
+			#	if {timer-s} is 25:
+			#		broadcast "[<##155966>&lTheEvent580&r] Completing a section / the &5&lLabyrinth&r before other people will give you more points, so try to be the fastest."
+			#		broadcast "[<##155966>&lTheEvent580&r] You can get every infos on the website."
+			#	if {timer-s} is 20:
+			#		broadcast "[<##155966>&lTheEvent580&r] To get to the next level, just fint the right path !"
+			#	if {timer-s} is 15:
+			#		broadcast "[<##155966>&lTheEvent580&r] To complete &5&lLabyrinth&r, just walk on the black / white concrete blocks."
+			#	if {timer-s} is 10:
+			#		broadcast "[<##155966>&lTheEvent580&r] &lWarning, it is possible that you need to go down a level to get to a higher one ! &r(You are warned)"
+			#	if {timer-s} is 3:
+			#		broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 3."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 2:
+			#		broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 2."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 1:
+			#		broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r starting in 1."
+			#		loop all players:
+			#			play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
+			#	if {timer-s} is 0:
+			#		make server execute command "execute in minecraft:labyrinthe run fill 4 130 1 3 128 0 air destroy"
+			#		broadcast "[<##155966>&lTheEvent580&r] &5&lLabyrinth&r is starting !"
+			#		loop all players:
+			#			play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
+			#			if loop-player has permission "theevent580.staff":
+			#				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Labyrinth" to loop-player
+			#				set {event_state} to "Game &r&5Labyrith"
+			#		set {timer} to 6
+			#		set {timer-m} to 4
+			#		set {timer-s} to 60
+			#		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+			#		set {purple} to -10000
 			if {jeu_nom} is "&d&lBow PVP":
 				if {timer-s} is 35:
 					broadcast "[<##155966>&lTheEvent580&r] Welcome to &d&lBow PVP&r."
