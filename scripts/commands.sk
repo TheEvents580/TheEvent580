@@ -2482,8 +2482,8 @@ command /color <offline player>:
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set rouge"
-				set {color.%{arg1.uuid}%} to "ラ&c "
 				command("/team join red %{arg1}%")
+				set {color.%{arg1's uuid}%} to "ラ&c "
 			make gui slot 11 with orange concrete named "&6Orange":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
