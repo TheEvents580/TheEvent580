@@ -9,6 +9,7 @@ command /start:
 				set {event_timer} to true
 				set {timer-s} to 30
 				set {timer-m} to 1
+				command("gamerule sendCommandFeedback false")
 				command("bossbar set minecraft:count players @a")
 				command("bossbar set minecraft:count visible true")
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
@@ -19,10 +20,11 @@ command /start:
 					if loop-player doesn't have permission "group.spectators":
 						add 1 to {checking_finished_players}
 					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-						set {event_state} to "Start Countdown"
+						if {debug.%loop-player's uuid%} is true:
+							send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
+							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
 					send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+				set {event_state} to "Start Countdown"
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
 				close player's inventory
 		open the last gui for the player
@@ -39,23 +41,24 @@ command /spawn [<player>]:
 								send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
 					if {finished.%player's uuid%} is true:
-						make console execute command "fly %player%"
+						make console execute command "fly %player% true"
 					if player's game mode is spectator:
-						make server execute command "execute in minecraft:overworld run tp %player% 322.081 75.5 341.571 147.5 21.5"
+						teleport player to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 						wait 5 ticks
 						set player's game mode to spectator
 						force player to fly
 						allow fly for player
 					if player's game mode is creative:
-						make server execute command "execute in minecraft:overworld run tp %player% 322.081 75.5 341.571 147.5 21.5"
+						teleport player to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 						wait 5 ticks
 						set player's game mode to creative
 						force player to fly
 						allow fly for player
 					else:
-						make server execute command "execute in minecraft:overworld run tp %player% 310.5 67 323.5 0.1 0.1"
+						teleport player to location(310.5, 67.0, 323.5, world "world", 0, 0)
 						wait 5 ticks
 						set player's game mode to adventure
+					set player's flying speed to 0.1
 					reveal hidden players of player
 					reveal player for all players
 					apply saturation without particles to player for 100 days
@@ -63,7 +66,7 @@ command /spawn [<player>]:
 					heal player
 					if {timer} is 7:
 						send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players"
-					set {hide.%player's uuid%} to false
+					make console execute command "hide %player% false"
 				else:
 					send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -79,21 +82,22 @@ command /spawn [<player>]:
 						if {finished.%arg-1's uuid%} is true:
 							make console execute command "fly %arg-1%"
 						if arg-1's game mode is spectator:
-							make server execute command "execute in minecraft:overworld run tp %arg-1% 322.081 75.5 341.571 147.5 21.5"
+							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
 							set arg-1's game mode to spectator
 							force arg-1 to fly
 							allow fly for arg-1
 						if arg-1's game mode is creative:
-							make server execute command "execute in minecraft:overworld run tp %arg-1% 322.081 75.5 341.571 147.5 21.5"
+							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
 							set arg-1's game mode to creative
 							force arg-1 to fly
 							allow fly for arg-1
 						else:
-							make server execute command "execute in minecraft:overworld run tp %arg-1% 310.5 67 323.5 0.1 0.1"
+							teleport arg-1 to location(310.5, 67.0, 323.5, world "world", 0, 0)
 							wait 5 ticks
 							set arg-1's game mode to adventure
+						set arg-1's flying speed to 0.1
 						apply saturation without particles to arg-1 for 100 days
 						set the maximum health of arg-1 to 10
 						heal arg-1
@@ -101,7 +105,7 @@ command /spawn [<player>]:
 						reveal arg-1 for all players
 						if {timer} is 7:
 							send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players" to arg-1
-						set {hide.%arg-1's uuid%} to false
+						make console execute command "hide %arg-1% false"
 					else:
 						send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -122,11 +126,12 @@ command /timer <text> [<text>] [<int>]:
 				set {timer_save} to {timer}
 				set {timer} to "pause"
 				set {event_timer} to false
-				command("execute run bossbar set minecraft:count name {""text"":""惠上为Event is paused"",""color"":""##4e5c24""}")
+				command("execute run bossbar set minecraft:count value 0")
+				command("execute run bossbar set minecraft:count name [{""text"":""惠上为"",""color"":""#f0f064""},{""text"":""Event is paused"",""color"":""#f0f068""}]")
 				if {jeu_condi} is 5:
 					set {race_timer} to true
 				broadcast "[<##155966>&lTheEvent580&r] The Event is currently paused, please wait"
-		else if arg-1 is "play":
+		else if arg-1 is "resume":
 			set {timer} to {timer_save}
 			clear {timer_save}
 			set {event_timer} to true
@@ -158,6 +163,25 @@ command /timer <text> [<text>] [<int>]:
 				else if arg-2 is "Fin":
 					set {timer} to arg-2
 
+on tab complete of "/timer":
+	set tab completions for position 1 to "type", "pause", "resume", "set" and "status"
+	if tab arg-1 = "set":
+		clear {_nbs::*}
+		loop 21 times:
+			add loop-value to {_nbs::*}
+		set tab completions for position 2 to {_nbs::*}
+		clear {_nbs::*}
+		loop 60 times:
+			add loop-value to {_nbs::*}
+		set tab completions for position 3 to {_nbs::*}
+	else if tab arg-1 = "status":
+		set tab completions for position 2 to "set" and "Fin"
+		if tab arg-2 = "set":
+			clear {_nbs::*}
+			loop 11 times:
+				add loop-value to {_nbs::*}
+			set tab completions for position 3 to {_nbs::*}
+
 command /reset:
 	permission: *
 	permission message: &cThis command does not exist
@@ -169,73 +193,73 @@ command /reset:
 				loop {staff::*}:
 					send "[<##155966>&lTheEvent580 - Admin&r] Code : 0" to loop-value
 					send "[<##155966>&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
-				make server execute command "clear @a"
-				make server execute command "effect clear @a"
+				command("clear @a")
+				command("effect clear @a")
 				set {event_timer} to false
 				resetEventTime({event_timer_second}, {event_timer_minute}, {event_timer_hour}, {event_timer_second_total}, {event_timer_minute_total}, {event_timer_hour_total})
 				wait 1 seconds
 				set {timer} to 0
 				set {l6} to "None"
 				set {red} to 0
-				make server execute command "execute in overworld run fill -2 300 4 2 86 9 minecraft:red_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill -2 300 4 2 86 9 minecraft:red_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill -2 300 4 2 86 9 minecraft:red_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill -2 300 4 2 86 9 minecraft:red_stained_glass replace minecraft:light_gray_stained_glass")
 				set {orange} to 0
-				make server execute command "execute in overworld run fill -4 300 4 -9 86 9 minecraft:orange_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill -3 300 4 -9 86 9 minecraft:orange_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill -4 300 4 -9 86 9 minecraft:orange_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill -3 300 4 -9 86 9 minecraft:orange_stained_glass replace minecraft:light_gray_stained_glass")
 				set {yellow} to 0
-				make server execute command "execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_stained_glass replace minecraft:light_gray_stained_glass")
 				set {lime} to 0
-				make server execute command "execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_stained_glass replace minecraft:light_gray_stained_glass")
 				set {light_blue} to 0
-				make server execute command "execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_stained_glass replace minecraft:light_gray_stained_glass")
 				set {blue} to 0
-				make server execute command "execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_stained_glass replace minecraft:light_gray_stained_glass")
 				set {purple} to 0
-				make server execute command "execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_stained_glass replace minecraft:light_gray_stained_glass")
 				set {pink} to 0
-				make server execute command "execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_concrete replace minecraft:light_gray_concrete"
-				make server execute command "execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_stained_glass replace minecraft:light_gray_stained_glass"
+				command("execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_concrete replace minecraft:light_gray_concrete")
+				command("execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_stained_glass replace minecraft:light_gray_stained_glass")
 				set {white} to 0
 				set {light_gray} to 0
 				wait 5 ticks
-				make server execute command "//world world"
-				make server execute command "//pos1 8,98,-8"
-				make server execute command "//pos2 -8,99,8"
-				make server execute command "//replace sticky_piston air"
-				make server execute command "execute in overworld run fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab"
-				make server execute command "execute in overworld run fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab"
-				make server execute command "execute in overworld run fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab"
-				make server execute command "execute in overworld run fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab"
-				make server execute command "execute in overworld run fill 8 249 3 -8 249 3 minecraft:glass"
-				make server execute command "execute in overworld run fill 8 249 -3 -8 249 -3 minecraft:glass"
-				make server execute command "execute in overworld run fill -3 249 -8 -3 249 8 minecraft:glass"
-				make server execute command "execute in overworld run fill 3 249 -8 3 249 8 minecraft:glass"
-				make server execute command "execute in overworld run fill 8 251 3 -8 251 3 minecraft:air"
-				make server execute command "execute in overworld run fill 8 251 -3 -8 251 -3 minecraft:air"
-				make server execute command "execute in overworld run fill -3 251 -8 -3 251 8 minecraft:air"
-				make server execute command "execute in overworld run fill 3 251 -8 3 251 8 minecraft:air"
-				make server execute command "//pos1 8,248,-8"
-				make server execute command "//pos2 -8,248,8"
-				make server execute command "//replace air sticky_piston[facing=up,extended=false]"
-				make server execute command "kill @e[type=minecraft:item]"
-				make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
-				make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
-				make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
-				make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
-				make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
-				make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
-				make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
-				make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
-				make server execute command "fill 8 253 9 -8 250 -9 air replace minecraft:polished_deepslate"
-				make server execute command "xp set @a 0 levels"
-				make server execute command "xp set @a 0 points"
-				make server execute command "stopsound @a"
-				make server execute command "bossbar set minecraft:mall visible false"
+				command("//world world")
+				command("//pos1 8,98,-8")
+				command("//pos2 -8,99,8")
+				command("//replace sticky_piston air")
+				command("execute in overworld run fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab")
+				command("execute in overworld run fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab")
+				command("execute in overworld run fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab")
+				command("execute in overworld run fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab")
+				command("execute in overworld run fill 8 249 3 -8 249 3 minecraft:glass")
+				command("execute in overworld run fill 8 249 -3 -8 249 -3 minecraft:glass")
+				command("execute in overworld run fill -3 249 -8 -3 249 8 minecraft:glass")
+				command("execute in overworld run fill 3 249 -8 3 249 8 minecraft:glass")
+				command("execute in overworld run fill 8 251 3 -8 251 3 minecraft:air")
+				command("execute in overworld run fill 8 251 -3 -8 251 -3 minecraft:air")
+				command("execute in overworld run fill -3 251 -8 -3 251 8 minecraft:air")
+				command("execute in overworld run fill 3 251 -8 3 251 8 minecraft:air")
+				command("//pos1 8,248,-8")
+				command("//pos2 -8,248,8")
+				command("//replace air sticky_piston[facing=up,extended=false]")
+				command("kill @e[type=minecraft:item]")
+				command("fill 8 247 3 -8 247 3 minecraft:redstone_block")
+				command("fill 8 247 -3 -8 247 -3 minecraft:redstone_block")
+				command("fill -3 247 -8 -3 247 8 minecraft:redstone_block")
+				command("fill 3 247 -8 3 247 8 minecraft:redstone_block")
+				command("fill 8 247 3 -8 247 3 minecraft:redstone_block")
+				command("fill 8 247 -3 -8 247 -3 minecraft:redstone_block")
+				command("fill -3 247 -8 -3 247 8 minecraft:redstone_block")
+				command("fill 3 247 -8 3 247 8 minecraft:redstone_block")
+				command("fill 8 253 9 -8 250 -9 air replace minecraft:polished_deepslate")
+				command("xp set @a 0 levels")
+				command("xp set @a 0 points")
+				command("stopsound @a")
+				command("bossbar set minecraft:mall visible false")
 				set {mute.server} to false
 				set {finished_players} to 0
 				set {online_players} to 0
@@ -249,7 +273,7 @@ command /reset:
 				set {yaw} to 0
 				set {multiplier} to 1
 				set {jeu} to 0
-				set {jeu_nom} to "&rStart"
+				set {jeu_nom} to "Start"
 				set {jeu_condi} to 0
 				set {scoreboard.pos} to 0
 				set {map_sg} to 0
@@ -285,9 +309,9 @@ command /reset:
 					#Parkour
 					set {parkour_checkpoint.%loop-player's uuid%} to "Start"
 					#Dropper
-					set {dropper_level.%loop-player's uuid%} to 0
+					#set {dropper_level.%loop-player's uuid%} to 0
 					#Find The Button
-					set {ftb_fin.%loop-player's uuid%} to 0
+					#set {ftb_fin.%loop-player's uuid%} to 0
 					#Multilap
 					set {race_checkpoint.%loop-player's uuid%} to 0
 					set {race_lap.%loop-player's uuid%} to 1
@@ -297,7 +321,7 @@ command /reset:
 					#Laby
 					#set {laby_level.%loop-player's uuid%} to "Start"
 					#SG
-					set {alive.%loop-player's uuid%} to true
+					#set {alive.%loop-player's uuid%} to true
 					#Bow PVP
 					set {health.%loop-player's uuid%} to 10
 					#For Event : 
@@ -306,16 +330,18 @@ command /reset:
 					set {ready_check.%loop-player's uuid%} to false
 					set {ready.%loop-player's uuid%} to true
 					#Spawn
-					make server execute command "gamemode adventure %loop-player%"
+					command("gamemode adventure %loop-player%")
 					set the maximum health of loop-player to 10
 					heal loop-player
 					reveal hidden players of loop-player
 					if {flag.%loop-player's uuid%} is not false:
 						set helmet of player to {flag.%player's uuid%}
 					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
-						set {event_state} to "Waiting"
+						if {debug.%loop-player's uuid%} is true:
+							send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
+							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
+				set {event_state} to "Waiting"
+				command("gamerule sendCommandFeedback true")
 				broadcast "[<##155966>&lTheEvent580&r] Event has been reset."
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to reset the event.":
 				close player's inventory
@@ -329,6 +355,7 @@ command /consolestart:
 		set {event_timer} to false
 		set {timer-s} to 30
 		set {timer-m} to 1
+		command("gamerule sendCommandFeedback false")
 		command("bossbar set minecraft:count players @a")
 		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 		set {timer} to 1
@@ -338,10 +365,11 @@ command /consolestart:
 			if loop-player doesn't have permission "group.spectators":
 				add 1 to {checking_finished_players}
 			if loop-player has permission "theevent580.staff":
-				send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by Console" to loop-player
-				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-				set {event_state} to "Start Countdown"
+				if {debug.%loop-player's uuid%} is true:
+					send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by Console" to loop-player
+					send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
 			send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+		set {event_state} to "Start Countdown"
 
 command /consolereset:
 	permission: *
@@ -351,73 +379,73 @@ command /consolereset:
 		loop {staff::*}:
 			send "[<##155966>&lTheEvent580 - Admin&r] Code : 0" to loop-value
 			send "[<##155966>&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
-		make server execute command "clear @a"
-		make server execute command "effect clear @a"
+		command("clear @a")
+		command("effect clear @a")
 		set {event_timer} to false
 		resetEventTime({event_timer_second}, {event_timer_minute}, {event_timer_hour}, {event_timer_second_total}, {event_timer_minute_total}, {event_timer_hour_total})
 		wait 1 seconds
 		set {timer} to 0
 		set {l6} to "None"
 		set {red} to 0
-		make server execute command "execute in overworld run fill -2 300 4 2 86 9 minecraft:red_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill -2 300 4 2 86 9 minecraft:red_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill -2 300 4 2 86 9 minecraft:red_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill -2 300 4 2 86 9 minecraft:red_stained_glass replace minecraft:light_gray_stained_glass")
 		set {orange} to 0
-		make server execute command "execute in overworld run fill -4 300 4 -9 86 9 minecraft:orange_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill -3 300 4 -9 86 9 minecraft:orange_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill -4 300 4 -9 86 9 minecraft:orange_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill -3 300 4 -9 86 9 minecraft:orange_stained_glass replace minecraft:light_gray_stained_glass")
 		set {yellow} to 0
-		make server execute command "execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill -2 300 3 -9 86 -2 minecraft:yellow_stained_glass replace minecraft:light_gray_stained_glass")
 		set {lime} to 0
-		make server execute command "execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill -3 300 -3 -9 86 -9 minecraft:lime_stained_glass replace minecraft:light_gray_stained_glass")
 		set {light_blue} to 0
-		make server execute command "execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill -2 300 -2 3 86 -9 minecraft:light_blue_stained_glass replace minecraft:light_gray_stained_glass")
 		set {blue} to 0
-		make server execute command "execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill 4 300 -3 9 86 -9 minecraft:blue_stained_glass replace minecraft:light_gray_stained_glass")
 		set {purple} to 0
-		make server execute command "execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill 3 300 -2 9 86 3 minecraft:purple_stained_glass replace minecraft:light_gray_stained_glass")
 		set {pink} to 0
-		make server execute command "execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_concrete replace minecraft:light_gray_concrete"
-		make server execute command "execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_stained_glass replace minecraft:light_gray_stained_glass"
+		command("execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_concrete replace minecraft:light_gray_concrete")
+		command("execute in overworld run fill 3 300 3 9 86 9 minecraft:pink_stained_glass replace minecraft:light_gray_stained_glass")
 		set {white} to 0
 		set {light_gray} to 0
 		wait 5 ticks
-		make server execute command "//world world"
-		make server execute command "//pos1 8,98,-8"
-		make server execute command "//pos2 -8,99,8"
-		make server execute command "//replace sticky_piston air"
-		make server execute command "execute in overworld run fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab"
-		make server execute command "execute in overworld run fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab"
-		make server execute command "execute in overworld run fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab"
-		make server execute command "execute in overworld run fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab"
-		make server execute command "execute in overworld run fill 8 249 3 -8 249 3 minecraft:glass"
-		make server execute command "execute in overworld run fill 8 249 -3 -8 249 -3 minecraft:glass"
-		make server execute command "execute in overworld run fill -3 249 -8 -3 249 8 minecraft:glass"
-		make server execute command "execute in overworld run fill 3 249 -8 3 249 8 minecraft:glass"
-		make server execute command "execute in overworld run fill 8 251 3 -8 251 3 minecraft:air"
-		make server execute command "execute in overworld run fill 8 251 -3 -8 251 -3 minecraft:air"
-		make server execute command "execute in overworld run fill -3 251 -8 -3 251 8 minecraft:air"
-		make server execute command "execute in overworld run fill 3 251 -8 3 251 8 minecraft:air"
-		make server execute command "//pos1 8,248,-8"
-		make server execute command "//pos2 -8,248,8"
-		make server execute command "//replace air sticky_piston[facing=up,extended=false]"
-		make server execute command "kill @e[type=minecraft:item]"
-		make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
-		make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
-		make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
-		make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
-		make server execute command "fill 8 247 3 -8 247 3 minecraft:redstone_block"
-		make server execute command "fill 8 247 -3 -8 247 -3 minecraft:redstone_block"
-		make server execute command "fill -3 247 -8 -3 247 8 minecraft:redstone_block"
-		make server execute command "fill 3 247 -8 3 247 8 minecraft:redstone_block"
-		make server execute command "fill 8 253 9 -8 250 -9 air replace minecraft:polished_deepslate"
-		make server execute command "xp set @a 0 levels"
-		make server execute command "xp set @a 0 points"
-		make server execute command "stopsound @a"
-		make server execute command "bossbar set minecraft:mall visible false"
+		command("//world world")
+		command("//pos1 8,98,-8")
+		command("//pos2 -8,99,8")
+		command("//replace sticky_piston air")
+		command("execute in overworld run fill 8 250 3 -8 250 3 minecraft:polished_deepslate_slab")
+		command("execute in overworld run fill 8 250 -3 -8 250 -3 minecraft:polished_deepslate_slab")
+		command("execute in overworld run fill -3 250 -8 -3 250 8 minecraft:polished_deepslate_slab")
+		command("execute in overworld run fill 3 250 -8 3 250 8 minecraft:polished_deepslate_slab")
+		command("execute in overworld run fill 8 249 3 -8 249 3 minecraft:glass")
+		command("execute in overworld run fill 8 249 -3 -8 249 -3 minecraft:glass")
+		command("execute in overworld run fill -3 249 -8 -3 249 8 minecraft:glass")
+		command("execute in overworld run fill 3 249 -8 3 249 8 minecraft:glass")
+		command("execute in overworld run fill 8 251 3 -8 251 3 minecraft:air")
+		command("execute in overworld run fill 8 251 -3 -8 251 -3 minecraft:air")
+		command("execute in overworld run fill -3 251 -8 -3 251 8 minecraft:air")
+		command("execute in overworld run fill 3 251 -8 3 251 8 minecraft:air")
+		command("//pos1 8,248,-8")
+		command("//pos2 -8,248,8")
+		command("//replace air sticky_piston[facing=up,extended=false]")
+		command("kill @e[type=minecraft:item]")
+		command("fill 8 247 3 -8 247 3 minecraft:redstone_block")
+		command("fill 8 247 -3 -8 247 -3 minecraft:redstone_block")
+		command("fill -3 247 -8 -3 247 8 minecraft:redstone_block")
+		command("fill 3 247 -8 3 247 8 minecraft:redstone_block")
+		command("fill 8 247 3 -8 247 3 minecraft:redstone_block")
+		command("fill 8 247 -3 -8 247 -3 minecraft:redstone_block")
+		command("fill -3 247 -8 -3 247 8 minecraft:redstone_block")
+		command("fill 3 247 -8 3 247 8 minecraft:redstone_block")
+		command("fill 8 253 9 -8 250 -9 air replace minecraft:polished_deepslate")
+		command("xp set @a 0 levels")
+		command("xp set @a 0 points")
+		command("stopsound @a")
+		command("bossbar set minecraft:mall visible false")
 		set {mute.server} to false
 		set {finished_players} to 0
 		set {online_players} to 0
@@ -431,7 +459,7 @@ command /consolereset:
 		set {yaw} to 0
 		set {multiplier} to 1
 		set {jeu} to 0
-		set {jeu_nom} to "&rStart"
+		set {jeu_nom} to "Start"
 		set {jeu_condi} to 0
 		set {scoreboard.pos} to 0
 		set {map_sg} to 0
@@ -447,6 +475,7 @@ command /consolereset:
 		set {race_lap_1_finished} to false
 		set {race_lap_2_finished} to false
 		set {race_lap_3_finished} to false
+		command("bossbar set minecraft:count visible false")
 		loop all players:
 			set glowing of loop-player to false
 			setPlayerColor(player)
@@ -466,9 +495,9 @@ command /consolereset:
 			#Parkour
 			set {parkour_checkpoint.%loop-player's uuid%} to "Start"
 			#Dropper
-			set {dropper_level.%loop-player's uuid%} to 0
+			#set {dropper_level.%loop-player's uuid%} to 0
 			#Find The Button
-			set {ftb_fin.%loop-player's uuid%} to 0
+			#set {ftb_fin.%loop-player's uuid%} to 0
 			#Multilap
 			set {race_checkpoint.%loop-player's uuid%} to 0
 			set {race_lap.%loop-player's uuid%} to 1
@@ -478,7 +507,7 @@ command /consolereset:
 			#Laby
 			#set {laby_level.%loop-player's uuid%} to "Start"
 			#SG
-			set {alive.%loop-player's uuid%} to true
+			#set {alive.%loop-player's uuid%} to true
 			#Bow PVP
 			set {health.%loop-player's uuid%} to 10
 			#For Event : 
@@ -487,16 +516,18 @@ command /consolereset:
 			set {ready_check.%loop-player's uuid%} to false
 			set {ready.%loop-player's uuid%} to true
 			#Spawn
-			make server execute command "gamemode adventure %loop-player%"
+			command("gamemode adventure %loop-player%")
 			set the maximum health of loop-player to 10
 			heal loop-player
 			reveal hidden players of loop-player
 			if {flag.%loop-player's uuid%} is not false:
 				set helmet of player to {flag.%player's uuid%}
 			if loop-player has permission "theevent580.staff":
-				send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
-				send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
-				set {event_state} to "Waiting"
+				if {debug.%loop-player's uuid%} is true:
+					send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
+					send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
+		set {event_state} to "Waiting"
+		command("gamerule sendCommandFeedback true")
 		broadcast "[<##155966>&lTheEvent580&r] Event has been reset."
 
 command /parkour:
@@ -504,7 +535,7 @@ command /parkour:
 	permission message: &cThis command does not exist
 	description: set le jeu "Parkour"
 	trigger:
-		make server execute command "execute in minecraft:parkour run tp @a 131.5 129.00 201.5 -90 0"
+		command("execute in minecraft:parkour run tp @a 131.5 129.00 201.5 -90 0")
 		set {jeu_condi} to 2
 		set {jeu_logo} to "" #Parkour Logo (\uE002)
 		set {finished_players} to 0
@@ -523,8 +554,7 @@ command /parkour:
 				set {parkour.skip.%loop-player's uuid%} to false
 				set {parkour.skip_used.%loop-player's uuid%} to false
 				set {finished.%loop-player's uuid%} to false
-			if {hide.%loop-player's uuid%} = false:
-				make console execute command "hide %loop-player%"
+				make console execute command "hide %loop-player% true"
 			if loop-player has permission "group.spectators":
 				set {finished.%loop-player's uuid%} to true
 				clear loop-player's inventory
@@ -542,12 +572,12 @@ command /bingo:
 	permission message: &cThis command does not exist
 	description: set le jeu "Bingo"
 	trigger:
-		make server execute command "execute in minecraft:bingo run tp @a 999899.00 140.00 -999831.5 180 0"
+		command("execute in minecraft:bingo run tp @a 999899.00 140.00 -999831.5 180 0")
 		set {jeu_condi} to 3
 		set {jeu_logo} to "" #Bingo Logo (\uE003)
 		set {finished_players} to 0
 		set {damage} to 2
-		make server execute command "clear @a"
+		command("clear @a")
 		loop all players:
 			if loop-player has permission "group.spectators":
 				reveal hidden players of loop-player
@@ -624,16 +654,16 @@ command /bingo:
 		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
 		set {pts_lvl_9} to 100*{checking_finished_players}
 		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
-		make server execute command "//world bingo"
-		make server execute command "//pos1 999880,139,-999848"
-		make server execute command "//pos2 999915,149,-999814"
-		make server execute command "//walls barrier"
+		command("//world bingo")
+		command("//pos1 999880,139,-999848")
+		command("//pos2 999915,149,-999814")
+		command("//walls barrier")
 		loop all players:
 			if loop-player has permission "group.spectators":
 				hide loop-player from all players
 				clear loop-player's inventory
 				set slot 0 of loop-player to compass named "&rTeleport to player"
-				set slot 1 of loop-player to feather named "&rChange player's fly speed"
+				set slot 1 of loop-player to feather named "&rChange your fly speed"
 				set {_item} to carrot on a stick
 				set {_item.nbt} to nbt compound of {_item}
 				add nbt compound of "{display:{Name:'{""""text"""":""""Teleport to Home"""",""""italic"""":""""false"""",""""color"""":""""yellow""""}'},CustomModelData:21}" to {_item.nbt}
@@ -947,7 +977,7 @@ command /card:
 #	permission message: &cThis command does not exist
 #	description: lance find the button
 #	trigger:
-#		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
+#		command("execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
 #		set {jeu_condi} to 4
 #		set {jeu_logo} to "" #Find The Button Logo (\uE004)
 #		set {finished_players} to 0
@@ -973,7 +1003,7 @@ command /card:
 #				force loop-player to fly
 #				allow fly for loop-player
 #				set slot 0 of loop-player to compass named "&rTeleport to player"
-#				set slot 1 of loop-player to feather named "&rChange player's fly speed"
+#				set slot 1 of loop-player to feather named "&rChange your fly speed"
 #				set slot 8 of loop-player to paper named "&aTotal of button pressed card"
 #		set {total_buttons_pressed} to 0
 #		set {ftb_oak_completed} to 0
@@ -1021,16 +1051,16 @@ command /card:
 #		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})
 #		set {pts_lvl_11} to 60*{checking_finished_players}
 #		set {pts_lvl_11} to round({pts_lvl_11}*{multiplier})
-#		make server execute command "//world find_the_button"
-#		make server execute command "//pos1 -4,152,4"
-#		make server execute command "//pos2 4,147,-4"
-#		make server execute command "//set glass"
-#		make server execute command "//pos1 -3,151,3"
-#		make server execute command "//pos2 3,148,-3"
-#		make server execute command "//set air"
+#		command("//world find_the_button"
+#		command("//pos1 -4,152,4"
+#		command("//pos2 4,147,-4"
+#		command("//set glass"
+#		command("//pos1 -3,151,3"
+#		command("//pos2 3,148,-3"
+#		command("//set air"
 #		wait 1 second
-#		make server execute command "gamemode adventure @a"
-#		make server execute command "execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
+#		command("gamemode adventure @a"
+#		command("execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
 
 #command /totalbuttons:
 #	permission: "group.spectators"
@@ -1085,9 +1115,9 @@ command /courses:
 		set {pts_lvl_3} to 80*{checking_finished_players}
 		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
 		set {remove_pts_lvl_3} to round(80*{multiplier})
-		make server execute command "execute in minecraft:races_lap_3 run tp @a 0.5 131 3.5 180 0"
+		command("execute in minecraft:races_lap_3 run tp @a 0.5 131 3.5 180 0")
 		wait 2 seconds
-		make server execute command "gamemode adventure @a"
+		command("gamemode adventure @a")
 
 #command /sg [<text>]:
 #	description: lance le sg
@@ -1111,7 +1141,7 @@ command /courses:
 #		set {pts_lvl_4} to round(15*{multiplier})
 #		set {pts_lvl_5} to round(75*{multiplier})
 #		loop all players:
-#			make server execute command "effect give %loop-player% invisibility 210 1 true"
+#			command("effect give %loop-player% invisibility 210 1 true"
 #		set {game} to "SG4"
 #		sgMapCheck()
 
@@ -1122,7 +1152,7 @@ command /courses:
 #	trigger:
 #		set {jeu_condi} to 7
 #		set {finished_players} to 0
-#		make server execute command "execute in minecraft:labyrinthe run tp @a 0.0 129 1.0 -90 0"
+#		command("execute in minecraft:labyrinthe run tp @a 0.0 129 1.0 -90 0"
 #		wait 2 seconds
 #		loop all players:
 #			set loop-player's gamemode to adventure
@@ -1134,8 +1164,8 @@ command /courses:
 #				set {finished.%loop-player's uuid%} to false
 #				set {gamemode.%loop-player's uuid%} to 2
 #				set {laby_level.%loop-player's uuid%} to "Start"
-#				make server execute command "effect give %loop-player% invisibility 660 1 true"
-#				make server execute command "effect give %loop-player% night_vision 660 255 true"
+#				command("effect give %loop-player% invisibility 660 1 true"
+#				command("effect give %loop-player% night_vision 660 255 true"
 #		set {pts_lvl_1} to 30*{checking_finished_players}
 #		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
 #		set {remove_pts_lvl_1} to 30*{multiplier}
@@ -1168,8 +1198,8 @@ command /bowpvp:
 				set {alive.%loop-player's uuid%} to true
 				set {finished.%loop-player's uuid%} to false
 		wait 2 seconds
-		make server execute command "gamemode adventure @a"
-		make server execute command "effect clear @a"
+		command("gamemode adventure @a")
+		command("effect clear @a")
 		set {pts_lvl_1} to round(40*{multiplier}) #kill bow & more than 1 heart
 		set {pts_lvl_2} to round(30*{multiplier}) #kill sword & more than 1 heart
 		set {pts_lvl_3} to round(60*{multiplier}) #kill bow & elemination
@@ -1186,7 +1216,7 @@ command /bm:
 		set {jeu_logo} to "" #Build Masters Logo (\uE006)
 		set {finished_players} to 0
 		set {damage} to 2
-		make server execute command "execute in build_masters run tp @a 0.5 128 0.5 -90 0"
+		command("execute in build_masters run tp @a 0.5 128 0.5 -90 0")
 		make console execute command "bossbar set minecraft:mall visible false"
 		wait 5 ticks
 		set {_pos.player} to 0
@@ -1240,32 +1270,31 @@ command /bm:
 		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})#build 9
 		set {pts_lvl_10} to 110*{checking_finished_players}#build 10
 		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})#build 10
-		make server execute command "execute in minecraft:build_masters run setblock 1 129 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 131 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 133 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 135 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 137 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 139 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 141 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 143 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 145 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 147 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 149 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 151 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 153 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 155 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 157 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 159 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 161 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 163 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 165 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 167 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 169 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 171 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 173 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 175 10030 white_concrete"
-		make server execute command "execute in minecraft:build_masters run setblock 1 177 10030 white_concrete"
-
+		command("execute in minecraft:build_masters run setblock 1 129 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 131 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 133 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 135 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 137 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 139 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 141 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 143 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 145 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 147 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 149 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 151 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 153 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 155 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 157 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 159 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 161 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 163 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 165 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 167 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 169 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 171 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 173 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 175 10030 white_concrete")
+		command("execute in minecraft:build_masters run setblock 1 177 10030 white_concrete")
 
 command /points <offline player> [<int>] [<text>]:
 	description: add or remove points to whatever i want
@@ -1291,6 +1320,22 @@ command /points <offline player> [<int>] [<text>]:
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points.%arg-1's uuid%})%&r 工" to executor
 
+on tab complete of "/points":
+	if tab arg-1 is set:
+		clear {_nbs::*}
+		loop 1000 times:
+			add loop-value to {_nbs::*}
+		set tab completions for position 2 to {_nbs::*}
+		set tab completions for position 3 to "Type a reason here"
+
+function gamepoints(target: player, points: int, reason: string):
+	add {_points} to {points_game.%{_target}'s uuid%}
+	if {_points} > -1:
+		send "<##D9D8F1>+&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to {_target}
+		send "<##D9D8F1>+&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to console
+	else:
+		send "<##D9D8F1>&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to {_target}
+		send "<##D9D8F1>&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to console
 
 command /gamepoints <offline player> [<int>] [<text>]:
 	description: add or remove game points to whatever i want
@@ -1298,24 +1343,17 @@ command /gamepoints <offline player> [<int>] [<text>]:
 	permission message: &cThis command does not exist
 	trigger:
 		if arg-2 is set:
-			add arg-2 to {points_game.%arg-1's uuid%}
-			if arg-3 is not set:
-				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
-				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
-			else:
-				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
-				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
+			gamepoints(arg-1, arg-2, arg-3)
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points_game.%arg-1's uuid%})%&r<##D9D8F1> game &r工" to executor
 
+on tab complete of "/gamepoints":
+	if tab arg-1 is set:
+		clear {_nbs::*}
+		loop 1000 times:
+			add loop-value to {_nbs::*}
+		set tab completions for position 2 to {_nbs::*}
+		set tab completions for position 3 to "Type a reason here"
 
 command /totalpoints <offline player> [<int>] [<text>]:
 	description: add or remove total points to whatever i want
@@ -1341,6 +1379,14 @@ command /totalpoints <offline player> [<int>] [<text>]:
 		else:
 			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({total_points.%arg-1's uuid%})%&r<##D9D8F1> total &r工" to executor
 
+on tab complete of "/totalpoints":
+	if tab arg-1 is set:
+		clear {_nbs::*}
+		loop 1000 times:
+			add loop-value to {_nbs::*}
+		set tab completions for position 2 to {_nbs::*}
+		set tab completions for position 3 to "Type a reason here"
+
 command /tele:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1357,6 +1403,9 @@ command /damage [<int>]:
 		else:
 			send "Damage : %{damage}%"
 
+on tab complete of "/damage":
+	set tab completions for position 1 to 1, 2 and 3
+
 command /health <int> <offline player>:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1364,6 +1413,13 @@ command /health <int> <offline player>:
 		set the maximum health of player to arg-1
 		set {health.%player's uuid%} to arg-2
 		heal player
+
+on tab complete of "/health":
+	if tab arg-1 is set:
+		clear {_nbs::*}
+		loop 20 times:
+			add loop-value+1 to {_nbs::*}
+		set tab completions for position 2 to {_nbs::*}
 
 command /jeucondi [<int>]:
 	permission: *
@@ -1374,6 +1430,12 @@ command /jeucondi [<int>]:
 		else:
 			send "The current game condition is : %{jeu_condi}%"
 
+on tab complete of "/jeucondi":
+	clear {_nbs::*}
+	loop 14 times:
+		add loop-value to {_nbs::*}
+	set tab completions for position 1 to {_nbs::*}
+
 command /jeu [<int>]:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1383,6 +1445,12 @@ command /jeu [<int>]:
 		else:
 			send "The current game number is : %{jeu}%"
 
+on tab complete of "/jeu":
+	clear {_nbs::*}
+	loop 7 times:
+		add loop-value to {_nbs::*}
+	set tab completions for position 1 to {_nbs::*}
+
 command /gm <int>:
 	permission: group.spectators
 	permission message: &cThis command does not exist
@@ -1390,12 +1458,22 @@ command /gm <int>:
 		set {gamemode.%player's uuid%} to arg-1
 		if arg-1 is 1:
 			set player's gamemode to creative
+			send "Your gamemode has been set to Creative"
 		if arg-1 is 2:
 			set player's gamemode to adventure
+			send "Your gamemode has been set to Adventure"
 		if arg-1 is 3:
 			set player's gamemode to spectator
+			send "Your gamemode has been set to Spectator"
 		if arg-1 is 0:
 			set player's gamemode to survival
+			send "Your gamemode has been set to Survival"
+
+on tab complete of "/gm":
+	clear {_nbs::*}
+	loop 4 times:
+		add loop-value to {_nbs::*}
+	set tab completions for position 1 to {_nbs::*}
 
 command /updateclassement:
 	permission: *
@@ -1536,39 +1614,6 @@ command /qmskin:
 	trigger:
 		send "<link:https://s.namemc.com/i/fc14461a38710880.png>The skin<reset>"
 
-command /fake <text> [<text>]:
-	permission: *
-	permission message: &cThis command does not exist
-	description: "Simulate" the start of the game
-	trigger:
-		if arg-1 is "dropper":
-			set {dropper_lvl_1} to 0
-			set {dropper_lvl_2} to 0
-			set {dropper_lvl_3} to 0
-			set {dropper_lvl_4} to 0
-			set {dropper_fin} to 0
-			set {pts_lvl_1} to 5*{online_players}
-			set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
-			set {remove_pts_lvl_1} to 5*{multiplier}
-			set {pts_lvl_2} to 10*{online_players}
-			set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
-			set {remove_pts_lvl_2} to 10*{multiplier}
-			set {pts_lvl_3} to 15*{online_players}
-			set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
-			set {remove_pts_lvl_3} to 15*{multiplier}
-			set {pts_lvl_4} to 20*{online_players}
-			set {pts_lvl_4} to {pts_lvl_4}*{multiplier}
-			set {remove_pts_lvl_4} to 20*{multiplier}
-			set {pts_fin} to 40*{online_players}
-			set {pts_fin} to {pts_fin}*{multiplier}
-			set {remove_pts_fin} to 40*{multiplier}
-			loop all players:
-				set {gamemode.%loop-player's uuid%} to 2
-				set {dropper_level.%loop-player's uuid%} to 1
-		if arg-1 is "courses":
-			if arg-2 is "boat":
-				set {courses} to "boat"
-
 command /world:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1606,14 +1651,10 @@ command /msg <player> <text>:
 	aliases: tell
 	trigger:
 		if arg-1 is player:
-			send "[<##155966>&lTheEvent580 - Private Messages&r] Talking to himself is disabled on this server."
+			send "[<##155966>&lTheEvent580 - Private Messages&r] Talking to yourself is disabled on this server."
 		else:
 			send "[<##155966>&lTheEvent580 - Private Messages&r] From %player% : %arg-2%" to arg-1
 			send "[<##155966>&lTheEvent580 - Private Messages&r] To %arg-1% : %arg-2%" to player
-			#loop all players:
-			#	if loop-player has permission "theevent580.messages.spy":
-			#		if loop-player is not arg-1 or executor:
-			#			send "[<##155966>&lTheEvent580 - Private Messages - Spy Mode&r] %player% said ""%arg-2%"" to %arg-1%"
 
 command /staff <text> [<player>]:
 	permission: *
@@ -1640,7 +1681,7 @@ command /tpspec:
 					make gui slot 18 with yellow stained glass pane named "&rギ &eYellow"
 					make gui slot 27 with lime stained glass pane named "&r画 &aLime"
 					make gui slot 36 with light blue stained glass pane named "&r動 &bLight Blue"
-					make gui slot 45 with blue stained glass pane named "&r像 &1Blue"
+					make gui slot 45 with blue stained glass pane named "&r像 &9Blue"
 					set {_slot.red} to 1
 					set {_slot.orange} to 10
 					set {_slot.yellow} to 19
@@ -1695,7 +1736,7 @@ command /tpspec:
 						make gui slot 18 with yellow stained glass pane named "&rギ &eYellow"
 						make gui slot 27 with lime stained glass pane named "&r画 &aLime"
 						make gui slot 36 with light blue stained glass pane named "&r動 &bLight Blue"
-						make gui slot 45 with blue stained glass pane named "&r像 &1Blue"
+						make gui slot 45 with blue stained glass pane named "&r像 &9Blue"
 						set {_slot.red} to 1
 						set {_slot.orange} to 10
 						set {_slot.yellow} to 19
@@ -1963,6 +2004,10 @@ command /fly [<player>] [<boolean>]:
 						allow fly for player
 						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled" to player
 
+on tab complete of "/fly":
+	if tab arg-1 is set:
+		set tab completions for position 2 to "true" and "false"
+
 command /mute [<player>]:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1996,6 +2041,9 @@ command /filter <text> <text>:
 		else if arg-1 is "remove":
 			remove arg-2 from {filter::*}
 
+on tab complete of "/filter":
+	set tab completions for position 1 to "add" and "remove"
+
 command /filtersee:
 	description: send the anti-swear filter to the player
 	permission: *
@@ -2013,6 +2061,9 @@ command /testmode <text>:
 			set {jeu_condi} to -1
 		else if arg-1 is "off":
 			set {jeu_condi} to {jeu_condi_save}
+
+on tab complete of "/testmode":
+	set tab completions for position 1 to "on" and "off"
 
 command /seeplacement:
 	permission: *
@@ -2192,32 +2243,53 @@ command /skip:
 				close player's inventory
 		open the last gui for the player
 
-command /speed:
+command /speed <text>:
 	trigger:
-		if player has permission "group.spectators":
-			if flying speed of player > 0.8:
-				set flying speed of player to 0.1
-			else:
-				set player's flying speed to player's flying speed * 2
-			set {_flyspeed} to the flying speed of player
-			set  {_flyspeed} to {_flyspeed} * 10
-			send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%必"
-		else:
-			set {_isplayer} to false
-			loop {finished::*}:
-				if loop-value is player:
-					if player is not flying:
-						make server execute command "fly %player%"
-					set {_isplayer} to true
-					if flying speed of player > 0.8:
-						set flying speed of player to 0.1
-					else:
-						set player's flying speed to player's flying speed * 2
+		if arg-1 = "up":
+			if player has permission "group.spectators":
+				if flying speed of player < 0.8:
+					set player's flying speed to player's flying speed * 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to %{_flyspeed}%必"
-			if {_isplayer} is false:
-				send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
+					send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+			else:
+				set {_isplayer} to false
+				loop {finished::*}:
+					if loop-value is player:
+						if player is not flying:
+							command("fly %player% true")
+						set {_isplayer} to true
+						if flying speed of player < 0.8:
+							set player's flying speed to player's flying speed * 2
+							set {_flyspeed} to the flying speed of player
+							set  {_flyspeed} to {_flyspeed} * 10
+							send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+				if {_isplayer} is false:
+					send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
+		else if arg-1 = "down":
+			if player has permission "group.spectators":
+				if flying speed of player > 0.1:
+					set player's flying speed to player's flying speed / 2
+					set {_flyspeed} to the flying speed of player
+					set  {_flyspeed} to {_flyspeed} * 10
+					send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+			else:
+				set {_isplayer} to false
+				loop {finished::*}:
+					if loop-value is player:
+						if player is not flying:
+							command("fly %player% true")
+						set {_isplayer} to true
+						if flying speed of player > 0.1:
+							set player's flying speed to player's flying speed / 2
+							set {_flyspeed} to the flying speed of player
+							set  {_flyspeed} to {_flyspeed} * 10
+							send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+				if {_isplayer} is false:
+					send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
+
+on tab complete of "/speed":
+	set tab completions for position 1 to "up" and "down"
 
 command /hide [<player>] [<boolean>]:
 	permission: *
@@ -2287,6 +2359,10 @@ command /hide [<player>] [<boolean>]:
 					reveal arg-1 for all players
 					set {hide.%arg-1's uuid%} to false
 					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
+
+on tab complete of "/hide":
+	if tab arg-1 is set:
+		set tab completions for position 2 to "true" and "false"
 
 command /multiplier [<int>]:
 	permission: *
@@ -2395,7 +2471,12 @@ command /achivement <player> <text> <text>:
 			if arg-3 is "1SecBM":
 				send {1SecBM.%arg-1's uuid%.infos} to player
 			if arg-3 is "FBSG":
-				send {FBSG.%arg-1's uuid%.infos} to player	
+				send {FBSG.%arg-1's uuid%.infos} to player
+
+on tab complete of "/achivement":
+	if tab arg-1 is set:
+		set tab completions for position 2 to "give", "remove" and "check"
+		set tab completions for position 3 to "Secret_Base_1", "Herobrine", "HubParkour", "1SecBM" and "FBSG"
 
 command /resetNPCs:
 	permission: *
@@ -2423,7 +2504,7 @@ command /wl <text> [<offline player>]:
 				send "[<##155966>&lTheEvent580 - Admin&r] Please enter a username"
 			else:
 				if arg-2 is not whitelisted:
-					make console execute command "whitelist add %arg-2%"
+					make player execute command "whitelist add %arg-2%"
 					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% has been added to the whitelist"
 				else:
 					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% is already whitelisted"
@@ -2432,13 +2513,16 @@ command /wl <text> [<offline player>]:
 				send "[<##155966>&lTheEvent580 - Admin&r] Please enter a username"
 			else:
 				if arg-2 is whitelisted:
-					make console execute command "whitelist remove %arg-2%"
+					make player execute command "whitelist remove %arg-2%"
 					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% has been removed from the whitelist"
 				else:
 					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% is already unwhitelisted"
 		if arg-1 is "list":
-			make console execute command "whitelist list"
-			send "[<##155966>&lTheEvent580 - Admin&r] Please check the console"
+			make player execute command "whitelist list"
+			#send "[<##155966>&lTheEvent580 - Admin&r] Please check the console"
+
+on tab complete of "/wl":
+	set tab completions for position 1 to "add", "remove" and "list"
 
 command /addplayers <int>:
 	permission: *
@@ -2470,7 +2554,7 @@ command /color <offline player>:
 			#else if player has permission "group.bleu_clair":
 			#	make gui slot 5 with light blue concrete named "&rCurrent color : &bLight Blue"
 			#else if player has permission "group.bleu":
-			#	make gui slot 5 with blue concrete named "&rCurrent color : &1Blue"
+			#	make gui slot 5 with blue concrete named "&rCurrent color : &9Blue"
 			#else if player has permission "group.violet":
 			#	make gui slot 5 with purple concrete named "&rCurrent color : &5Purple"
 			#else if player has permission "group.rose":
@@ -2512,13 +2596,13 @@ command /color <offline player>:
 				make console execute command "lp user %{arg1}% parent set bleu_clair"
 				command("/team join bleu_clair %{arg1}%")
 				set {color.%{arg1.uuid}%} to "動&b "
-			make gui slot 16 with blue concrete named "&1Blue":
+			make gui slot 16 with blue concrete named "&9Blue":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
 				make console execute command "lp user %{arg1}% parent set bleu"
 				command("/team join bleu %{arg1}%")
-				set {color.%{arg1.uuid}%} to "像&1 "
+				set {color.%{arg1.uuid}%} to "像&9 "
 			make gui slot 24 with purple concrete named "&5Purple":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
@@ -2938,6 +3022,15 @@ command /refill <text> <text> <integer>:
 					make console execute command "execute in minecraft:build_masters run fill 134 136 5019 131 138 5024 waxed_oxidized_cut_copper"
 					make console execute command "execute in minecraft:build_masters run fill 130 136 5020 135 138 5023 waxed_oxidized_cut_copper"
 
+on tab complete of "/refill":
+	set tab completions for position 1 to "red", "orange", "yellow", "lime", "green", "cyan", "lightblue", "blue", "purple", "magenta", "pink", "brown", "black", "gray", "lightgray", "white", "clear", "copper" and "cutcopper"
+	if tab arg-1 = "copper" or "cutcopper":
+		set tab completions for position 2 to "normal", "exposed", "weathered" and "oxidized"
+	else if tab arg-1 = "clear":
+		set tab completions for position 2 to "terracotta"
+	else:
+		set tab completions for position 2 to "concrete" and "terracotta"
+	set tab completions for position 3 to 0 and 1
 
 command /refillall:
 	permission: *
@@ -2966,7 +3059,7 @@ command /codes:
 		send "Code -1 : Crash somewhere, probably" to sender
 		send "Code 0 : Event has reset" to sender
 		send "Code 1 : Game ended with overall timer being (00:00)" to sender
-		send "Code 2 : Game ended because only one player was left (most liekly Survival Games)" to sender
+		send "Code 2 : Game ended because the game end condition was met" to sender
 		send "Code 3 : Game ended because everyone finished" to sender
 		send "Code 4 : Game ended because all indiv timer was 0 OR players have finished" to sender
 
@@ -2978,6 +3071,8 @@ command /leaderboard:
 				send "<##2395A9>No games have been played yet."
 			else if {timer} = 10:
 				send "<##2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
+			else if world of player isn't "world":
+				send "<##2395A9>You cannot check the leaderboard while being in a game."
 			else:
 				seeLeaderboard(executor)
 		else:
@@ -3015,3 +3110,14 @@ command /resetparkour:
 	trigger:
 		resetParkour()
 		send "Parkour leaderboard has been reset"
+
+command /updateIndiv:
+	permission: *
+	trigger:
+		updateIndiv()
+		send "Individual Placement has been updated"
+
+command /state <boolean>:
+	permission: *
+	trigger:
+		set {debug.%player's uuid%} to arg-1
