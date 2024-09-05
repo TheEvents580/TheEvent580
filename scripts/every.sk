@@ -1233,6 +1233,8 @@ every second:
 			broadcast "[<##155966>&lTheEvent580&r] &1&lBuild Masters"
 		if {timer-s} is 10:
 			broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games"
+			broadcast "[<##155966>&lTheEvent580&r] &5&lArms Race"
+			send title "This Episode's minigames are :" with subtitle "&5&lArms Race" to all players
 		if {timer-s} is 7:
 			broadcast "[<##155966>&lTheEvent580&r] And &d&lBow PVP"
 		if {timer-s} is 4:
@@ -1757,28 +1759,38 @@ every second:
 					wait 10 seconds
 					make console execute command "execute in minecraft:races_lap_3 run fill 6 129 6 -6 134 6 air replace minecraft:red_stained_glass"
 			if {jeu_condi} is 6:
+			if {jeu_condi} is 12:
 				if {timer-s} is 35:
 					broadcast "[<##155966>&lTheEvent580&r] Welcome to &5&lSurvival Games&r."
+					broadcast "[<#155966>&lTheEvent580&r] Welcome to &5&lArms Race&r."
 				if {timer-s} is 30:
 					broadcast "[<##155966>&lTheEvent580&r] Your goal is to be the last one standing."
+					broadcast "[<#155966>&lTheEvent580&r] Your goal is to be the 1st one to kill a player with the golden knife as your ONLY weapon."
 				if {timer-s} is 25:
 					broadcast "[<##155966>&lTheEvent580&r] The 1st blood gives your more points than ay other kills."
+					broadcast "[<#155966>&lTheEvent580&r] Every 2 kills, you upgrade to a new weapon!"
 				if {timer-s} is 20:
 					broadcast "[<##155966>&lTheEvent580&r] Being alive when someone get killed will give you some points."
+					broadcast "[<#155966>&lTheEvent580&r] You will also have a Golden Knife at all time, killing someone with it will send them back 1 weapon."
 				if {timer-s} is 15:
 					broadcast "[<##155966>&lTheEvent580&r] Being alive for a minute and 30 seconds will also give you points if you survive at least 5 minutes."
+					broadcast "[<#155966>&lTheEvent580&r] If nobody gets the final kill after 15 minutes, the game will end."
 				if {timer-s} is 10:
 					broadcast "[<##155966>&lTheEvent580&r] There will be a 1 minute long grace period to loot and run."
+					broadcast "[<#155966>&lTheEvent580&r] Be careful, dying will remove 5%% of your in-game points, so make sure to not die!"
 				if {timer-s} is 3:
 					broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games&r starting in 3."
+					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 2:
 					broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games&r starting in 2."
+					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} is 1:
 					broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games&r starting in 1."
+					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 					#if {game} is "SG1":
@@ -1803,11 +1815,14 @@ every second:
 					#set {sg.height} to 279
 					#make server execute command "execute in minecraft:sg4 run time set 0"
 					broadcast "[<##155966>&lTheEvent580&r] &5&lSurvival Games&r is starting !"
+					broadcast "[<##155966>&lTheEvent580&r] &5&lArms Race&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Survival Games" to loop-player
 							set {event_state} to "Game &r&5Survival Games"
+								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Arms Race" to loop-player
+					set {event_state} to "Game &r&5Arms Race"
 						#if loop-player doesn't have permission "group.specators":
 						#	add 1 to {finished_players}
 					#loop all players:
@@ -1820,10 +1835,12 @@ every second:
 					make console execute command "execute run effect clear @a saturation"
 					set {timer} to 6
 					set {timer-m} to 19
+					set {timer-m} to 14
 					set {timer-s} to 59
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {purple} to -10000
 					set {damage} to 2
+					set {damage} to 3
 					#broadcast "[<##155966>&lTheEvent580&r] Grace period endinng in 1 minute."
 			if {jeu_condi} is 9:
 				if {timer-s} is 30:
@@ -2419,6 +2436,11 @@ every second:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&1Build Masters&r --> &aShowing scores" to loop-player
+						if {jeu_condi} is 12:
+							loop all players:
+								if loop-player has permission "theevent580.staff":
+									if {debug.%loop-player's uuid%} is true:
+										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player
 						set {event_state} to "Showing scores"
 						set {timer-m} to 1
 						set {timer-s} to 30

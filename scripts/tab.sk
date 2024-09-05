@@ -21,6 +21,9 @@ function reloadTab():
 		set {gametab} to "&1&lBuild Masters&r"
 	if {jeu_condi} is 10:
 		set {gametab} to "&c&lTrials&r"
+	if {jeu_condi} is 12:
+		set {gametab} to "&5&lArms Race&r"
+
 	#Tests:
 	#set {header} to "            <##155966>&lTheEvent580 • Season 1 - Episode 5&r            %nl%%nl%%nl%<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%<##E2F093>Spectators :&r%nl%None%nl%%nl%<##E2F093>Testers :&r%nl%%nl%%{color.dc833b85-3cba-4ebd-8f4d-febc09f02422}%TheFox580&r%nl%%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}%LeRenard580&r%nl%%{color.a0f5d8c3-3248-42f5-a2ef-b216e5d6d898}%TheFox581&r"
 	#Events:

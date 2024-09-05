@@ -206,6 +206,17 @@ every 2 ticks:
 					set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for other players"
 		else if {jeu_condi} is 7:
 			set line 8 of loop-player's scoreboard to "<##E2F093>&lActual level :&r %{laby_level.%loop-player's uuid%}%"
+		if {jeu_condi} is 12:
+			if loop-player has permission "group.spectators":
+				set {_players_in_lead_list::*} to playersInLead()
+				if the size of {_players_in_lead_list::*} = 1:
+					set {_player} to {_players_in_lead_list::1}
+					set line 8 of loop-player's scoreboard to "<##E2F093>&lPlayer in lead : <##D9D8F1>%{_player}%<##E2F093> &lwith <##D9D8F1>%{weapons.%{_player}'s uuid%} - 1%<##E2F093> kills"
+				else:
+					set {_weapons_lead} to {weapons.%{_players_in_lead_list::1}'s uuid%} - 1
+					set line 8 of loop-player's scoreboard to "<##E2F093>&lPlayers in lead : <##D9D8F1>%size of {_players_in_lead_list::*}% players<##E2F093>&l with <##D9D8F1>%{_weapons_lead}%<##E2F093> kills"
+			else:
+				set line 8 of loop-player's scoreboard to "<##E2F093>&lNext weapon :<##D9D8F1> %name of {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}%"
 		set line 7 of loop-player's scoreboard to ""
 		set line 6 of loop-player's scoreboard to "<##E2F093>&lLast minigame : "
 		set line 5 of loop-player's scoreboard to "%{l6}%"

@@ -1,0 +1,222 @@
+local function isEven(n: number) :: boolean:
+    if mod({_n}, 2) = 0:
+        return true
+    else:
+        return false
+
+function playersInLead() :: objects:
+    clear {_players_in_lead::*}
+    set {_max_kills} to -1
+    loop all players:
+        if loop-player doesn't have permission "group.spectators":
+            if {weapons.%loop-player's uuid%} - 1 > {_max_kills}:
+                set {_max_kills} to {weapons.%loop-player's uuid%} - 1
+                clear {_players_in_lead::*}
+                add loop-player to {_players_in_lead::*}
+            else if {weapons.%loop-player's uuid%} - 1 = {_max_kills}:
+                add loop-player to {_players_in_lead::*}
+    return {_players_in_lead::*}
+
+local function setWeapons():
+    set {arms_race.weapon::1} to unbreakable netherite sword named "&rNetherite Sword"
+    set {arms_race.weapon::2} to unbreakable netherite sword named "&rNetherite Sword"
+    set {arms_race.weapon::3} to unbreakable diamond sword named "&rDiamond Sword"
+    set {arms_race.weapon::4} to unbreakable diamond sword named "&rDiamond Sword"
+    set {arms_race.weapon::5} to unbreakable iron sword named "&rIron Sword"
+    set {arms_race.weapon::6} to unbreakable iron sword named "&rIron Sword"
+    set {arms_race.weapon::7} to unbreakable stone sword named "&rStone Sword"
+    set {arms_race.weapon::8} to unbreakable stone sword named "&rStone Sword"
+    set {arms_race.weapon::9} to unbreakable bow of infinity named "&rBow"
+    set {arms_race.weapon::10} to unbreakable bow of infinity named "&rBow"
+    set {arms_race.weapon::11} to unbreakable netherite pickaxe named "&rNetherite Pickaxe"
+    set {arms_race.weapon::12} to unbreakable netherite pickaxe named "&rNetherite Pickaxe"
+    set {arms_race.weapon::13} to unbreakable diamond pickaxe named "&rDiamond Pickaxe"
+    set {arms_race.weapon::14} to unbreakable diamond pickaxe named "&rDiamond Pickaxe"
+    set {arms_race.weapon::15} to unbreakable iron pickaxe named "&rIron Pickaxe"
+    set {arms_race.weapon::16} to unbreakable iron pickaxe named "&rIron Pickaxe"
+    set {arms_race.weapon::17} to unbreakable stone pickaxe named "&rStone Pickaxe"
+    set {arms_race.weapon::18} to unbreakable stone pickaxe named "&rStone Pickaxe"
+    set {arms_race.weapon::19} to unbreakable crossbow of infinity named "&rCrossbow"
+    set {arms_race.weapon::20} to unbreakable crossbow of infinity named "&rCrossbow"
+    set {arms_race.weapon::21} to unbreakable diamond shovel named "&rDiamond Shovel"
+    set {arms_race.weapon::22} to unbreakable diamond shovel named "&rDiamond Shovel"
+    set {arms_race.weapon::23} to unbreakable iron shovel named "&rIron Shovel"
+    set {arms_race.weapon::24} to unbreakable iron shovel named "&rIron Shovel"
+    set {arms_race.weapon::25} to unbreakable stone shovel named "&rStone Shovel"
+    set {arms_race.weapon::26} to unbreakable stone shovel named "&rStone Shovel"
+    set {arms_race.weapon::27} to unbreakable wooden shovel named "&rWooden Shovel"
+    set {arms_race.weapon::28} to unbreakable wooden shovel named "&rWooden Shovel"
+    set {_trident} to unbreakable trident of loyalty 2 named "&rLoyalty Trident"
+    set {_trident_nbt} to nbt compound of {_trident}
+    add nbt compound of "{AttributeModifiers:[{AttributeName:""generic.attack_damage"",Amount:-1,Slot:mainhand,UUID:[I;-124727,29187,193652,-58374],Name:1724780579401},{AttributeName:""generic.attack_speed"",Amount:-3.8,Slot:mainhand,UUID:[I;-124727,29487,193652,-58974],Name:1724780579401}]}" to {_trident_nbt}
+    set {arms_race.weapon::29} to {_trident}
+    set {arms_race.weapon::30} to {_trident}   
+    set {arms_race.weapon::31} to golden sword named "&6Golden Knife"
+    set {arms_race.weapon::32} to unbreakable carrot on a stick named "This is your last weapon"
+
+local function howManyDone(done: number) :: text:
+    if {_done} < 0:
+        set {_done} to 0
+    set {_return} to "&5&nProgression :&r "
+    if {_done} <= 30:
+        if isEven({_done}) = true:
+            set {_times} to {_done} / 2
+            loop {_times} times:
+                add "<#f0f078>| <#f0f07c>| " to {_return}
+            loop 15 - {_times} times:
+                add "<#f0f06c>| <#f0f070>| " to {_return}
+            add "<#f0f074>|" to {_return}
+        else:
+            set {_times} to floor({_done} / 2)
+            loop {_times} times:
+                add "<#f0f078>| <#f0f07c>| " to {_return}
+            add "<#f0f078>| <#f0f070>| " to {_return}
+            add 1 to {_times}
+            loop 15 - {_times} times:
+                add "<#f0f06c>| <#f0f070>| " to {_return}
+            add "<#f0f074>|" to {_return}
+        return {_return}
+    else:
+        return "&5&nProgression :&r <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f078>| <#f0f07c>| <#f0f080>|"
+
+local function respawnArmsRace(target:player):
+    set {_random_respawn_x} to a random integer between -68 and 28
+    set {_random_respawn_z} to a random integer between -44 and 52
+    if block at location({_random_respawn_x}, 143, {_random_respawn_z}, world "armsrace") = barrier block:
+        if block at location({_random_respawn_x}, 129, {_random_respawn_z}, world "armsrace") = air:
+            set {_respwan} to location({_random_respawn_x}, 129, {_random_respawn_z}, world "armsrace")
+            force {_target} to respawn
+            teleport {_target} to {_respwan}
+            set the gamemode of {_target} to adventure
+            stop trigger
+        respawnArmsRace({_target})
+        stop trigger
+    respawnArmsRace({_target})
+    stop trigger
+
+command /armsrace:
+    permission: *
+    trigger:
+        command("execute in minecraft:armsrace run tp @a 0 130 0 90 0")
+        set {jeu_condi} to 12
+        set {jeu_nom} to "&5&lArms Race"
+        set {jeu_logo} to "" #Arms Race Logo (\uE007)
+        setWeapons()
+        set the gamemode of all players to adventure
+        loop all players:
+            if loop-player doesn't have permission "group.spectators":
+                set slot 0 of loop-player to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
+                set slot 1 of loop-player to {arms_race.weapon::1}
+                set {weapons.%loop-player's uuid%} to 1
+                set {next_weapon.%loop-player's uuid%} to {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}
+                set {points_game.%loop-player's uuid%} to round(150*{multiplier}) #everyone starts with 150 coins
+            else:
+                hide loop-player from all entities
+                set slot 0 of loop-player to compass named "&rTeleport to player"
+                set slot 1 of loop-player to feather named "&rChange your fly speed"
+                set {finished.%loop-player's uuid%} to true
+                command("fly %loop-player% true")
+                
+
+command /armsracedone <player>:
+    trigger:
+        send {weapons.%arg-1's uuid%} to player
+
+on death:
+    if victim is a player:
+        if attacker is a player:
+            if {jeu_condi} = 12:
+                add 1 to {weapons.%attacker's uuid%}
+                if {weapons.%attacker's uuid%} <= 30:
+                    set slot 0 of attacker to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
+                    set slot 1 of attacker to {arms_race.weapon::%{weapons.%attacker's uuid%}%}
+                    if slot 1 of attacker is bow or crossbow:
+                        set slot 8 of attacker to 64 arrow
+                    else:
+                        set slot 8 of attacker to air
+                if {weapons.%attacker's uuid%} = 31:
+                    clear attacker's inventory
+                    set slot 0 of attacker to unbreakable golden sword named "&6Golden Knife (&aKill a player to win the &5&lArms Race&6)"
+                    set slot 1 of attacker to air
+                set {next_weapon.%attacker's uuid%} to {arms_race.weapon::%{weapons.%attacker's uuid%} + 1%}
+                set {_death_points} to 0-floor({points_game.%victim's uuid%}*(0.05+({weapons.%attacker's uuid%}/100)))
+                gamepoints(victim, {_death_points}, "Killed by %{color.%attacker's uuid%}%%attacker's name%")
+                gamepoints(attacker, abs({_death_points}), "Killed %{color.%victim's uuid%}%%victim's name%<##D9D8F1> (Points steal)")
+                if isEven({weapons.%attacker's uuid%} - 1) = true:
+                    gamepoints(attacker, 20*{multiplier}, "New weapon unlocked")
+                if attacker is holding a golden sword:
+                    if {weapons.%attacker's uuid%} < 31:
+                        if {weapons.%victim's uuid%} > 2:
+                            remove 2 from {weapons.%victim's uuid%}
+                        else:
+                            set {weapons.%victim's uuid%} to 1
+                play sound "custom:coins" in voice category with volume 2 to the attacker
+                wait 5 ticks
+                respawnArmsRace(victim)
+                if {weapons.%victim's uuid%} <= 30:
+                    set slot 0 of victim to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
+                    set slot 1 of victim to {arms_race.weapon::%{weapons.%victim's uuid%}%}
+                    if slot 1 of victim is bow or crossbow:
+                        set slot 8 of victim to 64 arrow
+                    else:
+                        set slot 8 of victim to air
+                if {weapons.%victim's uuid%} = 31:
+                    clear victim's inventory
+                    set slot 0 of victim to unbreakable golden sword named "&6Golden Knife (&aKill a player to win the &5&lArms Race&6)"
+                    set slot 1 of victim to air
+
+every tick:
+    if {jeu_condi} = 12:
+        loop all players:
+            if loop-player doesn't have permissions "group.spectators":
+                if {weapons.%loop-player's uuid%} = 30:
+                    if the amount of trident in loop-player's inventory > 1:
+                        remove 1 of trident from loop-player's inventory
+                if {weapons.%loop-player's uuid%} = 31:
+                    if loop-player's inventory contains trident:
+                        remove 1 of trident from loop-player's inventory
+                    loop all golden sword in loop-player's inventory:
+                        if the name of loop-item is "&6Golden Knife":
+                            remove loop-item from loop-player's inventory
+                if {weapons.%loop-player's uuid%} = 32:
+                    set {timer-m} to 1
+                    set {timer-s} to 30
+                    bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+                    if {jeu} is 6:
+                        set {timer} to 10
+                    else:
+                        set {timer} to 7
+                    force all players to fly
+                    allow fly for all players
+                    loop all players:
+                        allow fly for loop-player-2
+                        set {gamemode.%loop-player-2's uuid%} to 3
+                        if loop-player-2 has permission "theevent580.staff":
+                            if {debug.%loop-player-2's uuid%} is true:
+                                send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player-2
+                    loop all players:
+                        if loop-player-2 has permission "theevent580.staff":
+                            if {debug.%loop-player-2's uuid%} is true:
+                                send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player-2
+                    set {event_state} to "Showing scores"
+                    set {timer-m} to 1
+                    set {timer-s} to 30
+                    bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
+                    if {jeu} is 6:
+                        set {timer} to 10
+                    else:
+                        set {timer} to 7
+                    set {jeu_condi} to 0
+                    set {damage} to 1
+                    set {finished_players} to 0
+                    make server execute command "clear @a"
+                send action bar howManyDone({weapons.%loop-player's uuid%} - 1) to loop-player
+
+#every second:
+    #if {timer} = 6:
+    #    if {timer-m} > 0:
+    #        if {timer-s} = 0:
+    #            add 60 to {timer-s}
+    #            remove 1 from {timer-m}
+    #    remove 1 from {timer-s}
+    #    bossbarRemove1Sec("count")
