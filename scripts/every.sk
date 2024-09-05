@@ -1221,6 +1221,8 @@ every second:
 	if {timer} is 2:
 		if {timer-s} is 28:
 			broadcast "[<##155966>&lTheEvent580&r] &c&lDropper"
+			broadcast "[<##155966>&lTheEvent580&r] &c&lTrials"
+			send title "This Episode's minigames are :" with subtitle "&c&lTrials" to all players
 		if {timer-s} is 25:
 			broadcast "[<##155966>&lTheEvent580&r] &6&lParkour"
 		if {timer-s} is 22:

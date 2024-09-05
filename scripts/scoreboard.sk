@@ -206,6 +206,8 @@ every 2 ticks:
 					set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for other players"
 		else if {jeu_condi} is 7:
 			set line 8 of loop-player's scoreboard to "<##E2F093>&lActual level :&r %{laby_level.%loop-player's uuid%}%"
+		if {jeu_condi} is 10:
+			set line 8 of loop-player's scoreboard to "<##E2F093>&lCurrent speed of challenges :<##D9D8F1> %11-{trials.stage}%s"
 		if {jeu_condi} is 12:
 			if loop-player has permission "group.spectators":
 				set {_players_in_lead_list::*} to playersInLead()
