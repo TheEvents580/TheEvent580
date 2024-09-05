@@ -17,9 +17,31 @@ on papi placeholder request for the prefix "theevent580":
                 else:
                     set the result to "<#D9D8F1>You have %{compl_parcour.%player's uuid%}% completions &r&l(%loop-value%th)"
                     stop trigger
+    if the identifier is "username":
+        set the result to "%{color.%player's uuid%}%%player's name%"
+    if the identifier is "indiv_coins":
+        set {_points} to {points.%player's uuid%}
+        if player has permission "group.spectators":
+            set {_points} to "-∞"
+            set the result to "<#D9D8F1>-∞&r 工<#D9D8F1> (Last place)"
+            stop trigger
+        else if {points.%player's uuid%} is not set:
+            set {_points} to 0
+        loop the size of {list_points::*} times:
+            if {list_points::%loop-value%} = {_points}:
+                if loop-value = 1 or 21:
+                    set the result to "<#D9D8F1>%checkPoints({_points})%&r 工 &r&l(%loop-value%st)"
+                    stop trigger
+                else if loop-value = 2 or 22:
+                    set the result to "<#D9D8F1>%checkPoints({_points})%&r 工 &r&l(%loop-value%nd)"
+                    stop trigger
+                else if loop-value = 3 or 23:
+                    set the result to "<#D9D8F1>%checkPoints({_points})%&r 工 &r&l(%loop-value%rd)"
+                    stop trigger
+                else:
+                    set the result to "<#D9D8F1>%checkPoints({_points})%&r 工 &r&l(%loop-value%th)"
+                    stop trigger
     loop all players:
-        if the identifier is "points.%loop-player's uuid%":
-            set the result to "%loop-player% --> %checkPoints({points.%loop-player's uuid%})% pts"
         if the identifier is "parkour.%loop-player's uuid%":
             set the result to "%loop-player% with %{compl_parcour.%loop-player's uuid%}% completions"
     
