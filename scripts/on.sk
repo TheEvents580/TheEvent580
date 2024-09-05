@@ -175,11 +175,11 @@ on join:
 		if {hide.%player's uuid%} is false:
 			command("/hide %player%")
 		command("/hide %player%")
-	if player has permission "*":
-		add player to {staff::*}
-		send "[<##155966>&lTheEvent580 - Admin&r] Online Staff :"
-		loop {staff::*}:
-			send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
+	#if player has permission "*":
+	#	add player to {staff::*}
+	#	send "[<##155966>&lTheEvent580 - Admin&r] Online Staff :"
+	#	loop {staff::*}:
+	#		send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
 	if {total_points.%player's uuid%} is not set:	
 		set {total_points.%player's uuid%} to 0
 	else if {total_points.%player's uuid%} is not round({total_points.%player's uuid%}):
@@ -539,8 +539,9 @@ on damage:
 					cancel event
 				else: # Sword
 					cancel event
-					command("hide %victim%")
+					command("hide %victim% true")
 					broadcast "[<##155966>&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
+					send title "" with subtitle "&c☠ You are dead ☠" to victim for 3 seconds
 					set {alive.%victim's uuid%} to false
 					play sound "entity.player.attack.crit" in player category with volume 1 to the attacker
 					loop all players:
@@ -551,8 +552,9 @@ on damage:
 				if projectile is arrow: # Crossbow
 					cancel event
 					command("execute at %victim% run kill @e[type=minecraft:arrow,sort=nearest,limit=1]")
-					command("hide %victim%")
+					command("hide %victim% true")
 					broadcast "[<##155966>&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was shot by %{color.%attacker's uuid%}%%attacker%"
+					send title "" with subtitle "&c☠ You are dead ☠" to victim for 3 seconds
 					set {alive.%victim's uuid%} to false
 					loop all players:
 						if loop-player = attacker or victim:
@@ -594,11 +596,10 @@ on damage:
 			if {jeu_condi} = 11:
 				if glowing of attacker is true:
 					if victim is a player:
-						send "test" to victim
 						set glowing of attacker to false
 						set glowing of victim to true
-						command("gamepoints %attacker% %20*{multiplier}% Tagging %victim's name%")
-						command("gamepoints %victim% %-20*{multiplier}% Getting tagged by %attacker's name%")
+						gamepoints(attacker, 20*{multiplier}, "Tagging %{color.%victim's uuid%}%%victim's name%<##D9D8F1> (Points steal)")
+						gamepoints(victim, -20*{multiplier}, "Getting tagged by %{color.%attacker's uuid%}%%attacker's name%<##D9D8F1> (Points steal)")
 						set {time_hider.%attacker's uuid%} to 0
 						if the maximum health of victim = 1:
 							setToSpec(victim)
@@ -616,11 +617,11 @@ on damage:
 
 on death:
 	if victim is a player:
-		if {jeu_condi} is not 3 or 8:
+		if {jeu_condi} is not 3 or 8 or 12:
 			wait 5 ticks
 			force victim to respawn
-			command("hide %victim%")
-			command("fly %victim%")
+			command("hide %victim% true")
+			command("fly %victim% true")
 			#if {jeu_condi} is 6:
 			#	if {game} is "SG1":
 			#		teleport victim to location(-1565.177, 68, -635.511, "sg1", 28.3, 24.3)
@@ -726,7 +727,7 @@ on death:
 				command("fly %victim%")
 				clear victim's inventory
 				set slot 0 of victim to compass named "&rTeleport to player"
-				set slot 1 of victim to feather named "&rChange player's fly speed"
+				set slot 1 of victim to feather named "&rChange your fly speed"
 			else:
 				set {invincibility.time_left.%victim's uuid%} to 5
 				set {invincibility.%victim's uuid%} to true
@@ -832,8 +833,12 @@ on right click with paper:
 		make player execute command "totalbuttons"
 
 on right click with feather:
-	if name of tool of player is "Change player's fly speed":
-		make player execute command "speed"
+	if name of tool of player is "Change your fly speed":
+		make player execute command "speed up"
+
+on left click with feather:
+	if name of tool of player is "Change your fly speed":
+		make player execute command "speed down"
 
 on right click with bone meal:
 	if targeted block is oak sapling:
@@ -943,6 +948,7 @@ on right click with carrot on a stick:
 			blockGame("Survival Games",player)
 		if block 2 meter under player is pink concrete:
 			blockGame("Bow PVP",player)
+		remove 1 of carrot on a stick named "&rBlock a game" from player
 	if name of tool of player is "You choose the game":
 		loop all entities in world "world":
 			if loop-entity is fox:
@@ -978,6 +984,7 @@ on right click with minecart:
 		if targeted entity is a player:
 			command("grab %targeted entity% %player%")
 			remove 1 of minecart from player
+			set {ride.%targeted entity's uuid%} to player
 
 on right click with compass:
 	if name of tool of player is "Teleport to player":
@@ -1301,7 +1308,7 @@ on drop:
 		cancel event
 	if {finished.%event-player's uuid%} is true:
 		cancel event
-	if {jeu_condi} is 5 or 8 or 9:
+	if {jeu_condi} is 5 or 8 or 9 or 12:
 		cancel event
 	if {timer} is 3:
 		cancel event
@@ -1399,3 +1406,6 @@ on sneak toggle:
 		if the y-coordinate of player = 69:
 			teleport player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
 			command("effect give %player% minecraft:night_vision infinite 255 true")
+	if {ride.%event-player's uuid%} is set:
+		cancel event
+		send title "" with subtitle "&cYou're stuck here until voting is over." to event-player for 3 seconds
