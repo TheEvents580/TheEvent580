@@ -7,18 +7,18 @@ function reloadTab():
 		set {gametab} to "&6&lParkour&r"
 	if {jeu_condi} is 3:
 		set {gametab} to "&e&lBingo&r"
-	if {jeu_condi} is 4:
-		set {gametab} to "&a&lFind The Button&r"
+	#if {jeu_condi} is 4:
+	#	set {gametab} to "&a&lFind The Button&r"
 	if {jeu_condi} is 5:
 		set {gametab} to "&b&lRaces&r"
-	if {jeu_condi} is 6:
-		set {gametab} to "&5&lSurvival Games&r"
+	#if {jeu_condi} is 6:
+	#	set {gametab} to "&5&lSurvival Games&r"
 	#f {jeu_condi} is 7:
 	#	set {gametab} to "&5&lLabyrinth&r"
 	if {jeu_condi} is 8:
 		set {gametab} to "&d&lBow PVP&r"
 	if {jeu_condi} is 9:
-		set {gametab} to "&1&lBuild Masters&r"
+		set {gametab} to "&9&lBuild Masters&r"
 	if {jeu_condi} is 10:
 		set {gametab} to "&c&lTrials&r"
 	if {jeu_condi} is 11:
