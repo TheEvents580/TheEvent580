@@ -60,9 +60,11 @@ function checkBiggest():
 		set {biggest} to {lime}
 		clear {games::*}
 		add "&a&lFind The Button" to {games::*}
+		add "&a&lTag" to {games::*}
 	else if {lime} is equal to {biggest}:
 		set {biggest} to {lime}
 		add "&a&lFind The Button" to {games::*}
+		add "&a&lTag" to {games::*}
 	if {light_blue} is greater than {biggest}:
 		set {biggest} to {light_blue}
 		clear {games::*}
@@ -140,6 +142,7 @@ function checkBiggest():
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
 			wait 7 seconds
 			command("ftb")
+			command("tag")
 		else if {biggest} is {light_blue}:
 			wait 10 seconds
 			loop all players:
@@ -246,6 +249,7 @@ function checkBiggest():
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
 			wait 7 seconds
 			command("ftb")
+			command("tag")
 		if {games::%{_random}%} is "&b&lMultilap":
 			wait 5 seconds
 			loop all players:

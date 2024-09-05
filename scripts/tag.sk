@@ -64,7 +64,7 @@ every second:
                                         remove 1 from {backup_time_left_before_explosion}
                                     set {time_left_before_explosion} to {backup_time_left_before_explosion} - 1
                             else:
-                                command("gamepoints %loop-player% %15*{multiplier}% Surviving to an explosion")
+                                gamepoints(loop-player, 15*{multiplier}, "Surviving to an explosion")
                 else:
                     loop all players:
                         if glowing of loop-player = true:
@@ -89,7 +89,7 @@ every second:
                         add 1 to {time_hider.%loop-player's uuid%}
                     if mod({time_hider.%loop-player's uuid%}, 10) = 0:
                         if glowing of loop-player is false:
-                            command("gamepoints %loop-player% %10*{multiplier}% Surviving 10 seconds without being tagged")
+                            gamepoints(loop-player, 10*{multiplier}, "Surviving 10 seconds without being tagged")
 
 every tick:
     if {timer} = 6:

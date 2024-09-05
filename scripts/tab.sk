@@ -21,6 +21,8 @@ function reloadTab():
 		set {gametab} to "&1&lBuild Masters&r"
 	if {jeu_condi} is 10:
 		set {gametab} to "&c&lTrials&r"
+	if {jeu_condi} is 11:
+		set {gametab} to "&a&lTag&r"
 	if {jeu_condi} is 12:
 		set {gametab} to "&5&lArms Race&r"
 

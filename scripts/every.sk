@@ -1229,6 +1229,8 @@ every second:
 			broadcast "[<##155966>&lTheEvent580&r] &e&lBingo"
 		if {timer-s} is 19:
 			broadcast "[<##155966>&lTheEvent580&r] &a&lFind The Button"
+			broadcast "[<##155966>&lTheEvent580&r] &a&lTag"
+			send title "This Episode's minigames are :" with subtitle "&a&lTag" to all players
 		if {timer-s} is 16:
 			broadcast "[<##155966>&lTheEvent580&r] &b&lMultilap"
 		if {timer-s} is 13:
@@ -2111,6 +2113,7 @@ every second:
 		bossbarRemove1Sec("count")
 	if {timer} is 6:
 		if {jeu_condi} is not 6 or 8 or 10:
+		if {jeu_condi} is not 6 or 8 or 10 or 11:
 			if {finished_players} is smaller than {checking_finished_players}:
 				if {jeu_condi} = 9:
 					#Build Masters
