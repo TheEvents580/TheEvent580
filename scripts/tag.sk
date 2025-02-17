@@ -20,7 +20,8 @@ function setRandomHunter():
                 if the maximum health of loop-player > 1:
                     remove 1 from maximum health of loop-player
                 set glowing of loop-player to true
-                apply blindness potion of tier 5 without any particles whilst hiding the potion icon to the loop-player for 10 seconds
+                command("tab nametag toggle %loop-player%")
+                apply blindness potion of tier 5 without any particles whilst hiding the potion icon to the loop-player for 5 seconds
                 set {time_hider.%loop-player's uuid%} to -1
             else:
                 set {time_hider.%loop-player's uuid%} to 0
@@ -30,7 +31,7 @@ function setRandomHunter():
 command /tag:
     permission: *
     trigger:
-        teleport all players to location(0, 129, 0, world "tag")
+        teleport all players to location(9.5, 132, 31.5, world "tag")
         set {jeu_condi} to 11
         set {jeu_logo} to "" #Tag Logo (\uE004)
         set {damage} to 3
@@ -43,6 +44,9 @@ command /tag:
             else:
                 set {finished.%loop-player's uuid%} to true
                 command("hide %loop-player% true")
+                setToSpec(loop-player)
+        wait 6 seconds
+        set gamemode of all players to adventure
 
 every second:
     if {timer} = 6:
@@ -50,16 +54,23 @@ every second:
             if {time_left_before_explosion} > 0:
                 remove 1 from {time_left_before_explosion}
             else if {time_left_before_explosion} = 0:
-                if {players_alive} > 2:
+                if {players_alive} >= 2:
                     loop all players:
                         if loop-player doesn't have permission "group.spectators":
                             if glowing of loop-player = true:
                                 set glowing of loop-player to false
                                 if the maximum health of loop-player = 1:
+                                    command("tab nametag toggle %loop-player% -s")
+                                    send title "" with subtitle "&c☠ You are dead ☠" to loop-player for 3 seconds
                                     setToSpec(loop-player)
                                     setRandomHunter()
+                                    remove 1 from {players_alive}
+                                    command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
                                 else:
                                     remove 1 from the maximum health of loop-player
+                                    command("tab nametag toggle %loop-player% -s")
+                                    send title "" with subtitle "&c💣 You exploded 💣" to loop-player for 3 seconds
+                                    setRandomHunter()
                                     if {backup_time_left_before_explosion} > 11:
                                         remove 1 from {backup_time_left_before_explosion}
                                     set {time_left_before_explosion} to {backup_time_left_before_explosion} - 1
@@ -69,8 +80,10 @@ every second:
                     loop all players:
                         if glowing of loop-player = true:
                             set glowing of loop-player to false
+                            command("tab nametag toggle %loop-player%")
                         if loop-player has permission "theevent580.staff":
                             send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&aFind The Button&r --> &aShowing scores" to loop-player
+                    command("execute run bossbar set minecraft:count visible true")
                     set {event_state} to "Showing scores"
                     set {timer-m} to 1
                     set {timer-s} to 30
@@ -96,7 +109,7 @@ every tick:
         if {jeu_condi} = 11:
             loop all players:
                 if glowing of loop-player = true:
-                    send action bar "You will &c&lexplode&r in &c&l%{time_left_before_explosion}%&r seconds" to loop-player
+                    send action bar "&c💣&r You will &c&lexplode&r in &c&l%{time_left_before_explosion}%&r seconds &c💣" to loop-player
             if ({players_alive}/{checking_finished_players}) <= 1/4: #25% of players left
                 if size of world border of world "tag" = 37.5:
                     shrink world border of world "tag" by 18.75 in 30 seconds

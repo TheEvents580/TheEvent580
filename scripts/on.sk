@@ -131,13 +131,13 @@ on chat:
 
 
 on server list ping:
-	set the motd to "<##D9DBF1>Coding for <##155966>&lTheEvent580 • Season 1 - Episode 6"
+	set the motd to "<##D9DBF1>Working on <##155966>&lTheEvent580 • Season 1 - Episode Darkathon 3"
 
 on join:
 	wait 3 ticks
 	apply saturation of tier 255 without any particles to the player for 999 days
 	set {compl_parcour.%event-player's uuid%} to 0
-	setPlayerColor(player)
+	setPlayerTeamWithBackup(player)
 	if player = "TheFox580":
 		set {total_points.%player's uuid%} to 18684
 	if {timer} != 6:
@@ -168,13 +168,9 @@ on join:
 		allow fly for player
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
-		if {hide.%player's uuid%} is true:
-			command("/hide %player%")
-		command("/hide %player%")
+		command("/hide %player% true")
 	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
-		if {hide.%player's uuid%} is false:
-			command("/hide %player%")
-		command("/hide %player%")
+		command("/hide %player% false")
 	#if player has permission "*":
 	#	add player to {staff::*}
 	#	send "[<##155966>&lTheEvent580 - Admin&r] Online Staff :"
@@ -201,7 +197,11 @@ on join:
 			else:
 				set player's gamemode to adventure
 	else:
-		set player's gamemode to creative
+		if player has permission "*":
+			set player's gamemode to creative
+		else:
+			set player's gamemode to adventure
+		command("fly %player% true")
 
 	if {jeu_condi} = 0:
 		make player execute command "/spawn"
@@ -458,6 +458,8 @@ on join:
 	add 1 to {total_points.%player's uuid%}
 	remove 1 from {total_points.%player's uuid%}
 	toggle scoreboards of player on
+	command("/noxesiumutils serverRules disableBoatCollisions @a true")
+	command("/noxesiumutils serverRules enableSmootherClientTrident @a true")
 	#wait 2 second
 	#if event-world is "world":
 	#	command("setrp %player% https://www.dropbox.com/scl/fi/wom59ahuut504nxqjw51q/TheEvent580_Spawn.zip?rlkey=em5fv8t9dqm0onj1kbbc0cd15&dl=1" #Spawn
@@ -596,16 +598,24 @@ on damage:
 			if {jeu_condi} = 11:
 				if glowing of attacker is true:
 					if victim is a player:
+						remove blindness from attacker
 						set glowing of attacker to false
 						set glowing of victim to true
+						command("tab nametag toggle %attacker% -s")
 						gamepoints(attacker, 20*{multiplier}, "Tagging %{color.%victim's uuid%}%%victim's name%<##D9D8F1> (Points steal)")
 						gamepoints(victim, -20*{multiplier}, "Getting tagged by %{color.%attacker's uuid%}%%attacker's name%<##D9D8F1> (Points steal)")
 						set {time_hider.%attacker's uuid%} to 0
 						if the maximum health of victim = 1:
 							setToSpec(victim)
 							setRandomHunter()
+							remove 1 from {players_alive}
+							command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
+							send title "" with subtitle "&c☠ You are dead ☠" to victim for 3 seconds
 						else:
 							remove 1 from the maximum health of victim
+							command("tab nametag toggle %victim%")
+							send title "" with subtitle "&c💣 You got tagged 💣" to victim for 3 seconds
+							apply blindness potion of tier 5 without any particles whilst hiding the potion icon to the victim for 5 seconds
 							if {backup_time_left_before_explosion} = 40:
 								set {backup_time_left_before_explosion} to 30
 							else if {backup_time_left_before_explosion} > 11:
@@ -877,7 +887,7 @@ on right click with bone meal:
 on right click with carrot on a stick:
 	if name of tool of player is "&eTeleport to home":
 		teleport player to location(-999968.00, 151, -999922.5, world "Bingo")
-	if name of tool of player is "&6Skip level":
+	if {jeu_condi} = 2:
 		if {parkour.main_level.%player's uuid%} = 4:
 			if {parkour.sub_level.%player's uuid%} = 7:
 				send "[<##155966>&lTheEvent580 - Parkour&r] Sorry, but as this is the last level, you cannot skip it... Good luck !" to player
@@ -948,8 +958,9 @@ on right click with carrot on a stick:
 			blockGame("Survival Games",player)
 		if block 2 meter under player is pink concrete:
 			blockGame("Bow PVP",player)
-		remove 1 of carrot on a stick named "&rBlock a game" from player
+		remove 999 of carrot on a stick from player
 	if name of tool of player is "You choose the game":
+		remove 999 of carrot on a stick from player
 		loop all entities in world "world":
 			if loop-entity is fox:
 				kill loop-entity
@@ -962,6 +973,7 @@ on right click with carrot on a stick:
 					allow flight for loop-player
 		broadcast "[<##155966>&lTheEvent580&r] %player% is chosing the next game"
 	if name of tool of player is "Swap players and spectators":
+		remove 999 of carrot on a stick from player
 		loop all entities in world "world":
 			if loop-entity is fox:
 				kill loop-entity
@@ -1045,55 +1057,55 @@ on right click :
 			if event-block is oak_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Asexual Flag"",""italic"":""false""}'},CustomModelData:1}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":1,""minecraft:custom_name"":'{""italic"":false,""text"":""Asexual Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Asexual flag on your head" to player
 			if event-block is spruce_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Pride Flag"",""italic"":""false""}'},CustomModelData:6}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":6,""minecraft:custom_name"":'{""italic"":false,""text"":""Pride Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Pride flag on your head" to player
 			if event-block is birch_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Transgender Flag"",""italic"":""false""}'},CustomModelData:8}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":8,""minecraft:custom_name"":'{""italic"":false,""text"":""Transgender Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Transgender flag on your head" to player
 			if event-block is jungle_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Pansexual Flag"",""italic"":""false""}'},CustomModelData:5}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":5,""minecraft:custom_name"":'{""italic"":false,""text"":""Pansexual Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Pansexual flag on your head" to player
 			if event-block is acacia_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Lesbian Flag"",""italic"":""false""}'},CustomModelData:3}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":3,""minecraft:custom_name"":'{""italic"":false,""text"":""Lesbian Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Lesbian flag on your head" to player
 			if event-block is dark_oak_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Trans-Inclusive Gay Flag"",""italic"":""false""}'},CustomModelData:7}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":7,""minecraft:custom_name"":'{""italic"":false,""text"":""Trans-Inclusive Gay Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Trans-Inclusive Gay flag on your head" to player
 			if event-block is mangrove_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Non-Binary Flag"",""italic"":""false""}'},CustomModelData:4}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":4,""minecraft:custom_name"":'{""italic"":false,""text"":""Non-Binary Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Non-Binary flag on your head" to player
 			if event-block is stone_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Bisexual Flag"",""italic"":""false""}'},CustomModelData:2}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":2,""minecraft:custom_name"":'{""italic"":false,""text"":""Bisexual Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Bisexual flag on your head" to player
 			if event-block is polished_blackstone_button:
 				set {flag.%player's uuid%} to a carrot on a stick
 				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt compound of "{display:{Name:'{""text"":""Unlabled Flag"",""italic"":""false""}'},CustomModelData:9}" to {flag.nbt.%player's uuid%}
+				add nbt of "{""minecraft:custom_model_data"":9,""minecraft:custom_name"":'{""italic"":false,""text"":""Unlabled Flag""}'}" to {flag.nbt.%player's uuid%}
 				set helmet of player to {flag.%player's uuid%}
 				send "[<##155966>&lTheEvent580&r] You now have the Unlabled flag on your head" to player
 			#if event-block is red concrete:

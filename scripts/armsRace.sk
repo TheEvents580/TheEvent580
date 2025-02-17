@@ -48,7 +48,7 @@ local function setWeapons():
     set {arms_race.weapon::28} to unbreakable wooden shovel named "&rWooden Shovel"
     set {_trident} to unbreakable trident of loyalty 2 named "&rLoyalty Trident"
     set {_trident_nbt} to nbt compound of {_trident}
-    add nbt compound of "{AttributeModifiers:[{AttributeName:""generic.attack_damage"",Amount:-1,Slot:mainhand,UUID:[I;-124727,29187,193652,-58374],Name:1724780579401},{AttributeName:""generic.attack_speed"",Amount:-3.8,Slot:mainhand,UUID:[I;-124727,29487,193652,-58974],Name:1724780579401}]}" to {_trident_nbt}
+    add nbt of "{""minecraft:attribute_modifiers"":[{id:""generic.attack_damage"",type:""generic.attack_damage"",amount:-100,operation:""add_value"",slot:""mainhand""},{id:""attack_speed"",type:""generic.attack_speed"",amount:-3.9,operation:""add_value"",slot:""mainhand""}]}" to {_trident_nbt}
     set {arms_race.weapon::29} to {_trident}
     set {arms_race.weapon::30} to {_trident}   
     set {arms_race.weapon::31} to golden sword named "&6Golden Knife"
@@ -105,12 +105,14 @@ command /armsrace:
         set the gamemode of all players to adventure
         loop all players:
             if loop-player doesn't have permission "group.spectators":
+                clear loop-player's inventory
                 set slot 0 of loop-player to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
                 set slot 1 of loop-player to {arms_race.weapon::1}
                 set {weapons.%loop-player's uuid%} to 1
                 set {next_weapon.%loop-player's uuid%} to {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}
                 set {points_game.%loop-player's uuid%} to round(150*{multiplier}) #everyone starts with 150 coins
             else:
+                clear loop-player's inventory
                 hide loop-player from all entities
                 set slot 0 of loop-player to compass named "&rTeleport to player"
                 set slot 1 of loop-player to feather named "&rChange your fly speed"
@@ -128,6 +130,7 @@ on death:
             if {jeu_condi} = 12:
                 add 1 to {weapons.%attacker's uuid%}
                 if {weapons.%attacker's uuid%} <= 30:
+                    clear attacker's inventory
                     set slot 0 of attacker to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
                     set slot 1 of attacker to {arms_race.weapon::%{weapons.%attacker's uuid%}%}
                     if slot 1 of attacker is bow or crossbow:
@@ -154,6 +157,7 @@ on death:
                 wait 5 ticks
                 respawnArmsRace(victim)
                 if {weapons.%victim's uuid%} <= 30:
+                    clear victim's inventory
                     set slot 0 of victim to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
                     set slot 1 of victim to {arms_race.weapon::%{weapons.%victim's uuid%}%}
                     if slot 1 of victim is bow or crossbow:

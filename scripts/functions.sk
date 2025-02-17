@@ -1,6 +1,44 @@
 function command(command:text):
 	make console execute command "%{_command}%"
 
+function setPlayerTeamWithBackup(p:offline player):
+	if {color.%{_p}'s uuid%.backup} = "spectators":
+		command("lp user %{_p}% parent set spectators")
+		command("/team join spectators %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "rouge":
+		command("lp user %{_p}% parent set rouge")
+		command("/team join red %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "orange":
+		command("lp user %{_p}% parent set orange")
+		command("/team join orange %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "jaune":
+		command("lp user %{_p}% parent set jaune")
+		command("/team join jaune %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "vert":
+		command("lp user %{_p}% parent set vert")
+		command("/team join vert %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "bleu_clair":
+		command("lp user %{_p}% parent set bleu_clair")
+		command("/team join bleu_clair %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "bleu":
+		command("lp user %{_p}% parent set bleu")
+		command("/team join bleu %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "violet":
+		command("lp user %{_p}% parent set violet")
+		command("/team join violet %{_p}%")
+		setPlayerColor({_p})
+	else if {color.%{_p}'s uuid%.backup} = "rose":
+		command("lp user %{_p}% parent set rose")
+		command("/team join rose %{_p}%")
+		setPlayerColor({_p})
+
 function setPlayerColor(p:player):
 	if {_p} has permission "group.spectators":
 		set {color.%{_p}'s uuid%} to "露&8 "
@@ -42,18 +80,18 @@ function minuteSecondTicks(time: number) :: text:
 
 	if {_minute} < 10:
 		set {_minute} to "0%{_minute}%"
-	else if {_minute} >= 0:
-		set {_minute} to "00"
+	else:
+		set {_minute} to "%{_minute}%"
 	
 	if {_second} < 10:
 		set {_second} to "0%{_second}%"
-	else if {_second} >= 0:
-		set {_second} to "00"
+	else:
+		set {_second} to "%{_second}%"
 	
 	if {_ticks} < 10:
 		set {_ticks} to "0%{_ticks}%"
-	else if {_ticks} >= 0:
-		set {_ticks} to "00"
+	else:
+		set {_ticks} to "%{_ticks}%"
 
 	return "%{_minute}%:%{_second}%.%{_ticks}%s"
 
@@ -127,14 +165,13 @@ function checkBiggest():
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
 			wait 7 seconds
-			command("dropper")
+			command("trials")
 		else if {biggest} is {orange}:
 			wait 10 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
-			command("parkour")
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
@@ -230,7 +267,7 @@ function checkBiggest():
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
 			wait 7 seconds
-			command("dropper")
+			command("trials")
 		if {games::%{_random}%} is "&6&lParkour":
 			wait 5 seconds
 			loop all players:
@@ -370,94 +407,93 @@ function updateClassement():
 	loop all players:
 		if loop-player doesn't have permission "group.spectators":
 			if {list_points_players::*} doesn't contain loop-player's name:
-				if {list_points_pos_done::*} doesn't contain 1:
-					if {list_points::1} is {points.%loop-player's uuid%}:
-						add loop-player's name to {list_points_players::*}
-						add 1 to {list_points_pos_done::*}
-						make server execute command "npc select 8"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+				if {list_points::1} is {points.%loop-player's uuid%}:
+					add loop-player's name to {list_points_players::*}
+					add 1 to {list_points_pos_done::*}
+					make server execute command "npc select 8"
+					make server execute command "npc skin %loop-player%"
+					make server execute command "npc rename <#D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 2:
 					if {list_points::2} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 2 to {list_points_pos_done::*}
 						make server execute command "npc select 9"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 3:
 					if {list_points::3} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 3 to {list_points_pos_done::*}
 						make server execute command "npc select 10"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 4:
 					if {list_points::4} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 4 to {list_points_pos_done::*}
 						make server execute command "npc select 11"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 5:
 					if {list_points::5} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 5 to {list_points_pos_done::*}
 						make server execute command "npc select 12"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 6:
 					if {list_points::6} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 6 to {list_points_pos_done::*}
 						make server execute command "npc select 13"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 7:
 					if {list_points::7} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 7 to {list_points_pos_done::*}
 						make server execute command "npc select 14"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 8:
 					if {list_points::8} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 8 to {list_points_pos_done::*}
 						make server execute command "npc select 15"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 9:
 					if {list_points::9} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 9 to {list_points_pos_done::*}
 						make server execute command "npc select 16"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 				else if {list_points_pos_done::*} doesn't contain 10:
 					if {list_points::10} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 10 to {list_points_pos_done::*}
 						make server execute command "npc select 17"
 						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r%nl%<#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						make server execute command "npc rename <#D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
 
 function updateIndiv():
 	updateClassement()
-	command("hd setLine indivPlacement 1 <#D9D8F1>Your placement :")						
-	command("hd setLine indivPlacement 2 %%theevent580_username%%")
-	command("hd setLine indivPlacement 3 %%theevent580_indiv_coins%%")
+	command("dh l set indivPlacement 1 1 <#D9D8F1>Your placement :")						
+	command("dh l set indivPlacement 1 2 %%theevent580_username%%")
+	command("dh l set indivPlacement 1 3 %%theevent580_indiv_coins%%")
 
 function resetParkour():
-	make server execute command "hd setLine TrainParkourCompl 2 <#D9D8F1>1st : N/A"
-	make server execute command "hd setLine TrainParkourCompl 3 <#D9D8F1>2nd : N/A"
-	make server execute command "hd setLine TrainParkourCompl 4 <#D9D8F1>3rd : N/A"
-	make server execute command "hd setLine TrainParkourCompl 5 <#D9D8F1>4th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 6 <#D9D8F1>5th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 7 <#D9D8F1>6th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 8 <#D9D8F1>7th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 9 <#D9D8F1>8th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 10 <#D9D8F1>9th : N/A"
-	make server execute command "hd setLine TrainParkourCompl 11 <#D9D8F1>10th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : N/A"
+	make server execute command "dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : N/A"
 	loop all players:
 		set {compl_parcour.%loop-player's uuid%} to 0
 
@@ -475,101 +511,102 @@ function updateParkour():
 				if {list_parkour::1} is {compl_parcour.%loop-player's uuid%}:
 					add 1 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 2 <#D9D8F1>1st : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 2:
 				if {list_parkour::2} is {compl_parcour.%loop-player's uuid%}:
 					add 2 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 3 <#D9D8F1>2nd : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 3:
 				if {list_parkour::3} is {compl_parcour.%loop-player's uuid%}:
 					add 3 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 4 <#D9D8F1>3rd : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 4:
 				if {list_parkour::4} is {compl_parcour.%loop-player's uuid%}:
 					add 4 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 5 <#D9D8F1>4th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 5:
 				if {list_parkour::5} is {compl_parcour.%loop-player's uuid%}:
 					add 5 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 6 <#D9D8F1>5th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 6:
 				if {list_parkour::6} is {compl_parcour.%loop-player's uuid%}:
 					add 6 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 7 <#D9D8F1>6th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 7:
 				if {list_parkour::7} is {compl_parcour.%loop-player's uuid%}:
 					add 7 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 8 <#D9D8F1>7th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 8:
 				if {list_parkour::8} is {compl_parcour.%loop-player's uuid%}:
 					add 8 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 9 <#D9D8F1>8th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 9:
 				if {list_parkour::9} is {compl_parcour.%loop-player's uuid%}:
 					add 9 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "hd setLine TrainParkourCompl 10 <#D9D8F1>9th : %%theevent580_parkour.%loop-player's uuid%%%"
+					make server execute command "dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : %%theevent580_parkour.%loop-player's uuid%%%"
 			else if {list_parkour_pos_done::*} doesn't contain 10:
 				if {list_parkour::10} is {compl_parcour.%loop-player's uuid%}:
 					add 10 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-				make server execute command "hd setLine TrainParkourCompl 11 <#D9D8F1>10th : %%theevent580_parkour.%loop-player's uuid%%%"
-	make server execute command "hd setLine TrainParkourCompl 13 %%theevent580_parkour.solo%%"
-	make server execute command "hd reload"
+				make server execute command "dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : %%theevent580_parkour.%loop-player's uuid%%%"
+	make server execute command "dh l set TrainParkourCompl 1 13 %%theevent580_parkour.solo%%"
+	make server execute command "execute as TheFox580 run dh reload"
 
 function resetNPCs():
-	make server execute command "npc select 25"
+	make server execute command "npc select 27"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "hd setLine S1E6W 2 TBD"
-	#make server execute command "execute as @e[type=minecraft:text_display,tag=S1E5-5W] run data modify entity @s text set value '{""text"":""TBD""}'"
+	make server execute command "npc rename TBD"
+	#make server execute command "dh l set S1E6W 1 2 TBD"
+	#make server execute command "execute as @e[type=minecraft:text_display,tag=S1EDW] run data modify entity @s text set value '{""text"":""TBD""}'"
 	make server execute command "npc select 8"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 1%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 1 - TBD"
 	make server execute command "npc select 9"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 2%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 2 - TBD"
 	make server execute command "npc select 10"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 3%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 3 - TBD"
 	make server execute command "npc select 11"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 4%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 4 - TBD"
 	make server execute command "npc select 12"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 5%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 5 - TBD"
 	make server execute command "npc select 13"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 6%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 6 - TBD"
 	make server execute command "npc select 14"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 7%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 7 - TBD"
 	make server execute command "npc select 15"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 8%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 8 - TBD"
 	make server execute command "npc select 16"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 9%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 9 - TBD"
 	make server execute command "npc select 17"
 	make server execute command "npc skin --file QM.png"
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 10%nl%TBD"
+	make server execute command "npc rename <##D9D8F1>Top 10 - TBD"
 
 function endNPCs():
 	make server execute command "npc select 8"
@@ -616,14 +653,23 @@ function endNPCs():
 function newPlayers():
 	send title "<##f0f084>Announcing new players :" with subtitle " " to all players for 22 seconds
 	wait 2 seconds
-	send subtitle "<##f0f01c>None hahaha" to all players for 2 seconds
-	#send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGroovy" to all players for 2 seconds
-	#loop all players:
-	#	if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
-	#		apply glowing without particles to loop-player for 2 seconds
+	send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGriddy" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% victoriaskyetv" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 2 seconds
+	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
+			apply glowing without particles to loop-player for 2 seconds
 
 function currentPlayers():
-	send title "<##f0f088>Next, announcing players :" with subtitle " " to all players for 15 seconds
+	send title "<##<##f0f01c>>Next, announcing players :" with subtitle " " to all players for 15 seconds
 	wait 1.5 second
 	send subtitle "%{color.19fcc862-7e4b-4d42-a258-98a6723ea948}% Redd_Zee&r" to all players for 2 seconds
 	loop all players:
@@ -635,34 +681,39 @@ function currentPlayers():
 		if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 second
-	send subtitle "%{color.e701d8fc-b26f-4362-8c88-07300a3f1a36}% NotTooSwift1&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "e701d8fc-b26f-4362-8c88-07300a3f1a36":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
 	send subtitle "%{color.750f5ea8-e31b-4581-8db6-d213a755651b}% Svubo&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "750f5ea8-e31b-4581-8db6-d213a755651b":
 			apply glowing without particles to loop-player for 2 seconds
 	wait 1.5 second
-	send subtitle "%{color.3d09fa7f-be05-4f23-ae1b-a32d2567fd6d}% gewoonwifi&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "3d09fa7f-be05-4f23-ae1b-a32d2567fd6d":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokirri&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.cadb7cce-fdae-44ee-9426-ec08cdb6798c}% Redye_&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "cadb7cce-fdae-44ee-9426-ec08cdb6798c":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 1.5 second
-	send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% frogqers&r" to all players for 2 seconds
+	send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% Frogqers&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "c6ef5a1b-be62-40d2-a156-beffe050c36e":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGriddy&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% victoriaskyetv&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.13e97dc8-20d4-46f7-b445-26f393f77076}% dark004fly&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "13e97dc8-20d4-46f7-b445-26f393f77076":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}% Bluekwyrm&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "fedb60d7-ecb9-4c74-8630-c95aa1692b7d":
 			apply glowing without particles to loop-player for 2 seconds
 
 function currentSpecs():
@@ -671,6 +722,11 @@ function currentSpecs():
 	send subtitle "%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}% TheFox580&r" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "a5b68cfe-e546-4b63-a87d-26f065710dc1":
+			apply glowing without particles to loop-player for 2 seconds
+	wait 1.5 second
+	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokirri&r" to all players for 2 seconds
+	loop all players:
+		if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
 			apply glowing without particles to loop-player for 2 seconds
 
 function checkPoints(points: number) :: text:
@@ -701,7 +757,7 @@ function giveRandomItems(p:player):
 	if {_random} = 54:
 		set {_item} to carrot on a stick
 		set {_item.nbt} to nbt compound of {_item}
-		add nbt compound of "{display:{Name:'[{""text"":""Swap players and spectators"",""italic"":false}]',Lore:['[{""text"":""Right click to swap the players and the spectators"",""italic"":false,""color"":""white""}]']},CustomModelData:19}" to {_item.nbt}
+		add nbt of "{""minecraft:custom_model_data"":19,""minecraft:custom_name"":'{""text"":""Swap players and spectators"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to swap the players and the spectators"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
@@ -710,7 +766,7 @@ function giveRandomItems(p:player):
 	else if {_random} = 66:
 		set {_item} to carrot on a stick
 		set {_item.nbt} to nbt compound of {_item}
-		add nbt compound of "{display:{Name:'[{""text"":""You choose the game"",""italic"":false}]',Lore:['[{""text"":""Right click to choose the game"",""italic"":false,""color"":""white""}]']},CustomModelData:20}" to {_item.nbt}
+		add nbt of "{""minecraft:custom_model_data"":20,""minecraft:custom_name"":'{""text"":""You choose the game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to choose the game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
@@ -731,7 +787,7 @@ function giveRandomItems(p:player):
 	else if {_random} is between 81 and 85:
 		set {_item} to carrot on a stick
 		set {_item.nbt} to nbt compound of {_item}
-		add nbt compound of "{display:{Name:'[{""text"":""Block a game"",""italic"":false}]',Lore:['[{""text"":""Right click in a game category to block this game"",""italic"":false,""color"":""white""}]']},CustomModelData:18}" to {_item.nbt}
+		add nbt of "{""minecraft:custom_model_data"":18,""minecraft:custom_name"":'{""text"":""Block a game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click in a game category to block this game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lTheEvent580&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
@@ -740,7 +796,7 @@ function giveRandomItems(p:player):
 	else if {_random} is between 30 and 39:
 		set {_netheritesword} to a netherite sword named "&rKill a player"
 		set {_netheriteswordnbt} to nbt compound of {_netheritesword}
-		add nbt compound of "{Damage:2030}" to {_netheriteswordnbt}
+		add nbt of "{""minecraft:damage"":2030}" to {_item.nbt}
 		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		give 1 of {_netheritesword} to {_p}
 		loop all players:
@@ -749,7 +805,7 @@ function giveRandomItems(p:player):
 	else if {_random} is between 40 and 49:
 		set {_crossbow} to a crossbow named "&rKill a player"
 		set {_crossbownbt} to nbt compound of {_crossbow}
-		add nbt compound of "{Damage:465,ChargedProjectiles:[{id:""minecraft:arrow"",Count:1b}],Charged:1b}" to {_crossbownbt}
+		add nbt of "{""minecraft:damage"":465,""minecraft:charged_projectiles""=[{id:""minecraft:arrow""}]}" to {_item.nbt}
 		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
@@ -1061,9 +1117,9 @@ function resetEventTime(current_event_second:number, current_event_minute:number
 	set {event_timer_second} to 0
 	set {event_timer_minute} to 0
 	set {event_timer_hour} to 0
-	set {event_timer_second_total} to 45
-	set {event_timer_minute_total} to 20
-	set {event_timer_hour_total} to 3
+	set {event_timer_second_total} to 18
+	set {event_timer_minute_total} to 05
+	set {event_timer_hour_total} to 5
 
 function setToSpec(spec: player):
 	set glowing of {_spec} to false

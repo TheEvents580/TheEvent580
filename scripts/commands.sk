@@ -14,7 +14,9 @@ command /start:
 				command("bossbar set minecraft:count visible true")
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 				set {timer} to 1
-				broadcast "[<##155966>&lTheEvent580&r] Event starting in 1 minute and 30 seconds."
+				command("toast TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
+				wait 2 tick
+				command("toast GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 				loop all players:
 					play sound "custom:intro" in voice category with volume 1 to the loop-player
 					if loop-player doesn't have permission "group.spectators":
@@ -23,7 +25,7 @@ command /start:
 						if {debug.%loop-player's uuid%} is true:
 							send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
 							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-					send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 1 minute and 30 seconds" to loop-player for 3 seconds
 				set {event_state} to "Start Countdown"
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
 				close player's inventory
@@ -41,7 +43,7 @@ command /spawn [<player>]:
 								send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
 					if {finished.%player's uuid%} is true:
-						make console execute command "fly %player% true"
+						command("fly %player% true")
 					if player's game mode is spectator:
 						teleport player to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 						wait 5 ticks
@@ -66,7 +68,7 @@ command /spawn [<player>]:
 					heal player
 					if {timer} is 7:
 						send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players"
-					make console execute command "hide %player% false"
+					command("hide %player% false")
 				else:
 					send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -80,7 +82,7 @@ command /spawn [<player>]:
 								send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
 						if {finished.%arg-1's uuid%} is true:
-							make console execute command "fly %arg-1%"
+							command("fly %arg-1%")
 						if arg-1's game mode is spectator:
 							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
@@ -105,7 +107,7 @@ command /spawn [<player>]:
 						reveal arg-1 for all players
 						if {timer} is 7:
 							send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players" to arg-1
-						make console execute command "hide %arg-1% false"
+						command("hide %arg-1% false")
 					else:
 						send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -135,7 +137,10 @@ command /timer <text> [<text>] [<int>]:
 			set {timer} to {timer_save}
 			clear {timer_save}
 			set {event_timer} to true
-			bossbarRefill("count", {timer-m}*60 + {timer-s})
+			if {jeu_condi} != 11:
+				bossbarRefill("count", {timer-m}*60 + {timer-s})
+			else:
+				command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
 			if {jeu_condi} is 5:
 				set {courses_boat_timer_status} to true
 				set {courses_pied_timer_status} to true
@@ -334,8 +339,8 @@ command /reset:
 					set the maximum health of loop-player to 10
 					heal loop-player
 					reveal hidden players of loop-player
-					if {flag.%loop-player's uuid%} is not false:
-						set helmet of player to {flag.%player's uuid%}
+					if {flag.%loop-player's uuid%} = true:
+						set helmet of loop-player to {flag.%loop-player's uuid%}
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} is true:
 							send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
@@ -359,7 +364,9 @@ command /consolestart:
 		command("bossbar set minecraft:count players @a")
 		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 		set {timer} to 1
-		broadcast "[<##155966>&lTheEvent580&r] Event starting in 1 minute and 30 seconds."
+		command("toast TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
+		wait 2 tick
+		command("toast GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 		loop all players:
 			play sound "custom:intro" in voice category with volume 1 to the loop-player
 			if loop-player doesn't have permission "group.spectators":
@@ -520,8 +527,8 @@ command /consolereset:
 			set the maximum health of loop-player to 10
 			heal loop-player
 			reveal hidden players of loop-player
-			if {flag.%loop-player's uuid%} is not false:
-				set helmet of player to {flag.%player's uuid%}
+			if {flag.%loop-player's uuid%} = true:
+				set helmet of loop-player to {flag.%loop-player's uuid%}
 			if loop-player has permission "theevent580.staff":
 				if {debug.%loop-player's uuid%} is true:
 					send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
@@ -540,7 +547,9 @@ command /parkour:
 		set {jeu_logo} to "" #Parkour Logo (\uE002)
 		set {finished_players} to 0
 		wait 2 seconds
+		set gamemode of all players to adventure
 		loop all players:
+			command("hide %loop-player% true")
 			if loop-player doesn't have permission "group.spectators":
 				set {points_game.%loop-player's uuid%} to round(120*{multiplier}) #everyone starts with 120 coins
 				set {game_multiplier.%loop-player's uuid%} to 1.0 # everyone starts with a x1.0 multiplier
@@ -549,22 +558,16 @@ command /parkour:
 				set {parkour.sub_level.%loop-player's uuid%} to 1
 				set {_item} to carrot on a stick
 				set {_item.nbt} to nbt compound of {_item}
-				add nbt compound of "{display:{Name:'{""text"":""Skip Level"",""italic"":""false"",""color"":""gold""}'},CustomModelData:36}" to {_item.nbt}
+				add nbt of "{""minecraft:custom_model_data"":36,""minecraft:custom_name"":'{""text"":""Skip Level"",""italic"":false,""color"":""gold""}'}" to {_item.nbt}
 				set slot 7 of loop-player to {_item}
 				set {parkour.skip.%loop-player's uuid%} to false
 				set {parkour.skip_used.%loop-player's uuid%} to false
 				set {finished.%loop-player's uuid%} to false
-				make console execute command "hide %loop-player% true"
-			if loop-player has permission "group.spectators":
+			else:
 				set {finished.%loop-player's uuid%} to true
 				clear loop-player's inventory
+				command("fly %loop-player% true")
 			set {gamemode.%loop-player's uuid%} to 2
-		wait 2 seconds
-		loop all players:
-			set loop-player's gamemode to adventure
-			if loop-player has permission "group.spectators":
-				force loop-player to fly
-				allow fly for loop-player
 
 
 command /bingo:
@@ -613,7 +616,7 @@ command /bingo:
 				set loop-player's gamemode to adventure
 				set {_item} to carrot on a stick
 				set {_item.nbt} to nbt compound of {_item}
-				add nbt compound of "{display:{Name:'{""text"":""Teleport to Home"",""italic"":""false"",""color"":""yellow""}'},CustomModelData:21}" to {_item.nbt}
+				add nbt of "{""minecraft:custom_model_data"":21,""minecraft:custom_name"":'{""text"":""Teleport to Home"",""italic"":false,""color"":""yellow""}'}" to {_item.nbt}
 				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 		set {bingo_all_cases} to 0
@@ -666,7 +669,7 @@ command /bingo:
 				set slot 1 of loop-player to feather named "&rChange your fly speed"
 				set {_item} to carrot on a stick
 				set {_item.nbt} to nbt compound of {_item}
-				add nbt compound of "{display:{Name:'{""""text"""":""""Teleport to Home"""",""""italic"""":""""false"""",""""color"""":""""yellow""""}'},CustomModelData:21}" to {_item.nbt}
+				add nbt of "{""minecraft:custom_model_data"":21,""minecraft:custom_name"":'{""text"":""Teleport to Home"",""italic"":false,""color"":""yellow""}'}" to {_item.nbt}
 				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 				set {finished.%loop-player's uuid%} to true
@@ -982,7 +985,7 @@ command /card:
 #		set {jeu_logo} to "" #Find The Button Logo (\uE004)
 #		set {finished_players} to 0
 #		loop all players:
-#			make console execute command "hide %loop-player%"
+#			command("hide %loop-player%"
 #			set {gamemode.%loop-player's uuid%} to 2
 #			set {ftb_fin.%loop-player's uuid%} to 0
 #			set {finished.%loop-player's uuid%} to false
@@ -1091,12 +1094,14 @@ command /courses:
 			set {race_checkpoint.%loop-player's uuid%} to 0
 			set {race_lap.%loop-player's uuid%} to 1
 			if loop-player has permission "group.spectators":
+				command("hide %loop-player% true")
+				command("fly %loop-player% true")
 				set {finished.%loop-player's uuid%} to true
 			else:
 				set {finished.%loop-player's uuid%} to false
 				set {_item} to carrot on a stick
 				set {_item.nbt} to nbt compound of {_item}
-				add nbt compound of "{display:{Name:'{""text"":""You are on Lap 1"",""italic"":""false"",""color"":""green""}'},CustomModelData:27}" to {_item.nbt}
+				add nbt of "{""minecraft:custom_model_data"":27,""minecraft:custom_name"":'{""text"":""You are on Lap 1"",""italic"":false,""color"":""green""}'}" to {_item.nbt}
 				set slot 40 of loop-player to {_item}
 				set {race_total_time.%loop-player's uuid%} to 0
 				set {race_lap_time.%loop-player's uuid%} to 0
@@ -1192,7 +1197,7 @@ command /bowpvp:
 			if loop-player has permission "group.spectators":
 				set {alive.%loop-player's uuid%} to false
 				if {hide.%loop-player's uuid%} = false:
-					make console execute command "hide %loop-player%"
+					command("hide %loop-player%")
 			else:
 				set {max_health.%loop-player's uuid%} to 5
 				set {alive.%loop-player's uuid%} to true
@@ -1217,17 +1222,17 @@ command /bm:
 		set {finished_players} to 0
 		set {damage} to 2
 		command("execute in build_masters run tp @a 0.5 128 0.5 -90 0")
-		make console execute command "bossbar set minecraft:mall visible false"
+		command("bossbar set minecraft:mall visible false")
 		wait 5 ticks
 		set {_pos.player} to 0
 		reveal hidden players of all players
 		clear all players's inventory
 		loop all players:
-			make console execute command "execute run bossbar set minecraft:mall players %loop-player%"
+			command("execute run bossbar set minecraft:mall players %loop-player%")
 			set loop-player's gamemode to adventure
 			disable fly for loop-player
 			if loop-player has permission "group.spectators":
-				make console execute command "hide %loop-player%"
+				command("hide %loop-player% true")
 				allow fly for loop-player
 				force loop-player to fly
 				set {build.location.%loop-player's uuid%} to -1
@@ -1721,8 +1726,11 @@ command /tpspec:
 								teleport {_user} to {_head}
 								close {_user}'s inventory
 					set {_slot} to 8
+					set {_head} to a player head
+					set {_headnbt} to nbt compound of {_head}
+					add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fNext page""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM0ZWYwNjM4NTM3MjIyYjIwZjQ4MDY5NGRhZGMwZjg1ZmJlMDc1OWQ1ODFhYTdmY2RmMmU0MzEzOTM3NzE1OCJ9fX0=""}]}}" to {_headnbt}
 					loop 6 times:
-						make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
+						make gui slot {_slot} with {_head}:
 							close {_user}'s inventory
 							make player execute command "tpspec2"
 						add 9 to {_slot}
@@ -1776,8 +1784,11 @@ command /tpspec:
 									teleport {_user} to {_head}
 									close {_user}'s inventory
 						set {_slot} to 8
+						set {_head} to a player head
+						set {_headnbt} to nbt compound of {_head}
+						add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fNext page""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZDM0ZWYwNjM4NTM3MjIyYjIwZjQ4MDY5NGRhZGMwZjg1ZmJlMDc1OWQ1ODFhYTdmY2RmMmU0MzEzOTM3NzE1OCJ9fX0=""}]}}" to {_headnbt}
 						loop 6 times:
-							make gui slot {_slot} with skull of "MHF_ArrowRight" parsed as an offline player named "&r&fNext page":
+							make gui slot {_slot} with {_head}:
 								close {_user}'s inventory
 								make player execute command "tpspec2"
 							add 9 to {_slot}
@@ -1840,8 +1851,11 @@ command /tpspec2:
 								teleport {_user} to {_head}
 								close {_user}'s inventory
 					set {_slot} to 8
+					set {_head} to a player head
+					set {_headnbt} to nbt compound of {_head}
+					add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fPrevious page""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdhYWNhZDE5M2UyMjI2OTcxZWQ5NTMwMmRiYTQzMzQzOGJlNDY0NGZiYWI1ZWJmODE4MDU0MDYxNjY3ZmJlMiJ9fX0=""}]}}" to {_headnbt}
 					loop 2 times:
-						make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
+						make gui slot {_slot} with {_head}:
 							close {_user}'s inventory
 							make player execute command "tpspec"
 						add 9 to {_slot}
@@ -1871,8 +1885,11 @@ command /tpspec2:
 									teleport {_user} to {_head}
 									close {_user}'s inventory
 						set {_slot} to 8
+						set {_head} to a player head
+						set {_headnbt} to nbt compound of {_head}
+						add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fPrevious page""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdhYWNhZDE5M2UyMjI2OTcxZWQ5NTMwMmRiYTQzMzQzOGJlNDY0NGZiYWI1ZWJmODE4MDU0MDYxNjY3ZmJlMiJ9fX0=""}]}}" to {_headnbt}
 						loop 2 times:
-							make gui slot {_slot} with skull of "MHF_ArrowLeft" parsed as an offline player named "&r&fLast page":
+							make gui slot {_slot} with {_head}:
 								close {_user}'s inventory
 								make player execute command "tpspec"
 							add 9 to {_slot}
@@ -1892,10 +1909,10 @@ command /emotes [<text>]:
 		if arg-1 is not set:
 			set {_skull} to a player head
 			set {_skullnbt} to nbt compound of {_skull}
-			add nbt compound of "{display:{Name:""{\""text\"":\""&r&fSkull\""}""},SkullOwner:{Id:""d39e3587-abea-4770-bf02-2f16aa1d04e3"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWRjZjJjMTk4ZjYxZGY1YTZkMGJhOTdkYmY5MGMzMzc5OTU0MDVjMTczOTZjMDE2Yzg1ZjZmM2ZlYTUyYzkwNiJ9fX0=""}]}}}" to {_skullnbt}
+			add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fSkull""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWRjZjJjMTk4ZjYxZGY1YTZkMGJhOTdkYmY5MGMzMzc5OTU0MDVjMTczOTZjMDE2Yzg1ZjZmM2ZlYTUyYzkwNiJ9fX0=""}]}}" to {_skullnbt}
 			set {_heartmenu} to a player head
 			set {_heartmenunbt} to nbt compound of {_heartmenu}
-			add nbt compound of "{display:{Name:""{\""text\"":\""&r&cRed Heart\""}""},SkullOwner:{Id:""9e486964-a0ef-46c2-a8d9-61fa37680a53"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}}" to {_heartmenunbt}
+			add nbt of "{""minecraft:custom_name"":'{""text"":""&r&cRed Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}" to {_heartmenunbt}
 			open chest inventory with 3 rows named "Emotes menu" to player
 			set slot 0 of current inventory of player to {_skull}
 			set slot 1 of current inventory of player to {_heartmenu}
@@ -1905,44 +1922,43 @@ command /emotes [<text>]:
 			if arg-1 is "heart":
 				set {_heart1} to a player head
 				set {_heart1nbt} to nbt compound of {_heart1}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&4Dark Red Heart\""}""},SkullOwner:{Id:""9e486964-a0ef-46c2-a8d9-61fa37680a53"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}}" to {_heart1nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&4Dark Red Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}" to {_heart1nbt}
 				set {_heart2} to a player head
 				set {_heart2nbt} to nbt compound of {_heart2}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&cRed Heart\""}""},SkullOwner:{Id:""9e486964-a0ef-46c2-a8d9-61fa37680a53"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}}" to {_heart2nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&cRed Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}" to {_heart2nbt}
 				set {_heart3} to a player head
 				set {_heart3nbt} to nbt compound of {_heart3}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&6Orange Heart\""}""},SkullOwner:{Id:""ef508f92-3bcd-42fc-a28d-9c0e70b73d9e"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZhMjdlZGRmNjBhMDQ4Mzc3OGM4ZTNjNjY1MGY1Mjg4MzQxZjM4YmI5ZTQzMTc5YzY2YmIxZTdiMWQ5ZGQ2YiJ9fX0=""}]}}}" to {_heart3nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&6Orange Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTZhMjdlZGRmNjBhMDQ4Mzc3OGM4ZTNjNjY1MGY1Mjg4MzQxZjM4YmI5ZTQzMTc5YzY2YmIxZTdiMWQ5ZGQ2YiJ9fX0=""}]}}" to {_heart3nbt}
 				set {_heart4} to a player head
 				set {_heart4nbt} to nbt compound of {_heart4}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&eYellow Heart\""}""},SkullOwner:{Id:""f246cc0b-1017-47c0-a703-99e024d74968"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWVlOWJhYzBhZDRhYmY1OTU1NmE5ODY0ODAwNGU4Mzc0MWQ3NmU0MDk3YjJkZjAzNzIwN2YxYTY5ZDRhZmNmZCJ9fX0=""}]}}}" to {_heart4nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&eYellow Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYWVlOWJhYzBhZDRhYmY1OTU1NmE5ODY0ODAwNGU4Mzc0MWQ3NmU0MDk3YjJkZjAzNzIwN2YxYTY5ZDRhZmNmZCJ9fX0=""}]}}" to {_heart4nbt}
 				set {_heart5} to a player head
 				set {_heart5nbt} to nbt compound of {_heart5}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&aLime Heart\""}""},SkullOwner:{Id:""4a408bbe-c99c-47ac-bf04-06923e11122a"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ0MWJhMzA5MTA2MWM2OTliOGVhNDA4NTAxMTAzNzhlOTU0NTQwNDhkMWY1MTA1NmM2YWVjMzk1MDUxM2VhYiJ9fX0=""}]}}}" to {_heart5nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&aLime Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjQ0MWJhMzA5MTA2MWM2OTliOGVhNDA4NTAxMTAzNzhlOTU0NTQwNDhkMWY1MTA1NmM2YWVjMzk1MDUxM2VhYiJ9fX0=""}]}}" to {_heart5nbt}
 				set {_heart6} to a player head
 				set {_heart6nbt} to nbt compound of {_heart6}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&2Green Heart\""}""},SkullOwner:{Id:""a51f7781-d659-4391-9c2c-d9de29489f3e"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZiZmI5M2MxM2U1MmQ1M2RhM2RiYjk3YzhkZWUyYjZlMzY4ZDlkN2RjN2RmNjRlMDdiNDNhMmM2NTJjMGU4MSJ9fX0=""}]}}}" to {_heart6nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&2Green Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTZiZmI5M2MxM2U1MmQ1M2RhM2RiYjk3YzhkZWUyYjZlMzY4ZDlkN2RjN2RmNjRlMDdiNDNhMmM2NTJjMGU4MSJ9fX0=""}]}}" to {_heart6nbt}
 				set {_heart7} to a player head
 				set {_heart7nbt} to nbt compound of {_heart7}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&3Cyan Heart\""}""},SkullOwner:{Id:""21b66c0e-e1c1-4657-a191-08e2379b34bf"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE0OWQ1NTY5M2JiOWJhODI4OWYxMTU2MDcxYTE0OWYzYjliZTI0ZGJiMzY2NjQyMmUzYzEzNTVhOGM5YWVlMyJ9fX0=""}]}}}" to {_heart7nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&3Cyan Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZGE0OWQ1NTY5M2JiOWJhODI4OWYxMTU2MDcxYTE0OWYzYjliZTI0ZGJiMzY2NjQyMmUzYzEzNTVhOGM5YWVlMyJ9fX0=""}]}}" to {_heart7nbt}
 				set {_heart8} to a player head
 				set {_heart8nbt} to nbt compound of {_heart8}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&bLight Blue Heart\""}""},SkullOwner:{Id:""baaffa39-99ca-411c-b593-016218e60958"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmN2ZhMTk2ZDhmOWFhY2ZjMDgxYjgxZTNjYWUxYmU0MWNmZGJlZGQzMDkyOGRjOWJjYzhjNTc5MGYyMmFkOSJ9fX0=""}]}}}" to {_heart8nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&bLight Blue Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDRmN2ZhMTk2ZDhmOWFhY2ZjMDgxYjgxZTNjYWUxYmU0MWNmZGJlZGQzMDkyOGRjOWJjYzhjNTc5MGYyMmFkOSJ9fX0=""}]}}" to {_heart8nbt}
 				set {_heart9} to a player head
 				set {_heart9nbt} to nbt compound of {_heart9}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&9Blue Heart\""}""},SkullOwner:{Id:""b72852e8-2474-4596-8cd3-1cf516fcad37"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZmZmRiNGY3NWUxNjc4ZWNmYWE1ZjQyYTMyZjExZTFjYzA4Nzk0NmY0ODU3NDYzYWU2NjQ3Y2MzZTAwNzllMiJ9fX0=""}]}}}" to {_heart9nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&9Blue Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZmZmRiNGY3NWUxNjc4ZWNmYWE1ZjQyYTMyZjExZTFjYzA4Nzk0NmY0ODU3NDYzYWU2NjQ3Y2MzZTAwNzllMiJ9fX0=""}]}}" to {_heart9nbt}
 				set {_heart10} to a player head
 				set {_heart10nbt} to nbt compound of {_heart10}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&1Dark Blue Heart\""}""},SkullOwner:{Id:""b72852e8-2474-4596-8cd3-1cf516fcad37"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZmZmRiNGY3NWUxNjc4ZWNmYWE1ZjQyYTMyZjExZTFjYzA4Nzk0NmY0ODU3NDYzYWU2NjQ3Y2MzZTAwNzllMiJ9fX0=""}]}}}" to {_heart10nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&1Dark Blue Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWZmZmRiNGY3NWUxNjc4ZWNmYWE1ZjQyYTMyZjExZTFjYzA4Nzk0NmY0ODU3NDYzYWU2NjQ3Y2MzZTAwNzllMiJ9fX0=""}]}}" to {_heart10nbt}
 				set {_heart11} to a player head
 				set {_heart11nbt} to nbt compound of {_heart11}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&5Purple Heart\""}""},SkullOwner:{Id:""e9347bea-8ccf-461d-a05f-373d5bbaac7d"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdiYjRkYTkzZGYyZGU5MmJhNjM5YmEzMzQzN2MxNDkxMWMyOWJlMmVhNTdmYmYzMDViODBlZmZhZWNjNGJmYyJ9fX0=""}]}}}" to {_heart11nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&5Purple Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTdiYjRkYTkzZGYyZGU5MmJhNjM5YmEzMzQzN2MxNDkxMWMyOWJlMmVhNTdmYmYzMDViODBlZmZhZWNjNGJmYyJ9fX0=""}]}}" to {_heart11nbt}
 				set {_heart12} to a player head
 				set {_heart12nbt} to nbt compound of {_heart12}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&dPink Heart\""}""},SkullOwner:{Id:""d77126da-0633-44e6-9859-59c9cc117c69"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2E3MDdlNzQxZmYyMjM0MzgwOTE2YzI2NWY2OThkODIyOThlYzNjMWIzMmI1YjA0ZGFjNDA3NmUxODA0MTlkMiJ9fX0=""}]}}}" to {_heart12nbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&dPink Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2E3MDdlNzQxZmYyMjM0MzgwOTE2YzI2NWY2OThkODIyOThlYzNjMWIzMmI1YjA0ZGFjNDA3NmUxODA0MTlkMiJ9fX0=""}]}}" to {_heart12nbt}
 				set {_goback} to a player head
 				set {_gobacknbt} to nbt compound of {_goback}
-				#add nbt compound of "{display:{Name:""{\""text\"":\""&r&fGo back to the main menu\""}""},SkullOwner:{Id:""1226610a-b7f8-47e5-a15d-126c4ef18635"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjg0ZjU5NzEzMWJiZTI1ZGMwNThhZjg4OGNiMjk4MzFmNzk1OTliYzY3Yzk1YzgwMjkyNWNlNGFmYmEzMzJmYyJ9fX0=""}]}}}" to {_gobacknbt}
-				add nbt compound of "{display:{Name:""{\""text\"":\""&r&fGo back to the main menu\""}""},SkullOwner:{Id:""2391d533-ab09-434d-9980-adafde4057a3"",Properties:{textures:[{Value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmQ2OWUwNmU1ZGFkZmQ4NGU1ZjNkMWMyMTA2M2YyNTUzYjJmYTk0NWVlMWQ0ZDcxNTJmZGM1NDI1YmMxMmE5In19fQ==""}]}}}" to {_gobacknbt}
+				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fGo back to the main menu""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdhYWNhZDE5M2UyMjI2OTcxZWQ5NTMwMmRiYTQzMzQzOGJlNDY0NGZiYWI1ZWJmODE4MDU0MDYxNjY3ZmJlMiJ9fX0=""}]}}" to {_gobacknbt}
 				open chest inventory with 3 rows named "Emotes menu" to player
 				set slot 0 of current inventory of player to {_heart1}
 				set slot 1 of current inventory of player to {_heart2}
@@ -2520,9 +2536,17 @@ command /wl <text> [<offline player>]:
 		if arg-1 is "list":
 			make player execute command "whitelist list"
 			#send "[<##155966>&lTheEvent580 - Admin&r] Please check the console"
+		if arg-1 = "players":
+			loop {players::*}:
+				add loop-value to whitelist
+			send "All future players have been added to the whitelist"
+		if arg-1 = "spectators":
+			loop {spectators::*}:
+				add loop-value to whitelist
+			send "All future spectators have been added to the whitelist"
 
 on tab complete of "/wl":
-	set tab completions for position 1 to "add", "remove" and "list"
+	set tab completions for position 1 to "add", "remove", "players", "spectators" and "list"
 
 command /addplayers <int>:
 	permission: *
@@ -2565,64 +2589,129 @@ command /color <offline player>:
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set rouge"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set rouge")
 				command("/team join red %{arg1}%")
-				set {color.%{arg1's uuid}%} to "ラ&c "
+				command("players add %{arg1}%")
+				set {color.%{arg1.uuid}%} to "ラ&c "
+				set {color.%{arg1.uuid}%.backup} to "rouge"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &cRed&r."
+				else:
+					send "Player %{arg1}% has been set on Team &cRed&r. They will be set on their team the next time they join the server."
 			make gui slot 11 with orange concrete named "&6Orange":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set orange"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set orange")
 				command("/team join orange %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "ャ&6 "
+				set {color.%{arg1.uuid}%.backup} to "orange"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &6Orange&r."
+				else:
+					send "Player %{arg1}% has been set on Team &6Orange&r. They will be set on their team the next time they join the server."
 			make gui slot 19 with yellow concrete named "&eYellow":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set jaune"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set jaune")
 				command("/team join jaune %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "ギ&e "
+				set {color.%{arg1.uuid}%.backup} to "jaune"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &eYellow&r."
+				else:
+					send "Player %{arg1}% has been set on Team &eYellow&r. They will be set on their team the next time they join the server."
 			make gui slot 20 with lime concrete named "&aGreen":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set vert"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set vert")
 				command("/team join vert %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "画&a "
+				set {color.%{arg1.uuid}%.backup} to "vert"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &aGreen&r."
+				else:
+					send "Player %{arg1}% has been set on Team &aGreen&r. They will be set on their team the next time they join the server."
 			make gui slot 15 with light blue concrete named "&bLight Blue":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set bleu_clair"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set bleu_clair")
 				command("/team join bleu_clair %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "動&b "
+				set {color.%{arg1.uuid}%.backup} to "bleu_clair"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &bLight Blue&r."
+				else:
+					send "Player %{arg1}% has been set on Team &bLight Blue&r. They will be set on their team the next time they join the server."
 			make gui slot 16 with blue concrete named "&9Blue":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set bleu"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set bleu")
 				command("/team join bleu %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "像&9 "
+				set {color.%{arg1.uuid}%.backup} to "bleu"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &9Blue&r."
+				else:
+					send "Player %{arg1}% has been set on Team &9Blue&r. They will be set on their team the next time they join the server."
 			make gui slot 24 with purple concrete named "&5Purple":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set violet"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set violet")
 				command("/team join violet %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "の&5 "
+				set {color.%{arg1.uuid}%.backup} to "violet"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &5Purple&r."
+				else:
+					send "Player %{arg1}% has been set on Team &5Purple&r. They will be set on their team the next time they join the server."
 			make gui slot 25 with pink concrete named "&dPink":
 				close player's inventory
 				if {arg-1} has permission "group.spectators":
 					add 1 to {online_players}
-				make console execute command "lp user %{arg1}% parent set rose"
+					command("spectators remove %{arg1}%")
+				command("lp user %{arg1}% parent set rose")
 				command("/team join rose %{arg1}%")
+				command("players add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "目&d "
+				set {color.%{arg1.uuid}%.backup} to "rose"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &dPink&r."
+				else:
+					send "Player %{arg1}% has been set on Team &dPink&r. They will be set on their team the next time they join the server."
 			make gui slot 22 with gray concrete named "&8Spectator":
 				close player's inventory
-				remove 1 from {online_players}
-				make console execute command "lp user %{arg1}% parent set spectators"
+				if {arg1} doesn't have permission "group.spectators":
+					if {arg1} is online:
+						remove 1 from {online_players}
+				command("lp user %{arg1}% parent set spectators")
 				command("/team join spectators %{arg1}%")
+				command("players remove %{arg1}%")
+				command("spectators add %{arg1}%")
 				set {color.%{arg1.uuid}%} to "露&8 "
+				set {color.%{arg1.uuid}%.backup} to "spectators"
+				if {arg1} is online:
+					send "Player %{arg1}% has been set on Team &8Spectator&r."
+				else:
+					send "Player %{arg1}% has been set on Team &8Spectator&r. They will be set on their team the next time they join the server."
 		open the last gui for the player
 
 command /end:
@@ -2632,7 +2721,7 @@ command /end:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
 				kick loop-player due to "[<##155966>&lTheEvent580&r] TheEvent580 is over, thanks for playing and see you soon !"
-				make console execute command "wl remove %loop-player%"
+				command("wl remove %loop-player%")
 		set {event_timer} to false
 		set {event_timer_second} to 0
 		set {event_timer_minute} to 0
@@ -2690,7 +2779,7 @@ command /grab <player> <player>:
 #				play sound "custom:sg8" in record category with volume 1 to the loop-player
 #				wait 165 seconds
 #		if {timer} = 6:
-#			make console execute command "playsgmusic"
+#			command("playsgmusic"
 	
 #command /item <player>:
 #	permission: *
@@ -2718,309 +2807,309 @@ command /refill <text> <text> <integer>:
 		if arg-1 = "red":
 			if arg-2 = "concrete":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 74 133 5069 69 131 5066 red_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 131 5070 70 133 5065 red_concrete"
+					command("execute in minecraft:build_masters run fill 74 133 5069 69 131 5066 red_concrete")
+					command("execute in minecraft:build_masters run fill 73 131 5070 70 133 5065 red_concrete")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 74 138 5069 69 136 5066 red_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 136 5070 70 138 5065 red_concrete"
+					command("execute in minecraft:build_masters run fill 74 138 5069 69 136 5066 red_concrete")
+					command("execute in minecraft:build_masters run fill 73 136 5070 70 138 5065 red_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 33 133 4930 38 131 4933 red_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 133 4929 37 131 4934 red_terracotta"
+					command("execute in minecraft:build_masters run fill 33 133 4930 38 131 4933 red_terracotta")
+					command("execute in minecraft:build_masters run fill 34 133 4929 37 131 4934 red_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 33 138 4930 38 136 4933 red_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 138 4929 37 136 4934 red_terracotta"
+					command("execute in minecraft:build_masters run fill 33 138 4930 38 136 4933 red_terracotta")
+					command("execute in minecraft:build_masters run fill 34 138 4929 37 136 4934 red_terracotta")
 		if arg-1 = "orange":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 61 131 5070 58 133 5065 orange_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 62 131 5069 57 133 5066 orange_concrete"
+					command("execute in minecraft:build_masters run fill 61 131 5070 58 133 5065 orange_concrete")
+					command("execute in minecraft:build_masters run fill 62 131 5069 57 133 5066 orange_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 61 136 5070 58 138 5065 orange_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 62 136 5069 57 138 5066 orange_concrete"
+					command("execute in minecraft:build_masters run fill 61 136 5070 58 138 5065 orange_concrete")
+					command("execute in minecraft:build_masters run fill 62 136 5069 57 138 5066 orange_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 45 133 4930 50 131 4933 orange_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 133 4929 49 131 4934 orange_terracotta"
+					command("execute in minecraft:build_masters run fill 45 133 4930 50 131 4933 orange_terracotta")
+					command("execute in minecraft:build_masters run fill 46 133 4929 49 131 4934 orange_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 45 138 4930 50 136 4933 orange_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 138 4929 49 136 4934 orange_terracotta"
+					command("execute in minecraft:build_masters run fill 45 138 4930 50 136 4933 orange_terracotta")
+					command("execute in minecraft:build_masters run fill 46 138 4929 49 136 4934 orange_terracotta")
 		if arg-1 = "yellow":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 45 133 5066 50 131 5069 yellow_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 133 5070 46 131 5065 yellow_concrete"
+					command("execute in minecraft:build_masters run fill 45 133 5066 50 131 5069 yellow_concrete")
+					command("execute in minecraft:build_masters run fill 49 133 5070 46 131 5065 yellow_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 45 138 5066 50 136 5069 yellow_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 138 5070 46 136 5065 yellow_concrete"
+					command("execute in minecraft:build_masters run fill 45 138 5066 50 136 5069 yellow_concrete")
+					command("execute in minecraft:build_masters run fill 49 138 5070 46 136 5065 yellow_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 57 133 4930 62 131 4933 yellow_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 133 4929 61 131 4934 yellow_terracotta"
+					command("execute in minecraft:build_masters run fill 57 133 4930 62 131 4933 yellow_terracotta")
+					command("execute in minecraft:build_masters run fill 58 133 4929 61 131 4934 yellow_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 57 138 4930 62 136 4933 yellow_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 138 4929 61 136 4934 yellow_terracotta"
+					command("execute in minecraft:build_masters run fill 57 138 4930 62 136 4933 yellow_terracotta")
+					command("execute in minecraft:build_masters run fill 58 138 4929 61 136 4934 yellow_terracotta")
 		if arg-1 = "lime":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 38 133 5069 33 131 5066 lime_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 133 5065 34 131 5070 lime_concrete"
+					command("execute in minecraft:build_masters run fill 38 133 5069 33 131 5066 lime_concrete")
+					command("execute in minecraft:build_masters run fill 37 133 5065 34 131 5070 lime_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 38 138 5069 33 136 5066 lime_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 138 5065 34 136 5070 lime_concrete"
+					command("execute in minecraft:build_masters run fill 38 138 5069 33 136 5066 lime_concrete")
+					command("execute in minecraft:build_masters run fill 37 138 5065 34 136 5070 lime_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 69 133 4930 74 131 4933 lime_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 133 4929 73 131 4934 lime_terracotta"
+					command("execute in minecraft:build_masters run fill 69 133 4930 74 131 4933 lime_terracotta")
+					command("execute in minecraft:build_masters run fill 70 133 4929 73 131 4934 lime_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 69 138 4930 74 136 4933 lime_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 138 4929 73 136 4934 lime_terracotta"
+					command("execute in minecraft:build_masters run fill 69 138 4930 74 136 4933 lime_terracotta")
+					command("execute in minecraft:build_masters run fill 70 138 4929 73 136 4934 lime_terracotta")
 		if arg-1 = "green":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 74 133 5083 69 131 5080 green_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 70 133 5079 73 131 5084 green_concrete"
+					command("execute in minecraft:build_masters run fill 74 133 5083 69 131 5080 green_concrete")
+					command("execute in minecraft:build_masters run fill 70 133 5079 73 131 5084 green_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 74 138 5083 69 136 5080 green_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 70 138 5079 73 136 5084 green_concrete"
+					command("execute in minecraft:build_masters run fill 74 138 5083 69 136 5080 green_concrete")
+					command("execute in minecraft:build_masters run fill 70 138 5079 73 136 5084 green_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 33 133 4916 38 131 4919 green_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 133 4915 37 131 4920 green_terracotta"
+					command("execute in minecraft:build_masters run fill 33 133 4916 38 131 4919 green_terracotta")
+					command("execute in minecraft:build_masters run fill 34 133 4915 37 131 4920 green_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 33 138 4916 38 136 4919 green_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 138 4915 37 136 4920 green_terracotta"
+					command("execute in minecraft:build_masters run fill 33 138 4916 38 136 4919 green_terracotta")
+					command("execute in minecraft:build_masters run fill 34 138 4915 37 136 4920 green_terracotta")
 		if arg-1 = "cyan":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 62 133 5083 57 131 5080 cyan_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 133 5084 58 131 5079 cyan_concrete"
+					command("execute in minecraft:build_masters run fill 62 133 5083 57 131 5080 cyan_concrete")
+					command("execute in minecraft:build_masters run fill 61 133 5084 58 131 5079 cyan_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 62 138 5083 57 136 5080 cyan_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 138 5084 58 136 5079 cyan_concrete"
+					command("execute in minecraft:build_masters run fill 62 138 5083 57 136 5080 cyan_concrete")
+					command("execute in minecraft:build_masters run fill 61 138 5084 58 136 5079 cyan_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 45 133 4916 50 131 4919 cyan_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 133 4915 49 131 4920 cyan_terracotta"
+					command("execute in minecraft:build_masters run fill 45 133 4916 50 131 4919 cyan_terracotta")
+					command("execute in minecraft:build_masters run fill 46 133 4915 49 131 4920 cyan_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 45 138 4916 50 136 4919 cyan_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 138 4915 49 136 4920 cyan_terracotta"
+					command("execute in minecraft:build_masters run fill 45 138 4916 50 136 4919 cyan_terracotta")
+					command("execute in minecraft:build_masters run fill 46 138 4915 49 136 4920 cyan_terracotta")
 		if arg-1 = "lightblue":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 50 133 5083 45 131 5080 light_blue_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 133 5084 46 131 5079 light_blue_concrete"
+					command("execute in minecraft:build_masters run fill 50 133 5083 45 131 5080 light_blue_concrete")
+					command("execute in minecraft:build_masters run fill 49 133 5084 46 131 5079 light_blue_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 50 138 5083 45 136 5080 light_blue_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 138 5084 46 136 5079 light_blue_concrete"
+					command("execute in minecraft:build_masters run fill 50 138 5083 45 136 5080 light_blue_concrete")
+					command("execute in minecraft:build_masters run fill 49 138 5084 46 136 5079 light_blue_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 57 133 4916 62 131 4919 light_blue_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 133 4915 61 131 4920 light_blue_terracotta"
+					command("execute in minecraft:build_masters run fill 57 133 4916 62 131 4919 light_blue_terracotta")
+					command("execute in minecraft:build_masters run fill 58 133 4915 61 131 4920 light_blue_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 57 138 4916 62 136 4919 light_blue_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 138 4915 61 136 4920 light_blue_terracotta"
+					command("execute in minecraft:build_masters run fill 57 138 4916 62 136 4919 light_blue_terracotta")
+					command("execute in minecraft:build_masters run fill 58 138 4915 61 136 4920 light_blue_terracotta")
 		if arg-1 = "blue":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 38 133 5083 33 131 5080 blue_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 133 5084 34 131 5079 blue_concrete"
+					command("execute in minecraft:build_masters run fill 38 133 5083 33 131 5080 blue_concrete")
+					command("execute in minecraft:build_masters run fill 37 133 5084 34 131 5079 blue_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 38 138 5083 33 136 5080 blue_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 138 5084 34 136 5079 blue_concrete"
+					command("execute in minecraft:build_masters run fill 38 138 5083 33 136 5080 blue_concrete")
+					command("execute in minecraft:build_masters run fill 37 138 5084 34 136 5079 blue_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 69 133 4916 74 131 4919 blue_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 133 4915 73 131 4920 blue_terracotta"
+					command("execute in minecraft:build_masters run fill 69 133 4916 74 131 4919 blue_terracotta")
+					command("execute in minecraft:build_masters run fill 70 133 4915 73 131 4920 blue_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 69 138 4916 74 136 4919 blue_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 138 4915 73 136 4920 blue_terracotta"
+					command("execute in minecraft:build_masters run fill 69 138 4916 74 136 4919 blue_terracotta")
+					command("execute in minecraft:build_masters run fill 70 138 4915 73 136 4920 blue_terracotta")
 		if arg-1 = "purple":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 74 133 5097 69 131 5094 purple_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 133 5098 70 131 5093 purple_concrete"
+					command("execute in minecraft:build_masters run fill 74 133 5097 69 131 5094 purple_concrete")
+					command("execute in minecraft:build_masters run fill 73 133 5098 70 131 5093 purple_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 74 138 5097 69 136 5094 purple_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 138 5098 70 136 5093 purple_concrete"
+					command("execute in minecraft:build_masters run fill 74 138 5097 69 136 5094 purple_concrete")
+					command("execute in minecraft:build_masters run fill 73 138 5098 70 136 5093 purple_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 33 131 4902 38 133 4905 purple_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 133 4901 37 131 4906 purple_terracotta"
+					command("execute in minecraft:build_masters run fill 33 131 4902 38 133 4905 purple_terracotta")
+					command("execute in minecraft:build_masters run fill 34 133 4901 37 131 4906 purple_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 33 136 4902 38 138 4905 purple_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 138 4901 37 136 4906 purple_terracotta"
+					command("execute in minecraft:build_masters run fill 33 136 4902 38 138 4905 purple_terracotta")
+					command("execute in minecraft:build_masters run fill 34 138 4901 37 136 4906 purple_terracotta")
 		if arg-1 = "magenta":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 62 133 5097 57 131 5094 magenta_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 133 5098 58 131 5093 magenta_concrete"
+					command("execute in minecraft:build_masters run fill 62 133 5097 57 131 5094 magenta_concrete")
+					command("execute in minecraft:build_masters run fill 61 133 5098 58 131 5093 magenta_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 62 138 5097 57 136 5094 magenta_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 138 5098 58 136 5093 magenta_concrete"
+					command("execute in minecraft:build_masters run fill 62 138 5097 57 136 5094 magenta_concrete")
+					command("execute in minecraft:build_masters run fill 61 138 5098 58 136 5093 magenta_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 45 131 4902 50 133 4905 magenta_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 133 4901 49 131 4906 magenta_terracotta"
+					command("execute in minecraft:build_masters run fill 45 131 4902 50 133 4905 magenta_terracotta")
+					command("execute in minecraft:build_masters run fill 46 133 4901 49 131 4906 magenta_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 45 136 4902 50 138 4905 magenta_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 138 4901 49 136 4906 magenta_terracotta"
+					command("execute in minecraft:build_masters run fill 45 136 4902 50 138 4905 magenta_terracotta")
+					command("execute in minecraft:build_masters run fill 46 138 4901 49 136 4906 magenta_terracotta")
 		if arg-1 = "pink":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 50 133 5097 45 131 5094 pink_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 133 5098 46 131 5093 pink_concrete"
+					command("execute in minecraft:build_masters run fill 50 133 5097 45 131 5094 pink_concrete")
+					command("execute in minecraft:build_masters run fill 49 133 5098 46 131 5093 pink_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 50 138 5097 45 136 5094 pink_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 138 5098 46 136 5093 pink_concrete"
+					command("execute in minecraft:build_masters run fill 50 138 5097 45 136 5094 pink_concrete")
+					command("execute in minecraft:build_masters run fill 49 138 5098 46 136 5093 pink_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 57 131 4902 62 133 4905 pink_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 133 4901 61 131 4906 pink_terracotta"
+					command("execute in minecraft:build_masters run fill 57 131 4902 62 133 4905 pink_terracotta")
+					command("execute in minecraft:build_masters run fill 58 133 4901 61 131 4906 pink_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 57 136 4902 62 138 4905 pink_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 138 4901 61 136 4906 pink_terracotta"
+					command("execute in minecraft:build_masters run fill 57 136 4902 62 138 4905 pink_terracotta")
+					command("execute in minecraft:build_masters run fill 58 138 4901 61 136 4906 pink_terracotta")
 		if arg-1 = "brown":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 38 133 5097 33 131 5094 brown_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 133 5098 34 131 5093 brown_concrete"
+					command("execute in minecraft:build_masters run fill 38 133 5097 33 131 5094 brown_concrete")
+					command("execute in minecraft:build_masters run fill 37 133 5098 34 131 5093 brown_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 38 138 5097 33 136 5094 brown_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 138 5098 34 136 5093 brown_concrete"
+					command("execute in minecraft:build_masters run fill 38 138 5097 33 136 5094 brown_concrete")
+					command("execute in minecraft:build_masters run fill 37 138 5098 34 136 5093 brown_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 69 131 4902 74 133 4905 brown_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 133 4901 73 131 4906 brown_terracotta"
+					command("execute in minecraft:build_masters run fill 69 131 4902 74 133 4905 brown_terracotta")
+					command("execute in minecraft:build_masters run fill 70 133 4901 73 131 4906 brown_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 69 136 4902 74 138 4905 brown_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 138 4901 73 136 4906 brown_terracotta"
+					command("execute in minecraft:build_masters run fill 69 136 4902 74 138 4905 brown_terracotta")
+					command("execute in minecraft:build_masters run fill 70 138 4901 73 136 4906 brown_terracotta")
 		if arg-1 = "black":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 74 133 5111 69 131 5108 black_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 133 5112 70 131 5107 black_concrete"
+					command("execute in minecraft:build_masters run fill 74 133 5111 69 131 5108 black_concrete")
+					command("execute in minecraft:build_masters run fill 73 133 5112 70 131 5107 black_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 74 138 5111 69 136 5108 black_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 73 138 5112 70 136 5107 black_concrete"
+					command("execute in minecraft:build_masters run fill 74 138 5111 69 136 5108 black_concrete")
+					command("execute in minecraft:build_masters run fill 73 138 5112 70 136 5107 black_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 33 131 4888 38 133 4891 black_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 131 4887 37 133 4892 black_terracotta"
+					command("execute in minecraft:build_masters run fill 33 131 4888 38 133 4891 black_terracotta")
+					command("execute in minecraft:build_masters run fill 34 131 4887 37 133 4892 black_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 33 136 4888 38 138 4891 black_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 34 136 4887 37 138 4892 black_terracotta"
+					command("execute in minecraft:build_masters run fill 33 136 4888 38 138 4891 black_terracotta")
+					command("execute in minecraft:build_masters run fill 34 136 4887 37 138 4892 black_terracotta")
 		if arg-1 = "gray":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 62 133 5111 57 131 5108 gray_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 133 5112 58 131 5107 gray_concrete"
+					command("execute in minecraft:build_masters run fill 62 133 5111 57 131 5108 gray_concrete")
+					command("execute in minecraft:build_masters run fill 61 133 5112 58 131 5107 gray_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 62 138 5111 57 136 5108 gray_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 61 138 5112 58 136 5107 gray_concrete"
+					command("execute in minecraft:build_masters run fill 62 138 5111 57 136 5108 gray_concrete")
+					command("execute in minecraft:build_masters run fill 61 138 5112 58 136 5107 gray_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 45 131 4888 50 133 4891 gray_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 131 4887 49 133 4892 gray_terracotta"
+					command("execute in minecraft:build_masters run fill 45 131 4888 50 133 4891 gray_terracotta")
+					command("execute in minecraft:build_masters run fill 46 131 4887 49 133 4892 gray_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 45 136 4888 50 138 4891 gray_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 46 136 4887 49 138 4892 gray_terracotta"
+					command("execute in minecraft:build_masters run fill 45 136 4888 50 138 4891 gray_terracotta")
+					command("execute in minecraft:build_masters run fill 46 136 4887 49 138 4892 gray_terracotta")
 		if arg-1 = "lightgray":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 50 133 5111 45 131 5108 light_gray_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 133 5112 46 131 5107 light_gray_concrete"
+					command("execute in minecraft:build_masters run fill 50 133 5111 45 131 5108 light_gray_concrete")
+					command("execute in minecraft:build_masters run fill 49 133 5112 46 131 5107 light_gray_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 50 138 5111 45 136 5108 light_gray_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 49 138 5112 46 136 5107 light_gray_concrete"
+					command("execute in minecraft:build_masters run fill 50 138 5111 45 136 5108 light_gray_concrete")
+					command("execute in minecraft:build_masters run fill 49 138 5112 46 136 5107 light_gray_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 57 131 4888 62 133 4891 light_gray_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 131 4887 61 133 4892 light_gray_terracotta"
+					command("execute in minecraft:build_masters run fill 57 131 4888 62 133 4891 light_gray_terracotta")
+					command("execute in minecraft:build_masters run fill 58 131 4887 61 133 4892 light_gray_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 57 136 4888 62 138 4891 light_gray_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 58 136 4887 61 138 4892 light_gray_terracotta"
+					command("execute in minecraft:build_masters run fill 57 136 4888 62 138 4891 light_gray_terracotta")
+					command("execute in minecraft:build_masters run fill 58 136 4887 61 138 4892 light_gray_terracotta")
 		if arg-1 = "white":
 			if arg-2 = "concrete":
 				if arg-3 is 0:
-					make console execute command "execute in minecraft:build_masters run fill 38 133 5111 33 131 5108 white_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 133 5112 34 131 5107 white_concrete"
+					command("execute in minecraft:build_masters run fill 38 133 5111 33 131 5108 white_concrete")
+					command("execute in minecraft:build_masters run fill 37 133 5112 34 131 5107 white_concrete")
 				if arg-3 is 1:
-					make console execute command "execute in minecraft:build_masters run fill 38 138 5111 33 136 5108 white_concrete"
-					make console execute command "execute in minecraft:build_masters run fill 37 138 5112 34 136 5107 white_concrete"
+					command("execute in minecraft:build_masters run fill 38 138 5111 33 136 5108 white_concrete")
+					command("execute in minecraft:build_masters run fill 37 138 5112 34 136 5107 white_concrete")
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 69 131 4888 74 133 4891 white_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 131 4887 73 133 4892 white_terracotta"
+					command("execute in minecraft:build_masters run fill 69 131 4888 74 133 4891 white_terracotta")
+					command("execute in minecraft:build_masters run fill 70 131 4887 73 133 4892 white_terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 69 136 4888 74 138 4891 white_terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 70 136 4887 73 138 4892 white_terracotta"
+					command("execute in minecraft:build_masters run fill 69 136 4888 74 138 4891 white_terracotta")
+					command("execute in minecraft:build_masters run fill 70 136 4887 73 138 4892 white_terracotta")
 		if arg-1 = "clear":
 			if arg-2 = "terracotta":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 51 131 4874 56 133 4877 terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 52 131 4873 55 133 4878 terracotta"
+					command("execute in minecraft:build_masters run fill 51 131 4874 56 133 4877 terracotta")
+					command("execute in minecraft:build_masters run fill 52 131 4873 55 133 4878 terracotta")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 51 136 4874 56 138 4877 terracotta"
-					make console execute command "execute in minecraft:build_masters run fill 52 136 4873 55 138 4878 terracotta"
+					command("execute in minecraft:build_masters run fill 51 136 4874 56 138 4877 terracotta")
+					command("execute in minecraft:build_masters run fill 52 136 4873 55 138 4878 terracotta")
 		if arg-1 = "copper":
 			if arg-2 = "normal":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 120 131 4975 117 133 4980 waxed_copper_block"
-					make console execute command "execute in minecraft:build_masters run fill 116 131 4976 121 133 4979 waxed_copper_block"
+					command("execute in minecraft:build_masters run fill 120 131 4975 117 133 4980 waxed_copper_block")
+					command("execute in minecraft:build_masters run fill 116 131 4976 121 133 4979 waxed_copper_block")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 120 136 4975 117 138 4980 waxed_copper_block"
-					make console execute command "execute in minecraft:build_masters run fill 116 136 4976 121 138 4979 waxed_copper_block"
+					command("execute in minecraft:build_masters run fill 120 136 4975 117 138 4980 waxed_copper_block")
+					command("execute in minecraft:build_masters run fill 116 136 4976 121 138 4979 waxed_copper_block")
 			if arg-2 = "exposed":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 120 131 4989 117 133 4994 waxed_exposed_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 131 4990 121 133 4993 waxed_exposed_copper"
+					command("execute in minecraft:build_masters run fill 120 131 4989 117 133 4994 waxed_exposed_copper")
+					command("execute in minecraft:build_masters run fill 116 131 4990 121 133 4993 waxed_exposed_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 120 136 4989 117 138 4994 waxed_exposed_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 136 4990 121 138 4993 waxed_exposed_copper"
+					command("execute in minecraft:build_masters run fill 120 136 4989 117 138 4994 waxed_exposed_copper")
+					command("execute in minecraft:build_masters run fill 116 136 4990 121 138 4993 waxed_exposed_copper")
 			if arg-2 = "weathered":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 120 131 5005 117 133 5010 waxed_weathered_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 131 5006 121 133 5009 waxed_weathered_copper"
+					command("execute in minecraft:build_masters run fill 120 131 5005 117 133 5010 waxed_weathered_copper")
+					command("execute in minecraft:build_masters run fill 116 131 5006 121 133 5009 waxed_weathered_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 120 136 5005 117 138 5010 waxed_weathered_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 136 5006 121 138 5009 waxed_weathered_copper"
+					command("execute in minecraft:build_masters run fill 120 136 5005 117 138 5010 waxed_weathered_copper")
+					command("execute in minecraft:build_masters run fill 116 136 5006 121 138 5009 waxed_weathered_copper")
 			if arg-2 = "oxidized":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 120 131 5019 117 133 5024 waxed_oxidized_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 131 5020 121 133 5023 waxed_oxidized_copper"
+					command("execute in minecraft:build_masters run fill 120 131 5019 117 133 5024 waxed_oxidized_copper")
+					command("execute in minecraft:build_masters run fill 116 131 5020 121 133 5023 waxed_oxidized_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 120 136 5019 117 138 5024 waxed_oxidized_copper"
-					make console execute command "execute in minecraft:build_masters run fill 116 136 5020 121 138 5023 waxed_oxidized_copper"
+					command("execute in minecraft:build_masters run fill 120 136 5019 117 138 5024 waxed_oxidized_copper")
+					command("execute in minecraft:build_masters run fill 116 136 5020 121 138 5023 waxed_oxidized_copper")
 		if arg-1 = "cutcopper":
 			if arg-2 = "normal":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 134 131 4975 131 133 4980 waxed_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 131 4976 135 133 4979 waxed_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 131 4975 131 133 4980 waxed_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 131 4976 135 133 4979 waxed_cut_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 134 136 4975 131 138 4980 waxed_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 136 4976 135 138 4979 waxed_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 136 4975 131 138 4980 waxed_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 136 4976 135 138 4979 waxed_cut_copper")
 			if arg-2 = "exposed":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 134 131 4989 131 133 4994 waxed_exposed_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 131 4990 135 133 4993 waxed_exposed_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 131 4989 131 133 4994 waxed_exposed_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 131 4990 135 133 4993 waxed_exposed_cut_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 134 136 4989 131 138 4994 waxed_exposed_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 136 4990 135 138 4993 waxed_exposed_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 136 4989 131 138 4994 waxed_exposed_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 136 4990 135 138 4993 waxed_exposed_cut_copper")
 			if arg-2 = "weathered":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 134 131 5005 131 133 5010 waxed_weathered_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 131 5006 135 133 5009 waxed_weathered_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 131 5005 131 133 5010 waxed_weathered_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 131 5006 135 133 5009 waxed_weathered_cut_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 134 136 5005 131 138 5010 waxed_weathered_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 136 5006 135 138 5009 waxed_weathered_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 136 5005 131 138 5010 waxed_weathered_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 136 5006 135 138 5009 waxed_weathered_cut_copper")
 			if arg-2 = "oxidized":
 				if arg-3 = 0:
-					make console execute command "execute in minecraft:build_masters run fill 134 131 5019 131 133 5024 waxed_oxidized_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 131 5020 135 133 5023 waxed_oxidized_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 131 5019 131 133 5024 waxed_oxidized_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 131 5020 135 133 5023 waxed_oxidized_cut_copper")
 				if arg-3 = 1:
-					make console execute command "execute in minecraft:build_masters run fill 134 136 5019 131 138 5024 waxed_oxidized_cut_copper"
-					make console execute command "execute in minecraft:build_masters run fill 130 136 5020 135 138 5023 waxed_oxidized_cut_copper"
+					command("execute in minecraft:build_masters run fill 134 136 5019 131 138 5024 waxed_oxidized_cut_copper")
+					command("execute in minecraft:build_masters run fill 130 136 5020 135 138 5023 waxed_oxidized_cut_copper")
 
 on tab complete of "/refill":
 	set tab completions for position 1 to "red", "orange", "yellow", "lime", "green", "cyan", "lightblue", "blue", "purple", "magenta", "pink", "brown", "black", "gray", "lightgray", "white", "clear", "copper" and "cutcopper"
@@ -3084,7 +3173,7 @@ command /getplayertime <player>:
 		if {timer_minute.%arg-1's uuid%} < 0:
 			send "%{color.%arg-1's uuid%}%%arg-1%&r is out of time"
 		else:
-			send "%{color.%arg-1's uuid%}%%arg-1%&r has %{timer_minute.%arg-1's uuid%}%:%{timer_second.%arg-1's uuid%}% left"
+			send "%{color.%arg-1's uuid%}%%arg-1%&r has %minuteSecond({timer_minute.%arg-1's uuid%}*60+{timer_second.%arg-1's uuid%})% left"
 
 command /settroll:
 	permission: *
@@ -3121,3 +3210,69 @@ command /state <boolean>:
 	permission: *
 	trigger:
 		set {debug.%player's uuid%} to arg-1
+
+command /spectators <text> [<offline player>]:
+	permission: *
+	trigger:
+		if arg-1 = "add":
+			if {spectators::*} doesn't contain arg-2:
+				add arg-2 to {spectators::*}
+				send "Player %arg-2% has been added to the spectator list"
+			else:
+				send "This player was already in the spectator list"
+		else if arg-1 = "remove":
+			if {spectators::*} contains arg-2:
+				remove arg-2 from {spectators::*}
+				send "Player %arg-2% has been removed from the spectator list"
+			else:
+				send "This player wasn't in the spectator list"
+		else if arg-1 = "list":
+			send "Here are all the spectators (%size of {spectators::*}%):"
+			loop {spectators::*}:
+				send "- %loop-value%"
+		else if arg-1 = "clear":
+			clear {spectators::*}
+			send "The spectators list has been cleared."
+
+on tab complete of "/spectators":
+	set tab completions for position 1 to "add", "remove", "clear" and "list"
+
+command /players <text> [<offline player>]:
+	permission: *
+	trigger:
+		if arg-1 = "add":
+			if {players::*} doesn't contain arg-2:
+				add arg-2 to {players::*}
+				send "Player %arg-2% has been added to the players list"
+			else:
+				send "This player was already in the players list"
+		else if arg-1 = "remove":
+			if {players::*} contains arg-2:
+				remove arg-2 from {players::*}
+				send "Player %arg-2% has been removed from the players list"
+			else:
+				send "This player wasn't in the players list"
+		else if arg-1 = "list":
+			send "Here are all the players (%size of {players::*}%):"
+			loop {players::*}:
+				send "- %loop-value%"
+		else if arg-1 = "clear":
+			clear {players::*}
+			send "The players list has been cleared."
+
+on tab complete of "/players":
+	set tab completions for position 1 to "add", "remove", "clear" and "list"
+
+command /sub <offline player> <offline player>:
+	permission: *
+	trigger:
+		set {color.%arg-2's uuid%.backup} to {color.%arg-1's uuid%.backup}
+		setPlayerTeamWithBackup(arg-2)
+		set {points.%arg-2's uuid%} to {points.%arg-1's uuid%}
+		set {points_game.%arg-2's uuid%} to {points_game.%arg-1's uuid%}
+		add {total_points.%arg-1's uuid%} to {total_points.%arg-2's uuid%}
+		set {alive.%arg-2's uuid%} to true
+		set {finished.%arg-2's uuid%} to false
+		command("fly %arg-2% false")
+		command("hide %arg-2% false")
+		broadcast "Player %{color.%arg-2's uuid%}%%arg-2%&r has replaced Player %{color.%arg-1's uuid%}%%arg-1%&r."
