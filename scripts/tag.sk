@@ -81,8 +81,10 @@ every second:
                         if glowing of loop-player = true:
                             set glowing of loop-player to false
                             command("tab nametag toggle %loop-player%")
+                        else:
+                            gamepoints(loop-player, 50*{multiplier}, "Last player standing")
                         if loop-player has permission "theevent580.staff":
-                            send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&aFind The Button&r --> &aShowing scores" to loop-player
+                            send "[&4Admin&r] Event state : &eGame &r&aTag&r --> &aShowing scores" to loop-player
                     command("execute run bossbar set minecraft:count visible true")
                     set {event_state} to "Showing scores"
                     set {timer-m} to 1

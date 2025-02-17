@@ -215,12 +215,3 @@ every tick:
                     set {finished_players} to 0
                     make server execute command "clear @a"
                 send action bar howManyDone({weapons.%loop-player's uuid%} - 1) to loop-player
-
-#every second:
-    #if {timer} = 6:
-    #    if {timer-m} > 0:
-    #        if {timer-s} = 0:
-    #            add 60 to {timer-s}
-    #            remove 1 from {timer-m}
-    #    remove 1 from {timer-s}
-    #    bossbarRemove1Sec("count")

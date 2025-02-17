@@ -131,7 +131,7 @@ on chat:
 
 
 on server list ping:
-	set the motd to "<##D9DBF1>Working on <##155966>&lTheEvent580 • Season 1 - Episode Darkathon 3"
+	set the motd to "<##D9DBF1>Working on <##155966>&lTheEvent580 • Season 1 - Episode 7"
 
 on join:
 	wait 3 ticks
@@ -171,11 +171,6 @@ on join:
 		command("/hide %player% true")
 	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
 		command("/hide %player% false")
-	#if player has permission "*":
-	#	add player to {staff::*}
-	#	send "[<##155966>&lTheEvent580 - Admin&r] Online Staff :"
-	#	loop {staff::*}:
-	#		send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
 	if {total_points.%player's uuid%} is not set:	
 		set {total_points.%player's uuid%} to 0
 	else if {total_points.%player's uuid%} is not round({total_points.%player's uuid%}):
@@ -460,25 +455,6 @@ on join:
 	toggle scoreboards of player on
 	command("/noxesiumutils serverRules disableBoatCollisions @a true")
 	command("/noxesiumutils serverRules enableSmootherClientTrident @a true")
-	#wait 2 second
-	#if event-world is "world":
-	#	command("setrp %player% https://www.dropbox.com/scl/fi/wom59ahuut504nxqjw51q/TheEvent580_Spawn.zip?rlkey=em5fv8t9dqm0onj1kbbc0cd15&dl=1" #Spawn
-	#if event-world is "dropper":
-	#	command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
-	#if event-world is "parkour":
-	#	command("setrp %player% https://download.mc-packs.net/pack/1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26.zip 1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26" #Parkour
-	#if event-world is "bingo":
-	#	command("setrp %player% https://download.mc-packs.net/pack/f1f1d990a16918cc0c96e10ec7f7e98f4faadf8c.zip f1f1d990a16918cc0c96e10ec7f7e98f4faadf8c" #Bingo
-	#if event-world is "find_the_button":
-	#	command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Find The Button
-	#if event-world is "races_lap_3":
-	#	command("setrp %player% https://download.mc-packs.net/pack/2d6d579a86304775612992fdcac5d645783889e6.zip 2d6d579a86304775612992fdcac5d645783889e6" #Multilap
-	#if event-world is "build_masters":
-	#	command("setrp %player% https://download.mc-packs.net/pack/d7af2588cb9bcb13535c952d915e5919ad0bd166.zip d7af2588cb9bcb13535c952d915e5919ad0bd166" #Build Masters
-	#if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
-	#	command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Survival Games
-	#if event-world is "Bow_PVP":
-	#	command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Bow PVP
 
 on vehicle destroy:
 	if {jeu_condi} is 0:
@@ -605,13 +581,7 @@ on damage:
 						gamepoints(attacker, 20*{multiplier}, "Tagging %{color.%victim's uuid%}%%victim's name%<##D9D8F1> (Points steal)")
 						gamepoints(victim, -20*{multiplier}, "Getting tagged by %{color.%attacker's uuid%}%%attacker's name%<##D9D8F1> (Points steal)")
 						set {time_hider.%attacker's uuid%} to 0
-						if the maximum health of victim = 1:
-							setToSpec(victim)
-							setRandomHunter()
-							remove 1 from {players_alive}
-							command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
-							send title "" with subtitle "&c☠ You are dead ☠" to victim for 3 seconds
-						else:
+						if the maximum health of victim > 1:
 							remove 1 from the maximum health of victim
 							command("tab nametag toggle %victim%")
 							send title "" with subtitle "&c💣 You got tagged 💣" to victim for 3 seconds
@@ -632,16 +602,6 @@ on death:
 			force victim to respawn
 			command("hide %victim% true")
 			command("fly %victim% true")
-			#if {jeu_condi} is 6:
-			#	if {game} is "SG1":
-			#		teleport victim to location(-1565.177, 68, -635.511, "sg1", 28.3, 24.3)
-			#	if {game} is "SG2":
-			#		teleport victim to location(0, 45, 0, "sg2", 0, 90)
-			#	if {game} is "SG3":
-			#		teleport victim to location(0, 25, 0, "sg3", 0.1, 90)
-			#	remove 1 from {finished_players}
-			#	command("setconfigvar alive_players_sg %{finished_players}%")
-			#	set {alive.%victim's uuid%} to false
 		if attacker is a player:
 			if {jeu_condi} is 3:
 				if {bingo_kill.%attacker's uuid%} is false:
@@ -649,32 +609,7 @@ on death:
 					send "[<##155966>&lTheEvent580&r] You killed a player for the 1st time and recieved your bonus" to attacker
 				else if {bingo_kill.%attacker's uuid%} is 2:
 					send "[<##155966>&lTheEvent580&r] You already killed a player and got nothing" to attacker
-			#else if {jeu_condi} is 6:
-			#	if {1st_blood} is false:
-			#		command("gamepoints %attacker% %{pts_lvl_2}% Killed a player")
-			#		add {pts_lvl_2} to {total_points.%attacker's uuid%}
-			#		add {pts_lvl_2} to {total_points_event.%attacker's uuid%}
-			#		broadcast "[<##155966>&lTheEvent580&r] %{color.%victim's uuid%}%%victim%&r got killed by %{color.%attacker's uuid%}%%attacker%&r"
-			#		send "[<##155966>&lTheEvent580&r] You killed %{color.%victim's uuid%}%%victim%&r" to attacker
-			#		send "[<##155966>&lTheEvent580&r] You got killed by %{color.%attacker's uuid%}%%attacker%&r" to victim
-			#	else if {1st_blood} is true:
-			#		command("gamepoints %attacker% %{pts_lvl_1}% Killed a player (1st blood)")
-			#		add {pts_lvl_1} to {total_points.%attacker's uuid%}
-			#		add {pts_lvl_1} to {total_points_event.%attacker's uuid%}
-			#		broadcast "[<##155966>&lTheEvent580&r] %{color.%victim's uuid%}%%victim%&r got killed by %{color.%attacker's uuid%}%%attacker%&r (1st blood)"
-			#		send "[<##155966>&lTheEvent580&r] You killed %{color.%victim's uuid%}%%victim%&r (1st blood)" to attacker
-			#		send "[<##155966>&lTheEvent580&r] You got killed by %{color.%attacker's uuid%}%%attacker%&r (1st blood)" to victim
-			#		set {1st_blood} to false
-		#if {jeu_condi} is 6:
-		#	loop all players:
-		#		if loop-player is not attacker or victim:
-		#			if {alive.%loop-player's uuid%} is true:
-		#				command("gamepoints %loop-player% %{pts_lvl_3}% Survived to a kill")
-		#				add {pts_lvl_3} to {total_points.%loop-player's uuid%}
-		#				add {pts_lvl_3} to {total_points_event.%loop-player's uuid%}
-		#				send "[<##155966>&lTheEvent580&r] You survived to a kill" to loop-player
 		if {jeu_condi} = 8:
-			#if the maximum health of victim < 2 :
 			if {max_health.%victim's uuid%} < 2 :
 				remove 1 from {finished_players}
 				set {finished.%victim's uuid%} to true
@@ -741,7 +676,6 @@ on death:
 			else:
 				set {invincibility.time_left.%victim's uuid%} to 5
 				set {invincibility.%victim's uuid%} to true
-				#command("hide %victim%")
 				if damage cause = projectile:
 					loop all players:
 						if loop-player = victim:
@@ -799,14 +733,6 @@ on respawn:
 		wait 1 tick
 		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
 		make server execute command "effect give @a minecraft:night_vision 9999 255 true"
-	#else if {jeu_condi} is 6:
-	#	wait 1 tick
-	#	if {game} is "SG1":
-	#		teleport player to location(-1565.177, 68, -635.511, "sg1", 28.3, 24.3)
-	#	else if {game} is "SG2":
-	#		teleport player to location(0, 45, 0, "sg2", 0, 90)
-	#	else if {game} is "SG3":
-	#		teleport player to location(37, 28, -18, "sg3", 65.1, 30.7)
 	else if {jeu_condi} is 8:
 		wait 1 tick
 		respawnBowPVP(player)
@@ -820,11 +746,12 @@ on respawn:
 on break:
 	if player's gamemode is not creative:
 		if {jeu_condi} is not 3 or 9:
-			#if {jeu_condi} is 6:
-			#	if event-block isn't cobweb or leaves or vines or mushroom or hay bale or wheat:
-			#		cancel event
-			#else:
 			cancel event
+		else if {jeu_condi} = 3:
+			if y-coordinate of block >= 130:
+				if gamemode of event-player != creative:
+					cancel event
+					send action bar "&cYou cannot break blocks here" to event-player
 		else if {jeu_condi} is 9:
 			if {finished.%player's uuid%} is false:
 				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks or lime carpet or red carpet or yellow carpet or orange carpet or green carpet or cyan carpet:
@@ -1007,12 +934,6 @@ on right click :
 		if {jeu_condi} = 6:
 			if {timer} is "pause":
 				cancel event
-			#else:
-			#	if location of event-block is location(121.5, 36.5, -60.5, "SG4"):
-			#		command("//world sg4")
-			#		command("//pos1 113,34,-54")
-			#		command("//pos2 127,34,-70")
-			#		command("//replace gravel air")
 	if event-entity is a villager:
 		if name of event-entity is "Give 30 seconds":
 			if {timer} = 5 or 6:
@@ -1301,7 +1222,12 @@ on place:
 		if player doesn't have permission "group.spectators":
 			cancel event
 	else:
-		if {jeu_condi} is 9:
+		if {jeu_condi} = 3:
+			if y-coordinate of block >= 130:
+				if gamemode of event-player != creative:
+					cancel event
+					send action bar "&cYou cannot place blocks here" to event-player
+		else if {jeu_condi} is 9:
 			if block 1 meter under event-location is not quartz bricks:
 				if {finished.%player's uuid%} is false:
 					cancel event
@@ -1353,32 +1279,6 @@ on craft:
 	if {jeu_condi} is not 3 or 6:
 		if {finished.%player%} = false:
 			cancel event
-
-#on player world change:
-#	loop all players:
-#		if loop-player has permission "thefox580.staff":
-#			if event-player doesn't have permission "group.spectators":
-#				send "[<##155966>&lTheEvent580&r] Player &c&l%event-player%&r got teleported from &6&l%past event-world%&r to &a&l%event-world%&r, loading texture pack..." to loop-player
-#	send title "PLEASE STANDBY" with subtitle "for the texture pack to download" to player for 5 seconds
-#	wait 2 second
-#	if event-world is "world":
-#		command("setrp %player% https://www.dropbox.com/scl/fi/wom59ahuut504nxqjw51q/TheEvent580_Spawn.zip?rlkey=em5fv8t9dqm0onj1kbbc0cd15&dl=1" #Spawn
-#	if event-world is "dropper":
-#		command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Dropper
-#	if event-world is "parkour":
-#		command("setrp %player% https://download.mc-packs.net/pack/1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26.zip 1c42f10ba02c0ea9a19180dbe4bc4d2e66f17a26" #Parkour
-#	if event-world is "bingo":
-#		command("setrp %player% https://download.mc-packs.net/pack/f1f1d990a16918cc0c96e10ec7f7e98f4faadf8c.zip f1f1d990a16918cc0c96e10ec7f7e98f4faadf8c" #Bingo
-#	if event-world is "find_the_button":
-#		command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Find The Button
-#	if event-world is "races_lap_3":
-#		command("setrp %player% https://download.mc-packs.net/pack/2d6d579a86304775612992fdcac5d645783889e6.zip 2d6d579a86304775612992fdcac5d645783889e6" #Multilap
-#	if event-world is "build_masters":
-#		command("setrp %player% https://download.mc-packs.net/pack/d7af2588cb9bcb13535c952d915e5919ad0bd166.zip d7af2588cb9bcb13535c952d915e5919ad0bd166" #Build Masters
-#	if event-world is "SG1" or "SG2" or "SG3" or "SG4" or "SG5" or "SG6":
-#		command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Survival Games
-#	if event-world is "Bow_PVP":
-#		command("setrp %player% https://download.mc-packs.net/pack/aad686964cba9ba0684473978c9f1caafdc298ea.zip aad686964cba9ba0684473978c9f1caafdc298ea" #Bow PVP
 
 on shoot:
 	if {timer} is 3:

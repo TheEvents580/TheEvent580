@@ -1,20 +1,12 @@
 function reloadTab():
 	if {jeu_condi} is 0:
 		set {gametab} to "&lHub&r"
-	#if {jeu_condi} is 1:
-	#	set {gametab} to "&c&lDropper&r"
 	if {jeu_condi} is 2:
 		set {gametab} to "&6&lParkour&r"
 	if {jeu_condi} is 3:
 		set {gametab} to "&e&lBingo&r"
-	#if {jeu_condi} is 4:
-	#	set {gametab} to "&a&lFind The Button&r"
 	if {jeu_condi} is 5:
 		set {gametab} to "&b&lRaces&r"
-	#if {jeu_condi} is 6:
-	#	set {gametab} to "&5&lSurvival Games&r"
-	#f {jeu_condi} is 7:
-	#	set {gametab} to "&5&lLabyrinth&r"
 	if {jeu_condi} is 8:
 		set {gametab} to "&d&lBow PVP&r"
 	if {jeu_condi} is 9:
@@ -26,7 +18,7 @@ function reloadTab():
 	if {jeu_condi} is 12:
 		set {gametab} to "&5&lArms Race&r"
 
-	set {tab_title} to "      <##155966>&lTheEvent580 • Season 1 - Episode Darkathon 3&r      %nl%%nl%%nl%"
+	set {tab_title} to "      <##155966>&lTheEvent580 • Season 1 - Episode 7&r      %nl%%nl%%nl%"
 
 	set {tab_game} to "<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%"
 
