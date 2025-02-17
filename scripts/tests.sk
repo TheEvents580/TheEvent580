@@ -1,6 +1,0 @@
-command /anotherverysecretcommand <number>:
-    permission: *
-    trigger:
-        set {timer-m} to 9
-        set {timer-s} to 60
-        bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
