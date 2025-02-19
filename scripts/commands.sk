@@ -7,25 +7,25 @@ command /start:
 			make gui slot 12 with lime wool named "&aYes" with lore "&rI am sure to start the event !":
 				close player's inventory
 				set {event_timer} to true
-				set {timer-s} to 30
-				set {timer-m} to 1
+				set {timer-s} to 59
+				set {timer-m} to 2
 				command("gamerule sendCommandFeedback false")
 				command("bossbar set minecraft:count players @a")
 				command("bossbar set minecraft:count visible true")
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 				set {timer} to 1
-				command("toast TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
+				#loop all players:
+				#	command("toast %loop-player% GOAL emerald_block TheEvent580 is starting|in 3 minutes")
 				wait 2 tick
-				command("toast GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 				loop all players:
-					play sound "custom:intro" in voice category with volume 1 to the loop-player
+					#command("toast %loop-player% TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
 					if loop-player doesn't have permission "group.spectators":
 						add 1 to {checking_finished_players}
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} is true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by %executor%" to loop-player
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-					send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 1 minute and 30 seconds" to loop-player for 3 seconds
+							send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
+							send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
+					send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 3 minutes" to loop-player for 3 seconds
 				set {event_state} to "Start Countdown"
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
 				close player's inventory
@@ -40,7 +40,7 @@ command /spawn [<player>]:
 					if {timer-s} > 3:
 						if sender is player:
 							if {timer} or {timer_save} = 7:
-								send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+								send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
 					if {finished.%player's uuid%} is true:
 						command("fly %player% true")
@@ -67,19 +67,19 @@ command /spawn [<player>]:
 					set the maximum health of player to 10
 					heal player
 					if {timer} is 7:
-						send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players"
+						send "[&4Admin&r] You are now visible to other players and you can see other players"
 					command("hide %player% false")
 				else:
-					send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+					send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 			else:
-				send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+				send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 		else:
 			if player has permission "group.spectators":
 				if {jeu_condi} is 0 or -1:
 					if {timer} or {timer_save} is 7 or 0 or 1 or 9 or 8 or 10 or "Fin":
 						if {timer-s} > 3:
 							if {timer} or {timer_save} = 7:
-								send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+								send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
 						if {finished.%arg-1's uuid%} is true:
 							command("fly %arg-1%")
@@ -106,12 +106,12 @@ command /spawn [<player>]:
 						reveal hidden players of arg-1
 						reveal arg-1 for all players
 						if {timer} is 7:
-							send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players and you can see other players" to arg-1
+							send "[&4Admin&r] You are now visible to other players and you can see other players" to arg-1
 						command("hide %arg-1% false")
 					else:
-						send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+						send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 			else:
-				send "[<##155966>&lTheEvent580&r] You cannot tp to spawn while playing a minigame"
+				send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 
 
 command /timer <text> [<text>] [<int>]:
@@ -123,7 +123,7 @@ command /timer <text> [<text>] [<int>]:
 			send "%{timer}%" to player
 		if arg-1 is "pause":
 			if {timer} is "pause":
-				send "[<##155966>&lTheEvent580 - Timer&r] Event is already paused"
+				send "[&4Admin&r] Event is already paused"
 			else:
 				set {timer_save} to {timer}
 				set {timer} to "pause"
@@ -132,7 +132,7 @@ command /timer <text> [<text>] [<int>]:
 				command("execute run bossbar set minecraft:count name [{""text"":""惠上为"",""color"":""#f0f064""},{""text"":""Event is paused"",""color"":""#f0f068""}]")
 				if {jeu_condi} is 5:
 					set {race_timer} to true
-				broadcast "[<##155966>&lTheEvent580&r] The Event is currently paused, please wait"
+				broadcast "[<##BCD71D>&lTimer&r] The Event is currently paused, please wait"
 		else if arg-1 is "resume":
 			set {timer} to {timer_save}
 			clear {timer_save}
@@ -145,7 +145,7 @@ command /timer <text> [<text>] [<int>]:
 				set {courses_boat_timer_status} to true
 				set {courses_pied_timer_status} to true
 				set {courses_trident_timer_status} to true
-			broadcast "[<##155966>&lTheEvent580&r] The Event has resumed !"
+			broadcast "[<##BCD71D>&lTimer&r] The Event has resumed !"
 		else if arg-1 is "mode":
 			set {timer_save} to {timer}
 			if arg-2 is set:
@@ -196,8 +196,8 @@ command /reset:
 			make gui slot 12 with lime wool named "&aYes" with lore "&rI am sure to reset the event !":
 				close player's inventory
 				loop {staff::*}:
-					send "[<##155966>&lTheEvent580 - Admin&r] Code : 0" to loop-value
-					send "[<##155966>&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
+					send "[&4Admin&r] Code : 0" to loop-value
+					send "[&4Admin&r] Reset started by %executor%" to loop-value
 				command("clear @a")
 				command("effect clear @a")
 				set {event_timer} to false
@@ -297,7 +297,7 @@ command /reset:
 				command("bossbar set minecraft:count visible false")
 				loop all players:
 					set glowing of loop-player to false
-					setPlayerColor(player)
+					setPlayerColor(loop-player)
 					clear {ride.%loop-player's uuid%}
 					add 1 to {online_players}
 					make loop-player execute command "spawn"
@@ -313,20 +313,12 @@ command /reset:
 						set {total_points_event.%loop-player's uuid%} to 0
 					#Parkour
 					set {parkour_checkpoint.%loop-player's uuid%} to "Start"
-					#Dropper
-					#set {dropper_level.%loop-player's uuid%} to 0
-					#Find The Button
-					#set {ftb_fin.%loop-player's uuid%} to 0
 					#Multilap
 					set {race_checkpoint.%loop-player's uuid%} to 0
 					set {race_lap.%loop-player's uuid%} to 1
 					set {race_total_time.%loop-player's uuid%} to 0
 					set {race_lap_time.%loop-player's uuid%} to 0
 					set {race_boat.%loop-player's uuid%} to false
-					#Laby
-					#set {laby_level.%loop-player's uuid%} to "Start"
-					#SG
-					#set {alive.%loop-player's uuid%} to true
 					#Bow PVP
 					set {health.%loop-player's uuid%} to 10
 					#For Event : 
@@ -343,11 +335,11 @@ command /reset:
 						set helmet of loop-player to {flag.%loop-player's uuid%}
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} is true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
+							send "[&4Admin&r] Reset ended" to loop-player
+							send "[&4Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
 				set {event_state} to "Waiting"
 				command("gamerule sendCommandFeedback true")
-				broadcast "[<##155966>&lTheEvent580&r] Event has been reset."
+				broadcast "[&4Admin&r] Event has been reset."
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to reset the event.":
 				close player's inventory
 		open the last gui for the player
@@ -364,17 +356,18 @@ command /consolestart:
 		command("bossbar set minecraft:count players @a")
 		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 		set {timer} to 1
-		command("toast TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
+		#loop all players:
+		#	command("toast %loop-player% GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 		wait 2 tick
-		command("toast GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 		loop all players:
+			#command("toast %loop-player% TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
 			play sound "custom:intro" in voice category with volume 1 to the loop-player
 			if loop-player doesn't have permission "group.spectators":
 				add 1 to {checking_finished_players}
 			if loop-player has permission "theevent580.staff":
 				if {debug.%loop-player's uuid%} is true:
-					send "[<##155966>&lTheEvent580 - Admin&r] Event countdown / Event started by Console" to loop-player
-					send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
+					send "[&4Admin&r] Event countdown / Event started by Console" to loop-player
+					send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
 			send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
 		set {event_state} to "Start Countdown"
 
@@ -384,8 +377,8 @@ command /consolereset:
 	description: reset event
 	trigger:
 		loop {staff::*}:
-			send "[<##155966>&lTheEvent580 - Admin&r] Code : 0" to loop-value
-			send "[<##155966>&lTheEvent580 - Admin&r] Reset started by %executor%" to loop-value
+			send "[&4Admin&r] Code : 0" to loop-value
+			send "[&4Admin&r] Reset started by %executor%" to loop-value
 		command("clear @a")
 		command("effect clear @a")
 		set {event_timer} to false
@@ -485,7 +478,7 @@ command /consolereset:
 		command("bossbar set minecraft:count visible false")
 		loop all players:
 			set glowing of loop-player to false
-			setPlayerColor(player)
+			setPlayerColor(loop-player)
 			clear {ride.%loop-player's uuid%}
 			add 1 to {online_players}
 			make loop-player execute command "spawn"
@@ -501,20 +494,12 @@ command /consolereset:
 				set {total_points_event.%loop-player's uuid%} to 0
 			#Parkour
 			set {parkour_checkpoint.%loop-player's uuid%} to "Start"
-			#Dropper
-			#set {dropper_level.%loop-player's uuid%} to 0
-			#Find The Button
-			#set {ftb_fin.%loop-player's uuid%} to 0
 			#Multilap
 			set {race_checkpoint.%loop-player's uuid%} to 0
 			set {race_lap.%loop-player's uuid%} to 1
 			set {race_total_time.%loop-player's uuid%} to 0
 			set {race_lap_time.%loop-player's uuid%} to 0
 			set {race_boat.%loop-player's uuid%} to false
-			#Laby
-			#set {laby_level.%loop-player's uuid%} to "Start"
-			#SG
-			#set {alive.%loop-player's uuid%} to true
 			#Bow PVP
 			set {health.%loop-player's uuid%} to 10
 			#For Event : 
@@ -975,113 +960,6 @@ command /card:
 					make gui slot 23 with sponge named "&4Sponge | All collected" with lore "&4No more coins are being awarded"
 			open the last gui for the player
 
-#command /ftb:
-#	permission: *
-#	permission message: &cThis command does not exist
-#	description: lance find the button
-#	trigger:
-#		command("execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
-#		set {jeu_condi} to 4
-#		set {jeu_logo} to "" #Find The Button Logo (\uE004)
-#		set {finished_players} to 0
-#		loop all players:
-#			command("hide %loop-player%"
-#			set {gamemode.%loop-player's uuid%} to 2
-#			set {ftb_fin.%loop-player's uuid%} to 0
-#			set {finished.%loop-player's uuid%} to false
-#			set {ftb_1.%loop-player's uuid%} to false
-#			set {ftb_2.%loop-player's uuid%} to false
-#			set {ftb_3.%loop-player's uuid%} to false
-#			set {ftb_4.%loop-player's uuid%} to false
-#			set {ftb_5.%loop-player's uuid%} to false
-#			set {ftb_6.%loop-player's uuid%} to false
-#			set {ftb_7.%loop-player's uuid%} to false
-#			set {ftb_8.%loop-player's uuid%} to false
-#			set {ftb_9.%loop-player's uuid%} to false
-#			set {ftb_10.%loop-player's uuid%} to false
-#			set {ftb_11.%loop-player's uuid%} to false
-#		loop all players:
-#			if loop-player has permission "group.spectators":
-#				set {finished.%loop-player's uuid%} to true
-#				force loop-player to fly
-#				allow fly for loop-player
-#				set slot 0 of loop-player to compass named "&rTeleport to player"
-#				set slot 1 of loop-player to feather named "&rChange your fly speed"
-#				set slot 8 of loop-player to paper named "&aTotal of button pressed card"
-#		set {total_buttons_pressed} to 0
-#		set {ftb_oak_completed} to 0
-#		set {ftb_spruce_completed} to 0
-#		set {ftb_acacia_completed} to 0
-#		set {ftb_mangrove_completed} to 0
-#		set {ftb_crimson_completed} to 0
-#		set {ftb_polished_blackstone_completed} to 0
-#		set {ftb_dark_oak_completed} to 0
-#		set {ftb_stone_completed} to 0
-#		set {ftb_warped_completed} to 0
-#		set {ftb_jungle_completed} to 0
-#		set {ftb_birch_completed} to 0
-#		set {ftb_1} to false
-#		set {ftb_2} to false
-#		set {ftb_3} to false
-#		set {ftb_4} to false
-#		set {ftb_5} to false
-#		set {ftb_6} to false
-#		set {ftb_7} to false
-#		set {ftb_8} to false
-#		set {ftb_9} to false
-#		set {ftb_10} to false
-#		set {ftb_11} to false
-#		set {ftb_fin} to false
-#		set {pts_lvl_1} to 10*{checking_finished_players}
-#		set {pts_lvl_1} to round({pts_lvl_1}*{multiplier})
-#		set {pts_lvl_2} to 15*{checking_finished_players}
-#		set {pts_lvl_2} to round({pts_lvl_2}*{multiplier})
-#		set {pts_lvl_3} to 20*{checking_finished_players}
-#		set {pts_lvl_3} to round({pts_lvl_3}*{multiplier})
-#		set {pts_lvl_4} to 25*{checking_finished_players}
-#		set {pts_lvl_4} to round({pts_lvl_4}*{multiplier})
-#		set {pts_lvl_5} to 30*{checking_finished_players}
-#		set {pts_lvl_5} to round({pts_lvl_5}*{multiplier})
-#		set {pts_lvl_6} to 35*{checking_finished_players}
-#		set {pts_lvl_6} to round({pts_lvl_6}*{multiplier})
-#		set {pts_lvl_7} to 40*{checking_finished_players}
-#		set {pts_lvl_7} to round({pts_lvl_7}*{multiplier})
-#		set {pts_lvl_8} to 45*{checking_finished_players}
-#		set {pts_lvl_8} to round({pts_lvl_8}*{multiplier})
-#		set {pts_lvl_9} to 50*{checking_finished_players}
-#		set {pts_lvl_9} to round({pts_lvl_9}*{multiplier})
-#		set {pts_lvl_10} to 55*{checking_finished_players}
-#		set {pts_lvl_10} to round({pts_lvl_10}*{multiplier})
-#		set {pts_lvl_11} to 60*{checking_finished_players}
-#		set {pts_lvl_11} to round({pts_lvl_11}*{multiplier})
-#		command("//world find_the_button"
-#		command("//pos1 -4,152,4"
-#		command("//pos2 4,147,-4"
-#		command("//set glass"
-#		command("//pos1 -3,151,3"
-#		command("//pos2 3,148,-3"
-#		command("//set air"
-#		wait 1 second
-#		command("gamemode adventure @a"
-#		command("execute in minecraft:find_the_button run tp @a 0 148 0 0 0"
-
-#command /totalbuttons:
-#	permission: "group.spectators"
-#	trigger:
-#		create a gui with virtual chest inventory with 4 rows named "&aAll buttons":
-#			make gui slot 3 with oak button named "&rOak Button / &a%{ftb_oak_completed}% Pressed" with lore "&e+%{pts_lvl_1}% 工"
-#			make gui slot 4 with spruce button named "&rSpruce Button / &a%{ftb_spruce_completed}% Pressed" with lore "&e+%{pts_lvl_2}% 工"
-#			make gui slot 5 with acacia button named "&rAccacia Button / &a%{ftb_acacia_completed}% Pressed" with lore "&e+%{pts_lvl_3}% 工"
-#			make gui slot 12 with mangrove button named "&rMangrove Button / &a%{ftb_mangrove_completed}% Pressed" with lore "&e+%{pts_lvl_4}% 工"
-#			make gui slot 13 with crimson button named "&rCrimson Button / &a%{ftb_crimson_completed}% Pressed" with lore "&e+%{pts_lvl_5}% 工"
-#			make gui slot 14 with polished blackstone button named "&rPolished Blackstone Button / &a%{ftb_polished_blackstone_completed}% Pressed" with lore "&e+%{pts_lvl_6}% 工"
-#			make gui slot 21 with dark oak button named "&rDark Oak Button / &a%{ftb_dark_oak_completed}% Pressed" with lore "&e+%{pts_lvl_7}% 工"
-#			make gui slot 22 with stone button named "&rStone Button / &a%{ftb_stone_completed}% Pressed" with lore "&e+%{pts_lvl_8}% 工"
-#			make gui slot 23 with warped button named "&rWarped Button / &a%{ftb_warped_completed}% Pressed" with lore "&e+%{pts_lvl_9}% 工"
-#			make gui slot 30 with jungle button named "&rJungle Button / &a%{ftb_jungle_completed}% Pressed" with lore "&e+%{pts_lvl_10}% 工"
-#			make gui slot 31 with birch button named "&rBirch Button / &a%{ftb_birch_completed}% Pressed" with lore "&e+%{pts_lvl_11}% 工"
-#		open the last gui for the player
-
 command /courses:
 	description: lance race
 	permission: *
@@ -1123,63 +1001,6 @@ command /courses:
 		command("execute in minecraft:races_lap_3 run tp @a 0.5 131 3.5 180 0")
 		wait 2 seconds
 		command("gamemode adventure @a")
-
-#command /sg [<text>]:
-#	description: lance le sg
-#	permission: *
-#	permission message: &cThis command does not exist
-#	trigger:
-#		set {jeu_condi} to 6
-#		set {jeu_logo} to "" #Survival Games Logo (\uE007)
-#		set {sg.wb} to 40
-#		loop all players:
-#			if player doesn't have permission "group.spectators":
-#				add 1 to {finished_players}
-#				set {alive.%loop-player's uuid%} to true
-#			else:
-#				set {alive.%loop-player's uuid%} to false
-#
-#		set {1st_blood} to true
-#		set {pts_lvl_1} to round(50*{multiplier})
-#		set {pts_lvl_2} to round(20*{multiplier})
-#		set {pts_lvl_3} to round(10*{multiplier})
-#		set {pts_lvl_4} to round(15*{multiplier})
-#		set {pts_lvl_5} to round(75*{multiplier})
-#		loop all players:
-#			command("effect give %loop-player% invisibility 210 1 true"
-#		set {game} to "SG4"
-#		sgMapCheck()
-
-#command /laby:
-#	description: launch laby
-#	permission: *
-#	permission message: &cThis command does not exist
-#	trigger:
-#		set {jeu_condi} to 7
-#		set {finished_players} to 0
-#		command("execute in minecraft:labyrinthe run tp @a 0.0 129 1.0 -90 0"
-#		wait 2 seconds
-#		loop all players:
-#			set loop-player's gamemode to adventure
-#			if loop-player has permission "group.spectators":
-#				set loop-player's gamemode to spectator
-#				set {finished.%loop-player's uuid%} to true
-#				set {laby_level.%loop-player's uuid%} to "None"
-#			else:
-#				set {finished.%loop-player's uuid%} to false
-#				set {gamemode.%loop-player's uuid%} to 2
-#				set {laby_level.%loop-player's uuid%} to "Start"
-#				command("effect give %loop-player% invisibility 660 1 true"
-#				command("effect give %loop-player% night_vision 660 255 true"
-#		set {pts_lvl_1} to 30*{checking_finished_players}
-#		set {pts_lvl_1} to {pts_lvl_1}*{multiplier}
-#		set {remove_pts_lvl_1} to 30*{multiplier}
-#		set {pts_lvl_2} to 50*{checking_finished_players}
-#		set {pts_lvl_2} to {pts_lvl_2}*{multiplier}
-#		set {remove_pts_lvl_2} to 50*{multiplier}
-#		set {pts_lvl_3} to 80*{checking_finished_players}
-#		set {pts_lvl_3} to {pts_lvl_3}*{multiplier}
-#		set {remove_pts_lvl_3} to 80*{multiplier}
 
 command /bowpvp:
 	description: lauch bow pvp
@@ -1249,10 +1070,10 @@ command /bm:
 				set {finished.%loop-player's uuid%} to false
 				set {build.location.%loop-player's uuid%} to {_pos.player}
 				command("execute as @e[type=minecraft:text_display,tag=bm%{_pos.player} + 1%] run data modify entity @s text set value '{""text"":""Plot : %{color.%loop-player's uuid%}%%loop-player%""}'")
-				send "[<##155966>&lTheEvent580 - Build Masters&r] Player %loop-player% has been set to plot %{_pos.player}%" to console
+				send "[&9Build Masters&r] Player %loop-player% has been set to plot %{_pos.player}%" to console
 				loop all players:
 					if loop-player-2 has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Build Masters&r] Player %loop-player-1% has been set to plot %{_pos.player}%" to loop-player-2
+						send "[&9Build Masters&r] Player %loop-player-1% has been set to plot %{_pos.player}%" to loop-player-2
 				add 1 to {_pos.player}
 		set {builds_total} to 0
 		set {pts_lvl_1} to 5*{checking_finished_players}#build 1
@@ -1511,7 +1332,7 @@ command /readycheck:
 			set {ready_check.%loop-player's uuid%} to false
 			set {ready.%loop-player's uuid%} to false
 			if loop-player has permission "group.spectators":
-				send "[<##155966>&lTheEvent580 - Admin&r] Ready check started by %executor%, ends in 30 seconds" to loop-player
+				send "[&4Admin&r] Ready check started by %executor%, ends in 30 seconds" to loop-player
 				set {ready.%loop-player's uuid%} to true
 			else:
 				add 1 to {check_players}
@@ -1559,7 +1380,7 @@ command /readycheck:
 						else:
 							if {ready_message} != loop-value:
 								set {ready_message} to "%{ready_message}%, %loop-value%"
-				broadcast "[<##155966>&lTheEvent580&r] %{ready_message}%"
+				broadcast "[<##1D7874>&lReady Check&r] %{ready_message}%"
 				if {timer-s} = 0:
 					exit loop
 			else if {timer-s} > 11:
@@ -1568,7 +1389,7 @@ command /readycheck:
 				send action bar "&e&lTime left : &c&l%{timer-s}%&e&ls" to all players
 			wait 19 ticks
 		if {check_players} is 0:
-			send "[<##155966>&lTheEvent580 - Admin&r] Everyone is ready, start whenever you want !" to executor
+			send "[&4Admin&r] Everyone is ready, start whenever you want !" to executor
 		else:
 			loop all players:
 				if {ready_check.%loop-player's uuid%} is false:
@@ -1583,7 +1404,7 @@ command /readycheck:
 								make gui slot {pos} with skull of {head} named "&r&c&l%loop-player-2%&f isn't ready"
 								add 1 to {pos}
 					open the last gui for the loop-player
-			send "[<##155966>&lTheEvent580 - Admin&r] %{check_players}% players are not ready, ask them why they aren't"
+			send "[&4Admin&r] %{check_players}% players are not ready, ask them why they aren't"
 		make player execute command "mute"
 
 command /ready:
@@ -1594,7 +1415,9 @@ command /ready:
 			set {ready.%player's uuid%} to true
 			add 1 to {ready_player}
 			add 1 to {replied}
-			broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is ready to start."
+			loop all players:
+				if loop-player has permission "theevent580.staff":
+					send "[<##1D7874>&lReady Check&r] &a&l%player%&r is ready to start." to loop-player
 
 command /notready:
 	description: unready you automatically
@@ -1603,7 +1426,9 @@ command /notready:
 			set {ready_check.%player's uuid%} to true
 			set {ready.%player's uuid%} to false
 			add 1 to {replied}
-			broadcast "[<##155966>&lTheEvent580&r] &c&l%player%&r isn't ready to start."
+			loop all players:
+				if loop-player has permission "theevent580.staff":
+					send "[<##1D7874>&lReady Check&r] &c&l%player%&r isn't ready to start." to loop-player
 
 command /serverversion:
 	description: give the server version
@@ -1631,35 +1456,35 @@ command /ping [<player>]:
 	trigger:
 		if arg-1 is set:
 			if arg-1's ping < 50:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 100:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 150:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 200:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
-			else if arg-1's ping > 199:
-				send "[<##155966>&lTheEvent580&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
+			else:
+				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
 		else:
 			if executor's ping < 50:
-				send "[<##155966>&lTheEvent580&r] Your ping is &a&l%executor's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] Your ping is &a&l%executor's ping% &rms" to executor
 			else if executor's ping < 100:
-				send "[<##155966>&lTheEvent580&r] Your ping is &e&l%executor's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] Your ping is &e&l%executor's ping% &rms" to executor
 			else if executor's ping < 150:
-				send "[<##155966>&lTheEvent580&r] Your ping is &6&l%executor's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] Your ping is &6&l%executor's ping% &rms" to executor
 			else if executor's ping < 200:
-				send "[<##155966>&lTheEvent580&r] Your ping is &c&l%executor's ping% &rms" to executor
-			else if executor's ping > 199:
-				send "[<##155966>&lTheEvent580&r] Your ping is &4&l%executor's ping% &rms" to executor
+				send "[<##1D7874>&lPing&r] Your ping is &c&l%executor's ping% &rms" to executor
+			else:
+				send "[<##1D7874>&lPing&r] Your ping is &4&l%executor's ping% &rms" to executor
 
 command /msg <player> <text>:
 	aliases: tell
 	trigger:
 		if arg-1 is player:
-			send "[<##155966>&lTheEvent580 - Private Messages&r] Talking to yourself is disabled on this server."
+			send "[<##155966>&lPrivate Messages&r] Talking to yourself is disabled on this server."
 		else:
-			send "[<##155966>&lTheEvent580 - Private Messages&r] From %player% : %arg-2%" to arg-1
-			send "[<##155966>&lTheEvent580 - Private Messages&r] To %arg-1% : %arg-2%" to player
+			send "[<##155966>&lPrivate Messages&r] From %player% : %arg-2%" to arg-1
+			send "[<##155966>&lPrivate Messages&r] To %arg-1% : %arg-2%" to player
 
 command /staff <text> [<player>]:
 	permission: *
@@ -1670,9 +1495,9 @@ command /staff <text> [<player>]:
 		if arg-1 is "add":
 			add arg-2 to {staff::*}
 		if arg-1 is "see":
-			send "[<##155966>&lTheEvent580 - Admin&r] Online staff :"
+			send "[&4Admin&r] Online staff :"
 			loop {staff::*}:
-				send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
+				send "[&4Admin&r] %loop-value%"
 
 command /tpspec:
 	trigger:
@@ -1794,35 +1619,7 @@ command /tpspec:
 							add 9 to {_slot}
 					open the last gui for the player
 		else:
-			send "[<##155966>&lTheEvent580&r] You currently don't have access to the teleport menu"
-		#set {_user} to player
-		#if {finished.%player's uuid%} is true:
-		#	create a gui with virtual chest inventory with 6 rows named "Spectator menu":
-		#		wait 1 tick
-		#		set {_slot} to 0
-		#		loop all players:
-		#			if {finished.%loop-player's uuid%} is false:
-		#				set {_head} to "%loop-value%" parsed as an offline player
-		#				make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
-		#					teleport {_user} to {_head}
-		#					close {_user}'s inventory
-		#				add 1 to {_slot}
-		#	open the last gui for the player
-		#else:
-		#	if {finished.%player's uuid%} = true:
-		#		loop all players:
-		#			if loop-player doesn't have permission "group.spectators":
-		#				add loop-player to {_players::*}
-		#		create a gui with virtual chest inventory with 6 rows named "Spectator menu":
-		#			wait 1 tick
-		#			set {_slot} to 0
-		#			loop {_players::*}:
-		#				set {_head} to "%loop-value-2%" parsed as an offline player
-		#				make gui slot {_slot} with skull of {_head} named "&fTeleport to %{_head}%":
-		#					teleport {_user} to {_head}
-		#					close {_user}'s inventory
-		#				add 1 to {_slot}
-		#		open the last gui for the player
+			send "[&4Admin&r] You currently don't have access to the teleport menu"
 command /tpspec2:
 	trigger:
 		set {_user} to player
@@ -1895,7 +1692,7 @@ command /tpspec2:
 							add 9 to {_slot}
 				open the last gui for the player
 		else:
-			send "[<##155966>&lTheEvent580&r] You currently don't have access to the teleport menu"
+			send "[&4Admin&r] You currently don't have access to the teleport menu"
 
 command /tests <int>:
 	permission: *
@@ -1984,41 +1781,41 @@ command /fly [<player>] [<boolean>]:
 			if arg-2 is set:
 				if arg-2 is true:
 					allow fly for arg-1
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
+					send "[&4Admin&r] Fly mode enabled for %arg-1%" to player
 					if arg-1 is not player:
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
+						send "[&4Admin&r] Fly mode enabled by %executor%" to arg-1
 				else:
 					disable fly for arg-1
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
+					send "[&4Admin&r] Fly mode disabled for %arg-1%" to player
 					if arg-1 is not player:
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
+						send "[&4Admin&r] Fly mode disabled by %executor%" to arg-1
 			else:
 				if arg-1 can fly:
 					disable fly for arg-1
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled for %arg-1%" to player
+					send "[&4Admin&r] Fly mode disabled for %arg-1%" to player
 					if arg-1 is not player:
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled by %executor%" to arg-1
+						send "[&4Admin&r] Fly mode disabled by %executor%" to arg-1
 				else:
 					allow fly for arg-1
-					send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to player
+					send "[&4Admin&r] Fly mode enabled for %arg-1%" to player
 					if arg-1 is not player:
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled by %executor%" to arg-1
+						send "[&4Admin&r] Fly mode enabled by %executor%" to arg-1
 		else:
 			if executor is player:
 				if arg-2 is set:
 					if arg-2 is true:
 						allow fly for player
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled for %arg-1%" to players
+						send "[&4Admin&r] Fly mode enabled for %arg-1%" to players
 					else:
 						disable fly for player
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled" to player
+						send "[&4Admin&r] Fly mode disabled" to player
 				else:
 					if player can fly:
 						disable fly for player
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode disabled" to player
+						send "[&4Admin&r] Fly mode disabled" to player
 					else:
 						allow fly for player
-						send "[<##155966>&lTheEvent580 - Admin&r] Fly mode enabled" to player
+						send "[&4Admin&r] Fly mode enabled" to player
 
 on tab complete of "/fly":
 	if tab arg-1 is set:
@@ -2032,20 +1829,20 @@ command /mute [<player>]:
 		if arg-1 is not set:
 			if {mute.server} is false:
 				set {mute.server} to true
-				send action bar "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rThe chat has been muted !" to all players
+				send action bar "[<##1D7874>&lChat&r] &6⚠&rThe chat has been muted !" to all players
 			else if {mute.server} is true:
-				send action bar "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rThe chat has been unmuted !" to all players
+				send action bar "[<##1D7874>&lChat&r] &6⚠&rThe chat has been unmuted !" to all players
 				set {mute.server} to false
 		else:
 			if arg-1 doesn't have permission "group.spectators":
 				if {mute.%arg-1's uuid%} is false:
 					set {mute.%arg-1's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rYou have been muted by %player% !%nl%" to arg-1
-					send "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rYou have muted %arg-1% sucessfully !%nl%" to player
+					send "[<##1D7874>&lChat&r] &6⚠&rYou have been muted by %player% !%nl%" to arg-1
+					send "[<##1D7874>&lChat&r] &6⚠&rYou have muted %arg-1% sucessfully !%nl%" to player
 				else if {mute.%arg-1's uuid%} is true:
 					set {mute.%arg-1's uuid%} to false
-					send "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rYou have been unmuted by %player% !%nl%" to arg-1
-					send "[<##155966>&lTheEvent580 - Chat&r] &6⚠&rYou have unmuted %arg-1% sucessfully !%nl%" to player
+					send "[<##1D7874>&lChat&r] &6⚠&rYou have been unmuted by %player% !%nl%" to arg-1
+					send "[<##1D7874>&lChat&r] &6⚠&rYou have unmuted %arg-1% sucessfully !%nl%" to player
 
 command /filter <text> <text>:
 	description: add a word / sentence to the anti-swear filter
@@ -2064,9 +1861,9 @@ command /filtersee:
 	description: send the anti-swear filter to the player
 	permission: *
 	trigger:
-		send "[<##155966>&lTheEvent580 - Admin&r] Here are all of the banned words:"
+		send "[&4Admin&r] Here are all of the banned words:"
 		loop {filter::*}:
-			send "[<##155966>&lTheEvent580 - Admin&r] %loop-value%"
+			send "[&4Admin&r] %loop-value%"
 
 command /testmode <text>:
 	description: turns on and off the test mode
@@ -2097,7 +1894,7 @@ command /seeplacement:
 		set {list_points::*} to sorted {list_points::*}
 		set {list_points::*} to reversed {list_points::*}
 
-		send "[<##155966>&lTheEvent580 - Admin&r] Here are placements of all the players :"
+		send "[&4Admin&r] Here are placements of all the players :"
 		set {seepts} to 1
 		loop {list_points::*}:
 			loop all players:
@@ -2105,7 +1902,7 @@ command /seeplacement:
 					if {list_points_player::*} doesn't contain loop-player's name:
 						add loop-player's name to {list_points_player::*}
 						if {list_points::%{seepts}%} = {points.%loop-player's uuid%}:
-							send "[<##155966>&lTheEvent580 - Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
+							send "[&4Admin&r] %{seepts}% : %{color.%loop-player's uuid%}%%loop-player%&r has %{points.%loop-player's uuid%}% 工"
 			add 1 to {seepts}
 
 command /on:
@@ -2164,7 +1961,7 @@ command /see <player>:
 			if loop-player doesn't have permission "group.spectators":
 				if {finished.%loop-player's uuid%} is false:
 					reveal loop-player for arg-1
-		send "[<##155966>&lTheEvent580 - Admin&r] You can now see the players who haven't finished yet" to arg-1
+		send "[&4Admin&r] You can now see the players who haven't finished yet" to arg-1
 
 command /skip:
 	permission: *
@@ -2174,7 +1971,7 @@ command /skip:
 			make gui slot 12 with lime wool named "&aYes" with lore "&rI am sure to skip the game !":
 				close player's inventory
 				loop {staff::*}:
-					send "[<##155966>&lTheEvent580 - Admin&r] Game is getting skipped by %executor%" to loop-value
+					send "[&4Admin&r] Game is getting skipped by %executor%" to loop-value
 				if {jeu} is 6:
 					set {timer-m} to 1
 					set {timer-s} to 30
@@ -2251,10 +2048,10 @@ command /skip:
 					heal loop-player
 					reveal hidden players of loop-player
 					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580 - Admin&r] Game Skipped" to loop-player
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aIntermission" to loop-player
+						send "[&4Admin&r] Game Skipped" to loop-player
+						send "[&4Admin&r] Event state : &e%{event_state}%&r --> &aIntermission" to loop-player
 						set {event_state} to "Intermission"
-				broadcast "[<##155966>&lTheEvent580&r] Game has been skipped."
+				broadcast "[&4Admin&r] Game has been skipped."
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to skip the game.":
 				close player's inventory
 		open the last gui for the player
@@ -2267,7 +2064,7 @@ command /speed <text>:
 					set player's flying speed to player's flying speed * 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+					send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 			else:
 				set {_isplayer} to false
 				loop {finished::*}:
@@ -2279,16 +2076,16 @@ command /speed <text>:
 							set player's flying speed to player's flying speed * 2
 							set {_flyspeed} to the flying speed of player
 							set  {_flyspeed} to {_flyspeed} * 10
-							send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+							send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 				if {_isplayer} is false:
-					send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
+					send "[<##1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
 		else if arg-1 = "down":
 			if player has permission "group.spectators":
 				if flying speed of player > 0.1:
 					set player's flying speed to player's flying speed / 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+					send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 			else:
 				set {_isplayer} to false
 				loop {finished::*}:
@@ -2300,9 +2097,9 @@ command /speed <text>:
 							set player's flying speed to player's flying speed / 2
 							set {_flyspeed} to the flying speed of player
 							set  {_flyspeed} to {_flyspeed} * 10
-							send "[<##155966>&lTheEvent580 - Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+							send "[<##1D7874>&Fly&r] Fly speed is now set to 必%{_flyspeed}%"
 				if {_isplayer} is false:
-					send "[<##155966>&lTheEvent580 - Fly&r] You are not in a spectator state, you cannot change you fly speed"
+					send "[<##1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
 
 on tab complete of "/speed":
 	set tab completions for position 1 to "up" and "down"
@@ -2316,21 +2113,21 @@ command /hide [<player>] [<boolean>]:
 				if {hide.%player's uuid%} is true:
 					reveal player for all players
 					set {hide.%player's uuid%} to false
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players"
+					send "[&4Admin&r] You are now visible to other players"
 				else if {hide.%player's uuid%} is not set:
 					hide player from all players
 					loop all players:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+					send "[&4Admin&r] You are now invisible to other players"
 				else:
 					hide player from all players
 					loop all players:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+					send "[&4Admin&r] You are now invisible to other players"
 			else:
 				if arg-2 is true:
 					hide player from all players
@@ -2338,31 +2135,31 @@ command /hide [<player>] [<boolean>]:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players"
+					send "[&4Admin&r] You are now invisible to other players"
 				else:
 					reveal player for all players
 					set {hide.%player's uuid%} to false
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players"
+					send "[&4Admin&r] You are now visible to other players"
 		else:
 			if arg-2 is not set:
 				if {hide.%arg-1's uuid%} is true:
 					reveal arg-1 for all players
 					set {hide.%arg-1's uuid%} to false
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
+					send "[&4Admin&r] You are now visible to other players" to arg-1
 				else if {hide.%arg-1's uuid%} is not set:
 					hide arg-1 from all players
 					loop all players:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+					send "[&4Admin&r] You are now invisible to other players" to arg-1
 				else:
 					hide arg-1 from all players
 					loop all players:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+					send "[&4Admin&r] You are now invisible to other players" to arg-1
 			else:
 				if arg-2 is true:
 					hide arg-1 from all players
@@ -2370,11 +2167,11 @@ command /hide [<player>] [<boolean>]:
 						if loop-player has permission "group.spectators":
 							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now invisible to other players" to arg-1
+					send "[&4Admin&r] You are now invisible to other players" to arg-1
 				else:
 					reveal arg-1 for all players
 					set {hide.%arg-1's uuid%} to false
-					send "[<##155966>&lTheEvent580 - Admin&r] You are now visible to other players" to arg-1
+					send "[&4Admin&r] You are now visible to other players" to arg-1
 
 on tab complete of "/hide":
 	if tab arg-1 is set:
@@ -2385,10 +2182,10 @@ command /multiplier [<int>]:
 	permission message: &cThis command does not exist
 	trigger:
 		if arg-1 is not set :
-			send "[<##155966>&lTheEvent580 - Admin&r] Current multiplier : %{multiplier}%║"
+			send "[&4Admin&r] Current multiplier : %{multiplier}%║"
 		else:
 			set {multiplier} to arg-1
-			send "[<##155966>&lTheEvent580 - Admin&r] New multiplier : %{multiplier}%║"
+			send "[&4Admin&r] New multiplier : %{multiplier}%║"
 
 command /achivement <player> <text> <text>:
 	description: Give / Remove an achivement to any player
@@ -2400,83 +2197,83 @@ command /achivement <player> <text> <text>:
 				set {Secret_Base_1.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement aquired : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)"
+				send "[<##155966>&lAchivement&r] Achivement aquired : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "Herobrine":
 				set {Herobrine.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement aquired : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)"
+				send "[<##155966>&lAchivement&r] Achivement aquired : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "HubParkour":
 				set {HubParkour.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement aquired : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)"
+				send "[<##155966>&lAchivement&r] Achivement aquired : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "1SecBM":
 				set {1SecBM.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement aquired : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)"
+				send "[<##155966>&lAchivement&r] Achivement aquired : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "FBSG":
 				set {FBSG.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement aquired : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)"
+				send "[<##155966>&lAchivement&r] Achivement aquired : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to loop-player
 		if arg-2 is "remove":
 			if arg-3 is "Secret_Base_1":
 				set {Secret_Base_1.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement removed : You found the secret base in the hub !" to arg-1
-				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% does not have the Achivement : You found the secret base in the hub !"
+				send "[<##155966>&lAchivement&r] Achivement removed : You found the secret base in the hub !" to arg-1
+				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You found the secret base in the hub !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% got their Achivement : You found the secret base in the hub ! removed" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You found the secret base in the hub ! removed" to loop-player
 			if arg-3 is "Herobrine":
 				set {Herobrine.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement removed : You discovered Herobrine !" to arg-1
-				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% does not have the Achivement : You discovered Herobrine !"
+				send "[<##155966>&lAchivement&r] Achivement removed : You discovered Herobrine !" to arg-1
+				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You discovered Herobrine !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% got their Achivement : You discovered Herobrine ! removed" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You discovered Herobrine ! removed" to loop-player
 			if arg-3 is "HubParkour":
 				set {HubParkour.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement removed : You finished the Hub parkour !" to arg-1
-				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% does not have the Achivement : You finished the Hub parkour !"
+				send "[<##155966>&lAchivement&r] Achivement removed : You finished the Hub parkour !" to arg-1
+				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You finished the Hub parkour !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% got their Achivement : You finished the Hub parkour ! removed" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You finished the Hub parkour ! removed" to loop-player
 			if arg-3 is "1SecBM":
 				set {1SecBM.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement removed : Finishing the Build Master 1 second before the end !" to arg-1
-				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% does not have the Achivement : Finishing the Build Master 1 second before the end !"
+				send "[<##155966>&lAchivement&r] Achivement removed : Finishing the Build Master 1 second before the end !" to arg-1
+				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Finishing the Build Master 1 second before the end !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% got their Achivement : Finishing the Build Master 1 second before the end ! removed" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : Finishing the Build Master 1 second before the end ! removed" to loop-player
 			if arg-3 is "FBSG":
 				set {FBSG.%arg-1's uuid%} to false
-				send "[<##155966>&lTheEvent580 - Achivement&r] Achivement removed : Surviving until the Final Battle in Survival Games at least once !" to arg-1
-				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% does not have the Achivement : Surviving until the Final Battle in Survival Games at least once !"
+				send "[<##155966>&lAchivement&r] Achivement removed : Surviving until the Final Battle in Survival Games at least once !" to arg-1
+				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Surviving until the Final Battle in Survival Games at least once !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lTheEvent580 - Achivement&r] Player %arg-1% got their Achivement : Surviving until the Final Battle in Survival Games at least once ! removed" to loop-player
+						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : Surviving until the Final Battle in Survival Games at least once ! removed" to loop-player
 		if arg-2 is "check":
 			if arg-3 is "Secret_Base_1":
 				send {Secret_Base_1.%arg-1's uuid%.infos} to player
@@ -2506,10 +2303,10 @@ command /seeblock:
 	trigger:
 		if {check_block.%player's uuid%} is false:
 			set {check_block.%player's uuid%} to true
-			send "%nl%[<##155966>&lTheEvent580 - Colorblind&r] You are now able to see the name of the block you're looking at !%nl%"
+			send "%nl%[<##1D7874>&lColorblind&r] You are now able to see the name of the block you're looking at !%nl%"
 		else:
 			set {check_block.%player's uuid%} to false
-			send "%nl%[<##155966>&lTheEvent580 - Colorblind&r] You can no longer see the name of the block you're looking at !%nl%"
+			send "%nl%[<##1D7874>&lColorblind&r] You can no longer see the name of the block you're looking at !%nl%"
 
 command /wl <text> [<offline player>]:
 	permission: *
@@ -2517,25 +2314,25 @@ command /wl <text> [<offline player>]:
 	trigger:
 		if arg-1 is "add":
 			if arg-2 is not set:
-				send "[<##155966>&lTheEvent580 - Admin&r] Please enter a username"
+				send "[&4Admin&r] Please enter a username"
 			else:
 				if arg-2 is not whitelisted:
 					make player execute command "whitelist add %arg-2%"
-					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% has been added to the whitelist"
+					send "[&4Admin&r] Player %arg-2% has been added to the whitelist"
 				else:
-					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% is already whitelisted"
+					send "[&4Admin&r] Player %arg-2% is already whitelisted"
 		if arg-1 is "remove":
 			if arg-2 is not set:
-				send "[<##155966>&lTheEvent580 - Admin&r] Please enter a username"
+				send "[&4Admin&r] Please enter a username"
 			else:
 				if arg-2 is whitelisted:
 					make player execute command "whitelist remove %arg-2%"
-					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% has been removed from the whitelist"
+					send "[&4Admin&r] Player %arg-2% has been removed from the whitelist"
 				else:
-					send "[<##155966>&lTheEvent580 - Admin&r] Player %arg-2% is already unwhitelisted"
+					send "[&4Admin&r] Player %arg-2% is already unwhitelisted"
 		if arg-1 is "list":
 			make player execute command "whitelist list"
-			#send "[<##155966>&lTheEvent580 - Admin&r] Please check the console"
+			#send "[&4Admin&r] Please check the console"
 		if arg-1 = "players":
 			loop {players::*}:
 				add loop-value to whitelist
@@ -2720,7 +2517,7 @@ command /end:
 	trigger:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				kick loop-player due to "[<##155966>&lTheEvent580&r] TheEvent580 is over, thanks for playing and see you soon !"
+				kick loop-player due to "[<##155966>&lServer&r] TheEvent580 is over, thanks for playing and see you soon !"
 				command("wl remove %loop-player%")
 		set {event_timer} to false
 		set {event_timer_second} to 0
@@ -2737,64 +2534,15 @@ command /grab <player> <player>:
 			else:
 				set {ride.%arg-1's uuid%} to arg-2
 				make arg-1 ride arg-2
-				send "[<##155966>&lTheEvent580&r] You grabbed %{color.%arg-1's uuid%}% %arg-1%&r !" to arg-2
-				send "[<##155966>&lTheEvent580&r] You've been grabbed by %{color.%arg-2's uuid%}% %arg-2%&r !" to arg-1
+				send "[<##1D7874>&lMinecart&r] You grabbed %{color.%arg-1's uuid%}% %arg-1%&r !" to arg-2
+				send "[<##1D7874>&lMinecart&r] You've been grabbed by %{color.%arg-2's uuid%}% %arg-2%&r !" to arg-1
 		else:
-			send "[<##155966>&lTheEvent580&r] You cannot grab yourself" to arg-1
-
-#command /playsgmusic:
-#	permission: *
-#	trigger:
-#		set {_random} to a random number between 1 and 8
-#		if {_random} = 1:
-#			loop all players:
-#				play sound "custom:sg1" in record category with volume 1 to the loop-player
-#				wait 155 seconds
-#		if {_random} = 2:
-#			loop all players:
-#				play sound "custom:sg2" in record category with volume 1 to the loop-player
-#				wait 218 seconds
-#		if {_random} = 3:
-#			loop all players:
-#				play sound "custom:sg3" in record category with volume 1 to the loop-player
-#				wait 196 seconds
-#		if {_random} = 4:
-#			loop all players:
-#				play sound "custom:sg4" in record category with volume 1 to the loop-player
-#				wait 194 seconds
-#		if {_random} = 5:
-#			loop all players:
-#				play sound "custom:sg5" in record category with volume 1 to the loop-player
-#				wait 218 seconds
-#		if {_random} = 6:
-#			loop all players:
-#				play sound "custom:sg6" in record category with volume 1 to the loop-player
-#				wait 224 seconds
-#		if {_random} = 7:
-#			loop all players:
-#				play sound "custom:sg7" in record category with volume 1 to the loop-player
-#				wait 170 seconds
-#		if {_random} = 8:
-#			loop all players:
-#				play sound "custom:sg8" in record category with volume 1 to the loop-player
-#				wait 165 seconds
-#		if {timer} = 6:
-#			command("playsgmusic"
-	
-#command /item <player>:
-#	permission: *
-#	trigger:
-#		give 1 of carrot on a stick named "&rSwap players and spectators" with lore "&rRight click to swap the players and the spectators" to arg-1
+			send "[<##1D7874>&lMinecart&r] You cannot grab yourself" to arg-1
 
 command /seepoints <player>:
 	permission: *
 	trigger:
 		send {points.%arg-1's uuid%} to player
-
-#command /storepurchase <text>:
-#	permission: *
-#	trigger:
-#		broadcast "[<##155966>&lTheEvent580 - Store&r] %arg-1%"
 
 command /uuid <offline player>:
 	permission: *
@@ -3276,3 +3024,50 @@ command /sub <offline player> <offline player>:
 		command("fly %arg-2% false")
 		command("hide %arg-2% false")
 		broadcast "Player %{color.%arg-2's uuid%}%%arg-2%&r has replaced Player %{color.%arg-1's uuid%}%%arg-1%&r."
+
+command /pridecolor <player> <text>:
+	permission: *
+	trigger:
+		if arg-2 = "rainbow", "rainbow_wave", "lesbian", "gay", "bisexual", "transgender", "pride", "pansexual", "asexual", "aromantic", "non_binary" or "rainbow_iter":
+			if arg-2 = "rainbow":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f01c> "
+				set {_color} to colored "<##f0f01c>"
+			else if arg-2 = "rainbow_wave":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f084> "
+				set {_color} to colored "<##f0f084>"
+			else if arg-2 = "rainbow_iter":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f088> "
+				set {_color} to colored "<##f0f088>"
+			else if arg-2 = "lesbian":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f040> "
+				set {_color} to colored "<##f0f040>"
+			else if arg-2 = "gay":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f044> "
+				set {_color} to colored "<##f0f044>"
+			else if arg-2 = "bisexual":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f048> "
+				set {_color} to colored "<##f0f048>"
+			else if arg-2 = "transgender":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f04c> "
+				set {_color} to colored "<##f0f04c>"
+			else if arg-2 = "pride":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f050> "
+				set {_color} to colored "<##f0f050>"
+			else if arg-2 = "pansexual":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f054> "
+				set {_color} to colored "<##f0f054>"
+			else if arg-2 = "asexual":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f058> "
+				set {_color} to colored "<##f0f058>"
+			else if arg-2 = "aromantic":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f05c> "
+				set {_color} to colored "<##f0f05c>"
+			else if arg-2 = "non_binary":
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f060> "
+				set {_color} to colored "<##f0f060>"
+			send colored "Color has been changed to %{_color}%%arg-2%&r for %arg-1%"
+		else:
+			send "&cThis color doesn't exist"
+
+on tab complete of "/pridecolor":
+	set tab completions for position 2 to "rainbow", "rainbow_wave", "lesbian", "gay", "bisexual", "transgender", "pride", "pansexual", "asexual", "aromantic", "non_binary" and "rainbow_iter"
