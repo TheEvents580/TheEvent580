@@ -8,39 +8,31 @@ function setPlayerTeamWithBackup(p:offline player):
 	if {color.%{_p}'s uuid%.backup} = "spectators":
 		command("lp user %{_p}% parent set spectators")
 		command("/team join spectators %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "rouge":
 		command("lp user %{_p}% parent set rouge")
 		command("/team join red %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "orange":
 		command("lp user %{_p}% parent set orange")
 		command("/team join orange %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "jaune":
 		command("lp user %{_p}% parent set jaune")
 		command("/team join jaune %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "vert":
 		command("lp user %{_p}% parent set vert")
 		command("/team join vert %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "bleu_clair":
 		command("lp user %{_p}% parent set bleu_clair")
 		command("/team join bleu_clair %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "bleu":
 		command("lp user %{_p}% parent set bleu")
 		command("/team join bleu %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "violet":
 		command("lp user %{_p}% parent set violet")
 		command("/team join violet %{_p}%")
-		setPlayerColor({_p})
 	else if {color.%{_p}'s uuid%.backup} = "rose":
 		command("lp user %{_p}% parent set rose")
 		command("/team join rose %{_p}%")
-		setPlayerColor({_p})
+	setPlayerColor({_p})
 
 function setPlayerColor(p:player):
 	if {_p} has permission "group.spectators":
