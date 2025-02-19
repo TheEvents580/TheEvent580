@@ -7,7 +7,7 @@ every 2 ticks:
 		set line 12 of loop-player's scoreboard to ""
 		clear line 11 of loop-player's scoreboard
 		clear line 10 of loop-player's scoreboard
-		set line 9 of loop-player's scoreboard to "<##E2F093>&lPlayers Online :<##D9D8F1> %{online_players}%/-1"
+		set line 9 of loop-player's scoreboard to "<##E2F093>&lPlayers Online :<##D9D8F1> %{online_players}%/2"
 		if {jeu_condi} is 2:
 			if {finished.%loop-player's uuid%} = false:
 				set line 8 of loop-player's scoreboard to "<##E2F093>&lLevel :<##D9D8F1> %{parkour.main_level.%loop-player's uuid%}% - %{parkour.sub_level.%loop-player's uuid%}%"
@@ -55,8 +55,10 @@ every 2 ticks:
 			else:
 				set line 8 of loop-player's scoreboard to "<##E2F093>&lNext weapon :<##D9D8F1> %name of {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}%"
 		else:
-			if -1-{online_players} > 0:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for <##D9D8F1>%-1-{online_players}%<##E2F093>&l players"
+			if 2-{online_players} = 1:
+				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for <##D9D8F1>%2-{online_players}%<##E2F093>&l player"
+			else if 2-{online_players} > 0:
+				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for <##D9D8F1>%2-{online_players}%<##E2F093>&l players"
 			else:
 				clear line 8 of loop-player's scoreboard
 		if {jeu_condi} = 0:
@@ -95,7 +97,7 @@ every 2 ticks:
 					if {scoreboard.pos} is 0:
 						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})%"
 					if {scoreboard.pos} is 1:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 25th"
+						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 2nd"
 					set line 2 of loop-player's scoreboard to "<##BCD71D>&lYour All Time &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({total_points.%loop-player's uuid%})%"
 			else if {timer} is 5 or 6 or 7 or 10:
 				set line 2 of loop-player's scoreboard to ""
