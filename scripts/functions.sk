@@ -1,8 +1,8 @@
 function command(command:text):
 	make console execute command "%{_command}%"
 
-function toast(style:text, icon:text, message:text):
-	make console execute command "toast %{_style}% %{_icon}% %{_message}%"
+function toast(p:player,style:text, icon:text, message:text):
+	make console execute command "toast %{_p}%%{_style}% %{_icon}% %{_message}%"
 
 function setPlayerTeamWithBackup(p:offline player):
 	if {color.%{_p}'s uuid%.backup} = "spectators":
