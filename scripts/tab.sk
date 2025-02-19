@@ -6,7 +6,7 @@ function reloadTab():
 	if {jeu_condi} is 3:
 		set {gametab} to "&e&lBingo&r"
 	if {jeu_condi} is 5:
-		set {gametab} to "&b&lRaces&r"
+		set {gametab} to "&b&lMultilap&r"
 	if {jeu_condi} is 8:
 		set {gametab} to "&d&lBow PVP&r"
 	if {jeu_condi} is 9:
