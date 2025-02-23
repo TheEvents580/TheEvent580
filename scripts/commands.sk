@@ -14,11 +14,9 @@ command /start:
 				command("bossbar set minecraft:count visible true")
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 				set {timer} to 1
-				#loop all players:
-				#	command("toast %loop-player% GOAL emerald_block TheEvent580 is starting|in 3 minutes")
 				wait 2 tick
+				set {checking_finished_players} to 0
 				loop all players:
-					#command("toast %loop-player% TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
 					if loop-player doesn't have permission "group.spectators":
 						add 1 to {checking_finished_players}
 					if loop-player has permission "theevent580.staff":
@@ -516,11 +514,11 @@ command /consolereset:
 				set helmet of loop-player to {flag.%loop-player's uuid%}
 			if loop-player has permission "theevent580.staff":
 				if {debug.%loop-player's uuid%} is true:
-					send "[<##155966>&lTheEvent580 - Admin&r] Reset ended" to loop-player
-					send "[<##155966>&lTheEvent580 - Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
+					send "[&4Admin&r] Reset ended" to loop-player
+					send "[&4Admin&r] Event state : &e%{event_state}%&r --> &aWaiting" to loop-player
 		set {event_state} to "Waiting"
 		command("gamerule sendCommandFeedback true")
-		broadcast "[<##155966>&lTheEvent580&r] Event has been reset."
+		broadcast "[&4Admin&r] Event has been reset."
 
 command /parkour:
 	permission: *
@@ -865,7 +863,7 @@ command /card:
 							make gui slot 23 with sponge named "&cSponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 				open the last gui for the player
 			else:
-				send "[<##155966>&lTheEvent580 - Bingo&r] Sorry, but you are not in &eBingo&r yet, so you are not allowed to see the &eBingo&r card"
+				send "[&eBingo&r] Sorry, but you are not in &eBingo&r yet, so you are not allowed to see the &eBingo&r card"
 		else:
 			create a gui with virtual chest inventory with 3 rows named "&eSpec card":
 				if ({bingo_case_1_completed} / {checking_finished_players})*100 = 0:

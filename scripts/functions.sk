@@ -234,7 +234,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			broadcast "[<##1D7874>Decision Crystal&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
@@ -244,19 +244,19 @@ function checkBiggest():
 	if the size of {games::*} is greater than 1:
 		loop all players:
 			if loop-player has permission "group.spectators":
-				send "[<##155966>&lTheEvent580 - Vote Tie&r] The tied games are :" to loop-player
+				send "[<##1D7874>Vote Tie&r] The tied games are :" to loop-player
 				loop {games::*}:
-					send "[<##155966>&lTheEvent580 - Vote Tie&r] %loop-value-2%" to loop-player
+					send "[<##1D7874>Vote Tie&r] %loop-value-2%" to loop-player
 		set {_random} to a random integer between 1 and the size of {games::*}
 		wait 5 seconds
 		loop all players:
 			send title "&c&lVote is tied" with subtitle "Vote tied between %size of {games::*}% games" to loop-player for 3 seconds
-		broadcast "[<##155966>&lTheEvent580&r] Vote tied between %size of {games::*}% games"
+		broadcast "[<##1D7874>Vote Tie&r] Vote tied between %size of {games::*}% games"
 		if {games::%{_random}%} is "&c&lTrials":
 			wait 5 seconds
 			loop all players:
 				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
@@ -267,7 +267,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
@@ -278,7 +278,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
@@ -289,7 +289,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&a&lTag" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
@@ -300,7 +300,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
@@ -311,7 +311,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
@@ -322,7 +322,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&5&lArms Race" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race&r"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
@@ -333,7 +333,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
 			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
@@ -344,23 +344,23 @@ function checkBiggest():
 function after():
 	if {white} is greater than 1:
 		if {light_gray} is greater than 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l%{white}%&r players haven't voted !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted !"
 	else if {white} is 1:
 		if {light_gray} is greater than 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &r&l1&r player hasn't voted !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted !"
 	else if {white} is 0:
 		if {light_gray} is greater than 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##155966>&lTheEvent580&r] Also, &7&l1&r player voted an already played game !"
+			broadcast "[<##1D7874>Decision Crystal&r] Also, &7&l1&r player voted an already played game !"
 
 function respawnBowPVP(p:player):
 	if {jeu_condi} is 8: #Bow PVP
@@ -754,74 +754,74 @@ function giveRandomItems(p:player):
 		set {_item.nbt} to nbt compound of {_item}
 		add nbt of "{""minecraft:custom_model_data"":19,""minecraft:custom_name"":'{""text"":""Swap players and spectators"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to swap the players and the spectators"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
 	else if {_random} = 66:
 		set {_item} to carrot on a stick
 		set {_item.nbt} to nbt compound of {_item}
 		add nbt of "{""minecraft:custom_model_data"":20,""minecraft:custom_name"":'{""text"":""You choose the game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to choose the game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
 	else if {_random} is between 1 and 14:
 		give 1 of golden chestplate named "&rVote x2" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
 	else if {_random} is between 20 and 29:
 		give 1 of diamond chestplate named "&rVote x3" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Vote x3"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Vote x3"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
 	else if {_random} is between 81 and 85:
 		set {_item} to carrot on a stick
 		set {_item.nbt} to nbt compound of {_item}
 		add nbt of "{""minecraft:custom_model_data"":18,""minecraft:custom_name"":'{""text"":""Block a game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click in a game category to block this game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
 	else if {_random} is between 30 and 39:
 		set {_netheritesword} to a netherite sword named "&rKill a player"
 		set {_netheriteswordnbt} to nbt compound of {_netheritesword}
 		add nbt of "{""minecraft:damage"":2030}" to {_item.nbt}
-		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		give 1 of {_netheritesword} to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
 	else if {_random} is between 40 and 49:
 		set {_crossbow} to a crossbow named "&rKill a player"
 		set {_crossbownbt} to nbt compound of {_crossbow}
 		add nbt of "{""minecraft:damage"":465,""minecraft:charged_projectiles""=[{id:""minecraft:arrow""}]}" to {_item.nbt}
-		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
 		give 1 of {_crossbow} to {_p}
 	else if {_random} is between 70 and 79:
 		give 1 of minecart named "&rGrab a player" with lore "&rClick on a player to grab them on you" to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &b&lRARE&r ""Grab a player"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Grab a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
 	else if {_random} is between 86 and 100:
 		give 1 of fox spawn egg named "&rSpawn a Fox" with lore "&rRight click to spawn a fox that will count as a +1 vote !" to {_p}
-		send "[<##155966>&lTheEvent580&r] You recieved &a&lCOMMON&r ""Spawn a Fox"" !" to {_p}
+		send "[<##155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Spawn a Fox"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Spawn a Fox"" !" to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Spawn a Fox"" !" to loop-player
 	else:
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lTheEvent580&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
+				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
 
 function blockGame(game:text,p:player):
 	if {_game} = "Trials":
@@ -837,7 +837,7 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill -3 247 8 -8 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -3 251 8 -8 253 3 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is orange concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -846,7 +846,7 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill -8 247 3 -3 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -8 251 3 -3 253 -3 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is yellow concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -855,7 +855,7 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill -8 247 -3 -3 247 -8 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -8 251 -3 -3 253 -8 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &a&lTAG&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &a&lTAG&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is lime concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -864,7 +864,7 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill -3 247 -8 3 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill -3 251 -8 3 253 -3 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is light blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -873,16 +873,16 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill 3 247 -8 8 247 -3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 3 251 -8 8 253 -3 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &9&lBUILD MASTERS&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &9&lBUILD MASTERS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
-	if {_game} = "Survival Games":
+	if {_game} = "Arms Race":
 		make console execute command "execute in minecraft:overworld run fill 8 247 -3 3 247 3 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 8 251 -3 3 253 3 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &5&lSURVIVAL GAMES&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &5&lARMS RACE&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is purple concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -891,7 +891,7 @@ function blockGame(game:text,p:player):
 		make console execute command "execute in minecraft:overworld run fill 8 247 3 3 247 8 redstone_block replace air"
 		wait 2 ticks
 		make console execute command "execute in minecraft:overworld run fill 8 251 3 3 253 8 minecraft:polished_deepslate"
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
+		broadcast "[<##155966>&lALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is pink concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -900,7 +900,7 @@ function blockGame(game:text,p:player):
 function refillAll():
 	loop all players:
 		if the z-coordinate of loop-player > 3000:
-			send "[<##155966>&lTheEvent580 - Mall&r] The Mall will be restocked in 5 seconds" to loop-player
+			send "[&9Mall&r] The Mall will be restocked in 5 seconds" to loop-player
 	loop 5 times:
 		wait 1 second
 		bossbarRemove1Sec("mall")
@@ -989,7 +989,7 @@ function refillAll():
 
 	loop all players:
 		if the z-coordinate of loop-player > 3000:
-			send "[<##155966>&lTheEvent580 - Mall&r] The Mall has been restocked" to loop-player
+			send "[&9Mall&r] The Mall has been restocked" to loop-player
 		bossbarRefill("mall", 30)
 		
 	loop 25 times:

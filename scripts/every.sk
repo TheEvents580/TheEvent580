@@ -609,6 +609,7 @@ every tick:
 								allow fly for loop-player
 								force loop-player to fly
 								set loop-player's gamemode to adventure
+								add loop-player to {finished::*}
 								set {finished.%loop-player's uuid%} to true
 								set {build.%loop-player's uuid%} to "end"
 							set {_x_%loop-player's uuid%} to the x-coordinate of loop-player
@@ -693,6 +694,7 @@ every tick:
 							set slot 0 of loop-player to compass named "&rTeleport to player"
 							set slot 1 of loop-player to feather named "&rChange your fly speed"
 							set {finished.%loop-player's uuid%} to true
+							add loop-player to {finished::*}
 							command("/hide %loop-player% true")
 							command("/see %loop-player%")
 							wait 5 ticks
@@ -826,7 +828,7 @@ every second:
 					command("/hide %loop-player% true")
 				if loop-player has permission "theevent580.staff":
 					if {debug.%loop-player's uuid%} = true:
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eShowing games&r --> &aVoting" to loop-player
+						send "[&4Admin&r] Event state : &eShowing games&r --> &aVoting" to loop-player
 			set {event_state} to "Voting"
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
@@ -839,7 +841,7 @@ every second:
 			loop all players:
 				if loop-player has permission "theevent580.staff":
 					if {debug.%loop-player's uuid%} = true:
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eVoting&r --> &aVotes closed" to loop-player
+						send "[&4Admin&r] Event state : &eVoting&r --> &aVotes closed" to loop-player
 				remove 1 of carrot on a stick named "&rBlock a game" from loop-player
 				remove 1 of carrot on a stick named "&rYou choose the game" from loop-player
 				remove 1 of carrot on a stick named "&rSwap players and spectators" from loop-player
@@ -857,7 +859,7 @@ every second:
 			loop all players:
 				if loop-player has permission "theevent580.staff":
 					if {debug.%loop-player's uuid%} = true:
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eVotes closed&r --> &aTeleporting to game" to loop-player
+						send "[&4Admin&r] Event state : &eVotes closed&r --> &aTeleporting to game" to loop-player
 			set {event_state} to "Teleporting to game"
 			wait 3 seconds
 			command("fill 8 247 -8 -8 247 8 air")
@@ -1025,7 +1027,7 @@ every second:
 				if {hide.%loop-player's uuid%} = true:
 					command("hide %loop-player% false")
 		if {timer-s} = 1:
-			send title "轉" to all players for 8 seconds with fadein 0.5 second and fade out 0.5 second
+			send title "轉" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
 		if {timer-s} = 0:
 			after()
 			set {timer} to 5
@@ -1038,7 +1040,7 @@ every second:
 				command("effect clear %loop-player% levitation")
 				if loop-player has permission "theevent580.staff":
 					if {debug.%loop-player's uuid%} = true:
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eTeleporting to game&r --> &aStarting game" to loop-player
+						send "[&4Admin&r] Event state : &eTeleporting to game&r --> &aStarting game" to loop-player
 				else:
 					set {alive.%loop-player's uuid%} to true
 			loop all entities in world "world":
@@ -1060,34 +1062,34 @@ every second:
 		if {timer-m} = 0:
 			if {jeu_nom} = "&c&lTrials":
 				if {timer-s} = 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &c&lTrials&r."
+					broadcast "[&cTrials&r] Welcome to &c&lTrials&r."
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to complete as many trials as possible in 10 minutes."
+					broadcast "[&cTrials&r] Your goal is to complete as many trials as possible in 10 minutes."
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] The faster you go, the more points you get, so try to be the fastest."
+					broadcast "[&cTrials&r] The faster you go, the more points you get, so try to be the fastest."
 				if {timer-s} = 15:
-					broadcast "[<##155966>&lTheEvent580&r] Every 2 minutes, the time between the trials will get smaller, and so will the platform!"
+					broadcast "[&cTrials&r] Every 2 minutes, the time between the trials will get smaller, and so will the platform!"
 				if {timer-s} = 10:
-					broadcast "[<##155966>&lTheEvent580&r] The trial completion time will go from 10s to 6s."
+					broadcast "[&cTrials&r] The trial completion time will go from 10s to 6s."
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 3."
+					broadcast "[&cTrials&r] &c&lTrials&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 2."
+					broadcast "[&cTrials&r] &c&lTrials&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r starting in 1."
+					broadcast "[&cTrials&r] &c&lTrials&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
-					broadcast "[<##155966>&lTheEvent580&r] &c&lTrials&r started !"
+					broadcast "[&cTrials&r] &c&lTrials&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&cTrials" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&cTrials" to loop-player
 					set {event_state} to "Game &r&cTrials"
 					set {jeu_condi} to 10
 					set {timer-m} to 9
@@ -1100,34 +1102,34 @@ every second:
 					loop all players:
 						if loop-player has permission "group.spectators":
 							command("/see %loop-player%")
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &6&lParkour&r."
+					broadcast "[&6Parkour&r] Welcome to &6&lParkour&r."
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to complete all 25 levels in less than 10 minutes."
+					broadcast "[&6Parkour&r]] Your goal is to complete all 25 levels in less than 10 minutes."
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] Finishing a section will up your multiplier, so try to get the most you can !."
+					broadcast "[&6Parkour&r] Finishing a section will up your multiplier, so try to get the most you can !."
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] You will get invisibility AND NO COLLISIONS."
+					broadcast "[&6Parkour&r] You will get invisibility AND NO COLLISIONS."
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r starting in 3."
+					broadcast "[&6Parkour&r] &6&lParkour&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r starting in 2."
+					broadcast "[&6Parkour&r] &6&lParkour&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r starting in 1."
+					broadcast "[&6Parkour&r] &6&lParkour&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
 					command("execute in parkour run fill 134 132 194 128 129 208 air replace minecraft:barrier")
-					broadcast "[<##155966>&lTheEvent580&r] &6&lParkour&r started !"
+					broadcast "[&6Parkour&r] &6&lParkour&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						command("/team join nocolisions %loop-player%")
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&6Parkour" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&6Parkour" to loop-player
 					set {event_state} to "Game &r&6Parkour"
 					set {timer} to 6
 					set {timer-m} to 9
@@ -1140,27 +1142,27 @@ every second:
 					loop all players:
 						if loop-player has permission "group.spectators":
 							command("/hide %loop-player% true")
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &e&lBingo&r."
+					broadcast "[&eBingo&r] Welcome to &e&lBingo&r."
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to get every item on your &e&lBingo&r card in less than 20 minutes."
+					broadcast "[&eBingo&r] Your goal is to get every item on your &e&lBingo&r card in less than 20 minutes."
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] Getting an item before other people will give you more points, so try to be the fastest."
+					broadcast "[&eBingo&r] Getting an item before other people will give you more points, so try to be the fastest."
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] You'll spawn with a chainmail armor, an iron sword, an iron axe, an iron shovel & an iron pickaxe, all unbreakable."
+					broadcast "[&eBingo&r] You'll spawn with a chainmail armor, an iron sword, an iron axe, an iron shovel & an iron pickaxe, all unbreakable."
 				if {timer-s} = 15:
-					broadcast "[<##155966>&lTheEvent580&r] You can only get 1 bonus, by killing someone (ONLY ONCE), it'll replace your iron sword & pickaxe by a diamond one, also unbreakable."
+					broadcast "[&eBingo&r] You can only get 1 bonus, by killing someone (ONLY ONCE), it'll replace your iron sword & pickaxe by a diamond one, also unbreakable."
 				if {timer-s} = 10:
-					broadcast "[<##155966>&lTheEvent580&r] You'll also get a 1 minute grace periode to leave and run."
+					broadcast "[&eBingo&r] You'll also get a 1 minute grace periode to leave and run."
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r starting in 3."
+					broadcast "[&eBingo&r] &e&lBingo&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r starting in 2."
+					broadcast "[&eBingo&r] &e&lBingo&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r starting in 1."
+					broadcast "[&eBingo&r] &e&lBingo&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
@@ -1171,12 +1173,12 @@ every second:
 					command("//world world")
 					command("execute in minecraft:bingo run gamerule randomTickSpeed 20")
 					command("execute in minecraft:bingo run gamerule doDaylightCycle true")
-					broadcast "[<##155966>&lTheEvent580&r] &e&lBingo&r started !"
+					broadcast "[&eBingo&r] &e&lBingo&r started !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&eBingo" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&eBingo" to loop-player
 					set {event_state} to "Game &r&eBingo"
 					loop all players:
 						if loop-player has permission "group.spectators":
@@ -1190,63 +1192,63 @@ every second:
 					bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 					set {yellow} to -10000
 					set {damage} to 2
-					broadcast "[<##155966>&lTheEvent580&r] Grace periode ends in 1 minute."
+					broadcast "[&eBingo&r] Grace periode ends in 1 minute."
 			if {jeu_nom} = "&a&lTag":
 				if {timer-s} = 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &a&lTag&r."
+					broadcast "[&aTag&r] Welcome to &a&lTag&r."
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to stay hidden as long as possible."
+					broadcast "[&aTag&r] Your goal is to stay hidden as long as possible."
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] One player will be randomly chosen to be the seeker, they must tag someone else before their time runs out, or they will lose a life!"
+					broadcast "[&aTag&r] One player will be randomly chosen to be the seeker, they must tag someone else before their time runs out, or they will lose a life!"
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] You only have 3 lives, so don't get tagged"
-					broadcast "[<##155966>&lTheEvent580&r] (If you are the seeker at the start, then you will only start with 2 lives)"
+					broadcast "[&aTag&r] You only have 3 lives, so don't get tagged"
+					broadcast "[&aTag&r] (If you are the seeker at the start, then you will only start with 2 lives)"
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 3."
+					broadcast "[&aTag&r] &a&lTag&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 2."
+					broadcast "[&aTag&r] &a&lTag&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r starting in 1."
+					broadcast "[&aTag&r] &a&lTag&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
 					setRandomHunter()
-					broadcast "[<##155966>&lTheEvent580&r] &a&lTag&r = starting !"
+					broadcast "[&aTag&r] &a&lTag&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
 					set {event_state} to "Game &r&aTag"
 					set {timer} to 6
 					command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
-					command("execute run bossbar set minecraft:count visible false")
+					command("execute run bossbar set minecraft:count visible true")
 					set {lime} to -10000
 			if {jeu_nom} = "&b&lMultilap":
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &b&lMultilap&r."
+					broadcast "[&bMultilap&r] Welcome to &b&lMultilap&r."
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] Complete all 3 laps as fast as you can !"
+					broadcast "[&bMultilap&r] Complete all 3 laps as fast as you can !"
 				if {timer-s} = 15:
-					broadcast "[<##155966>&lTheEvent580&r] Completing a lap before other people will give you more points, so try to be the fastest."
+					broadcast "[&bMultilap&r] Completing a lap before other people will give you more points, so try to be the fastest."
 				if {timer-s} = 10:
-					broadcast "[<##155966>&lTheEvent580&r] &lWARNING, the map will change when the player in 1st place completes a lap."
+					broadcast "[&bMultilap&r] &lWARNING, the map will change when the player in 1st place completes a lap."
 				if {timer-s} = 5:
-					broadcast "[<##155966>&lTheEvent580&r] There are 3 different paths, and will change thoughout the race."
+					broadcast "[&bMultilap&r] There are 3 different paths, and will change thoughout the race."
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] This &b&lMultilap&r will start in 3."
+					broadcast "[&bMultilap&r] This &b&lMultilap&r will start in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] This &b&lMultilap&r will start in 2."
+					broadcast "[&bMultilap&r] This &b&lMultilap&r will start in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] This &b&lMultilap&r will start in 1."
+					broadcast "[&bMultilap&r] This &b&lMultilap&r will start in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
@@ -1266,12 +1268,12 @@ every second:
 						set {_item.nbt} to nbt compound of {_item}
 						add nbt of "{""minecraft:custom_model_data"":27,""minecraft:custom_name"":'{""text"":""You are on Lap 1"",""italic"""":false,""color"":""gold""}'}" to {_item.nbt}
 						set slot 40 of loop-player to {_item}
-					broadcast "[<#155966>&lTheEvent580&r] &b&lMultilap&r = starting !"
+					broadcast "[&bMultilap&r] &b&lMultilap&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<#155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&bMultilap" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&bMultilap" to loop-player
 					set {event_state} to "Game &r&bMultilap"
 					set {timer} to 6
 					set {light_blue} to -10000
@@ -1280,36 +1282,36 @@ every second:
 					command("execute in minecraft:races_lap_3 run fill 6 129 6 -6 134 6 air replace minecraft:red_stained_glass")
 			if {jeu_condi} = 12:
 				if {timer-s} = 35:
-					broadcast "[<#155966>&lTheEvent580&r] Welcome to &5&lArms Race&r."
+					broadcast "[&5Arms Race&r] Welcome to &5&lArms Race&r."
 				if {timer-s} = 30:
-					broadcast "[<#155966>&lTheEvent580&r] Your goal = to be the 1st one to kill a player with the golden knife as your ONLY weapon."
+					broadcast "[&5Arms Race&r] Your goal is to be the 1st one to kill a player with the golden knife as your ONLY weapon."
 				if {timer-s} = 25:
-					broadcast "[<#155966>&lTheEvent580&r] Every 2 kills, you upgrade to a new weapon!"
+					broadcast "[&5Arms Race&r] Every 2 kills, you upgrade to a new weapon!"
 				if {timer-s} = 20:
-					broadcast "[<#155966>&lTheEvent580&r] You will also have a Golden Knife at all time, killing someone with it will send them back 1 weapon."
+					broadcast "[&5Arms Race&r] You will also have a Golden Knife at all time, killing someone with it will send them back 1 weapon."
 				if {timer-s} = 15:
-					broadcast "[<#155966>&lTheEvent580&r] If nobody gets the final kill after 15 minutes, the game will end."
+					broadcast "[&5Arms Race&r] If nobody gets the final kill after 15 minutes, the game will end."
 				if {timer-s} = 10:
-					broadcast "[<#155966>&lTheEvent580&r] Be careful, dying will remove 5%% of your in-game points, so make sure to not die!"
+					broadcast "[&5Arms Race&r] Be careful, dying will remove 5%% of your in-game points, so make sure to not die!"
 				if {timer-s} = 3:
-					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 3."
+					broadcast "[&5Arms Race&r] &5&lArms Race&r will be starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 2."
+					broadcast "[&5Arms Race&r] &5&lArms Race&r will be starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<#155966>&lTheEvent580&r] &5&lArms Race&r will be starting in 1."
+					broadcast "[&5Arms Race&r] &5&lArms Race&r will be starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
-					broadcast "[<##155966>&lTheEvent580&r] &5&lArms Race&r = starting !"
+					broadcast "[&5Arms Race&r] &5&lArms Race&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&5Arms Race" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&5Arms Race" to loop-player
 					set {event_state} to "Game &r&5Arms Race"
 					set {timer} to 6
 					set {timer-m} to 14
@@ -1319,25 +1321,25 @@ every second:
 					set {damage} to 3
 			if {jeu_condi} = 9:
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &9&lBuild Masters&r."
+					broadcast "[&9Build Masters&r] Welcome to &9&lBuild Masters&r."
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to be the fastest to build the 10 builds before you run out of time !"
+					broadcast "[&9Build Masters&r] Your goal is to be the fastest to build the 10 builds before you run out of time !"
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] Once the builds are completed, it will switch automatically."
+					broadcast "[&9Build Masters&r] Once the builds are completed, it will switch automatically."
 				if {timer-s} = 15:
-					broadcast "[<##155966>&lTheEvent580&r] You can get all of the blocks you need in the mall, available with the portal behind you."
+					broadcast "[&9Build Masters&r] You can get all of the blocks you need in the mall, available with the portal behind you."
 				if {timer-s} = 10:
-					broadcast "[<##155966>&lTheEvent580&r] A Concrete block costs 1 second, a Terracotta block costs 2 seconds and a Copper block costs 3 seconds."
+					broadcast "[&9Build Masters&r] A Concrete block costs 1 second, a Terracotta block costs 2 seconds and a Copper block costs 3 seconds."
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &9&lBuild Masters&r starting in 3."
+					broadcast "[&9Build Masters&r] &9&lBuild Masters&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &9&lBuild Masters&r starting in 2."
+					broadcast "[&9Build Masters&r] &9&lBuild Masters&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &9&lBuild Masters&r starting in 1."
+					broadcast "[&9Build Masters&r] &9&lBuild Masters&r starting in 1."
 					set {finished_players} to 0
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
@@ -1454,7 +1456,7 @@ every second:
 						else:
 							give 1 of netherite pickaxe of unbreaking 250 and efficiency 2 named "&9Unbreakable Pickaxe" to loop-player
 							set loop-player's game mode to survival
-					broadcast "[<##155966>&lTheEvent580&r] &9&lBuild Masters&r = starting !"
+					broadcast "[&9Build Masters&r] &9&lBuild Masters&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						#play sound "custom:race3" in record category with volume 1 to the loop-player
@@ -1463,7 +1465,7 @@ every second:
 						set {timeout_portal.%loop-player's uuid%} to 0
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&9Build Masters" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&9Build Masters" to loop-player
 					set {event_state} to "Game &r&9Build Masters"
 					set {timer} to 6
 					set {timer-m} to 59
@@ -1472,27 +1474,27 @@ every second:
 					set {blue} to -10000
 			if {jeu_nom} = "&d&lBow PVP":
 				if {timer-s} = 35:
-					broadcast "[<##155966>&lTheEvent580&r] Welcome to &d&lBow PVP&r."
+					broadcast "[&dBow PVP&r] Welcome to &d&lBow PVP&r."
 				if {timer-s} = 30:
-					broadcast "[<##155966>&lTheEvent580&r] Your goal = to be the last one alive and kill everyone in less than 10 minutes !"
+					broadcast "[&dBow PVP&r] Your goal is to be the last one alive and kill everyone in less than 10 minutes !"
 				if {timer-s} = 25:
-					broadcast "[<##155966>&lTheEvent580&r] Everyone will start with 5 hearts and dying will remove you one heart."
+					broadcast "[&dBow PVP&r] Everyone will start with 5 hearts and dying will remove you one heart."
 				if {timer-s} = 20:
-					broadcast "[<##155966>&lTheEvent580&r] But stabbing a player will give you its heart."
+					broadcast "[&dBow PVP&r] But stabbing a player will give you its heart."
 				if {timer-s} = 15:
-					broadcast "[<##155966>&lTheEvent580&r] You'll start with a infinity bow and a stone sword (Both are unbreakable)."
+					broadcast "[&dBow PVP&r] You'll start with a infinity bow and a stone sword (Both are unbreakable)."
 				if {timer-s} = 10:
-					broadcast "[<##155966>&lTheEvent580&r] &lWARNING, YOU CAN DIE FROM THE VOID ! &r(You are warned)"
+					broadcast "[&dBow PVP&r] &lWARNING, YOU CAN DIE FROM THE VOID ! &r(You are warned)"
 				if {timer-s} = 3:
-					broadcast "[<##155966>&lTheEvent580&r] &d&lBow PVP&r starting in 3."
+					broadcast "[&dBow PVP&r] &d&lBow PVP&r starting in 3."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 2:
-					broadcast "[<##155966>&lTheEvent580&r] &d&lBow PVP&r starting in 2."
+					broadcast "[&dBow PVP&r] &d&lBow PVP&r starting in 2."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 1:
-					broadcast "[<##155966>&lTheEvent580&r] &d&lBow PVP&r starting in 1."
+					broadcast "[&dBow PVP&r] &d&lBow PVP&r starting in 1."
 					loop all players:
 						play sound "block.note_block.bit" in voice category with volume 2 to the loop-player
 				if {timer-s} = 0:
@@ -1504,12 +1506,12 @@ every second:
 							give 1 of bow of unbreaking 250 and infinity 1 and power 250 named "&dUnbreakable Bow" to loop-player
 							give 1 of stone sword of unbreaking 250 named "&dUnbreakable Sword" to loop-player
 							set slot 8 of loop-player's inventory to arrow
-					broadcast "[<##155966>&lTheEvent580&r] &d&lBow PVP&r = starting !"
+					broadcast "[&dBow PVP&r] &d&lBow PVP&r is starting !"
 					loop all players:
 						play sound "entity.ender_dragon.growl" in voice category with volume 0.25 to the loop-player
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eStarting game&r --> &aGame &r&dBow PVP" to loop-player
+								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame &r&dBow PVP" to loop-player
 					set {event_state} to "Game &r&dBow PVP"
 					set {timer} to 6
 					set {damage} to 4
@@ -1827,7 +1829,7 @@ every second:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									if {debug.%loop-player's uuid%} = true:
-										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
+										send "[&4Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
 						if {jeu_condi} = 3:
 							command("//world bingo")
 							command("//pos1 289,64,164")
@@ -1837,13 +1839,13 @@ every second:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									if {debug.%loop-player's uuid%} = true:
-										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
+										send "[&4Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
 						if {jeu_condi} = 5:
 							set {race_timer} to false
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									if {debug.%loop-player's uuid%} = true:
-										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&bMultilap&r --> &aShowing scores" to loop-player
+										send "[&4Admin&r] Event state : &eGame &r&bMultilap&r --> &aShowing scores" to loop-player
 							set {jeu_condi} to 0
 							set {damage} to 1
 						if {jeu_condi} = 9:
@@ -1851,12 +1853,12 @@ every second:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									if {debug.%loop-player's uuid%} = true:
-										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&9Build Masters&r --> &aShowing scores" to loop-player
+										send "[&4Admin&r] Event state : &eGame &r&9Build Masters&r --> &aShowing scores" to loop-player
 						if {jeu_condi} = 12:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
 									if {debug.%loop-player's uuid%} = true:
-										send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player
+										send "[&4Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player
 						set {event_state} to "Showing scores"
 						set {timer-s} to 31
 						bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
@@ -1903,7 +1905,7 @@ every second:
 					loop all players:
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&9Build Masters&r --> &aShowing scores" to loop-player
+								send "[&4Admin&r] Event state : &eGame &r&9Build Masters&r --> &aShowing scores" to loop-player
 				set {event_state} to "Showing scores"
 				set {timer-s} to 31
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
@@ -1928,7 +1930,7 @@ every second:
 					loop all players:
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
+								send "[&4Admin&r] Event state : &eGame &r&6Parkour&r --> &aShowing scores" to loop-player
 				if {barrier} = "yellow":
 					command("//world bingo")
 					command("//pos1 289,64,164")
@@ -1938,13 +1940,13 @@ every second:
 					loop all players:
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
+								send "[&4Admin&r] Event state : &eGame Bingo&r --> &aShowing scores" to loop-player
 				if {jeu_condi} = 5:
 					set {race_timer} to false
 					loop all players:
 						if loop-player has permission "theevent580.staff":
 							if {debug.%loop-player's uuid%} = true:
-								send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&bMultilap&r --> &aShowing scores" to loop-player
+								send "[&4Admin&r] Event state : &eGame &r&bMultilap&r --> &aShowing scores" to loop-player
 					set {jeu_condi} to 0
 					set {damage} to 1
 				set {event_state} to "Showing scores"
@@ -1971,7 +1973,7 @@ every second:
 							if loop-player has permission "theevent580.staff":
 								if {debug.%loop-player's uuid%} = true:
 									send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player
-									send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
+									send "[&4Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
 						set {event_state} to "Showing scores"
 						set {timer-m} to 1
 						set {timer-s} to 30
@@ -2038,7 +2040,7 @@ every second:
 					set {gamemode.%loop-player's uuid%} to 3
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
+							send "[&4Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
 				set {event_state} to "Showing scores"
 				set {timer-m} to 1
 				set {timer-s} to 30
@@ -2085,13 +2087,13 @@ every second:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
 					if {list_points::1} = {points.%loop-player's uuid%}:
-						set {pos1} to "[<##155966>&lTheEvent580&r] 1st : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
+						set {pos1} to "[<##155966>&lGame Scores&r] 1st : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
 						set {pos.%loop-player's uuid%} to "<##BCD71D>1st"
 					if {list_points::2} = {points.%loop-player's uuid%}:
-						set {pos2} to "[<##155966>&lTheEvent580&r] 2nd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
+						set {pos2} to "[<##155966>&lGame Scores&r] 2nd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
 						set {pos.%loop-player's uuid%} to "<##BCD71D>2nd"
 					if {list_points::3} = {points.%loop-player's uuid%}:
-						set {pos3} to "[<##155966>&lTheEvent580&r] 3rd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
+						set {pos3} to "[<##155966>&lGame Scores&r] 3rd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
 						set {pos.%loop-player's uuid%} to "<##BCD71D>3rd"
 					if {list_points::4} = {points.%loop-player's uuid%}:
 						set {pos.%loop-player's uuid%} to "<##BCD71D>4th"
@@ -2144,13 +2146,13 @@ every second:
 					set {show} to {points_game.%loop-player's uuid%}
 					loop all players:
 						if loop-player-2 has permission "group.spectators":
-							send "[<##155966>&lTheEvent580&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <#D9D8F1>%{show}% <##F0F064>工&r this game !" to loop-player-2
-							send "[<##155966>&lTheEvent580&r] %loop-player-1% had %{show}% coins this game !" to console
+							send "[<##155966>&lGame Scores&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <##D9D8F1>%{show}% <##F0F064>工&r this game !" to loop-player-2
+							send "[<##155966>&lGame Scores&r] %loop-player-1% had %{show}% coins this game !" to console
 
 		if {timer-s} = 25:
 			command("execute in minecraft:races_lap_3 run setblock 44 131 -20 minecraft:blackstone")
 			command("bossbar set minecraft:mall visible false")
-			broadcast "[<##155966>&lTheEvent580&r] Event Top 3 :"
+			broadcast "[<##155966>&lGame Scores&r] Event Top 3 :"
 			command("updateclassement")
 		if {timer-s} = 22:
 			loop all players:
@@ -2167,17 +2169,17 @@ every second:
 		if {timer-s} = 20:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
-					send "[<##155966>&lTheEvent580&r] You had <#D9D8F1>%checkPoints({points_game.%loop-player's uuid%})% <##F0F064>工&r this game and have <#D9D8F1>%checkPoints({points.%loop-player's uuid%})% <##F0F064>工&r in total !" to loop-player
+					send "[<##155966>&lGame Scores&r] You had <##D9D8F1>%checkPoints({points_game.%loop-player's uuid%})% <##F0F064>工&r this game and have <##D9D8F1>%checkPoints({points.%loop-player's uuid%})% <##F0F064>工&r in total !" to loop-player
 					play sound "custom:coins" in voice category with volume 2 to the loop-player
 					set {alive.%loop-player's uuid%} to true
 		if {timer-s} = 15:
-			broadcast "[<##155966>&lTheEvent580&r] You placement = visible next to your points count in the middle of the games"
+			broadcast "[<##155966>&lGame Scores&r] You placement = visible next to your points count in the middle of the games"
 		if {timer-s} = 10:
-			broadcast "[<##155966>&lTheEvent580&r] You are placed :"
+			broadcast "[<##155966>&lGame Scores&r] You are placed :"
 			loop all players:
-				send "<##E2F093>%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <#D9D8F1>&n%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
+				send "<##E2F093>%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <##D9D8F1>&n%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
 		if {timer-s} = 2:
-			send title "轉" to all players for 8 seconds with fadein 0.5 second and fade out 0.5 second
+			send title "轉" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
 		if {timer-s} = 1:
 			if {jeu} = 2:
 				set time in world "world" to day
@@ -2207,7 +2209,7 @@ every second:
 				command("hide %loop-player% false")
 				if loop-player has permission "theevent580.staff":
 					if {debug.%loop-player's uuid%} = true:
-						send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aIntermission" to loop-player
+						send "[&4Admin&r] Event state : &eShowing scores&r --> &aIntermission" to loop-player
 			set {event_state} to "Intermission"
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
@@ -2231,7 +2233,7 @@ every second:
 						command("/hide %loop-player%")
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eIntermission&r --> &aOpening votes" to loop-player
+							send "[&4Admin&r] Event state : &eIntermission&r --> &aOpening votes" to loop-player
 				set {event_state} to "Opening votes"
 				set {timer} to 9
 			if {timer-m} = 1:
@@ -2309,7 +2311,7 @@ every second:
 				loop all players:
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eOpening votes&r --> &aVoting" to loop-player
+							send "[&4Admin&r] Event state : &eOpening votes&r --> &aVoting" to loop-player
 				set {event_state} to "Voting"
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
@@ -2396,7 +2398,7 @@ every second:
 			if {timer-s} = 10:
 				broadcast "[<##155966>&lTheEvent580&r] You are placed :"
 				loop all players:
-					send "<##E2F093>&k%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <#D9D8F1>&k%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
+					send "<##E2F093>&k%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <##D9D8F1>&k%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
 			if {timer-s} < 1:
 				set {timer-s} to 59
 				remove 1 from {timer-m}
@@ -2423,7 +2425,7 @@ every second:
 				loop all players:
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
-							send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eShowing scores&r --> &aEnd" to loop-player
+							send "[&4Admin&r] Event state : &eShowing scores&r --> &aEnd" to loop-player
 				set {event_state} to "End"
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
