@@ -1104,7 +1104,7 @@ every second:
 							command("/see %loop-player%")
 					broadcast "[&6Parkour&r] Welcome to &6&lParkour&r."
 				if {timer-s} = 30:
-					broadcast "[&6Parkour&r]] Your goal is to complete all 25 levels in less than 10 minutes."
+					broadcast "[&6Parkour&r] Your goal is to complete all 25 levels in less than 10 minutes."
 				if {timer-s} = 25:
 					broadcast "[&6Parkour&r] Finishing a section will up your multiplier, so try to get the most you can !."
 				if {timer-s} = 20:
