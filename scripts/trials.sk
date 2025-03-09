@@ -141,7 +141,18 @@ command /trials:
             set {trials.%loop-player's uuid%.completed} to false
             set {points_game.%loop-player's uuid%} to 0
             clear {trials.message.%loop-player's uuid%}
-        
+
+local function setTrial() :: int:
+    set {_trial} to a random integer between 1 and the size of {trials::*}
+    if isInLast10({_trial}) = true:
+        if the size of {trials.last_10::*} >= 10:
+            delete {trials.last_10::1}
+        add {_trial} to {trials.last_10::*}
+        return setTrial()
+    else:
+        return {_trial}
+
+
 
 local function isdo(trial: int) :: boolean:
     if {_trial} = 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21 or 42 or 43 or 44 or 45 or 46 or 47 or 48 or 49:
@@ -546,7 +557,7 @@ every second:
                     if {trials.random_trial} = 0:
                         set {trials.time} to 11-{trials.stage}
                         set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                        set {trials.random_trial} to setTrial()
     
                         if {trials.random_trial} is between 42 and 48:
                             send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -580,7 +591,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -613,7 +624,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -648,7 +659,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -681,7 +692,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -716,7 +727,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -749,7 +760,7 @@ every second:
                         if {trials.random_trial} = 0:
                             set {trials.time} to 11-{trials.stage}
                             set {trials.points} to 100*{multiplier}
-                            set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                            set {trials.random_trial} to setTrial()
         
                             if {trials.random_trial} is between 42 and 48:
                                 send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
@@ -783,7 +794,7 @@ every second:
                     if {trials.random_trial} = 0:
                         set {trials.time} to 11-{trials.stage}
                         set {trials.points} to 100*{multiplier}
-                        set {trials.random_trial} to a random integer between 1 and the size of {trials::*}
+                        set {trials.random_trial} to setTrial()
         
                         if {trials.random_trial} is between 42 and 48:
                             send title "%{trials::%{trials.random_trial}%}%" with subtitle "Type the answer in chat" to all players
