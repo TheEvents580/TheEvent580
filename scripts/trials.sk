@@ -153,6 +153,10 @@ local function setTrial() :: int:
         return {_trial}
 
 
+local function isInLast10(trial: int) :: boolean:
+    if {trials.last_10::*} contains {_trial}:
+        return true
+    return false
 
 local function isdo(trial: int) :: boolean:
     if {_trial} = 1 or 2 or 3 or 4 or 5 or 6 or 7 or 8 or 9 or 10 or 11 or 12 or 13 or 14 or 15 or 16 or 17 or 18 or 19 or 20 or 21 or 42 or 43 or 44 or 45 or 46 or 47 or 48 or 49:
