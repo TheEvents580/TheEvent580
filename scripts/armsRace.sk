@@ -125,6 +125,9 @@ command /armsracedone <player>:
         send {weapons.%arg-1's uuid%} to player
 
 on death:
+    loop all players:
+        if glowing of loop-player = true:
+            set glowing of loop-player to false
     if victim is a player:
         if attacker is a player:
             if {jeu_condi} = 12:
@@ -168,6 +171,8 @@ on death:
                     clear victim's inventory
                     set slot 0 of victim to unbreakable golden sword named "&6Golden Knife (&aKill a player to win the &5&lArms Race&6)"
                     set slot 1 of victim to air
+    loop playersInLead():
+        set glowing of loop-value to true 
 
 every tick:
     if {jeu_condi} = 12:

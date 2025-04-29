@@ -16,8 +16,8 @@ every tick:
 						if block at location(x-coordinate of loop-player, -6, z-coordinate of loop-player,  world of loop-player) = structure block:
 							make 3 of end_rod at loop-player's location with offset vector(0.1, 0, 0.1) with extra 0.01 
 							remove levitation from loop-player
-							apply levitation 3 without particles to loop-player for 2 tick
-					if block 1 meter below loop-player = hay bale:
+							apply levitation 3 without particles whilst hiding the potion icon to loop-player for 2 tick
+					if block 1 meter below loop-player = hay block:
 						make loop-player execute command "spawn"
 						add 1 to {compl_parcour.%loop-player's uuid%}
 						updateParkour()
@@ -26,15 +26,15 @@ every tick:
 							make loop-player execute command "spawn"
 					if block 0 or 1 meter below loop-player = dirt path:
 						remove speed from loop-player
-						apply speed 2 without particles to loop-player for 1 second
+						apply speed 2 without particles whilst hiding the potion icon to loop-player for 1 second
 					if block 1 meter below loop-player = ochre froglight:
 						make loop-player execute command "spawn"
 					if block 1 meter below loop-player = verdant froglight:
 						teleport loop-player to location(193.5,69,-381.5,world "overworld", 0.01,0.01)
 					if block 1 meter below loop-player = jigsaw block:
 						if helmet of loop-player != air:
-							set {flag.nbt.%loop-player's uuid%} to false
-							send action bar "Your flag has been removed" to loop-player
+							command("pridecolor %loop-player% clear")
+							send action bar "Your %name of {flag.%loop-player's uuid%}%&r has been removed" to loop-player
 							clear helmet of loop-player
 						if {HubParkour.%loop-player's uuid%} = false:
 							command("achivement %loop-player% give HubParkour")
@@ -453,8 +453,9 @@ every tick:
 										add round({pts_lvl_1}) to {total_points_event.%loop-player's uuid%}
 										remove round(40*{multiplier}) from {pts_lvl_1}
 										set {_item} to carrot on a stick
-										set {_item.nbt} to nbt compound of {_item}
-										add nbt of "{""minecraft:custom_model_data"":29,""minecraft:custom_name"":'{""text"":""You are on Lap 2"",""italic"""":false,""color"":""gold""}'}" to {_item.nbt}
+										apply custom model data to {_item}:
+											strings: "lap_2_text"
+										set the name of {_item} to "&r&6You're on Lap 2"
 										set slot 40 of loop-player to {_item}
 									if {race_lap.%loop-player's uuid%} = 2:
 										if {race_lap_2_finished} = false:
@@ -469,8 +470,9 @@ every tick:
 										add round({pts_lvl_2}) to {total_points_event.%loop-player's uuid%}
 										remove round(60*{multiplier}) from {pts_lvl_2}
 										set {_item} to carrot on a stick
-										set {_item.nbt} to nbt compound of {_item}
-										add nbt of "{""minecraft:custom_model_data"":31,""minecraft:custom_name"":'{""text"":""You are on Lap 3"",""italic"":false,""color"":""red""}'}" to {_item.nbt}
+										apply custom model data to {_item}:
+											strings: "lap_3_text"
+										set the name of {_item} to "&r&cYou're on Lap 3"
 										set slot 40 of loop-player to {_item}
 									add 1 to {race_lap.%loop-player's uuid%}
 									send title "&7[&bLap&7] &bEntered Lap %{race_lap.%loop-player's uuid%}%" to loop-player for 1 second
@@ -688,7 +690,7 @@ every tick:
 									send action bar "You need to wait %round({timeout_portal.%loop-player's uuid%})% seconds before going into the portal again" to loop-player
 							if the z-coordinate of loop-player > 3000:
 								remove speed from loop-player
-								apply speed 4 without particles to loop-player for 2 ticks
+								apply speed 4 without particles whilst hiding the potion icon to loop-player for 2 ticks
 						else:
 							clear loop-player's inventory
 							set slot 0 of loop-player to compass named "&rTeleport to player"
@@ -698,7 +700,7 @@ every tick:
 							command("/hide %loop-player% true")
 							command("/see %loop-player%")
 							wait 5 ticks
-							command("fly %loop-player%")
+							command("fly %loop-player% true")
 							set loop-player's gamemode to adventure
 					else:
 						if block at location({_x_%loop-player's uuid%}, 128, {_z_%loop-player's uuid%}, "build_masters") = pumpkin:
@@ -715,7 +717,7 @@ every second:
 		if {timer-m} = 1:
 			if {timer-s} = 45:
 				currentPlayers()
-			if {timer-s} = 34:
+			if {timer-s} = 30:
 				play sound "custom:intro" in voice category with volume 1 to all players
 			if {timer-s} = 0:
 				currentSpecs()
@@ -724,38 +726,38 @@ every second:
 		if {timer-m} = 0:
 			if {timer-s} = 11:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&4>     10     <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&4>     10     <" to loop-player for 3 seconds with fadein 0.5 second and fadeout 0 second
 			if {timer-s} = 10:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&4>     9     <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&4>     9     <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 9:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&c>    8    <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&c>    8    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 8:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&c>    7    <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&c>    7    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 7:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&6>   6   <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&6>   6   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 6:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&6>   5   <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&6>   5   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 5:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&e>  4  <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&e>  4  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 4:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&e>  3  <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&e>  3  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 3:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&a> 2 <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&a> 2 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 2:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&a> 1 <" to loop-player for 3 seconds
+					send title "<##f0f01c>Event starting in" with subtitle "&a> 1 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 					command("fill 8 247 -8 -8 247 8 redstone_block")
 			if {timer-s} = 1:
 				loop all players:
-					send title "<##f0f01c>Event starting" with subtitle "&2NOW" to loop-player for 1 second
+					send title "<##f0f01c>Event starting" with subtitle "&2NOW" to loop-player for 0.5 second with fadein 0 second and fadeout 0.5 second
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
 							send "[&4Admin&r] Event state : &eStart Countdown&r --> &aShowing games" to loop-player
@@ -772,34 +774,34 @@ every second:
 					clear loop-player's inventory
 					command("/hide %loop-player% true")
 				broadcast "[<##155966>Decision Crysyal&r] This Episode's minigames are :"
-				send title "This Episode's minigames are :" with subtitle " " to all players
+			send title "This Episode's minigames are :" with subtitle " " to all players for 5 seconds with fadein 0.5 second and fadeout 0 second
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
 	if {timer} = 2:
 		if {timer-s} = 28:
 			broadcast "[<##155966>&lDecision Crysyal&r] <##f0f064> &c&lTrials"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &c&lTrials" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &c&lTrials" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 25:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &6&lParkour"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &6&lParkour" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &6&lParkour" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 22:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &e&lBingo"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &e&lBingo" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &e&lBingo" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 19:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &a&lTag"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &a&lTag" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &a&lTag" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 16:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &b&lMultilap"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &b&lMultilap" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &b&lMultilap" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 13:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &9&lBuild Masters"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &9&lBuild Masters" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &9&lBuild Masters" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 10:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &5&lArms Race"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &5&lArms Race" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &5&lArms Race" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 7:
 			broadcast "%nl%[<##155966>&lDecision Crysyal&r] and <##f0f064> &d&lBow PVP"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &d&lBow PVP" to all players for 3 seconds
+			send title "This Episode's minigames are :" with subtitle "<##f0f064> &d&lBow PVP" to all players for 5 seconds with fadein 0 second and fadeout 1 second
 		if {timer-s} = 4:
 			command("starttp")
 		if {timer-s} = 0:
@@ -1023,7 +1025,7 @@ every second:
 	if {timer} = 4:
 		if {timer-s} = 5:
 			loop all players:
-				apply levitation of tier 2 without particles to loop-player for 5.3 seconds
+				apply levitation of tier 2 without particles whilst hiding the potion icon to loop-player for 5.3 seconds
 				if {hide.%loop-player's uuid%} = true:
 					command("hide %loop-player% false")
 		if {timer-s} = 1:

@@ -40,72 +40,61 @@ command /spawn [<player>]:
 							if {timer} or {timer_save} = 7:
 								send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
-					if {finished.%player's uuid%} is true:
-						command("fly %player% true")
 					if player's game mode is spectator:
 						teleport player to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 						wait 5 ticks
 						set player's game mode to spectator
-						force player to fly
-						allow fly for player
-					if player's game mode is creative:
+						command("fly %player% true")
+					else if player's game mode is creative:
 						teleport player to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 						wait 5 ticks
 						set player's game mode to creative
-						force player to fly
-						allow fly for player
+						command("fly %player% true")
 					else:
 						teleport player to location(310.5, 67.0, 323.5, world "world", 0, 0)
 						wait 5 ticks
 						set player's game mode to adventure
+						command("fly %player% false")
 					set player's flying speed to 0.1
-					reveal hidden players of player
-					reveal player for all players
-					apply saturation without particles to player for 100 days
+					apply infinite saturation without particles whilst hiding the potion icon to player
 					set the maximum health of player to 10
 					heal player
-					if {timer} is 7:
-						send "[&4Admin&r] You are now visible to other players and you can see other players"
 					command("hide %player% false")
+					command("see %player% true")
 				else:
 					send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 			else:
 				send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 		else:
-			if player has permission "group.spectators":
+			if sender has permission "group.spectators":
 				if {jeu_condi} is 0 or -1:
 					if {timer} or {timer_save} is 7 or 0 or 1 or 9 or 8 or 10 or "Fin":
 						if {timer-s} > 3:
 							if {timer} or {timer_save} = 7:
 								send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 								stop trigger
-						if {finished.%arg-1's uuid%} is true:
-							command("fly %arg-1%")
 						if arg-1's game mode is spectator:
 							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
 							set arg-1's game mode to spectator
-							force arg-1 to fly
-							allow fly for arg-1
-						if arg-1's game mode is creative:
+							command("fly %arg-1% true")
+						else if arg-1's game mode is creative:
 							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
 							set arg-1's game mode to creative
 							force arg-1 to fly
-							allow fly for arg-1
+							command("fly %arg-1% true")
 						else:
 							teleport arg-1 to location(310.5, 67.0, 323.5, world "world", 0, 0)
 							wait 5 ticks
 							set arg-1's game mode to adventure
+							command("fly %arg-1% false")
 						set arg-1's flying speed to 0.1
-						apply saturation without particles to arg-1 for 100 days
+						apply infinite saturation without particles whilst hiding the potion icon to player
 						set the maximum health of arg-1 to 10
 						heal arg-1
-						reveal hidden players of arg-1
-						reveal arg-1 for all players
-						if {timer} is 7:
-							send "[&4Admin&r] You are now visible to other players and you can see other players" to arg-1
 						command("hide %arg-1% false")
+						command("see %arg-1% true")
 					else:
 						send "[&4Admin&r] You cannot tp to spawn while playing a minigame"
 			else:
@@ -298,8 +287,8 @@ command /reset:
 					setPlayerColor(loop-player)
 					clear {ride.%loop-player's uuid%}
 					add 1 to {online_players}
-					make loop-player execute command "spawn"
-					apply saturation without particles to loop-player for 100 days
+					command("spawn %loop-player%")
+					apply infinite saturation without particles whilst hiding the potion icon to loop-player
 					set {gamemode.%loop-player's uuid%} to 2
 					set {points_game.%loop-player's uuid%} to 0
 					set {points.%loop-player's uuid%} to 0
@@ -347,26 +336,24 @@ command /consolestart:
 	permission message: &cThis command does not exist
 	description: start event
 	trigger:
-		set {event_timer} to false
-		set {timer-s} to 30
-		set {timer-m} to 1
+		set {event_timer} to true
+		set {timer-s} to 59
+		set {timer-m} to 2
 		command("gamerule sendCommandFeedback false")
 		command("bossbar set minecraft:count players @a")
+		command("bossbar set minecraft:count visible true")
 		bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 		set {timer} to 1
-		#loop all players:
-		#	command("toast %loop-player% GOAL emerald_block TheEvent580 is starting|in 1 minute and 30 seconds")
 		wait 2 tick
+		set {checking_finished_players} to 0
 		loop all players:
-			#command("toast %loop-player% TASK music_disc_far &eNow playing|&3&lIntro&f by &b&lTheFox580")
-			play sound "custom:intro" in voice category with volume 1 to the loop-player
 			if loop-player doesn't have permission "group.spectators":
 				add 1 to {checking_finished_players}
 			if loop-player has permission "theevent580.staff":
 				if {debug.%loop-player's uuid%} is true:
-					send "[&4Admin&r] Event countdown / Event started by Console" to loop-player
+					send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
 					send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-			send title "Event starting" with subtitle "in 1 minute and 30 seconds" to loop-player for 3 seconds
+			send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 3 minutes" to loop-player for 3 seconds
 		set {event_state} to "Start Countdown"
 
 command /consolereset:
@@ -479,8 +466,8 @@ command /consolereset:
 			setPlayerColor(loop-player)
 			clear {ride.%loop-player's uuid%}
 			add 1 to {online_players}
-			make loop-player execute command "spawn"
-			apply saturation without particles to loop-player for 100 days
+			command("spawn %loop-player%")
+			apply infinite saturation without particles whilst hiding the potion icon to loop-player
 			set {gamemode.%loop-player's uuid%} to 2
 			set {points_game.%loop-player's uuid%} to 0
 			set {points.%loop-player's uuid%} to 0
@@ -540,8 +527,9 @@ command /parkour:
 				set {parkour.main_level.%loop-player's uuid%} to 1
 				set {parkour.sub_level.%loop-player's uuid%} to 1
 				set {_item} to carrot on a stick
-				set {_item.nbt} to nbt compound of {_item}
-				add nbt of "{""minecraft:custom_model_data"":36,""minecraft:custom_name"":'{""text"":""Skip Level"",""italic"":false,""color"":""gold""}'}" to {_item.nbt}
+				apply custom model data to {_item}:
+					strings: "skip_level"
+				set the name of {_item} to "&r&6Skip Level"
 				set slot 7 of loop-player to {_item}
 				set {parkour.skip.%loop-player's uuid%} to false
 				set {parkour.skip_used.%loop-player's uuid%} to false
@@ -577,7 +565,7 @@ command /bingo:
 				set slot 2 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and fortune 2 named "&eFortune iron pickaxe"
 				set slot 3 of loop-player to iron pickaxe of unbreaking 250 and efficiency 2 and silk touch named "&eSilk touch iron pickaxe"
 				set slot 4 of loop-player to iron shovel of unbreaking 250 and efficiency 2 named "&eIron shovel"
-				set slot 6 of loop-player to 64 steaks named "&eSteak"
+				set slot 6 of loop-player to 64 cooked beef named "&eSteak"
 				set helmet of loop-player to chainmail helmet of unbreaking 250 named "&eChainmail helmet"
 				set chestplate of loop-player to chainmail chestplate of unbreaking 250 named "&eChainmail chestplate"
 				set leggings of loop-player to chainmail leggings of unbreaking 250  named "&eChainmail leggings"
@@ -598,8 +586,9 @@ command /bingo:
 				wait 5 ticks
 				set loop-player's gamemode to adventure
 				set {_item} to carrot on a stick
-				set {_item.nbt} to nbt compound of {_item}
-				add nbt of "{""minecraft:custom_model_data"":21,""minecraft:custom_name"":'{""text"":""Teleport to Home"",""italic"":false,""color"":""yellow""}'}" to {_item.nbt}
+				apply custom model data to {_item}:
+					strings: "bingo_house"
+				set the name of {_item} to "&r&eTeleport to Home"
 				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 		set {bingo_all_cases} to 0
@@ -651,8 +640,9 @@ command /bingo:
 				set slot 0 of loop-player to compass named "&rTeleport to player"
 				set slot 1 of loop-player to feather named "&rChange your fly speed"
 				set {_item} to carrot on a stick
-				set {_item.nbt} to nbt compound of {_item}
-				add nbt of "{""minecraft:custom_model_data"":21,""minecraft:custom_name"":'{""text"":""Teleport to Home"",""italic"":false,""color"":""yellow""}'}" to {_item.nbt}
+				apply custom model data to {_item}:
+					strings: "bingo_house"
+				set the name of {_item} to "&r&eTeleport to Home"
 				set slot 7 of loop-player to {_item}
 				set slot 8 of loop-player to paper named "&eYour Bingo card"
 				set {finished.%loop-player's uuid%} to true
@@ -976,8 +966,9 @@ command /courses:
 			else:
 				set {finished.%loop-player's uuid%} to false
 				set {_item} to carrot on a stick
-				set {_item.nbt} to nbt compound of {_item}
-				add nbt of "{""minecraft:custom_model_data"":27,""minecraft:custom_name"":'{""text"":""You are on Lap 1"",""italic"":false,""color"":""green""}'}" to {_item.nbt}
+				apply custom model data to {_item}:
+					strings: "lap_1_text"
+				set the name of {_item} to "&r&aYou're on Lap 1"
 				set slot 40 of loop-player to {_item}
 				set {race_total_time.%loop-player's uuid%} to 0
 				set {race_lap_time.%loop-player's uuid%} to 0
@@ -1692,11 +1683,11 @@ command /tpspec2:
 		else:
 			send "[&4Admin&r] You currently don't have access to the teleport menu"
 
-command /tests <int>:
+command /test:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		add arg-1 to {online_players}
+		giveRandomItems(sender)
 
 command /emotes [<text>]:
 	description: opens a gui with all the emotes that, when clicked, will send that emote in chat
@@ -1779,6 +1770,7 @@ command /fly [<player>] [<boolean>]:
 			if arg-2 is set:
 				if arg-2 is true:
 					allow fly for arg-1
+					force arg-1 to fly
 					send "[&4Admin&r] Fly mode enabled for %arg-1%" to player
 					if arg-1 is not player:
 						send "[&4Admin&r] Fly mode enabled by %executor%" to arg-1
@@ -1795,6 +1787,7 @@ command /fly [<player>] [<boolean>]:
 						send "[&4Admin&r] Fly mode disabled by %executor%" to arg-1
 				else:
 					allow fly for arg-1
+					force arg-1 to fly
 					send "[&4Admin&r] Fly mode enabled for %arg-1%" to player
 					if arg-1 is not player:
 						send "[&4Admin&r] Fly mode enabled by %executor%" to arg-1
@@ -1803,6 +1796,7 @@ command /fly [<player>] [<boolean>]:
 				if arg-2 is set:
 					if arg-2 is true:
 						allow fly for player
+						force player to fly
 						send "[&4Admin&r] Fly mode enabled for %arg-1%" to players
 					else:
 						disable fly for player
@@ -1813,6 +1807,7 @@ command /fly [<player>] [<boolean>]:
 						send "[&4Admin&r] Fly mode disabled" to player
 					else:
 						allow fly for player
+						force player to fly
 						send "[&4Admin&r] Fly mode enabled" to player
 
 on tab complete of "/fly":
@@ -1933,12 +1928,6 @@ command /ph:
 	trigger:
 		make executor execute command "sk reload placeholders.sk"
 
-command /rldropper:
-	permission: *
-	permission message: &cThis command does not exist
-	trigger:
-		make executor execute command "sk reload dropper.sk"
-
 command /scripts:
 	permission: *
 	permission message: &cThis command does not exist
@@ -1951,15 +1940,19 @@ command /all:
 	trigger:
 		make executor execute command "sk reload all"
 
-command /see <player>:
+command /see <player> [<boolean = false>]:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		loop all players:
-			if loop-player doesn't have permission "group.spectators":
-				if {finished.%loop-player's uuid%} is false:
-					reveal loop-player for arg-1
-		send "[&4Admin&r] You can now see the players who haven't finished yet" to arg-1
+		if arg-2 = false:
+			loop all players:
+				if loop-player doesn't have permission "group.spectators":
+					if {finished.%loop-player's uuid%} is false:
+						reveal loop-player for arg-1
+			send "[&4Admin&r] You can now see the players who haven't finished yet" to arg-1
+		else:
+			reveal all players for arg-1
+			send "[&4Admin&r] You can now see everyone" to arg-1
 
 command /skip:
 	permission: *
@@ -2114,24 +2107,15 @@ command /hide [<player>] [<boolean>]:
 					send "[&4Admin&r] You are now visible to other players"
 				else if {hide.%player's uuid%} is not set:
 					hide player from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players"
 				else:
 					hide player from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players"
 			else:
 				if arg-2 is true:
 					hide player from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%player's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players"
 				else:
@@ -2146,24 +2130,15 @@ command /hide [<player>] [<boolean>]:
 					send "[&4Admin&r] You are now visible to other players" to arg-1
 				else if {hide.%arg-1's uuid%} is not set:
 					hide arg-1 from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players" to arg-1
 				else:
 					hide arg-1 from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players" to arg-1
 			else:
 				if arg-2 is true:
 					hide arg-1 from all players
-					loop all players:
-						if loop-player has permission "group.spectators":
-							reveal arg-1 for loop-player
 					set {hide.%arg-1's uuid%} to true
 					send "[&4Admin&r] You are now invisible to other players" to arg-1
 				else:
@@ -3026,44 +3001,59 @@ command /sub <offline player> <offline player>:
 command /pridecolor <player> <text>:
 	permission: *
 	trigger:
-		if arg-2 = "rainbow", "rainbow_wave", "lesbian", "gay", "bisexual", "transgender", "pride", "pansexual", "asexual", "aromantic", "non_binary" or "rainbow_iter":
+		if arg-2 = "rainbow", "rainbow_wave", "lesbian", "gay", "bisexual", "transgender", "pride", "pansexual", "asexual", "aromantic", "non_binary" or "rainbow_iter" or "clear":
 			if arg-2 = "rainbow":
+				command("customcolor %arg-1's name% RAINBOW")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f01c> "
 				set {_color} to colored "<##f0f01c>"
 			else if arg-2 = "rainbow_wave":
+				command("customcolor %arg-1's name% RAINBOW_WAVE")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f084> "
 				set {_color} to colored "<##f0f084>"
 			else if arg-2 = "rainbow_iter":
+				command("customcolor %arg-1's name% RAINBOW_ITER")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f088> "
 				set {_color} to colored "<##f0f088>"
 			else if arg-2 = "lesbian":
+				command("customcolor %arg-1's name% LESBIAN")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f040> "
 				set {_color} to colored "<##f0f040>"
 			else if arg-2 = "gay":
+				command("customcolor %arg-1's name% GAY")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f044> "
 				set {_color} to colored "<##f0f044>"
 			else if arg-2 = "bisexual":
+				command("customcolor %arg-1's name% BISEXUAL")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f048> "
 				set {_color} to colored "<##f0f048>"
 			else if arg-2 = "transgender":
+				command("customcolor %arg-1's name% TRANSGENDER")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f04c> "
 				set {_color} to colored "<##f0f04c>"
 			else if arg-2 = "pride":
+				command("customcolor %arg-1's name% PRIDE")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f050> "
 				set {_color} to colored "<##f0f050>"
 			else if arg-2 = "pansexual":
+				command("customcolor %arg-1's name% PANSEXUAL")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f054> "
 				set {_color} to colored "<##f0f054>"
 			else if arg-2 = "asexual":
+				command("customcolor %arg-1's name% ASEXUAL")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f058> "
 				set {_color} to colored "<##f0f058>"
 			else if arg-2 = "aromantic":
+				command("customcolor %arg-1's name% AROMANTIC")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f05c> "
 				set {_color} to colored "<##f0f05c>"
 			else if arg-2 = "non_binary":
+				command("customcolor %arg-1's name% NON_BINARY")
 				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f060> "
 				set {_color} to colored "<##f0f060>"
-			send colored "Color has been changed to %{_color}%%arg-2%&r for %arg-1%"
+			else if arg-2 = "clear":
+				command("customcolor %arg-1's name% TEXT")
+				setPlayerTeamWithBackup(arg-1)
+			send colored "Color has been changed to %{color.%arg-1's uuid%}%%arg-2%&r for %arg-1%"
 		else:
 			send "&cThis color doesn't exist"
 

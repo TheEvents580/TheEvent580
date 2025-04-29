@@ -2,7 +2,7 @@ function command(command:text):
 	make console execute command "%{_command}%"
 
 function toast(p:player,style:text, icon:text, message:text):
-	make console execute command "toast %{_p}%%{_style}% %{_icon}% %{_message}%"
+	command("toast %{_p}%%{_style}% %{_icon}% %{_message}%")
 
 function setPlayerTeamWithBackup(p:offline player):
 	if {color.%{_p}'s uuid%.backup} = "spectators":
@@ -72,6 +72,10 @@ function minuteSecondTicks(time: number) :: text:
 	set {_ticks} to {_second} - floor({_second})
 	set {_second} to {_second} - {_ticks}
 	set {_ticks} to {_ticks}*100
+
+	set {_minute} to abs({_minute})
+	set {_second} to abs({_second})
+	set {_ticks} to abs({_ticks})
 
 	if {_minute} < 10:
 		set {_minute} to "0%{_minute}%"
@@ -656,73 +660,26 @@ function newPlayers():
 	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% victoriaskyetv" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
-			apply glowing without particles to loop-player for 2 seconds
+			apply glowing without particles whilst hiding the potion icon to loop-player for 2 seconds
 	wait 2 seconds
 	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps" to all players for 2 seconds
 	loop all players:
 		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
-			apply glowing without particles to loop-player for 2 seconds
+			apply glowing without particles whilst hiding the potion icon to loop-player for 2 seconds
 
 function currentPlayers():
 	send title "<##f0f01c>Next, announcing players :" with subtitle " " to all players for 15 seconds
-	wait 2 second
-	send subtitle "%{color.19fcc862-7e4b-4d42-a258-98a6723ea948}% Redd_Zee&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "19fcc862-7e4b-4d42-a258-98a6723ea948":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.aba34626-90e3-498f-b70c-8314e0bb4277}% KaNukei&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "aba34626-90e3-498f-b70c-8314e0bb4277":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.750f5ea8-e31b-4581-8db6-d213a755651b}% Svubo&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "750f5ea8-e31b-4581-8db6-d213a755651b":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.c6ef5a1b-be62-40d2-a156-beffe050c36e}% Frogqers&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "c6ef5a1b-be62-40d2-a156-beffe050c36e":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGriddy&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% victoriaskyetv&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.13e97dc8-20d4-46f7-b445-26f393f77076}% dark004fly&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "13e97dc8-20d4-46f7-b445-26f393f77076":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.fedb60d7-ecb9-4c74-8630-c95aa1692b7d}% Bluekwyrm&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "fedb60d7-ecb9-4c74-8630-c95aa1692b7d":
-			apply glowing without particles to loop-player for 2 seconds
+	loop {players::*}:
+		wait 2 second
+		send subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds
+		apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function currentSpecs():
-	send title "<##f0f01c>And here are your spectators :" with subtitle " " to all players for 2 seconds
-	wait 2 second
-	send subtitle "%{color.a5b68cfe-e546-4b63-a87d-26f065710dc1}% TheFox580&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "a5b68cfe-e546-4b63-a87d-26f065710dc1":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 second
-	send subtitle "%{color.1ba03542-0da6-4981-bc25-1c303dd2f940}% Kokirri&r" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "1ba03542-0da6-4981-bc25-1c303dd2f940":
-			apply glowing without particles to loop-player for 2 seconds
+	send title "<##f0f01c>And here are your spectators :" with subtitle " " to all players for 4 seconds
+	loop {spectators::*}:
+		wait 2 second
+		send subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds
+		apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function checkPoints(points: number) :: text:
 	set {_points} to round({_points})
@@ -751,8 +708,10 @@ function giveRandomItems(p:player):
 	set {_random} to round({_random})
 	if {_random} = 54:
 		set {_item} to carrot on a stick
-		set {_item.nbt} to nbt compound of {_item}
-		add nbt of "{""minecraft:custom_model_data"":19,""minecraft:custom_name"":'{""text"":""Swap players and spectators"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to swap the players and the spectators"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
+		apply custom model data to {_item}:
+			strings: "swap_players_and_spectators"
+		set the name of {_item} to "&rSwap players and spectators"
+		set the lore of {_item} to "&rRight click to swap the players and the spectators"
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
@@ -760,8 +719,10 @@ function giveRandomItems(p:player):
 				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
 	else if {_random} = 66:
 		set {_item} to carrot on a stick
-		set {_item.nbt} to nbt compound of {_item}
-		add nbt of "{""minecraft:custom_model_data"":20,""minecraft:custom_name"":'{""text"":""You choose the game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click to choose the game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
+		apply custom model data to {_item}:
+			strings: "you_choose_the_game"
+		set the name of {_item} to "&rYou choose the game"
+		set the lore of {_item} to "&rRight click to choose the game"
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
@@ -781,26 +742,25 @@ function giveRandomItems(p:player):
 				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
 	else if {_random} is between 81 and 85:
 		set {_item} to carrot on a stick
-		set {_item.nbt} to nbt compound of {_item}
-		add nbt of "{""minecraft:custom_model_data"":18,""minecraft:custom_name"":'{""text"":""Block a game"",""italic"":false}',""minecraft:lore"":'{""text"":""Right click in a game category to block this game"",""italic"":false,""color"":""white""}'}" to {_item.nbt}
+		apply custom model data to {_item}:
+			strings: "block_a_game"
+		set the name of {_item} to "&rBlock a game"
+		set the lore of {_item} to "&rRight click in a game category to block this game"
 		give 1 of {_item} to {_p}
 		send "[<##155966>&lDecision Crysyal&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
 	else if {_random} is between 30 and 39:
-		set {_netheritesword} to a netherite sword named "&rKill a player"
-		set {_netheriteswordnbt} to nbt compound of {_netheritesword}
-		add nbt of "{""minecraft:damage"":2030}" to {_item.nbt}
+		set {_netheritesword} to a netherite sword named "&rKill a player" with damage value 2030
 		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		give 1 of {_netheritesword} to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
 				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
 	else if {_random} is between 40 and 49:
-		set {_crossbow} to a crossbow named "&rKill a player"
-		set {_crossbownbt} to nbt compound of {_crossbow}
-		add nbt of "{""minecraft:damage"":465,""minecraft:charged_projectiles""=[{id:""minecraft:arrow""}]}" to {_item.nbt}
+		set {_crossbow} to a crossbow named "&rKill a player" with damage value 465
+		set charged projectiles of {_crossbow} to an arrow
 		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
@@ -825,72 +785,72 @@ function giveRandomItems(p:player):
 
 function blockGame(game:text,p:player):
 	if {_game} = "Trials":
-		make console execute command "execute in minecraft:overworld run fill 3 247 8 -3 247 3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill 3 247 8 -3 247 3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill 3 251 8 -3 253 3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill 3 251 8 -3 253 3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &c&lTRIALS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is red concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Parkour":
-		make console execute command "execute in minecraft:overworld run fill -3 247 8 -8 247 3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill -3 247 8 -8 247 3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill -3 251 8 -8 253 3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill -3 251 8 -8 253 3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is orange concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Bingo":
-		make console execute command "execute in minecraft:overworld run fill -8 247 3 -3 247 -3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill -8 247 3 -3 247 -3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill -8 251 3 -3 253 -3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill -8 251 3 -3 253 -3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is yellow concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Tag":
-		make console execute command "execute in minecraft:overworld run fill -8 247 -3 -3 247 -8 redstone_block replace air"
+		command("execute in minecraft:overworld run fill -8 247 -3 -3 247 -8 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill -8 251 -3 -3 253 -8 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill -8 251 -3 -3 253 -8 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &a&lTAG&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is lime concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Multilap":
-		make console execute command "execute in minecraft:overworld run fill -3 247 -8 3 247 -3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill -3 247 -8 3 247 -3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill -3 251 -8 3 253 -3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill -3 251 -8 3 253 -3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is light blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Build Masters":
-		make console execute command "execute in minecraft:overworld run fill 3 247 -8 8 247 -3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill 3 247 -8 8 247 -3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill 3 251 -8 8 253 -3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill 3 251 -8 8 253 -3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &9&lBUILD MASTERS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Arms Race":
-		make console execute command "execute in minecraft:overworld run fill 8 247 -3 3 247 3 redstone_block replace air"
+		command("execute in minecraft:overworld run fill 8 247 -3 3 247 3 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill 8 251 -3 3 253 3 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill 8 251 -3 3 253 3 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &5&lARMS RACE&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is purple concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
 		remove 1 of carrot on a stick named "Block a game" from {_p}
 	if {_game} = "Bow PVP":
-		make console execute command "execute in minecraft:overworld run fill 8 247 3 3 247 8 redstone_block replace air"
+		command("execute in minecraft:overworld run fill 8 247 3 3 247 8 redstone_block replace air")
 		wait 2 ticks
-		make console execute command "execute in minecraft:overworld run fill 8 251 3 3 253 8 minecraft:polished_deepslate"
+		command("execute in minecraft:overworld run fill 8 251 3 3 253 8 minecraft:polished_deepslate")
 		broadcast "[<##155966>&lALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is pink concrete:
@@ -904,88 +864,88 @@ function refillAll():
 	loop 5 times:
 		wait 1 second
 		bossbarRemove1Sec("mall")
-	make console execute command "refill red concrete 0"
-	make console execute command "refill red concrete 1"
-	make console execute command "refill red terracotta 0"
-	make console execute command "refill red terracotta 1"
-	make console execute command "refill orange concrete 0"
-	make console execute command "refill orange concrete 1"
-	make console execute command "refill orange terracotta 0"
-	make console execute command "refill orange terracotta 1"
-	make console execute command "refill yellow concrete 0"
-	make console execute command "refill yellow concrete 1"
-	make console execute command "refill yellow terracotta 0"
-	make console execute command "refill yellow terracotta 1"
-	make console execute command "refill lime concrete 0"
-	make console execute command "refill lime concrete 1"
-	make console execute command "refill lime terracotta 0"
-	make console execute command "refill lime terracotta 1"
-	make console execute command "refill green concrete 0"
-	make console execute command "refill green concrete 1"
-	make console execute command "refill green terracotta 0"
-	make console execute command "refill green terracotta 1"
-	make console execute command "refill cyan concrete 0"
-	make console execute command "refill cyan concrete 1"
-	make console execute command "refill cyan terracotta 0"
-	make console execute command "refill cyan terracotta 1"
-	make console execute command "refill lightblue concrete 0"
-	make console execute command "refill lightblue concrete 1"
-	make console execute command "refill lightblue terracotta 0"
-	make console execute command "refill lightblue terracotta 1"
-	make console execute command "refill blue concrete 0"
-	make console execute command "refill blue concrete 1"
-	make console execute command "refill blue terracotta 0"
-	make console execute command "refill blue terracotta 1"
-	make console execute command "refill purple concrete 0"
-	make console execute command "refill purple concrete 1"
-	make console execute command "refill purple terracotta 0"
-	make console execute command "refill purple terracotta 1"
-	make console execute command "refill magenta concrete 0"
-	make console execute command "refill magenta concrete 1"
-	make console execute command "refill magenta terracotta 0"
-	make console execute command "refill magenta terracotta 1"
-	make console execute command "refill pink concrete 0"
-	make console execute command "refill pink concrete 1"
-	make console execute command "refill pink terracotta 0"
-	make console execute command "refill pink terracotta 1"
-	make console execute command "refill brown concrete 0"
-	make console execute command "refill brown concrete 1"
-	make console execute command "refill brown terracotta 0"
-	make console execute command "refill brown terracotta 1"
-	make console execute command "refill black concrete 0"
-	make console execute command "refill black concrete 1"
-	make console execute command "refill black terracotta 0"
-	make console execute command "refill black terracotta 1"
-	make console execute command "refill gray concrete 0"
-	make console execute command "refill gray concrete 1"
-	make console execute command "refill gray terracotta 0"
-	make console execute command "refill gray terracotta 1"
-	make console execute command "refill lightgray concrete 0"
-	make console execute command "refill lightgray concrete 1"
-	make console execute command "refill lightgray terracotta 0"
-	make console execute command "refill lightgray terracotta 1"
-	make console execute command "refill white concrete 0"
-	make console execute command "refill white concrete 1"
-	make console execute command "refill white terracotta 0"
-	make console execute command "refill white terracotta 1"
-	make console execute command "refill clear terracotta 0"
-	make console execute command "refill clear terracotta 1"
-	make console execute command "refill copper normal 0"
-	make console execute command "refill copper normal 1"
-	make console execute command "refill copper exposed 0"
-	make console execute command "refill copper exposed 1"
-	make console execute command "refill copper weathered 0"
-	make console execute command "refill copper weathered 1"
-	make console execute command "refill copper oxidized 0"
-	make console execute command "refill copper oxidized 1"
-	make console execute command "refill cutcopper normal 0"
-	make console execute command "refill cutcopper normal 1"
-	make console execute command "refill cutcopper exposed 0"
-	make console execute command "refill cutcopper exposed 1"
-	make console execute command "refill cutcopper weathered 0"
-	make console execute command "refill cutcopper weathered 1"
-	make console execute command "refill cutcopper oxidized 0"
-	make console execute command "refill cutcopper oxidized 1"
+	command("refill red concrete 0")
+	command("refill red concrete 1")
+	command("refill red terracotta 0")
+	command("refill red terracotta 1")
+	command("refill orange concrete 0")
+	command("refill orange concrete 1")
+	command("refill orange terracotta 0")
+	command("refill orange terracotta 1")
+	command("refill yellow concrete 0")
+	command("refill yellow concrete 1")
+	command("refill yellow terracotta 0")
+	command("refill yellow terracotta 1")
+	command("refill lime concrete 0")
+	command("refill lime concrete 1")
+	command("refill lime terracotta 0")
+	command("refill lime terracotta 1")
+	command("refill green concrete 0")
+	command("refill green concrete 1")
+	command("refill green terracotta 0")
+	command("refill green terracotta 1")
+	command("refill cyan concrete 0")
+	command("refill cyan concrete 1")
+	command("refill cyan terracotta 0")
+	command("refill cyan terracotta 1")
+	command("refill lightblue concrete 0")
+	command("refill lightblue concrete 1")
+	command("refill lightblue terracotta 0")
+	command("refill lightblue terracotta 1")
+	command("refill blue concrete 0")
+	command("refill blue concrete 1")
+	command("refill blue terracotta 0")
+	command("refill blue terracotta 1")
+	command("refill purple concrete 0")
+	command("refill purple concrete 1")
+	command("refill purple terracotta 0")
+	command("refill purple terracotta 1")
+	command("refill magenta concrete 0")
+	command("refill magenta concrete 1")
+	command("refill magenta terracotta 0")
+	command("refill magenta terracotta 1")
+	command("refill pink concrete 0")
+	command("refill pink concrete 1")
+	command("refill pink terracotta 0")
+	command("refill pink terracotta 1")
+	command("refill brown concrete 0")
+	command("refill brown concrete 1")
+	command("refill brown terracotta 0")
+	command("refill brown terracotta 1")
+	command("refill black concrete 0")
+	command("refill black concrete 1")
+	command("refill black terracotta 0")
+	command("refill black terracotta 1")
+	command("refill gray concrete 0")
+	command("refill gray concrete 1")
+	command("refill gray terracotta 0")
+	command("refill gray terracotta 1")
+	command("refill lightgray concrete 0")
+	command("refill lightgray concrete 1")
+	command("refill lightgray terracotta 0")
+	command("refill lightgray terracotta 1")
+	command("refill white concrete 0")
+	command("refill white concrete 1")
+	command("refill white terracotta 0")
+	command("refill white terracotta 1")
+	command("refill clear terracotta 0")
+	command("refill clear terracotta 1")
+	command("refill copper normal 0")
+	command("refill copper normal 1")
+	command("refill copper exposed 0")
+	command("refill copper exposed 1")
+	command("refill copper weathered 0")
+	command("refill copper weathered 1")
+	command("refill copper oxidized 0")
+	command("refill copper oxidized 1")
+	command("refill cutcopper normal 0")
+	command("refill cutcopper normal 1")
+	command("refill cutcopper exposed 0")
+	command("refill cutcopper exposed 1")
+	command("refill cutcopper weathered 0")
+	command("refill cutcopper weathered 1")
+	command("refill cutcopper oxidized 0")
+	command("refill cutcopper oxidized 1")
 
 	loop all players:
 		if the z-coordinate of loop-player > 3000:
@@ -998,11 +958,11 @@ function refillAll():
 		
 function bossbarRemove1Sec(name:text):
 	remove 1 from {bar_progress_%{_name}%}
-	make console execute command "/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%"
+	command("/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%")
 	if {_name} = "mall":
-		make console execute command "/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s"""
+		command("/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s""")
 	if {_name} = "count":
-		make console execute command "/execute run bossbar set minecraft:%{_name}% name [{""text"":""氣到惡"",""color"":""#f0f064""},{""text"":""%intToTime({bar_progress_%{_name}%})%"",""color"":""#f0f068""}]"
+		command("/execute run bossbar set minecraft:%{_name}% name [{""text"":""氣到惡"",""color"":""#f0f064""},{""text"":""%intToTime({bar_progress_%{_name}%})%"",""color"":""#f0f068""}]")
 
 function bossbarRefill(name:text, value:integer, total:boolean = false):
 	set {bar_progress_%{_name}%} to {_value}
@@ -1105,8 +1065,8 @@ function resetEventTime(current_event_second:number, current_event_minute:number
 
 function setToSpec(spec: player):
 	set glowing of {_spec} to false
-	make console execute command "fly %{_spec}'s name% true"
-	command("hide %{_spec}'s name%")
+	command("fly %{_spec}'s name% true")
+	command("hide %{_spec}'s name% true")
 	command("see %{_spec}'s name%")
 	clear {_spec}'s inventory
 	set slot 0 of {_spec} to compass named "&rTeleport to player"

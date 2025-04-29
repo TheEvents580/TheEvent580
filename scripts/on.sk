@@ -135,7 +135,7 @@ on server list ping:
 
 on join:
 	wait 3 ticks
-	apply saturation of tier 255 without any particles to the player for 999 days
+	apply infinite saturation of tier 255 without any particles whilst hiding the potion icon to the player
 	set {compl_parcour.%event-player's uuid%} to 0
 	setPlayerTeamWithBackup(player)
 	if player = "TheFox580":
@@ -181,7 +181,7 @@ on join:
 	if {timer} is 0:
 		set {points.%player's uuid%} to 0
 		set {total_points_event.%player's uuid%} to 0
-	apply saturation without particles to player for 100 days
+	apply infinite saturation without particles whilst hiding the potion icon to player
 	wait 2 ticks
 	if player doesn't have permission "group.spectators":
 		if {jeu_condi} is not 3 or 6 or 9:
@@ -452,7 +452,7 @@ on join:
 		add 1 to {online_players}
 	add 1 to {total_points.%player's uuid%}
 	remove 1 from {total_points.%player's uuid%}
-	toggle scoreboards of player on
+	toggle fastboards of player on
 	command("/noxesiumutils serverRules disableBoatCollisions @a true")
 	command("/noxesiumutils serverRules enableSmootherClientTrident @a true")
 
@@ -666,7 +666,7 @@ on death:
 				set {max_health.%victim's uuid%} to 10
 				set the maximum health of the victim to {max_health.%victim's uuid%}
 				push victim 2 blocks up
-				make console execute command "/see %victim%"
+				command("/see %victim%")
 				hide victim from all players
 				set {hide.%victim's uuid%} to true
 				command("fly %victim%")
@@ -737,7 +737,7 @@ on respawn:
 		wait 1 tick
 		respawnBowPVP(player)
 		heal player
-		apply saturation without particles to player for 100 days
+		apply infinite saturation without particles whilst hiding the potion icon to player
 		set helmet of player to netherite helmet
 		set chestplate of player to netherite chestplate
 		set leggings of player to netherite leggings
@@ -754,7 +754,7 @@ on break:
 					send action bar "&cYou cannot break blocks here" to event-player
 		else if {jeu_condi} is 9:
 			if {finished.%player's uuid%} is false:
-				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz or quartz bricks or lime carpet or red carpet or yellow carpet or orange carpet or green carpet or cyan carpet:
+				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz block or quartz bricks or lime carpet or red carpet or yellow carpet or orange carpet or green carpet or cyan carpet:
 					cancel event
 				if the z-coordinate of player < 3000:
 					if the y-coordinate of block is bigger than 129:
@@ -973,62 +973,60 @@ on right click :
 					if {Herobrine.%player's uuid%} is false:
 						make server execute command "achivement %player% give Herobrine"
 		if {jeu_condi} is 0: #Spawn
-			if event-block is oak_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":1,""minecraft:custom_name"":'{""italic"":false,""text"":""Asexual Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Asexual flag on your head" to player
-			if event-block is spruce_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":6,""minecraft:custom_name"":'{""italic"":false,""text"":""Pride Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Pride flag on your head" to player
-			if event-block is birch_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":8,""minecraft:custom_name"":'{""italic"":false,""text"":""Transgender Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Transgender flag on your head" to player
-			if event-block is jungle_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":5,""minecraft:custom_name"":'{""italic"":false,""text"":""Pansexual Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Pansexual flag on your head" to player
-			if event-block is acacia_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":3,""minecraft:custom_name"":'{""italic"":false,""text"":""Lesbian Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Lesbian flag on your head" to player
-			if event-block is dark_oak_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":7,""minecraft:custom_name"":'{""italic"":false,""text"":""Trans-Inclusive Gay Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Trans-Inclusive Gay flag on your head" to player
-			if event-block is mangrove_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":4,""minecraft:custom_name"":'{""italic"":false,""text"":""Non-Binary Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Non-Binary flag on your head" to player
-			if event-block is stone_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":2,""minecraft:custom_name"":'{""italic"":false,""text"":""Bisexual Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Bisexual flag on your head" to player
-			if event-block is polished_blackstone_button:
-				set {flag.%player's uuid%} to a carrot on a stick
-				set {flag.nbt.%player's uuid%} to nbt compound of {flag.%player's uuid%}
-				add nbt of "{""minecraft:custom_model_data"":9,""minecraft:custom_name"":'{""italic"":false,""text"":""Unlabled Flag""}'}" to {flag.nbt.%player's uuid%}
-				set helmet of player to {flag.%player's uuid%}
-				send "[<##155966>&lTheEvent580&r] You now have the Unlabled flag on your head" to player
-			#if event-block is red concrete:
-			#	give 1 of apple to player
+			if event-block is oak_button or spruce_button or birch_button or jungle_button or acacia_button or dark_oak_button or mangrove_button or stone_button or polished_blackstone_button or cherry_button:
+				set {flag.%event-player's uuid%} to a carrot on a stick
+				if event-block is oak_button:
+					command("pridecolor %event-player's name% asexual")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "asexual_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f058>Asexual Flag"
+				if event-block is spruce_button:
+					command("pridecolor %event-player's name% pride")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "pride_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f050>Pride Flag"
+				if event-block is birch_button:
+					command("pridecolor %event-player's name% transgender")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "transgender_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f04c>Transgender Flag"
+				if event-block is jungle_button:
+					command("pridecolor %event-player's name% pansexual")	
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "pansexual_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f054>Pansexual Flag"
+				if event-block is acacia_button:
+					command("pridecolor %event-player's name% lesbian")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "lesbian_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f040>Lesbian Flag"
+				if event-block is dark_oak_button:
+					command("pridecolor %event-player's name% gay")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "trans_inclusive_gay_men_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f044>Trans-Inclusive Gay Flag"
+				if event-block is mangrove_button:
+					command("pridecolor %event-player's name% non_binary")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "non_binary_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f060>Non-Binary Flag"
+				if event-block is stone_button:
+					command("pridecolor %event-player's name% bisexual")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "bisexual_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f048>Bisexual Flag"
+				if event-block is polished_blackstone_button:
+					command("pridecolor %event-player's name% rainbow")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "unlabled_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f01c>Unlabled Flag"
+				if event-block is cherry_button:
+					command("pridecolor %event-player's name% aromantic")
+					apply custom model data to {flag.%event-player's uuid%}:
+						strings: "aromantic_flag"
+					set name of {flag.%event-player's uuid%} to "&r<##f0f05c>Aromantic Flag"
+				send action bar "[<##155966>&lTheEvent580&r] You now have the %name of {flag.%event-player's uuid%}%&r on your head" to event-player
+				set helmet of event-player to {flag.%event-player's uuid%}
 			if event-block is yellow concrete or white concrete:
 				if the y coordinate of player < 120:
 					give 1 of egg to player
@@ -1054,163 +1052,7 @@ on right click :
 				remove 1 of fox spawn egg from event-player's inventory
 				loop entities in radius 4 around event-player:
 					if loop-entity isn't a player:
-						apply infinite glowing without any particles to the loop-entity
-		if {jeu_condi} is 4: #Find The Button
-			if {finished.%player's uuid%} is false:
-				if event-block is oak_button:
-					if {ftb_1.%player's uuid%} is false:
-						set {ftb_1.%player's uuid%} to true
-						if {ftb_1} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the oak button !"
-							set {ftb_1} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_oak_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_1}% Found the oak button")
-						add {pts_lvl_1} to {total_points.%player's uuid%}
-						add {pts_lvl_1} to {total_points_event.%player's uuid%}
-						remove round(10*{multiplier}) from {pts_lvl_1}
-				if event-block is spruce_button:
-					if {ftb_2.%player's uuid%} is false:
-						set {ftb_2.%player's uuid%} to true
-						if {ftb_2} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the spruce button !"
-							set {ftb_2} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_spruce_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_2}% Found the spruce button")
-						add {pts_lvl_2} to {total_points.%player's uuid%}
-						add {pts_lvl_2} to {total_points_event.%player's uuid%}
-						remove round(15*{multiplier}) from {pts_lvl_2}
-				if event-block is acacia_button:
-					if {ftb_3.%player's uuid%} is false:
-						set {ftb_3.%player's uuid%} to true
-						if {ftb_3} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the acacia button !"
-							set {ftb_3} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_acacia_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_3}% Found the acacia button")
-						add {pts_lvl_3} to {total_points.%player's uuid%}
-						add {pts_lvl_3} to {total_points_event.%player's uuid%}
-						remove round(20*{multiplier}) from {pts_lvl_3}
-				if event-block is mangrove_button:
-					if {ftb_4.%player's uuid%} is false:
-						set {ftb_4.%player's uuid%} to true
-						if {ftb_4} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the mangrove button !"
-							set {ftb_4} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_mangrove_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_4}% Found the mangrove button")
-						add {pts_lvl_4} to {total_points.%player's uuid%}
-						add {pts_lvl_4} to {total_points_event.%player's uuid%}
-						remove round(25*{multiplier}) from {pts_lvl_4}
-				if event-block is crimson_button:
-					if {ftb_5.%player's uuid%} is false:
-						set {ftb_5.%player's uuid%} to true
-						if {ftb_5} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the crimson button !"
-							set {ftb_5} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_crimson_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_5}% Found the crimson button")
-						add {pts_lvl_5} to {total_points.%player's uuid%}
-						add {pts_lvl_5} to {total_points_event.%player's uuid%}
-						remove round(30*{multiplier}) from {pts_lvl_5}
-				if event-block is polished_blackstone_button:
-					if {ftb_6.%player's uuid%} is false:
-						set {ftb_6.%player's uuid%} to true
-						if {ftb_6} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the polished blackstone button !"
-							set {ftb_6} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_polished_blackstone_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_6}% Found the polished blackstone button")
-						add {pts_lvl_6} to {total_points.%player's uuid%}
-						add {pts_lvl_6} to {total_points_event.%player's uuid%}
-						remove round(35*{multiplier}) from {pts_lvl_6}
-				if event-block is dark_oak_button:
-					if {ftb_7.%player's uuid%} is false:
-						set {ftb_7.%player's uuid%} to true
-						if {ftb_7} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the dark oak button !"
-							set {ftb_7} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_dark_oak_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_7}% Found the dark oak button")
-						add {pts_lvl_7} to {total_points.%player's uuid%}
-						add {pts_lvl_7} to {total_points_event.%player's uuid%}
-						remove round(40*{multiplier}) from {pts_lvl_7}
-				if event-block is stone_button:
-					if {ftb_8.%player's uuid%} is false:
-						set {ftb_8.%player's uuid%} to true
-						if {ftb_8} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the stone button !"
-							set {ftb_8} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_stone_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_8}% Found the stone button")
-						add {pts_lvl_8} to {total_points.%player's uuid%}
-						add {pts_lvl_8} to {total_points_event.%player's uuid%}
-						remove round(45*{multiplier}) from {pts_lvl_8}
-				if event-block is warped_button:
-					if {ftb_9.%player's uuid%} is false:
-						set {ftb_9.%player's uuid%} to true
-						if {ftb_9} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the warped button !"
-							set {ftb_9} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_warped_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_9}% Found the warped button")
-						add {pts_lvl_9} to {total_points.%player's uuid%}
-						add {pts_lvl_9} to {total_points_event.%player's uuid%}
-						remove round(50*{multiplier}) from {pts_lvl_9}
-				if event-block is jungle_button:
-					if {ftb_10.%player's uuid%} is false:
-						set {ftb_10.%player's uuid%} to true
-						if {ftb_10} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the jungle button !"
-							set {ftb_10} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_jungle_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_10}% Found the jungle button")
-						add {pts_lvl_10} to {total_points.%player's uuid%}
-						add {pts_lvl_10} to {total_points_event.%player's uuid%}
-						remove round(55*{multiplier}) from {pts_lvl_10}
-				if event-block is birch_button:
-					if {ftb_11.%player's uuid%} is false:
-						set {ftb_11.%player's uuid%} to true
-						if {ftb_11} is false:
-							broadcast "[<##155966>&lTheEvent580&r] &a&l%player%&r is the 1st player to find the birch button !"
-							set {ftb_11} to true
-						play sound "custom:coins" in voice category with volume 2 to the player 
-						add 1 to {total_buttons_pressed}
-						add 1 to {ftb_birch_completed}
-						add 1 to {ftb_fin.%player's uuid%}
-						command("gamepoints %player% %{pts_lvl_11}% Found the birch button")
-						add {pts_lvl_11} to {total_points.%player's uuid%}
-						add {pts_lvl_11} to {total_points_event.%player's uuid%}
-						remove round(60*{multiplier}) from {pts_lvl_11}
+						apply infinite glowing without particles whilst hiding the potion icon to the loop-entity
 		if {jeu_condi} = 6:
 			if {alive.%player's uuid%} = false:
 				cancel event
@@ -1279,6 +1121,8 @@ on craft:
 			cancel event
 
 on shoot:
+	if name of shooter's tool = "&rKill a player":
+		clear shooter's inventory
 	if {timer} is 3:
 		wait 3 seconds
 		kill event-projectile
@@ -1292,23 +1136,23 @@ on jump:
 	if event-world = "Build_Masters":
 		if block 0 meter under event-player = green carpet or cyan carpet:
 			remove jump boost from event-player
-			apply jump boost 6 without particles to event-player for 2 ticks
+			apply jump boost 6 without particles whilst hiding the potion icon to event-player for 2 ticks
 			push event-player up at speed 2
 		if block 0 meter under event-player = yellow carpet:
 			remove jump boost from event-player
-			apply jump boost 3 without particles to event-player for 2 ticks
+			apply jump boost 3 without particles whilst hiding the potion icon to event-player for 2 ticks
 			push event-player east at speed 3
 		if block 0 meter under event-player = red carpet:
 			remove jump boost from event-player
-			apply jump boost 3 without particles to event-player for 2 ticks
+			apply jump boost 3 without particles whilst hiding the potion icon to event-player for 2 ticks
 			push event-player west at speed 3
 		if block 0 meter under event-player = orange carpet:
 			remove jump boost from event-player
-			apply jump boost 3 without particles to event-player for 2 ticks
+			apply jump boost 3 without particles whilst hiding the potion icon to event-player for 2 ticks
 			push event-player north at speed 3
 		if block 0 meter under event-player = lime carpet:
 			remove jump boost from event-player
-			apply jump boost 3 without particles to event-player for 2 ticks
+			apply jump boost 3 without particles whilst hiding the potion icon to event-player for 2 ticks
 			push event-player south at speed 3
 		
 on sneak toggle:

@@ -1,112 +1,113 @@
 every 2 ticks:
 	loop all players:
-		set title of loop-player's scoreboard to "    <##155966>&lTheEvent580 • Season 1    "
-		set line 15 of loop-player's scoreboard to ""
-		set line 14 of loop-player's scoreboard to "<##E2F093>&lMiningame :"
-		set line 13 of loop-player's scoreboard to "<##D9D8F1>%{jeu}%/6<##E2F093>&l - <##D9D8F1>%{jeu_nom}%"
-		set line 12 of loop-player's scoreboard to ""
-		clear line 11 of loop-player's scoreboard
-		clear line 10 of loop-player's scoreboard
-		set line 9 of loop-player's scoreboard to "<##E2F093>&lPlayers Online :<##D9D8F1> %{online_players}%/2"
+		set title of loop-player's fastboard to "    <##155966>&lTheEvent580 • Season 1    "
+		set line 1 of loop-player's fastboard to ""
+		set line 2 of loop-player's fastboard to "<##E2F093>&lMiningame :"
+		set line 3 of loop-player's fastboard to "<##D9D8F1>%{jeu}%/6<##E2F093>&l - <##D9D8F1>%{jeu_nom}%"
+		set line 4 of loop-player's fastboard to ""
+		clear line 5 of loop-player's fastboard
+		clear line 6 of loop-player's fastboard
+		set line 7 of loop-player's fastboard to "<##E2F093>&lPlayers Online :<##D9D8F1> %{online_players}%/%size of {players::*}%"
 		if {jeu_condi} is 2:
 			if {finished.%loop-player's uuid%} = false:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lLevel :<##D9D8F1> %{parkour.main_level.%loop-player's uuid%}% - %{parkour.sub_level.%loop-player's uuid%}%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lLevel :<##D9D8F1> %{parkour.main_level.%loop-player's uuid%}% - %{parkour.sub_level.%loop-player's uuid%}%"
 			else:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for other players"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lWaiting for other players"
 		else if {jeu_condi} is 3:
 			if loop-player has permission "group.spectators":
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lTotal slot completed :<##D9D8F1> %{bingo_all_cases}%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lTotal slot completed :<##D9D8F1> %{bingo_all_cases}%"
 			else:
 				if {finished.%loop-player's uuid%} = false:
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lCompleted :<##D9D8F1> %{bingo_cases.%loop-player's uuid%}%/9"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lCompleted :<##D9D8F1> %{bingo_cases.%loop-player's uuid%}%/9"
 				else:
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for other players"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lWaiting for other players"
 		else if {jeu_condi} is 5:
 			if loop-player has permission "group.spectators":
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lCurrent opened path :<##D9D8F1> %{race_lap}%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent opened path :<##D9D8F1> %{race_lap}%"
 			else:
 				if {finished.%loop-player's uuid%} = false:
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lCheckpoint :<##D9D8F1> %{race_checkpoint.%loop-player's uuid%}%"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lCheckpoint :<##D9D8F1> %{race_checkpoint.%loop-player's uuid%}%"
 				else:
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for other players"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lWaiting for other players"
 		else if {jeu_condi} is 8:
 			if {invincibility.%loop-player's uuid%} = true:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lYou are invincible for :<##D9D8F1> %round({invincibility.time_left.%loop-player's uuid%})%s"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lYou are invincible for :<##D9D8F1> %round({invincibility.time_left.%loop-player's uuid%})%s"
 			else:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lYou are not invincible"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lYou are not invincible"
 		else if {jeu_condi} is 9:
 			if loop-player has permission "group.spectators":
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lTotal Completed Builds :<##D9D8F1> %{builds_total}%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lTotal Completed Builds :<##D9D8F1> %{builds_total}%"
 			else:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lTime left : <##D9D8F1>%minuteSecond({timer_minute.%loop-player's uuid%}*60+{timer_second.%loop-player's uuid%})%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lTime left : <##D9D8F1>%minuteSecond({timer_minute.%loop-player's uuid%}*60+{timer_second.%loop-player's uuid%})%"
 		else if {jeu_condi} is 10:
-			set line 8 of loop-player's scoreboard to "<##E2F093>&lCurrent speed of challenges :<##D9D8F1> %11-{trials.stage}%s"
+			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent speed of challenges :<##D9D8F1> %11-{trials.stage}%s"
 		else if {jeu_condi} is 11:
-			set line 8 of loop-player's scoreboard to "<##E2F093>&lCurrent map size :<##D9D8F1> %round(size of world border of world "tag"/75)%"
+			set {_border} to world border of world "tag"
+			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent map size :<##D9D8F1> %round({_border}'s worldborder size/75)%"
 		else if {jeu_condi} is 12:
 			if loop-player has permission "group.spectators":
 				set {_players_in_lead_list::*} to playersInLead()
 				if the size of {_players_in_lead_list::*} = 1:
 					set {_player} to {_players_in_lead_list::1}
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lPlayer in lead : <##D9D8F1>%{_player}%<##E2F093> &lwith <##D9D8F1>%{weapons.%{_player}'s uuid%} - 1%<##E2F093> kills"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lPlayer in lead : <##D9D8F1>%{_player}%<##E2F093> &lwith <##D9D8F1>%{weapons.%{_player}'s uuid%} - 1%<##E2F093> kills"
 				else:
 					set {_weapons_lead} to {weapons.%{_players_in_lead_list::1}'s uuid%} - 1
-					set line 8 of loop-player's scoreboard to "<##E2F093>&lPlayers in lead : <##D9D8F1>%size of {_players_in_lead_list::*}% players<##E2F093>&l with <##D9D8F1>%{_weapons_lead}%<##E2F093> kills"
+					set line 8 of loop-player's fastboard to "<##E2F093>&lPlayers in lead : <##D9D8F1>%size of {_players_in_lead_list::*}% players<##E2F093>&l with <##D9D8F1>%{_weapons_lead}%<##E2F093> kills"
 			else:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lNext weapon :<##D9D8F1> %name of {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}%"
+				set line 8 of loop-player's fastboard to "<##E2F093>&lNext weapon :<##D9D8F1> %name of {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}%"
 		else:
-			if 2-{online_players} = 1:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for <##D9D8F1>%2-{online_players}%<##E2F093>&l player"
-			else if 2-{online_players} > 0:
-				set line 8 of loop-player's scoreboard to "<##E2F093>&lWaiting for <##D9D8F1>%2-{online_players}%<##E2F093>&l players"
+			if size of {players::*}-{online_players} = 1:
+				set line 8 of loop-player's fastboard to "<##E2F093>&lWaiting for <##D9D8F1>%size of {players::*}-{online_players}%<##E2F093>&l player"
+			else if size of {players::*}-{online_players} > 0:
+				set line 8 of loop-player's fastboard to "<##E2F093>&lWaiting for <##D9D8F1>%size of {players::*}-{online_players}%<##E2F093>&l players"
 			else:
-				clear line 8 of loop-player's scoreboard
+				clear line 8 of loop-player's fastboard
 		if {jeu_condi} = 0:
-			set line 7 of loop-player's scoreboard to ""
-			set line 6 of loop-player's scoreboard to "<##E2F093>&lLast minigame : "
-			set line 5 of loop-player's scoreboard to "<##D9D8F1>%{l6}%"
+			set line 9 of loop-player's fastboard to ""
+			set line 10 of loop-player's fastboard to "<##E2F093>&lLast minigame : "
+			set line 11 of loop-player's fastboard to "<##D9D8F1>%{l6}%"
 		else:
-			clear line 7 of loop-player's scoreboard
-			clear line 6 of loop-player's scoreboard
-			clear line 5 of loop-player's scoreboard
-		set line 4 of loop-player's scoreboard to ""
+			clear line 9 of loop-player's fastboard
+			clear line 10 of loop-player's fastboard
+			clear line 11 of loop-player's fastboard
+		set line 12 of loop-player's fastboard to ""
 		if loop-player has permission "group.spectators":
 			if {event_timer_second} < 10:
 				if {event_timer_minute} < 10:
-					set line 3 of loop-player's scoreboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:0%{event_timer_minute}%:0%{event_timer_second}%"
+					set line 13 of loop-player's fastboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:0%{event_timer_minute}%:0%{event_timer_second}%"
 				else:
-					set line 3 of loop-player's scoreboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:%{event_timer_minute}%:0%{event_timer_second}%"
+					set line 13 of loop-player's fastboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:%{event_timer_minute}%:0%{event_timer_second}%"
 			else:
 				if {event_timer_minute} < 10:
-					set line 3 of loop-player's scoreboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:0%{event_timer_minute}%:%{event_timer_second}%"
+					set line 13 of loop-player's fastboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:0%{event_timer_minute}%:%{event_timer_second}%"
 				else:
-					set line 3 of loop-player's scoreboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:%{event_timer_minute}%:%{event_timer_second}%"
+					set line 13 of loop-player's fastboard to "<##BCD71D>&lEvent time :<##D9D8F1> %{event_timer_hour}%:%{event_timer_minute}%:%{event_timer_second}%"
 			if {event_timer_second_total} < 10:
 				if {event_timer_minute_total} < 10:
-					set line 2 of loop-player's scoreboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:0%{event_timer_minute_total}%:0%{event_timer_second_total}%"
+					set line 14 of loop-player's fastboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:0%{event_timer_minute_total}%:0%{event_timer_second_total}%"
 				else:
-					set line 2 of loop-player's scoreboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:%{event_timer_minute_total}%:0%{event_timer_second_total}%"
+					set line 14 of loop-player's fastboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:%{event_timer_minute_total}%:0%{event_timer_second_total}%"
 			else:
 				if {event_timer_minute_total} < 10:
-					set line 2 of loop-player's scoreboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:0%{event_timer_minute_total}%:%{event_timer_second_total}%"
+					set line 14 of loop-player's fastboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:0%{event_timer_minute_total}%:%{event_timer_second_total}%"
 				else:
-					set line 2 of loop-player's scoreboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:%{event_timer_minute_total}%:%{event_timer_second_total}%"
+					set line 14 of loop-player's fastboard to "<##BCD71D>&lTotal event time :<##D9D8F1> %{event_timer_hour_total}%:%{event_timer_minute_total}%:%{event_timer_second_total}%"
 		else:
 			if {timer} is 0 or 1 or 2 or 3 or 4 or 8 or 9 or "Fin" or "pause":
 				if loop-player doesn't have permission "group.spectators":
-					if {scoreboard.pos} is 0:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})%"
-					if {scoreboard.pos} is 1:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 2nd"
-					set line 2 of loop-player's scoreboard to "<##BCD71D>&lYour All Time &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({total_points.%loop-player's uuid%})%"
+					if {fastboard.pos} is 0:
+						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})%"
+					if {fastboard.pos} is 1:
+						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 2nd"
+					set line 14 of loop-player's fastboard to "<##BCD71D>&lYour All Time &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({total_points.%loop-player's uuid%})%"
 			else if {timer} is 5 or 6 or 7 or 10:
-				set line 2 of loop-player's scoreboard to ""
+				set line 2 of loop-player's fastboard to ""
 				if loop-player doesn't have permission "group.spectators":
 					if {jeu_condi} = 2:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour In-game &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints(round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%}))% (%{points_game.%loop-player's uuid%}% 必 %{game_multiplier.%loop-player's uuid%}%)"
+						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour In-game &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints(round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%}))% (%{points_game.%loop-player's uuid%}% 必 %{game_multiplier.%loop-player's uuid%}%)"
 					else:
-						set line 3 of loop-player's scoreboard to "<##BCD71D>&lYour In-game &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints(round({points_game.%loop-player's uuid%}))%"
+						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour In-game &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints(round({points_game.%loop-player's uuid%}))%"
 		if {timer} is 0 or 1 or 2 or 3 or 4 or 8 or 9 or "Fin" or "pause":
-			set line 1 of loop-player's scoreboard to ""
+			set line 15 of loop-player's fastboard to ""
 		else if {timer} is 5 or 6 or 7 or 10:
-			clear line 1 of loop-player's scoreboard
+			clear line 15 of loop-player's fastboard
