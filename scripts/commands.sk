@@ -1397,6 +1397,7 @@ command /ready:
 			set {ready.%player's uuid%} to true
 			add 1 to {ready_player}
 			add 1 to {replied}
+			remove 1 from {check_players}
 			loop all players:
 				if loop-player has permission "theevent580.staff":
 					send "[<##1D7874>&lReady Check&r] &a&l%player%&r is ready to start." to loop-player
