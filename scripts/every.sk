@@ -775,7 +775,7 @@ every second:
 					clear loop-player's inventory
 					command("/hide %loop-player% true")
 				broadcast "[<##155966>Decision Crysyal&r] This Episode's minigames are :"
-			send title "This Episode's minigames are :" with subtitle " " to all players for 5 seconds with fadein 0.5 second and fadeout 0 second
+				send title "This Episode's minigames are :" with subtitle " " to all players for 5 seconds with fadein 0.5 second and fadeout 0 second
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
 	if {timer} = 2:
@@ -1205,7 +1205,7 @@ every second:
 					broadcast "[&aTag&r] One player will be randomly chosen to be the seeker, they must tag someone else before their time runs out, or they will lose a life!"
 				if {timer-s} = 20:
 					broadcast "[&aTag&r] You only have 3 lives, so don't get tagged"
-					broadcast "[&aTag&r] (If you are the seeker at the start, then you will only start with 2 lives)"
+					broadcast "[&aTag&r] (If you are the seeker at the start, you will only start with 2 lives)"
 				if {timer-s} = 3:
 					broadcast "[&aTag&r] &a&lTag&r starting in 3."
 					loop all players:
@@ -2078,6 +2078,7 @@ every second:
 			clear {finished::*}
 			clear {list_points::*}
 			loop all players:
+				set glowing of loop-player to false
 				if loop-player doesn't have permission "group.spectators":
 					if {jeu_nom} = "&6&lParkour":
 						set {points_game_covert.%loop-player's uuid%} to round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%})
@@ -2151,8 +2152,8 @@ every second:
 					set {show} to {points_game.%loop-player's uuid%}
 					loop all players:
 						if loop-player-2 has permission "group.spectators":
-							send "[<##155966>&lGame Scores&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <##D9D8F1>%{show}% <##F0F064>工&r this game !" to loop-player-2
-							send "[<##155966>&lGame Scores&r] %loop-player-1% had %{show}% coins this game !" to console
+							send "[<##155966>&lGame Scores&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <##D9D8F1>%checkPoints({show})% <##F0F064>工&r this game !" to loop-player-2
+							send "[<##155966>&lGame Scores&r] %loop-player-1% had %checkPoints({show})% coins this game !" to console
 
 		if {timer-s} = 25:
 			command("execute in minecraft:races_lap_3 run setblock 44 131 -20 minecraft:blackstone")
@@ -2178,7 +2179,7 @@ every second:
 					play sound "custom:coins" in voice category with volume 2 to the loop-player
 					set {alive.%loop-player's uuid%} to true
 		if {timer-s} = 15:
-			broadcast "[<##155966>&lGame Scores&r] You placement = visible next to your points count in the middle of the games"
+			broadcast "[<##155966>&lGame Scores&r] Your placement is visible next to your points count in the middle of the games"
 		if {timer-s} = 10:
 			broadcast "[<##155966>&lGame Scores&r] You are placed :"
 			loop all players:
@@ -2330,6 +2331,7 @@ every second:
 				send title "&cGame & Event Over" with subtitle "Check the chat to see your coins" to all players for 5 seconds
 				endNPCs()
 				loop all players:
+					set glowing of loop-player to false
 					if loop-player doesn't have permission "group.spectators":
 						if {jeu_nom} = "&6&lParkour":
 							set {points_game_covert.%loop-player's uuid%} to round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%})
