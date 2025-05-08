@@ -137,12 +137,14 @@ command /trials:
         wait 10 ticks
         set the game mode of all players to adventure
         loop all players:
-            set {trials.%loop-player's uuid%.points} to 0
-            set {trials.%loop-player's uuid%.completed} to false
-            set {points_game.%loop-player's uuid%} to 0
-            clear {trials.message.%loop-player's uuid%}
             if loop-player has permission "group.spectators":
                 setToSpec(loop-player)
+            else:
+                set {trials.%loop-player's uuid%.points} to 0
+                set {trials.%loop-player's uuid%.completed} to false
+                set {finished.%loop-player's uuid%} to false
+                set {points_game.%loop-player's uuid%} to 0
+                clear {trials.message.%loop-player's uuid%}
 
 local function setTrial() :: int:
     set {_trial} to a random integer between 1 and the size of {trials::*}
