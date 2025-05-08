@@ -43,7 +43,6 @@ command /tag:
                 command("hide %loop-player% false")
             else:
                 set {finished.%loop-player's uuid%} to true
-                command("hide %loop-player% true")
                 setToSpec(loop-player)
         wait 6 seconds
         set gamemode of all players to adventure

@@ -536,7 +536,7 @@ command /parkour:
 			else:
 				set {finished.%loop-player's uuid%} to true
 				clear loop-player's inventory
-				command("fly %loop-player% true")
+				setToSpec(loop-player)
 			set {gamemode.%loop-player's uuid%} to 2
 
 
@@ -634,10 +634,8 @@ command /bingo:
 		command("//walls barrier")
 		loop all players:
 			if loop-player has permission "group.spectators":
-				hide loop-player from all players
 				clear loop-player's inventory
-				set slot 0 of loop-player to compass named "&rTeleport to player"
-				set slot 1 of loop-player to feather named "&rChange your fly speed"
+				setToSpec(loop-player)
 				set {_item} to carrot on a stick
 				apply custom model data to {_item}:
 					strings: "bingo_house"
@@ -959,8 +957,7 @@ command /courses:
 			set {race_checkpoint.%loop-player's uuid%} to 0
 			set {race_lap.%loop-player's uuid%} to 1
 			if loop-player has permission "group.spectators":
-				command("hide %loop-player% true")
-				command("fly %loop-player% true")
+				setToSpec(loop-player)
 				set {finished.%loop-player's uuid%} to true
 			else:
 				set {finished.%loop-player's uuid%} to false
@@ -1004,9 +1001,8 @@ command /bowpvp:
 			set the maximum health of loop-player to 5
 			set {gamemode.%loop-player's uuid%} to 2
 			if loop-player has permission "group.spectators":
+				setToSpec(loop-player)
 				set {alive.%loop-player's uuid%} to false
-				if {hide.%loop-player's uuid%} = false:
-					command("hide %loop-player%")
 			else:
 				set {max_health.%loop-player's uuid%} to 5
 				set {alive.%loop-player's uuid%} to true
@@ -1041,9 +1037,7 @@ command /bm:
 			set loop-player's gamemode to adventure
 			disable fly for loop-player
 			if loop-player has permission "group.spectators":
-				command("hide %loop-player% true")
-				allow fly for loop-player
-				force loop-player to fly
+				setToSpec(loop-player)
 				set {build.location.%loop-player's uuid%} to -1
 				set {build.%loop-player's uuid%} to -1
 				set {builds.%loop-player's uuid%} to "Spec"
