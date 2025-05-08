@@ -885,6 +885,11 @@ every second:
                             command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 air replace light")
                             wait 10 seconds
                             command("execute in minecraft:trials run fill 14 133 17 -18 127 -15 light replace air")
+
+                        if {trials.random_trial} = 27 or 28 or 29:
+                            loop all players:
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.message.%loop-player's uuid%} to true
             
                         if isdo({trials.random_trial}) = true:
                             loop all players:
