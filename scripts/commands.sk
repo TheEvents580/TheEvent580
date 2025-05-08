@@ -2989,20 +2989,28 @@ command /players <text> [<offline player>]:
 			if {players::*} doesn't contain arg-2:
 				add arg-2 to {players::*}
 				send "Player %arg-2% has been added to the players list"
+				if {total_points.%arg-2's uuid%} = 0:
+					add arg-2 to {new_players::*}
 			else:
 				send "This player was already in the players list"
 		else if arg-1 = "remove":
 			if {players::*} contains arg-2:
 				remove arg-2 from {players::*}
+				if {new_players::*} contains arg-2:
+					remove arg-2 from {new_players::*}
 				send "Player %arg-2% has been removed from the players list"
 			else:
 				send "This player wasn't in the players list"
 		else if arg-1 = "list":
 			send "Here are all the players (%size of {players::*}%):"
 			loop {players::*}:
-				send "- %loop-value%"
+				if {new_players::*} contains loop-value:
+					send "- %loop-value%*"
+				else:
+					send "- %loop-value%"
 		else if arg-1 = "clear":
 			clear {players::*}
+			clear {new_players::*}
 			send "The players list has been cleared."
 
 on tab complete of "/players":

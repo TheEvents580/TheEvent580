@@ -650,36 +650,40 @@ function endNPCs():
 	make server execute command "npc rename <##D9D8F1>Top 10%nl%&kHidden"
 
 function newPlayers():
-	send title "<##f0f084>Announcing new players :" with subtitle " " to all players for 22 seconds
-	wait 2 seconds
-	send subtitle "%{color.3419f049-aecb-4494-8a4d-a1452fd143ca}% NotTooGriddy" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "3419f049-aecb-4494-8a4d-a1452fd143ca":
-			apply glowing without particles to loop-player for 2 seconds
-	wait 2 seconds
-	send subtitle "%{color.85279072-5699-4a82-bb7c-2ded4d6deda2}% victoriaskyetv" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "85279072-5699-4a82-bb7c-2ded4d6deda2":
-			apply glowing without particles whilst hiding the potion icon to loop-player for 2 seconds
-	wait 2 seconds
-	send subtitle "%{color.4c948549-78bd-48b6-a47d-551a249e905d}% Dudesnaps" to all players for 2 seconds
-	loop all players:
-		if loop-player's uuid is "4c948549-78bd-48b6-a47d-551a249e905d":
-			apply glowing without particles whilst hiding the potion icon to loop-player for 2 seconds
+	send title "<##f0f084>Announcing new players :" with subtitle " " to all players for 4 seconds
+	if size of {new_players::*} = 0:
+		send title "<##f0f01c>Announcing new players :" with subtitle "<#f0f01c>Oh wow, no newcomers!" to all players for 2 seconds with fadein 0 second
+	else:
+		loop {new_players::*}:
+			wait 2 second
+			if loop-value is the last element of {new_players::*}:
+				send title "<##f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+			else:
+				send title "<##f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
+			apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function currentPlayers():
-	send title "<##f0f01c>Next, announcing players :" with subtitle " " to all players for 15 seconds
+	send title "<##f0f01c>Next, announcing players :" with subtitle " " to all players for 4 seconds
 	loop {players::*}:
 		wait 2 second
-		send subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds
+		if loop-value is the last element of {players::*}:
+			send title "<##f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+		else:
+			send title "<##f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
 		apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function currentSpecs():
 	send title "<##f0f01c>And here are your spectators :" with subtitle " " to all players for 4 seconds
-	loop {spectators::*}:
-		wait 2 second
-		send subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds
-		apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
+	if size of {spectators::*} = 0:
+		send title "<##f0f01c>And here are your spectators :" with subtitle "<#f0f01c>Erm, that's awkward..." to all players for 2 seconds with fadein 0 second
+	else:
+		loop {spectators::*}:
+			wait 2 second
+			if loop-value is the last element of {spectators::*}:
+				send title "<##f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+			else:
+				send title "<##f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
+			apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function checkPoints(points: number) :: text:
 	set {_points} to round({_points})
