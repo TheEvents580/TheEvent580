@@ -169,25 +169,24 @@ every tick:
     if {timer} = 6:
         if {jeu_condi} is 10:
             loop all players:
-                if gamemode of loop-player = adventure:
+                if {finished.%loop-player's uuid%} = false:
                     send action bar "<##D9D8F1>Trial points : +%{trials.%loop-player's uuid%.points}% <##f0f064>工" to loop-player
             if {trials.time} > 0:
-            
                 if {trials.random_trial} = 1 or 2 or 22:
                     loop all players:
-                        if loop-player doesn't have permission "group.spectators":
+                        if {finished.%loop-player's uuid%} = false:
                             if {trials.time} = (11-{trials.stage}) :
                                 set {trials.%loop-player's uuid%.jump} to 0
                             
                 if {trials.random_trial} = 3 or 4 or 23:
                     loop all players:
-                        if loop-player doesn't have permission "group.spectators":
+                        if {finished.%loop-player's uuid%} = false:
                             if {trials.time} = (11-{trials.stage}) :
                                 set {trials.%loop-player's uuid%.sneak} to 0
                             
                 if {trials.random_trial} = 6 or 24:
                     loop all players:
-                        if loop-player doesn't have permission "group.spectators":
+                        if {finished.%loop-player's uuid%} = false:
                             if {trials.time} = (11-{trials.stage}) :
                                 set {trials.%loop-player's uuid%.punch_player} to 0
 
@@ -196,291 +195,328 @@ every tick:
 
                     if {trials.random_trial} = 1:
                         loop all players:
-                            if {trials.%loop-player's uuid%.jump} = 1:
-                                if {trials.%loop-player's uuid%.points} = 0:
-                                    set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                    set {trials.%loop-player's uuid%.completed} to true
-                            else:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 2:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.jump} = 2:
-                                if {trials.%loop-player's uuid%.points} = 0:
-                                    set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                    set {trials.%loop-player's uuid%.completed} to true
-                            else:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 3:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.sneak} = 1:
-                                if {trials.%loop-player's uuid%.points} = 0:
-                                    set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                    set {trials.%loop-player's uuid%.completed} to true
-                            else:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 4:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.sneak} = 2:
-                                if {trials.%loop-player's uuid%.points} = 0:
-                                    set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                    set {trials.%loop-player's uuid%.completed} to true
-                            else:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 5:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 6:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if {trials.%loop-player's uuid%.punch_player} = 1:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.jump} = 1:
+                                    if {trials.%loop-player's uuid%.points} = 0:
                                         set {trials.%loop-player's uuid%.points} to ceil({trials.points})
                                         set {trials.%loop-player's uuid%.completed} to true
                                 else:
                                     set {trials.%loop-player's uuid%.points} to 0
                                     set {trials.%loop-player's uuid%.completed} to false
 
-                    if {trials.random_trial} = 10:
+                    if {trials.random_trial} = 2:
                         loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.jump} = 2:
+                                    if {trials.%loop-player's uuid%.points} = 0:
                                         set {trials.%loop-player's uuid%.points} to ceil({trials.points})
                                         set {trials.%loop-player's uuid%.completed} to true
+                                else:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
 
-                    if {trials.random_trial} = 11:
+                    if {trials.random_trial} = 3:
                         loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.sneak} = 1:
+                                    if {trials.%loop-player's uuid%.points} = 0:
                                         set {trials.%loop-player's uuid%.points} to ceil({trials.points})
                                         set {trials.%loop-player's uuid%.completed} to true
+                                else:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
 
-                    if {trials.random_trial} = 12:
+                    if {trials.random_trial} = 4:
                         loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.sneak} = 2:
+                                    if {trials.%loop-player's uuid%.points} = 0:
                                         set {trials.%loop-player's uuid%.points} to ceil({trials.points})
                                         set {trials.%loop-player's uuid%.completed} to true
+                                else:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
 
-                    if {trials.random_trial} = 13:
+                    if {trials.random_trial} = 5:
                         loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
 
-                    if {trials.random_trial} = 14:
+                    if {trials.random_trial} = 6:
                         loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the x coordinate of loop-player >= 0:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 15:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the z coordinate of loop-player >= 0:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 16:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the x coordinate of loop-player < 0:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 17:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the z coordinate of loop-player < 0:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 18:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if type of loop-player's targeted entity is a player:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 19:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if type of loop-player's targeted block is a tinted glass:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 20:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the pitch of loop-player <= -65:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 21:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.points} = 0:
-                                if the pitch of loop-player >= 65:
-                                    if {trials.%loop-player's uuid%.points} < {trials.points}:
-                                        set {trials.%loop-player's uuid%.points} to ceil({trials.points})
-                                        set {trials.%loop-player's uuid%.completed} to true
-
-                    if {trials.random_trial} = 22:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.jump} > 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 23:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.sneak} > 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 24 or 26:
-                        loop all players:
-                            if {trials.%loop-player's uuid%.punch_player} > 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 25:
-                        loop all players:
-                            if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-                        
-                    if {trials.random_trial} = 27 or 28 or 29:
-                        loop all players:
-                            if {trials.message.%loop-player's uuid%} isn't false:
-                                set {trials.%loop-player's uuid%.points} to 50
-                                set {trials.%loop-player's uuid%.completed} to true
-                            else:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 30:
-                        loop all players:
-                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 31:
-                        loop all players:
-                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 32:
-                        loop all players:
-                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 33:
-                        loop all players:
-                            if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 34:
-                        loop all players:
-                            if the x coordinate of loop-player >= 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 35:
-                        loop all players:
-                            if the z coordinate of loop-player >= 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 36:
-                        loop all players:
-                            if the x coordinate of loop-player < 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 37:
-                        loop all players:
-                            if the z coordinate of loop-player < 0:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 38:
-                        loop all players:
-                            if type of loop-player's targeted entity is a player:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 39:
-                        loop all players:
-                            if type of loop-player's targeted block is a tinted glass:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 40:
-                        loop all players:
-                            if the pitch of loop-player <= -65:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 41:
-                        loop all players:
-                            if the pitch of loop-player >= 65:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-
-                    if {trials.random_trial} = 49:
-                        loop all players:
-                            set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
-                            set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
-                            set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
-                            wait 1 tick
-                            if the x coordinate of loop-player = {_trials.%loop-player's uuid%.x}:
-                                if the y coordinate of loop-player = {_trials.%loop-player's uuid%.y}:
-                                    if the z coordinate of loop-player = {_trials.%loop-player's uuid%.z}:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if {trials.%loop-player's uuid%.punch_player} = 1:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+                                    else:
                                         set {trials.%loop-player's uuid%.points} to 0
                                         set {trials.%loop-player's uuid%.completed} to false
 
+                    if {trials.random_trial} = 10:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 11:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 12:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 13:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 14:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the x coordinate of loop-player >= 0:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 15:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the z coordinate of loop-player >= 0:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 16:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the x coordinate of loop-player < 0:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 17:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the z coordinate of loop-player < 0:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 18:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if type of loop-player's targeted entity is a player:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 19:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if type of loop-player's targeted block is a tinted glass:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 20:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the pitch of loop-player <= -65:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 21:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.points} = 0:
+                                    if the pitch of loop-player >= 65:
+                                        if {trials.%loop-player's uuid%.points} < {trials.points}:
+                                            set {trials.%loop-player's uuid%.points} to ceil({trials.points})
+                                            set {trials.%loop-player's uuid%.completed} to true
+
+                    if {trials.random_trial} = 22:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.jump} > 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 23:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.sneak} > 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 24 or 26:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.%loop-player's uuid%.punch_player} > 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 25:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+                        
+                    if {trials.random_trial} = 27 or 28 or 29:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if {trials.message.%loop-player's uuid%} isn't false:
+                                    set {trials.%loop-player's uuid%.points} to 50
+                                    set {trials.%loop-player's uuid%.completed} to true
+                                else:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 30:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = red_concrete:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 31:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = lime_concrete:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 32:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = blue_concrete:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 33:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the block at location(x-coordinate of loop-player, 126, z-coordinate of loop-player, world "trials") = gray_concrete:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 34:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the x coordinate of loop-player >= 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 35:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the z coordinate of loop-player >= 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 36:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the x coordinate of loop-player < 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 37:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the z coordinate of loop-player < 0:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 38:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if type of loop-player's targeted entity is a player:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 39:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if type of loop-player's targeted block is a tinted glass:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 40:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the pitch of loop-player <= -65:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 41:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                if the pitch of loop-player >= 65:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+
+                    if {trials.random_trial} = 49:
+                        loop all players:
+                            if {finished.%loop-player's uuid%} = false:
+                                set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
+                                set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
+                                set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
+                                wait 1 tick
+                                if the x coordinate of loop-player = {_trials.%loop-player's uuid%.x}:
+                                    if the y coordinate of loop-player = {_trials.%loop-player's uuid%.y}:
+                                        if the z coordinate of loop-player = {_trials.%loop-player's uuid%.z}:
+                                            set {trials.%loop-player's uuid%.points} to 0
+                                            set {trials.%loop-player's uuid%.completed} to false
+
                     if {trials.random_trial} = 50:
                         loop all players:
-                            set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
-                            set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
-                            set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
-                            wait 1 tick
-                            if the x coordinate of loop-player != {_trials.%loop-player's uuid%.x}:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-                            if the y coordinate of loop-player != {_trials.%loop-player's uuid%.y}:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
-                            if the z coordinate of loop-player != {_trials.%loop-player's uuid%.z}:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
+                            if {finished.%loop-player's uuid%} = false:
+                                set {_trials.%loop-player's uuid%.x} to the x coordinate of loop-player
+                                set {_trials.%loop-player's uuid%.y} to the y coordinate of loop-player
+                                set {_trials.%loop-player's uuid%.z} to the z coordinate of loop-player
+                                wait 1 tick
+                                if the x coordinate of loop-player != {_trials.%loop-player's uuid%.x}:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+                                if the y coordinate of loop-player != {_trials.%loop-player's uuid%.y}:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
+                                if the z coordinate of loop-player != {_trials.%loop-player's uuid%.z}:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
 
                                 
                 #UNDER THIS LINE --> Time removal
@@ -490,7 +526,7 @@ every tick:
                 remove 0.1 from {trials.time}
                 set {trials.random_trial} to 0
                 loop all players:
-                    if loop-player doesn't have permission "group.spectators":
+                    if {finished.%loop-player's uuid%} = false:
                         if {trials.%loop-player's uuid%.completed} = true:
                             send title "&aTrial completed !" with subtitle "<##D9D8F1>+%ceil({trials.%loop-player's uuid%.points})% &r工" to loop-player for 3 seconds
                             command("execute at %loop-player% run summon firework_rocket ~ ~ ~ {Silent:1b,FireworksItem:{id:""minecraft:firework_rocket"",count:1,components:{""minecraft:fireworks"":{explosions:[{shape:""small_ball"",colors:[I;65280]}]}}}}")
@@ -501,8 +537,9 @@ every tick:
                             command("execute at %loop-player% run summon firework_rocket ~ ~ ~ {Silent:1b,FireworksItem:{id:""minecraft:firework_rocket"",count:1,components:{""minecraft:fireworks"":{explosions:[{shape:""small_ball"",colors:[I;16711680]}]}}}}")
 
             loop all players:
-                if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
-                    command("execute in trials run tp %loop-player% -1.5 127 1.5")
+                if {finished.%loop-player's uuid%} = false:
+                    if the block at location(x-coordinate of loop-player, 125, z-coordinate of loop-player, world "trials") = air:
+                        command("execute in trials run tp %loop-player% -1.5 127 1.5")
 
             if {trials.points} > 0:
                 if {trials.time} < 10.5 - {trials.stage}:
@@ -580,16 +617,19 @@ every second:
 
                         if {trials.random_trial} = 27 or 28 or 29:
                             loop all players:
-                                set {trials.message.%loop-player's uuid%} to true
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.message.%loop-player's uuid%} to true
         
                         if isdo({trials.random_trial}) = true:
                             loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
                         else:
                             loop all players:
-                                set {trials.%loop-player's uuid%.points} to 50
-                                set {trials.%loop-player's uuid%.completed} to true
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.%loop-player's uuid%.points} to 50
+                                    set {trials.%loop-player's uuid%.completed} to true
             
             if {trials.stage} = 2:
                 if {timer-m} = 6:
@@ -614,16 +654,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
 
                 if {timer-m} = 5:
                     if {timer-s} = 48 or 34 or 20 or 6:
@@ -647,16 +690,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
             
             if {trials.stage} = 3:
 
@@ -682,16 +728,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
 
                 if {timer-m} = 3:
                     if {timer-s} = 59 or 46 or 33 or 20 or 7:
@@ -715,16 +764,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
             
             if {trials.stage} = 4:
 
@@ -750,16 +802,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
 
                 if {timer-m} = 1:
                     if {timer-s} = 53 or 41 or 29 or 17 or 5:
@@ -783,16 +838,19 @@ every second:
 
                             if {trials.random_trial} = 27 or 28 or 29:
                                 loop all players:
-                                    set {trials.message.%loop-player's uuid%} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.message.%loop-player's uuid%} to true
             
                             if isdo({trials.random_trial}) = true:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 0
-                                    set {trials.%loop-player's uuid%.completed} to false
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 0
+                                        set {trials.%loop-player's uuid%.completed} to false
                             else:
                                 loop all players:
-                                    set {trials.%loop-player's uuid%.points} to 50
-                                    set {trials.%loop-player's uuid%.completed} to true
+                                    if {finished.%loop-player's uuid%} = false:
+                                        set {trials.%loop-player's uuid%.points} to 50
+                                        set {trials.%loop-player's uuid%.completed} to true
             
             if {trials.stage} = 5:
 
@@ -817,12 +875,14 @@ every second:
             
                         if isdo({trials.random_trial}) = true:
                             loop all players:
-                                set {trials.%loop-player's uuid%.points} to 0
-                                set {trials.%loop-player's uuid%.completed} to false
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.%loop-player's uuid%.points} to 0
+                                    set {trials.%loop-player's uuid%.completed} to false
                         else:
                             loop all players:
-                                set {trials.%loop-player's uuid%.points} to 50
-                                set {trials.%loop-player's uuid%.completed} to true
+                                if {finished.%loop-player's uuid%} = false:
+                                    set {trials.%loop-player's uuid%.points} to 50
+                                    set {trials.%loop-player's uuid%.completed} to true
 
             if {timer-m} > 0:
                 if {timer-s} = 0:
@@ -844,71 +904,72 @@ on sneak toggle:
         add 1 to {trials.%event-player's uuid%.sneak}
 
 on chat:
-    if {trials.random_trial} = 7:
-        if message in lowercase contains "minecraft":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 8:
-        if message in lowercase contains "theeevent580":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 9:
-        if message in lowercase contains "trials":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
+    if {finished.%event-player's uuid%} = false:
+        if {trials.random_trial} = 7:
+            if message in lowercase contains "minecraft":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 8:
+            if message in lowercase contains "theeevent580":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 9:
+            if message in lowercase contains "trials":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
 
-    if {trials.random_trial} = 27:
-        if message in lowercase contains "minecraft":
-            set {trials.%event-player's uuid%.points} to 0
-            set {trials.message.%event-player's uuid%} to false
-            set {trials.%event-player's uuid%.completed} to false
-    if {trials.random_trial} = 28:
-        if message in lowercase contains "theeevent580":
-            set {trials.%event-player's uuid%.points} to 0
-            set {trials.message.%event-player's uuid%} to false
-            set {trials.%event-player's uuid%.completed} to false
-    if {trials.random_trial} = 29:
-        if message in lowercase contains "trials":
-            set {trials.%event-player's uuid%.points} to 0
-            set {trials.message.%event-player's uuid%} to false
-            set {trials.%event-player's uuid%.completed} to false
+        if {trials.random_trial} = 27:
+            if message in lowercase contains "minecraft":
+                set {trials.%event-player's uuid%.points} to 0
+                set {trials.message.%event-player's uuid%} to false
+                set {trials.%event-player's uuid%.completed} to false
+        if {trials.random_trial} = 28:
+            if message in lowercase contains "theeevent580":
+                set {trials.%event-player's uuid%.points} to 0
+                set {trials.message.%event-player's uuid%} to false
+                set {trials.%event-player's uuid%.completed} to false
+        if {trials.random_trial} = 29:
+            if message in lowercase contains "trials":
+                set {trials.%event-player's uuid%.points} to 0
+                set {trials.message.%event-player's uuid%} to false
+                set {trials.%event-player's uuid%.completed} to false
 
 
-    if {trials.random_trial} = 42:
-        if message in lowercase contains "8":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 43:
-        if message in lowercase contains "18":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 44:
-        if message in lowercase contains "235":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 45:
-        if message in lowercase contains "5":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 46:
-        if message in lowercase contains "105":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 47:
-        if message in lowercase contains "19":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
-    if {trials.random_trial} = 48:
-        if message in lowercase contains "2":
-            if {trials.%event-player's uuid%.points} < {trials.points}:
-                set {trials.%event-player's uuid%.points} to ceil({trials.points})
-                set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 42:
+            if message in lowercase contains "8":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 43:
+            if message in lowercase contains "18":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 44:
+            if message in lowercase contains "235":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 45:
+            if message in lowercase contains "5":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 46:
+            if message in lowercase contains "105":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 47:
+            if message in lowercase contains "19":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
+        if {trials.random_trial} = 48:
+            if message in lowercase contains "2":
+                if {trials.%event-player's uuid%.points} < {trials.points}:
+                    set {trials.%event-player's uuid%.points} to ceil({trials.points})
+                    set {trials.%event-player's uuid%.completed} to true
