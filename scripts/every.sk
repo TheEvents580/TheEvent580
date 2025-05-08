@@ -1227,8 +1227,9 @@ every second:
 								send "[&4Admin&r] Event state : &eStarting game&r --> &aGame Find The Button" to loop-player
 					set {event_state} to "Game &r&aTag"
 					set {timer} to 6
-					command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
-					command("execute run bossbar set minecraft:count visible true")
+					wait 1 second
+					setBossbarName(getBossbarById("count"), "<#f0f068>%{players_alive}% players alive")
+					showBossbar(getBossbarById("count"))
 					set {lime} to -10000
 			if {jeu_nom} = "&b&lMultilap":
 				if {timer-s} = 25:
@@ -1450,8 +1451,7 @@ every second:
 							command("execute in build_masters run tp %loop-player% 86.5 129 1082.00000001")
 							command("execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077")
 							command("execute in minecraft:build_masters run fill 89 128 1077 98 128 1086 air")
-						command("bossbar set minecraft:mall players @a")
-						command("bossbar set minecraft:mall visible true")
+						showBossbar(getBossbarById("mall"))
 						if loop-player has permission "group.spectators":
 							command("execute in minecraft:build_masters run tp %loop-player% -7.53 153.24 1040.13 -90.66 36.09")
 							set loop-player's game mode to adventure
@@ -2155,7 +2155,7 @@ every second:
 
 		if {timer-s} = 25:
 			command("execute in minecraft:races_lap_3 run setblock 44 131 -20 minecraft:blackstone")
-			command("bossbar set minecraft:mall visible false")
+			hideBossbar(getBossbarById("mall"))
 			broadcast "[<##155966>&lGame Scores&r] Event Top 3 :"
 			command("updateclassement")
 		if {timer-s} = 22:
@@ -2324,7 +2324,7 @@ every second:
 			if {timer-s} = 29:
 				clear {list_points::*}
 				command("execute in minecraft:races_lap_3 run setblock 44 131 -20 minecraft:blackstone")
-				command("bossbar set minecraft:mall visible false")
+				hideBossbar(getBossbarById("mall"))
 				play sound "block.respawn_anchor.deplete" in voice category with volume 2 to all players
 				send title "&cGame & Event Over" with subtitle "Check the chat to see your coins" to all players for 5 seconds
 				endNPCs()

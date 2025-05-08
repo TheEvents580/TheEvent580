@@ -955,24 +955,6 @@ function refillAll():
 	loop 25 times:
 		wait 1 second
 		bossbarRemove1Sec("mall")
-		
-function bossbarRemove1Sec(name:text):
-	remove 1 from {bar_progress_%{_name}%}
-	command("/execute run bossbar set minecraft:%{_name}% value %{bar_progress_%{_name}%}%")
-	if {_name} = "mall":
-		command("/execute run bossbar set minecraft:%{_name}% name ""Refill in %{bar_progress_%{_name}%}%s""")
-	if {_name} = "count":
-		command("/execute run bossbar set minecraft:%{_name}% name [{""text"":""氣到惡"",""color"":""#f0f064""},{""text"":""%intToTime({bar_progress_%{_name}%})%"",""color"":""#f0f068""}]")
-
-function bossbarRefill(name:text, value:integer, total:boolean = false):
-	set {bar_progress_%{_name}%} to {_value}
-	if {_name} = "mall":
-		command("execute run bossbar set minecraft:%{_name}% name ""Refill in %{_value}%s""")
-	else if {_name} = "count":
-		command("execute run bossbar set minecraft:%{_name}% name [{""text"":""氣到惡"",""color"":""#f0f064""},{""text"":""%intToTime({bar_progress_%{_name}%})%"",""color"":""#f0f068""}]")
-	if {_total} = true:
-		command("execute run bossbar set minecraft:%{_name}% max %{_value}%")
-	command("execute run bossbar set minecraft:%{_name}% value %{_value}%")
 
 function intToTime(value:integer) :: text:
 	set {_minutes} to floor({_value}/60)

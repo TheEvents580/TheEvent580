@@ -10,8 +10,7 @@ command /start:
 				set {timer-s} to 59
 				set {timer-m} to 2
 				command("gamerule sendCommandFeedback false")
-				command("bossbar set minecraft:count players @a")
-				command("bossbar set minecraft:count visible true")
+				showBossbar(getBossbarById("count"))
 				bossbarRefill("count", {timer-m}*60 + {timer-s}, true)
 				set {timer} to 1
 				wait 2 tick
@@ -115,8 +114,8 @@ command /timer <text> [<text>] [<int>]:
 				set {timer_save} to {timer}
 				set {timer} to "pause"
 				set {event_timer} to false
-				command("execute run bossbar set minecraft:count value 0")
-				command("execute run bossbar set minecraft:count name [{""text"":""惠上为"",""color"":""#f0f064""},{""text"":""Event is paused"",""color"":""#f0f068""}]")
+				setBossbarProgress(getBossbarById("count"), 0)
+				setBossbarName(getBossbarById("count"), "<#f0f064>惠上为<#f0f068>Event is paused")
 				if {jeu_condi} is 5:
 					set {race_timer} to true
 				broadcast "[<##BCD71D>&lTimer&r] The Event is currently paused, please wait"
@@ -127,7 +126,7 @@ command /timer <text> [<text>] [<int>]:
 			if {jeu_condi} != 11:
 				bossbarRefill("count", {timer-m}*60 + {timer-s})
 			else:
-				command("execute run bossbar set minecraft:count name {""text"":""%{players_alive}% players alive"",""color"":""#f0f068""}")
+				setBossbarName(getBossbarById("count"), "<#f0f068>%{players_alive}% players alive")
 			if {jeu_condi} is 5:
 				set {courses_boat_timer_status} to true
 				set {courses_pied_timer_status} to true
