@@ -1295,12 +1295,6 @@ command /updateparkour:
 	trigger:
 		updateParkour()
 
-#command /reloadscoreboard:
-#	permission:  *
-#	permission message: &cThis command does not exist
-#	trigger:
-#		reloadScoreboard()
-
 command /readycheck:
 	description: do a ready check
 	permission: *
