@@ -47,10 +47,32 @@ local function setWeapons():
     set {arms_race.weapon::27} to unbreakable wooden shovel named "&rWooden Shovel"
     set {arms_race.weapon::28} to unbreakable wooden shovel named "&rWooden Shovel"
     set {_trident} to unbreakable trident of loyalty 2 named "&rLoyalty Trident"
-    set {_trident_nbt} to nbt compound of {_trident}
-    add nbt of "{""minecraft:attribute_modifiers"":[{id:""generic.attack_damage"",type:""generic.attack_damage"",amount:-100,operation:""add_value"",slot:""mainhand""},{id:""attack_speed"",type:""generic.attack_speed"",amount:-3.9,operation:""add_value"",slot:""mainhand""}]}" to {_trident_nbt}
+    apply attribute modifier to {_trident}:
+        attribute: attack speed
+        id: "minecraft:attack_speed_mainhand"
+        slot: mainhand_slot_group
+        amount: -3.9
+        operation: add_number
+    apply attribute modifier to {_trident}:
+        attribute: attack damage
+        id: "minecraft:attack_damage_mainhand"
+        slot: mainhand_slot_group
+        amount: -100
+        operation: add_number
+    apply attribute modifier to {_trident}:
+        attribute: attack speed
+        id: "minecraft:attack_speed_offhand"
+        slot: offhand_slot_group
+        amount: -3.9
+        operation: add_number
+    apply attribute modifier to {_trident}:
+        attribute: attack damage
+        id: "minecraft:attack_damage_offhand"
+        slot: offhand_slot_group
+        amount: -100
+        operation: add_number
     set {arms_race.weapon::29} to {_trident}
-    set {arms_race.weapon::30} to {_trident}   
+    set {arms_race.weapon::30} to {_trident}
     set {arms_race.weapon::31} to golden sword named "&6Golden Knife"
     set {arms_race.weapon::32} to unbreakable carrot on a stick named "This is your last weapon"
 
