@@ -55,7 +55,7 @@ every second:
             if {time_left_before_explosion} > 0:
                 remove 1 from {time_left_before_explosion}
             else if {time_left_before_explosion} = 0:
-                if {players_alive} >= 2:
+                if {players_alive} >= 3:
                     loop all players:
                         if loop-player doesn't have permission "group.spectators":
                             if glowing of loop-player = true:
