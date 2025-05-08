@@ -1418,7 +1418,7 @@ command /serverversion:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		send "MC server version : Paper 1.20.1 (Build 193)"
+		send "MC server version : Paper 1.21.4 (Build 211)"
 
 command /qmskin:
 	description: send the Question Mark skin to the executor
