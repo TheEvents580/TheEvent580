@@ -1,0 +1,61 @@
+local function getAllBossbars() :: objects:
+    return all bossbars
+
+function getBossbar(index:int) :: Bossbar:
+    set {_bossbars::*} to getAllBossbars()
+    return {_bossbars::%{_index}%}
+
+function getBossbarById(id:text) :: Bossbar:
+    set {_bossbars::*} to getAllBossbars()
+    if {_bossbars::*} contains bossbar with id {_id}:
+        return boss bar with id {_id}
+
+function setBossbarName(bossbar:Bossbar, name:text):
+    set bar title of {_bossbar} to colored {_name}
+
+function setBossbarColor(bossbar:Bossbar, color:color):
+    set bar color of {_bossbar} to {_color}
+
+function showBossbar(bossbar:Bossbar):
+    loop all players:
+        add loop-player to bar players of {_bossbar}
+    set bar visibility of {_bossbar} to true
+
+function showBossbarToPlayers(bossbar:Bossbar, players:objects):
+    loop {_players::*}:
+        add loop-value to bar players of {_bossbar}
+    set bar visibility of {_bossbar} to true
+
+function hideBossbar(bossbar:Bossbar):
+    loop all players:
+        remove loop-player from bar players of {_bossbar}
+    set bar visibility of {_bossbar} to false
+
+function setBossbarProgress(bossbar:Bossbar, progress:int):
+    if {_progress} > 100:
+        set {_progress} to 100
+    else if {_progress} < 0:
+        set {_progress} to 0
+
+    set bar progress of {_bossbar} to {_progress}
+
+function bossbarRemove1Sec(name:text):
+    set {_bossbar} to getBossbarById({_name})
+    remove 1 from {bossbar_time}
+    setBossbarProgress({_bossbar}, ({bossbar_time}/{bossbar_max_time})*100)
+    if {_name} = "mall":
+        setBossbarName({_bossbar}, "Refill in %{bossbar_time}%s")
+    else if {_name} = "count":
+        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time})%")
+
+function bossbarRefill(name:text, value:integer, total:boolean = false):
+    set {_bossbar} to getBossbarById({_name})
+    set {bossbar_time} to {_value}
+    if {_name} = "mall":
+        setBossbarName({_bossbar}, "Refill in %{bossbar_time}%s")
+    else if {_name} = "count":
+        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time})%")
+    if {_total} = true:
+        command("execute run bossbar set minecraft:%{_name}% max %{_value}%")
+        set {bossbar_max_time} to {_value}
+    setBossbarProgress({_bossbar}, ({bossbar_time}/{bossbar_max_time})*100)
