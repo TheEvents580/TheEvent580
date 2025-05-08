@@ -715,6 +715,9 @@ every second:
 		if {timer-m} = 2:
 			if {timer-s} = 30:
 				newPlayers()
+			if {timer-s} = 0:
+				set {timer-m} to 1
+				set {timer-s} to 60
 		if {timer-m} = 1:
 			if {timer-s} = 45:
 				currentPlayers()
