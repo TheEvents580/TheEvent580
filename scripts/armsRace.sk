@@ -158,6 +158,7 @@ on death:
                     clear attacker's inventory
                     set slot 0 of attacker to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
                     set slot 1 of attacker to {arms_race.weapon::%{weapons.%attacker's uuid%}%}
+                    set glowing of attacker to false
                     if slot 1 of attacker is bow or crossbow:
                         set slot 8 of attacker to 64 arrow
                     else:
@@ -166,6 +167,8 @@ on death:
                     clear attacker's inventory
                     set slot 0 of attacker to unbreakable golden sword named "&6Golden Knife (&aKill a player to win the &5&lArms Race&6)"
                     set slot 1 of attacker to air
+                    broadcast "[&5Arms Race&r] %{color.%attacker's uuid%}%%attacker%&r is on their last weapon"
+                    set glowing of attacker to true
                 set {next_weapon.%attacker's uuid%} to {arms_race.weapon::%{weapons.%attacker's uuid%} + 1%}
                 set {_death_points} to 0-floor({points_game.%victim's uuid%}*(0.05+({weapons.%attacker's uuid%}/100)))
                 gamepoints(victim, {_death_points}, "Killed by %{color.%attacker's uuid%}%%attacker's name%")
