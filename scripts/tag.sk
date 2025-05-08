@@ -31,10 +31,12 @@ function setRandomHunter():
 command /tag:
     permission: *
     trigger:
-        teleport all players to location(9.5, 132, 31.5, world "tag")
+        teleport all players to location(7.5, 158, -4.5, world "tag")
+        command("execute in tag run worldborder set 91")
         set {jeu_condi} to 11
         set {jeu_logo} to "" #Tag Logo (\uE004)
         set {damage} to 3
+        set {time_left_before_explosion} to 30
         set the maximum health of all players to 3
         clear all players's inventory
         loop all players:

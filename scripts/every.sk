@@ -35,6 +35,7 @@ every tick:
 						if helmet of loop-player != air:
 							command("pridecolor %loop-player% clear")
 							send action bar "Your %name of {flag.%loop-player's uuid%}%&r has been removed" to loop-player
+							clear {flag.%loop-player's uuid%}
 							clear helmet of loop-player
 						if {HubParkour.%loop-player's uuid%} = false:
 							command("achivement %loop-player% give HubParkour")

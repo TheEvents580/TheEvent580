@@ -161,8 +161,8 @@ function checkBiggest():
 			set {jeu_nom} to "&c&lTrials"
 			set {jeu_logo} to ""
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass")
 			wait 7 seconds
 			command("trials")
 		else if {biggest} is {orange}:
@@ -172,8 +172,8 @@ function checkBiggest():
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass")
 			wait 7 seconds
 			command("parkour")
 		else if {biggest} is {yellow}:
@@ -183,8 +183,8 @@ function checkBiggest():
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass")
 			wait 7 seconds
 			command("bingo")
 		else if {biggest} is {lime}:
@@ -194,8 +194,8 @@ function checkBiggest():
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass")
 			wait 7 seconds
 			command("tag")
 		else if {biggest} is {light_blue}:
@@ -205,8 +205,8 @@ function checkBiggest():
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass")
 			wait 7 seconds
 			command("courses")
 		else if {biggest} is {blue}:
@@ -215,12 +215,9 @@ function checkBiggest():
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
-			#	send title "&9&lSurvival Games" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			#broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &9&lSurvival Games&r with&r &9&l%{blue}%&r votes"
-			#set {jeu_nom} to "&9&lSurvival Games &e(&r%{map_sg}% / 2&e)&r"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass")
 			wait 7 seconds
 			command("bm")
 		else if {biggest} is {purple}:
@@ -230,8 +227,8 @@ function checkBiggest():
 			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass")
 			wait 7 seconds
 			command("armsrace")
 		else if {biggest} is {pink}:
@@ -241,8 +238,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Decision Crystal&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass")
 			wait 7 seconds
 			command("bowpvp")
 	if the size of {games::*} is greater than 1:
@@ -263,8 +260,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass")
 			wait 7 seconds
 			command("trials")
 		if {games::%{_random}%} is "&6&lParkour":
@@ -274,8 +271,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass")
 			wait 7 seconds
 			command("parkour")
 		if {games::%{_random}%} is "&e&lBingo":
@@ -285,8 +282,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass")
 			wait 7 seconds
 			command("bingo")
 		if {games::%{_random}%} is "&a&lTag":
@@ -296,8 +293,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass")
 			wait 7 seconds
 			command("tag")
 		if {games::%{_random}%} is "&b&lMultilap":
@@ -307,8 +304,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass")
 			wait 7 seconds
 			command("courses")
 		if {games::%{_random}%} is "&9&lBuild Masters":
@@ -318,8 +315,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass")
 			wait 7 seconds
 			command("bm")
 		if {games::%{_random}%} is "&5&lArms Race":
@@ -329,8 +326,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race&r"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass")
 			wait 7 seconds
 			command("armsrace")
 		if {games::%{_random}%} is "&d&lBow PVP":
@@ -340,8 +337,8 @@ function checkBiggest():
 			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete"
-			make server execute command "fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass"
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
+			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass")
 			wait 7 seconds
 			command("bowpvp")
 
@@ -409,72 +406,72 @@ function updateClassement():
 				if {list_points::1} is {points.%loop-player's uuid%}:
 					add loop-player's name to {list_points_players::*}
 					add 1 to {list_points_pos_done::*}
-					make server execute command "npc select 8"
-					make server execute command "npc skin %loop-player%"
-					make server execute command "npc rename <#D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+					command("npc select 8")
+					command("npc skin %loop-player%")
+					command("npc rename <#D9D8F1>Top 1 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 2:
 					if {list_points::2} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 2 to {list_points_pos_done::*}
-						make server execute command "npc select 9"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 9")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 2 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 3:
 					if {list_points::3} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 3 to {list_points_pos_done::*}
-						make server execute command "npc select 10"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 10")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 3 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 4:
 					if {list_points::4} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 4 to {list_points_pos_done::*}
-						make server execute command "npc select 11"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 11")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 4 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 5:
 					if {list_points::5} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 5 to {list_points_pos_done::*}
-						make server execute command "npc select 12"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 12")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 5 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 6:
 					if {list_points::6} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 6 to {list_points_pos_done::*}
-						make server execute command "npc select 13"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 13")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 6 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 7:
 					if {list_points::7} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 7 to {list_points_pos_done::*}
-						make server execute command "npc select 14"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 14")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 7 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 8:
 					if {list_points::8} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 8 to {list_points_pos_done::*}
-						make server execute command "npc select 15"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 15")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 8 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 9:
 					if {list_points::9} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 9 to {list_points_pos_done::*}
-						make server execute command "npc select 16"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 16")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 9 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 				else if {list_points_pos_done::*} doesn't contain 10:
 					if {list_points::10} is {points.%loop-player's uuid%}:
 						add loop-player's name to {list_points_players::*}
 						add 10 to {list_points_pos_done::*}
-						make server execute command "npc select 17"
-						make server execute command "npc skin %loop-player%"
-						make server execute command "npc rename <#D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工"
+						command("npc select 17")
+						command("npc skin %loop-player%")
+						command("npc rename <#D9D8F1>Top 10 : &r%{color.%loop-player's uuid%}% %loop-player%&r - <#D9D8F1>%checkPoints({points.%loop-player's uuid%})%&r 工")
 
 function updateIndiv():
 	updateClassement()
@@ -483,16 +480,16 @@ function updateIndiv():
 	command("dh l set indivPlacement 1 3 %%theevent580_indiv_coins%%")
 
 function resetParkour():
-	make server execute command "dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : N/A"
-	make server execute command "dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : N/A"
+	command("dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : N/A")
+	command("dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : N/A")
+	command("dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : N/A")
+	command("dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : N/A")
+	command("dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : N/A")
+	command("dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : N/A")
+	command("dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : N/A")
+	command("dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : N/A")
+	command("dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : N/A")
+	command("dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : N/A")
 	loop all players:
 		set {compl_parcour.%loop-player's uuid%} to 0
 
@@ -510,144 +507,143 @@ function updateParkour():
 				if {list_parkour::1} is {compl_parcour.%loop-player's uuid%}:
 					add 1 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 2 <#D9D8F1>1st : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 2:
 				if {list_parkour::2} is {compl_parcour.%loop-player's uuid%}:
 					add 2 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 3 <#D9D8F1>2nd : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 3:
 				if {list_parkour::3} is {compl_parcour.%loop-player's uuid%}:
 					add 3 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 4 <#D9D8F1>3rd : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 4:
 				if {list_parkour::4} is {compl_parcour.%loop-player's uuid%}:
 					add 4 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 5 <#D9D8F1>4th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 5:
 				if {list_parkour::5} is {compl_parcour.%loop-player's uuid%}:
 					add 5 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 6 <#D9D8F1>5th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 6:
 				if {list_parkour::6} is {compl_parcour.%loop-player's uuid%}:
 					add 6 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 7 <#D9D8F1>6th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 7:
 				if {list_parkour::7} is {compl_parcour.%loop-player's uuid%}:
 					add 7 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 8 <#D9D8F1>7th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 8:
 				if {list_parkour::8} is {compl_parcour.%loop-player's uuid%}:
 					add 8 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 9 <#D9D8F1>8th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 9:
 				if {list_parkour::9} is {compl_parcour.%loop-player's uuid%}:
 					add 9 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-					make server execute command "dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : %%theevent580_parkour.%loop-player's uuid%%%"
+					command("dh l set TrainParkourCompl 1 10 <#D9D8F1>9th : %%theevent580_parkour.%loop-player's uuid%%%")
 			else if {list_parkour_pos_done::*} doesn't contain 10:
 				if {list_parkour::10} is {compl_parcour.%loop-player's uuid%}:
 					add 10 to {list_parkour_pos_done::*}
 					add loop-player's name to {list_parkour_players::*}
-				make server execute command "dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : %%theevent580_parkour.%loop-player's uuid%%%"
-	make server execute command "dh l set TrainParkourCompl 1 13 %%theevent580_parkour.solo%%"
-	make server execute command "execute as TheFox580 run dh reload"
+				command("dh l set TrainParkourCompl 1 11 <#D9D8F1>10th : %%theevent580_parkour.%loop-player's uuid%%%")
+	command("dh reload")
 
 function resetNPCs():
-	make server execute command "npc select 27"
-	make server execute command "npc skin --file QM.png"
+	command("npc select 27")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename TBD"
-	#make server execute command "dh l set S1E6W 1 2 TBD"
-	#make server execute command "execute as @e[type=minecraft:text_display,tag=S1EDW] run data modify entity @s text set value '{""text"":""TBD""}'"
-	make server execute command "npc select 8"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename TBD")
+	#command("dh l set S1E6W 1 2 TBD")
+	#command("execute as @e[type=minecraft:text_display,tag=S1EDW] run data modify entity @s text set value '{""text"":""TBD""}'")
+	command("npc select 8")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 1 - TBD"
-	make server execute command "npc select 9"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 1 - TBD")
+	command("npc select 9")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 2 - TBD"
-	make server execute command "npc select 10"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 2 - TBD")
+	command("npc select 10")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 3 - TBD"
-	make server execute command "npc select 11"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 3 - TBD")
+	command("npc select 11")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 4 - TBD"
-	make server execute command "npc select 12"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 4 - TBD")
+	command("npc select 12")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 5 - TBD"
-	make server execute command "npc select 13"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 5 - TBD")
+	command("npc select 13")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 6 - TBD"
-	make server execute command "npc select 14"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 6 - TBD")
+	command("npc select 14")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 7 - TBD"
-	make server execute command "npc select 15"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 7 - TBD")
+	command("npc select 15")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 8 - TBD"
-	make server execute command "npc select 16"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 8 - TBD")
+	command("npc select 16")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 9 - TBD"
-	make server execute command "npc select 17"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 9 - TBD")
+	command("npc select 17")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 10 - TBD"
+	command("npc rename <##D9D8F1>Top 10 - TBD")
 
 function endNPCs():
-	make server execute command "npc select 8"
-	make server execute command "npc skin --file QM.png"
+	command("npc select 8")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 1%nl%&kHidden"
-	make server execute command "npc select 9"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 1%nl%&kHidden")
+	command("npc select 9")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 2%nl%&kHidden"
-	make server execute command "npc select 10"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 2%nl%&kHidden")
+	command("npc select 10")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 3%nl%&kHidden"
-	make server execute command "npc select 11"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 3%nl%&kHidden")
+	command("npc select 11")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 4%nl%&kHidden"
-	make server execute command "npc select 12"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 4%nl%&kHidden")
+	command("npc select 12")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 5%nl%&kHidden"
-	make server execute command "npc select 13"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 5%nl%&kHidden")
+	command("npc select 13")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 6%nl%&kHidden"
-	make server execute command "npc select 14"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 6%nl%&kHidden")
+	command("npc select 14")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 7%nl%&kHidden"
-	make server execute command "npc select 15"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 7%nl%&kHidden")
+	command("npc select 15")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 8%nl%&kHidden"
-	make server execute command "npc select 16"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 8%nl%&kHidden")
+	command("npc select 16")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 9%nl%&kHidden"
-	make server execute command "npc select 17"
-	make server execute command "npc skin --file QM.png"
+	command("npc rename <##D9D8F1>Top 9%nl%&kHidden")
+	command("npc select 17")
+	command("npc skin --file QM.png")
 	wait 3 ticks
-	make server execute command "npc rename <##D9D8F1>Top 10%nl%&kHidden"
+	command("npc rename <##D9D8F1>Top 10%nl%&kHidden")
 
 function newPlayers():
 	send title "<##f0f084>Announcing new players :" with subtitle " " to all players for 4 seconds

@@ -40,7 +40,7 @@ every 2 ticks:
 			else:
 				set line 8 of loop-player's fastboard to "<##E2F093>&lTime left : <##D9D8F1>%minuteSecond({timer_minute.%loop-player's uuid%}*60+{timer_second.%loop-player's uuid%})%"
 		else if {jeu_condi} is 10:
-			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent speed of challenges :<##D9D8F1> %11-{trials.stage}%s"
+			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent speed of trials :<##D9D8F1> %11-{trials.stage}%s"
 		else if {jeu_condi} is 11:
 			set {_border} to world border of world "tag"
 			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent map size :<##D9D8F1> %round({_border}'s worldborder size/75)%"
@@ -101,7 +101,7 @@ every 2 ticks:
 						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({points.%loop-player's uuid%})% %{pos.%loop-player's uuid%}% / 2nd"
 					set line 14 of loop-player's fastboard to "<##BCD71D>&lYour All Time &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints({total_points.%loop-player's uuid%})%"
 			else if {timer} is 5 or 6 or 7 or 10:
-				set line 2 of loop-player's fastboard to ""
+				set line 14 of loop-player's fastboard to ""
 				if loop-player doesn't have permission "group.spectators":
 					if {jeu_condi} = 2:
 						set line 13 of loop-player's fastboard to "<##BCD71D>&lYour In-game &r工 <##BCD71D>&l:<##D9D8F1> %checkPoints(round({points_game.%loop-player's uuid%} * {game_multiplier.%loop-player's uuid%}))% (%{points_game.%loop-player's uuid%}% 必 %{game_multiplier.%loop-player's uuid%}%)"

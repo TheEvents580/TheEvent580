@@ -81,7 +81,6 @@ command /spawn [<player>]:
 							teleport arg-1 to location(321.5, 75.0, 340.5, world "world", 147.25, 25)
 							wait 5 ticks
 							set arg-1's game mode to creative
-							force arg-1 to fly
 							command("fly %arg-1% true")
 						else:
 							teleport arg-1 to location(310.5, 67.0, 323.5, world "world", 0, 0)
@@ -105,8 +104,6 @@ command /timer <text> [<text>] [<int>]:
 	permission message: &cThis command does not exist
 	description: stop / start / set timer
 	trigger:
-		if arg-1 is "type":
-			send "%{timer}%" to player
 		if arg-1 is "pause":
 			if {timer} is "pause":
 				send "[&4Admin&r] Event is already paused"
@@ -145,7 +142,7 @@ command /timer <text> [<text>] [<int>]:
 				set {timer-s} to arg-3
 				bossbarRefill("count", {timer-m}*60 + {timer-s})
 			else:
-				send "--> /timer set 1 30 ( example )"
+				send "Example: /timer set 1 30"
 		else if arg-1 is "status":
 			if arg-2 is set:
 				if arg-2 is "set":
@@ -153,9 +150,11 @@ command /timer <text> [<text>] [<int>]:
 						set {timer} to arg-3
 				else if arg-2 is "Fin":
 					set {timer} to arg-2
+		else if arg-1 is "get":
+			send "Timer is currently set to %{timer}%, with %intToTime({timer-m}*60+{timer-s})% left"
 
 on tab complete of "/timer":
-	set tab completions for position 1 to "type", "pause", "resume", "set" and "status"
+	set tab completions for position 1 to "get", "pause", "resume", "set" and "status"
 	if tab arg-1 = "set":
 		clear {_nbs::*}
 		loop 21 times:
@@ -1675,7 +1674,9 @@ command /test:
 	permission: *
 	permission message: &cThis command does not exist
 	trigger:
-		giveRandomItems(sender)
+		loop all players:
+			if loop-player doesn't have permission "group.spectators":
+				set {finished.%loop-player's uuid%} to false
 
 command /emotes [<text>]:
 	description: opens a gui with all the emotes that, when clicked, will send that emote in chat

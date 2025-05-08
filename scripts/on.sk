@@ -95,14 +95,13 @@ on join:
 		set {check_block.%player's uuid%} to false
 	if {gamemode.%player's uuid%} is 3:
 		wait 1 second
-		force player to fly
-		allow fly for player
+		command("fly %event-player% true")
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
 		command("/hide %player% true")
 	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
 		command("/hide %player% false")
-	if {total_points.%player's uuid%} is not set:	
+	if {total_points.%player's uuid%} is not set:
 		set {total_points.%player's uuid%} to 0
 	else if {total_points.%player's uuid%} is not round({total_points.%player's uuid%}):
 		set {total_points.%player's uuid%} to round({total_points.%player's uuid%})
@@ -130,11 +129,8 @@ on join:
 		command("fly %player% true")
 
 	if {jeu_condi} = 0:
-		make player execute command "/spawn"
-
-	if {jeu_condi} = 1:
-		if event-world is not "dropper":
-			make server execute command "execute in minecraft:dropper run tp %player% 30.0 129 6.0 90 0"
+		if world of event-player != "world":
+			make player execute command "/spawn"
 
 	if {jeu_condi} = 2:
 		if event-world is not "parkour":
@@ -143,10 +139,6 @@ on join:
 	if {jeu_condi} = 3:
 		if event-world is not "bingo":
 			make server execute command "execute in minecraft:bingo run tp %player% 999889.0 153 999932.5 0 0"
-
-	if {jeu_condi} = 4:
-		if event-world is not "find_the_button":
-			make server execute command "execute in minecraft:find_the_button run tp %player% 0 148 0 0 0"
 
 	if {jeu_condi} = 5:
 		if event-world is not "races_lap_3":
@@ -333,6 +325,7 @@ on damage:
 				else: # Sword
 					cancel event
 					command("hide %victim% true")
+					command("fly %victim% true")
 					broadcast "[<##155966>&lTheEvent580 - ☠&r] %{color.%victim's uuid%}%%victim%&r was killed by %{color.%attacker's uuid%}%%attacker%"
 					send title "" with subtitle "&c☠ You are dead ☠" to victim for 3 seconds
 					set {alive.%victim's uuid%} to false
@@ -340,7 +333,6 @@ on damage:
 					loop all players:
 						if loop-player = attacker or victim:
 							clear loop-players's inventory
-					allow flight for victim
 			else:
 				if projectile is arrow: # Crossbow
 					cancel event
@@ -352,7 +344,6 @@ on damage:
 					loop all players:
 						if loop-player = attacker or victim:
 							clear loop-players's inventory
-					allow flight for victim
 	else if {timer} = 4 or 5:
 		cancel event
 	else if {jeu_condi} is 0 or -1:
