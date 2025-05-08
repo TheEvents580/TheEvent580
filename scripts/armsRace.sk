@@ -128,18 +128,18 @@ command /armsrace:
         loop all players:
             if loop-player doesn't have permission "group.spectators":
                 clear loop-player's inventory
-                set slot 0 of loop-player to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon behind&6)"
+                set slot 0 of loop-player to unbreakable golden sword named "&6Golden Knife (&cSends the victim 1 weapon back&6)"
                 set slot 1 of loop-player to {arms_race.weapon::1}
                 set {weapons.%loop-player's uuid%} to 1
                 set {next_weapon.%loop-player's uuid%} to {arms_race.weapon::%{weapons.%loop-player's uuid%} + 1%}
                 set {points_game.%loop-player's uuid%} to round(150*{multiplier}) #everyone starts with 150 coins
             else:
                 clear loop-player's inventory
-                hide loop-player from all entities
                 set slot 0 of loop-player to compass named "&rTeleport to player"
                 set slot 1 of loop-player to feather named "&rChange your fly speed"
-                set {finished.%loop-player's uuid%} to true
+                command("hide %loop-player% true")
                 command("fly %loop-player% true")
+                set {finished.%loop-player's uuid%} to true
                 
 
 command /armsracedone <player>:
