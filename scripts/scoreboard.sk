@@ -43,7 +43,7 @@ every 2 ticks:
 			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent speed of trials :<##D9D8F1> %11-{trials.stage}%s"
 		else if {jeu_condi} is 11:
 			set {_border} to world border of world "tag"
-			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent map size :<##D9D8F1> %round({_border}'s worldborder size/75)%"
+			set line 8 of loop-player's fastboard to "<##E2F093>&lCurrent map size :<##D9D8F1> %round({_border}'s worldborder size/91, 2)*100%%%"
 		else if {jeu_condi} is 12:
 			if loop-player has permission "group.spectators":
 				set {_players_in_lead_list::*} to playersInLead()
