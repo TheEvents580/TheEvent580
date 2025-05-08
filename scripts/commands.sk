@@ -1687,11 +1687,18 @@ command /emotes [<text>]:
 			set {_heartmenu} to a player head
 			set {_heartmenunbt} to nbt compound of {_heartmenu}
 			add nbt of "{""minecraft:custom_name"":'{""text"":""&r&cRed Heart""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NmI0ZWU5ODg1NzIyOTdjYmQ4NzQ2ODNiZWU5NmFlM2M1NWNlOTRjMDA0ZTUxYWRjODJjZWUxNmNkMGIwYyJ9fX0=""}]}}" to {_heartmenunbt}
-			open chest inventory with 3 rows named "Emotes menu" to player
-			set slot 0 of current inventory of player to {_skull}
-			set slot 1 of current inventory of player to {_heartmenu}
-			set slot 26 of current inventory of player to barrier named "&r&cClose emote menu"
-			set {menu.%player's uuid%} to "main"
+			
+			create a gui with virtual chest inventory with 3 rows named "Emotes menu":
+				wait 1 tick
+				make gui slot 0 with {_skull}:
+					close player's inventory
+					make player say ":skull:"
+				make gui slot 1 with {_heartmenu}:
+					close player's inventory
+					make player execute command "emotes heart"
+				make gui slot 26 with barrier named "&r&cClose emote menu":
+					close player's inventory
+			open the last gui for the player
 		else:
 			if arg-1 is "heart":
 				set {_heart1} to a player head
@@ -1733,22 +1740,51 @@ command /emotes [<text>]:
 				set {_goback} to a player head
 				set {_gobacknbt} to nbt compound of {_goback}
 				add nbt of "{""minecraft:custom_name"":'{""text"":""&r&fGo back to the main menu""}',""minecraft:profile"":{properties:[{name:""textures"",value:""eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjdhYWNhZDE5M2UyMjI2OTcxZWQ5NTMwMmRiYTQzMzQzOGJlNDY0NGZiYWI1ZWJmODE4MDU0MDYxNjY3ZmJlMiJ9fX0=""}]}}" to {_gobacknbt}
-				open chest inventory with 3 rows named "Emotes menu" to player
-				set slot 0 of current inventory of player to {_heart1}
-				set slot 1 of current inventory of player to {_heart2}
-				set slot 2 of current inventory of player to {_heart3}
-				set slot 3 of current inventory of player to {_heart4}
-				set slot 4 of current inventory of player to {_heart5}
-				set slot 5 of current inventory of player to {_heart6}
-				set slot 6 of current inventory of player to {_heart7}
-				set slot 7 of current inventory of player to {_heart8}
-				set slot 8 of current inventory of player to {_heart9}
-				set slot 9 of current inventory of player to {_heart10}
-				set slot 10 of current inventory of player to {_heart11}
-				set slot 11 of current inventory of player to {_heart12}
-				set slot 25 of current inventory of player to {_goback}
-				set slot 26 of current inventory of player to barrier named "&r&cClose emote menu"
-				set {menu.%player's uuid%} to "heart"
+				
+				create a gui with virtual chest inventory with 3 rows named "Emotes menu":
+					wait 1 tick
+					make gui slot 0 with {_heart1}:
+						close player's inventory
+						make player say ":darkredlove:"
+					make gui slot 1 with {_heart2}:
+						close player's inventory
+						make player say ":redlove:"
+					make gui slot 2 with {_heart3}:
+						close player's inventory
+						make player say ":orangelove:"
+					make gui slot 3 with {_heart4}:
+						close player's inventory
+						make player say ":yellowlove:"
+					make gui slot 4 with {_heart5}:
+						close player's inventory
+						make player say ":limelove:"
+					make gui slot 5 with {_heart6}:
+						close player's inventory
+						make player say ":greenlove:"
+					make gui slot 6 with {_heart7}:
+						close player's inventory
+						make player say ":cyanlove:"
+					make gui slot 7 with {_heart8}:
+						close player's inventory
+						make player say ":lightbluelove:"
+					make gui slot 8 with {_heart9}:
+						close player's inventory
+						make player say ":bluelove:"
+					make gui slot 9 with {_heart10}:
+						close player's inventory
+						make player say ":darkbluelove:"
+					make gui slot 10 with {_heart11}:
+						close player's inventory
+						make player say ":purplelove:"
+					make gui slot 11 with {_heart12}:
+						close player's inventory
+						make player say ":pinklove:"
+					make gui slot 25 with {_goback}:
+						close player's inventory
+						make player execute command "emotes"
+					make gui slot 26 with barrier named "&r&cClose emote menu":
+						close player's inventory
+				open the last gui for the player
 
 command /fly [<player>] [<boolean>]:
 	permission: group.spectators
