@@ -291,7 +291,9 @@ on quit:
 	if player has permission "group.spectators":
 		remove player from {staff::*}
 	set {color.%player's uuid%} to "タ &7"
-	remove player from {players::*}
+	if {timer} = "Fin":
+		remove player from {players::*}
+		remove player from the whitelist
 	#For Tests --> put nothing
 	#remove 1 from {online_players}
 	#For Event --> 
