@@ -1318,18 +1318,16 @@ command /readycheck:
 				set {ready.%loop-player's uuid%} to true
 			else:
 				add 1 to {check_players}
-				send "%nl%--------------------------------%nl%%nl%%nl%" to loop-player
-				send "Are you ready to start playing ?%nl%" to loop-player
-				send "<run command:/ready>&a&lI am ready to play<reset>&r or <run command:/notready>&c&lI am not ready to play<reset>&r" to loop-player
-				send "%nl%%nl%%nl%--------------------------------%nl%" to loop-player
+				send "%nl%%nl%<#1D7874>--------------------------------%nl%%nl%%nl%" to loop-player
+				send "<#BCD71D>Are you ready to start playing ?%nl%" to loop-player
+				send "<run command:/ready>&a&lI am ready to play<reset><#E2F093> or <run command:/notready>&c&lI am not ready to play<reset>&r" to loop-player
+				send "%nl%%nl%%nl%<#1D7874>--------------------------------%nl%%nl%" to loop-player
 		set {timer-s} to 31
 		while {replied} != {online_players}:
 			wait 1 tick
 			remove 1 from {timer-s}
 			if {timer-s} < 1:
 				loop all players:
-					loop 500 times:
-						send "" to loop-player
 					if {ready.%loop-player's uuid%} is true:
 						if loop-player doesn't have permission "group.spectators":
 							remove 1 from {check_players}
@@ -1373,19 +1371,21 @@ command /readycheck:
 		if {check_players} is 0:
 			send "[&4Admin&r] Everyone is ready, start whenever you want !" to executor
 		else:
+			clear {not_ready::*}
 			loop all players:
 				if {ready_check.%loop-player's uuid%} is false:
 					set {ready_check.%loop-player's uuid%} to true
-				if loop-player has permission "group.spectators":
-					create a gui with virtual chest inventory with 3 rows named "Not ready players":
-						wait 1 tick
-						set {pos} to 0
-						loop all players:
-							set {head} to "%loop-player-2%" parsed as an offline player
-							if {ready.%loop-player-2's uuid%} is false:
-								make gui slot {pos} with skull of {head} named "&r&c&l%loop-player-2%&f isn't ready"
-								add 1 to {pos}
-					open the last gui for the loop-player
+			create a gui with virtual chest inventory with 3 rows named "Players who aren't ready":
+				wait 1 tick
+				set {pos} to 0
+				loop all players:
+					if {ready.%loop-player's uuid%} is false:
+						set {head} to "%loop-player%" parsed as an offline player
+						add "%loop-player%" to {not_ready::*}
+						make gui slot {pos} with skull of {head} named "&r&c&l%loop-player%&f isn't ready":
+							make player say "%{not_ready::%index of clicked slot+1%}%, what's up?"
+						add 1 to {pos}
+			open the last gui for the player
 			send "[&4Admin&r] %{check_players}% players are not ready, ask them why they aren't"
 		make player execute command "mute"
 
