@@ -297,6 +297,9 @@ on quit:
 	#For Event --> 
 	if player doesn't have permission "group.spectators":
 		remove 1 from {online_players}
+		if {jeu_condi} = 0:
+			if {timer-m}*60 + {timer-s} <= 30:
+				command("timer pause")
 
 on player teleport:
 	wait 1 tick
