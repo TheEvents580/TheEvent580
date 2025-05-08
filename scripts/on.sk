@@ -396,6 +396,8 @@ on damage:
 								set {backup_time_left_before_explosion} to 30
 							else if {backup_time_left_before_explosion} > 11:
 								remove 1 from {backup_time_left_before_explosion}
+							else:
+								set {time_left_before_explosion} to 10
 							set {time_left_before_explosion} to {backup_time_left_before_explosion} - 1
 							set {time_hider.%victim's uuid%} to -1
 				else:
