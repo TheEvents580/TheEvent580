@@ -1294,7 +1294,9 @@ every second:
 				if {timer-s} = 15:
 					broadcast "[&5Arms Race&r] If nobody gets the final kill after 15 minutes, the game will end."
 				if {timer-s} = 10:
-					broadcast "[&5Arms Race&r] Be careful, dying will remove 5%% of your in-game points, so make sure to not die!"
+					broadcast "[&5Arms Race&r] Be careful, dying will remove (5+kills of your attacker)%% of your in-game points, so make sure to not die!"
+				if {timer-s} = 5:
+					broadcast "[&5Arms Race&r] The formula for kill points is [victim's points]*(0.05+your kills/100). Good luck understanding it!"
 				if {timer-s} = 3:
 					broadcast "[&5Arms Race&r] &5&lArms Race&r will be starting in 3."
 					loop all players:
