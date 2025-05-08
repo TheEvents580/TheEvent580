@@ -114,12 +114,15 @@ every tick:
                 if glowing of loop-player = true:
                     send action bar "&c💣&r You will &c&lexplode&r in &c&l%{time_left_before_explosion}%&r seconds &c💣" to loop-player
             set {_border} to world border of world "tag"
-            if ({players_alive}/{checking_finished_players}) <= 1/4: #25% of players left
-                if {_border}'s worldborder size = 37.5:
-                    shrink {_border}'s worldborder's radius by 18.75 over 30 seconds
+            if ({players_alive}/{checking_finished_players}) <= 1/10: #10% of players left
+                if {_border}'s worldborder size = 22.75:
+                    shrink {_border}'s worldborder's radius by 7.75 over 15 seconds
+            else if ({players_alive}/{checking_finished_players}) <= 1/4: #25% of players left
+                if {_border}'s worldborder size = 45.5:
+                    shrink {_border}'s worldborder's radius by 22.75 over 30 seconds
             else if ({players_alive}/{checking_finished_players}) <= 2/4: #50% of players left
-                if {_border}'s worldborder size = 56.25:
-                    shrink {_border}'s worldborder's radius by 18.75 over 30 seconds
+                if {_border}'s worldborder size = 68.25:
+                    shrink {_border}'s worldborder's radius by 22.75 over 30 seconds
             else if ({players_alive}/{checking_finished_players}) <= 3/4: #75% of players left
-                if {_border}'s worldborder size = 75:
-                    shrink {_border}'s worldborder's radius by 18.75 over 30 seconds
+                if {_border}'s worldborder size = 91:
+                    shrink {_border}'s worldborder's radius by 22.75 over 30 seconds
