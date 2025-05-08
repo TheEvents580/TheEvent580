@@ -165,12 +165,25 @@ local function isdo(trial: int) :: boolean:
         return true
     return false
 
+local function topPlayers(players: objects) :: text:
+    set {_max} to -1
+    set {_text_players} to "None"
+    loop {_players::*}:
+        if {points_game.%loop-value's uuid%} > {_max}:
+            set {_max} to {points_game.%loop-value's uuid%}
+            set {_text_players} to loop-value's name
+        else if {points_game.%loop-value's uuid%} = {_max}:
+            set {_text_players} to "%{_text_players}%, %loop-value's name%"
+    return "Top player(s) : %{_text_players}% with %checkPoints({_max})% <##f0f064>工"
+
 every tick:
     if {timer} = 6:
         if {jeu_condi} is 10:
             loop all players:
                 if {finished.%loop-player's uuid%} = false:
                     send action bar "<##D9D8F1>Trial points : +%{trials.%loop-player's uuid%.points}% <##f0f064>工" to loop-player
+                else:
+                    send action bar "<##D9D8F1>%topPlayers({players::*})%" to loop-player
             if {trials.time} > 0:
                 if {trials.random_trial} = 1 or 2 or 22:
                     loop all players:
