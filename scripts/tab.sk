@@ -32,9 +32,15 @@ function reloadTab():
 		if {total_points.%loop-value's uuid%} isn't set:
 			set {total_points.%loop-value's uuid%} to 0
 		if {total_points.%loop-value's uuid%} = 0:
-			add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##E2F093>*&r" to {tab_players}
+			if {jeu} = 6:
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##E2F093>*<##D9D8F1> : &kpoints &r工" to {tab_players}
+			else:
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##E2F093>*<##D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
 		else:
-			add "%nl%%{color.%loop-value's uuid%}%%loop-value%&r" to {tab_players}
+			if {jeu} = 6:
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##D9D8F1> : &kpoints &r工" to {tab_players}
+			else:
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
 	add "%nl%%nl%%nl%" to {tab_players}
 
 	set {header} to "%{tab_title}%%{tab_game}%%{tab_spectators}%%{tab_players}%<##E2F093>* = New players"
