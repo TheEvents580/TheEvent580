@@ -63,6 +63,7 @@ on chat:
 
 on server list ping:
 	set the motd to "<##D9DBF1>Working on <##155966>&lTheEvent580 • Season 1 - Episode 7"
+	set the max players count to (size of {players::*}+size of {spectators::*})
 
 on join:
 	wait 3 ticks
