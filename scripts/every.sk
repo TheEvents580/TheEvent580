@@ -373,16 +373,17 @@ every tick:
 								set {pts_lvl_9} to 0
 							remove 1 sponge from loop-player's inventory
 				if {bingo_cases.%loop-player's uuid%} is 9:
+				if {bingo_cases.%loop-player's uuid%} = 9:
 					set {bingo_cases.%loop-player's uuid%} to "All"
 					if {bingo_fin} = false:
 						set {bingo_fin} to true
 						loop all players:
 							if loop-player-1 != loop-player-2 :
-								send "[&eBingo] %{color.%loop-player-1's uuid%}%%loop-player-1%&r = the 1st player to complete &e&lBingo&r." to loop-player-2
+								send "[&eBingo] &r%{color.%loop-player-1's uuid%}%%loop-player-1%&r is the 1st player to complete &e&lBingo&r." to loop-player-2
 					else:
 						loop all players:
 							if loop-player-1 != loop-player-2 :
-								send "[&eBingo] %{color.%loop-player-1's uuid%}%%loop-player-1%&r completed &e&lBingo&r." to loop-player-2
+								send "[&eBingo] &r%{color.%loop-player-1's uuid%}%%loop-player-1%&r completed &e&lBingo&r." to loop-player-2
 					send "[&eBingo] You completed &e&lBingo&r" to loop-player
 					set {bingo_fin.%loop-player's uuid%} to true
 					command("/see %loop-player%")
