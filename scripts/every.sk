@@ -587,6 +587,19 @@ every tick:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
 					if {finished.%loop-player's uuid%} = false:
+						if the z-coordinate of loop-player > 3000:
+							set {_concrete_items} to 0
+							set {_terracotta_items} to 0
+							set {_copper_items} to 0
+							loop all items in loop-player's inventory:
+								if loop-item = red concrete or orange concrete or yellow concrete or lime concrete or green concrete or cyan concrete or light blue concrete or blue concrete or purple concrete or magenta concrete or pink concrete or brown concrete or black concrete or gray concrete or light gray concrete or white concrete :
+									add the amount of loop-item in loop-player's inventory to {_concrete_items}
+								if loop-item = red terracotta or orange terracotta or yellow terracotta or lime terracotta or green terracotta or cyan terracotta or light blue terracotta or blue terracotta or purple terracotta or magenta terracotta or pink terracotta or brown terracotta or black terracotta or gray terracotta or light gray terracotta or white terracotta or terracotta:
+									add the amount of loop-item in loop-player's inventory to {_terracotta_items}
+								if loop-item = waxed copper block or waxed exposed copper block or waxed weathered copper block or waxed oxidized copper block or waxed cut copper block or waxed exposed cut copper block or waxed weathered cut copper block or waxed oxidized cut copper block :
+									add the amount of loop-item in loop-player's inventory to {_copper_items}
+							set {_total_pay} to {_concrete_items} + {_terracotta_items} * 2 + {_copper_items} * 3
+							send action bar "Total price : %minuteSecond({_total_pay})%" to loop-player
 						if {timer_minute.%loop-player's uuid%} >= 0:
 							if {build.%loop-player's uuid%} = 1:
 								checkBuild1({build.location.%loop-player's uuid%})
