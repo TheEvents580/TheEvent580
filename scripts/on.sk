@@ -950,8 +950,8 @@ on jump:
 	if event-world = "Build_Masters":
 		if block 0 meter under event-player = green carpet or cyan carpet:
 			remove jump boost from event-player
-			apply jump boost 6 without particles whilst hiding the potion icon to event-player for 2 ticks
-			push event-player up at speed 2
+			apply jump boost 2 without particles whilst hiding the potion icon to event-player for 2 ticks
+			push event-player up at speed 1
 		if block 0 meter under event-player = yellow carpet:
 			remove jump boost from event-player
 			apply jump boost 3 without particles whilst hiding the potion icon to event-player for 2 ticks
