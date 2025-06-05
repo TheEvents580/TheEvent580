@@ -791,7 +791,7 @@ every second:
 						set loop-player's game mode to adventure
 					clear loop-player's inventory
 					command("/hide %loop-player% true")
-				broadcast "[<#155966>Decision Crysyal&r] This Episode's minigames are :"
+				broadcast "[<#155966>&lDecision Crysyal&r] This Episode's minigames are :"
 				send title "This Episode's minigames are :" with subtitle " " to all players for 5 seconds with fadein 0.5 second and fadeout 0 second
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
