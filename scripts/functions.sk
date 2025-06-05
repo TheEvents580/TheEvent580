@@ -157,7 +157,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
 			set {jeu_logo} to ""
 			wait 3 seconds
@@ -169,7 +169,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
@@ -180,7 +180,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
@@ -191,7 +191,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&a&lTag" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
@@ -202,7 +202,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
@@ -213,7 +213,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
@@ -224,7 +224,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&5&lArms Race" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##155966>&lTheEvent580&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
+			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
@@ -235,7 +235,7 @@ function checkBiggest():
 			wait 10 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Decision Crystal&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			broadcast "[<#1D7874>Decision Crystal&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
@@ -245,19 +245,19 @@ function checkBiggest():
 	if the size of {games::*} is greater than 1:
 		loop all players:
 			if loop-player has permission "group.spectators":
-				send "[<##1D7874>Vote Tie&r] The tied games are :" to loop-player
+				send "[<#1D7874>Vote Tie&r] The tied games are :" to loop-player
 				loop {games::*}:
-					send "[<##1D7874>Vote Tie&r] %loop-value-2%" to loop-player
+					send "[<#1D7874>Vote Tie&r] %loop-value-2%" to loop-player
 		set {_random} to a random integer between 1 and the size of {games::*}
 		wait 5 seconds
 		loop all players:
 			send title "&c&lVote is tied" with subtitle "Vote tied between %size of {games::*}% games" to loop-player for 3 seconds
-		broadcast "[<##1D7874>Vote Tie&r] Vote tied between %size of {games::*}% games"
+		broadcast "[<#1D7874>Vote Tie&r] Vote tied between %size of {games::*}% games"
 		if {games::%{_random}%} is "&c&lTrials":
 			wait 5 seconds
 			loop all players:
 				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete")
@@ -268,7 +268,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
@@ -279,7 +279,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
@@ -290,7 +290,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&a&lTag" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
@@ -301,7 +301,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
@@ -312,7 +312,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
@@ -323,7 +323,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&5&lArms Race" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race&r"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
@@ -334,7 +334,7 @@ function checkBiggest():
 			wait 5 seconds
 			loop all players:
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
-			broadcast "[<##1D7874>Vote Tie&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
+			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
@@ -345,23 +345,23 @@ function checkBiggest():
 function after():
 	if {white} is greater than 1:
 		if {light_gray} is greater than 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l%{white}%&r players haven't voted !"
 	else if {white} is 1:
 		if {light_gray} is greater than 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l1&r player voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted and&r &7&l1&r player voted an already played game !"
 		else if {light_gray} is 0:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &r&l1&r player hasn't voted !"
 	else if {white} is 0:
 		if {light_gray} is greater than 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &7&l%{light_gray}%&r players voted an already played game !"
 		else if {light_gray} is 1:
-			broadcast "[<##1D7874>Decision Crystal&r] Also, &7&l1&r player voted an already played game !"
+			broadcast "[<#1D7874>Decision Crystal&r] Also, &7&l1&r player voted an already played game !"
 
 function respawnBowPVP(p:player):
 	if {jeu_condi} is 8: #Bow PVP
@@ -565,120 +565,120 @@ function resetNPCs():
 	command("npc select 8")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 1 - TBD")
+	command("npc rename <#D9D8F1>Top 1 - TBD")
 	command("npc select 9")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 2 - TBD")
+	command("npc rename <#D9D8F1>Top 2 - TBD")
 	command("npc select 10")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 3 - TBD")
+	command("npc rename <#D9D8F1>Top 3 - TBD")
 	command("npc select 11")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 4 - TBD")
+	command("npc rename <#D9D8F1>Top 4 - TBD")
 	command("npc select 12")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 5 - TBD")
+	command("npc rename <#D9D8F1>Top 5 - TBD")
 	command("npc select 13")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 6 - TBD")
+	command("npc rename <#D9D8F1>Top 6 - TBD")
 	command("npc select 14")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 7 - TBD")
+	command("npc rename <#D9D8F1>Top 7 - TBD")
 	command("npc select 15")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 8 - TBD")
+	command("npc rename <#D9D8F1>Top 8 - TBD")
 	command("npc select 16")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 9 - TBD")
+	command("npc rename <#D9D8F1>Top 9 - TBD")
 	command("npc select 17")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 10 - TBD")
+	command("npc rename <#D9D8F1>Top 10 - TBD")
 
 function endNPCs():
 	command("npc select 8")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 1%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 1%nl%&kHidden")
 	command("npc select 9")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 2%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 2%nl%&kHidden")
 	command("npc select 10")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 3%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 3%nl%&kHidden")
 	command("npc select 11")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 4%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 4%nl%&kHidden")
 	command("npc select 12")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 5%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 5%nl%&kHidden")
 	command("npc select 13")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 6%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 6%nl%&kHidden")
 	command("npc select 14")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 7%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 7%nl%&kHidden")
 	command("npc select 15")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 8%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 8%nl%&kHidden")
 	command("npc select 16")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 9%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 9%nl%&kHidden")
 	command("npc select 17")
 	command("npc skin --file QM.png")
 	wait 3 ticks
-	command("npc rename <##D9D8F1>Top 10%nl%&kHidden")
+	command("npc rename <#D9D8F1>Top 10%nl%&kHidden")
 
 function newPlayers():
-	send title "<##f0f084>Announcing new players :" with subtitle " " to all players for 4 seconds
+	send title "<#f0f084>Announcing new players :" with subtitle " " to all players for 4 seconds
 	if size of {new_players::*} = 0:
-		send title "<##f0f01c>Announcing new players :" with subtitle "<#f0f01c>Oh wow, no newcomers!" to all players for 2 seconds with fadein 0 second
+		send title "<#f0f01c>Announcing new players :" with subtitle "<#f0f01c>Oh wow, no newcomers!" to all players for 2 seconds with fadein 0 second
 	else:
 		loop {new_players::*}:
 			wait 2 second
 			if loop-value is the last element of {new_players::*}:
-				send title "<##f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+				send title "<#f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
 			else:
-				send title "<##f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
+				send title "<#f0f01c>Announcing new players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
 			apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function currentPlayers():
-	send title "<##f0f01c>Next, announcing players :" with subtitle " " to all players for 4 seconds
+	send title "<#f0f01c>Next, announcing players :" with subtitle " " to all players for 4 seconds
 	loop {players::*}:
 		wait 2 second
 		if loop-value is the last element of {players::*}:
-			send title "<##f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+			send title "<#f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
 		else:
-			send title "<##f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
+			send title "<#f0f01c>Next, announcing players :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
 		apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function currentSpecs():
-	send title "<##f0f01c>And here are your spectators :" with subtitle " " to all players for 4 seconds
+	send title "<#f0f01c>And here are your spectators :" with subtitle " " to all players for 4 seconds
 	if size of {spectators::*} = 0:
-		send title "<##f0f01c>And here are your spectators :" with subtitle "<#f0f01c>Erm, that's awkward..." to all players for 2 seconds with fadein 0 second
+		send title "<#f0f01c>And here are your spectators :" with subtitle "<#f0f01c>Erm, that's awkward..." to all players for 2 seconds with fadein 0 second
 	else:
 		loop {spectators::*}:
 			wait 2 second
 			if loop-value is the last element of {spectators::*}:
-				send title "<##f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
+				send title "<#f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second
 			else:
-				send title "<##f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
+				send title "<#f0f01c>And here are your spectators :" with subtitle "%{color.%loop-value's uuid%}% %loop-value's name%&r" to all players for 2 seconds with fadein 0 second and fadeout 0 second
 			apply glowing without particles whilst hiding the potion icon to loop-value for 2 seconds
 
 function checkPoints(points: number) :: text:
@@ -713,10 +713,10 @@ function giveRandomItems(p:player):
 		set the name of {_item} to "&rSwap players and spectators"
 		set the lore of {_item} to "&rRight click to swap the players and the spectators"
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and recieved &6&lLEGENDARY&r ""Swap players and spectators"" !" to loop-player
 	else if {_random} = 66:
 		set {_item} to carrot on a stick
 		apply custom model data to {_item}:
@@ -724,22 +724,22 @@ function giveRandomItems(p:player):
 		set the name of {_item} to "&rYou choose the game"
 		set the lore of {_item} to "&rRight click to choose the game"
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &6&lLEGENDARY&r ""You choose the game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &6&lLEGENDARY&r ""You choose the game"" !" to loop-player
 	else if {_random} is between 1 and 14:
 		give 1 of golden chestplate named "&rVote x2" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Vote x2"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Vote x2"" !" to loop-player
 	else if {_random} is between 20 and 29:
 		give 1 of diamond chestplate named "&rVote x3" with lore "&rEquip the chestplate to multiply your vote !" to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Vote x3"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Vote x3"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Vote x3"" !" to loop-player
 	else if {_random} is between 81 and 85:
 		set {_item} to carrot on a stick
 		apply custom model data to {_item}:
@@ -747,48 +747,48 @@ function giveRandomItems(p:player):
 		set the name of {_item} to "&rBlock a game"
 		set the lore of {_item} to "&rRight click in a game category to block this game"
 		give 1 of {_item} to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &5&lEPIC&r ""Block a game"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &5&lEPIC&r ""Block a game"" !" to loop-player
 	else if {_random} is between 30 and 39:
 		set {_netheritesword} to a netherite sword named "&rKill a player" with damage value 2030
-		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		give 1 of {_netheritesword} to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Sword)" to loop-player
 	else if {_random} is between 40 and 49:
 		set {_crossbow} to a crossbow named "&rKill a player" with damage value 465
 		set charged projectiles of {_crossbow} to an arrow
-		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Kill a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Kill a player"" ! (Crossbow)" to loop-player
 		give 1 of {_crossbow} to {_p}
 	else if {_random} is between 70 and 79:
 		give 1 of minecart named "&rGrab a player" with lore "&rClick on a player to grab them on you" to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Grab a player"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &b&lRARE&r ""Grab a player"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &b&lRARE&r ""Grab a player"" !" to loop-player
 	else if {_random} is between 86 and 100:
 		give 1 of fox spawn egg named "&rSpawn a Fox" with lore "&rRight click to spawn a fox that will count as a +1 vote !" to {_p}
-		send "[<##155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Spawn a Fox"" !" to {_p}
+		send "[<#155966>&lDecision Crysyal&r] You recieved &a&lCOMMON&r ""Spawn a Fox"" !" to {_p}
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Spawn a Fox"" !" to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% recieved &a&lCOMMON&r ""Spawn a Fox"" !" to loop-player
 	else:
 		loop all players:
 			if loop-player has permission "group.specators":
-				send "[<##155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
+				send "[<#155966>&lDecision Crysyal&r] Player %{color.%{_p}'s uuid%}% %{_p}%&r rolled %{_random}% and did not recieve anything..." to loop-player
 
 function blockGame(game:text,p:player):
 	if {_game} = "Trials":
 		command("execute in minecraft:overworld run fill 3 247 8 -3 247 3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill 3 251 8 -3 253 3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lTheEvent580 - ALERT&r] &c&lTRIALS&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lTheEvent580 - ALERT&r] &c&lTRIALS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is red concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -797,7 +797,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill -3 247 8 -8 247 3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill -3 251 8 -8 253 3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &6&lPARKOUR&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is orange concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -806,7 +806,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill -8 247 3 -3 247 -3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill -8 251 3 -3 253 -3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &e&lBINGO&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is yellow concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -815,7 +815,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill -8 247 -3 -3 247 -8 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill -8 251 -3 -3 253 -8 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &a&lTAG&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &a&lTAG&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is lime concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -824,7 +824,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill -3 247 -8 3 247 -3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill -3 251 -8 3 253 -3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &b&lMULTILAP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is light blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -833,7 +833,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill 3 247 -8 8 247 -3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill 3 251 -8 8 253 -3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &9&lBUILD MASTERS&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &9&lBUILD MASTERS&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is blue concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -842,7 +842,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill 8 247 -3 3 247 3 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill 8 251 -3 3 253 3 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &5&lARMS RACE&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &5&lARMS RACE&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is purple concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -851,7 +851,7 @@ function blockGame(game:text,p:player):
 		command("execute in minecraft:overworld run fill 8 247 3 3 247 8 redstone_block replace air")
 		wait 2 ticks
 		command("execute in minecraft:overworld run fill 8 251 3 3 253 8 minecraft:polished_deepslate")
-		broadcast "[<##155966>&lALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
+		broadcast "[<#155966>&lALERT&r] &d&lBOW PVP&r has been blocked by %{_p}% !"
 		loop all entities in world "world":
 			if block 2 meters under loop-entity is pink concrete:
 				teleport loop-entity to location(0.5, 251, 0.5, world("world"))
@@ -1032,10 +1032,10 @@ function removeTime(seconds:number, p:player):
 			remove 1 from {timer_minute.%{_p}'s uuid%}
 			set {_seconds_2} to 60-{_seconds}+{timer_second.%{_p}'s uuid%}
 			set {timer_second.%{_p}'s uuid%} to {_seconds_2}
-	send "[<##155966>&lTheEvent580&r] You've lost %{_minutes}% minutes and %{_seconds}% seconds to your payment to the mall." to {_p}
+	send "[<#155966>&lTheEvent580&r] You've lost %{_minutes}% minutes and %{_seconds}% seconds to your payment to the mall." to {_p}
 	loop all players:
 		if loop-player has permission "group.spectators":
-			send "[<##155966>&lTheEvent580&r] %{color.%{_p}'s uuid%}%%{_p}% &rhas lost lost %{_minutes}% minutes and %{_seconds}% seconds to their payment to the mall." to loop-player
+			send "[<#155966>&lTheEvent580&r] %{color.%{_p}'s uuid%}%%{_p}% &rhas lost lost %{_minutes}% minutes and %{_seconds}% seconds to their payment to the mall." to loop-player
 
 function resetEventTime(current_event_second:number, current_event_minute:number, current_event_hour:number, total_event_second:number, total_event_minute:number, total_event_hour:number):
 	set {event_timer_second} to 0
@@ -1073,49 +1073,49 @@ function seeLeaderboard(sender: player):
 				if {points.%loop-player's uuid%} = {_leaderboard.overall::%loop-value-1%}:
 					if {_leaderboard.overall.players::*} doesn't contain loop-player's name:
 						if loop-player = {_sender}:
-							set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工"
+							set {_leaderboard.overall::%loop-value-1%} to "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工"
 						else:
-							set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<##E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
+							set {_leaderboard.overall::%loop-value-1%} to  "&r%{color.%loop-player's uuid%}%%loop-player%&r<#E2F093> - %checkPoints({points.%loop-player's uuid%})%&r 工"
 						add loop-player's name to {_leaderboard.overall.players::*}
 		if loop-value = 1 or 21:
 			if {_leaderboard.overall.players::*} doesn't contain loop-value:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
-					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "<##BCD71D>&l&n%loop-value%st&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<#BCD71D>&l&n%loop-value%st&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<#BCD71D>&l&n%loop-value%st&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
 				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<#E2F093>%loop-value%st : %{_leaderboard.overall::%loop-value%}%"
 				add loop-value to {_leaderboard.overall.players::*}
 		else if loop-value = 2 or 22:
 			if {_leaderboard.overall.players::*} doesn't contain loop-value:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
-					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%nd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<#BCD71D>&l&n%loop-value%nd&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<#BCD71D>&l&n%loop-value%nd&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
 				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<#E2F093>%loop-value%nd : %{_leaderboard.overall::%loop-value%}%"
 				add loop-value to {_leaderboard.overall.players::*}
 		else if loop-value = 3 or 23:
 			if {_leaderboard.overall.players::*} doesn't contain loop-value:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
-					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%rd&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<#BCD71D>&l&n%loop-value%rd&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<#BCD71D>&l&n%loop-value%rd&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%%nl%"
 				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<#E2F093>%loop-value%rd : %{_leaderboard.overall::%loop-value%}%"
 				add loop-value to {_leaderboard.overall.players::*}
 		else:
 			if {_leaderboard.overall.players::*} doesn't contain loop-value:
-				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
-					set {_position.%{_sender}'s uuid%} to "<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
-					set {_leaderboard.overall::%loop-value%} to "%nl%<##BCD71D>&l&n%loop-value%th&r<##BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+				if {_leaderboard.overall::%loop-value%} = "&r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n%checkPoints({points.%{_sender}'s uuid%})%&r 工":
+					set {_position.%{_sender}'s uuid%} to "<#BCD71D>&l&n%loop-value%th&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "%nl%<#BCD71D>&l&n%loop-value%th&r<#BCD71D> : %{_leaderboard.overall::%loop-value%}%"
 					if loop-value != the size of {_leaderboard.overall::*}:
 						add newline to {_leaderboard.overall::%loop-value%}
 				else:
-					set {_leaderboard.overall::%loop-value%} to "<##E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
+					set {_leaderboard.overall::%loop-value%} to "<#E2F093>%loop-value%th : %{_leaderboard.overall::%loop-value%}%"
 				add loop-value to {_leaderboard.overall.players::*}
-	send "<##2395A9>Here is the event &n&loverall&r<##2395A9> leaderboard :" to {_sender}
+	send "<#2395A9>Here is the event &n&loverall&r<#2395A9> leaderboard :" to {_sender}
 	loop {_leaderboard.overall::*}:
 		send loop-value to {_sender}
-	send "%nl%<##BCD71D>&lYou are placed :" to {_sender}
+	send "%nl%<#BCD71D>&lYou are placed :" to {_sender}
 	if {_sender} has permission "group.spectators":
-		send "<##BCD71D>&l&nLast place&r<##BCD71D> : &r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<##BCD71D>&l - &n-∞&r 工" to {_sender}
+		send "<#BCD71D>&l&nLast place&r<#BCD71D> : &r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n-∞&r 工" to {_sender}
 	else:
 		send {_position.%{_sender}'s uuid%} to {_sender}

@@ -172,7 +172,7 @@ on death:
                 set {next_weapon.%attacker's uuid%} to {arms_race.weapon::%{weapons.%attacker's uuid%} + 1%}
                 set {_death_points} to 0-floor({points_game.%victim's uuid%}*(0.05+({weapons.%attacker's uuid%}/100)))
                 gamepoints(victim, {_death_points}, "Killed by %{color.%attacker's uuid%}%%attacker's name%")
-                gamepoints(attacker, abs({_death_points}), "Killed %{color.%victim's uuid%}%%victim's name%<##D9D8F1> (Points steal)")
+                gamepoints(attacker, abs({_death_points}), "Killed %{color.%victim's uuid%}%%victim's name%<#D9D8F1> (Points steal)")
                 if isEven({weapons.%attacker's uuid%} - 1) = true:
                     gamepoints(attacker, 20*{multiplier}, "New weapon unlocked")
                 if attacker is holding a golden sword:
@@ -227,11 +227,11 @@ every tick:
                         set {gamemode.%loop-player-2's uuid%} to 3
                         if loop-player-2 has permission "theevent580.staff":
                             if {debug.%loop-player-2's uuid%} is true:
-                                send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player-2
+                                send "[<#155966>&lTheEvent580&r] Code : 2" to loop-player-2
                     loop all players:
                         if loop-player-2 has permission "theevent580.staff":
                             if {debug.%loop-player-2's uuid%} is true:
-                                send "[<##155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player-2
+                                send "[<#155966>&lTheEvent580 - Admin&r] Event state : &eGame &r&5Arms Race&r --> &aShowing scores" to loop-player-2
                     set {event_state} to "Showing scores"
                     set {timer-m} to 1
                     set {timer-s} to 30

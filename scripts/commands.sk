@@ -22,7 +22,7 @@ command /start:
 						if {debug.%loop-player's uuid%} is true:
 							send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
 							send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-					send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 3 minutes" to loop-player for 3 seconds
+					send title "<#f0f01c>Event starting" with subtitle "<#f0f01c>in 3 minutes" to loop-player for 3 seconds
 				set {event_state} to "Start Countdown"
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
 				close player's inventory
@@ -115,7 +115,7 @@ command /timer <text> [<text>] [<int>]:
 				setBossbarName(getBossbarById("count"), "<#f0f064>惠上为<#f0f068>Event is paused")
 				if {jeu_condi} is 5:
 					set {race_timer} to true
-				broadcast "[<##BCD71D>&lTimer&r] The Event is currently paused, please wait"
+				broadcast "[<#BCD71D>&lTimer&r] The Event is currently paused, please wait"
 		else if arg-1 is "resume":
 			set {timer} to {timer_save}
 			clear {timer_save}
@@ -128,7 +128,7 @@ command /timer <text> [<text>] [<int>]:
 				set {courses_boat_timer_status} to true
 				set {courses_pied_timer_status} to true
 				set {courses_trident_timer_status} to true
-			broadcast "[<##BCD71D>&lTimer&r] The Event has resumed !"
+			broadcast "[<#BCD71D>&lTimer&r] The Event has resumed !"
 		else if arg-1 is "mode":
 			set {timer_save} to {timer}
 			if arg-2 is set:
@@ -351,7 +351,7 @@ command /consolestart:
 				if {debug.%loop-player's uuid%} is true:
 					send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
 					send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
-			send title "<##f0f01c>Event starting" with subtitle "<##f0f01c>in 3 minutes" to loop-player for 3 seconds
+			send title "<#f0f01c>Event starting" with subtitle "<#f0f01c>in 3 minutes" to loop-player for 3 seconds
 		set {event_state} to "Start Countdown"
 
 command /consolereset:
@@ -1112,20 +1112,20 @@ command /points <offline player> [<int>] [<text>]:
 			add arg-2 to {points.%arg-1's uuid%}
 			if arg-3 is not set:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%)<##D9D8F1>" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given by %executor%)<#D9D8F1>" to arg-1
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given from %arg-1%<#D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed by %executor%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed from %arg-1%<#D9D8F1>)" to executor
 			else:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(%arg-3%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given due to ""%arg-3%""<#D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(%arg-3%)" to arg-1
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed due to ""%arg-3%""<#D9D8F1>)" to executor
 		else:
-			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points.%arg-1's uuid%})%&r 工" to executor
+			send "<#D9D8F1>Player %arg-1% has &l%checkPoints({points.%arg-1's uuid%})%&r 工" to executor
 
 on tab complete of "/points":
 	if tab arg-1 is set:
@@ -1138,11 +1138,11 @@ on tab complete of "/points":
 function gamepoints(target: player, points: int, reason: string):
 	add {_points} to {points_game.%{_target}'s uuid%}
 	if {_points} > -1:
-		send "<##D9D8F1>+&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to {_target}
-		send "<##D9D8F1>+&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to console
+		send "<#D9D8F1>+&l%checkPoints({_points})% &r工 <#D9D8F1>(%{_reason}%<#D9D8F1>)" to {_target}
+		send "<#D9D8F1>+&l%checkPoints({_points})% &r工 <#D9D8F1>(%{_reason}%<#D9D8F1>)" to console
 	else:
-		send "<##D9D8F1>&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to {_target}
-		send "<##D9D8F1>&l%checkPoints({_points})% &r工 <##D9D8F1>(%{_reason}%<##D9D8F1>)" to console
+		send "<#D9D8F1>&l%checkPoints({_points})% &r工 <#D9D8F1>(%{_reason}%<#D9D8F1>)" to {_target}
+		send "<#D9D8F1>&l%checkPoints({_points})% &r工 <#D9D8F1>(%{_reason}%<#D9D8F1>)" to console
 
 command /gamepoints <offline player> [<int>] [<text>]:
 	description: add or remove game points to whatever i want
@@ -1152,7 +1152,7 @@ command /gamepoints <offline player> [<int>] [<text>]:
 		if arg-2 is set:
 			gamepoints(arg-1, arg-2, arg-3)
 		else:
-			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({points_game.%arg-1's uuid%})%&r<##D9D8F1> game &r工" to executor
+			send "<#D9D8F1>Player %arg-1% has &l%checkPoints({points_game.%arg-1's uuid%})%&r<#D9D8F1> game &r工" to executor
 
 on tab complete of "/gamepoints":
 	if tab arg-1 is set:
@@ -1171,20 +1171,20 @@ command /totalpoints <offline player> [<int>] [<text>]:
 			add arg-2 to {total_points.%arg-1's uuid%}
 			if arg-3 is not set:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given by %executor%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given from %arg-1%<##D9D8F1>)" to executor
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given by %executor%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given from %arg-1%<#D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed by %executor%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed from %arg-1%<##D9D8F1>)" to executor
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed by %executor%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed from %arg-1%<#D9D8F1>)" to executor
 			else:
 				if arg-2 > -1:
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>+&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Given due to ""%arg-3%""<##D9D8F1>)" to executor
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(%arg-3%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>+&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Given due to ""%arg-3%""<#D9D8F1>)" to executor
 				else:
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(%arg-3%<##D9D8F1>)" to arg-1
-					send "<##D9D8F1>&l%checkPoints(arg-2)% &r工 <##D9D8F1>(Removed due to ""%arg-3%""<##D9D8F1>)" to executor
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(%arg-3%<#D9D8F1>)" to arg-1
+					send "<#D9D8F1>&l%checkPoints(arg-2)% &r工 <#D9D8F1>(Removed due to ""%arg-3%""<#D9D8F1>)" to executor
 		else:
-			send "<##D9D8F1>Player %arg-1% has &l%checkPoints({total_points.%arg-1's uuid%})%&r<##D9D8F1> total &r工" to executor
+			send "<#D9D8F1>Player %arg-1% has &l%checkPoints({total_points.%arg-1's uuid%})%&r<#D9D8F1> total &r工" to executor
 
 on tab complete of "/totalpoints":
 	if tab arg-1 is set:
@@ -1353,7 +1353,7 @@ command /readycheck:
 						else:
 							if {ready_message} != loop-value:
 								set {ready_message} to "%{ready_message}%, %loop-value%"
-				broadcast "[<##1D7874>&lReady Check&r] %{ready_message}%"
+				broadcast "[<#1D7874>&lReady Check&r] %{ready_message}%"
 				if {timer-s} = 0:
 					exit loop
 			else if {timer-s} > 11:
@@ -1393,7 +1393,7 @@ command /ready:
 			remove 1 from {check_players}
 			loop all players:
 				if loop-player has permission "theevent580.staff":
-					send "[<##1D7874>&lReady Check&r] &a&l%player%&r is ready to start." to loop-player
+					send "[<#1D7874>&lReady Check&r] &a&l%player%&r is ready to start." to loop-player
 
 command /notready:
 	description: unready you automatically
@@ -1404,7 +1404,7 @@ command /notready:
 			add 1 to {replied}
 			loop all players:
 				if loop-player has permission "theevent580.staff":
-					send "[<##1D7874>&lReady Check&r] &c&l%player%&r isn't ready to start." to loop-player
+					send "[<#1D7874>&lReady Check&r] &c&l%player%&r isn't ready to start." to loop-player
 
 command /serverversion:
 	description: give the server version
@@ -1432,35 +1432,35 @@ command /ping [<player>]:
 	trigger:
 		if arg-1 is set:
 			if arg-1's ping < 50:
-				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] %arg-1%'s ping is &a&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 100:
-				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] %arg-1%'s ping is &e&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 150:
-				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] %arg-1%'s ping is &6&l%arg-1's ping% &rms" to executor
 			else if arg-1's ping < 200:
-				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] %arg-1%'s ping is &c&l%arg-1's ping% &rms" to executor
 			else:
-				send "[<##1D7874>&lPing&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] %arg-1%'s ping is &4&l%arg-1's ping% &rms" to executor
 		else:
 			if executor's ping < 50:
-				send "[<##1D7874>&lPing&r] Your ping is &a&l%executor's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] Your ping is &a&l%executor's ping% &rms" to executor
 			else if executor's ping < 100:
-				send "[<##1D7874>&lPing&r] Your ping is &e&l%executor's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] Your ping is &e&l%executor's ping% &rms" to executor
 			else if executor's ping < 150:
-				send "[<##1D7874>&lPing&r] Your ping is &6&l%executor's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] Your ping is &6&l%executor's ping% &rms" to executor
 			else if executor's ping < 200:
-				send "[<##1D7874>&lPing&r] Your ping is &c&l%executor's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] Your ping is &c&l%executor's ping% &rms" to executor
 			else:
-				send "[<##1D7874>&lPing&r] Your ping is &4&l%executor's ping% &rms" to executor
+				send "[<#1D7874>&lPing&r] Your ping is &4&l%executor's ping% &rms" to executor
 
 command /msg <player> <text>:
 	aliases: tell
 	trigger:
 		if arg-1 is player:
-			send "[<##155966>&lPrivate Messages&r] Talking to yourself is disabled on this server."
+			send "[<#155966>&lPrivate Messages&r] Talking to yourself is disabled on this server."
 		else:
-			send "[<##155966>&lPrivate Messages&r] From %player% : %arg-2%" to arg-1
-			send "[<##155966>&lPrivate Messages&r] To %arg-1% : %arg-2%" to player
+			send "[<#155966>&lPrivate Messages&r] From %player% : %arg-2%" to arg-1
+			send "[<#155966>&lPrivate Messages&r] To %arg-1% : %arg-2%" to player
 
 command /staff <text> [<player>]:
 	permission: *
@@ -1847,20 +1847,20 @@ command /mute [<player>]:
 		if arg-1 is not set:
 			if {mute.server} is false:
 				set {mute.server} to true
-				send action bar "[<##1D7874>&lChat&r] &6⚠&rThe chat has been muted !" to all players
+				send action bar "[<#1D7874>&lChat&r] &6⚠&rThe chat has been muted !" to all players
 			else if {mute.server} is true:
-				send action bar "[<##1D7874>&lChat&r] &6⚠&rThe chat has been unmuted !" to all players
+				send action bar "[<#1D7874>&lChat&r] &6⚠&rThe chat has been unmuted !" to all players
 				set {mute.server} to false
 		else:
 			if arg-1 doesn't have permission "group.spectators":
 				if {mute.%arg-1's uuid%} is false:
 					set {mute.%arg-1's uuid%} to true
-					send "[<##1D7874>&lChat&r] &6⚠&rYou have been muted by %player% !%nl%" to arg-1
-					send "[<##1D7874>&lChat&r] &6⚠&rYou have muted %arg-1% sucessfully !%nl%" to player
+					send "[<#1D7874>&lChat&r] &6⚠&rYou have been muted by %player% !%nl%" to arg-1
+					send "[<#1D7874>&lChat&r] &6⚠&rYou have muted %arg-1% sucessfully !%nl%" to player
 				else if {mute.%arg-1's uuid%} is true:
 					set {mute.%arg-1's uuid%} to false
-					send "[<##1D7874>&lChat&r] &6⚠&rYou have been unmuted by %player% !%nl%" to arg-1
-					send "[<##1D7874>&lChat&r] &6⚠&rYou have unmuted %arg-1% sucessfully !%nl%" to player
+					send "[<#1D7874>&lChat&r] &6⚠&rYou have been unmuted by %player% !%nl%" to arg-1
+					send "[<#1D7874>&lChat&r] &6⚠&rYou have unmuted %arg-1% sucessfully !%nl%" to player
 
 command /filter <text> <text>:
 	description: add a word / sentence to the anti-swear filter
@@ -2080,7 +2080,7 @@ command /speed <text>:
 					set player's flying speed to player's flying speed * 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
+					send "[<#1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 			else:
 				set {_isplayer} to false
 				loop {finished::*}:
@@ -2092,16 +2092,16 @@ command /speed <text>:
 							set player's flying speed to player's flying speed * 2
 							set {_flyspeed} to the flying speed of player
 							set  {_flyspeed} to {_flyspeed} * 10
-							send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
+							send "[<#1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 				if {_isplayer} is false:
-					send "[<##1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
+					send "[<#1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
 		else if arg-1 = "down":
 			if player has permission "group.spectators":
 				if flying speed of player > 0.1:
 					set player's flying speed to player's flying speed / 2
 					set {_flyspeed} to the flying speed of player
 					set  {_flyspeed} to {_flyspeed} * 10
-					send "[<##1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
+					send "[<#1D7874>&lFly&r] Fly speed is now set to 必%{_flyspeed}%"
 			else:
 				set {_isplayer} to false
 				loop {finished::*}:
@@ -2113,9 +2113,9 @@ command /speed <text>:
 							set player's flying speed to player's flying speed / 2
 							set {_flyspeed} to the flying speed of player
 							set  {_flyspeed} to {_flyspeed} * 10
-							send "[<##1D7874>&Fly&r] Fly speed is now set to 必%{_flyspeed}%"
+							send "[<#1D7874>&Fly&r] Fly speed is now set to 必%{_flyspeed}%"
 				if {_isplayer} is false:
-					send "[<##1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
+					send "[<#1D7874>&lFly&r] You are not in a spectator state, you cannot change you fly speed"
 
 on tab complete of "/speed":
 	set tab completions for position 1 to "up" and "down"
@@ -2195,83 +2195,83 @@ command /achivement <player> <text> <text>:
 				set {Secret_Base_1.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lAchivement&r] Achivement aquired : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)"
+				send "[<#155966>&lAchivement&r] Achivement aquired : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You found the secret base in the hub ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "Herobrine":
 				set {Herobrine.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lAchivement&r] Achivement aquired : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)"
+				send "[<#155966>&lAchivement&r] Achivement aquired : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {Herobrine.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You discovered Herobrine ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "HubParkour":
 				set {HubParkour.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lAchivement&r] Achivement aquired : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)"
+				send "[<#155966>&lAchivement&r] Achivement aquired : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {HubParkour.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : You finished the Hub parkour ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "1SecBM":
 				set {1SecBM.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lAchivement&r] Achivement aquired : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)"
+				send "[<#155966>&lAchivement&r] Achivement aquired : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {1SecBM.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Finishing the Build Master 1 second before the end ! (%{_date}% - %{_time}% GMT)" to loop-player
 			if arg-3 is "FBSG":
 				set {FBSG.%arg-1's uuid%} to true
 				set {_time} to now formatted as "HH:mm:ss"
 				set {_date} to now formatted as "dd/MM/yyyy"
-				send "[<##155966>&lAchivement&r] Achivement aquired : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to arg-1
-				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)"
+				send "[<#155966>&lAchivement&r] Achivement aquired : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to arg-1
+				set {FBSG.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% aquired the Achivement : Surviving until the Final Battle in Survival Games at least once ! (%{_date}% - %{_time}% GMT)" to loop-player
 		if arg-2 is "remove":
 			if arg-3 is "Secret_Base_1":
 				set {Secret_Base_1.%arg-1's uuid%} to false
-				send "[<##155966>&lAchivement&r] Achivement removed : You found the secret base in the hub !" to arg-1
-				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You found the secret base in the hub !"
+				send "[<#155966>&lAchivement&r] Achivement removed : You found the secret base in the hub !" to arg-1
+				set {Secret_Base_1.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You found the secret base in the hub !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You found the secret base in the hub ! removed" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% got their Achivement : You found the secret base in the hub ! removed" to loop-player
 			if arg-3 is "Herobrine":
 				set {Herobrine.%arg-1's uuid%} to false
-				send "[<##155966>&lAchivement&r] Achivement removed : You discovered Herobrine !" to arg-1
-				set {Herobrine.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You discovered Herobrine !"
+				send "[<#155966>&lAchivement&r] Achivement removed : You discovered Herobrine !" to arg-1
+				set {Herobrine.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You discovered Herobrine !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You discovered Herobrine ! removed" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% got their Achivement : You discovered Herobrine ! removed" to loop-player
 			if arg-3 is "HubParkour":
 				set {HubParkour.%arg-1's uuid%} to false
-				send "[<##155966>&lAchivement&r] Achivement removed : You finished the Hub parkour !" to arg-1
-				set {HubParkour.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You finished the Hub parkour !"
+				send "[<#155966>&lAchivement&r] Achivement removed : You finished the Hub parkour !" to arg-1
+				set {HubParkour.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% does not have the Achivement : You finished the Hub parkour !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : You finished the Hub parkour ! removed" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% got their Achivement : You finished the Hub parkour ! removed" to loop-player
 			if arg-3 is "1SecBM":
 				set {1SecBM.%arg-1's uuid%} to false
-				send "[<##155966>&lAchivement&r] Achivement removed : Finishing the Build Master 1 second before the end !" to arg-1
-				set {1SecBM.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Finishing the Build Master 1 second before the end !"
+				send "[<#155966>&lAchivement&r] Achivement removed : Finishing the Build Master 1 second before the end !" to arg-1
+				set {1SecBM.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Finishing the Build Master 1 second before the end !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : Finishing the Build Master 1 second before the end ! removed" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% got their Achivement : Finishing the Build Master 1 second before the end ! removed" to loop-player
 			if arg-3 is "FBSG":
 				set {FBSG.%arg-1's uuid%} to false
-				send "[<##155966>&lAchivement&r] Achivement removed : Surviving until the Final Battle in Survival Games at least once !" to arg-1
-				set {FBSG.%arg-1's uuid%.infos} to "[<##155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Surviving until the Final Battle in Survival Games at least once !"
+				send "[<#155966>&lAchivement&r] Achivement removed : Surviving until the Final Battle in Survival Games at least once !" to arg-1
+				set {FBSG.%arg-1's uuid%.infos} to "[<#155966>&lAchivement&r] Player %arg-1% does not have the Achivement : Surviving until the Final Battle in Survival Games at least once !"
 				loop all players:
 					if loop-player has permission "group.spectators":
-						send "[<##155966>&lAchivement&r] Player %arg-1% got their Achivement : Surviving until the Final Battle in Survival Games at least once ! removed" to loop-player
+						send "[<#155966>&lAchivement&r] Player %arg-1% got their Achivement : Surviving until the Final Battle in Survival Games at least once ! removed" to loop-player
 		if arg-2 is "check":
 			if arg-3 is "Secret_Base_1":
 				send {Secret_Base_1.%arg-1's uuid%.infos} to player
@@ -2301,10 +2301,10 @@ command /seeblock:
 	trigger:
 		if {check_block.%player's uuid%} is false:
 			set {check_block.%player's uuid%} to true
-			send "%nl%[<##1D7874>&lColorblind&r] You are now able to see the name of the block you're looking at !%nl%"
+			send "%nl%[<#1D7874>&lColorblind&r] You are now able to see the name of the block you're looking at !%nl%"
 		else:
 			set {check_block.%player's uuid%} to false
-			send "%nl%[<##1D7874>&lColorblind&r] You can no longer see the name of the block you're looking at !%nl%"
+			send "%nl%[<#1D7874>&lColorblind&r] You can no longer see the name of the block you're looking at !%nl%"
 
 command /wl <text> [<offline player>]:
 	permission: *
@@ -2515,7 +2515,7 @@ command /end:
 	trigger:
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				kick loop-player due to "[<##155966>&lServer&r] TheEvent580 is over, thanks for playing and see you soon !"
+				kick loop-player due to "[<#155966>&lServer&r] TheEvent580 is over, thanks for playing and see you soon !"
 				command("wl remove %loop-player%")
 		set {event_timer} to false
 		set {event_timer_second} to 0
@@ -2532,10 +2532,10 @@ command /grab <player> <player>:
 			else:
 				set {ride.%arg-1's uuid%} to arg-2
 				make arg-1 ride arg-2
-				send "[<##1D7874>&lMinecart&r] You grabbed %{color.%arg-1's uuid%}% %arg-1%&r !" to arg-2
-				send "[<##1D7874>&lMinecart&r] You've been grabbed by %{color.%arg-2's uuid%}% %arg-2%&r !" to arg-1
+				send "[<#1D7874>&lMinecart&r] You grabbed %{color.%arg-1's uuid%}% %arg-1%&r !" to arg-2
+				send "[<#1D7874>&lMinecart&r] You've been grabbed by %{color.%arg-2's uuid%}% %arg-2%&r !" to arg-1
 		else:
-			send "[<##1D7874>&lMinecart&r] You cannot grab yourself" to arg-1
+			send "[<#1D7874>&lMinecart&r] You cannot grab yourself" to arg-1
 
 command /seepoints <player>:
 	permission: *
@@ -2903,11 +2903,11 @@ command /leaderboard:
 	trigger:
 		if player doesn't have permission "*":
 			if {jeu} = 0:
-				send "<##2395A9>No games have been played yet."
+				send "<#2395A9>No games have been played yet."
 			else if {timer} = 10:
-				send "<##2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
+				send "<#2395A9>You cannot see the leaderboard as the winner hasn't been anounced yet."
 			else if world of player isn't "world":
-				send "<##2395A9>You cannot check the leaderboard while being in a game."
+				send "<#2395A9>You cannot check the leaderboard while being in a game."
 			else:
 				seeLeaderboard(executor)
 		else:
@@ -3037,52 +3037,52 @@ command /pridecolor <player> <text>:
 		if arg-2 = "rainbow", "rainbow_wave", "lesbian", "gay", "bisexual", "transgender", "pride", "pansexual", "asexual", "aromantic", "non_binary" or "rainbow_iter" or "clear":
 			if arg-2 = "rainbow":
 				command("customcolor %arg-1's name% RAINBOW")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f01c> "
-				set {_color} to colored "<##f0f01c>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f01c> "
+				set {_color} to colored "<#f0f01c>"
 			else if arg-2 = "rainbow_wave":
 				command("customcolor %arg-1's name% RAINBOW_WAVE")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f084> "
-				set {_color} to colored "<##f0f084>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f084> "
+				set {_color} to colored "<#f0f084>"
 			else if arg-2 = "rainbow_iter":
 				command("customcolor %arg-1's name% RAINBOW_ITER")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f088> "
-				set {_color} to colored "<##f0f088>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f088> "
+				set {_color} to colored "<#f0f088>"
 			else if arg-2 = "lesbian":
 				command("customcolor %arg-1's name% LESBIAN")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f040> "
-				set {_color} to colored "<##f0f040>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f040> "
+				set {_color} to colored "<#f0f040>"
 			else if arg-2 = "gay":
 				command("customcolor %arg-1's name% GAY")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f044> "
-				set {_color} to colored "<##f0f044>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f044> "
+				set {_color} to colored "<#f0f044>"
 			else if arg-2 = "bisexual":
 				command("customcolor %arg-1's name% BISEXUAL")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f048> "
-				set {_color} to colored "<##f0f048>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f048> "
+				set {_color} to colored "<#f0f048>"
 			else if arg-2 = "transgender":
 				command("customcolor %arg-1's name% TRANSGENDER")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f04c> "
-				set {_color} to colored "<##f0f04c>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f04c> "
+				set {_color} to colored "<#f0f04c>"
 			else if arg-2 = "pride":
 				command("customcolor %arg-1's name% PRIDE")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f050> "
-				set {_color} to colored "<##f0f050>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f050> "
+				set {_color} to colored "<#f0f050>"
 			else if arg-2 = "pansexual":
 				command("customcolor %arg-1's name% PANSEXUAL")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f054> "
-				set {_color} to colored "<##f0f054>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f054> "
+				set {_color} to colored "<#f0f054>"
 			else if arg-2 = "asexual":
 				command("customcolor %arg-1's name% ASEXUAL")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f058> "
-				set {_color} to colored "<##f0f058>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f058> "
+				set {_color} to colored "<#f0f058>"
 			else if arg-2 = "aromantic":
 				command("customcolor %arg-1's name% AROMANTIC")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f05c> "
-				set {_color} to colored "<##f0f05c>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f05c> "
+				set {_color} to colored "<#f0f05c>"
 			else if arg-2 = "non_binary":
 				command("customcolor %arg-1's name% NON_BINARY")
-				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<##f0f060> "
-				set {_color} to colored "<##f0f060>"
+				set {color.%arg-1's uuid%} to "%the first character of {color.%arg-1's uuid%}%<#f0f060> "
+				set {_color} to colored "<#f0f060>"
 			else if arg-2 = "clear":
 				command("customcolor %arg-1's name% TEXT")
 				setPlayerTeamWithBackup(arg-1)

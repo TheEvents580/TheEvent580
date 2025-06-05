@@ -18,32 +18,32 @@ function reloadTab():
 	if {jeu_condi} is 12:
 		set {gametab} to "&5&lArms Race&r"
 
-	set {tab_title} to "      <##155966>&lTheEvent580 • Season 1 - Episode 7&r      %nl%%nl%%nl%"
+	set {tab_title} to "      <#155966>&lTheEvent580 • Season 1 - Episode 7&r      %nl%%nl%%nl%"
 
-	set {tab_game} to "<##E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%"
+	set {tab_game} to "<#E2F093>Currently in : &r%{gametab}%%nl%%nl%%nl%"
 
-	set {tab_spectators} to "<##E2F093>&lSpectators :&r%nl%"
+	set {tab_spectators} to "<#E2F093>&lSpectators :&r%nl%"
 	loop {spectators::*}:
 		add "%nl%%{color.%loop-value's uuid%}%%loop-value%&r" to {tab_spectators}
 	add "%nl%%nl%" to {tab_spectators}
 
-	set {tab_players} to "<##E2F093>&lPlayers :&r%nl%%nl%"
+	set {tab_players} to "<#E2F093>&lPlayers :&r%nl%%nl%"
 	loop {players::*}:
 		if {total_points.%loop-value's uuid%} isn't set:
 			set {total_points.%loop-value's uuid%} to 0
 		if {total_points.%loop-value's uuid%} = 0:
 			if {jeu} = 6:
-				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##E2F093>*<##D9D8F1> : &kpoints &r工" to {tab_players}
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<#E2F093>*<#D9D8F1> : &kpoints &r工" to {tab_players}
 			else:
-				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##E2F093>*<##D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<#E2F093>*<#D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
 		else:
 			if {jeu} = 6:
-				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##D9D8F1> : &kpoints &r工" to {tab_players}
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<#D9D8F1> : &kpoints &r工" to {tab_players}
 			else:
-				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<##D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
+				add "%nl%%{color.%loop-value's uuid%}%%loop-value%<#D9D8F1> : %{points.%loop-value's uuid%}% &r工" to {tab_players}
 	add "%nl%%nl%%nl%" to {tab_players}
 
-	set {header} to "%{tab_title}%%{tab_game}%%{tab_spectators}%%{tab_players}%<##E2F093>* = New players"
+	set {header} to "%{tab_title}%%{tab_game}%%{tab_spectators}%%{tab_players}%<#E2F093>* = New players"
 	set {blocker} to "%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%%nl%"
 	loop all players:
 		set the tablist header of loop-player to "%{header}%%{blocker}%"

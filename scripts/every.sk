@@ -117,7 +117,7 @@ every tick:
 												else:
 													if {finished.%loop-player-2's uuid%} = true:
 														if loop-player-2 doesn't have permission "group.spectators":
-															command("gamepoints %loop-player-2% %10*{multiplier}% %loop-player-1% completed &r&6&lParkour&r<##D9D8F1> after you (unmultiplied)")
+															command("gamepoints %loop-player-2% %10*{multiplier}% %loop-player-1% completed &r&6&lParkour&r<#D9D8F1> after you (unmultiplied)")
 															send "[&6Parkour&r] %loop-player-1% finished &6Parkour&r after you ! You get rewarded with %checkPoints(10*{multiplier})% 工 (unmultiplied)!" to loop-player-2
 														else:
 															send "[&6Parkour&r] %loop-player-1% finished all 25 levels of &6Parkour&r !" to loop-player-2
@@ -730,38 +730,38 @@ every second:
 		if {timer-m} = 0:
 			if {timer-s} = 11:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&4>     10     <" to loop-player for 3 seconds with fadein 0.5 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&4>     10     <" to loop-player for 3 seconds with fadein 0.5 second and fadeout 0 second
 			if {timer-s} = 10:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&4>     9     <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&4>     9     <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 9:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&c>    8    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&c>    8    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 8:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&c>    7    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&c>    7    <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 7:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&6>   6   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&6>   6   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 6:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&6>   5   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&6>   5   <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 5:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&e>  4  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&e>  4  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 4:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&e>  3  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&e>  3  <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 3:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&a> 2 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&a> 2 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 			if {timer-s} = 2:
 				loop all players:
-					send title "<##f0f01c>Event starting in" with subtitle "&a> 1 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
+					send title "<#f0f01c>Event starting in" with subtitle "&a> 1 <" to loop-player for 3 seconds with fadein 0 second and fadeout 0 second
 					command("fill 8 247 -8 -8 247 8 redstone_block")
 			if {timer-s} = 1:
 				loop all players:
-					send title "<##f0f01c>Event starting" with subtitle "&2NOW" to loop-player for 0.5 second with fadein 0 second and fadeout 0.5 second
+					send title "<#f0f01c>Event starting" with subtitle "&2NOW" to loop-player for 0.5 second with fadein 0 second and fadeout 0.5 second
 					if loop-player has permission "theevent580.staff":
 						if {debug.%loop-player's uuid%} = true:
 							send "[&4Admin&r] Event state : &eStart Countdown&r --> &aShowing games" to loop-player
@@ -777,35 +777,35 @@ every second:
 						set loop-player's game mode to adventure
 					clear loop-player's inventory
 					command("/hide %loop-player% true")
-				broadcast "[<##155966>Decision Crysyal&r] This Episode's minigames are :"
+				broadcast "[<#155966>Decision Crysyal&r] This Episode's minigames are :"
 				send title "This Episode's minigames are :" with subtitle " " to all players for 5 seconds with fadein 0.5 second and fadeout 0 second
 		remove 1 from {timer-s}
 		bossbarRemove1Sec("count")
 	if {timer} = 2:
 		if {timer-s} = 28:
-			broadcast "[<##155966>&lDecision Crysyal&r] <##f0f064> &c&lTrials"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &c&lTrials" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "[<#155966>&lDecision Crysyal&r] <#f0f064> &c&lTrials"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &c&lTrials" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 25:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &6&lParkour"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &6&lParkour" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &6&lParkour"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &6&lParkour" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 22:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &e&lBingo"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &e&lBingo" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &e&lBingo"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &e&lBingo" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 19:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &a&lTag"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &a&lTag" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &a&lTag"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &a&lTag" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 16:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &b&lMultilap"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &b&lMultilap" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &b&lMultilap"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &b&lMultilap" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 13:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &9&lBuild Masters"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &9&lBuild Masters" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &9&lBuild Masters"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &9&lBuild Masters" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 10:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] <##f0f064> &5&lArms Race"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &5&lArms Race" to all players for 5 seconds with fadein 0 second and fadeout 0 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] <#f0f064> &5&lArms Race"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &5&lArms Race" to all players for 5 seconds with fadein 0 second and fadeout 0 second
 		if {timer-s} = 7:
-			broadcast "%nl%[<##155966>&lDecision Crysyal&r] and <##f0f064> &d&lBow PVP"
-			send title "This Episode's minigames are :" with subtitle "<##f0f064> &d&lBow PVP" to all players for 5 seconds with fadein 0 second and fadeout 1 second
+			broadcast "%nl%[<#155966>&lDecision Crysyal&r] and <#f0f064> &d&lBow PVP"
+			send title "This Episode's minigames are :" with subtitle "<#f0f064> &d&lBow PVP" to all players for 5 seconds with fadein 0 second and fadeout 1 second
 		if {timer-s} = 4:
 			command("starttp")
 		if {timer-s} = 0:
@@ -1063,7 +1063,7 @@ every second:
 						allow fly for loop-player
 			if {timer-s} = 0:
 				if {timer-m} = 1:
-					send title "<##f0f064>%{jeu_logo}%&r %{jeu_nom}%" with subtitle "Game %{jeu}%/6" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
+					send title "<#f0f064>%{jeu_logo}%&r %{jeu_nom}%" with subtitle "Game %{jeu}%/6" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
 		set {scoreboard.pos} to 0
 		if {timer-m} = 0:
 			if {jeu_nom} = "&c&lTrials":
@@ -1832,7 +1832,7 @@ every second:
 							allow fly for loop-player
 							set {gamemode.%loop-player's uuid%} to 3
 							if loop-player has permission "theevent580.staff":
-								send "[<##155966>&lTheEvent580&r] Code : 1" to loop-player
+								send "[<#155966>&lTheEvent580&r] Code : 1" to loop-player
 						if {jeu_condi} = 2:
 							loop all players:
 								if loop-player has permission "theevent580.staff":
@@ -1907,7 +1907,7 @@ every second:
 					allow fly for loop-player
 					set {gamemode.%loop-player's uuid%} to 3
 					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580&r] Code : 4" to loop-player
+						send "[<#155966>&lTheEvent580&r] Code : 4" to loop-player
 				if {jeu_condi} = 9:
 					command("execute as @e[type=minecraft:text_display,tag=bm] run data modify entity @s text set value '{""text"":""Plot : Available""}'")
 					loop all players:
@@ -1933,7 +1933,7 @@ every second:
 					allow fly for loop-player
 					set {gamemode.%loop-player's uuid%} to 3
 					if loop-player has permission "theevent580.staff":
-						send "[<##155966>&lTheEvent580&r] Code : 3" to loop-player
+						send "[<#155966>&lTheEvent580&r] Code : 3" to loop-player
 				if {jeu_condi} = 2:
 					loop all players:
 						if loop-player has permission "theevent580.staff":
@@ -1980,7 +1980,7 @@ every second:
 							set {gamemode.%loop-player's uuid%} to 3
 							if loop-player has permission "theevent580.staff":
 								if {debug.%loop-player's uuid%} = true:
-									send "[<##155966>&lTheEvent580&r] Code : 2" to loop-player
+									send "[<#155966>&lTheEvent580&r] Code : 2" to loop-player
 									send "[&4Admin&r] Event state : &eGame &r&dBow PVP&r --> &aShowing scores" to loop-player
 						set {event_state} to "Showing scores"
 						set {timer-m} to 1
@@ -2073,7 +2073,7 @@ every second:
 				clear {pos.%loop-player's uuid%}
 				set {finished.%loop-player's uuid%} to false
 				play sound "block.respawn_anchor.deplete" in voice category with volume 2 to the loop-player
-				send title "&cGame Over" with subtitle "Check the chat to see your <##F0F064>工" to loop-player for 5 seconds
+				send title "&cGame Over" with subtitle "Check the chat to see your <#F0F064>工" to loop-player for 5 seconds
 			clear {pos1}
 			clear {pos2}
 			clear {pos3}
@@ -2096,72 +2096,72 @@ every second:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
 					if {list_points::1} = {points.%loop-player's uuid%}:
-						set {pos1} to "[<##155966>&lGame Scores&r] 1st : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
-						set {pos.%loop-player's uuid%} to "<##BCD71D>1st"
+						set {pos1} to "[<#155966>&lGame Scores&r] 1st : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <#F0F064>工"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>1st"
 					if {list_points::2} = {points.%loop-player's uuid%}:
-						set {pos2} to "[<##155966>&lGame Scores&r] 2nd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
-						set {pos.%loop-player's uuid%} to "<##BCD71D>2nd"
+						set {pos2} to "[<#155966>&lGame Scores&r] 2nd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <#F0F064>工"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>2nd"
 					if {list_points::3} = {points.%loop-player's uuid%}:
-						set {pos3} to "[<##155966>&lGame Scores&r] 3rd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <##F0F064>工"
-						set {pos.%loop-player's uuid%} to "<##BCD71D>3rd"
+						set {pos3} to "[<#155966>&lGame Scores&r] 3rd : %loop-player% - %checkPoints({points.%loop-player's uuid%})% <#F0F064>工"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>3rd"
 					if {list_points::4} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>4th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>4th"
 					if {list_points::5} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>5th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>5th"
 					if {list_points::6} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>6th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>6th"
 					if {list_points::7} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>7th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>7th"
 					if {list_points::8} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>8th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>8th"
 					if {list_points::9} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>9th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>9th"
 					if {list_points::10} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>10th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>10th"
 					if {list_points::11} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>11th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>11th"
 					if {list_points::12} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>12th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>12th"
 					if {list_points::13} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>13th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>13th"
 					if {list_points::14} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>14th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>14th"
 					if {list_points::15} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>15th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>15th"
 					if {list_points::16} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>16th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>16th"
 					if {list_points::17} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>17th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>17th"
 					if {list_points::18} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>18th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>18th"
 					if {list_points::19} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>19th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>19th"
 					if {list_points::20} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>20th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>20th"
 					if {list_points::21} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>21st"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>21st"
 					if {list_points::22} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>22nd"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>22nd"
 					if {list_points::23} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>23rd"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>23rd"
 					if {list_points::24} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>24th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>24th"
 					if {list_points::25} = {points.%loop-player's uuid%}:
-						set {pos.%loop-player's uuid%} to "<##BCD71D>&l25th"
+						set {pos.%loop-player's uuid%} to "<#BCD71D>&l25th"
 				else:
-					set {pos.%loop-player's uuid%} to "<##BCD71D>Spec"
+					set {pos.%loop-player's uuid%} to "<#BCD71D>Spec"
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
 					set {show} to {points_game.%loop-player's uuid%}
 					loop all players:
 						if loop-player-2 has permission "group.spectators":
-							send "[<##155966>&lGame Scores&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <##D9D8F1>%checkPoints({show})% <##F0F064>工&r this game !" to loop-player-2
-							send "[<##155966>&lGame Scores&r] %loop-player-1% had %checkPoints({show})% coins this game !" to console
+							send "[<#155966>&lGame Scores&r] %{color.%loop-player-1's uuid%}%%loop-player-1% &rhad <#D9D8F1>%checkPoints({show})% <#F0F064>工&r this game !" to loop-player-2
+							send "[<#155966>&lGame Scores&r] %loop-player-1% had %checkPoints({show})% coins this game !" to console
 
 		if {timer-s} = 25:
 			command("execute in minecraft:races_lap_3 run setblock 44 131 -20 minecraft:blackstone")
 			hideBossbar(getBossbarById("mall"))
-			broadcast "[<##155966>&lGame Scores&r] Event Top 3 :"
+			broadcast "[<#155966>&lGame Scores&r] Event Top 3 :"
 			command("updateclassement")
 		if {timer-s} = 22:
 			loop all players:
@@ -2178,15 +2178,15 @@ every second:
 		if {timer-s} = 20:
 			loop all players:
 				if loop-player doesn't have permission "group.spectators":
-					send "[<##155966>&lGame Scores&r] You had <##D9D8F1>%checkPoints({points_game.%loop-player's uuid%})% <##F0F064>工&r this game and have <##D9D8F1>%checkPoints({points.%loop-player's uuid%})% <##F0F064>工&r in total !" to loop-player
+					send "[<#155966>&lGame Scores&r] You had <#D9D8F1>%checkPoints({points_game.%loop-player's uuid%})% <#F0F064>工&r this game and have <#D9D8F1>%checkPoints({points.%loop-player's uuid%})% <#F0F064>工&r in total !" to loop-player
 					play sound "custom:coins" in voice category with volume 2 to the loop-player
 					set {alive.%loop-player's uuid%} to true
 		if {timer-s} = 15:
-			broadcast "[<##155966>&lGame Scores&r] Your placement is visible next to your points count in the middle of the games"
+			broadcast "[<#155966>&lGame Scores&r] Your placement is visible next to your points count in the middle of the games"
 		if {timer-s} = 10:
-			broadcast "[<##155966>&lGame Scores&r] You are placed :"
+			broadcast "[<#155966>&lGame Scores&r] You are placed :"
 			loop all players:
-				send "<##E2F093>%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <##D9D8F1>&n%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
+				send "<#E2F093>%{pos.%loop-player's uuid%}%&r<#BCD71D>&l - <#D9D8F1>&n%checkPoints({points.%loop-player's uuid%})%<#F0F064> 工" to loop-player
 		if {timer-s} = 2:
 			send title "轉" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
 		if {timer-s} = 1:
@@ -2346,69 +2346,69 @@ every second:
 						set {points_string.%loop-player's uuid%} to checkPoints({points.%loop-player's uuid%})
 					loop {staff::*}:
 						if loop-value-1 != loop-value-2:
-							send "[<##155966>&lTheEvent580&r] %{color.%loop-value-1's uuid%}%%loop-value-1% had <##D9D8F1>%{show}% <##F0F064>工&r this game !" to loop-value-2
-							send "[<##155966>&lTheEvent580&r] %loop-value-1% had <##D9D8F1>%{show}% <##F0F064>工&r this game !" to console
+							send "[<#155966>&lTheEvent580&r] %{color.%loop-value-1's uuid%}%%loop-value-1% had <#D9D8F1>%{show}% <#F0F064>工&r this game !" to loop-value-2
+							send "[<#155966>&lTheEvent580&r] %loop-value-1% had <#D9D8F1>%{show}% <#F0F064>工&r this game !" to console
 				set {list_points::*} to sorted {list_points::*}
 				set {list_points::*} to reversed {list_points::*}
 				loop all players:
 					if loop-player doesn't have permission "group.spectators":
 						if {list_points::1} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k1st"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k1st"
 						if {list_points::2} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k2nd"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k2nd"
 						if {list_points::3} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k3rd"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k3rd"
 						if {list_points::4} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k4th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k4th"
 						if {list_points::5} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k5th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k5th"
 						if {list_points::6} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k6th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k6th"
 						if {list_points::7} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k7th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k7th"
 						if {list_points::8} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k8th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k8th"
 						if {list_points::9} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k9th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k9th"
 						if {list_points::10} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k10th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k10th"
 						if {list_points::11} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k11th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k11th"
 						if {list_points::12} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k12th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k12th"
 						if {list_points::13} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k13th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k13th"
 						if {list_points::14} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k14th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k14th"
 						if {list_points::15} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k15th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k15th"
 						if {list_points::16} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k16th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k16th"
 						if {list_points::17} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k17th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k17th"
 						if {list_points::18} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k18th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k18th"
 						if {list_points::19} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k19th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k19th"
 						if {list_points::20} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k20th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k20th"
 						if {list_points::21} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k21st"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k21st"
 						if {list_points::22} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k22nd"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k22nd"
 						if {list_points::23} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k23rd"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k23rd"
 						if {list_points::24} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k24th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k24th"
 						if {list_points::25} = {points.%loop-player's uuid%}:
-							set {pos.%loop-player's uuid%} to "<##BCD71D>&k25th"
+							set {pos.%loop-player's uuid%} to "<#BCD71D>&k25th"
 				loop all players:
 					remove invisibility from loop-player
 					remove speed from loop-player
 			if {timer-s} = 10:
-				broadcast "[<##155966>&lTheEvent580&r] You are placed :"
+				broadcast "[<#155966>&lTheEvent580&r] You are placed :"
 				loop all players:
-					send "<##E2F093>&k%{pos.%loop-player's uuid%}%&r<##BCD71D>&l - <##D9D8F1>&k%checkPoints({points.%loop-player's uuid%})%<##F0F064> 工" to loop-player
+					send "<#E2F093>&k%{pos.%loop-player's uuid%}%&r<#BCD71D>&l - <#D9D8F1>&k%checkPoints({points.%loop-player's uuid%})%<#F0F064> 工" to loop-player
 			if {timer-s} < 1:
 				set {timer-s} to 59
 				remove 1 from {timer-m}
