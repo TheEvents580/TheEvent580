@@ -41,21 +41,21 @@ function setBossbarProgress(bossbar:Bossbar, progress:int):
 
 function bossbarRemove1Sec(name:text):
     set {_bossbar} to getBossbarById({_name})
-    remove 1 from {bossbar_time}
-    setBossbarProgress({_bossbar}, ({bossbar_time}/{bossbar_max_time})*100)
+    remove 1 from {bossbar_time.%{_name}%}
+    setBossbarProgress({_bossbar}, ({bossbar_time.%{_name}%}/{bossbar_max_time.%{_name}%})*100)
     if {_name} = "mall":
-        setBossbarName({_bossbar}, "Refill in %{bossbar_time}%s")
+        setBossbarName({_bossbar}, "Refill in %{bossbar_time.%{_name}%}%s")
     else if {_name} = "count":
-        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time})%")
+        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time.%{_name}%})%")
 
 function bossbarRefill(name:text, value:integer, total:boolean = false):
     set {_bossbar} to getBossbarById({_name})
-    set {bossbar_time} to {_value}
+    set {bossbar_time.%{_name}%} to {_value}
     if {_name} = "mall":
-        setBossbarName({_bossbar}, "Refill in %{bossbar_time}%s")
+        setBossbarName({_bossbar}, "Refill in %{bossbar_time.%{_name}%}%s")
     else if {_name} = "count":
-        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time})%")
+        setBossbarName({_bossbar}, "<#f0f064>氣到惡<#f0f068>%intToTime({bossbar_time.%{_name}%})%")
     if {_total} = true:
         command("execute run bossbar set minecraft:%{_name}% max %{_value}%")
-        set {bossbar_max_time} to {_value}
-    setBossbarProgress({_bossbar}, ({bossbar_time}/{bossbar_max_time})*100)
+        set {bossbar_max_time.%{_name}%} to {_value}
+    setBossbarProgress({_bossbar}, ({bossbar_time.%{_name}%}/{bossbar_max_time.%{_name}%})*100)
