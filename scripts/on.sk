@@ -306,10 +306,10 @@ on quit:
 on player teleport:
 	wait 1 tick
 	if the world of event-player = "build_masters":
-		if the z-coordinate of event-player <= 1100:
-			if the z-coordinate of event-player >= 980:
-				if {finished.%event-player's uuid%} = true:
-					command("execute in minecraft:build_masters run teleport %event-player% %x-coordinate of event-player% 150 %z-coordinate of event-player% %yaw of event-player% %pitch of event-player%")
+		if {finished.%event-player's uuid%} = true:
+			if the z-coordinate of event-player <= 3000:
+				if the y-coordinate of event-player <= 140:
+					command("execute in minecraft:build_masters run teleport %event-player% %x-coordinate of event-player% 150 %z-coordinate of event-player%")
 
 on damage:
 	if victim's world isn't "trials":
