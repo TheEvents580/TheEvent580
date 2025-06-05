@@ -1,10 +1,10 @@
 on command "pl":
-	if player does not have permission "*":
+	if event-player does not have permission "*":
 		cancel event
 		send "[<#155966>&lTheEvent580 - Private Messages&r] You don't have acess to the plugins list %event-player%..." to event-player
 
 on command "plugins":
-	if player does not have permission "*":
+	if event-player does not have permission "*":
 		cancel event
 		send "[<#155966>&lTheEvent580 - Private Messages&r] You don't have acess to the plugins list %event-player%..." to event-player
 
@@ -29,18 +29,18 @@ on inventory click:
 	if clicked slot is 39:
 		if {jeu_condi} is 0:
 			cancel event
-			close player's inventory
+			close event-player's inventory
 			send "[<#155966>&lTheEvent580&r] You cannot remove this cosmetic manually, please go on the &cX &rblock (mushroom island) to remove it."
 			wait 1 ticks
-			clear slot 0 of player's inventory
-			clear slot 1 of player's inventory
-			clear slot 2 of player's inventory
-			clear slot 3 of player's inventory
-			clear slot 4 of player's inventory
-			clear slot 5 of player's inventory
-			clear slot 6 of player's inventory
-			clear slot 7 of player's inventory
-			clear slot 8 of player's inventory
+			clear slot 0 of event-player's inventory
+			clear slot 1 of event-player's inventory
+			clear slot 2 of event-player's inventory
+			clear slot 3 of event-player's inventory
+			clear slot 4 of event-player's inventory
+			clear slot 5 of event-player's inventory
+			clear slot 6 of event-player's inventory
+			clear slot 7 of event-player's inventory
+			clear slot 8 of event-player's inventory
 	if {jeu_condi} is 1 or 2 or 5:
 		cancel event
 	if clicked slot is 8:
@@ -53,10 +53,10 @@ on inventory click:
 
 on chat:
 	if {mute.server} is true:
-		if player doesn't have permission "group.spectators":
+		if event-player doesn't have permission "group.spectators":
 			cancel event
-	if {mute.%player's uuid%} is true:
 			send action bar "[<#155966>&lTheEvent580 - Chat&r] &6⚠&rThe chat is currently muted !" to event-player
+	if {mute.%event-player's uuid%} is true:
 		cancel event
 		send action bar "[<#155966>&lTheEvent580 - Chat&r] &6⚠&rYou are currently muted by one of the staff members !" to event-player
 
@@ -67,192 +67,188 @@ on server list ping:
 
 on join:
 	wait 3 ticks
-	apply infinite saturation of tier 255 without any particles whilst hiding the potion icon to the player
+	apply infinite saturation 255 without any particles whilst hiding icon to the event-player
 	set {compl_parcour.%event-player's uuid%} to 0
-	setPlayerTeamWithBackup(player)
-	if player = "TheFox580":
-		set {total_points.%player's uuid%} to 18684
+	setPlayerTeamWithBackup(event-player)
+	if event-player's name = "TheFox580":
+		set {total_points.%event-player's uuid%} to 18684
 	if {timer} != 6:
-		set {finished.%player's uuid%} to false
-		set {alive.%player's uuid%} to true
-	if player has permission "group.spectators":
-		set {alive.%player's uuid%} to false
-		set {finished.%player's uuid%} to true
-	if {flag.%player's uuid%} is not set:
-		set {flag.%player's uuid%} to false
-	if {Secret_Base_1.%player's uuid%} is not set:
-		set {Secret_Base_1.%player's uuid%} to false
-		set {Secret_Base_1.%player's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You found the secret base in the hub !"
-	if {Herobrine.%player's uuid%} is not set:
-		set {Herobrine.%player's uuid%} to false
-		set {Herobrine.%player's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You discovered Herobrine !"
-	if {HubParkour.%player's uuid%} is not set:
-		set {HubParkour.%player's uuid%} to false
-		set {HubParkour.%player's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : You finished the Hub parkour !"
-	if {1SecBM.%player's uuid%} is not set:
-		set {1SecBM.%player's uuid%} to false
-		set {1SecBM.%player's uuid%.infos} to "[<##155966>&lTheEvent580 - Achivement&r] Player %player% does not have the Achivement : Finishing the Build Master 5 seconds before the end !"
-	if {check_block.%player's uuid%} is not set:
-		set {check_block.%player's uuid%} to false
-	if {gamemode.%player's uuid%} is 3:
+		set {finished.%event-player's uuid%} to false
+		set {alive.%event-player's uuid%} to true
+	if event-player has permission "group.spectators":
+		set {alive.%event-player's uuid%} to false
+		set {finished.%event-player's uuid%} to true
+	if {flag.%event-player's uuid%} is not set:
+		set {flag.%event-player's uuid%} to false
+	if {Secret_Base_1.%event-player's uuid%} is not set:
+		set {Secret_Base_1.%event-player's uuid%} to false
 		set {Secret_Base_1.%event-player's uuid%.infos} to "[<#155966>&lTheEvent580 - Achivement&r] Player %event-player% does not have the Achivement : You found the secret base in the hub !"
+	if {Herobrine.%event-player's uuid%} is not set:
+		set {Herobrine.%event-player's uuid%} to false
 		set {Herobrine.%event-player's uuid%.infos} to "[<#155966>&lTheEvent580 - Achivement&r] Player %event-player% does not have the Achivement : You discovered Herobrine !"
+	if {HubParkour.%event-player's uuid%} is not set:
+		set {HubParkour.%event-player's uuid%} to false
 		set {HubParkour.%event-player's uuid%.infos} to "[<#155966>&lTheEvent580 - Achivement&r] Player %event-player% does not have the Achivement : You finished the Hub parkour !"
+	if {1SecBM.%event-player's uuid%} is not set:
+		set {1SecBM.%event-player's uuid%} to false
 		set {1SecBM.%event-player's uuid%.infos} to "[<#155966>&lTheEvent580 - Achivement&r] Player %event-player% does not have the Achivement : Finishing the Build Master 5 seconds before the end !"
+	if {check_block.%event-player's uuid%} is not set:
+		set {check_block.%event-player's uuid%} to false
+	if {gamemode.%event-player's uuid%} is 3:
 		wait 1 second
 		command("fly %event-player% true")
 		add 1 to {finished_players}
 	if {jeu_condi} is 1 or 2 or 4 or 5:
-		command("/hide %player% true")
+		command("/hide %event-player% true")
 	else if {jeu_condi} is 0 or 3 or 6 or 7 or 8:
-		command("/hide %player% false")
-	if {total_points.%player's uuid%} is not set:
-		set {total_points.%player's uuid%} to 0
-	else if {total_points.%player's uuid%} is not round({total_points.%player's uuid%}):
-		set {total_points.%player's uuid%} to round({total_points.%player's uuid%})
-	set {total_points_event.%player's uuid%} to 0
-	if {points.%player's uuid%} is not set:
-		set {points.%player's uuid%} to 0
+		command("/hide %event-player% false")
+	if {total_points.%event-player's uuid%} is not set:
+		set {total_points.%event-player's uuid%} to 0
+	else if {total_points.%event-player's uuid%} is not round({total_points.%event-player's uuid%}):
+		set {total_points.%event-player's uuid%} to round({total_points.%event-player's uuid%})
+	set {total_points_event.%event-player's uuid%} to 0
+	if {points.%event-player's uuid%} is not set:
+		set {points.%event-player's uuid%} to 0
 	if {timer} is 0:
-		set {points.%player's uuid%} to 0
-		set {total_points_event.%player's uuid%} to 0
-	apply infinite saturation without particles whilst hiding the potion icon to player
+		set {points.%event-player's uuid%} to 0
+		set {total_points_event.%event-player's uuid%} to 0
+	apply infinite saturation without particles whilst hiding the potion icon to event-player
 	wait 2 ticks
-	if player doesn't have permission "group.spectators":
+	if event-player doesn't have permission "group.spectators":
 		if {jeu_condi} is not 3 or 6 or 9:
-			set player's gamemode to adventure
+			set event-player's gamemode to adventure
 		else:
 			if {timer} = 6:
-				set player's gamemode to survival
+				set event-player's gamemode to survival
 			else:
-				set player's gamemode to adventure
+				set event-player's gamemode to adventure
 	else:
-		if player has permission "*":
-			set player's gamemode to creative
+		if event-player has permission "*":
+			set event-player's gamemode to creative
 		else:
-			set player's gamemode to adventure
-		command("fly %player% true")
+			set event-player's gamemode to adventure
+		command("fly %event-player% true")
 
 	if {jeu_condi} = 0:
 		if world of event-player != "world":
-			make player execute command "/spawn"
+			make event-player execute command "/spawn"
 
 	if {jeu_condi} = 2:
 		if event-world is not "parkour":
-			make server execute command "execute in minecraft:parkour run tp %player% 131.5 129.00 201.5 -90 0"
+			make server execute command "execute in minecraft:parkour run tp %event-player% 131.5 129.00 201.5 -90 0"
 
 	if {jeu_condi} = 3:
 		if event-world is not "bingo":
-			make server execute command "execute in minecraft:bingo run tp %player% 999889.0 153 999932.5 0 0"
+			make server execute command "execute in minecraft:bingo run tp %event-player% 999889.0 153 999932.5 0 0"
 
 	if {jeu_condi} = 5:
 		if event-world is not "races_lap_3":
-			make server execute command "execute in minecraft:races_lap_3 run tp %player% 0.5 131 3.5 180 0"
+			make server execute command "execute in minecraft:races_lap_3 run tp %event-player% 0.5 131 3.5 180 0"
 
 	if {jeu_condi} = 9:
 		if event-world is not "build_masters":
 			if {timer} = 5 or 7:
-				make server execute command "execute in minecraft:build_masters run tp %player% 0.5 131 3.5 180 0"
+				make server execute command "execute in minecraft:build_masters run tp %event-player% 0.5 131 3.5 180 0"
 			if {timer} = 6:
-				if {build.location.%player's uuid%} is 0:
-					make server execute command "execute in build_masters run tp %player% 2.5 129 998.00000001"
-					if {build.%player's uuid%} is 1:
+				if {build.location.%event-player's uuid%} is 0:
+					make server execute command "execute in build_masters run tp %event-player% 2.5 129 998.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 993"
-				else if {build.location.%player's uuid%} is 1:
-					make server execute command "execute in build_masters run tp %player% 2.5 129 1019.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 1:
+					make server execute command "execute in build_masters run tp %event-player% 2.5 129 1019.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1014"
-				else if {build.location.%player's uuid%} is 2:
-					make server execute command "execute in build_masters run tp %player% 2.5 129 1040.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 2:
+					make server execute command "execute in build_masters run tp %event-player% 2.5 129 1040.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1035"
-				else if {build.location.%player's uuid%} is 3:
-					make server execute command "execute in build_masters run tp %player% 2.5 129 1061.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 3:
+					make server execute command "execute in build_masters run tp %event-player% 2.5 129 1061.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1056"
-				else if {build.location.%player's uuid%} is 4:
-					make server execute command "execute in build_masters run tp %player% 2.5 129 1082.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 4:
+					make server execute command "execute in build_masters run tp %event-player% 2.5 129 1082.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 19 131 1077"
-				else if {build.location.%player's uuid%} is 5:
-					make server execute command "execute in build_masters run tp %player% 23.5 129 998.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 5:
+					make server execute command "execute in build_masters run tp %event-player% 23.5 129 998.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 993"
-				else if {build.location.%player's uuid%} is 6:
-					make server execute command "execute in build_masters run tp %player% 23.5 129 1019.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 6:
+					make server execute command "execute in build_masters run tp %event-player% 23.5 129 1019.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1014"
-				else if {build.location.%player's uuid%} is 7:
-					make server execute command "execute in build_masters run tp %player% 23.5 129 1040.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 7:
+					make server execute command "execute in build_masters run tp %event-player% 23.5 129 1040.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1035"
-				else if {build.location.%player's uuid%} is 8:
-					make server execute command "execute in build_masters run tp %player% 23.5 129 1061.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 8:
+					make server execute command "execute in build_masters run tp %event-player% 23.5 129 1061.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1056"
-				else if {build.location.%player's uuid%} is 9:
-					make server execute command "execute in build_masters run tp %player% 23.5 129 1082.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 9:
+					make server execute command "execute in build_masters run tp %event-player% 23.5 129 1082.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 40 131 1077"
-				else if {build.location.%player's uuid%} is 10:
-					make server execute command "execute in build_masters run tp %player% 44.5 129 998.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 10:
+					make server execute command "execute in build_masters run tp %event-player% 44.5 129 998.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 993"
-				else if {build.location.%player's uuid%} is 11:
-					make server execute command "execute in build_masters run tp %player% 44.5 129 1019.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 11:
+					make server execute command "execute in build_masters run tp %event-player% 44.5 129 1019.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1014"
-				else if {build.location.%player's uuid%} is 12:
-					make server execute command "execute in build_masters run tp %player% 44.5 129 1040.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 12:
+					make server execute command "execute in build_masters run tp %event-player% 44.5 129 1040.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1035"
-				else if {build.location.%player's uuid%} is 13:
-					make server execute command "execute in build_masters run tp %player% 44.5 129 1061.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 13:
+					make server execute command "execute in build_masters run tp %event-player% 44.5 129 1061.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1056"
-				else if {build.location.%player's uuid%} is 14:
-					make server execute command "execute in build_masters run tp %player% 44.5 129 1082.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 14:
+					make server execute command "execute in build_masters run tp %event-player% 44.5 129 1082.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 61 131 1077"
-				else if {build.location.%player's uuid%} is 15:
-					make server execute command "execute in build_masters run tp %player% 65.5 129 998.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 15:
+					make server execute command "execute in build_masters run tp %event-player% 65.5 129 998.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 993"
-				else if {build.location.%player's uuid%} is 16:
-					make server execute command "execute in build_masters run tp %player% 65.5 129 1019.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 16:
+					make server execute command "execute in build_masters run tp %event-player% 65.5 129 1019.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1014"
-				else if {build.location.%player's uuid%} is 17:
-					make server execute command "execute in build_masters run tp %player% 65.5 129 1040.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 17:
+					make server execute command "execute in build_masters run tp %event-player% 65.5 129 1040.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1035"
-				else if {build.location.%player's uuid%} is 18:
-					make server execute command "execute in build_masters run tp %player% 65.5 129 1061.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 18:
+					make server execute command "execute in build_masters run tp %event-player% 65.5 129 1061.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1056"
-				else if {build.location.%player's uuid%} is 19:
-					make server execute command "execute in build_masters run tp %player% 65.5 129 1082.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 19:
+					make server execute command "execute in build_masters run tp %event-player% 65.5 129 1082.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 82 131 1077"
-				else if {build.location.%player's uuid%} is 20:
-					make server execute command "execute in build_masters run tp %player% 86.5 129 998.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 20:
+					make server execute command "execute in build_masters run tp %event-player% 86.5 129 998.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 993"
-				else if {build.location.%player's uuid%} is 21:
-					make server execute command "execute in build_masters run tp %player% 86.5 129 1019.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 21:
+					make server execute command "execute in build_masters run tp %event-player% 86.5 129 1019.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1014"
-				else if {build.location.%player's uuid%} is 22:
-					make server execute command "execute in build_masters run tp %player% 86.5 129 1040.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 22:
+					make server execute command "execute in build_masters run tp %event-player% 86.5 129 1040.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1035"
-				else if {build.location.%player's uuid%} is 23:
-					make server execute command "execute in build_masters run tp %player% 86.5 129 1061.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 23:
+					make server execute command "execute in build_masters run tp %event-player% 86.5 129 1061.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1056"
-				else if {build.location.%player's uuid%} is 24:
-					make server execute command "execute in build_masters run tp %player% 86.5 129 1082.00000001"
-					if {build.%player's uuid%} is 1:
+				else if {build.location.%event-player's uuid%} is 24:
+					make server execute command "execute in build_masters run tp %event-player% 86.5 129 1082.00000001"
+					if {build.%event-player's uuid%} is 1:
 						make server execute command "execute in minecraft:build_masters run clone -23 138 10001 -23 129 10010 103 131 1077"
 
 
@@ -260,11 +256,11 @@ on join:
 		if event-world is not "bow_pvp":
 			respawnBowPVP(player)
 	wait 2 seconds
-	if player doesn't have permission "group.spectators":
+	if event-player doesn't have permission "group.spectators":
 		add 1 to {online_players}
-	add 1 to {total_points.%player's uuid%}
-	remove 1 from {total_points.%player's uuid%}
-	toggle fastboards of player on
+	add 1 to {total_points.%event-player's uuid%}
+	remove 1 from {total_points.%event-player's uuid%}
+	toggle fastboards of event-player on
 	command("/noxesiumutils serverRules disableBoatCollisions @a true")
 	command("/noxesiumutils serverRules enableSmootherClientTrident @a true")
 
@@ -274,34 +270,34 @@ on vehicle destroy:
 
 on vehicle exit:
 	if {jeu_condi} = 0:
-		if {ride.%player's uuid%} is set:
+		if {ride.%event-player's uuid%} is set:
 			cancel event
-			make player ride {ride.%player's uuid%}
-	set {in_vehicle.%player's uuid%} to false
+			make event-player ride {ride.%event-player's uuid%}
+	set {in_vehicle.%event-player's uuid%} to false
 	if {jeu_condi} is 5:
-		make server execute command "execute at %player% run kill @e[type=minecraft:chest_boat,sort=nearest,limit=1]"
-		if y-coordinate of player is greater than 119:
-			if player's gamemode is adventure:
+		make server execute command "execute at %event-player% run kill @e[type=minecraft:chest_boat,sort=nearest,limit=1]"
+		if y-coordinate of event-player is greater than 119:
+			if event-player's gamemode is adventure:
 				wait 3 ticks
-				if {race_boat.%player's uuid%} is true:
-					give 1 of oak boat with chest to player
+				if {race_boat.%event-player's uuid%} is true:
+					give 1 of oak boat with chest to event-player
 
 on vehicle enter:
-	set {in_vehicle.%player's uuid%} to true
+	set {in_vehicle.%event-player's uuid%} to true
 
 on quit:
-	if {gamemode.%player's uuid%} is 3:
+	if {gamemode.%event-player's uuid%} is 3:
 		remove 1 from {finished_players}
-	if player has permission "group.spectators":
-		remove player from {staff::*}
-	set {color.%player's uuid%} to "タ &7"
+	if event-player has permission "group.spectators":
+		remove event-player from {staff::*}
+	set {color.%event-player's uuid%} to "タ &7"
 	if {timer} = "Fin":
-		remove player from {players::*}
-		remove player from the whitelist
+		remove event-player from {players::*}
+		remove event-player from the whitelist
 	#For Tests --> put nothing
 	#remove 1 from {online_players}
 	#For Event --> 
-	if player doesn't have permission "group.spectators":
+	if event-player doesn't have permission "group.spectators":
 		remove 1 from {online_players}
 		if {jeu_condi} = 0:
 			if {timer-m}*60 + {timer-s} <= 30:
@@ -549,20 +545,20 @@ on death:
 on respawn:
 	if {jeu_condi} is 3:
 		wait 1 tick
-		teleport player to location(999889.0, 153, 999932.5, world "Bingo")
+		teleport event-player to location(999889.0, 153, 999932.5, world "Bingo")
 		make server execute command "effect give @a minecraft:night_vision 9999 255 true"
 	else if {jeu_condi} is 8:
 		wait 1 tick
 		respawnBowPVP(player)
-		heal player
-		apply infinite saturation without particles whilst hiding the potion icon to player
-		set helmet of player to netherite helmet
-		set chestplate of player to netherite chestplate
-		set leggings of player to netherite leggings
-		set boots of player to netherite boots
+		heal event-player
+		apply infinite saturation without particles whilst hiding the potion icon to event-player
+		set helmet of event-player to netherite helmet
+		set chestplate of event-player to netherite chestplate
+		set leggings of event-player to netherite leggings
+		set boots of event-player to netherite boots
 
 on break:
-	if player's gamemode is not creative:
+	if event-player's gamemode is not creative:
 		if {jeu_condi} is not 3 or 9:
 			cancel event
 		else if {jeu_condi} = 3:
@@ -571,31 +567,31 @@ on break:
 					cancel event
 					send action bar "&cYou cannot break blocks here" to event-player
 		else if {jeu_condi} is 9:
-			if {finished.%player's uuid%} is false:
+			if {finished.%event-player's uuid%} is false:
 				if block is smooth quartz or quartz pillar or iron block or gold block or emerald block or diamond block or dark oak trapdoor or chiseled quartz block or quartz bricks or lime carpet or red carpet or yellow carpet or orange carpet or green carpet or cyan carpet:
 					cancel event
-				if the z-coordinate of player < 3000:
+				if the z-coordinate of event-player < 3000:
 					if the y-coordinate of block is bigger than 129:
 						cancel event
 	if {timer} is "pause":
-		if player doesn't have permission "group.spectators":
+		if event-player doesn't have permission "group.spectators":
 			cancel event
 
 on right click with paper:
-	if name of tool of player is "&eYour Bingo card":
-		make player execute command "card"
+	if name of tool of event-player is "&eYour Bingo card":
+		make event-player execute command "card"
 
 on right click with feather:
-	if name of tool of player is "Change your fly speed":
-		make player execute command "speed up"
+	if name of tool of event-player is "Change your fly speed":
+		make event-player execute command "speed up"
 
 on left click with feather:
-	if name of tool of player is "Change your fly speed":
-		make player execute command "speed down"
+	if name of tool of event-player is "Change your fly speed":
+		make event-player execute command "speed down"
 
 on right click with bone meal:
 	if targeted block is oak sapling:
-		remove 1 of bone meal from player
+		remove 1 of bone meal from event-player
 		# Face 1
 		make 5 of happy_villager at location(318.2,66.3,335.3,"world") with force for all players
 		make 5 of happy_villager at location(318.5,66.3,335.3,"world") with force for all players
@@ -628,95 +624,95 @@ on right click with bone meal:
 		make 5 of happy_villager at location(318.8,66.9,335.9,"world") with force for all players
 
 on right click with carrot on a stick:
-	if name of tool of player is "&eTeleport to home":
-		teleport player to location(-999968.00, 151, -999922.5, world "Bingo")
+	if name of tool of event-player is "&eTeleport to home":
+		teleport event-player to location(-999968.00, 151, -999922.5, world "Bingo")
 	if {jeu_condi} = 2:
-		if {parkour.main_level.%player's uuid%} = 4:
-			if {parkour.sub_level.%player's uuid%} = 7:
-				send "[&6Parkour&r] Sorry, but as this is the last level, you cannot skip it... Good luck !" to player
+		if {parkour.main_level.%event-player's uuid%} = 4:
+			if {parkour.sub_level.%event-player's uuid%} = 7:
+				send "[&6Parkour&r] Sorry, but as this is the last level, you cannot skip it... Good luck !" to event-player
 			else:
-				if {parkour.skip.%player's uuid%} = false:
-					set {parkour.skip.%player's uuid%} to true
-					set {parkour.skip_used.%player's uuid%} to true
-					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+				if {parkour.skip.%event-player's uuid%} = false:
+					set {parkour.skip.%event-player's uuid%} to true
+					set {parkour.skip_used.%event-player's uuid%} to true
+					set {_parkour_tp} to {parkour.next_level_coord.%event-player's uuid%} + 0.5
 					wait 2 tick
-					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-					command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
+					teleport event-player to location({_parkour_tp}, 129, z-coordinate of event-player, world "parkour", -90, 0.0001)
+					command("gamepoints %event-player% %round(-5*{multiplier})% Skipping a level")
 					wait 3 ticks
-					set {parkour.skip_used.%player's uuid%} to false
+					set {parkour.skip_used.%event-player's uuid%} to false
 					wait 15 ticks
-					if {parkour.sub_level.%player's uuid%} = 6:
-						clear player's inventory
+					if {parkour.sub_level.%event-player's uuid%} = 6:
+						clear event-player's inventory
 					wait 9 seconds
-					set {parkour.skip.%player's uuid%} to false
+					set {parkour.skip.%event-player's uuid%} to false
 				else:
-					send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to player
-		else if {parkour.main_level.%player's uuid%} = 1:
-			if {parkour.sub_level.%player's uuid%} = 1:
-				send "[&6Parkour&r] Sorry, but as this is the first level, you cannot skip this level... Good luck !" to player
+					send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to event-player
+		else if {parkour.main_level.%event-player's uuid%} = 1:
+			if {parkour.sub_level.%event-player's uuid%} = 1:
+				send "[&6Parkour&r] Sorry, but as this is the first level, you cannot skip this level... Good luck !" to event-player
 			else:
-				if {parkour.skip.%player's uuid%} = false:
-					set {parkour.skip.%player's uuid%} to true
-					set {parkour.skip_used.%player's uuid%} to true
-					set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+				if {parkour.skip.%event-player's uuid%} = false:
+					set {parkour.skip.%event-player's uuid%} to true
+					set {parkour.skip_used.%event-player's uuid%} to true
+					set {_parkour_tp} to {parkour.next_level_coord.%event-player's uuid%} + 0.5
 					wait 2 tick
-					teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-					command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
+					teleport event-player to location({_parkour_tp}, 129, z-coordinate of event-player, world "parkour", -90, 0.0001)
+					command("gamepoints %event-player% %round(-5*{multiplier})% Skipping a level")
 					wait 3 ticks
-					set {parkour.skip_used.%player's uuid%} to false
+					set {parkour.skip_used.%event-player's uuid%} to false
 					wait 15 ticks
 					wait 9 seconds
-					set {parkour.skip.%player's uuid%} to false
+					set {parkour.skip.%event-player's uuid%} to false
 				else:
-					send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to player
+					send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to event-player
 		else:
-			if {parkour.skip.%player's uuid%} = false:
-				set {parkour.skip.%player's uuid%} to true
-				set {parkour.skip_used.%player's uuid%} to true
-				set {_parkour_tp} to {parkour.next_level_coord.%player's uuid%} + 0.5
+			if {parkour.skip.%event-player's uuid%} = false:
+				set {parkour.skip.%event-player's uuid%} to true
+				set {parkour.skip_used.%event-player's uuid%} to true
+				set {_parkour_tp} to {parkour.next_level_coord.%event-player's uuid%} + 0.5
 				wait 2 tick
-				teleport player to location({_parkour_tp}, 129, z-coordinate of player, world "parkour", -90, 0.0001)
-				command("gamepoints %player% %round(-5*{multiplier})% Skipping a level")
+				teleport event-player to location({_parkour_tp}, 129, z-coordinate of event-player, world "parkour", -90, 0.0001)
+				command("gamepoints %event-player% %round(-5*{multiplier})% Skipping a level")
 				wait 3 ticks
-				set {parkour.skip_used.%player's uuid%} to false
+				set {parkour.skip_used.%event-player's uuid%} to false
 				wait 15 ticks
 				wait 9 seconds
-				set {parkour.skip.%player's uuid%} to false
+				set {parkour.skip.%event-player's uuid%} to false
 			else:
-				send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to player
-	if name of tool of player is "Block a game":
-		if block 2 meter under player is red concrete:
+				send "[&6Parkour&r] You have to wait 10 seconds before using the skip again" to event-player
+	if name of tool of event-player is "Block a game":
+		if block 2 meter under event-player is red concrete:
 			blockGame("Trials",player)
-		if block 2 meter under player is orange concrete:
+		if block 2 meter under event-player is orange concrete:
 			blockGame("Parkour",player)
-		if block 2 meter under player is yellow concrete:
+		if block 2 meter under event-player is yellow concrete:
 			blockGame("Bingo",player)
-		if block 2 meter under player is lime concrete:
+		if block 2 meter under event-player is lime concrete:
 			blockGame("Tag",player)
-		if block 2 meter under player is light blue concrete:
+		if block 2 meter under event-player is light blue concrete:
 			blockGame("Multilap",player)
-		if block 2 meter under player is blue concrete:
+		if block 2 meter under event-player is blue concrete:
 			blockGame("Build Masters",player)
-		if block 2 meter under player is purple concrete:
+		if block 2 meter under event-player is purple concrete:
 			blockGame("Arms Race",player)
-		if block 2 meter under player is pink concrete:
+		if block 2 meter under event-player is pink concrete:
 			blockGame("Bow PVP",player)
-		remove 999 of carrot on a stick from player
-	if name of tool of player is "You choose the game":
-		remove 999 of carrot on a stick from player
+		remove 999 of carrot on a stick from event-player
+	if name of tool of event-player is "You choose the game":
+		remove 999 of carrot on a stick from event-player
 		loop all entities in world "world":
 			if loop-entity is fox:
 				kill loop-entity
 		loop all players:
 			if loop-player doesn't have permission "group.spectators":
-				if loop-player != player:
+				if loop-player != event-player:
 					command("hide %loop-player%")
 					set {alive.%loop-player's uuid%} to false
 					clear loop-player's inventory
 					allow flight for loop-player
-		broadcast "[<##155966>&lDecision Crysyal&r] %player% is chosing the next game"
-	if name of tool of player is "Swap players and spectators":
-		remove 999 of carrot on a stick from player
+		broadcast "[<#155966>&lDecision Crysyal&r] %event-player% is chosing the next game"
+	if name of tool of event-player is "Swap event-players and spectators":
+		remove 999 of carrot on a stick from event-player
 		loop all entities in world "world":
 			if loop-entity is fox:
 				kill loop-entity
@@ -732,18 +728,18 @@ on right click with carrot on a stick:
 			else:
 				command("hide %loop-player%")
 				disable fly for loop-player
-		broadcast "[<##155966>&lDecision Crysyal&r] %{color.%player's uuid%}%%player%&r used the Players <> Spectators swap !"
+		broadcast "[<#155966>&lDecision Crysyal&r] %{color.%event-player's uuid%}%%event-player%&r used the event-players <> Spectators swap !"
 
 on right click with minecart:
 	if {timer} = 3:
 		if targeted entity is a player:
-			command("grab %targeted entity% %player%")
-			remove 1 of minecart from player
-			set {ride.%targeted entity's uuid%} to player
+			command("grab %targeted entity% %event-player%")
+			remove 1 of minecart from event-player
+			set {ride.%targeted entity's uuid%} to event-player
 
 on right click with compass:
-	if name of tool of player is "Teleport to player":
-		make player execute command "tpspec"
+	if name of tool of event-player is "Teleport to player":
+		make event-player execute command "tpspec"
 
 on right click :
 	if event-block is chest:
@@ -753,8 +749,8 @@ on right click :
 	if event-entity is a villager:
 		if name of event-entity is "Give 30 seconds":
 			if {timer} = 5 or 6:
-				if {finished.%player's uuid%} is false:
-					if {timer_minute.%player's uuid%} > 2:
+				if {finished.%event-player's uuid%} is false:
+					if {timer_minute.%event-player's uuid%} > 2:
 						giveThirtySecs(player)
 					else:
 						send "[<#155966>&lTheEvent580&r] You need at least 3 minutes to give this amount of time to any other event-players" to event-player
@@ -764,8 +760,8 @@ on right click :
 				send "[<#155966>&lTheEvent580&r] The game has already ended" to event-player
 		if name of event-entity is "Give 1 minute":
 			if {timer} = 5 or 6:
-				if {finished.%player's uuid%} is false:
-					if {timer_minute.%player's uuid%} > 3:
+				if {finished.%event-player's uuid%} is false:
+					if {timer_minute.%event-player's uuid%} > 3:
 						giveOneMinute(player)
 					else:
 						send "[<#155966>&lTheEvent580&r] You need at least 4 minutes to give this amount of time to any other event-players" to event-player
@@ -775,8 +771,8 @@ on right click :
 				send "[<#155966>&lTheEvent580&r] The game has already ended" to event-player
 		if name of event-entity is "Give 3 minutes":
 			if {timer} = 5 or 6:
-				if {finished.%player's uuid%} is false:
-					if {timer_minute.%player's uuid%} > 4:
+				if {finished.%event-player's uuid%} is false:
+					if {timer_minute.%event-player's uuid%} > 4:
 						giveThreeMinute(player)
 					else:
 						send "[<#155966>&lTheEvent580&r] You need at least 5 minutes to give this amount of time to any other event-players" to event-player
@@ -788,8 +784,8 @@ on right click :
 		if {jeu_condi} is 0:
 			if {timer} or {timer_save} is not 7 or 10 or "Fin":
 				if event-block is lever:
-					if {Herobrine.%player's uuid%} is false:
-						make server execute command "achivement %player% give Herobrine"
+					if {Herobrine.%event-player's uuid%} is false:
+						make server execute command "achivement %event-player% give Herobrine"
 		if {jeu_condi} is 0: #Spawn
 			if event-block is oak_button or spruce_button or birch_button or jungle_button or acacia_button or dark_oak_button or mangrove_button or stone_button or polished_blackstone_button or cherry_button:
 				set {flag.%event-player's uuid%} to a carrot on a stick
@@ -846,8 +842,8 @@ on right click :
 				send action bar "[<#155966>&lTheEvent580&r] You now have the %name of {flag.%event-player's uuid%}%&r on your head" to event-player
 				set helmet of event-player to {flag.%event-player's uuid%}
 			if event-block is yellow concrete or white concrete:
-				if the y coordinate of player < 120:
-					give 1 of egg to player
+				if the y coordinate of event-player < 120:
+					give 1 of egg to event-player
 			if event-item is fox spawn egg:
 				spawn 1 fox at the block above targeted block
 				set name of last spawned entity to "&f%{color.%event-player's uuid%}%%event-player%&f's Fox"
@@ -872,12 +868,12 @@ on right click :
 					if loop-entity isn't a player:
 						apply infinite glowing without particles whilst hiding the potion icon to the loop-entity
 		if {jeu_condi} = 6:
-			if {alive.%player's uuid%} = false:
+			if {alive.%event-player's uuid%} = false:
 				cancel event
 
 on place:
 	if {timer} is "pause":
-		if player doesn't have permission "group.spectators":
+		if event-player doesn't have permission "group.spectators":
 			cancel event
 	else:
 		if {jeu_condi} = 3:
@@ -887,14 +883,14 @@ on place:
 					send action bar "&cYou cannot place blocks here" to event-player
 		else if {jeu_condi} is 9:
 			if block 1 meter under event-location is not quartz bricks:
-				if {finished.%player's uuid%} is false:
+				if {finished.%event-player's uuid%} is false:
 					cancel event
 					send "[<#155966>&lTheEvent580&r] Please place the block in the replication zone only" to event-player
 
 on swap hand item:
-	if name of tool of player is "&eYour Bingo card":
+	if name of tool of event-player is "&eYour Bingo card":
 		cancel event
-	if name of tool of player is "&eTeleport to home":
+	if name of tool of event-player is "&eTeleport to home":
 		cancel event
 
 on drop:
@@ -908,11 +904,11 @@ on drop:
 		cancel event
 	if {timer} is 3:
 		cancel event
-	if player has permission "group.spectators":
+	if event-player has permission "group.spectators":
 		cancel event
 
 on pickup:
-	if player has permission "group.spectators":
+	if event-player has permission "group.spectators":
 		if {jeu_condi} is not 0:
 			cancel event
 	else:
@@ -920,22 +916,22 @@ on pickup:
 			cancel event
 		if {jeu_condi} is 8:
 			cancel event
-			make server execute command "execute at %player% run kill @e[type=minecraft:arrow,limit=1]"
+			make server execute command "execute at %event-player% run kill @e[type=minecraft:arrow,limit=1]"
 		if {jeu_condi} is 9:
-			set {_has_finished.%player's uuid%} to false
+			set {_has_finished.%event-player's uuid%} to false
 			loop {finished::*}:
-				if loop-value is player:
-					set {_has_finished.%player's uuid%} to true
-			if {_has_finished.%player's uuid%} is true:
+				if loop-value is event-player:
+					set {_has_finished.%event-player's uuid%} to true
+			if {_has_finished.%event-player's uuid%} is true:
 				cancel event
 		if {jeu_condi} = 6 or 0:
-			if {alive.%player's uuid%} = false:
+			if {alive.%event-player's uuid%} = false:
 				cancel event
 
 
 on craft:
 	if {jeu_condi} is not 3 or 6:
-		if {finished.%player%} = false:
+		if {finished.%event-player%} = false:
 			cancel event
 
 on shoot:
@@ -947,10 +943,10 @@ on shoot:
 
 on jump:
 	if event-world = "world":
-		if block 1 meter under player is deepslate coal ore:
-			if the y-coordinate of player = -5:
-				teleport player to location(328.5, 69.5, 316.5, world "world", 150, 0.0001)
-				remove night vision from the player
+		if block 1 meter under event-player is deepslate coal ore:
+			if the y-coordinate of event-player = -5:
+				teleport event-player to location(328.5, 69.5, 316.5, world "world", 150, 0.0001)
+				remove night vision from the event-player
 	if event-world = "Build_Masters":
 		if block 0 meter under event-player = green carpet or cyan carpet:
 			remove jump boost from event-player
@@ -974,10 +970,10 @@ on jump:
 			push event-player south at speed 3
 		
 on sneak toggle:
-	if block 1 meter under player is deepslate coal ore:
-		if the y-coordinate of player = 69:
-			teleport player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
-			command("effect give %player% minecraft:night_vision infinite 255 true")
+	if block 1 meter under event-player is deepslate coal ore:
+		if the y-coordinate of event-player = 69:
+			teleport event-player to location(315.5, -4.5, 323.5, world "world", -90, 0.0001)
+			apply infinite night vision 255 without particles whilst hiding the icon to event-player
 	if {ride.%event-player's uuid%} is set:
 		cancel event
 		send title "" with subtitle "&cYou're stuck here until voting is over." to event-player for 3 seconds
