@@ -651,297 +651,162 @@ command /card:
 				create a gui with virtual chest inventory with 3 rows named "&eYour card":
 					if {bingo_case_1.%player's uuid%} is 0:
 						if ({bingo_case_1_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 3 with dried kelp named "&2Dried Kelp | %{bingo_case_1_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_1}%&f 工"
 						else if ({bingo_case_1_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 3 with dried kelp named "&aDried Kelp | %{bingo_case_1_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_1}%&f 工"
 						else if ({bingo_case_1_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 3 with dried kelp named "&6Dried Kelp | %{bingo_case_1_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_1}%&f 工"
 						else if {bingo_case_1_completed}+1 = {checking_finished_players}:
-							make gui slot 3 with dried kelp named "&4Dried Kelp | %{bingo_case_1_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 3 with dried kelp named "&cDried Kelp | %{bingo_case_1_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_1}%&f 工"
 					else:
 						if {bingo_case_1.%player's uuid%} = 1:
-							make gui slot 3 with dried kelp named "&2Dried Kelp | Collected in %{bingo_case_1.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_1.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 3 with dried kelp named "&aDried Kelp | Collected in %{bingo_case_1.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_1.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 3 with dried kelp named "&6Dried Kelp | Collected in %{bingo_case_1.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_1.%player's uuid%} = {checking_finished_players}:
-							make gui slot 3 with dried kelp named "&4Dried Kelp | Collected in %{bingo_case_1.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 3 with dried kelp named "&cDried Kelp | Collected in %{bingo_case_1.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_2.%player's uuid%} is 0:
 						if ({bingo_case_2_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 4 with bread named "&2Bread | %{bingo_case_2_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_2}%&f 工"
 						else if ({bingo_case_2_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 4 with bread named "&aBread | %{bingo_case_2_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_2}%&f 工"
 						else if ({bingo_case_2_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 4 with bread named "&6Bread | %{bingo_case_2_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_2}%&f 工"
 						else if {bingo_case_2_completed}+1 = {checking_finished_players}:
-							make gui slot 4 with bread named "&4Bread | %{bingo_case_2_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 4 with bread named "&cBread | %{bingo_case_2_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_2}%&f 工"
 					else:
 						if {bingo_case_2.%player's uuid%} = 1:
-							make gui slot 4 with bread named "&2Bread | Collected in %{bingo_case_2.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_2.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 4 with bread named "&aBread | Collected in %{bingo_case_2.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_2.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 4 with bread named "&6Bread | Collected in %{bingo_case_2.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_2.%player's uuid%} = {checking_finished_players}:
-							make gui slot 4 with bread named "&4Bread | Collected in %{bingo_case_2.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 4 with dried kelp named "&cBread | Collected in %{bingo_case_2.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_3.%player's uuid%} is 0:
 						if ({bingo_case_3_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 5 with netherrack named "&2Netherrack | %{bingo_case_3_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_3}%&f 工"
 						else if ({bingo_case_3_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 5 with netherrack named "&aNetherrack | %{bingo_case_3_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_3}%&f 工"
 						else if ({bingo_case_3_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 5 with netherrack named "&6Netherrack | %{bingo_case_3_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_3}%&f 工"
 						else if {bingo_case_3_completed}+1 = {checking_finished_players}:
-							make gui slot 5 with netherrack named "&4Netherrack | %{bingo_case_3_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 5 with netherrack named "&cNetherrack | %{bingo_case_3_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_3}%&f 工"
 					else:
 						if {bingo_case_3.%player's uuid%} = 1:
-							make gui slot 5 with netherrack named "&2Netherrack | Collected in %{bingo_case_3.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_3.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 5 with netherrack named "&aNetherrack | Collected in %{bingo_case_3.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_3.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 5 with netherrack named "&6Netherrack | Collected in %{bingo_case_3.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_3.%player's uuid%} = {checking_finished_players}:
-							make gui slot 5 with netherrack named "&4Netherrack | Collected in %{bingo_case_3.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 5 with netherrack named "&cNetherrack | Collected in %{bingo_case_3.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_4.%player's uuid%} is 0:
 						if ({bingo_case_4_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 12 with scaffolding named "&2Scaffolding | %{bingo_case_4_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_4}%&f 工"
 						else if ({bingo_case_4_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 12 with scaffolding named "&aScaffolding | %{bingo_case_4_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_4}%&f 工"
 						else if ({bingo_case_4_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 12 with scaffolding named "&6Scaffolding | %{bingo_case_4_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_4}%&f 工"
 						else if {bingo_case_4_completed}+1 = {checking_finished_players}:
-							make gui slot 12 with scaffolding named "&4Scaffolding | %{bingo_case_4_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 12 with scaffolding named "&cScaffolding | %{bingo_case_4_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_4}%&f 工"
 					else:
 						if {bingo_case_4.%player's uuid%} = 1:
-							make gui slot 12 with scaffolding named "&2Scaffolding | Collected in %{bingo_case_4.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_4.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 12 with scaffolding named "&aScaffolding | Collected in %{bingo_case_4.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_4.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 12 with scaffolding named "&6Scaffolding | Collected in %{bingo_case_4.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_4.%player's uuid%} = {checking_finished_players}:
-							make gui slot 12 with scaffolding named "&4Scaffolding | Collected in %{bingo_case_4.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 12 with scaffolding named "&cScaffolding | Collected in %{bingo_case_4.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_5.%player's uuid%} is 0:
 						if ({bingo_case_5_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 13 with pumpkin pie named "&2Pumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_5}%&f 工"
 						else if ({bingo_case_5_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 13 with pumpkin pie named "&aPumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_5}%&f 工"
 						else if ({bingo_case_5_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 13 with pumpkin pie named "&6Pumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_5}%&f 工"
 						else if {bingo_case_5_completed}+1 = {checking_finished_players}:
-							make gui slot 13 with pumpkin pie named "&4Pumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 13 with pumpkin pie named "&cPumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_5}%&f 工"
 					else:
 						if {bingo_case_5.%player's uuid%} = 1:
-							make gui slot 13 with pumpkin pie named "&2Pumpkin Pie | Collected in %{bingo_case_5.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_5.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 13 with pumpkin pie named "&aPumpkin Pie | Collected in %{bingo_case_5.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_5.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 13 with pumpkin pie named "&6Pumpkin Pie | Collected in %{bingo_case_5.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_5.%player's uuid%} = {checking_finished_players}:
-							make gui slot 13 with pumpkin pie named "&4Pumpkin Pie | Collected in %{bingo_case_5.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 13 with pumpkin pie named "&cPumpkin Pie | Collected in %{bingo_case_5.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_6.%player's uuid%} is 0:
 						if ({bingo_case_6_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 14 with muddy mangrove roots named "&2Muddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_6}%&f 工"
 						else if ({bingo_case_6_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 14 with muddy mangrove roots named "&aMuddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_6}%&f 工"
 						else if ({bingo_case_6_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 14 with muddy mangrove roots named "&6Muddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_6}%&f 工"
 						else if {bingo_case_6_completed}+1 = {checking_finished_players}:
-							make gui slot 14 with muddy mangrove roots named "&4Muddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 14 with muddy mangrove roots named "&cMuddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_6}%&f 工"
 					else:
 						if {bingo_case_6.%player's uuid%} = 1:
-							make gui slot 14 with muddy mangrove roots named "&2Muddy Mangrove Roots | Collected in %{bingo_case_6.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_6.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 14 with muddy mangrove roots named "&aMuddy Mangrove Roots | Collected in %{bingo_case_6.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_6.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 14 with muddy mangrove roots named "&6Muddy Mangrove Roots | Collected in %{bingo_case_6.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_6.%player's uuid%} = {checking_finished_players}:
-							make gui slot 14 with muddy mangrove roots named "&4Muddy Mangrove Roots | Collected in %{bingo_case_6.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 14 with muddy mangrove roots named "&cMuddy Mangrove Roots | Collected in %{bingo_case_6.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_7.%player's uuid%} is 0:
 						if ({bingo_case_7_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 21 with light gray glazed terracotta named "&2Light Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_7}%&f 工"
 						else if ({bingo_case_7_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 21 with light gray glazed terracotta named "&aLight Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_7}%&f 工"
 						else if ({bingo_case_7_completed} / {checking_finished_players})*100 < 66.6:
-							make gui slot 21 with light gray glazed terracotta named "&6Light Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_7}%&f 工"
 						else if {bingo_case_7_completed}+1 = {checking_finished_players}:
-							make gui slot 21 with light gray glazed terracotta named "&4Light Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 21 with light gray glazed terracotta named "&cLight Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_7}%&f 工"
 					else:
 						if {bingo_case_7.%player's uuid%} = 1:
-							make gui slot 21 with light gray glazed terracotta named "&2Light Gray Glazed Terracotta | Collected in %{bingo_case_7.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_7.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 21 with light gray glazed terracotta named "&aLight Gray Glazed Terracotta | Collected in %{bingo_case_7.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_7.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 21 with light gray glazed terracotta named "&6Light Gray Glazed Terracotta | Collected in %{bingo_case_7.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_7.%player's uuid%} = {checking_finished_players}:
-							make gui slot 21 with light gray glazed terracotta named "&4Light Gray Glazed Terracotta | Collected in %{bingo_case_7.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 21 with light gray glazed terracotta named "&cLight Gray Glazed Terracotta | Collected in %{bingo_case_7.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_8.%player's uuid%} is 0:
 						if ({bingo_case_8_completed} / {checking_finished_players})*100 = 0:
-							make gui slot 22 with dead brain coral fan named "&2Dead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_8}%&f 工"
 						else if ({bingo_case_8_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 22 with dead brain coral fan named "&aDead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_8}%&f 工"
 						else if ({bingo_case_8_completed} / {checking_finished_players})*100 < 66.68:
-							make gui slot 22 with dead brain coral fan named "&6Dead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_8}%&f 工"
 						else if {bingo_case_8_completed}+1 = {checking_finished_players}:
-							make gui slot 22 with dead brain coral fan named "&4Dead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 22 with dead brain coral fan named "&cDead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_8}%&f 工"
 					else:
 						if {bingo_case_8.%player's uuid%} = 1:
-							make gui slot 22 with dead brain coral fan named "&2Dead Brain Coral Fan | Collected in %{bingo_case_8.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_8.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 22 with dead brain coral fan named "&aDead Brain Coral Fan | Collected in %{bingo_case_8.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_8.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 22 with dead brain coral fan named "&6Dead Brain Coral Fan | Collected in %{bingo_case_8.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_8.%player's uuid%} = {checking_finished_players}:
-							make gui slot 22 with dead brain coral fan named "&4Dead Brain Coral Fan | Collected in %{bingo_case_8.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 22 with dead brain coral fan named "&cDead Brain Coral Fan | Collected in %{bingo_case_8.%player's uuid%}%/%{checking_finished_players}%"
 					if {bingo_case_9.%player's uuid%} is 0:
 						if ({bingo_case_9_coempleted} / {checking_finished_players})*100 = 0:
-							make gui slot 23 with sponge named "&2Sponge | %{bingo_case_9_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_9}%&f 工"
 						else if ({bingo_cas_9_completed} / {checking_finished_players})*100 < 33.3:
-							make gui slot 23 with sponge named "&aSponge | %{bingo_case_9_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_9}%&f 工"
 						else if ({bingo_case_9_completed} / {checking_finished_players})*100 < 66.68:
-							make gui slot 23 with sponge named "&6Sponge | %{bingo_case_9_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_9}%&f 工"
 						else if {bingo_case_9_completed}+1 = {checking_finished_players}:
-							make gui slot 23 with sponge named "&4Sponge | %{bingo_case_9_completed}% collected" with lore "&4No more coins are being awarded"
 						else:
-							make gui slot 23 with sponge named "&cSponge | %{bingo_case_9_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_9}%&f 工"
 					else:
 						if {bingo_case_9.%player's uuid%} = 1:
-							make gui slot 23 with sponge named "&2Sponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_9.%player's uuid%} / {checking_finished_players})*100 < 33.3:
-							make gui slot 23 with sponge named "&aSponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 						else if ({bingo_case_9.%player's uuid%} / {checking_finished_players})*100 < 66.6:
-							make gui slot 23 with sponge named "&6Sponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 						else if {bingo_case_9.%player's uuid%} = {checking_finished_players}:
-							make gui slot 23 with sponge named "&4Sponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 						else:
-							make gui slot 23 with sponge named "&cSponge | Collected in %{bingo_case_9.%player's uuid%}%/%{checking_finished_players}%"
 				open the last gui for the player
 			else:
 				send "[&eBingo&r] Sorry, but you are not in &eBingo&r yet, so you are not allowed to see the &eBingo&r card"
 		else:
 			create a gui with virtual chest inventory with 3 rows named "&eSpec card":
 				if ({bingo_case_1_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 3 with dried kelp named "&2Dried Kelp | %{bingo_case_1_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_1}%&f 工"
 				else if ({bingo_case_1_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 3 with dried kelp named "&aDried Kelp | %{bingo_case_1_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_1}%&f 工"
 				else if ({bingo_case_1_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 3 with dried kelp named "&6Dried Kelp | %{bingo_case_1_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_1}%&f 工"
 				else if ({bingo_case_1_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 3 with dried kelp named "&cDried Kelp | %{bingo_case_1_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_1}%&f 工"
 				else:
-					make gui slot 3 with dried kelp named "&4Dried Kelp | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_2_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 4 with bread named "&2Bread | %{bingo_case_2_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_2}%&f 工"
 				else if ({bingo_case_2_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 4 with bread named "&aBread | %{bingo_case_2_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_2}%&f 工"
 				else if ({bingo_case_2_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 4 with bread named "&6Bread | %{bingo_case_2_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_2}%&f 工"
 				else if ({bingo_case_2_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 4 with bread named "&cBread | %{bingo_case_2_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_2}%&f 工"
 				else:
-					make gui slot 4 with bread named "&4Bread | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_3_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 5 with netherrack named "&2Netherrack | %{bingo_case_3_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_3}%&f 工"
 				else if ({bingo_case_3_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 5 with netherrack named "&aNetherrack | %{bingo_case_3_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_3}%&f 工"
 				else if ({bingo_case_3_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 5 with netherrack named "&6Netherrack | %{bingo_case_3_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_3}%&f 工"
 				else if ({bingo_case_3_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 5 with netherrack named "&cNetherrack | %{bingo_case_3_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_3}%&f 工"
 				else:
-					make gui slot 5 with netherrack named "&4Netherrack | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_4_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 12 with scaffolding named "&2Scaffolding | %{bingo_case_4_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_4}%&f 工"
 				else if ({bingo_case_4_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 12 with scaffolding named "&aScaffolding | %{bingo_case_4_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_4}%&f 工"
 				else if ({bingo_case_4_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 12 with scaffolding named "&6Scaffolding | %{bingo_case_4_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_4}%&f 工"
 				else if ({bingo_case_4_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 12 with scaffolding named "&cScaffolding | %{bingo_case_4_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_4}%&f 工"
 				else:
-					make gui slot 12 with scaffolding named "&4Scaffolding | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_5_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 13 with pumpkin pie named "&2Pumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_5}%&f 工"
 				else if ({bingo_case_5_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 13 with pumpkin pie named "&aPumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_5}%&f 工"
 				else if ({bingo_case_5_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 13 with pumpkin pie named "&6Pumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_5}%&f 工"
 				else if ({bingo_case_5_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 13 with pumpkin pie named "&cPumpkin Pie | %{bingo_case_5_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_5}%&f 工"
 				else:
-					make gui slot 13 with pumpkin pie named "&4Pumpkin Pie | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_6_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 14 with muddy mangrove roots named "&2Muddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_6}%&f 工"
 				else if ({bingo_case_6_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 14 with muddy mangrove roots named "&aMuddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_6}%&f 工"
 				else if ({bingo_case_6_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 14 with muddy mangrove roots named "&6Muddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_6}%&f 工"
 				else if ({bingo_case_6_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 14 with muddy mangrove roots named "&cMuddy Mangrove Roots | %{bingo_case_6_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_6}%&f 工"
 				else:
-					make gui slot 14 with muddy mangrove roots named "&4Muddy Mangrove Roots | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_7_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 21 with light gray glazed terracotta named "&2Light Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_7}%&f 工"
 				else if ({bingo_case_7_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 21 with light gray glazed terracotta named "&aLight Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_7}%&f 工"
 				else if ({bingo_case_7_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 21 with light gray glazed terracotta named "&6Light Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_7}%&f 工"
 				else if ({bingo_case_7_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 21 with light gray glazed terracotta named "&cLight Gray Glazed Terracotta | %{bingo_case_7_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_7}%&f 工"
 				else:
-					make gui slot 21 with light gray glazed terracotta named "&4Light Gray Glazed Terracotta | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_8_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 22 with dead brain coral fan named "&2Dead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_8}%&f 工"
 				else if ({bingo_case_8_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 22 with dead brain coral fan named "&aDead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_8}%&f 工"
 				else if ({bingo_case_8_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 22 with dead brain coral fan named "&6Dead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_8}%&f 工"
 				else if ({bingo_case_8_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 22 with dead brain coral fan named "&cDead Brain Coral Fan | %{bingo_case_8_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_8}%&f 工"
 				else:
-					make gui slot 22 with dead brain coral fan named "&4Dead Brain Coral Fan | All collected" with lore "&4No more coins are being awarded"
 				if ({bingo_case_9_completed} / {checking_finished_players})*100 = 0:
-					make gui slot 23 with sponge named "&2Sponge | %{bingo_case_9_completed}% collected" with lore "&2Next coin reward : &e+%{pts_lvl_9}%&f 工"
 				else if ({bingo_case_9_completed} / {checking_finished_players})*100 < 33.3:
-					make gui slot 23 with sponge named "&aSponge | %{bingo_case_9_completed}% collected" with lore "&aNext coin reward : &e+%{pts_lvl_9}%&f 工"
 				else if ({bingo_case_9_completed} / {checking_finished_players})*100 < 66.6:
-					make gui slot 23 with sponge named "&6Sponge | %{bingo_case_9_completed}% collected" with lore "&6Next coin reward : &e+%{pts_lvl_9}%&f 工"
 				else if ({bingo_case_9_completed} / {checking_finished_players})*100 < 100:
-					make gui slot 23 with sponge named "&cSponge | %{bingo_case_9_completed}% collected" with lore "&cNext coin reward : &e+%{pts_lvl_9}%&f 工"
 				else:
-					make gui slot 23 with sponge named "&4Sponge | All collected" with lore "&4No more coins are being awarded"
 			open the last gui for the player
 
 command /courses:
