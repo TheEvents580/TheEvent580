@@ -1,9 +1,6 @@
 function command(command:text):
 	make console execute command "%{_command}%"
 
-function toast(p:player,style:text, icon:text, message:text):
-	command("toast %{_p}%%{_style}% %{_icon}% %{_message}%")
-
 function setPlayerTeamWithBackup(p:offline player):
 	if {color.%{_p}'s uuid%.backup} = "spectators":
 		command("lp user %{_p}% parent set spectators")
@@ -159,7 +156,7 @@ function checkBiggest():
 				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
-			set {jeu_logo} to ""
+			add "/trials" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass")
@@ -171,6 +168,7 @@ function checkBiggest():
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
+			add "/parkour" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass")
@@ -182,6 +180,7 @@ function checkBiggest():
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
+			add "/bingo" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass")
@@ -193,6 +192,7 @@ function checkBiggest():
 				send title "&a&lTag" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
+			add "/tag" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass")
@@ -204,6 +204,7 @@ function checkBiggest():
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
+			add "/multilap" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass")
@@ -215,6 +216,7 @@ function checkBiggest():
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
+			add "/build_masters" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass")
@@ -226,6 +228,7 @@ function checkBiggest():
 				send title "&5&lArms Race" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#155966>&lTheEvent580&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race"
+			add "/armsrace" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass")
@@ -237,6 +240,7 @@ function checkBiggest():
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Decision Crystal&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
+			add "/bowpvp" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass")
@@ -259,6 +263,7 @@ function checkBiggest():
 				send title "&c&lTrials" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &c&lTrials&r with&r &c&l%{red}%&r votes"
 			set {jeu_nom} to "&c&lTrials"
+			add "/trials" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:red_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:red_stained_glass")
@@ -270,6 +275,7 @@ function checkBiggest():
 				send title "&6&lParkour" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &6&lParkour&r with&r &6&l%{orange}%&r votes"
 			set {jeu_nom} to "&6&lParkour"
+			add "/parkour" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:orange_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:orange_stained_glass")
@@ -281,6 +287,7 @@ function checkBiggest():
 				send title "&e&lBingo" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &e&lBingo&r with&r &e&l%{yellow}%&r votes"
 			set {jeu_nom} to "&e&lBingo"
+			add "/bingo" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:yellow_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:yellow_stained_glass")
@@ -292,6 +299,7 @@ function checkBiggest():
 				send title "&a&lTag" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &a&lTag&r with&r &a&l%{lime}%&r votes"
 			set {jeu_nom} to "&a&lTag"
+			add "/tag" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:lime_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:lime_stained_glass")
@@ -303,6 +311,7 @@ function checkBiggest():
 				send title "&b&lMultilap" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &b&lMultilap&r with&r &b&l%{light_blue}%&r votes"
 			set {jeu_nom} to "&b&lMultilap"
+			add "/multilap" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:light_blue_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:light_blue_stained_glass")
@@ -314,6 +323,7 @@ function checkBiggest():
 				send title "&9&lBuild Masters" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &9&lBuild Masters&r with&r &9&l%{blue}%&r votes"
 			set {jeu_nom} to "&9&lBuild Masters"
+			add "/build_masters" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:blue_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:blue_stained_glass")
@@ -325,6 +335,7 @@ function checkBiggest():
 				send title "&5&lArms Race" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &5&lArms Race&r with&r &5&l%{purple}%&r votes"
 			set {jeu_nom} to "&5&lArms Race&r"
+			add "/armsrace" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:purple_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:purple_stained_glass")
@@ -336,6 +347,7 @@ function checkBiggest():
 				send title "&d&lBow PVP" with subtitle "Teleportaton in 10 secs" to loop-player for 3 seconds
 			broadcast "[<#1D7874>Vote Tie&r] The chosen minigame is &d&lBow PVP&r with&r &d&l%{pink}%&r votes"
 			set {jeu_nom} to "&d&lBow PVP"
+			add "/bowpvp" to {advancement_event_progression}
 			wait 3 seconds
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_concrete replace minecraft:pink_concrete")
 			command("fill 9 280 9 -9 230 -9 minecraft:light_gray_stained_glass replace minecraft:pink_stained_glass")
@@ -1119,3 +1131,9 @@ function seeLeaderboard(sender: player):
 		send "<#BCD71D>&l&nLast place&r<#BCD71D> : &r&l%{color.%{_sender}'s uuid%}%%{_sender}%&r<#BCD71D>&l - &n-∞&r 工" to {_sender}
 	else:
 		send {_position.%{_sender}'s uuid%} to {_sender}
+
+function grantAdvancement(adv:string, p:player):
+    set {_adv} to {_adv} parsed as advancement
+    set {_prog} to advancement progress of {_adv} for {_p}
+    loop criteria of {_adv}:
+        award criteria loop-value of {_prog}

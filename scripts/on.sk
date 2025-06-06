@@ -112,6 +112,7 @@ on join:
 	if {timer} is 0:
 		set {points.%event-player's uuid%} to 0
 		set {total_points_event.%event-player's uuid%} to 0
+		command("advancement revoke %event-player% everything")
 	apply infinite saturation without particles whilst hiding the potion icon to event-player
 	wait 2 ticks
 	if event-player doesn't have permission "group.spectators":

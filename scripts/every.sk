@@ -1024,6 +1024,8 @@ every second:
 			if {timer-s} = 0:
 				if {timer-m} = 1:
 					send title "<#f0f064>%{jeu_logo}%&r %{jeu_nom}%" with subtitle "Game %{jeu}%/6" to all players for 5 seconds with fadein 0.5 second and fade out 0.5 second
+					loop all players:
+						grantAdvancement("theevent580:event_progression/%{advancement_event_progression}%", loop-player)
 		set {scoreboard.pos} to 0
 		if {timer-m} = 0:
 			if {jeu_nom} = "&c&lTrials":
@@ -2159,6 +2161,9 @@ every second:
 			if {jeu} = 3:
 				set {timer-m} to 5
 				set {timer-s} to 60
+				add "/pause" to {advancement_event_progression}
+				loop all players:
+					grantAdvancement("theevent580:event_progression/%{advancement_event_progression}%")
 			else:			
 				set {timer-m} to 1
 				set {timer-s} to 60
@@ -2388,6 +2393,9 @@ every second:
 					set {timer} to "Fin"
 					set {event_timer} to false
 					updateClassement()
+					add "/end" to {advancement_event_progression}
+					loop all players:
+						grantAdvancement("theevent580:event_progression/%{advancement_event_progression}%")
 			if {timer-m} = 1:
 				set {timer-s} to 60
 				set {timer-m} to 0

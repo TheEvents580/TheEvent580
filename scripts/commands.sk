@@ -23,6 +23,8 @@ command /start:
 							send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
 							send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
 					send title "<#f0f01c>Event starting" with subtitle "<#f0f01c>in 3 minutes" to loop-player for 3 seconds
+					grantAdvancement("theevent580:event_progression/start", loop-player)
+					set {advancement_event_progression} to "start"
 				set {event_state} to "Start Countdown"
 			make gui slot 14 with red wool named "&cNo" with lore "&rI am not sure to start the event.":
 				close player's inventory
@@ -185,6 +187,7 @@ command /reset:
 					send "[&4Admin&r] Reset started by %executor%" to loop-value
 				command("clear @a")
 				command("effect clear @a")
+				command("advancement revoke @a from theevent580:event_progression/root")
 				set {event_timer} to false
 				resetEventTime({event_timer_second}, {event_timer_minute}, {event_timer_hour}, {event_timer_second_total}, {event_timer_minute_total}, {event_timer_hour_total})
 				wait 1 seconds
@@ -352,6 +355,8 @@ command /consolestart:
 					send "[&4Admin&r] Event countdown / Event started by %executor%" to loop-player
 					send "[&4Admin&r] Event state : &eWaiting&r --> &aStart Countdown" to loop-player
 			send title "<#f0f01c>Event starting" with subtitle "<#f0f01c>in 3 minutes" to loop-player for 3 seconds
+			grantAdvancement("theevent580:event_progression/start", loop-player)
+			set {advancement_event_progression} to "start"
 		set {event_state} to "Start Countdown"
 
 command /consolereset:
@@ -364,6 +369,7 @@ command /consolereset:
 			send "[&4Admin&r] Reset started by %executor%" to loop-value
 		command("clear @a")
 		command("effect clear @a")
+		command("advancement revoke @a from theevent580:event_progression/root")
 		set {event_timer} to false
 		resetEventTime({event_timer_second}, {event_timer_minute}, {event_timer_hour}, {event_timer_second_total}, {event_timer_minute_total}, {event_timer_hour_total})
 		wait 1 seconds
@@ -2212,7 +2218,7 @@ command /addplayers <int>:
 command /try:
 	permission: *
 	trigger:
-		give 1 of carrot on a stick named "X Cross Wrong Way" to player
+		send {advancement_event_progression}
 
 command /color <offline player>:
 	permission: *
@@ -2742,11 +2748,6 @@ command /isalive <player>:
 	permission: *
 	trigger:
 		send "%{alive.%arg-1's uuid%}%" to sender
-
-#command /wb:
-#	permission: *
-#	trigger:
-#		send "%{sg.wb}%" to sender
 
 command /codes:
 	permission: theevent580.staff
